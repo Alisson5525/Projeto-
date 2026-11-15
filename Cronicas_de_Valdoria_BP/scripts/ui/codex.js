@@ -7,12 +7,9 @@ import { getData, markDirty } from "../core/store.js";
 import { addXP } from "../rpg/progression.js";
 import { LORE } from "../data/lore.js";
 import { questEvent } from "../quests/quests.js";
-import { getSite, TYPES, compass, dist2d } from "../structures/registry.js";
+import { sitesMenu } from "../exploration/menu.js";
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
-const TYPE_ICON = { acampamento: "insignia_goblin", torre: "grimorio_arquimago", cripta: "chave_cripta", vila: "moeda_ouro", celeste: "pena_celeste",
-  nyxhal: "coracao_abismo" };
-const STATE = { ativo: "§cocupado", limpo: "§alibertado", construindo: "§8surgindo" };
 
 async function show(player, form, tries = 0) {
   try {
@@ -73,29 +70,5 @@ export async function libraryMenu(player, back) {
 }
 
 export async function placesMenu(player, back) {
-  const d = getData(player);
-  const sites = (d.locais || []).map(getSite).filter(Boolean)
-    .sort((a, b) => (a.dim === player.dimension.id ? dist2d(a, player.location) : 1e9) - (b.dim === player.dimension.id ? dist2d(b, player.location) : 1e9));
-  const f = new ActionFormData().title("Locais Descobertos")
-    .body(sites.length ? "§7Toque em um local para ver detalhes." : "§7Nenhum local descoberto ainda.\nExplore Valdoria ou use o §fMapa do Explorador§7.");
-  for (const s of sites) {
-    const same = s.dim === player.dimension.id;
-    f.button(`§l${s.nome}§r\n${["vila", "capital", "aelthar"].includes(s.tipo) ? "§ahabitada" : STATE[s.estado] || ""}§8 · ${same ? `${Math.round(dist2d(s, player.location))} blocos ${compass(player.location, s)}` : "outra dimensão"}`,
-      ICON(TYPE_ICON[s.tipo] || "diario_aventureiro"));
-  }
-  f.button("Voltar");
-  const r = await show(player, f);
-  if (r.canceled || r.selection === undefined) return;
-  if (r.selection >= sites.length) return back && back(player);
-  const s = sites[r.selection];
-  const T = TYPES[s.tipo];
-  const extra = s.tipo === "cripta" && s.m ? [
-    `§7Portão selado: ${s.m.portao ? "§aaberto" : "§cfechado"}`,
-    `§7Senhor dos Mortos: ${s.m.chefe === "derrotado" ? "§aderrotado" : s.m.chefe === "luta" ? "§6em combate" : "§cadormecido"}`,
-  ] : [];
-  const body = [`§f${T?.nome || s.tipo}`, `§7Coordenadas: §f${s.x} ${s.y} ${s.z}`, `§7Situação: ${["vila", "capital", "aelthar"].includes(s.tipo) ? "§ahabitada" : STATE[s.estado] || s.estado}`,
-    s.vezes ? `§7Libertado ${s.vezes}×` : "", ...extra, "", `§8${T?.descricao || ""}`].filter((x) => x !== "").join("\n");
-  const m = new MessageFormData().title(s.nome).body(body).button1("OK").button2("Voltar");
-  const k = await show(player, m);
-  if (!k.canceled && k.selection === 1) return placesMenu(player, back);
+  return sitesMenu(player, back);
 }

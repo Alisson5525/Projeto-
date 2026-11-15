@@ -14,6 +14,8 @@ import { startCeleste } from "./celeste_run.js";
 import { CAMP } from "./camp.js";
 import { TOWER } from "./tower.js";
 import { NINHO_GRIFO } from "./ninho_grifo.js";
+import { rarityOf } from "../exploration/rarity.js";
+import { addRumor } from "../exploration/rumors.js";
 
 registerType(CAMP);
 registerType(TOWER);
@@ -44,7 +46,9 @@ export async function useMap(player) {
   const dir = V.flat(V.sub(center(rec), player.location));
   for (let i = 1; i <= 6; i++) particle(player.dimension, "cor_ponto", V.add(V.up(player.location, 1.2), V.mul(dir, i * 0.8)), { color: "holy" });
   psound(player, "item.book.page_turn", 0.9, 1);
-  player.onScreenDisplay.setActionBar(`§6${TYPES[rec.tipo]?.nome || rec.nome}: §f~${Math.round(dist)} blocos ${compass(player.location, rec)}`);
+  const R = rarityOf(TYPES[rec.tipo]);
+  player.onScreenDisplay.setActionBar(`${R.cor}${TYPES[rec.tipo]?.nome || rec.nome} §7(${R.nome.toLowerCase()})§f: ~${Math.round(dist)} blocos ${compass(player.location, rec)}`);
+  addRumor(player, rec, "Mapa do Explorador");
 }
 
 export function startStructures() {

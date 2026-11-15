@@ -19,14 +19,31 @@ function evtGroup(prefix) {
   return new Proxy({}, { get(_, k) { return { subscribe(fn) { (subs[`${prefix}.${String(k)}`] ||= []).push(fn); return fn; }, unsubscribe() {} }; } });
 }
 const intervals = [];
+// agendador simples: tarefas pontuais (run/runTimeout) e repetidas (runInterval) por tick
+const timers = new Map();
+let timerId = 0;
 export const system = {
   currentTick: 0,
-  run(fn) { return 1; }, runTimeout(fn) { return 1; }, runInterval(fn, t) { intervals.push([fn, t]); return intervals.length; },
+  run(fn) { return system.runTimeout(fn, 1); },
+  runTimeout(fn, t = 1) { const id = ++timerId; timers.set(id, { fn, at: system.currentTick + Math.max(1, t) }); return id; },
+  runInterval(fn, t = 1) { intervals.push([fn, t]); const id = ++timerId; timers.set(id, { fn, at: system.currentTick + t, every: t }); return id; },
   runJob(gen) { try { for (const _ of gen) { /* drena */ } } catch (e) { console.error("job", e); } return 1; },
-  clearRun() {}, clearJob() {},
+  clearRun(id) { timers.delete(id); }, clearJob() {},
   beforeEvents: evtGroup("system.before"), afterEvents: evtGroup("system.after"),
 };
 export const __intervals = intervals;
+/** Avança n ticks executando as tarefas vencidas (usado pelos testes de cenário). */
+export async function __advance(n = 1) {
+  for (let i = 0; i < n; i++) {
+    system.currentTick++;
+    for (const [id, t] of [...timers]) {
+      if (t.at > system.currentTick) continue;
+      if (t.every) t.at += t.every; else timers.delete(id);
+      try { await t.fn(); } catch (e) { console.error("tarefa:", e); globalThis.__errors = (globalThis.__errors || 0) + 1; }
+    }
+    await Promise.resolve();
+  }
+}
 const dyn = new Map();
 const dimension = {
   id: "minecraft:overworld",
@@ -36,11 +53,15 @@ const dimension = {
   getBlockFromRay() { return undefined; }, getEntitiesFromRay() { return []; }, spawnEntity() { return mk("entity"); },
   setBlockType() {}, setBlockPermutation() {}, fillBlocks() {}, getBiome() { return { id: "minecraft:plains" }; },
 };
+export const __world = { dims: {}, players: [] };
 export const world = {
   beforeEvents: evtGroup("world.before"), afterEvents: evtGroup("world.after"),
   getDynamicProperty(k) { return dyn.get(k); }, setDynamicProperty(k, v) { if (v === undefined) dyn.delete(k); else dyn.set(k, v); },
   getDynamicPropertyIds() { return [...dyn.keys()]; },
-  getAllPlayers() { return []; }, getPlayers() { return []; }, getDimension() { return dimension; }, getEntity() { return undefined; },
+  getAllPlayers() { return __world.players; }, getPlayers() { return __world.players; },
+  getDimension(id) { return __world.dims[id] || __world.dims["minecraft:overworld"] || dimension; },
+  getEntity(id) { for (const d of Object.values(__world.dims)) { const e = d._ents?.find((x) => x.id === id); if (e) return e; } return undefined; },
+  getAbsoluteTime() { return system.currentTick + 1000; },
   sendMessage() {}, getDefaultSpawnLocation() { return { x: 0, y: 64, z: 0 }; }, getTimeOfDay() { return 6000; }, getDay() { return 1; },
   scoreboard: mk("scoreboard"), gameRules: mk("gameRules"),
 };

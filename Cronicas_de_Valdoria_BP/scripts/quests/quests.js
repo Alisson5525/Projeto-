@@ -185,6 +185,21 @@ export const CONTRACTS = {
     recompensa: { xp: 900, itens: [[`${NS}:pedra_aprimoramento`, 3], [`${NS}:lingote_mithril`, 4]] } },
   explorador: { nome: "Explorador de Ruínas", desc: "Descubra 3 locais (acampamentos, torres ou criptas).", obj: { tipo: "locais", n: 3 },
     cd: -1, recompensa: { xp: 450, itens: [[`${NS}:mapa_explorador`, 1], [`${NS}:pedra_aprimoramento`, 2]] } },
+  // ---------------------------------------------------------------- Edição Definitiva: exploração
+  enigmista: { nome: "Enigmista", desc: "Resolva 3 enigmas de ordem (alavancas, sinos ou pedras) em locais antigos.",
+    obj: { tipo: "evento", ev: "enigma", alvo: "*", n: 3 }, cd: 60,
+    recompensa: { xp: 450, itens: [[`${NS}:pedra_aprimoramento`, 2], [`${NS}:essencia_arcana`, 2]] } },
+  cacador_segredos: { nome: "Caçador de Segredos", desc: "Encontre 3 passagens ou salas secretas.", obj: { tipo: "evento", ev: "segredo", alvo: "*", n: 3 },
+    cd: -1, recompensa: { xp: 500, itens: [[`${NS}:fragmento_mapa`, 1], [`${NS}:chave_antiga`, 1]] } },
+  desbravador: { nome: "Desbravador", desc: "Complete a exploração de um local raro (todos os objetivos).", obj: { tipo: "evento", ev: "completo", alvo: "raro", n: 1 },
+    cd: 120, recompensa: { xp: 800, itens: [[`${NS}:fragmento_mapa`, 1], [`${NS}:pedra_aprimoramento`, 3]] } },
+  grande_cacada: { nome: "Grande Caçada", desc: "Abata 2 criaturas raras anunciadas como caçadas.", obj: { tipo: "evento", ev: "evento", alvo: "fera", n: 2 },
+    cd: 60, recompensa: { xp: 400, itens: [[`${NS}:cristal_aetherita`, 2], [`${NS}:pedra_aprimoramento`, 1]] } },
+  selador: { nome: "Selador de Fendas", desc: "Destrua o núcleo de uma Fenda Corrompida.", obj: { tipo: "evento", ev: "evento", alvo: "fenda", n: 1 },
+    cd: 60, recompensa: { xp: 380, itens: [[`${NS}:runa_luz`, 1], [`${NS}:essencia_sombria`, 2]] } },
+  vigilia: { nome: "Vigília dos Mortos", desc: "Complete a exploração de um Cemitério Abandonado (inclui sobreviver à noite).",
+    obj: { tipo: "evento", ev: "completo", alvo: "cemiterio", n: 1 }, cd: 90,
+    recompensa: { xp: 380, itens: [[`${NS}:runa_luz`, 1], [`${NS}:ectoplasma`, 3]] } },
   colecionador: { nome: "Colecionador", desc: "Descubra 25 itens do add-on.", obj: { tipo: "itens", n: 25 }, cd: -1,
     recompensa: { xp: 500, itens: [[`${NS}:elixir_renascimento`, 1]] } },
 };
@@ -346,7 +361,7 @@ export function questEvent(player, ev, alvo) {
   let changed = false;
   for (const [id, st] of Object.entries(d.missoes.ativas)) {
     const c = CONTRACTS[id];
-    if (!c || c.obj.tipo !== "evento" || c.obj.ev !== ev || c.obj.alvo !== alvo) continue;
+    if (!c || c.obj.tipo !== "evento" || c.obj.ev !== ev || (c.obj.alvo !== "*" && c.obj.alvo !== alvo)) continue;
     st.p = (st.p || 0) + 1;
     changed = true;
     player.onScreenDisplay.setActionBar(`§bContrato ${c.nome}: §f${Math.min(st.p, c.obj.n)}/${c.obj.n}`);

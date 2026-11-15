@@ -7,6 +7,19 @@ import { buildNow, rearm, openGate } from "../structures/dungeon.js";
 import { Plan } from "../structures/builder.js";
 import { F } from "../structures/crypt.js";
 import { actions, testMenu } from "./teste.js";
+import { NOVOS_TIPOS } from "../exploration/index.js";
+import { resetMechanisms } from "../exploration/mechanisms.js";
+import { forceEvent, EVENT_TYPES } from "../exploration/events.js";
+import { rarityLabel } from "../exploration/rarity.js";
+
+async function discoveriesMenu(player) {
+  return actions(player, "Descobertas (Edição Definitiva)", "§7Gera o local escolhido à sua frente, ignorando bioma, nível e distância mínima.",
+    NOVOS_TIPOS.map((T) => [`${T.nome} §8(${rarityLabel(T)}§8)`, ICON("mapa_explorador"), (p) => generate(p, T.id)]), structuresMenu);
+}
+async function eventsTestMenu(player) {
+  return actions(player, "Eventos do mundo", "§7Força o evento à sua frente (ignora intervalo, bioma e horário).",
+    EVENT_TYPES().map(([id, nome]) => [nome, ICON("insignia_goblin"), (p) => forceEvent(p, id)]), structuresMenu);
+}
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
 const FREQS = [0, 0.5, 1, 2];
@@ -64,6 +77,14 @@ export async function structuresMenu(player) {
       ["Gerar Acampamento Goblin à frente", ICON("insignia_goblin"), (p) => generate(p, "acampamento")],
       ["Gerar Torre do Mago em Ruínas à frente", ICON("grimorio_arquimago"), (p) => generate(p, "torre")],
       ["Gerar Cripta Ancestral à frente", ICON("chave_cripta"), (p) => generate(p, "cripta")],
+      ["Gerar descoberta da Edição Definitiva...", ICON("fragmento_mapa"), discoveriesMenu],
+      ["Forçar evento do mundo...", ICON("insignia_goblin"), eventsTestMenu],
+      ["Local mais próximo: reiniciar enigmas e mecanismos", ICON("sino_runico"), (p) => {
+        const hit = nearestSite(p.location, p.dimension.id, (r) => !!TYPES[r.tipo]?.mecanismos);
+        if (!hit) return "§7[Teste] Nenhum local com mecanismos no mundo.";
+        resetMechanisms(hit.rec);
+        return `§6[Teste] Mecanismos de ${hit.rec.nome} reiniciados (portas abertas continuam abertas; regere o local para fechá-las).`;
+      }],
       ["Teleportar para um local", ICON("mapa_explorador"), teleportMenu],
       ["Cripta mais próxima: construir a masmorra agora", ICON("chave_cripta"), async (p) => {
         const rec = nearestCrypt(p);

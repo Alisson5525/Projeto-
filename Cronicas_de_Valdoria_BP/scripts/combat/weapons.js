@@ -137,6 +137,13 @@ export { HEAVY };
 
 const busy = new Map();
 
+/** Golpe pesado com animação própria de cada categoria (a espada longa mantém o giro). */
+const WEAPON_ANIM = { adaga: "arma_adaga", espada_curta: "arma_espada_curta", espada_grande: "arma_espada_grande", katana: "arma_katana",
+  lanca: "arma_lanca", machado_guerra: "arma_machado", martelo_guerra: "arma_martelo", maca: "arma_maca", alabarda: "arma_alabarda", foice: "arma_foice" };
+const WEAPON_SOUND = { martelo_guerra: ["mace.heavy_smash_ground", 0.9], maca: ["mace.smash_ground", 1], lanca: ["item.trident.throw", 1.1],
+  katana: ["mob.phantom.swoop", 1.6], foice: ["mob.phantom.swoop", 1.1], adaga: ["game.player.attack.nodamage", 1.5],
+  espada_grande: ["mace.heavy_smash_air", 0.8], machado_guerra: ["game.player.attack.strong", 0.7] };
+
 export function heavyAttack(player, item) {
   const wd = itemData(item);
   if (!wd || wd.k !== "weapon") return false;
@@ -163,8 +170,9 @@ export function heavyAttack(player, item) {
   psound(player, "item.spear.use", 0.8, 0.6);
   system.runTimeout(() => {
     if (!ok(player)) return;
-    anim(player, ANIM[h.anim]);
-    sound(player.dimension, "game.player.attack.strong", player.location, 0.85, 1);
+    anim(player, WEAPON_ANIM[wd.type] ? `animation.valdoria.player.${WEAPON_ANIM[wd.type]}` : ANIM[h.anim]);
+    const [snd, pitch] = WEAPON_SOUND[wd.type] || ["game.player.attack.strong", 0.85];
+    sound(player.dimension, snd, player.location, pitch, 1);
     player.onScreenDisplay.setActionBar(`§6${h.nome}!`);
     try {
       h.fn(player, weaponPower(player, wd), el);

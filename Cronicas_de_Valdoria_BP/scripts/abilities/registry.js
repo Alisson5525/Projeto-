@@ -62,6 +62,29 @@ const ANIM = {
   over: "animation.valdoria.player.ataque_vertical",
 };
 export { ANIM };
+// gesto de conjuração por escola quando o feitiço não pede um gesto específico
+const SCHOOL_CAST = { fire: "animation.valdoria.player.conjurar_arremesso", arcane: "animation.valdoria.player.conjurar_arremesso",
+  lightning: "animation.valdoria.player.conjurar_raio", holy: "animation.valdoria.player.conjurar_canalizar",
+  blood: "animation.valdoria.player.conjurar_canalizar", dark: "animation.valdoria.player.conjurar_lancar",
+  ice: "animation.valdoria.player.conjurar_lancar", wind: "animation.valdoria.player.conjurar_arremesso",
+  nature: "animation.valdoria.player.conjurar_lancar" };
+function castAnim(ab) {
+  if (ab.anim) {
+    if (ab.anim === "self" && ab.element === "summon") return "animation.valdoria.player.conjurar_invocar";
+    return ANIM[ab.anim] || ab.anim;
+  }
+  if (ab.tipo === "magia" || ab.tipo === "combo") return SCHOOL_CAST[ab.element] || ANIM.proj;
+  return ANIM.proj;
+}
+/** Clarão na posição da mão direita: visível em primeira pessoa (canto inferior direito da tela) e em terceira. */
+export function handFlash(player, color, name = "mao_brilho") {
+  try {
+    const dir = player.getViewDirection();
+    const right = V.norm({ x: -dir.z, y: 0, z: dir.x });
+    const pos = V.add(V.add(player.getHeadLocation(), V.mul(dir, 0.9)), V.add(V.mul(right, 0.38), { x: 0, y: -0.28, z: 0 }));
+    particle(player.dimension, name, pos, { color, radius: 0.25 });
+  } catch { /* jogador saiu */ }
+}
 
 /** Monta o contexto de poder para a habilidade. */
 export function makeCtx(src, ab, extra = {}) {
@@ -125,7 +148,8 @@ export function useAbility(player, id, opts = {}) {
   const fire = () => {
     if (!ok(player)) return;
     casting.delete(player.id);
-    anim(player, ANIM[ab.anim || "proj"] || ab.anim);
+    anim(player, castAnim(ab));
+    handFlash(player, color);
     const snd = SCHOOL_SOUND[el];
     if (snd) sound(player.dimension, snd[0], player.location, 0.9 + Math.random() * 0.2, 0.9);
     try {
@@ -142,7 +166,7 @@ export function useAbility(player, id, opts = {}) {
     const run = system.runInterval(() => {
       if (!ok(player)) return system.clearRun(run);
       if (n % 3 === 0) particle(player.dimension, "cor_circulo_magico", V.up(player.location, 0.05), { color, radius: 1.1 });
-      particle(player.dimension, "cor_carga", V.add(V.up(player.location, 1.3), V.mul(player.getViewDirection(), 0.7)), { color });
+      if (n % 2 === 0) handFlash(player, color);
       if (++n >= prep) {
         system.clearRun(run);
         fire();

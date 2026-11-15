@@ -24,6 +24,7 @@ import { questLines } from "../npc/missions.js";
 import { guildLines } from "../npc/guild.js";
 import { royalLines } from "../npc/capital.js";
 import { LORE } from "../data/lore.js";
+import { explorationMenu } from "../exploration/menu.js";
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
 
@@ -74,6 +75,7 @@ export async function openMainMenu(player) {
   add("Habilidades do Sigilo", ICON("sigilo_aventureiro"), abilitiesMenu);
   add("Acessórios", ICON("amuleto_arcano"), accessoriesMenu);
   add(`Missões e Contratos${pr.done ? " §6(!)" : ""}`, ICON("insignia_goblin"), questsMenu);
+  add("Exploração e Rumores", ICON("fragmento_mapa"), (p) => explorationMenu(p, openMainMenu));
   add(`Bolsa e Reputação §8(${npcData(player).moedas} moedas)`, ICON("moeda_ouro"), purseMenu);
   add("Estábulo (montarias)", ICON("escritura_cavalo"), (p) => stableMenu(p, openMainMenu));
   add("Companheiros", ICON("apito_companheiro"), (p) => companionMenu(p, openMainMenu));

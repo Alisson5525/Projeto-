@@ -232,7 +232,7 @@ const TIPOS = {
     ok: (c) => c.lvl >= 3 && FERAS.some((f) => (f.min || 0) <= c.lvl && (!f.noite || c.noite) && has(c.bioma, f.biomas)),
     start(dim, at, ev, c) {
       const opts = FERAS.filter((f) => (f.min || 0) <= c.lvl && (!f.noite || c.noite) && has(c.bioma, f.biomas));
-      const F = pick(opts);
+      const F = pick(opts.length ? opts : FERAS.filter((f) => !f.noite && (f.min || 0) <= Math.max(c.lvl, 1)));
       const e = spawn(dim, F.id, at, ev, { tag: "vr_fera" });
       if (!e) return undefined;
       elite(e, F.lv, F.nome);
@@ -442,9 +442,21 @@ function tryStart() {
   if (list.some((e) => Math.hypot(e.x - p.location.x, e.z - p.location.z) < 140)) return;
   if (Math.random() > 0.45 * (cfg.eventos ?? 1)) return;
   if (p.location.y < 50) return;
+  startNear(p);
+}
+
+/** Modo de Teste: força um evento (ignora intervalo, limite e condições de bioma/horário). Retorna a mensagem ou um erro. */
+export function forceEvent(player, tipo) {
+  if (player.dimension.id !== "minecraft:overworld") return "§cEventos só acontecem na superfície.";
+  return startNear(player, tipo) || "§cNão encontrei chão firme carregado à frente. Tente em campo aberto.";
+}
+export const EVENT_TYPES = () => Object.entries(TIPOS).map(([id, T]) => [id, T.nome]);
+
+function startNear(p, forced) {
+  const dim = p.dimension;
   const view = V.flat(p.getViewDirection());
-  const ang = Math.atan2(view.z, view.x) + rand(-1.2, 1.2);
-  const dist = rand(28, 44);
+  const ang = Math.atan2(view.z, view.x) + (forced ? 0 : rand(-1.2, 1.2));
+  const dist = forced ? 16 : rand(28, 44);
   const x = Math.floor(p.location.x + Math.cos(ang) * dist);
   const z = Math.floor(p.location.z + Math.sin(ang) * dist);
   try { if (!dim.isChunkLoaded({ x, y: 64, z })) return; } catch { return; }
@@ -452,7 +464,7 @@ function tryStart() {
   if (g.err) return;
   const at = { x: x + 0.5, y: g.y + 1, z: z + 0.5 };
   const c = { lvl: getData(p).nivel, noite: isNight(), bioma: biomeOf(dim, at), dir: dirText(p.location, at), dist: Math.round(dist) };
-  const tipo = chooseType(c);
+  const tipo = forced || chooseType(c);
   if (!tipo) return;
   const ev = { id: (Date.now() % 1e9).toString(36) + (counter++ % 36).toString(36), tipo, dim: dim.id, x: at.x, y: at.y, z: at.z,
     ate: Date.now() + TIPOS[tipo].dur * 60000, dono: p.id, st: {} };
@@ -465,6 +477,7 @@ function tryStart() {
     q.sendMessage(msg);
     psound(q, "note.bell", 0.8, 0.6);
   }
+  return msg;
 }
 
 function endEvent(ev, dim, how) {

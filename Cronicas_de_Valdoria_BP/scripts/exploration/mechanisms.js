@@ -422,7 +422,7 @@ function altar(player, ctx) {
   }
   const k = `${player.id}:${rec.id}`;
   if ((altarCd.get(k) || 0) > system.currentTick) return;
-  altarCd.set(k, system.currentTick + 20);
+  altarCd.set(k, system.currentTick + 6); // só evita o duplo clique
   if (M.item) {
     const it = heldItem(player);
     if (it?.typeId !== M.item) {
