@@ -18,6 +18,7 @@ import { getData, markDirty } from "../core/store.js";
 import { addXP } from "../rpg/progression.js";
 import { addBuff } from "../rpg/stats.js";
 import { allSites, getSite, saveSite, inBox, TYPES, center, fillChests, onSite } from "../structures/registry.js";
+import { Plan, build, rng } from "../structures/builder.js";
 import { rollLoot } from "../structures/loot.js";
 import { questEvent, setFlag } from "../quests/quests.js";
 import { addCoins } from "../npc/economy.js";
@@ -91,7 +92,7 @@ export function keepMarks(rec, plan, skip = []) {
 
 const ROLES = {
   sequencia: ["entradas", "porta", "leitor"], segredo: ["gatilho", "porta"], armadilha: ["placas"], chave: ["porta"],
-  altar: ["bloco"], leitura: ["bloco"], quebrar: ["alvos"], interagir: ["bloco"], guardiao: [], ondas: [],
+  altar: ["bloco"], leitura: ["bloco"], quebrar: ["alvos"], interagir: ["bloco"], guardiao: [], ondas: ["gatilho"],
 };
 const index = new Map();
 let indexAt = -1;
@@ -512,6 +513,11 @@ function wavesTick(dim, rec, M, players) {
   const tag = WTAG(rec.id, M.id);
   st.onda = st.onda || 0;
   if (st.onda === 0) {
+    if (M.gatilho) {
+      if (!st.chamado) return;
+      st.chamado = false;
+      inside.push(...players.filter((p) => !inside.includes(p)));
+    }
     if (!inside.length) return;
     st.onda = 1;
     saveSite(rec);
@@ -696,6 +702,7 @@ export function startMechanisms() {
   system.runInterval(() => {
     try { loop(); } catch (e) { console.warn(`[Valdoria] mecanismos: ${e}`); }
   }, 10);
+  system.runInterval(() => { retrofitTick().catch((e) => console.warn(`[Valdoria] retrofit: ${e}`)); }, 100);
 
   world.afterEvents.leverAction.subscribe((ev) => {
     if (!ev.player) return;
@@ -730,7 +737,7 @@ export function startMechanisms() {
     if (!ctx) return;
     const { M, role } = ctx;
     const p = ev.player;
-    const isBell = M.k === "sequencia" && role === "entradas" && M.input === "bell";
+    const isBell = (M.k === "sequencia" && role === "entradas" && M.input === "bell") || (M.k === "ondas" && role === "gatilho");
     const handled = isBell || (M.k === "chave" && role === "porta") || (M.k === "altar" && role === "bloco") ||
       ((M.k === "leitura" || M.k === "interagir") && role === "bloco") || (M.k === "sequencia" && role === "leitor");
     if (!handled) return;
@@ -738,7 +745,8 @@ export function startMechanisms() {
     if (!ev.isFirstEvent) return;
     system.run(() => {
       if (!ok(p)) return;
-      if (isBell) sequenceInput(p, ctx);
+      if (M.k === "ondas") callWaves(p, ctx);
+      else if (isBell) sequenceInput(p, ctx);
       else if (M.k === "chave") keyDoor(p, ctx);
       else if (M.k === "altar") altar(p, ctx);
       else if (M.k === "leitura") reading(p, ctx).catch(() => {});
@@ -748,6 +756,59 @@ export function startMechanisms() {
   });
   world.afterEvents.entityDie.subscribe(onGuardianDeath);
   onSite("limpo", (p, rec) => credit(p, rec, "limpo"));
+}
+
+/** Gatilho de um desafio (ex.: tambor de guerra): começa as ondas na próxima verificação. */
+function callWaves(player, ctx) {
+  const { rec, M } = ctx;
+  const st = mstate(rec, M.id);
+  if (st.feito) {
+    player.onScreenDisplay.setActionBar(`§7${M.vitoria || "O desafio já foi vencido."}`);
+    return;
+  }
+  if (st.onda > 0 || st.chamado) return;
+  st.chamado = true;
+  saveSite(rec);
+  player.onScreenDisplay.setTitle(M.titulo || "§cDesafio!", { subtitle: `§7${M.aviso || "Prepare-se"}`, fadeInDuration: 5, stayDuration: 30, fadeOutDuration: 10 });
+  psound(player, "raid.horn", 1, 1);
+}
+
+// ------------------------------------------------------------------ retrofit: novidades em locais já gerados
+// Tipos originais declaram `retrofit: { v, plan(p, rec) }`. Quando um local (de um mundo antigo ou recém-gerado) ainda não
+// tem a versão atual, os blocos extras são colocados, as marcações somadas ao registro e os baús novos preenchidos.
+// Só acontece com o chunk carregado e nenhum jogador dentro do local, para nada surgir diante dos olhos de alguém.
+let retrofitting = false;
+async function retrofitTick() {
+  if (retrofitting) return;
+  for (const rec of allSites()) {
+    const T = TYPES[rec.tipo];
+    if (!T?.retrofit || rec.estado === "construindo" || (rec.m?.rv || 0) >= T.retrofit.v) continue;
+    let dim;
+    try { dim = world.getDimension(rec.dim); } catch { continue; }
+    const c = center(rec);
+    try { if (!dim.isChunkLoaded(c)) continue; } catch { continue; }
+    if (dim.getPlayers({ location: c, maxDistance: (T.raio || 10) + 3 }).length) continue;
+    retrofitting = true;
+    try {
+      const p = new Plan({ x: rec.x, y: rec.y, z: rec.z }, rec.rot, rng(rec.seed + 77));
+      T.retrofit.plan(p, rec);
+      await build(dim, p, 200);
+      rec.mk = rec.mk || {};
+      for (const [k, v] of Object.entries(p.marks)) rec.mk[k] = v.map((q) => ({ x: q.x, y: q.y, z: q.z }));
+      fillChests(dim, p.chests);
+      rec.m = rec.m || {};
+      rec.m.mec = rec.m.mec || {};
+      rec.m.rv = T.retrofit.v;
+      saveSite(rec);
+      invalidateMechIndex();
+      console.info(`[Valdoria] ${rec.nome}: novidades da Edição Definitiva adicionadas.`);
+    } catch (e) {
+      console.warn(`[Valdoria] retrofit ${rec.tipo}: ${e}`);
+    } finally {
+      retrofitting = false;
+    }
+    return; // um local por vez
+  }
 }
 
 function openSecret(dim, ctx) {

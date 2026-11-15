@@ -18,7 +18,7 @@ for (const f of ["capital", "aelthar", "village", "kardum_run", "nyxhal_run", "c
   try { await import(`${SCRIPTS}/structures/${f}.js`); } catch (e) { /* alguns registram em outro módulo */ }
 }
 try { await import(`${SCRIPTS}/npc/index.js`); } catch { /* */ }
-const { rng } = await import(`${SCRIPTS}/structures/builder.js`);
+const { rng, Plan } = await import(`${SCRIPTS}/structures/builder.js`);
 const dim = {
   id: "minecraft:overworld",
   getTopmostBlock: () => ({ location: { y: 70 }, typeId: "minecraft:grass_block" }),
@@ -39,6 +39,13 @@ for (const [id, T] of Object.entries(reg.TYPES)) {
     } catch (e) {
       note(`${id}: plan() lançou erro: ${e.message}`);
       continue;
+    }
+    if (T.retrofit) {
+      const rp = new Plan({ x: 1000, y: 70, z: -500 }, rot, rng(5));
+      T.retrofit.plan(rp, { seed: 987654 + rot, x: 1000, y: 70, z: -500, rot });
+      res.plans.push(rp);
+      for (const [k, v] of Object.entries(rp.marks)) res.plan.marks[k] = v;
+      res.plan.chests.push(...rp.chests);
     }
     for (const plan of res.plans) for (const op of plan.ops) {
       nOps++;

@@ -114,6 +114,12 @@ const TABLES = {
     ["minecraft:enchanted_golden_apple", 1, 1, 0.4], [I("elixir_renascimento"), 1, 1, 0.15], ["minecraft:netherite_ingot", 1, 1, 0.25]],
   cofre_ossario: [[I("fragmento_alma"), 2, 4, 1], [I("ectoplasma"), 3, 6, 1], [I("tomo_perdido"), 1, 1, 0.6], [I("runa_sombra"), 1, 2, 0.8],
     ["minecraft:wither_skeleton_skull", 1, 1, 0.35], [I("moeda_ouro"), 40, 70, 1]],
+  goblin_tambor: [[I("moeda_ouro"), 15, 30, 1], [I("insignia_goblin"), 4, 8, 1], [WEAPONS_COMMON, 1, 1, 0.4], [I("pedra_aprimoramento"), 1, 2, 0.6],
+    [RANGED_GOOD, 1, 1, 0.12], [I("pocao_energia"), 2, 3, 0.8]],
+  goblin_esconderijo: [[I("moeda_ouro"), 20, 40, 1], ["minecraft:gold_ingot", 2, 5, 1], [I("cristal_aetherita"), 1, 3, 0.9], ["minecraft:emerald", 1, 4, 0.6],
+    [ACCESSORIES, 1, 1, 0.12], [FRAG, 1, 1, 0.06]],
+  torre_aldric: [[I("essencia_arcana"), 3, 5, 1], [I("cristal_aetherita"), 2, 3, 1], [I("tomo_perdido"), 1, 1, 0.45], [CASTERS_GOOD, 1, 1, 0.3],
+    [RUNES, 1, 2, 0.6], [I("grimorio_arquimago"), 1, 1, 0.05], [FRAG, 1, 1, 0.12]],
   // recompensas de "exploração completa" (entregues direto ao jogador)
   completo_comum: [[I("moeda_ouro"), 5, 10, 1], [I("pocao_energia"), 1, 2, 0.7], [I("essencia_arcana"), 1, 1, 0.4], [I("pedra_aprimoramento"), 1, 1, 0.25]],
   completo_incomum: [[I("pedra_aprimoramento"), 1, 2, 1], [I("cristal_aetherita"), 1, 2, 0.8], [I("lingote_mithril"), 1, 2, 0.5], [ACCESSORIES, 1, 1, 0.1]],

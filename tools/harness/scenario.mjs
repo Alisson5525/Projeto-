@@ -194,6 +194,26 @@ interact(san.mk.altar[0], slots[1]);
 await __advance(3);
 check(!!store.getData(player).expl[san.id]?.o?.altar && slots[1]?.amount === 1, "pão no altar concede a bênção e é consumido");
 
+// ================================================================ retrofit: acampamento original ganha tambor e esconderijo
+player.location = { x: 900, y: 71, z: 900 };
+const camp = await reg.createSite(dim, "acampamento", { x: 600, y: 70, z: 0 }, 3);
+delete camp.m.rv; // simula um acampamento de mundo antigo
+reg.saveSite(camp);
+await __advance(220);
+check(camp.m.rv === 1 && blockAt(camp.mk.tambor[0]) === "minecraft:noteblock", "retrofit aplicado a acampamento existente (tambor de guerra)");
+check(blockAt(camp.mk.terra_fofa[0]) === "minecraft:dirt_with_roots", "esconderijo do chefe adicionado sob a tenda");
+goto(camp.mk.tambor[0]);
+interact(camp.mk.tambor[0]);
+let waves = 0;
+for (let i = 0; i < 40 && !mech.mechDone(camp, "tambor"); i++) {
+  await __advance(20);
+  const list = dim.getEntities({ tags: [`vw_${camp.id}_tambor`] });
+  if (list.length) waves++;
+  for (const e of list) e.remove();
+}
+check(mech.mechDone(camp, "tambor") && waves >= 3, `Desafio do Tambor: ${waves} ondas derrotadas e desafio concluído`);
+check(blockAt(camp.mk.bau_tambor[0]) === "minecraft:chest", "tributo dos goblins (baú) aparece após o desafio");
+
 // ================================================================ eventos do mundo: forçar cada um e avançar
 player.location = { x: 2000, y: 71, z: 2000 };
 for (const [id, nome] of events.EVENT_TYPES()) {

@@ -1,6 +1,12 @@
 // Torre do Mago em Ruínas: torre redonda de 4 andares, topo desabado de um lado; biblioteca, laboratório e círculo arcano.
 import { NS } from "../core/util.js";
 import { Plan, B, prepareGround } from "./builder.js";
+import { symbolsFor } from "../exploration/mechanisms.js";
+
+const CIRCULO = { k: "sequencia", id: "circulo", input: "button", n: 4, entradas: "pedestal", leitor: "diario_aldric",
+  nome: "O Círculo de Aldric", tituloPista: "Diário de Aldric (margens)", falha: "choque", obj: "Reativar o Círculo de Aldric", xp: 180,
+  prologo: "§8Nas margens do diário, Aldric anotou como reacender seus pedestais de estudo:§r",
+  depois: { bau: "bau_aldric", tier: "torre_aldric", msg: "§dOs pedestais brilham: o baú de estudos de Aldric se materializa" } };
 
 const H = 24;
 const FLOORS = [6, 12, 18];
@@ -96,4 +102,18 @@ export const TOWER = {
     return { plans: [prep, p], plan: p };
   },
   guards: [["espectro", `${NS}:espectro`], ["xama", `${NS}:goblin_xama`]],
+  objLimpo: "Libertar os aprendizes espectrais",
+  // Edição Definitiva: pedestais de estudo na biblioteca (1º andar), também adicionados a torres já existentes
+  mecanismos: [CIRCULO],
+  retrofit: {
+    v: 1,
+    plan(p, rec) {
+      const syms = symbolsFor(rec.seed, CIRCULO);
+      [[-2, -1], [2, -1], [-2, 1], [2, 1]].forEach(([x, z], i) => {
+        p.set(x, 7, z, syms[i].bloco).set(x, 8, z, ["minecraft:stone_button", { facing_direction: 1, button_pressed_bit: false }]);
+        p.mark("pedestal", x, 8, z);
+      });
+      p.mark("diario_aldric", 0, 7, 0).mark("bau_aldric", 0, 7, -1);
+    },
+  },
 };

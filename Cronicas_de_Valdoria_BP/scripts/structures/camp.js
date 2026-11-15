@@ -2,6 +2,7 @@
 import { NS } from "../core/util.js";
 import { Plan, B, prepareGround } from "./builder.js";
 
+
 const R = 11;
 
 function tent(p, cx, z1, z2, half, wool, openFront = true) {
@@ -85,4 +86,36 @@ export const CAMP = {
     return { plans: [prep, p], plan: p };
   },
   guards: [["goblin", `${NS}:goblin`], ["xama", `${NS}:goblin_xama`], ["chefe", `${NS}:chefe_goblin`]],
+  objLimpo: "Expulsar os goblins",
+  // Edição Definitiva: o Desafio do Tambor e o esconderijo do chefe (adicionados também a acampamentos já existentes)
+  mecanismos: [
+    { k: "leitura", id: "rabiscos", bloco: "rabiscos", titulo: "Rabiscos no Barril",
+      texto: () => "§fMarcas de garra e desenhos tortos no tampo do barril:\n\n§7Um goblin de coroa deitado num monte de feno. " +
+        "Embaixo dele, um buraco cheio de moedas. Ao lado, raízes desenhadas com cuidado... e um goblin pequeno sendo devorado por um lobo.\n\n" +
+        "§8(O chefe esconde o ouro sob a terra com raízes dentro da própria tenda.)" },
+    { k: "segredo", id: "esconderijo", porta: "terra_fofa", sala: "sala_esconderijo", obj: "Achar o ouro escondido do chefe", nome: "O cofre do chefe", xp: 70 },
+    { k: "ondas", id: "tambor", gatilho: "tambor", sala: "sala_tambor", pontos: "onda_tambor", obj: "Vencer o Desafio do Tambor",
+      titulo: "§6Desafio do Tambor!", aviso: "Os goblins respondem ao chamado de guerra", vitoria: "O tambor silencia: você é o campeão do acampamento",
+      xp: 200, ondas: [[[`${NS}:goblin`, 3]], [[`${NS}:goblin`, 3], [`${NS}:goblin_xama`, 1]], [[`${NS}:chefe_goblin`, 1], [`${NS}:goblin`, 2]]],
+      depois: { bau: "bau_tambor", tier: "goblin_tambor", msg: "§6Os goblins deixam seu tributo junto ao tambor" } },
+  ],
+  retrofit: {
+    v: 1,
+    plan(p) {
+      // tambor de guerra: dois blocos musicais sob crânios, ao lado da barraca oeste
+      p.set(-2, 1, 5, "minecraft:noteblock").set(-2, 1, 6, "minecraft:noteblock");
+      p.set(-2, 2, 5, B.skull()).set(-1, 1, 6, B.fence("minecraft:spruce_fence")).set(-1, 2, 6, B.lantern());
+      p.mark("tambor", -2, 1, 5).mark("tambor", -2, 1, 6).mark("bau_tambor", -3, 1, 6);
+      for (const [x, z] of [[3, 8], [-3, 8], [0, 9]]) p.mark("onda_tambor", x, 1, z);
+      p.box("sala_tambor", -10, 0, -10, 10, 6, 10);
+      // esconderijo do chefe sob a tenda vermelha (o barril de rabiscos já existe na tenda)
+      p.mark("rabiscos", -2, 1, -8);
+      p.room(-3, -5, -7, 1, -1, -3, "minecraft:cobblestone", "minecraft:coarse_dirt");
+      for (let y = -4; y <= -1; y++) p.set(-1, y, -6, "minecraft:cobblestone").set(-1, y, -5, B.ladder("south"));
+      p.set(-1, 0, -5, "minecraft:dirt_with_roots").mark("terra_fofa", -1, 0, -5);
+      p.chest(0, -4, -4, "west", "goblin_esconderijo");
+      p.set(-2, -4, -4, B.lantern());
+      p.box("sala_esconderijo", -2, -4, -6, 0, -2, -4);
+    },
+  },
 };

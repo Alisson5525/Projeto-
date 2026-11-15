@@ -6,19 +6,29 @@ register(new URL("./loader.mjs", import.meta.url));
 const SCRIPTS = process.argv[2];
 await import(`${SCRIPTS}/data/items_explore.js`);
 const reg = await import(`${SCRIPTS}/structures/registry.js`);
+await import(`${SCRIPTS}/structures/index.js`);
 await import(`${SCRIPTS}/exploration/index.js`);
-const { rng } = await import(`${SCRIPTS}/structures/builder.js`);
+const { rng, Plan } = await import(`${SCRIPTS}/structures/builder.js`);
 const PASS = ["ladder", "rail", "pressure_plate", "button", "lever", "carpet", "candle", "mushroom", "poppy", "cornflower", "daisy",
   "allium", "lily_of_the_valley", "azure_bluet", "wither_rose", "web", "water", "torch", "skull", "glow_lichen"];
-const passable = (id) => !id || id === "minecraft:air" || id === "minecraft:fire" || PASS.some((k) => id.includes(k));
+const passable = (id) => !id || id === "minecraft:air" || id === "minecraft:fire" || PASS.some((k) => id.includes(k)) || isHalf(id);
+// lajes inferiores são meio bloco: dá para ficar "dentro" delas (pés meio bloco acima) e também servem de apoio
+const isHalf = (id) => !!id && id.endsWith("_slab");
 const O = { x: 0, y: 70, z: 0 };
 const dim = { id: "minecraft:overworld", getTopmostBlock: () => ({ location: { y: 70 }, typeId: "minecraft:grass_block" }),
   getBlock: (p) => ({ typeId: p.y > 70 ? "minecraft:air" : "minecraft:grass_block" }), isChunkLoaded: () => true };
 const K = (x, y, z) => `${x},${y},${z}`;
 let fails = 0;
 for (const T of Object.values(reg.TYPES)) {
-  if (!T.mecanismos || !T.raridade) continue;
+  if (!T.mecanismos) continue;
   const res = await T.plan(dim, O, 0, rng(77), 4242);
+  if (T.retrofit) {
+    const rp = new Plan(O, 0, rng(5));
+    T.retrofit.plan(rp, { seed: 4242, ...O, rot: 0 });
+    res.plans.push(rp);
+    for (const [k, v] of Object.entries(rp.marks)) res.plan.marks[k] = v;
+    res.plan.chests.push(...rp.chests);
+  }
   const vox = new Map();
   for (const plan of res.plans) for (const op of plan.ops) {
     if (op.k === "s") vox.set(K(op.p.x, op.p.y, op.p.z), op.id);
@@ -57,7 +67,7 @@ for (const T of Object.values(reg.TYPES)) {
           for (let yy = b + 1; yy <= y + 1 && clear; yy++) clear = passable(at(m, a, yy, c));
           if (!clear) continue;
         }
-        const supported = !passable(at(m, a, b - 1, c)) || at(m, a, b, c).includes("ladder") || at(m, a, b - 1, c).includes("ladder") || at(m, a, b, c).includes("water");
+        const supported = !passable(at(m, a, b - 1, c)) || isHalf(at(m, a, b - 1, c)) || isHalf(at(m, a, b, c)) || at(m, a, b, c).includes("ladder") || at(m, a, b - 1, c).includes("ladder") || at(m, a, b, c).includes("water");
         if (!supported && b !== y - 1) continue;
         if (b === y + 1 && !passable(at(m, x, y + 2, z)) && !lad) continue; // sem espaço para saltar
         if (b < y && !(dx0(a, x) || dz0(c, z) || true)) continue;
