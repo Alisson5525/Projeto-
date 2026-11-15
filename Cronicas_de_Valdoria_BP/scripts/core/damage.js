@@ -11,6 +11,7 @@ const lastHurt = new Map(); // alvo -> tick
 const lastMelee = new Map(); // jogador -> tick do último golpe
 const aggro = new Map(); // entidade -> tick de expiração
 export const iframes = new Map(); // jogador -> tick até o qual é invulnerável
+export const lastBlock = new Map(); // jogador -> tick do último bloqueio com arma (contra-ataques)
 const debuffs = new Map(); // entidade -> {bleed?, vuln?, drainMark?, poison?}
 const hurtHooks = []; // ganchos (ex.: chefe) executados no evento "antes"
 const hitHooks = []; // ganchos pós-acerto corpo a corpo (armas, buffs)
@@ -343,6 +344,7 @@ export function startDamage() {
           if (V.dot(V.flat(target.getViewDirection()), toA) > 0.3 && getData(target).energia >= 4) {
             const red = getData(target).classe === "cavaleiro" ? 0.6 : 0.45;
             dmg *= 1 - red;
+            lastBlock.set(target.id, now);
             system.run(() => {
               if (!ok(target)) return;
               spendEnergy(target, 4);

@@ -1,8 +1,8 @@
 // Combate com armas: ataque carregado por tipo, habilidade das armas especiais, efeitos ao acertar, esquiva e defesa.
 import { world, system, InputButton, ButtonState } from "@minecraft/server";
-import { V, ok, tick, effect, chance, heldItem, isPlayer, rand, NS, heal } from "../core/util.js";
+import { V, ok, tick, effect, chance, heldItem, isPlayer, rand, NS, heal, hpPct } from "../core/util.js";
 import { particle, sound, anim, psound, shake } from "../core/fx.js";
-import { dealDamage, enemiesNear, onMeleeHit, addBleed, addVulnerable, grantIframes } from "../core/damage.js";
+import { dealDamage, enemiesNear, onMeleeHit, addBleed, addVulnerable, grantIframes, debuff, isUndead, lastBlock } from "../core/damage.js";
 import { stats, itemData, hasBuff, removeBuff, spendEnergy, hasEnergy } from "../rpg/stats.js";
 import { getData, markDirty } from "../core/store.js";
 import { register, useAbility, ANIM, cooldownLeft, setCooldown } from "../abilities/registry.js";
@@ -303,11 +303,111 @@ export function weaponSkill(player, item) {
   return useAbility(player, id);
 }
 
+// ------------------------------------------------------------------ estilos de combate por categoria (golpes comuns)
+/** Cada categoria muda a forma de lutar nos golpes comuns; o texto aparece na descrição da arma. */
+export const STYLE = {
+  adaga: { nome: "Sequência Ágil", desc: "Golpes seguidos no mesmo alvo acumulam até 3 cargas (+10% cada); a 3ª abre um sangramento." },
+  espada_curta: { nome: "Contra-ataque", desc: "Depois de bloquear (agachado), o golpe seguinte em até 1,5 s causa +50% de dano." },
+  espada_longa: { nome: "Golpe Amplo", desc: "Cada golpe também corta inimigos ao lado (30% do dano, arco de 100°)." },
+  espada_grande: { nome: "Peso da Lâmina", desc: "Varre um arco largo (50% do dano) e tem 20% de chance de desequilibrar." },
+  katana: { nome: "Corte Preciso", desc: "Críticos abrem sangramento; depois de bloquear, o golpe seguinte causa +80%." },
+  lanca: { nome: "Ponta da Lança", desc: "+25% de dano em alvos a mais de 2,5 blocos e +40% montado; mantém o inimigo à distância." },
+  machado_guerra: { nome: "Rompe-armadura", desc: "Cada golpe expõe o alvo: +8% de dano recebido por 4 s, até 3 vezes." },
+  martelo_guerra: { nome: "Atordoar", desc: "25% de chance de atordoar por 1 s; +30% contra constructos de pedra." },
+  maca: { nome: "Esmagar", desc: "+40% contra mortos-vivos e constructos e desacelera o alvo." },
+  alabarda: { nome: "Varredura Longa", desc: "Atinge inimigos num arco de 120° (40% do dano) e os empurra." },
+  foice: { nome: "Ceifar", desc: "Recupera 8% do dano como vida e causa +40% em alvos abaixo de 30% de vida." },
+};
+const CONSTRUCTS = new Set([`${NS}:sentinela_runica`, `${NS}:gargula`, `${NS}:tita_pedra`, `${NS}:fragmento_pedra`, `${NS}:sentinela_celeste`]);
+const chainHits = new Map(); // jogador -> {alvo, n, t}
+
+function bonus(player, target, amount, el, fx) {
+  if (amount <= 0.05 || !ok(target)) return;
+  dealDamage(player, target, amount, el, { kind: "weapon" });
+  if (fx) particle(player.dimension, fx, V.up(target.location, 1), { radius: 0.4 });
+}
+function cleave(player, target, dmg, frac, radius, degrees, el) {
+  const dir = V.flat(player.getViewDirection());
+  const cos = Math.cos((degrees / 2) * Math.PI / 180);
+  // só inimigos hostis: o golpe amplo não fere animais ou aldeões ao lado
+  for (const e of enemiesNear(player, player.location, radius, true)) {
+    if (e.id === target.id || V.dot(dir, V.flat(V.sub(e.location, player.location))) < cos) continue;
+    dealDamage(player, e, dmg * frac, el, { kind: "weapon" });
+    particle(player.dimension, "cor_rastro", V.up(e.location, 1), { color: "physical" });
+  }
+}
+function riposte(player) {
+  const t = lastBlock.get(player.id);
+  if (t === undefined || tick() - t > 30) return false;
+  lastBlock.delete(player.id);
+  return true;
+}
+
+function weaponStyle(player, target, dmg, procs, wd, el) {
+  const type = wd.type;
+  if (type === "adaga") {
+    const c = chainHits.get(player.id);
+    const n = c && c.alvo === target.id && tick() - c.t < 30 ? Math.min(3, c.n + 1) : 1;
+    chainHits.set(player.id, { alvo: target.id, n, t: tick() });
+    bonus(player, target, dmg * 0.1 * (n - 1), el);
+    if (n === 3) {
+      addBleed(target, player, 1 + dmg * 0.1, 4);
+      particle(player.dimension, "sangramento", V.up(target.location, 1));
+      chainHits.delete(player.id);
+    }
+  } else if (type === "espada_curta" || type === "katana") {
+    if (riposte(player)) {
+      bonus(player, target, dmg * (type === "katana" ? 0.8 : 0.5), el, "critico");
+      sound(player.dimension, "item.trident.hit", target.location, 1.4, 0.8);
+      player.onScreenDisplay.setActionBar("§eContra-ataque!");
+    }
+    if (type === "katana" && procs.crit) addBleed(target, player, 1 + dmg * 0.12, 4);
+  } else if (type === "espada_longa") {
+    cleave(player, target, dmg, 0.3, 3.2, 100, el);
+  } else if (type === "espada_grande") {
+    cleave(player, target, dmg, 0.5, 3.6, 150, el);
+    if (chance(0.2)) {
+      stun(target, 10);
+      knockFrom(target, player.location, 0.6, 0.3);
+    }
+  } else if (type === "lanca") {
+    const far = V.dist(player.location, target.location) > 2.5;
+    let mounted = false;
+    try { mounted = !!player.getComponent("minecraft:riding")?.entityRidingOn; } catch { /* */ }
+    const mult = (far ? 0.25 : 0) + (mounted ? 0.4 : 0);
+    bonus(player, target, dmg * mult, el, mounted ? "critico" : undefined);
+    knockFrom(target, player.location, 0.35, 0.1);
+  } else if (type === "machado_guerra") {
+    const d = debuff(target);
+    const cur = d.vuln && d.vuln.until > tick() ? d.vuln.pct : 0;
+    addVulnerable(target, Math.min(0.24, cur + 0.08), 4);
+    particle(player.dimension, "detritos", V.up(target.location, 1), { radius: 0.3 });
+  } else if (type === "martelo_guerra") {
+    if (CONSTRUCTS.has(target.typeId)) bonus(player, target, dmg * 0.3, el);
+    if (chance(0.25)) {
+      stun(target, 20);
+      knockFrom(target, player.location, 0.5, 0.25);
+      particle(player.dimension, "onda_choque", target.location, { radius: 1 });
+      sound(player.dimension, "mace.smash_ground", target.location, 1, 0.8);
+    }
+  } else if (type === "maca") {
+    if (isUndead(target) || CONSTRUCTS.has(target.typeId)) bonus(player, target, dmg * 0.4, el, "detritos");
+    effect(target, "slowness", 30, 0, true);
+  } else if (type === "alabarda") {
+    cleave(player, target, dmg, 0.4, 3.8, 120, el);
+    knockFrom(target, player.location, 0.5, 0.15);
+  } else if (type === "foice") {
+    if (hpPct(target) < 0.3) bonus(player, target, dmg * 0.4, el, "alma_explosao");
+    heal(player, dmg * 0.08);
+  }
+}
+
 // ------------------------------------------------------------------ efeitos ao acertar (golpes comuns)
 function onHit(player, target, dmg, procs) {
   const item = heldItem(player);
   const wd = itemData(item);
   if (wd && wd.k === "weapon") {
+    try { weaponStyle(player, target, dmg, procs, wd, weaponElement(item, wd)); } catch (e) { console.warn(`[Valdoria] estilo de arma: ${e}`); }
     const el = weaponElement(item, wd);
     const strong = !!wd.el;
     if (el === "fire" && chance(strong ? 0.35 : 0.2)) target.setOnFire(3, true);

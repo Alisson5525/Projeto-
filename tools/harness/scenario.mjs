@@ -22,7 +22,7 @@ function makeEntity(dim, typeId, loc) {
     hasComponent: (c) => c === "minecraft:health", addEffect() {}, removeEffect() {}, getEffect() { return undefined; },
     applyDamage(n) { e._hp.currentValue -= n; return true; }, applyImpulse() {}, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
     getViewDirection: () => ({ x: 0, y: 0, z: -1 }), getHeadLocation: () => ({ x: e.location.x, y: e.location.y + 1.6, z: e.location.z }),
-    getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: () => false, teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
+    getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: (q) => !!q?.families?.includes("monster") && /zombie|skeleton|goblin/.test(typeId), teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
     runCommand() { return { successCount: 1 }; }, getRotation: () => ({ x: 0, y: 0 }), isOnGround: true,
   };
   e._hp = { currentValue: 20, effectiveMax: 20, defaultValue: 20, resetToMaxValue() { this.currentValue = this.effectiveMax; }, setCurrentValue(v) { this.currentValue = v; } };
@@ -213,6 +213,38 @@ for (let i = 0; i < 40 && !mech.mechDone(camp, "tambor"); i++) {
 }
 check(mech.mechDone(camp, "tambor") && waves >= 3, `Desafio do Tambor: ${waves} ondas derrotadas e desafio concluído`);
 check(blockAt(camp.mk.bau_tambor[0]) === "minecraft:chest", "tributo dos goblins (baú) aparece após o desafio");
+
+// ================================================================ estilos de arma nos golpes comuns
+const hitWith = async (weaponId, target, dmg = 6) => {
+  held = new ItemStack(weaponId, 1);
+  const hp0 = target._hp.currentValue;
+  fire("world.before.entityHurt", { hurtEntity: target, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: dmg, cancel: false });
+  target._hp.currentValue -= dmg; // o dano vanilla do próprio golpe
+  fire("world.after.entityHurt", { hurtEntity: target, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: dmg });
+  await __advance(3);
+  return hp0 - target._hp.currentValue;
+};
+player.location = { x: 3000, y: 71, z: 3000 };
+const mob = (id, dz, dx = 0) => { const e = dim.spawnEntity(id, { x: 3000 + dx, y: 71, z: 3000 - dz }); e._hp.currentValue = e._hp.effectiveMax = 200; return e; };
+const z1 = mob("minecraft:zombie", 2), z2 = mob("minecraft:zombie", 2, 1), cow = mob("minecraft:cow", 2, -1);
+await hitWith("valdoria:espada_longa_aco", z1);
+check(z2._hp.currentValue < 200 && cow._hp.currentValue === 200, "Espada longa: golpe amplo atinge o zumbi ao lado e poupa a vaca");
+const sk = mob("minecraft:skeleton", 2, 5);
+const baseHit = await hitWith("valdoria:espada_curta_aco", mob("minecraft:skeleton", 2, 8));
+const maceHit = await hitWith("valdoria:maca_aco", sk);
+check(maceHit > baseHit, `Maça: esmaga mortos-vivos (${maceHit.toFixed(1)} contra ${baseHit.toFixed(1)} da espada curta)`);
+const z3 = mob("minecraft:zombie", 2, 12);
+await hitWith("valdoria:machado_guerra_aco", z3);
+await hitWith("valdoria:machado_guerra_aco", z3);
+const dmgMod = await import(`${SCRIPTS}/core/damage.js`);
+check(Math.abs((dmgMod.debuff(z3).vuln?.pct || 0) - 0.16) < 1e-9, "Machado: rompe-armadura acumula (+16% após 2 golpes)");
+const z4 = mob("minecraft:zombie", 2, 16);
+dmgMod.lastBlock.set(player.id, system.currentTick);
+const rip = await hitWith("valdoria:katana_aco", z4);
+const plain = await hitWith("valdoria:katana_aco", z4);
+check(rip > plain, `Katana: contra-ataque após bloqueio (${rip.toFixed(1)} contra ${plain.toFixed(1)})`);
+for (const e of [z1, z2, cow, sk, z3, z4]) e.remove();
+held = undefined;
 
 // ================================================================ eventos do mundo: forçar cada um e avançar
 player.location = { x: 2000, y: 71, z: 2000 };

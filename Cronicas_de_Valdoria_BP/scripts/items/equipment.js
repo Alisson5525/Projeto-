@@ -9,7 +9,7 @@ import { LORE } from "../data/lore.js";
 import { SETS } from "../data/sets.js";
 import { addXP } from "../rpg/progression.js";
 import { addEnergy, invalidate, stats } from "../rpg/stats.js";
-import { RUNE_ELEMENT, HEAVY } from "../combat/weapons.js";
+import { RUNE_ELEMENT, HEAVY, STYLE } from "../combat/weapons.js";
 import { ABILITIES } from "../abilities/registry.js";
 import { ELEMENT_NAMES } from "../rpg/stats.js";
 
@@ -17,7 +17,7 @@ export const RARITY = {
   comum: ["§f", "Comum", 1], incomum: ["§a", "Incomum", 2], raro: ["§9", "Raro", 3], epico: ["§d", "Épico", 4],
   lendario: ["§6", "Lendário", 5], mitico: ["§c", "Mítico", 6], divino: ["§e", "Divino", 7],
 };
-const LORE_V = 4;
+const LORE_V = 5;
 const MAX_UPGRADE = { comum: 3, incomum: 4, raro: 5, epico: 5, lendario: 6, mitico: 7, divino: 7 };
 const MOD_NAMES = {
   str: "Força", vit: "Vitalidade", agi: "Agilidade", int: "Inteligência", spi: "Espírito", def: "Defesa", pre: "Precisão",
@@ -68,6 +68,7 @@ export function buildLore(item) {
       alabarda: "Alabarda", foice: "Foice" }[d.type];
     lines.push(`§7${tname} · Dano §f${d.dmg}${up ? ` §a(+${up * 6}%)` : ""}`);
     lines.push(`§7Velocidade: §f${(20 / d.spd).toFixed(1)} golpes/s`);
+    if (STYLE[d.type]) lines.push(`§bEstilo: §f${STYLE[d.type].nome} §7- ${STYLE[d.type].desc}`);
     lines.push(`§eUsar: §f${HEAVY[d.type]?.nome || "Ataque carregado"}`);
     if (d.skill) {
       const sid = { julgamento: "julgamento_aurora", passo_sombrio: "passo_umbral", sopro_dragao: "sopro_garra" }[d.skill] || d.skill;
