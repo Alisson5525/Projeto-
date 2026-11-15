@@ -311,7 +311,7 @@ const COFRE_SINOS = { k: "sequencia", id: "sinos", input: "bell", n: 4, entradas
   obj: "Tocar o Salmo do Funeral Real", xp: 400, prologo: "§8O salmo cantado no enterro dos reis, gravado sobre os sinos:§r" };
 export const COFRE_REIS = {
   id: "cofre_reis", nome: "Cofre dos Reis Esquecidos", raridade: "lendario", raio: 9, alcance: 30, alturaMax: 5, minY: 35, xp: 300,
-  xpLimpo: 500, repovoar: 180, nivel: 18, peso: 0, espaco: 2000, distGen: 46,
+  xpLimpo: 500, repovoar: 180, nivel: 18, peso: 0, espaco: 600, distGen: 46, // só surge pelo Mapa dos Reis
   nomes: ["Cofre dos Reis Esquecidos"],
   descricao: "A tumba-tesouro dos quatro reis anteriores à Ruptura. Duas provas de enigma, a Galeria das Chamas, o Rei Esquecido e a Câmara Real.",
   dica: "§6Um zigurate de pedra e ouro emerge da terra",

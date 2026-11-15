@@ -32,11 +32,11 @@ function stateOf(boss) {
 function weight(src, ev) {
   if (!isPlayer(src)) return 0.6; // aliados, invocações
   let w = 1;
-  if (ev.element === "physical" || ev.cause === "entityAttack") {
+  if (ev.cause === "projectile" || ev.kind === "projectile") w = 0.7; // flechas (físicas ou elementais)
+  else if (ev.element === "physical" || ev.cause === "entityAttack") {
     const wd = itemData(heldItem(src));
     w = wd?.k === "weapon" ? PESO_ARMA[wd.type] || 1 : 0.9;
-  } else if (ev.cause === "projectile") w = 0.7;
-  else w = 0.8; // feitiços
+  } else w = 0.8; // feitiços
   return w;
 }
 function bar(frac) {

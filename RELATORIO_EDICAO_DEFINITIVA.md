@@ -1,9 +1,9 @@
-# Crônicas de Valdoria — Edição Definitiva (v2.2.0)
+# Crônicas de Valdoria — Edição Definitiva (v2.3.0)
 
 Relatório de entrega da reformulação a partir da v1.11.1.
 
-**Pacote:** `dist/Cronicas_de_Valdoria_v2.2.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.241 arquivos).
-Os UUIDs dos manifests foram mantidos: a v2.2.0 substitui a v1.11.1 (ou as 2.x anteriores) em mundos existentes sem perder dados.
+**Pacote:** `dist/Cronicas_de_Valdoria_v2.3.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.242 arquivos).
+Os UUIDs dos manifests foram mantidos: a v2.3.0 substitui a v1.11.1 (ou as 2.x anteriores) em mundos existentes sem perder dados.
 
 > **Leia antes:** o pedido original cobre 18 partes (exploração, animações de todas as criaturas, IA, chefes, raças, classes,
 > texturas de todos os itens etc.). Este trabalho priorizou, como o próprio pedido determina, **a exploração**, e fez nela
@@ -33,6 +33,8 @@ dinâmicas. Os pontos que mais limitavam a exploração eram:
 |---|---|---|
 | `resetData` (Elixir do Renascimento e "Redefinir" do Modo de Teste) recriava os dados sem copiar `locais`, `lidos` e `flags` | Renascer apagava locais descobertos, textos lidos e marcadores da Crônica, embora o próprio menu diga "mantém descobertas" | `core/store.js` preserva locais, textos, flags e o novo progresso de exploração |
 | Cercas, grades e vidraças em todas as estruturas usam estados `minecraft:connection_*`, que **só existem a partir do Bedrock 1.26.50** (verificado nos dados oficiais) | Entre 1.26.10 (versão mínima declarada) e 1.26.40, cada um desses blocos falhava e ficava de fora das construções | `structures/builder.js`: se um estado não existe na versão do jogo, o bloco é colocado mantendo só os estados aceitos |
+| Golpe letal "direto" (`dealDamage` dentro da invulnerabilidade) aplicava `vida + 1000` e o evento de dano rodava de novo os efeitos pós-acerto com esse valor | Roubo de vida e Marca de Drenagem curavam com base em ~1000 de dano ao finalizar um alvo com golpes múltiplos (encontrado na revisão da v2.3.0) | O golpe de execução passa direto, sem repetir ganchos nem efeitos |
+| A porta das arenas do Ninho do Dragão e do Santuário do Véu Negro resolvia grades com estados de conexão fora de `try` | Entre 1.26.10 e 1.26.40 a exceção impedia a luta contra Ignaroth e Vaelith de começar | Usa o resolvedor tolerante do construtor (testado simulando o 1.26.10) |
 | Animações do jogador giravam o corpo em 1ª pessoa | Movimento do braço deslocado/fora de quadro em 1ª pessoa | Novo `jogador.animation.json` (ver seção 5) |
 
 ---
@@ -244,6 +246,42 @@ virote rompendo armadura, Choque Térmico (14 contra 10), Purificação ×2 e Re
 Durante esta etapa os testes também revelaram que os espectros do templo realmente drenam o jogador parado — a IA
 original agindo na simulação — e o teste foi ajustado.
 
+## 7d. v2.3.0 — quarta etapa
+
+### Especializações com mecânicas-assinatura — `rpg/specs.js`
+A auditoria confirmou que as 20 especializações eram **só aumento de atributos** (o que o pedido proíbe). Os bônus
+continuam, e cada uma ganhou uma regra própria, exibida no menu de especialização e na ficha da classe:
+Frenesi (Berserker), Comando (Senhor da Guerra), Proteger (Guardião Real), Carga Dracônica (Cavaleiro Dragão),
+Marcar Presa (Atirador), Faro do Caçador (Patrulheiro), Sobrecarga Arcana (Arquimago), Afinidade Elemental
+(Elementalista), Colheita de Almas (Necromante), Sangue Fervente (Feiticeiro de Sangue), Fervor (Cruzado), Égide
+(Templário), Execução (Sombra), Aparar (Duelista), Raízes Vivas (Guardião do Bosque), Olho da Tempestade (Xamã da
+Tempestade), Matilha (Senhor das Bestas), Elo Espiritual (Mestre dos Espíritos), Graça (Sumo Sacerdote) e Sentença
+(Inquisidor). Para isso, o motor ganhou ganchos genéricos: tipo e causa do dano, esquiva, cura e um modificador de
+conjuração em duas fases (prévia pura e confirmação só depois de pagar o custo).
+
+### Revisão de código independente
+Uma revisão automatizada percorreu **todo** o código alterado desde o original importado e apontou 10 problemas. Todos
+foram conferidos no código e corrigidos, cada um com um teste de regressão quando possível:
+1. Golpe letal direto repetia os efeitos com ~1000 de dano (reações e roubo de vida; bug também do original).
+2. Proteger e Elo Espiritual recebiam esse dano inflado (resolvido pelo item 1).
+3. Uma vulnerabilidade mais fraca (virote, machado) apagava uma mais forte (postura quebrada): agora vale a mais forte.
+4. Conjurações que falhavam por falta de energia/vida avançavam contadores (Arquimago, Xamã, Elementalista).
+5. Enigmas ficavam inertes por até 60 s logo após o local ser gerado (índice não era refeito).
+6. Égide e Proteger reagiam a queda, fogo e fome, e a guardiões mortos.
+7. Caravana e Confronto pagavam vitória se os inimigos não conseguissem nascer (dificuldade Pacífico).
+8. O Mapa dos Reis apontava para um cofre já saqueado e nunca era consumido.
+9. Flechas físicas tinham peso de postura errado.
+10. Desempenho: o caminho de dano varria todos os jogadores a cada golpe (agora usa uma lista em cache).
+
+Além da revisão, os testes encontraram dois problemas meus nesta etapa e um do original: a duração das invocações da
+Colheita de Almas virava `NaN` (o esqueleto nunca expiraria), o dano desviado pelo Guardião Real podia ser esquivado
+(o desvio virava dano nenhum), e a porta das arenas de chefe falhava antes da 1.26.50 (seção 1).
+
+### Testes da v2.3.0
+O cenário tem **65 verificações** e foi executado repetidas vezes até ficar estável. As falhas intermitentes foram
+investigadas uma a uma; todas eram do próprio teste (críticos aleatórios, aviso esperado de "hostis desligados", jogador
+simulado morto pelos espectros) e foram tornadas determinísticas, exceto as duas que eram bugs reais (acima).
+
 ## 8. O que não foi feito (escopo do pedido não coberto)
 
 Para não haver dúvida sobre o que "parece pronto" e não está:
@@ -254,7 +292,8 @@ Para não haver dúvida sobre o que "parece pronto" e não está:
 - **Animações e modelos das 40 criaturas e 8 chefes**: não alterados.
 - **IA**: ganhou táticas por papel e fases de guardiões (v2.1) e a postura dos chefes (v2.2); os padrões de ataque dos
   chefes, e a IA de animais, companheiros e montarias continuam os originais.
-- **Raças** (aparência visual e habilidades), **classes**, **especializações**, **árvores de habilidade**: não alteradas.
+- **Especializações** ganharam mecânicas próprias (v2.3). **Raças** (aparência visual e habilidades), **classes** e
+  **árvores de talentos** não foram alteradas: as vantagens anunciadas das raças foram conferidas e estão implementadas.
 - **Escolas de magia**: ganharam gestos de conjuração (v2.0) e reações entre escolas (v2.2); os feitiços individuais e
   as combinações do Grimório do Arquimago são os originais.
 - **Armas corpo a corpo** (v2.1) e **arcos e bestas** (v2.2) ganharam identidades; **companheiros**, **montarias** e

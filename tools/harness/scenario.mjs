@@ -52,7 +52,10 @@ const dim = {
     for (let x = vol.from.x; x <= vol.to.x; x++) for (let y = vol.from.y; y <= vol.to.y; y++) for (let z = vol.from.z; z <= vol.to.z; z++) blocks.set(`${x},${y},${z}`, id);
   },
   isChunkLoaded: () => true, getBiome: () => ({ id: "minecraft:forest" }), spawnParticle() {}, playSound() {}, runCommand: () => ({ successCount: 1 }),
-  spawnEntity(typeId, loc) { const e = makeEntity(dim, typeId.split("<")[0], loc); dim._ents.push(e); return e; },
+  spawnEntity(typeId, loc) {
+    if (globalThis.__pacifico && /vindicator|pillager|goblin|zombie|skeleton/.test(typeId)) throw new Error("hostis desligados");
+    const e = makeEntity(dim, typeId.split("<")[0], loc); dim._ents.push(e); return e;
+  },
   spawnItem(item, loc) { const e = makeEntity(dim, "minecraft:item", loc); e.item = item; dim._ents.push(e); return e; },
   getEntities(q = {}) {
     return [...dim._ents, ...__world.players].filter((e) => e.isValid && (!q.type || e.typeId === q.type) && (!q.tags || q.tags.every((t) => e.hasTag(t))) &&
@@ -242,6 +245,8 @@ const hitWith = async (weaponId, target, dmg = 6) => {
 };
 player.location = { x: 3000, y: 71, z: 3000 };
 const mob = (id, dz, dx = 0) => { const e = dim.spawnEntity(id, { x: 3000 + dx, y: 71, z: 3000 - dz }); e._hp.currentValue = e._hp.effectiveMax = 200; return e; };
+const rndEstilo = Math.random;
+Math.random = () => 0.99; // comparações de dano sem críticos/esquivas aleatórios
 const z1 = mob("minecraft:zombie", 2), z2 = mob("minecraft:zombie", 2, 1), cow = mob("minecraft:cow", 2, -1);
 await hitWith("valdoria:espada_longa_aco", z1);
 check(z2._hp.currentValue < 200 && cow._hp.currentValue === 200, "Espada longa: golpe amplo atinge o zumbi ao lado e poupa a vaca");
@@ -260,6 +265,7 @@ const rip = await hitWith("valdoria:katana_aco", z4);
 const plain = await hitWith("valdoria:katana_aco", z4);
 check(rip > plain, `Katana: contra-ataque após bloqueio (${rip.toFixed(1)} contra ${plain.toFixed(1)})`);
 for (const e of [z1, z2, cow, sk, z3, z4]) e.remove();
+Math.random = rndEstilo;
 held = undefined;
 
 // ================================================================ chefes: postura e primeira vitória
@@ -383,6 +389,7 @@ check(golpes[4] > golpes[0], `Berserker: Frenesi (${golpes[0].toFixed(1)} -> ${g
 // Guardião Real: desvia 30% do dano sofrido por um aliado próximo
 pd.classe = "cavaleiro"; pd.espec = "guardiao_real";
 player._hp.currentValue = 20;
+await __advance(12); // a lista de guardiões é atualizada a cada 10 ticks
 const aliado = dim.spawnEntity("valdoria:aldeao", { x: 8002, y: 71, z: 8000 });
 aliado._hp.effectiveMax = aliado._hp.currentValue = 30;
 const agressor = alvoE(3);
@@ -392,10 +399,13 @@ check(Math.abs(30 - aliado._hp.currentValue - 7) < 0.01 && player._hp.currentVal
 // Duelista: depois de esquivar, o próximo golpe apara
 pd.classe = "assassino"; pd.espec = "duelista";
 const zd = alvoE(6);
+const rnd = Math.random;
+Math.random = () => 0.99; // sem críticos nem esquivas aleatórias nesta comparação
 const semAparar = await hitWith("valdoria:espada_curta_aco", zd, 6);
 await __advance(12);
 dmgMod.notifyDodge(player);
 const comAparar = await hitWith("valdoria:espada_curta_aco", zd, 6);
+Math.random = rnd;
 check(comAparar > semAparar && ui.bar.some((b) => b.includes("Aparar")), `Duelista: Aparar após esquiva (${comAparar.toFixed(1)} contra ${semAparar.toFixed(1)})`);
 // Inquisidor: 3 cargas de Condenação tornam o alvo Sentenciado (+20%)
 pd.classe = "clerigo"; pd.espec = "inquisidor";
@@ -415,17 +425,93 @@ check(aliado._fx.has("absorption"), "Sumo Sacerdote: cura excedente vira escudo 
 // Necromante: abates podem se erguer como guerreiros esqueléticos
 pd.classe = "bruxo"; pd.espec = "necromante";
 let ergueu = 0;
-for (let i = 0; i < 12 && !ergueu; i++) {
+const rndN = Math.random;
+Math.random = () => 0.1; // sorteio da Colheita fixo: o teste verifica a mecânica, não a sorte
+for (let i = 0; i < 3 && !ergueu; i++) {
   const v = alvoE(20 + i);
   v.remove();
   fire("world.after.entityDie", { deadEntity: v, damageSource: { damagingEntity: player, cause: "entityAttack" } });
   await __advance(100);
   ergueu = dim.getEntities({ type: "valdoria:guerreiro_esqueletico" }).length;
 }
+Math.random = rndN;
 check(ergueu > 0, `Necromante: Colheita de Almas ergue um guerreiro esquelético (${dim.getEntities({ type: "valdoria:guerreiro_esqueletico" }).length})`);
 for (const e of dim.getEntities({ location: { x: 8000, y: 71, z: 8000 }, maxDistance: 60 })) if (e.typeId !== "minecraft:player") e.remove();
 pd.espec = null; pd.classe = null; pd.cfg.semRecarga = false;
 held = undefined;
+
+// ================================================================ regressões da revisão de código
+player.location = { x: 9000, y: 71, z: 9000 };
+player._hp.currentValue = 20;
+{
+  // golpe letal no caminho direto não pode repetir efeitos com o dano inflado (~1000)
+  const fraco = dim.spawnEntity("minecraft:zombie", { x: 9000, y: 71, z: 8995 });
+  fraco._hp.effectiveMax = 300; fraco._hp.currentValue = 4;
+  const vizinho = dim.spawnEntity("minecraft:zombie", { x: 9001, y: 71, z: 8995 });
+  vizinho._hp.effectiveMax = vizinho._hp.currentValue = 300;
+  dmgMod.dealDamage(player, fraco, 1, "arcane");
+  await __advance(3);
+  dmgMod.dealDamage(player, fraco, 20, "fire"); // letal, dentro da invulnerabilidade: caminho direto
+  await __advance(5);
+  check(300 - vizinho._hp.currentValue < 10, `Revisão: golpe letal direto não infla a Ressonância (vizinho perdeu ${(300 - vizinho._hp.currentValue).toFixed(1)})`);
+  fraco.remove(); vizinho.remove();
+}
+{
+  // conjuração que falha por energia não avança o contador do Arquimago
+  const pd2 = store.getData(player);
+  pd2.classe = "mago"; pd2.espec = "arquimago"; pd2.cfg.semRecarga = true;
+  pd2.energia = 0;
+  for (let i = 0; i < 5; i++) { reg2.useAbility(player, "lanca_gelo"); await __advance(2); }
+  pd2.energia = 500;
+  const e0 = pd2.energia;
+  reg2.useAbility(player, "lanca_gelo");
+  await __advance(12);
+  check(e0 - pd2.energia > 0, "Revisão: conjurações que falharam não contam para a Sobrecarga Arcana");
+  pd2.espec = null; pd2.classe = null; pd2.cfg.semRecarga = false;
+}
+{
+  // vulnerabilidade mais fraca não reduz uma mais forte (postura quebrada x virote)
+  const z = dim.spawnEntity("minecraft:zombie", { x: 9004, y: 71, z: 8995 });
+  dmgMod.addVulnerable(z, 0.3, 5);
+  dmgMod.addVulnerable(z, 0.12, 3);
+  check(dmgMod.debuff(z).vuln.pct === 0.3, "Revisão: virote de besta não reduz a exposição da postura quebrada");
+  z.remove();
+}
+{
+  // enigma funciona logo após o local ser gerado (índice refeito ao ficar ativo)
+  const b2 = await reg.createSite(dim, "biblioteca", { x: 9300, y: 70, z: 0 }, 0);
+  const M2 = reg.TYPES.biblioteca.mecanismos[0];
+  const o2 = mech.puzzleOf(b2.seed + M2.id.length * 131, M2.n).order;
+  fire("world.after.leverAction", { block: dim.getBlock(b2.mk.alavanca[o2[0]]), dimension: dim, isPowered: true, player });
+  check((b2.m.mec.estantes?.prog || []).length === 1, "Revisão: alavanca conta logo depois de a biblioteca ser gerada");
+}
+{
+  // caravana sem inimigos (Pacífico) não dá recompensa
+  globalThis.__pacifico = true;
+  player.location = { x: 9600, y: 71, z: 9600 };
+  const xp0 = store.getData(player).xp + store.getData(player).nivel * 1e6;
+  const msg = events.forceEvent(player, "caravana");
+  const cv = events.activeEvents().find((e) => e.tipo === "caravana" && Math.abs(e.x - 9600) < 40);
+  if (cv) player.location = { x: cv.x, y: 71, z: cv.z + 3 };
+  await __advance(80);
+  const xp1 = store.getData(player).xp + store.getData(player).nivel * 1e6;
+  check(typeof msg === "string" && xp1 === xp0, "Revisão: caravana sem inimigos não paga recompensa");
+  globalThis.__pacifico = false;
+}
+
+{
+  // compatibilidade 1.26.10–1.26.40: estados de conexão inexistentes não podem derrubar a colocação do bloco
+  const bld = await import(`${SCRIPTS}/structures/builder.js`);
+  const orig = srv.BlockPermutation.resolve;
+  srv.BlockPermutation.resolve = (id, st) => {
+    if (st && Object.keys(st).some((k) => k.includes("connection"))) throw new Error("estado desconhecido");
+    return { id, st, withState(k, v) { if (k.includes("connection")) throw new Error("estado desconhecido"); return { ...this, st: { ...this.st, [k]: v } }; } };
+  };
+  let perm, erro;
+  try { perm = bld.resolvePerm("minecraft:iron_bars", { "minecraft:connection_north": true, "minecraft:connection_south": true, "minecraft:connection_east": false, "minecraft:connection_west": false }); } catch (e) { erro = e; }
+  srv.BlockPermutation.resolve = orig;
+  check(!erro && perm?.id === "minecraft:iron_bars", "Compatibilidade: grade sem estados de conexão (jogo 1.26.10) ainda é colocada");
+}
 
 // ================================================================ táticas de IA: pedir apoio
 player.location = { x: 4000, y: 71, z: 4000 };
@@ -457,7 +543,8 @@ if (patrol) {
   check(!events.activeEvents().some((e) => e.id === patrol.id) && xp1 > xp0, "patrulha derrotada encerra o evento e dá recompensa");
 }
 console.warn = origWarn;
-const real = errs.filter((e) => !e.includes("blocos não puderam"));
-check(!real.length && !globalThis.__errors, `sem exceções nos sistemas durante o cenário${real.length ? ":\n    " + real.slice(0, 8).join("\n    ") : ""}`);
+const real = errs.filter((e) => !e.includes("blocos não puderam") && !e.includes("hostis desligados")); // avisos esperados
+check(!real.length && !globalThis.__errors, `sem exceções nos sistemas durante o cenário${real.length ? ":\n    " + real.slice(0, 8).join("\n    ") : ""}` +
+  (globalThis.__errors ? `\n    tarefa agendada: ${globalThis.__lastErr}` : ""));
 console.log(fails ? `\n${fails} verificação(ões) falharam.` : "\nTodas as verificações passaram.");
 process.exit(fails ? 1 : 0);

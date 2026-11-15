@@ -33,16 +33,20 @@ export function register(id, def) {
 }
 
 const castHooks = [];
-/** Modificadores de conjuração (especializações): fn(jogador, habilidade, id) -> {cost?: mult, power?: mult} | undefined. */
+/**
+ * Modificadores de conjuração (especializações): fn(jogador, habilidade, id, confirmar) -> {cost?: mult, power?: mult} | undefined.
+ * Chamado duas vezes: com confirmar=false (prévia pura, para calcular o custo) e, só se o custo foi pago, com confirmar=true
+ * (quando o gancho pode atualizar contadores e mostrar mensagens).
+ */
 export function onCast(fn) {
   castHooks.push(fn);
 }
-function castMods(player, ab, id) {
+function castMods(player, ab, id, commit) {
   let cost = 1;
   let power = 1;
   for (const fn of castHooks) {
     try {
-      const r = fn(player, ab, id);
+      const r = fn(player, ab, id, commit);
       if (r?.cost !== undefined) cost *= r.cost;
       if (r?.power !== undefined) power *= r.power;
     } catch (e) {
@@ -143,8 +147,8 @@ export function useAbility(player, id, opts = {}) {
     player.onScreenDisplay.setActionBar("§cVocê não pode conjurar feitiços nesta forma.");
     return false;
   }
-  const mods = castMods(player, ab, id);
-  const cost = Math.round(ab.cost * (ab.tipo === "magia" || ab.tipo === "combo" ? s.spellCost : 1) * (opts.costMult ?? 1) * mods.cost);
+  const preview = castMods(player, ab, id, false);
+  const cost = Math.round(ab.cost * (ab.tipo === "magia" || ab.tipo === "combo" ? s.spellCost : 1) * (opts.costMult ?? 1) * preview.cost);
   const d = getData(player);
   if (ab.hpCost) {
     const h = health(player);
@@ -161,6 +165,7 @@ export function useAbility(player, id, opts = {}) {
   } else {
     spendEnergy(player, cost);
   }
+  const mods = castMods(player, ab, id, true); // custo pago: agora os contadores das especializações avançam
   markDirty(player);
   setCooldown(player, id, ab.cd * (1 - s.cdr));
   const prep = Math.round((ab.prep ?? 0) * (ab.tipo === "magia" || ab.tipo === "combo" ? s.castSpeed : 1));

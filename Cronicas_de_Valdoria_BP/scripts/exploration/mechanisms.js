@@ -797,6 +797,7 @@ export function startMechanisms() {
   });
   world.afterEvents.entityDie.subscribe(onGuardianDeath);
   onSite("limpo", (p, rec) => credit(p, rec, "limpo"));
+  onSite("criado", () => invalidateMechIndex()); // o local acabou de ficar ativo com as marcações: refaz o índice já
 }
 
 /** Gatilho de um desafio (ex.: tambor de guerra): começa as ondas na próxima verificação. */

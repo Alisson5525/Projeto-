@@ -144,8 +144,13 @@ const TIPOS = {
     start(dim, at, ev, c) {
       for (let i = 0; i < 3; i++) spawn(dim, `${NS}:guarda`, at, ev, { tag: "vr_lado_a", oficio: 10, name: "§9Guarda do Reino" });
       const g = V.add(at, { x: 5, y: 0, z: 0 });
-      for (let i = 0; i < 4; i++) spawn(dim, `${NS}:goblin`, g, ev, { tag: "vr_lado_b" });
-      if (c.lvl >= 6) spawn(dim, `${NS}:goblin_xama`, g, ev, { tag: "vr_lado_b" });
+      let n = 0;
+      for (let i = 0; i < 4; i++) if (spawn(dim, `${NS}:goblin`, g, ev, { tag: "vr_lado_b" })) n++;
+      if (c.lvl >= 6 && spawn(dim, `${NS}:goblin_xama`, g, ev, { tag: "vr_lado_b" })) n++;
+      if (!n) { // sem inimigos (ex.: dificuldade Pacífico): não há confronto
+        for (const e of tagged(dim, ev)) e.remove();
+        return undefined;
+      }
       return `§9Gritos e aço: §fguardas do reino enfrentam goblins ${c.dir} (~${c.dist} blocos). Ajude-os!`;
     },
     tick(dim, ev, players) {
@@ -183,11 +188,14 @@ const TIPOS = {
         if (!merc || !players.some((p) => V.dist(p.location, merc.location) < 18)) return;
         ev.st.emboscada = 1;
         const at = V.add(merc.location, { x: 7, y: 0, z: -4 });
-        for (const id of ["minecraft:vindicator", "minecraft:pillager", "minecraft:vindicator"]) spawn(dim, id, at, ev, { tag: "vr_bandido" });
+        let n = 0;
+        for (const id of ["minecraft:vindicator", "minecraft:pillager", "minecraft:vindicator"]) if (spawn(dim, id, at, ev, { tag: "vr_bandido" })) n++;
+        ev.st.bandidos = n;
         for (const p of players) p.onScreenDisplay.setTitle("§cEmboscada!", { subtitle: "§7Proteja a mercadora", fadeInDuration: 5, stayDuration: 30, fadeOutDuration: 10 });
         return;
       }
       const band = tagged(dim, ev, "vr_bandido").length;
+      if (!ev.st.bandidos) return "fim"; // a emboscada não aconteceu (sem inimigos): a caravana segue sem recompensa
       if (!merc) {
         for (const p of players) p.onScreenDisplay.setActionBar("§cA mercadora caiu. A caravana está perdida.");
         return "falha";

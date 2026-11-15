@@ -3,6 +3,7 @@
 import { world, system, BlockPermutation } from "@minecraft/server";
 import { NS, V, ok, isActivePlayer } from "../core/util.js";
 import { particle, sound } from "../core/fx.js";
+import { resolvePerm } from "./builder.js";
 import { allSites, getSite, saveSite, inBox, center, fillChests, repopulate, TAG, registerType } from "./registry.js";
 import { setFlag, questEvent } from "../quests/quests.js";
 import { NINHO } from "./ninho.js";
@@ -34,8 +35,9 @@ function door(dim, rec, closed) {
   if (!pts) return;
   // grades no sentido da largura da porta (eixo x local; com rotação ímpar vira eixo z)
   const ew = (rec.rot & 1) === 0;
-  const perm = closed ? BlockPermutation.resolve("minecraft:iron_bars", { "minecraft:connection_east": ew, "minecraft:connection_west": ew,
-    "minecraft:connection_north": !ew, "minecraft:connection_south": !ew }) : BlockPermutation.resolve("minecraft:air");
+  // resolvePerm tolera versões sem os estados de conexão (antes da 1.26.50 o resolve direto lançava e impedia a luta)
+  const perm = closed ? resolvePerm("minecraft:iron_bars", { "minecraft:connection_east": ew, "minecraft:connection_west": ew,
+    "minecraft:connection_north": !ew, "minecraft:connection_south": !ew }) : resolvePerm("minecraft:air");
   for (const p of pts) {
     try { dim.setBlockPermutation(p, perm); } catch { /* */ }
   }

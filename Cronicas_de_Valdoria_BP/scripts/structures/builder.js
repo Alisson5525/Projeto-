@@ -161,6 +161,11 @@ function perm(id, st) {
   return p;
 }
 
+/** Permutação com cache e tolerante a estados ausentes na versão do jogo (uso fora dos planos). */
+export function resolvePerm(id, st) {
+  return perm(id, st);
+}
+
 /** Divide uma caixa em partes de até `max` blocos (limite seguro para fillBlocks, como o comando /fill). */
 export function splitBox(a, b, max = 32768) {
   const lo = { x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), z: Math.min(a.z, b.z) };

@@ -9,6 +9,7 @@ import { ABILITIES } from "../abilities/registry.js";
 import { allSites, center, compass, dist2d } from "../structures/registry.js";
 import { tryGenerate, lastGenerationInfo } from "../structures/generation.js";
 import { addRumor } from "./rumors.js";
+import { mechDone } from "./mechanisms.js";
 
 export const FRAGMENTO = `${NS}:fragmento_mapa`;
 export const MAPA_REIS = `${NS}:mapa_reis`;
@@ -32,7 +33,9 @@ function useFragment(player) {
 
 async function useKingsMap(player) {
   if (busy.has(player.id)) return;
-  const existing = allSites().find((r) => r.tipo === "cofre_reis" && r.dim === player.dimension.id && r.estado !== "construindo");
+  // só reaproveita um cofre cuja Câmara Real ainda está selada; cofres já saqueados não contam
+  const existing = allSites().find((r) => r.tipo === "cofre_reis" && r.dim === player.dimension.id && r.estado !== "construindo" &&
+    !mechDone(r, "camara"));
   if (existing) {
     addRumor(player, existing, "o Mapa dos Reis");
     player.onScreenDisplay.setActionBar(`§6Cofre dos Reis: §f~${Math.round(dist2d(existing, player.location))} blocos ${compass(player.location, existing)}`);

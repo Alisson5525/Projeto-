@@ -39,7 +39,11 @@ export async function __advance(n = 1) {
     for (const [id, t] of [...timers]) {
       if (t.at > system.currentTick) continue;
       if (t.every) t.at += t.every; else timers.delete(id);
-      try { await t.fn(); } catch (e) { console.error("tarefa:", e); globalThis.__errors = (globalThis.__errors || 0) + 1; }
+      try { await t.fn(); } catch (e) {
+        console.error("tarefa:", e);
+        globalThis.__errors = (globalThis.__errors || 0) + 1;
+        globalThis.__lastErr = `${e?.stack || e}`.split("\n").slice(0, 4).join(" | ");
+      }
     }
     await Promise.resolve();
   }

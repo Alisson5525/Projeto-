@@ -92,9 +92,13 @@ export function addBleed(target, src, dps, seconds) {
   const d = debuff(target);
   d.bleed = { dps, until: tick() + seconds * 20, src };
 }
+/** Vulnerabilidade: várias fontes (postura quebrada, besta, machado, feitiços) não se anulam: vale a mais forte, e uma fonte
+ * igual ou mais forte renova a duração. */
 export function addVulnerable(target, pctBonus, seconds) {
   const d = debuff(target);
-  d.vuln = { pct: pctBonus, until: tick() + seconds * 20 };
+  const until = tick() + seconds * 20;
+  const cur = d.vuln && d.vuln.until > tick() ? d.vuln : undefined;
+  if (!cur || pctBonus >= cur.pct) d.vuln = { pct: pctBonus, until: Math.max(until, cur && pctBonus === cur.pct ? cur.until : 0) };
 }
 export function addDrainMark(target, src, ratio, seconds) {
   const d = debuff(target);
@@ -303,6 +307,9 @@ export function startDamage() {
     const mark = scripted.get(target.id);
     const isScripted = mark && mark.t === now;
     if (isScripted) scripted.delete(target.id);
+    // golpe de execução do caminho direto (dano letal dentro da invulnerabilidade): ganchos, defesas e efeitos pós-acerto
+    // já rodaram em dealDamage com o dano real; aqui só se deixa o golpe matar, sem repetir nada com o dano inflado
+    if (isScripted && mark.direct) return;
     // flechas e virotes dos arcos e bestas do add-on carregam o próprio dano e elemento (scripts/combat/archery.js)
     let projDmg;
     let projEl;

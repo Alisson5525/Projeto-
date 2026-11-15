@@ -103,7 +103,7 @@ function start() {
   startSpecs(); // mecânicas das especializações (antes da postura, que vê o dano já modificado)
   startPosture(); // depois de todos os chefes: o gancho de postura vê o dano já com as imunidades aplicadas
   startNpcs();
-  console.info("[Valdoria] Crônicas de Valdoria v2.2.0 (Edição Definitiva) carregado.");
+  console.info("[Valdoria] Crônicas de Valdoria v2.3.0 (Edição Definitiva) carregado.");
 }
 
 world.afterEvents.worldLoad.subscribe(start);

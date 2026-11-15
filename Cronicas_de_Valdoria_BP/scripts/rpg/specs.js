@@ -46,6 +46,9 @@ const tm = (e) => {
   if (!s) tmarks.set(e.id, (s = {}));
   return s;
 };
+// jogadores com especializações de aura, atualizados a cada 10 ticks (o caminho de dano não varre todos os jogadores)
+let guardians = [];
+let warlords = [];
 const bar = (txt, p) => { try { p.onScreenDisplay.setActionBar(txt); } catch { /* */ } };
 
 // ------------------------------------------------------------------ modificadores de dano (antes do golpe)
@@ -59,7 +62,7 @@ function beforeHurt(ev) {
   if (ts === "berserker") {
     const s = st(t);
     if (s.fren && s.frenAte > now) ev.damage *= 1 + 0.04 * s.fren;
-  } else if (ts === "templario") {
+  } else if (ts === "templario" && ok(src)) { // só ataques (não queda, fogo, fome)
     const s = st(t);
     if (!s.egideCd || s.egideCd <= now) {
       ev.damage = Math.max(0, ev.damage - 8);
@@ -71,7 +74,7 @@ function beforeHurt(ev) {
         bar("§eÉgide absorveu o golpe", t);
       });
     }
-  } else if (ts === "mestre_espiritos" && ev.kind !== "elo") {
+  } else if (ts === "mestre_espiritos" && ev.kind !== "elo" && ok(src)) {
     const spirit = summonsOf(t).find((e) => V.dist(e.location, t.location) < 12);
     if (spirit) {
       const part = ev.damage * 0.2;
@@ -84,16 +87,17 @@ function beforeHurt(ev) {
     }
   }
   // --- Proteger (Guardião Real): o aliado ferido perto de um guardião
-  if (ev.kind !== "proteger" && isPlayerSide(t)) {
-    for (const g of world.getAllPlayers()) {
-      if (g.id === t.id || specOf(g) !== "guardiao_real" || g.dimension.id !== t.dimension.id || V.dist(g.location, t.location) > 6) continue;
+  if (ev.kind !== "proteger" && ok(src) && guardians.length && isPlayerSide(t)) {
+    for (const g of guardians) {
+      if (!ok(g) || g.id === t.id || g.dimension.id !== t.dimension.id || V.dist(g.location, t.location) > 6) continue;
+      if ((health(g)?.currentValue ?? 0) <= 0) continue;
       const part = ev.damage * 0.3;
       ev.damage -= part;
-      const atk = ok(src) ? src : undefined;
       system.run(() => {
         if (!ok(g) || !ok(t)) return;
         line(g.dimension, V.up(t.location, 1), V.up(g.location, 1), "cor_ponto", { color: "gold" }, 0.6);
-        dealDamage(atk, g, part, ev.element || "physical", { kind: "proteger" });
+        // sem atacante: o dano desviado não pode ser esquivado nem bloqueado (senão o desvio viraria dano nenhum)
+        dealDamage(undefined, g, part, ev.element || "physical", { kind: "proteger" });
       });
       break;
     }
@@ -128,8 +132,8 @@ function beforeHurt(ev) {
   }
 }
 function commandBonus(src) {
-  for (const g of world.getAllPlayers()) {
-    if (g.id === src.id || specOf(g) !== "senhor_guerra" || g.dimension.id !== src.dimension.id) continue;
+  for (const g of warlords) {
+    if (!ok(g) || g.id === src.id || g.dimension.id !== src.dimension.id) continue;
     if (V.dist(g.location, src.location) <= 10) return 1.1;
   }
   return 1;
@@ -226,34 +230,42 @@ function anyHit(src, target, dmg, el, kind, cause) {
 }
 
 // ------------------------------------------------------------------ conjuração
-function cast(player, ab, id) {
+// Prévia (commit=false) é pura: só calcula. Confirmação (commit=true) acontece depois que o custo foi pago.
+function cast(player, ab, id, commit) {
   const sp = specOf(player);
   if (!sp) return undefined;
   const spell = ab.tipo === "magia" || ab.tipo === "combo";
   const s = st(player);
   if (sp === "arquimago" && spell) {
-    s.arc = (s.arc || 0) + 1;
-    if (s.arc >= 4) {
-      s.arc = 0;
-      bar("§dSobrecarga Arcana! §7Feitiço gratuito e 30% mais forte", player);
-      particle(player.dimension, "arcano_runas", V.up(player.location, 1), {});
-      return { cost: 0, power: 1.3 };
+    const n = (s.arc || 0) + 1;
+    if (commit) {
+      s.arc = n >= 4 ? 0 : n;
+      if (n >= 4) {
+        bar("§dSobrecarga Arcana! §7Feitiço gratuito e 30% mais forte", player);
+        particle(player.dimension, "arcano_runas", V.up(player.location, 1), {});
+      } else if (n === 3) system.run(() => ok(player) && bar("§dO próximo feitiço será Sobrecarregado", player));
     }
-    if (s.arc === 3) system.run(() => ok(player) && bar("§dO próximo feitiço será Sobrecarregado", player));
-  } else if (sp === "elementalista" && spell) {
-    const el = ab.element || "arcane";
-    s.afin = s.ultEl && s.ultEl !== el ? Math.min(3, (s.afin || 0) + 1) : 0;
-    s.ultEl = el;
-    if (s.afin) bar(`§bAfinidade Elemental ×${s.afin} §7(+${s.afin * 8}% de poder)`, player);
-    return { power: 1 + 0.08 * s.afin };
-  } else if (sp === "feiticeiro_sangue" && spell && ab.element === "blood") {
-    if (hpPct(player) < 0.5) return { power: 1.3 };
-  } else if (sp === "xama_tempestade" && spell && (ab.element === "lightning" || ab.element === "wind")) {
-    s.tempestade = Math.min(5, (s.tempestade || 0) + 1);
-    bar(`§eCargas da Tempestade: ${s.tempestade}/5`, player);
-  } else if (sp === "guardiao_bosque" && ab.scale === "heal" && s.enraizado) {
-    return { power: 1.2 };
+    return n >= 4 ? { cost: 0, power: 1.3 } : undefined;
   }
+  if (sp === "elementalista" && spell) {
+    const el = ab.element || "arcane";
+    const afin = s.ultEl && s.ultEl !== el ? Math.min(3, (s.afin || 0) + 1) : 0;
+    if (commit) {
+      s.afin = afin;
+      s.ultEl = el;
+      if (afin) bar(`§bAfinidade Elemental ×${afin} §7(+${afin * 8}% de poder)`, player);
+    }
+    return { power: 1 + 0.08 * afin };
+  }
+  if (sp === "feiticeiro_sangue" && spell && ab.element === "blood") return hpPct(player) < 0.5 ? { power: 1.3 } : undefined;
+  if (sp === "xama_tempestade" && spell && (ab.element === "lightning" || ab.element === "wind")) {
+    if (commit) {
+      s.tempestade = Math.min(5, (s.tempestade || 0) + 1);
+      bar(`§eCargas da Tempestade: ${s.tempestade}/5`, player);
+    }
+    return undefined;
+  }
+  if (sp === "guardiao_bosque" && ab.scale === "heal" && s.enraizado) return { power: 1.2 };
   return undefined;
 }
 
@@ -326,6 +338,11 @@ function dodged(player) {
 }
 function loop() {
   const now = tick();
+  if (now % 10 === 0) {
+    const all = world.getAllPlayers();
+    guardians = all.filter((p) => specOf(p) === "guardiao_real");
+    warlords = all.filter((p) => specOf(p) === "senhor_guerra");
+  }
   for (const p of world.getAllPlayers()) {
     const sp = specOf(p);
     if (!sp) continue;
