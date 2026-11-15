@@ -281,9 +281,17 @@ export function blink(src, dist) {
   sound(src.dimension, "mob.endermen.portal", target, 1.2, 0.8);
 }
 
+const healHooks = [];
+/** Curas feitas por habilidades: fn(origem, alvo, quantidade pedida, quantidade curada). */
+export function onHeal(fn) {
+  healHooks.push(fn);
+}
 export function healTarget(src, target, amount) {
   const got = heal(target, amount);
   if (got > 0) particle(target.dimension, "cura", V.up(target.location, 1));
+  for (const fn of healHooks) {
+    try { fn(src, target, amount, got); } catch (e) { console.warn(`[Valdoria] cura: ${e}`); }
+  }
   return got;
 }
 

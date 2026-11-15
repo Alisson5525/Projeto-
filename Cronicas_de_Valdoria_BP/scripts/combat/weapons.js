@@ -2,7 +2,7 @@
 import { world, system, InputButton, ButtonState } from "@minecraft/server";
 import { V, ok, tick, effect, chance, heldItem, isPlayer, rand, NS, heal, hpPct } from "../core/util.js";
 import { particle, sound, anim, psound, shake } from "../core/fx.js";
-import { dealDamage, enemiesNear, onMeleeHit, addBleed, addVulnerable, grantIframes, debuff, isUndead, lastBlock } from "../core/damage.js";
+import { dealDamage, enemiesNear, onMeleeHit, addBleed, addVulnerable, grantIframes, debuff, isUndead, lastBlock, notifyDodge } from "../core/damage.js";
 import { stats, itemData, hasBuff, removeBuff, spendEnergy, hasEnergy } from "../rpg/stats.js";
 import { getData, markDirty } from "../core/store.js";
 import { register, useAbility, ANIM, cooldownLeft, setCooldown } from "../abilities/registry.js";
@@ -449,6 +449,7 @@ function dodge(player) {
   const s = stats(player);
   dash(player, dir, 1.3 + s.attrs.agi * 0.01, 0.15);
   grantIframes(player, 8);
+  notifyDodge(player);
   anim(player, "animation.valdoria.player.esquiva", 0.1);
   particle(player.dimension, "esquiva", V.up(player.location, 0.8));
   sound(player.dimension, "mob.phantom.swoop", player.location, 1.8, 0.5);

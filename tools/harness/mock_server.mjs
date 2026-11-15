@@ -60,7 +60,12 @@ export const world = {
   getDynamicPropertyIds() { return [...dyn.keys()]; },
   getAllPlayers() { return __world.players; }, getPlayers() { return __world.players; },
   getDimension(id) { return __world.dims[id] || __world.dims["minecraft:overworld"] || dimension; },
-  getEntity(id) { for (const d of Object.values(__world.dims)) { const e = d._ents?.find((x) => x.id === id); if (e) return e; } return undefined; },
+  getEntity(id) {
+    const pl = __world.players.find((x) => x.id === id);
+    if (pl) return pl;
+    for (const d of Object.values(__world.dims)) { const e = d._ents?.find((x) => x.id === id); if (e) return e; }
+    return undefined;
+  },
   getAbsoluteTime() { return system.currentTick + 1000; },
   sendMessage() {}, getDefaultSpawnLocation() { return { x: 0, y: 64, z: 0 }; }, getTimeOfDay() { return 6000; }, getDay() { return 1; },
   scoreboard: mk("scoreboard"), gameRules: mk("gameRules"),

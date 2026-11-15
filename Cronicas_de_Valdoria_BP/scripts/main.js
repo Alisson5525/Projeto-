@@ -35,6 +35,7 @@ import { startCelestialCreatures } from "./creatures/celestes.js";
 import { startStructures } from "./structures/index.js";
 import { startExploration } from "./exploration/index.js";
 import { startPosture } from "./bosses/postura.js";
+import { startSpecs } from "./rpg/specs.js";
 import { startNpcs } from "./npc/index.js";
 import { startQuests } from "./quests/quests.js";
 import { openMainMenu } from "./ui/menus.js";
@@ -99,6 +100,7 @@ function start() {
   startQuests();
   startStructures();
   startExploration();
+  startSpecs(); // mecânicas das especializações (antes da postura, que vê o dano já modificado)
   startPosture(); // depois de todos os chefes: o gancho de postura vê o dano já com as imunidades aplicadas
   startNpcs();
   console.info("[Valdoria] Crônicas de Valdoria v2.2.0 (Edição Definitiva) carregado.");

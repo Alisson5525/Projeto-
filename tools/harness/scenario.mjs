@@ -8,7 +8,8 @@ const { __world, __advance, subs, ItemStack, system } = srv;
 
 // ---------------------------------------------------------------- mundo simulado
 const blocks = new Map();
-const famOf = (t) => (t.includes("goblin") ? ["goblin", "monster"] : /zombie|skeleton/.test(t) ? ["monster", "undead"] : []);
+const famOf = (t) => (t.includes("goblin") ? ["goblin", "monster"] : /zombie|skeleton/.test(t) ? ["monster", "undead"] :
+  t.includes("aldeao") ? ["villager", "valdoria_npc"] : []);
 const K = (p) => `${Math.floor(p.x)},${Math.floor(p.y)},${Math.floor(p.z)}`;
 let eid = 0;
 function makeEntity(dim, typeId, loc) {
@@ -20,7 +21,7 @@ function makeEntity(dim, typeId, loc) {
     remove() { e.isValid = false; dim._ents.splice(dim._ents.indexOf(e), 1); },
     setProperty() {}, getProperty() { return 0; }, setDynamicProperty: (k, v) => { dp[k] = v; }, getDynamicProperty: (k) => dp[k],
     getComponent: (c) => (c === "minecraft:health" ? e._hp : c === "minecraft:inventory" ? e._inv : c === "minecraft:equippable" ? e._eq : undefined),
-    hasComponent: (c) => c === "minecraft:health", addEffect() {}, removeEffect() {}, getEffect() { return undefined; },
+    hasComponent: (c) => c === "minecraft:health", addEffect(id) { (e._fx ||= new Set()).add(String(id)); }, removeEffect() {}, getEffect() { return undefined; },
     applyDamage(n, o = {}) {
       // como no jogo: dispara entityHurt (antes/depois); o "antes" pode cancelar ou alterar o dano
       const ev = { hurtEntity: e, damageSource: { cause: String(o.cause || "none"), damagingEntity: o.damagingEntity }, damage: n, cancel: false };
@@ -31,7 +32,7 @@ function makeEntity(dim, typeId, loc) {
       return true;
     }, applyImpulse(v) { e._imp = (e._imp || 0) + 1; }, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
     getViewDirection: () => ({ x: 0, y: 0, z: -1 }), getHeadLocation: () => ({ x: e.location.x, y: e.location.y + 1.6, z: e.location.z }),
-    getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: (q) => !!q?.families?.includes("monster") && /zombie|skeleton|goblin/.test(typeId), teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
+    getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: (q) => !!q?.families?.length && q.families.every((f) => famOf(typeId).includes(f)), teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
     runCommand() { return { successCount: 1 }; }, getRotation: () => ({ x: 0, y: 0 }), isOnGround: true,
   };
   e._hp = { currentValue: 20, effectiveMax: 20, defaultValue: 20, resetToMaxValue() { this.currentValue = this.effectiveMax; }, setCurrentValue(v) { this.currentValue = v; } };
@@ -232,9 +233,10 @@ check(blockAt(camp.mk.bau_tambor[0]) === "minecraft:chest", "tributo dos goblins
 const hitWith = async (weaponId, target, dmg = 6) => {
   held = new ItemStack(weaponId, 1);
   const hp0 = target._hp.currentValue;
-  fire("world.before.entityHurt", { hurtEntity: target, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: dmg, cancel: false });
-  target._hp.currentValue -= dmg; // o dano vanilla do próprio golpe
-  fire("world.after.entityHurt", { hurtEntity: target, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: dmg });
+  const bev = { hurtEntity: target, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: dmg, cancel: false };
+  fire("world.before.entityHurt", bev);
+  if (!bev.cancel) target._hp.currentValue -= bev.damage; // o dano do próprio golpe, já modificado como no jogo
+  fire("world.after.entityHurt", { hurtEntity: target, damageSource: bev.damageSource, damage: bev.damage });
   await __advance(3);
   return hp0 - target._hp.currentValue;
 };
@@ -351,6 +353,79 @@ dmgMod.dealDamage(player, zr1, 10, "lightning");
 await __advance(15);
 check(zr3._hp.currentValue < hp3 && ui.bar.some((b) => b.includes("Ressonância")), "Arcano + outra escola: Ressonância atinge o inimigo ao lado");
 for (const e of [zr1, zr2, zr3]) e.remove();
+
+// ================================================================ especializações
+const reg2 = await import(`${SCRIPTS}/abilities/registry.js`);
+const engine = await import(`${SCRIPTS}/abilities/engine.js`);
+const pd = store.getData(player);
+pd.cfg.semRecarga = true;
+player._hp.effectiveMax = 20;
+player._hp.currentValue = 20; // os espectros do templo podem ter "matado" o jogador simulado antes
+player.location = { x: 8000, y: 71, z: 8000 };
+const alvoE = (dx) => { const e = dim.spawnEntity("minecraft:zombie", { x: 8000 + dx, y: 71, z: 7995 }); e._hp.effectiveMax = e._hp.currentValue = 500; return e; };
+// Arquimago: o 4º feitiço é gratuito
+pd.classe = "mago"; pd.espec = "arquimago"; pd.energia = 500;
+const gastos = [];
+for (let i = 0; i < 4; i++) {
+  const e0 = pd.energia;
+  reg2.useAbility(player, "lanca_gelo");
+  gastos.push(e0 - pd.energia);
+  await __advance(12);
+}
+check(gastos[3] === 0 && gastos[0] > 0, `Arquimago: Sobrecarga Arcana no 4º feitiço (custos ${gastos.join(", ")})`);
+// Berserker: Frenesi aumenta o dano a cada golpe seguido
+pd.classe = "guerreiro"; pd.espec = "berserker";
+player._hp.currentValue = 20;
+const zb = alvoE(0);
+const golpes = [];
+for (let i = 0; i < 5; i++) { golpes.push(await hitWith("valdoria:espada_curta_aco", zb, 6)); await __advance(12); }
+check(golpes[4] > golpes[0], `Berserker: Frenesi (${golpes[0].toFixed(1)} -> ${golpes[4].toFixed(1)})`);
+// Guardião Real: desvia 30% do dano sofrido por um aliado próximo
+pd.classe = "cavaleiro"; pd.espec = "guardiao_real";
+player._hp.currentValue = 20;
+const aliado = dim.spawnEntity("valdoria:aldeao", { x: 8002, y: 71, z: 8000 });
+aliado._hp.effectiveMax = aliado._hp.currentValue = 30;
+const agressor = alvoE(3);
+dmgMod.dealDamage(agressor, aliado, 10, "physical", { kind: "weapon" });
+await __advance(5);
+check(Math.abs(30 - aliado._hp.currentValue - 7) < 0.01 && player._hp.currentValue < 20, `Guardião Real: aliado sofre 7 de 10 e o guardião absorve o resto (aliado -${(30 - aliado._hp.currentValue).toFixed(1)}, guardião ${player._hp.currentValue.toFixed(1)})`);
+// Duelista: depois de esquivar, o próximo golpe apara
+pd.classe = "assassino"; pd.espec = "duelista";
+const zd = alvoE(6);
+const semAparar = await hitWith("valdoria:espada_curta_aco", zd, 6);
+await __advance(12);
+dmgMod.notifyDodge(player);
+const comAparar = await hitWith("valdoria:espada_curta_aco", zd, 6);
+check(comAparar > semAparar && ui.bar.some((b) => b.includes("Aparar")), `Duelista: Aparar após esquiva (${comAparar.toFixed(1)} contra ${semAparar.toFixed(1)})`);
+// Inquisidor: 3 cargas de Condenação tornam o alvo Sentenciado (+20%)
+pd.classe = "clerigo"; pd.espec = "inquisidor";
+const zi = alvoE(9), zc = alvoE(12);
+for (let i = 0; i < 3; i++) { dmgMod.dealDamage(player, zi, 1, "holy"); await __advance(12); }
+const hpi = zi._hp.currentValue, hpc = zc._hp.currentValue;
+dmgMod.dealDamage(player, zi, 10, "physical", { kind: "weapon" });
+dmgMod.dealDamage(player, zc, 10, "physical", { kind: "weapon" });
+await __advance(5);
+check(hpi - zi._hp.currentValue > hpc - zc._hp.currentValue, `Inquisidor: alvo Sentenciado sofre mais (${(hpi - zi._hp.currentValue).toFixed(1)} contra ${(hpc - zc._hp.currentValue).toFixed(1)})`);
+// Sumo Sacerdote: cura excedente vira absorção
+pd.espec = "sumo_sacerdote";
+aliado._hp.currentValue = aliado._hp.effectiveMax;
+aliado._fx = new Set();
+engine.healTarget(player, aliado, 10);
+check(aliado._fx.has("absorption"), "Sumo Sacerdote: cura excedente vira escudo de absorção");
+// Necromante: abates podem se erguer como guerreiros esqueléticos
+pd.classe = "bruxo"; pd.espec = "necromante";
+let ergueu = 0;
+for (let i = 0; i < 12 && !ergueu; i++) {
+  const v = alvoE(20 + i);
+  v.remove();
+  fire("world.after.entityDie", { deadEntity: v, damageSource: { damagingEntity: player, cause: "entityAttack" } });
+  await __advance(100);
+  ergueu = dim.getEntities({ type: "valdoria:guerreiro_esqueletico" }).length;
+}
+check(ergueu > 0, `Necromante: Colheita de Almas ergue um guerreiro esquelético (${dim.getEntities({ type: "valdoria:guerreiro_esqueletico" }).length})`);
+for (const e of dim.getEntities({ location: { x: 8000, y: 71, z: 8000 }, maxDistance: 60 })) if (e.typeId !== "minecraft:player") e.remove();
+pd.espec = null; pd.classe = null; pd.cfg.semRecarga = false;
+held = undefined;
 
 // ================================================================ táticas de IA: pedir apoio
 player.location = { x: 4000, y: 71, z: 4000 };

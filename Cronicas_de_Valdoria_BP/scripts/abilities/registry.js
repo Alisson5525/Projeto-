@@ -32,6 +32,26 @@ export function register(id, def) {
   ABILITIES[id] = def;
 }
 
+const castHooks = [];
+/** Modificadores de conjuração (especializações): fn(jogador, habilidade, id) -> {cost?: mult, power?: mult} | undefined. */
+export function onCast(fn) {
+  castHooks.push(fn);
+}
+function castMods(player, ab, id) {
+  let cost = 1;
+  let power = 1;
+  for (const fn of castHooks) {
+    try {
+      const r = fn(player, ab, id);
+      if (r?.cost !== undefined) cost *= r.cost;
+      if (r?.power !== undefined) power *= r.power;
+    } catch (e) {
+      console.warn(`[Valdoria] modificador de conjuração: ${e}`);
+    }
+  }
+  return { cost, power };
+}
+
 export function cooldownLeft(player, id) {
   const t = cooldowns.get(player.id)?.get(id);
   return t ? Math.max(0, t - tick()) : 0;
@@ -123,7 +143,8 @@ export function useAbility(player, id, opts = {}) {
     player.onScreenDisplay.setActionBar("§cVocê não pode conjurar feitiços nesta forma.");
     return false;
   }
-  const cost = Math.round(ab.cost * (ab.tipo === "magia" || ab.tipo === "combo" ? s.spellCost : 1) * (opts.costMult ?? 1));
+  const mods = castMods(player, ab, id);
+  const cost = Math.round(ab.cost * (ab.tipo === "magia" || ab.tipo === "combo" ? s.spellCost : 1) * (opts.costMult ?? 1) * mods.cost);
   const d = getData(player);
   if (ab.hpCost) {
     const h = health(player);
@@ -153,7 +174,12 @@ export function useAbility(player, id, opts = {}) {
     const snd = SCHOOL_SOUND[el];
     if (snd) sound(player.dimension, snd[0], player.location, 0.9 + Math.random() * 0.2, 0.9);
     try {
-      ab.fn(makeCtx(player, ab, opts.ctx));
+      const ctx = makeCtx(player, ab, opts.ctx);
+      if (mods.power !== 1) {
+        ctx.power *= mods.power;
+        ctx.heal *= mods.power;
+      }
+      ab.fn(ctx);
     } catch (e) {
       console.warn(`[Valdoria] habilidade ${id}: ${e}`);
     }

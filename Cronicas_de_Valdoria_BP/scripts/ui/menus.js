@@ -27,6 +27,7 @@ import { LORE } from "../data/lore.js";
 import { explorationMenu } from "../exploration/menu.js";
 import { victoriesOf } from "../bosses/postura.js";
 import { REACOES } from "../magic/reactions.js";
+import { SPEC_MEC } from "../rpg/specs.js";
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
 
@@ -188,7 +189,7 @@ async function classMenu(player) {
     if (!d.espec && d.nivel >= SPEC_LEVEL && d.chefes > 0) return specMenu(player);
     const C = CLASSES[d.classe];
     const ab = C.habilidades.map(([h, lv]) => `${d.nivel >= lv ? "§a" : "§8"}${ABILITIES[h].nome} §7(nv ${lv}): ${ABILITIES[h].desc}`).join("\n");
-    const sp = d.espec ? `\n\n§dEspecialização: ${SPECS[d.espec].nome}\n§7${SPECS[d.espec].desc}` :
+    const sp = d.espec ? `\n\n§dEspecialização: ${SPECS[d.espec].nome}\n§7${SPECS[d.espec].desc}\n§fMecânica: §e${SPEC_MEC[d.espec]}` :
       `\n\n§7Especializações no nível ${SPEC_LEVEL} após derrotar um chefe: ${C.specs.map((x) => SPECS[x].nome).join(", ")}`;
     return notice(player, `§b${C.nome}`, `§7${C.desc}\n\n§aVantagens: §f${C.vantagens.join("; ")}\n§cLimitações: §f${C.limites.join("; ")}\n§6Equipamento ideal: §f${C.equip}\n\n§6Habilidades:\n${ab}${sp}`, openMainMenu);
   }
@@ -217,7 +218,8 @@ async function classMenu(player) {
 async function specMenu(player) {
   const d = getData(player);
   const C = CLASSES[d.classe];
-  const f = new ActionFormData().title("§lEspecialização").body("§fSua experiência permite aprofundar seu caminho. Escolha com cuidado - é permanente.");
+  const f = new ActionFormData().title("§lEspecialização").body("§fSua experiência permite aprofundar seu caminho. Escolha com cuidado - é permanente.\n\n" +
+    C.specs.map((id) => `§d§l${SPECS[id].nome}§r\n§7${SPECS[id].desc}\n§fMecânica: §e${SPEC_MEC[id]}`).join("\n\n"));
   for (const id of C.specs) f.button(`§l${SPECS[id].nome}§r\n§8${SPECS[id].desc}`);
   const r = await show(player, f);
   if (r.canceled || r.selection === undefined) return openMainMenu(player);

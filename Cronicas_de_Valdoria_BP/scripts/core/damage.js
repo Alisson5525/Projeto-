@@ -20,8 +20,15 @@ const killHooks = [];
 export function onBeforeHurt(fn) { hurtHooks.push(fn); }
 export function onMeleeHit(fn) { hitHooks.push(fn); }
 export function onKill(fn) { killHooks.push(fn); }
-const elementHooks = []; // reações elementais (magic/reactions.js): (src, alvo, dano, elemento, tipo)
+const elementHooks = []; // reações elementais e especializações: (src, alvo, dano, elemento, tipo, causa)
 export function onElementHit(fn) { elementHooks.push(fn); }
+const dodgeHooks = []; // esquivas bem-sucedidas (passiva ou ativa): (jogador)
+export function onDodge(fn) { dodgeHooks.push(fn); }
+export function notifyDodge(player) {
+  for (const fn of dodgeHooks) {
+    try { fn(player); } catch (e) { console.warn(`[Valdoria] esquiva: ${e}`); }
+  }
+}
 
 // ------------------------------------------------------------------ resistências das criaturas (negativo = fraqueza)
 const UNDEAD = new Set(["minecraft:zombie", "minecraft:skeleton", "minecraft:husk", "minecraft:stray", "minecraft:drowned",
@@ -197,7 +204,7 @@ export function dealDamage(src, target, amount, element = "arcane", opts = {}) {
     const h = health(target);
     if (!h) return 0;
     const ev = { cancel: false, damage: targetSide(target, amount, element, kind, physical ? "entityAttack" : "magic", srcOk),
-      hurtEntity: target, scripted: true, element, src: srcOk };
+      hurtEntity: target, scripted: true, element, src: srcOk, kind };
     for (const hk of hurtHooks) hk(ev);
     if (ev.cancel) return 0;
     const fin = ev.damage;
@@ -227,10 +234,10 @@ export function dealDamage(src, target, amount, element = "arcane", opts = {}) {
   return amount;
 }
 
-function afterHit(src, target, dmg, element, kind) {
+function afterHit(src, target, dmg, element, kind, cause) {
   if (!ok(src)) return;
   for (const fn of elementHooks) {
-    try { fn(src, target, dmg, element, kind); } catch (e) { console.warn(`[Valdoria] reação elemental: ${e}`); }
+    try { fn(src, target, dmg, element, kind, cause); } catch (e) { console.warn(`[Valdoria] reação elemental: ${e}`); }
   }
   if (isPlayer(src)) {
     const s = stats(src);
@@ -335,6 +342,7 @@ export function startDamage() {
         ev.cancel = true;
         system.run(() => {
           if (!ok(target)) return;
+          notifyDodge(target);
           particle(target.dimension, "esquiva", V.up(target.location, 1));
           sound(target.dimension, "mob.phantom.swoop", target.location, 1.6, 0.6);
           try { /** @type {any} */ (target).onScreenDisplay.setActionBar("§b» Esquiva! «"); } catch { /* */ }
@@ -369,7 +377,8 @@ export function startDamage() {
     }
 
     dmg = targetSide(target, dmg, element, isScripted ? mark.kind : "vanilla", causeStr, attacker);
-    const hookEv = { cancel: false, damage: dmg, hurtEntity: target, scripted: !!isScripted, element, src: attacker, cause: causeStr };
+    const hookEv = { cancel: false, damage: dmg, hurtEntity: target, scripted: !!isScripted, element, src: attacker, cause: causeStr,
+      kind: isScripted ? mark.kind : causeStr === "projectile" ? "projectile" : "vanilla", procs: undefined };
     for (const hk of hurtHooks) hk(hookEv);
     if (hookEv.cancel) {
       ev.cancel = true;
@@ -391,7 +400,7 @@ export function startDamage() {
             try { hk(attacker, target, final, procs); } catch (e) { console.warn(`[Valdoria] hit hook: ${e}`); }
           }
         }
-        afterHit(attacker, target, final, element, "vanilla");
+        afterHit(attacker, target, final, element, "vanilla", causeStr);
       });
     } else if (isScripted && mark.src) {
       const s0 = mark.src;
