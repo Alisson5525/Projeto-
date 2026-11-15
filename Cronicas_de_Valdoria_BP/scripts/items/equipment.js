@@ -11,13 +11,14 @@ import { addXP } from "../rpg/progression.js";
 import { addEnergy, invalidate, stats } from "../rpg/stats.js";
 import { RUNE_ELEMENT, HEAVY, STYLE } from "../combat/weapons.js";
 import { ABILITIES } from "../abilities/registry.js";
+import { RANGED_STYLE } from "../combat/archery.js";
 import { ELEMENT_NAMES } from "../rpg/stats.js";
 
 export const RARITY = {
   comum: ["§f", "Comum", 1], incomum: ["§a", "Incomum", 2], raro: ["§9", "Raro", 3], epico: ["§d", "Épico", 4],
   lendario: ["§6", "Lendário", 5], mitico: ["§c", "Mítico", 6], divino: ["§e", "Divino", 7],
 };
-const LORE_V = 5;
+const LORE_V = 6;
 const MAX_UPGRADE = { comum: 3, incomum: 4, raro: 5, epico: 5, lendario: 6, mitico: 7, divino: 7 };
 const MOD_NAMES = {
   str: "Força", vit: "Vitalidade", agi: "Agilidade", int: "Inteligência", spi: "Espírito", def: "Defesa", pre: "Precisão",
@@ -81,6 +82,7 @@ export function buildLore(item) {
     lines.push(`§7${d.type === "besta" ? "Engatilhar" : "Puxar"}: §f${d.tempo.toFixed(1)} s §7· Munição: flechas`);
     if (d.el && d.el !== "physical") lines.push(`§6Elemento: §f${ELEMENT_NAMES[d.el] || d.el}`);
     lines.push("§7Bônus: Dano à distância (Precisão) e classe Arqueiro");
+    lines.push(`§bEstilo: §f${RANGED_STYLE[d.type === "besta" ? "besta" : "arco"]}`);
   } else if (d.k === "caster") {
     lines.push(`§7Poder mágico §f×${d.power} §7· Custo §f×${d.cost}`);
     for (const el of Object.keys(ELEMENT_NAMES)) if (d[el]) lines.push(`§a+${Math.round(d[el] * 100)}% §7${ELEMENT_NAMES[el]}`);

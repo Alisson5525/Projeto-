@@ -4,12 +4,21 @@
 import { world, system } from "@minecraft/server";
 import { NS, V, ok, isPlayer, heldItem, tick } from "../core/util.js";
 import { particle, sound, line } from "../core/fx.js";
-import { dealDamage, enemiesNear } from "../core/damage.js";
+import { dealDamage, enemiesNear, addVulnerable } from "../core/damage.js";
+import { handFlash } from "../abilities/registry.js";
 import { root } from "../abilities/engine.js";
 import { ITEM_DATA } from "../data/items_gen.js";
 
 const ARROW = "minecraft:arrow";
-const P = { dano: `${NS}:dano`, el: `${NS}:el`, esp: `${NS}:esp`, extra: `${NS}:extra` };
+const P = { dano: `${NS}:dano`, el: `${NS}:el`, esp: `${NS}:esp`, extra: `${NS}:extra`, tipo: `${NS}:tipo`, perf: `${NS}:perf` };
+/** Identidade de cada família de arma à distância (também descrita na lore). */
+export const RANGED_STYLE = {
+  arco: "Tiro Perfeito: solte logo após a carga completa (som e brilho na mão) para +35%; acerto na cabeça +25%; segurar demais cansa o braço.",
+  besta: "Virote Pesado: rompe a armadura (+12% de dano recebido por 3 s), empurra e causa +20% a menos de 6 blocos.",
+};
+const PERFECT_WINDOW = 10; // ticks após a carga completa
+const FATIGUE_AFTER = 60; // ticks segurando além da carga completa
+const notified = new Set();
 const drawStart = new Map(); // jogador -> tick em que começou a puxar
 const released = new Map(); // jogador -> { t, item, frac }
 
@@ -23,9 +32,11 @@ export function shotDamage(d, ticks) {
   return { frac, dano: Math.round(d.dmg * frac * 10) / 10 };
 }
 
-function mark(arrow, d, dano, extra = false) {
+function mark(arrow, d, dano, extra = false, perf = false) {
   arrow.setDynamicProperty(P.dano, dano);
   arrow.setDynamicProperty(P.el, d.el);
+  arrow.setDynamicProperty(P.tipo, d.type === "besta" ? "besta" : "arco");
+  if (perf) arrow.setDynamicProperty(P.perf, true);
   if (d.esp) arrow.setDynamicProperty(P.esp, d.esp);
   if (extra) arrow.setDynamicProperty(P.extra, true);
 }
@@ -59,7 +70,8 @@ export function onArrow(arrow) {
   released.delete(owner.id);
   const d = rangedData(r.item);
   if (!d) return false;
-  mark(arrow, d, r.dano);
+  mark(arrow, d, r.dano, false, r.perf);
+  if (r.perf) particle(owner.dimension, "critico", from0(arrow), {});
   const vel = arrow.getVelocity();
   const from = { ...arrow.location };
   if (d.esp === "duplo" && Math.random() < 0.25) {
@@ -70,6 +82,34 @@ export function onArrow(arrow) {
   }
   if (d.el === "fire") particle(owner.dimension, "fogo_rastro", from, {});
   return true;
+}
+
+function from0(a) {
+  return { ...a.location };
+}
+/** Identidade de arco e besta em todo acerto (antes dos efeitos especiais das armas raras). */
+function styleHit(arrow, target, owner, hitLoc) {
+  let tipo;
+  try { tipo = arrow.getDynamicProperty(P.tipo); } catch { return; }
+  if (!tipo || !ok(target) || !ok(owner)) return;
+  const dano = Number(arrow.getDynamicProperty(P.dano)) || 0;
+  const dim = target.dimension;
+  if (tipo === "arco") {
+    let head = target.location.y + 1.5;
+    try { head = target.getHeadLocation().y; } catch { /* */ }
+    if (hitLoc && hitLoc.y >= head - 0.35) {
+      dealDamage(owner, target, dano * 0.25, "physical", { kind: "weapon" });
+      particle(dim, "critico", V.up(target.location, 1.6), {});
+      try { owner.onScreenDisplay.setActionBar("§eNa cabeça! §7+25%"); } catch { /* */ }
+    }
+  } else {
+    addVulnerable(target, 0.12, 3);
+    const d = V.dist(owner.location, target.location);
+    if (d < 6) dealDamage(owner, target, dano * 0.2, "physical", { kind: "weapon" });
+    const dir = V.flat(V.sub(target.location, owner.location));
+    try { target.applyKnockback({ x: dir.x * 0.8, z: dir.z * 0.8 }, 0.2); } catch { /* */ }
+    particle(dim, "detritos", V.up(target.location, 1), { radius: 0.4 });
+  }
 }
 
 function onHit(arrow, target, owner) {
@@ -110,6 +150,22 @@ function onHit(arrow, target, owner) {
 }
 
 export function startArchery() {
+  // sinal da janela do Tiro Perfeito: som agudo e brilho na mão direita (visível em primeira pessoa)
+  system.runInterval(() => {
+    if (!drawStart.size) return;
+    for (const p of world.getAllPlayers()) {
+      const pid = p.id;
+      const t0 = drawStart.get(pid);
+      if (t0 === undefined) continue;
+      const d = rangedData(heldItem(p));
+      if (!d || d.type === "besta" || notified.has(pid)) continue;
+      if (tick() - t0 >= d.tempo * 20) {
+        notified.add(pid);
+        try { p.playSound("random.orb", { pitch: 2, volume: 0.6 }); } catch { /* */ }
+        handFlash(p, "gold");
+      }
+    }
+  }, 1);
   world.afterEvents.itemStartUse.subscribe((ev) => {
     if (rangedData(ev.itemStack) && isPlayer(ev.source)) drawStart.set(ev.source.id, tick());
   });
@@ -119,8 +175,22 @@ export function startArchery() {
     if (!d || !isPlayer(p)) return;
     const t0 = drawStart.get(p.id);
     drawStart.delete(p.id);
-    const { frac, dano } = shotDamage(d, t0 === undefined ? 0 : tick() - t0);
-    released.set(p.id, { t: tick(), item: ev.itemStack, frac, dano });
+    notified.delete(p.id);
+    const held = t0 === undefined ? 0 : tick() - t0;
+    let { frac, dano } = shotDamage(d, held);
+    let perf = false;
+    if (d.type !== "besta") {
+      const over = held - d.tempo * 20;
+      if (over >= 0 && over <= PERFECT_WINDOW) {
+        perf = true;
+        dano = Math.round(dano * 1.35 * 10) / 10;
+        p.onScreenDisplay.setActionBar("§6Tiro Perfeito! §7+35%");
+      } else if (over > FATIGUE_AFTER) {
+        dano = Math.round(dano * 0.85 * 10) / 10;
+        p.onScreenDisplay.setActionBar("§7O braço cansou... §8(-15%)");
+      }
+    }
+    released.set(p.id, { t: tick(), item: ev.itemStack, frac, dano, perf });
     if (frac >= 1 && d.type === "besta") sound(p.dimension, "crossbow.shoot", p.location, 1, 0.9);
   });
   world.afterEvents.entitySpawn.subscribe((ev) => {
@@ -133,7 +203,14 @@ export function startArchery() {
     const a = ev.projectile;
     if (!ok(a) || a.typeId !== ARROW) return;
     const target = ev.getEntityHit()?.entity;
-    if (target) onHit(a, target, ev.source);
+    if (!target) return;
+    styleHit(a, target, ev.source, ev.location);
+    onHit(a, target, ev.source);
+  });
+  world.afterEvents.playerLeave.subscribe((ev) => {
+    drawStart.delete(ev.playerId);
+    notified.delete(ev.playerId);
+    released.delete(ev.playerId);
   });
   world.afterEvents.projectileHitBlock.subscribe((ev) => {
     const a = ev.projectile;

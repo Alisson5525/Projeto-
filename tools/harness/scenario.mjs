@@ -285,6 +285,38 @@ const frag1 = slots.filter((x) => x?.typeId === "valdoria:fragmento_mapa").lengt
 check(!!store.getData(player).flags.vitoria_tita_pedra && frag1 > frag0, "Primeira vitória contra o Titã registra e entrega um Fragmento de Mapa");
 held = undefined;
 
+// ================================================================ arco e besta
+const shoot = async (weaponId, holdTicks, target, hitY) => {
+  const it = new ItemStack(weaponId, 1);
+  held = it;
+  fire("world.after.itemStartUse", { itemStack: it, source: player });
+  await __advance(holdTicks);
+  fire("world.after.itemReleaseUse", { itemStack: it, source: player });
+  const arrow = dim.spawnEntity("minecraft:arrow", { x: player.location.x, y: 72.5, z: player.location.z - 1 });
+  arrow.getComponent = (c) => (c === "minecraft:projectile" ? { owner: player } : undefined);
+  arrow.getVelocity = () => ({ x: 0, y: 0, z: -2 });
+  fire("world.after.entitySpawn", { entity: arrow });
+  await __advance(1);
+  const hp0 = target._hp.currentValue;
+  fire("world.after.projectileHitEntity", { projectile: arrow, source: player, location: { x: target.location.x, y: hitY, z: target.location.z },
+    getEntityHit: () => ({ entity: target }) });
+  await __advance(2);
+  arrow.remove();
+  return { dano: Number(arrow.getDynamicProperty("valdoria:dano")), extra: hp0 - target._hp.currentValue, perf: !!arrow.getDynamicProperty("valdoria:perf") };
+};
+player.location = { x: 6000, y: 71, z: 6000 };
+const alvo = dim.spawnEntity("minecraft:zombie", { x: 6000, y: 71, z: 5990 });
+alvo._hp.effectiveMax = alvo._hp.currentValue = 300;
+const comum = await shoot("valdoria:arco_teixo", 40, alvo, 71.5);   // 2 s: passou da janela
+const perfeito = await shoot("valdoria:arco_teixo", 24, alvo, 71.5); // 1,2 s: dentro da janela (carga 1,0 s)
+check(perfeito.perf && perfeito.dano > comum.dano, `Arco: Tiro Perfeito na janela (${perfeito.dano} contra ${comum.dano})`);
+const cabeca = await shoot("valdoria:arco_teixo", 40, alvo, 72.9);
+check(cabeca.extra > 0, "Arco: acerto na cabeça causa dano extra");
+await shoot("valdoria:besta_aco", 30, alvo, 71.5);
+check(Math.abs((dmgMod.debuff(alvo).vuln?.pct || 0) - 0.12) < 1e-9, "Besta: virote rompe a armadura do alvo (+12%)");
+alvo.remove();
+held = undefined;
+
 // ================================================================ táticas de IA: pedir apoio
 player.location = { x: 4000, y: 71, z: 4000 };
 const g1 = dim.spawnEntity("valdoria:goblin", { x: 4000, y: 71, z: 3997 });
