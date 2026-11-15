@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:filacterio",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/filacterio"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.filacterio"
+      },
+      "animations": {
+        "idle": "animation.valdoria.filacterio.idle"
+      },
+      "scripts": {
+        "animate": [
+          "idle"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#3a3442",
+        "overlay_color": "#7af0ff"
+      }
+    }
+  }
+}

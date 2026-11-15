@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.anao.escudo": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            -80,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            -10,
+            0,
+            0
+          ]
+        },
+        "root": {
+          "position": [
+            0,
+            -3,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -60,
+            0,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -20,
+            0,
+            -10
+          ]
+        },
+        "head": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

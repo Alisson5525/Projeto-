@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:azrakar",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/azrakar"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.azrakar"
+      },
+      "animations": {
+        "look": "animation.valdoria.azrakar.look",
+        "idle": "animation.valdoria.azrakar.idle",
+        "walk": "animation.valdoria.azrakar.walk",
+        "attack": "animation.valdoria.azrakar.attack",
+        "hurt": "animation.valdoria.azrakar.hurt",
+        "corte": "animation.valdoria.azrakar.corte",
+        "salto": "animation.valdoria.azrakar.salto",
+        "orbes": "animation.valdoria.azrakar.orbes",
+        "chamas": "animation.valdoria.azrakar.chamas",
+        "legiao": "animation.valdoria.azrakar.legiao",
+        "eclipse": "animation.valdoria.azrakar.eclipse",
+        "furia": "animation.valdoria.azrakar.furia",
+        "intro": "animation.valdoria.azrakar.intro",
+        "morte": "animation.valdoria.azrakar.morte",
+        "main": "controller.animation.valdoria.azrakar.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2e2630",
+        "overlay_color": "#ff4a20"
+      }
+    }
+  }
+}

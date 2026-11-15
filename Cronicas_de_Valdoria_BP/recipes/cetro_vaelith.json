@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cetro_vaelith"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " AA",
+      " FA",
+      "O  "
+    ],
+    "key": {
+      "A": {
+        "item": "valdoria:veu_sombrio"
+      },
+      "F": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "O": {
+        "item": "minecraft:crying_obsidian"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:veu_sombrio"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cetro_vaelith",
+      "count": 1
+    }
+  }
+}

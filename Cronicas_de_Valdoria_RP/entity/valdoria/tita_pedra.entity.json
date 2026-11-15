@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:tita_pedra",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "p1": "textures/entity/valdoria/tita_pedra_1",
+        "p2": "textures/entity/valdoria/tita_pedra_2",
+        "p3": "textures/entity/valdoria/tita_pedra_3"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.tita_pedra"
+      },
+      "animations": {
+        "look": "animation.valdoria.tita.look",
+        "idle": "animation.valdoria.tita.idle",
+        "walk": "animation.valdoria.tita.walk",
+        "hurt": "animation.valdoria.tita.hurt",
+        "attack": "animation.valdoria.tita.attack",
+        "slam": "animation.valdoria.tita.slam",
+        "stomp": "animation.valdoria.tita.stomp",
+        "throw": "animation.valdoria.tita.throw",
+        "roar": "animation.valdoria.tita.roar",
+        "charge": "animation.valdoria.tita.charge",
+        "death": "animation.valdoria.tita.death",
+        "intro": "animation.valdoria.tita.intro",
+        "stun": "animation.valdoria.tita.stun",
+        "hide_rock": "animation.valdoria.tita.hide_rock",
+        "main": "controller.animation.valdoria.tita.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ],
+        "pre_animation": [
+          "variable.passo = math.clamp(math.cos(query.modified_distance_moved * 13.5) * math.min(query.modified_move_speed, 0.6) * 25.0, -12.5, 12.5);",
+          "variable.passo_b = math.clamp(math.sin(query.modified_distance_moved * 13.5) * math.min(query.modified_move_speed, 0.6) * 25.0, -12.5, 12.5);"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.valdoria.tita"
+      ],
+      "spawn_egg": {
+        "base_color": "#7d7468",
+        "overlay_color": "#ffb030"
+      }
+    }
+  }
+}

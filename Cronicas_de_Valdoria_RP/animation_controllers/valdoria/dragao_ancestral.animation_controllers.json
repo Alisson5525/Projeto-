@@ -1,0 +1,220 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.dragao_ancestral.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "walk": "query.modified_move_speed > 0.02"
+            },
+            "hurt"
+          ],
+          "transitions": [
+            {
+              "mordida": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "cauda": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "sopro": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "rugido": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "decolar": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "voo": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "pousar": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "rasante": "query.property('valdoria:anim') == 8"
+            },
+            {
+              "exausto": "query.property('valdoria:anim') == 9"
+            },
+            {
+              "meteoros": "query.property('valdoria:anim') == 10"
+            },
+            {
+              "morte": "query.property('valdoria:anim') == 11"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 12"
+            },
+            {
+              "voo_fogo": "query.property('valdoria:anim') == 13"
+            },
+            {
+              "anel": "query.property('valdoria:anim') == 14"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "mordida": {
+          "animations": [
+            "idle",
+            "mordida"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "cauda": {
+          "animations": [
+            "idle",
+            "cauda"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "sopro": {
+          "animations": [
+            "sopro"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "rugido": {
+          "animations": [
+            "rugido"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "decolar": {
+          "animations": [
+            "decolar"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "voo": {
+          "animations": [
+            "voo"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "pousar": {
+          "animations": [
+            "pousar"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "rasante": {
+          "animations": [
+            "rasante"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        },
+        "exausto": {
+          "animations": [
+            "exausto"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 9"
+            }
+          ]
+        },
+        "meteoros": {
+          "animations": [
+            "meteoros"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 10"
+            }
+          ]
+        },
+        "morte": {
+          "animations": [
+            "morte"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 11"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 12"
+            }
+          ]
+        },
+        "voo_fogo": {
+          "animations": [
+            "voo_fogo"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 13"
+            }
+          ]
+        },
+        "anel": {
+          "animations": [
+            "anel"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 14"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

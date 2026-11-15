@@ -1,0 +1,64 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Crônicas de Valdoria - Comportamento",
+    "description": "§6Fantasia medieval, RPG, raças, classes, magia, criaturas e chefes. §eEdição Definitiva: exploração, enigmas, segredos e eventos. §7v2.3.0",
+    "uuid": "7bd2b8b0-c63c-4376-8b6d-f41060f82364",
+    "version": [
+      2,
+      3,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      10
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "04c0759e-3209-4652-a44a-428cef39fff7",
+      "version": [
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "0b0dce20-b31f-4c56-9470-73ae232a06f7",
+      "version": [
+        2,
+        3,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "c688d98b-0c38-4396-894d-12cb510f367b",
+      "version": [
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Crônicas de Valdoria"
+    ],
+    "product_type": "addon"
+  }
+}

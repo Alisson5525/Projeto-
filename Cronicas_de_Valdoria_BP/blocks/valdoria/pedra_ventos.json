@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:pedra_ventos",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": false,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_pedra_ventos_lado",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "valdoria_pedra_ventos",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#cfe8ff",
+      "minecraft:light_emission": 12,
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

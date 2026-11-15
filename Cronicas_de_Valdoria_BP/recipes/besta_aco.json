@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_besta_aco"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MSM",
+      " W ",
+      " T "
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "W": {
+        "item": "minecraft:stick"
+      },
+      "T": {
+        "item": "minecraft:tripwire_hook"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:besta_aco",
+      "count": 1
+    }
+  }
+}

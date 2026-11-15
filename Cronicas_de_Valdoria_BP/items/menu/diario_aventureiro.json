@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:diario_aventureiro",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_diario_aventureiro",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:diario_aventureiro.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:menu",
+          "valdoria:rarity_lendario"
+        ]
+      }
+    }
+  }
+}

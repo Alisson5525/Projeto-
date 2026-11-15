@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:orvalho_lunar",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_orvalho_lunar",
+      "minecraft:max_stack_size": 16,
+      "minecraft:display_name": {
+        "value": "item.valdoria:orvalho_lunar.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:quest",
+          "valdoria:rarity_raro"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

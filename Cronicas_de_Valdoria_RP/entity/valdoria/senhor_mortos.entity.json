@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:senhor_mortos",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/senhor_mortos"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.senhor_mortos"
+      },
+      "animations": {
+        "look": "animation.valdoria.senhor_mortos.look",
+        "idle": "animation.valdoria.senhor_mortos.idle",
+        "move": "animation.valdoria.senhor_mortos.move",
+        "hurt": "animation.valdoria.senhor_mortos.hurt",
+        "attack": "animation.valdoria.senhor_mortos.attack",
+        "bolt": "animation.valdoria.senhor_mortos.bolt",
+        "spikes": "animation.valdoria.senhor_mortos.spikes",
+        "summon": "animation.valdoria.senhor_mortos.summon",
+        "teleport": "animation.valdoria.senhor_mortos.teleport",
+        "shield": "animation.valdoria.senhor_mortos.shield",
+        "storm": "animation.valdoria.senhor_mortos.storm",
+        "death": "animation.valdoria.senhor_mortos.death",
+        "intro": "animation.valdoria.senhor_mortos.intro",
+        "nova": "animation.valdoria.senhor_mortos.nova",
+        "main": "controller.animation.valdoria.senhor_mortos.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2a1f36",
+        "overlay_color": "#7af0ff"
+      }
+    }
+  }
+}

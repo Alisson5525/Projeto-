@@ -1,0 +1,59 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.tita.stun": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            -7,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            -60,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            -60,
+            0,
+            0
+          ]
+        },
+        "chest": {
+          "rotation": [
+            "30 + math.sin(query.life_time * 900) * 2",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            30,
+            "math.sin(query.life_time * 200) * 15",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -10,
+            0,
+            15
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -10,
+            0,
+            -15
+          ]
+        }
+      }
+    }
+  }
+}

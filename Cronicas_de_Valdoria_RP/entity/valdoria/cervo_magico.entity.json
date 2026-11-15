@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:cervo_magico",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/cervo_magico"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.cervo_magico"
+      },
+      "animations": {
+        "look": "animation.valdoria.cervo.look",
+        "idle": "animation.valdoria.cervo.idle",
+        "walk": "animation.valdoria.cervo.walk",
+        "glow": "animation.valdoria.cervo.glow"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "glow",
+          {
+            "idle": "query.modified_move_speed < 0.02"
+          },
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          }
+        ],
+        "scale": "0.95"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#a8743e",
+        "overlay_color": "#9ff0ff"
+      }
+    }
+  }
+}

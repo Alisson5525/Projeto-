@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_sombria_calcas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:veu_sombrio"
+      },
+      "X": {
+        "item": "minecraft:black_wool"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:veu_sombrio"
+      }
+    ],
+    "result": {
+      "item": "valdoria:sombria_calcas",
+      "count": 1
+    }
+  }
+}

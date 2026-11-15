@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:varinha_aprendiz",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_varinha_aprendiz",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:varinha_aprendiz.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:caster",
+          "valdoria:rarity_comum"
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 900
+      },
+      "minecraft:can_destroy_in_creative": false
+    }
+  }
+}

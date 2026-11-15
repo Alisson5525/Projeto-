@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:coracao_dragao",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_coracao_dragao",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:coracao_dragao.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:accessory",
+          "valdoria:rarity_mitico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

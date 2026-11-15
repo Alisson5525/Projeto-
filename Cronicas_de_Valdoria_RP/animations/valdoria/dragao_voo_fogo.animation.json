@@ -1,0 +1,157 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.dragao_ancestral.voo_fogo": {
+      "loop": true,
+      "bones": {
+        "asaL": {
+          "rotation": [
+            0,
+            -8,
+            "-5 - math.sin(query.life_time * 176) * 30"
+          ]
+        },
+        "asaL2": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(query.life_time * 176 - 50) * 18.0"
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            8,
+            "-(-5 - math.sin(query.life_time * 176) * 30)"
+          ]
+        },
+        "asaR2": {
+          "rotation": [
+            0,
+            0,
+            "-(-math.sin(query.life_time * 176 - 50) * 18.0)"
+          ]
+        },
+        "legFL": {
+          "rotation": [
+            35,
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            35,
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            50,
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            50,
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            55,
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            55,
+            0,
+            0
+          ]
+        },
+        "lowBL": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        },
+        "lowBR": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        },
+        "cauda1": {
+          "rotation": [
+            "math.sin(query.life_time * 220 - 40) * 5",
+            "math.sin(query.life_time * 60 - 30) * 3",
+            0
+          ]
+        },
+        "cauda2": {
+          "rotation": [
+            "math.sin(query.life_time * 220 - 80) * 5",
+            "math.sin(query.life_time * 60 - 60) * 3",
+            0
+          ]
+        },
+        "cauda3": {
+          "rotation": [
+            "math.sin(query.life_time * 220 - 120) * 5",
+            "math.sin(query.life_time * 60 - 90) * 3",
+            0
+          ]
+        },
+        "cauda4": {
+          "rotation": [
+            "math.sin(query.life_time * 220 - 160) * 5",
+            "math.sin(query.life_time * 60 - 120) * 3",
+            0
+          ]
+        },
+        "cauda5": {
+          "rotation": [
+            "math.sin(query.life_time * 220 - 200) * 5",
+            "math.sin(query.life_time * 60 - 150) * 3",
+            0
+          ]
+        },
+        "neck1": {
+          "rotation": [
+            10,
+            0,
+            0
+          ]
+        },
+        "neck2": {
+          "rotation": [
+            8,
+            0,
+            0
+          ]
+        },
+        "neck3": {
+          "rotation": [
+            10,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            35,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

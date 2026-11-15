@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_sombria_peitoral"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M M",
+      "MXM",
+      "MMM"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:veu_sombrio"
+      },
+      "X": {
+        "item": "minecraft:black_wool"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:veu_sombrio"
+      }
+    ],
+    "result": {
+      "item": "valdoria:sombria_peitoral",
+      "count": 1
+    }
+  }
+}

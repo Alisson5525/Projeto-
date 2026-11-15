@@ -1,0 +1,101 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.dragao_ancestral.meteoros": {
+      "loop": true,
+      "bones": {
+        "asaL": {
+          "rotation": [
+            0,
+            -10,
+            "-35 - math.sin(query.life_time * 300) * 10"
+          ]
+        },
+        "asaL2": {
+          "rotation": [
+            0,
+            0,
+            10
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            10,
+            "-(-35 - math.sin(query.life_time * 300) * 10)"
+          ]
+        },
+        "asaR2": {
+          "rotation": [
+            0,
+            0,
+            -10
+          ]
+        },
+        "root": {
+          "rotation": [
+            -22,
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "neck1": {
+          "rotation": [
+            -30,
+            0,
+            0
+          ]
+        },
+        "neck2": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            40,
+            0,
+            0
+          ]
+        },
+        "legFL": {
+          "rotation": [
+            -40,
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            -30,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

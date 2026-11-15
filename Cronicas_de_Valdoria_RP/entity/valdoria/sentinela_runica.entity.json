@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:sentinela_runica",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/sentinela_runica"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.sentinela_runica"
+      },
+      "animations": {
+        "look": "animation.valdoria.sentinela_runica.look",
+        "idle": "animation.valdoria.sentinela_runica.idle",
+        "walk": "animation.valdoria.sentinela_runica.walk",
+        "attack": "animation.valdoria.sentinela_runica.attack"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "walk",
+          "attack"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#6e6a64",
+        "overlay_color": "#40e0ff"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:guardiao_celeste",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/guardiao_celeste"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.guardiao_celeste"
+      },
+      "animations": {
+        "look": "animation.valdoria.guardiao_celeste.look",
+        "idle": "animation.valdoria.guardiao_celeste.idle",
+        "walk": "animation.valdoria.guardiao_celeste.walk",
+        "attack": "animation.valdoria.guardiao_celeste.attack",
+        "hurt": "animation.valdoria.guardiao_celeste.hurt",
+        "estocada": "animation.valdoria.guardiao_celeste.estocada",
+        "investida": "animation.valdoria.guardiao_celeste.investida",
+        "lancas": "animation.valdoria.guardiao_celeste.lancas",
+        "rajada": "animation.valdoria.guardiao_celeste.rajada",
+        "chamado": "animation.valdoria.guardiao_celeste.chamado",
+        "juizo": "animation.valdoria.guardiao_celeste.juizo",
+        "ascensao": "animation.valdoria.guardiao_celeste.ascensao",
+        "intro": "animation.valdoria.guardiao_celeste.intro",
+        "morte": "animation.valdoria.guardiao_celeste.morte",
+        "main": "controller.animation.valdoria.guardiao_celeste.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#eceae4",
+        "overlay_color": "#e8c050"
+      }
+    }
+  }
+}

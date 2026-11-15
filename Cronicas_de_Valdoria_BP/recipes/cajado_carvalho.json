@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cajado_carvalho"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  E",
+      " S ",
+      "S  "
+    ],
+    "key": {
+      "E": {
+        "item": "valdoria:essencia_natural"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:essencia_natural"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cajado_carvalho",
+      "count": 1
+    }
+  }
+}

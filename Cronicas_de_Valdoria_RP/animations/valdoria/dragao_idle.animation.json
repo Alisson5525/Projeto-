@@ -1,0 +1,115 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.dragao_ancestral.idle": {
+      "loop": true,
+      "bones": {
+        "asaL": {
+          "rotation": [
+            0,
+            -62,
+            -32
+          ]
+        },
+        "asaL2": {
+          "rotation": [
+            0,
+            0,
+            150
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            62,
+            32
+          ]
+        },
+        "asaR2": {
+          "rotation": [
+            0,
+            0,
+            -150
+          ]
+        },
+        "cauda1": {
+          "rotation": [
+            "math.sin(query.life_time * 60 - 25) * 2",
+            "math.sin(query.life_time * 45 - 30) * 5",
+            0
+          ]
+        },
+        "cauda2": {
+          "rotation": [
+            "math.sin(query.life_time * 60 - 50) * 2",
+            "math.sin(query.life_time * 45 - 60) * 6",
+            0
+          ]
+        },
+        "cauda3": {
+          "rotation": [
+            "math.sin(query.life_time * 60 - 75) * 2",
+            "math.sin(query.life_time * 45 - 90) * 7",
+            0
+          ]
+        },
+        "cauda4": {
+          "rotation": [
+            "math.sin(query.life_time * 60 - 100) * 2",
+            "math.sin(query.life_time * 45 - 120) * 8",
+            0
+          ]
+        },
+        "cauda5": {
+          "rotation": [
+            "math.sin(query.life_time * 60 - 125) * 2",
+            "math.sin(query.life_time * 45 - 150) * 9",
+            0
+          ]
+        },
+        "body": {
+          "scale": [
+            1,
+            "1 + math.sin(query.life_time * 70) * 0.015",
+            "1 + math.sin(query.life_time * 70) * 0.01"
+          ]
+        },
+        "neck1": {
+          "rotation": [
+            "-8 + math.sin(query.life_time * 50) * 2",
+            0,
+            0
+          ]
+        },
+        "neck2": {
+          "rotation": [
+            "-10 + math.sin(query.life_time * 50 - 30) * 2",
+            0,
+            0
+          ]
+        },
+        "neck3": {
+          "rotation": [
+            "6 + math.sin(query.life_time * 50 - 60) * 2",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            12,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "2 + math.max(0, math.sin(query.life_time * 35)) * 4",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

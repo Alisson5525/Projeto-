@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.dragao_ancestral.hurt": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-math.clamp(query.hurt_time, 0, 10) * 0.6",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

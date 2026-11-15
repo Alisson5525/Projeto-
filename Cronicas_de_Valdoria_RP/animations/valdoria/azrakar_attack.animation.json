@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.azrakar.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-40 - (variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 100",
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 30",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 10",
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 25",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

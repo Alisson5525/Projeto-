@@ -1,0 +1,121 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:aldeao",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "t0": "textures/entity/valdoria/npc_00_0",
+        "t1": "textures/entity/valdoria/npc_00_1",
+        "t2": "textures/entity/valdoria/npc_01_0",
+        "t3": "textures/entity/valdoria/npc_01_1",
+        "t4": "textures/entity/valdoria/npc_02_0",
+        "t5": "textures/entity/valdoria/npc_02_1",
+        "t6": "textures/entity/valdoria/npc_03_0",
+        "t7": "textures/entity/valdoria/npc_03_1",
+        "t8": "textures/entity/valdoria/npc_04_0",
+        "t9": "textures/entity/valdoria/npc_04_1",
+        "t10": "textures/entity/valdoria/npc_05_0",
+        "t11": "textures/entity/valdoria/npc_05_1",
+        "t12": "textures/entity/valdoria/npc_06_0",
+        "t13": "textures/entity/valdoria/npc_06_1",
+        "t14": "textures/entity/valdoria/npc_07_0",
+        "t15": "textures/entity/valdoria/npc_07_1",
+        "t16": "textures/entity/valdoria/npc_08_0",
+        "t17": "textures/entity/valdoria/npc_08_1",
+        "t18": "textures/entity/valdoria/npc_09_0",
+        "t19": "textures/entity/valdoria/npc_09_1",
+        "t20": "textures/entity/valdoria/npc_10_0",
+        "t21": "textures/entity/valdoria/npc_10_1",
+        "t22": "textures/entity/valdoria/npc_11_0",
+        "t23": "textures/entity/valdoria/npc_11_1",
+        "t24": "textures/entity/valdoria/npc_12_0",
+        "t25": "textures/entity/valdoria/npc_12_1",
+        "t26": "textures/entity/valdoria/npc_13_0",
+        "t27": "textures/entity/valdoria/npc_13_1",
+        "t28": "textures/entity/valdoria/npc_14_0",
+        "t29": "textures/entity/valdoria/npc_14_1",
+        "t30": "textures/entity/valdoria/npc_15_0",
+        "t31": "textures/entity/valdoria/npc_15_1",
+        "t32": "textures/entity/valdoria/npc_16_0",
+        "t33": "textures/entity/valdoria/npc_16_1",
+        "t34": "textures/entity/valdoria/npc_17_0",
+        "t35": "textures/entity/valdoria/npc_17_1",
+        "t36": "textures/entity/valdoria/npc_18_0",
+        "t37": "textures/entity/valdoria/npc_18_1",
+        "t38": "textures/entity/valdoria/npc_19_0",
+        "t39": "textures/entity/valdoria/npc_19_1",
+        "t40": "textures/entity/valdoria/npc_20_0",
+        "t41": "textures/entity/valdoria/npc_20_1",
+        "t42": "textures/entity/valdoria/npc_21_0",
+        "t43": "textures/entity/valdoria/npc_21_1",
+        "t44": "textures/entity/valdoria/npc_22_0",
+        "t45": "textures/entity/valdoria/npc_22_1",
+        "t46": "textures/entity/valdoria/npc_23_0",
+        "t47": "textures/entity/valdoria/npc_23_1",
+        "t48": "textures/entity/valdoria/npc_24_0",
+        "t49": "textures/entity/valdoria/npc_24_1",
+        "t50": "textures/entity/valdoria/npc_25_0",
+        "t51": "textures/entity/valdoria/npc_25_1",
+        "t52": "textures/entity/valdoria/npc_26_0",
+        "t53": "textures/entity/valdoria/npc_26_1",
+        "t54": "textures/entity/valdoria/npc_27_0",
+        "t55": "textures/entity/valdoria/npc_27_1",
+        "t56": "textures/entity/valdoria/npc_28_0",
+        "t57": "textures/entity/valdoria/npc_28_1",
+        "t58": "textures/entity/valdoria/npc_29_0",
+        "t59": "textures/entity/valdoria/npc_29_1"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.npc"
+      },
+      "animations": {
+        "look": "animation.valdoria.npc.look",
+        "idle": "animation.valdoria.npc.idle",
+        "walk": "animation.valdoria.npc.walk",
+        "attack": "animation.valdoria.npc.attack",
+        "loadout": "animation.valdoria.npc.loadout",
+        "talk": "animation.valdoria.npc.talk",
+        "work": "animation.valdoria.npc.work",
+        "wave": "animation.valdoria.npc.wave",
+        "mirar": "animation.valdoria.npc.mirar",
+        "tied": "animation.valdoria.npc.tied"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          "loadout",
+          {
+            "talk": "query.property('valdoria:anim') == 1"
+          },
+          {
+            "work": "query.property('valdoria:anim') == 2"
+          },
+          {
+            "wave": "query.property('valdoria:anim') == 3"
+          },
+          {
+            "tied": "query.property('valdoria:oficio') == 11"
+          },
+          {
+            "mirar": "query.has_target && (query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 27)"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.valdoria.npc"
+      ],
+      "spawn_egg": {
+        "base_color": "#e8bc94",
+        "overlay_color": "#3a3a6a"
+      }
+    }
+  }
+}

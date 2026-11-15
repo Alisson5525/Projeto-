@@ -1,0 +1,548 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "valdoria:companheiro",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "valdoria:anim": {
+          "type": "int",
+          "range": [
+            0,
+            12
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "valdoria:oficio": {
+          "type": "int",
+          "range": [
+            0,
+            31
+          ],
+          "default": 27,
+          "client_sync": true
+        },
+        "valdoria:variante": {
+          "type": "int",
+          "range": [
+            0,
+            1
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "valdoria:imovel": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      },
+      "valdoria:recrutado": {
+        "minecraft:is_tamed": {}
+      },
+      "valdoria:seguir": {
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.2,
+          "start_distance": 7,
+          "stop_distance": 3,
+          "max_distance": 40,
+          "can_teleport": true
+        }
+      },
+      "valdoria:agressivo": {
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 5,
+          "must_see": true,
+          "reselect_targets": true,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "monster"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "valdoria_hostile"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "creeper"
+                  }
+                ]
+              },
+              "max_dist": 14
+            }
+          ]
+        }
+      },
+      "valdoria:corpo_forte": {
+        "minecraft:attack": {
+          "damage": 7
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.25,
+          "track_target": true
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.6
+        }
+      },
+      "valdoria:corpo_leve": {
+        "minecraft:attack": {
+          "damage": 3
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.1,
+          "track_target": true
+        }
+      },
+      "valdoria:distancia": {
+        "minecraft:shooter": {
+          "def": "minecraft:arrow"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval": {
+            "min": 1.0,
+            "max": 1.8
+          },
+          "attack_range": {
+            "min": 0.0,
+            "max": 16.0
+          }
+        }
+      },
+      "valdoria:vida_arqueira_0": {
+        "minecraft:health": {
+          "value": 26,
+          "max": 26
+        }
+      },
+      "valdoria:vida_arqueira_1": {
+        "minecraft:health": {
+          "value": 36,
+          "max": 36
+        }
+      },
+      "valdoria:vida_arqueira_2": {
+        "minecraft:health": {
+          "value": 48,
+          "max": 48
+        }
+      },
+      "valdoria:vida_arqueira_3": {
+        "minecraft:health": {
+          "value": 62,
+          "max": 62
+        }
+      },
+      "valdoria:vida_cavaleiro_0": {
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        }
+      },
+      "valdoria:vida_cavaleiro_1": {
+        "minecraft:health": {
+          "value": 56,
+          "max": 56
+        }
+      },
+      "valdoria:vida_cavaleiro_2": {
+        "minecraft:health": {
+          "value": 74,
+          "max": 74
+        }
+      },
+      "valdoria:vida_cavaleiro_3": {
+        "minecraft:health": {
+          "value": 96,
+          "max": 96
+        }
+      },
+      "valdoria:vida_curandeira_0": {
+        "minecraft:health": {
+          "value": 28,
+          "max": 28
+        }
+      },
+      "valdoria:vida_curandeira_1": {
+        "minecraft:health": {
+          "value": 38,
+          "max": 38
+        }
+      },
+      "valdoria:vida_curandeira_2": {
+        "minecraft:health": {
+          "value": 50,
+          "max": 50
+        }
+      },
+      "valdoria:vida_curandeira_3": {
+        "minecraft:health": {
+          "value": 64,
+          "max": 64
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "valdoria_ally",
+          "valdoria_companheiro",
+          "mob"
+        ]
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.95
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:follow_range": {
+        "value": 28,
+        "max": 28
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "can_pass_doors": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:persistent": {},
+      "minecraft:tameable": {
+        "probability": 0.0,
+        "tame_items": "minecraft:barrier"
+      },
+      "minecraft:behavior.owner_hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.owner_hurt_target": {
+        "priority": 2
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              }
+            },
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/valdoria/companheiro.json"
+      }
+    },
+    "events": {
+      "valdoria:travar": {
+        "add": {
+          "component_groups": [
+            "valdoria:imovel"
+          ]
+        }
+      },
+      "valdoria:destravar": {
+        "remove": {
+          "component_groups": [
+            "valdoria:imovel"
+          ]
+        }
+      },
+      "valdoria:recrutar": {
+        "add": {
+          "component_groups": [
+            "valdoria:recrutado",
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:seguir": {
+        "add": {
+          "component_groups": [
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:ficar": {
+        "remove": {
+          "component_groups": [
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:agressivo": {
+        "add": {
+          "component_groups": [
+            "valdoria:agressivo"
+          ]
+        }
+      },
+      "valdoria:defensivo": {
+        "remove": {
+          "component_groups": [
+            "valdoria:agressivo"
+          ]
+        }
+      },
+      "valdoria:vida_arqueira_0": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_arqueira_0",
+            "valdoria:vida_arqueira_1",
+            "valdoria:vida_arqueira_2",
+            "valdoria:vida_arqueira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_arqueira_0"
+          ]
+        }
+      },
+      "valdoria:vida_arqueira_1": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_arqueira_0",
+            "valdoria:vida_arqueira_1",
+            "valdoria:vida_arqueira_2",
+            "valdoria:vida_arqueira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_arqueira_1"
+          ]
+        }
+      },
+      "valdoria:vida_arqueira_2": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_arqueira_0",
+            "valdoria:vida_arqueira_1",
+            "valdoria:vida_arqueira_2",
+            "valdoria:vida_arqueira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_arqueira_2"
+          ]
+        }
+      },
+      "valdoria:vida_arqueira_3": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_arqueira_0",
+            "valdoria:vida_arqueira_1",
+            "valdoria:vida_arqueira_2",
+            "valdoria:vida_arqueira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_arqueira_3"
+          ]
+        }
+      },
+      "valdoria:papel_arqueira": {
+        "add": {
+          "component_groups": [
+            "valdoria:distancia",
+            "valdoria:vida_arqueira_0"
+          ]
+        }
+      },
+      "valdoria:vida_cavaleiro_0": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_0",
+            "valdoria:vida_cavaleiro_1",
+            "valdoria:vida_cavaleiro_2",
+            "valdoria:vida_cavaleiro_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_0"
+          ]
+        }
+      },
+      "valdoria:vida_cavaleiro_1": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_0",
+            "valdoria:vida_cavaleiro_1",
+            "valdoria:vida_cavaleiro_2",
+            "valdoria:vida_cavaleiro_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_1"
+          ]
+        }
+      },
+      "valdoria:vida_cavaleiro_2": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_0",
+            "valdoria:vida_cavaleiro_1",
+            "valdoria:vida_cavaleiro_2",
+            "valdoria:vida_cavaleiro_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_2"
+          ]
+        }
+      },
+      "valdoria:vida_cavaleiro_3": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_0",
+            "valdoria:vida_cavaleiro_1",
+            "valdoria:vida_cavaleiro_2",
+            "valdoria:vida_cavaleiro_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_cavaleiro_3"
+          ]
+        }
+      },
+      "valdoria:papel_cavaleiro": {
+        "add": {
+          "component_groups": [
+            "valdoria:corpo_forte",
+            "valdoria:vida_cavaleiro_0"
+          ]
+        }
+      },
+      "valdoria:vida_curandeira_0": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_curandeira_0",
+            "valdoria:vida_curandeira_1",
+            "valdoria:vida_curandeira_2",
+            "valdoria:vida_curandeira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_curandeira_0"
+          ]
+        }
+      },
+      "valdoria:vida_curandeira_1": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_curandeira_0",
+            "valdoria:vida_curandeira_1",
+            "valdoria:vida_curandeira_2",
+            "valdoria:vida_curandeira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_curandeira_1"
+          ]
+        }
+      },
+      "valdoria:vida_curandeira_2": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_curandeira_0",
+            "valdoria:vida_curandeira_1",
+            "valdoria:vida_curandeira_2",
+            "valdoria:vida_curandeira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_curandeira_2"
+          ]
+        }
+      },
+      "valdoria:vida_curandeira_3": {
+        "remove": {
+          "component_groups": [
+            "valdoria:vida_curandeira_0",
+            "valdoria:vida_curandeira_1",
+            "valdoria:vida_curandeira_2",
+            "valdoria:vida_curandeira_3"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:vida_curandeira_3"
+          ]
+        }
+      },
+      "valdoria:papel_curandeira": {
+        "add": {
+          "component_groups": [
+            "valdoria:corpo_leve",
+            "valdoria:vida_curandeira_0"
+          ]
+        }
+      }
+    }
+  }
+}

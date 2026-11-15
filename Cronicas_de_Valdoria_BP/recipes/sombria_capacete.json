@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_sombria_capacete"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:veu_sombrio"
+      },
+      "X": {
+        "item": "minecraft:black_wool"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:veu_sombrio"
+      }
+    ],
+    "result": {
+      "item": "valdoria:sombria_capacete",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:guerreiro_esqueletico",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/guerreiro_esqueletico"
+      },
+      "geometry": {
+        "default": "geometry.skeleton.v1.8"
+      },
+      "animations": {
+        "walk": "animation.valdoria.esqueleto.walk",
+        "look": "animation.valdoria.esqueleto.look",
+        "attack": "animation.valdoria.esqueleto.attack"
+      },
+      "scripts": {
+        "animate": [
+          "walk",
+          "look",
+          "attack"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#d8dccf",
+        "overlay_color": "#5fd8ff"
+      },
+      "enable_attachables": true
+    }
+  }
+}

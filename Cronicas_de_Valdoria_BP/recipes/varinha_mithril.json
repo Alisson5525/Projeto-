@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_varinha_mithril"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " C",
+      "M "
+    ],
+    "key": {
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:cristal_aetherita"
+      }
+    ],
+    "result": {
+      "item": "valdoria:varinha_mithril",
+      "count": 1
+    }
+  }
+}

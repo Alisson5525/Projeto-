@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:unicornio",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/unicornio"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.unicornio"
+      },
+      "animations": {
+        "look": "animation.valdoria.unicornio.look",
+        "idle": "animation.valdoria.unicornio.idle",
+        "move": "animation.valdoria.unicornio.move",
+        "hurt": "animation.valdoria.unicornio.hurt",
+        "loadout": "animation.valdoria.unicornio.loadout",
+        "jump": "animation.valdoria.unicornio.jump",
+        "empinar": "animation.valdoria.unicornio.empinar"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "move",
+          {
+            "jump": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#f2f0f6",
+        "overlay_color": "#f4a6c8"
+      }
+    }
+  }
+}

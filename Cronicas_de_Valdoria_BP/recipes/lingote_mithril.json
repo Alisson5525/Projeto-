@@ -1,0 +1,14 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "valdoria:receita_lingote_mithril"
+    },
+    "tags": [
+      "furnace",
+      "blast_furnace"
+    ],
+    "input": "valdoria:mithril_bruto",
+    "output": "valdoria:lingote_mithril"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_draconica_botas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:escama_dragao"
+      },
+      "X": {
+        "item": "valdoria:lingote_mithril"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:escama_dragao"
+      }
+    ],
+    "result": {
+      "item": "valdoria:draconica_botas",
+      "count": 1
+    }
+  }
+}

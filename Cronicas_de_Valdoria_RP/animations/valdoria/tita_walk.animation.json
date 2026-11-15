@@ -1,0 +1,80 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.tita.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "variable.passo * 3.2",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-variable.passo * 3.2",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-variable.passo * 2.4",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "variable.passo * 2.4",
+            0,
+            0
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-math.abs(variable.passo) * 1.4",
+            0,
+            0
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            "-math.abs(variable.passo) * 1.4",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "variable.passo / 1.4"
+          ]
+        },
+        "chest": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 12",
+            "variable.passo / 1.5",
+            "variable.passo / 2"
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            0,
+            "-variable.passo / 2"
+          ]
+        },
+        "root": {
+          "position": [
+            0,
+            "-math.abs(variable.passo_b) * 0.14",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.npc.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "math.sin(query.life_time * 80) * 1.2",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "math.sin(query.life_time * 70) * 3",
+            0,
+            "math.cos(query.life_time * 50) * 2 + 2"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-math.sin(query.life_time * 70) * 3",
+            0,
+            "-math.cos(query.life_time * 50) * 2 - 2"
+          ]
+        },
+        "capa": {
+          "rotation": [
+            "4 + math.sin(query.life_time * 60) * 2",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 30 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 30 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "robe": {
+          "rotation": [
+            "math.abs(math.cos(query.modified_distance_moved * 38)) * 8 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "capa": {
+          "rotation": [
+            "10 + 25 * query.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "variable.attack_time > 0 ? -math.sin(variable.attack_time * 180) * 100 : 0",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "variable.attack_time > 0 ? math.sin(variable.attack_time * 180) * -15 : 0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.loadout": {
+      "loop": true,
+      "bones": {
+        "robe": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0"
+          ]
+        },
+        "capa": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 27 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 27 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 27 || query.property('valdoria:oficio') == 28) ? 1 : 0"
+          ]
+        },
+        "cabelo": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 8 || query.property('valdoria:oficio') == 11 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 16 || query.property('valdoria:oficio') == 18 || query.property('valdoria:oficio') == 20 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 8 || query.property('valdoria:oficio') == 11 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 16 || query.property('valdoria:oficio') == 18 || query.property('valdoria:oficio') == 20 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 8 || query.property('valdoria:oficio') == 11 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 16 || query.property('valdoria:oficio') == 18 || query.property('valdoria:oficio') == 20 || query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0"
+          ]
+        },
+        "orelhas": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0"
+          ]
+        },
+        "cabelo_longo": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21 || query.property('valdoria:oficio') == 22 || query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 26 || query.property('valdoria:oficio') == 27) ? 1 : 0"
+          ]
+        },
+        "tiara": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 21) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 21) ? 1 : 0"
+          ]
+        },
+        "it_arco": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 27) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 24 || query.property('valdoria:oficio') == 25 || query.property('valdoria:oficio') == 27) ? 1 : 0"
+          ]
+        },
+        "it_escudo": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 28) ? 1 : 0"
+          ]
+        },
+        "barba": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 18) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 18) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 4 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 14 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 18) ? 1 : 0"
+          ]
+        },
+        "chapeu_palha": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0"
+          ]
+        },
+        "capuz": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 12 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 12 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 3 || query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 12 || query.property('valdoria:oficio') == 13 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0"
+          ]
+        },
+        "elmo": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 10 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 10 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 10 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0"
+          ]
+        },
+        "pluma": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0"
+          ]
+        },
+        "gorro": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 16) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 16) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 2 || query.property('valdoria:oficio') == 16) ? 1 : 0"
+          ]
+        },
+        "coroa": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0"
+          ]
+        },
+        "chapeu_mago": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 17) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 17) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 17) ? 1 : 0"
+          ]
+        },
+        "it_martelo": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 18) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 18) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 1 || query.property('valdoria:oficio') == 18) ? 1 : 0"
+          ]
+        },
+        "it_caneca": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 4) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 4) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 4) ? 1 : 0"
+          ]
+        },
+        "it_cajado": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 0 || query.property('valdoria:oficio') == 6 || query.property('valdoria:oficio') == 17 || query.property('valdoria:oficio') == 23 || query.property('valdoria:oficio') == 29) ? 1 : 0"
+          ]
+        },
+        "it_lanca": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 10) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 10) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 10) ? 1 : 0"
+          ]
+        },
+        "it_espada": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 9 || query.property('valdoria:oficio') == 19 || query.property('valdoria:oficio') == 28) ? 1 : 0"
+          ]
+        },
+        "it_enxada": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 8) ? 1 : 0"
+          ]
+        },
+        "it_livro": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 22) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 22) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 5 || query.property('valdoria:oficio') == 7 || query.property('valdoria:oficio') == 15 || query.property('valdoria:oficio') == 22) ? 1 : 0"
+          ]
+        },
+        "it_frasco": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 3) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 3) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 3) ? 1 : 0"
+          ]
+        },
+        "it_adaga": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 13) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 13) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 13) ? 1 : 0"
+          ]
+        },
+        "it_cetro": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 14) ? 1 : 0"
+          ]
+        },
+        "it_joia": {
+          "scale": [
+            "(query.property('valdoria:oficio') == 16) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 16) ? 1 : 0",
+            "(query.property('valdoria:oficio') == 16) ? 1 : 0"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.talk": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-35 + math.sin(query.life_time * 420) * 14",
+            0,
+            "8 + math.sin(query.life_time * 300) * 8"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-10 + math.cos(query.life_time * 260) * 6",
+            0,
+            -4
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(query.life_time * 500) * 3",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.work": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-70 + math.sin(query.life_time * 700) * 40",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            "8 + math.sin(query.life_time * 700) * 3",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.wave": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            0,
+            0,
+            "150 + math.sin(query.life_time * 900) * 20"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.mirar": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-90 + query.target_x_rotation",
+            "-8",
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-85 + query.target_x_rotation",
+            "30",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.npc.tied": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            35,
+            0,
+            18
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            35,
+            0,
+            -18
+          ]
+        },
+        "head": {
+          "rotation": [
+            "20 + math.sin(query.life_time * 120) * 5",
+            "math.sin(query.life_time * 60) * 25",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

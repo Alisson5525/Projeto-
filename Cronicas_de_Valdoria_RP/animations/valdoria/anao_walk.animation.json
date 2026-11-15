@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.anao.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 50) * 40 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 50) * 40 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 50) * 25 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 50) * 30 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "math.cos(query.modified_distance_moved * 50) * 3 * math.min(query.modified_move_speed, 1)"
+          ]
+        },
+        "capa": {
+          "rotation": [
+            "20 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

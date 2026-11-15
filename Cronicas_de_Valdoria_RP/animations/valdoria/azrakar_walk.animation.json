@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.azrakar.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 26 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 26 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 14 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 14 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

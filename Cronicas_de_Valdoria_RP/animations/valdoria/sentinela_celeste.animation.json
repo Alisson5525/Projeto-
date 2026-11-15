@@ -1,0 +1,159 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.sentinela_celeste.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.sentinela_celeste.idle": {
+      "loop": true,
+      "bones": {
+        "halo": {
+          "rotation": [
+            0,
+            "query.life_time * 60",
+            0
+          ],
+          "position": [
+            0,
+            "math.sin(query.life_time * 120) * 0.5",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -10,
+            0,
+            4
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -5,
+            0,
+            -4
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            0,
+            "25 + math.sin(query.life_time * 80) * 6",
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            "-25 - math.sin(query.life_time * 80) * 6",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.sentinela_celeste.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 32 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 32 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 18 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 18 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.sentinela_celeste.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-70 - (variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 50",
+            0,
+            0
+          ]
+        },
+        "lanca": {
+          "rotation": [
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 40",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.sentinela_celeste.pulso": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            -170,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -170,
+            0,
+            0
+          ]
+        },
+        "lanca": {
+          "rotation": [
+            180,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            -4,
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            0,
+            -20,
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            20,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

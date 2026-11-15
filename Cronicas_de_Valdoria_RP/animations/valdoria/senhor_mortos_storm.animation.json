@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.senhor_mortos.storm": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            9,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            0,
+            0,
+            85
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            0,
+            0,
+            -85
+          ]
+        },
+        "head": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "query.life_time * 120",
+            0
+          ]
+        },
+        "cape": {
+          "rotation": [
+            "30 + math.sin(query.life_time * 600) * 10",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

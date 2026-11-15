@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_maca_mithril"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " MM",
+      " MM",
+      "S  "
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:maca_mithril",
+      "count": 1
+    }
+  }
+}

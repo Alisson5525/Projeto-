@@ -1,0 +1,77 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "valdoria:prisioneiro",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "valdoria:anim": {
+          "type": "int",
+          "range": [
+            0,
+            12
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "valdoria:oficio": {
+          "type": "int",
+          "range": [
+            0,
+            31
+          ],
+          "default": 11,
+          "client_sync": true
+        },
+        "valdoria:variante": {
+          "type": "int",
+          "range": [
+            0,
+            1
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {},
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "prisioneiro"
+        ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.95
+      },
+      "minecraft:physics": {},
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 1,
+        "look_distance": 8
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/valdoria/prisioneiro.json"
+      }
+    },
+    "events": {}
+  }
+}

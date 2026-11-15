@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.rainha_trevas.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.7",
+            "query.target_y_rotation * 0.7",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

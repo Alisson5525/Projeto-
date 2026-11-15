@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:barreira_sombria",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": false,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_barreira_sombria",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#2a0a3a",
+      "minecraft:light_emission": 9,
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_bracelete_cacador"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "LGL",
+      "L L",
+      "LLL"
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "G": {
+        "item": "minecraft:gold_nugget"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "result": {
+      "item": "valdoria:bracelete_cacador",
+      "count": 1
+    }
+  }
+}

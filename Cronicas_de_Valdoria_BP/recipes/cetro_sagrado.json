@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cetro_sagrado"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " CR",
+      " GC",
+      "G  "
+    ],
+    "key": {
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "R": {
+        "item": "valdoria:runa_luz"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:cristal_aetherita"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cetro_sagrado",
+      "count": 1
+    }
+  }
+}

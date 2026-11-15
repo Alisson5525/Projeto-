@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.anao.loadout_rei": {
+      "loop": true,
+      "bones": {
+        "machado": {
+          "scale": 0
+        },
+        "elmo": {
+          "scale": 0
+        }
+      }
+    }
+  }
+}

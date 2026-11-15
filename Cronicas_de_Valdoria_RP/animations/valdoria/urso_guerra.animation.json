@@ -1,0 +1,364 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.urso_guerra.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.6",
+            "query.target_y_rotation * 0.6",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.urso_guerra.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": [
+            1,
+            "1 + math.sin(query.life_time * 110) * 0.012",
+            1
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 90) * 10"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(query.life_time * 30) * 3",
+            "math.sin(query.life_time * 17) * 6",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "math.max(0, math.sin(query.life_time * 25)) * 6",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.urso_guerra.move": {
+      "loop": true,
+      "bones": {
+        "legFL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 22 + 0) * 32 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 22 + 180) * 32 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 22 + 180) * 32 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 22 + 0) * 32 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.modified_distance_moved * 22) * 3 * math.min(query.modified_move_speed, 1.0)"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(query.modified_distance_moved * 22 * 2) * 4 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.urso_guerra.hurt": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-math.clamp(query.hurt_time, 0, 10) * 0.8",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.urso_guerra.loadout": {
+      "loop": true,
+      "bones": {
+        "armadura": {
+          "scale": "query.is_tamed ? 1 : 0"
+        }
+      }
+    },
+    "animation.valdoria.urso_guerra.patada": {
+      "loop": false,
+      "bones": {
+        "legFR": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -70,
+              0,
+              -25
+            ],
+            "0.45": [
+              -20,
+              0,
+              15
+            ],
+            "0.70": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -6,
+              -8,
+              0
+            ],
+            "0.45": [
+              3,
+              10,
+              0
+            ],
+            "0.70": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              30,
+              0,
+              0
+            ],
+            "0.50": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.7
+    },
+    "animation.valdoria.urso_guerra.rugido": {
+      "loop": false,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -45,
+              0,
+              0
+            ],
+            "1.30": [
+              -45,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "legBL": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              45,
+              0,
+              0
+            ],
+            "1.30": [
+              45,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "legBR": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              45,
+              0,
+              0
+            ],
+            "1.30": [
+              45,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "legFL": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -50,
+              0,
+              -20
+            ],
+            "1.30": [
+              -50,
+              0,
+              -20
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "legFR": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -50,
+              0,
+              20
+            ],
+            "1.30": [
+              -50,
+              0,
+              20
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -15,
+              0,
+              0
+            ],
+            "1.30": [
+              -15,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              40,
+              0,
+              0
+            ],
+            "1.30": [
+              40,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.8
+    }
+  }
+}

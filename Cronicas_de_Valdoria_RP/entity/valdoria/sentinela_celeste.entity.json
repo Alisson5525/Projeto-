@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:sentinela_celeste",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/sentinela_celeste"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.sentinela_celeste"
+      },
+      "animations": {
+        "look": "animation.valdoria.sentinela_celeste.look",
+        "idle": "animation.valdoria.sentinela_celeste.idle",
+        "walk": "animation.valdoria.sentinela_celeste.walk",
+        "attack": "animation.valdoria.sentinela_celeste.attack",
+        "pulso": "animation.valdoria.sentinela_celeste.pulso"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          {
+            "pulso": "query.property('valdoria:anim') == 1"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#e8e6e0",
+        "overlay_color": "#e8c050"
+      }
+    }
+  }
+}

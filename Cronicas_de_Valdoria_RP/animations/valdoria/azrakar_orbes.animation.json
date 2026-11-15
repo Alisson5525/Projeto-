@@ -1,0 +1,54 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.azrakar.orbes": {
+      "loop": false,
+      "bones": {
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -100,
+              0,
+              -20
+            ],
+            "0.90": [
+              -100,
+              0,
+              -20
+            ],
+            "1.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -15,
+              0,
+              0
+            ],
+            "1.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.3
+    }
+  }
+}

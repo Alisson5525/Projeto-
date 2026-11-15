@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:espectro",
+      "materials": {
+        "default": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/espectro"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.espectro"
+      },
+      "animations": {
+        "float": "animation.valdoria.espectro.float",
+        "look": "animation.valdoria.espectro.look",
+        "attack": "animation.valdoria.espectro.attack",
+        "drain": "animation.valdoria.espectro.drain"
+      },
+      "scripts": {
+        "animate": [
+          "float",
+          "look",
+          "attack",
+          {
+            "drain": "query.property('valdoria:anim') == 1"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#3a4458",
+        "overlay_color": "#9ff8ff"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.morthil.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 26) * 28 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 26) * 28 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 26) * 18 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 26) * 18 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "math.cos(query.modified_distance_moved * 26) * 4 * math.min(query.modified_move_speed, 1)",
+            "math.cos(query.modified_distance_moved * 26) * 3 * math.min(query.modified_move_speed, 1)"
+          ]
+        },
+        "copa": {
+          "rotation": [
+            0,
+            0,
+            "-math.cos(query.modified_distance_moved * 26) * 5 * math.min(query.modified_move_speed, 1)"
+          ]
+        }
+      }
+    }
+  }
+}

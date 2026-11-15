@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.ovo_dragao.tremor": {
+      "loop": true,
+      "bones": {
+        "ovo": {
+          "rotation": [
+            "math.sin(query.life_time * 520) * query.property('valdoria:calor') * 0.7 * (math.sin(query.life_time * 37) > 0.55 ? 1 : 0)",
+            0,
+            "math.cos(query.life_time * 480) * query.property('valdoria:calor') * 0.9 * (math.sin(query.life_time * 37) > 0.55 ? 1 : 0)"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.ovo_dragao.eclodir": {
+      "loop": false,
+      "bones": {
+        "ovo": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 1400) * 14"
+          ],
+          "scale": [
+            "1 + query.anim_time * 0.12",
+            "1 + query.anim_time * 0.08",
+            "1 + query.anim_time * 0.12"
+          ]
+        }
+      },
+      "animation_length": 1.6
+    }
+  }
+}

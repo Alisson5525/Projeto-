@@ -1,0 +1,149 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.rei_durgan.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "walk": "query.modified_move_speed > 0.02"
+            },
+            "attack",
+            "hurt"
+          ],
+          "transitions": [
+            {
+              "martelada": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "giro": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "arremesso": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "fenda": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "invocar": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "furia": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "escudo": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 8"
+            },
+            {
+              "morte": "query.property('valdoria:anim') == 9"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "martelada": {
+          "animations": [
+            "martelada"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "giro": {
+          "animations": [
+            "giro"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "arremesso": {
+          "animations": [
+            "arremesso"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "fenda": {
+          "animations": [
+            "fenda"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "invocar": {
+          "animations": [
+            "invocar"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "furia": {
+          "animations": [
+            "furia"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "escudo": {
+          "animations": [
+            "escudo"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        },
+        "morte": {
+          "animations": [
+            "morte"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 9"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

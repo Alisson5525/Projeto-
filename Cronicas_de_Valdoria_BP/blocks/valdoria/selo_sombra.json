@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:selo_sombra",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": false,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_selo_sombra",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#3a1a4a",
+      "minecraft:light_emission": 7,
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

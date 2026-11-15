@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_lamina_umbral"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:katana_mithril"
+      },
+      "R": {
+        "item": "valdoria:runa_sombra"
+      },
+      "E": {
+        "item": "valdoria:ectoplasma"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:katana_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:lamina_umbral",
+      "count": 1
+    }
+  }
+}

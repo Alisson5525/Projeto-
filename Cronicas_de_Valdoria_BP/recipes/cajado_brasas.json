@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cajado_brasas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " CR",
+      " SC",
+      "S  "
+    ],
+    "key": {
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "R": {
+        "item": "valdoria:runa_fogo"
+      },
+      "S": {
+        "item": "minecraft:blaze_rod"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:cristal_aetherita"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cajado_brasas",
+      "count": 1
+    }
+  }
+}

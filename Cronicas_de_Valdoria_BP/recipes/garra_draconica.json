@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_garra_draconica"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:espada_grande_mithril"
+      },
+      "R": {
+        "item": "valdoria:runa_fogo"
+      },
+      "E": {
+        "item": "valdoria:nucleo_tita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:espada_grande_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:garra_draconica",
+      "count": 1
+    }
+  }
+}

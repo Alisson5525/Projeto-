@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_arcanista_calcas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:purple_wool"
+      },
+      "X": {
+        "item": "valdoria:essencia_arcana"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:purple_wool"
+      }
+    ],
+    "result": {
+      "item": "valdoria:arcanista_calcas",
+      "count": 1
+    }
+  }
+}

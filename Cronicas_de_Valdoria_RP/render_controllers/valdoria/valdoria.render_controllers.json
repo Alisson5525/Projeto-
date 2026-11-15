@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.valdoria.tita": {
+      "arrays": {
+        "textures": {
+          "Array.fases": [
+            "Texture.p1",
+            "Texture.p2",
+            "Texture.p3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.fases[math.clamp(query.property('valdoria:phase') - 1, 0, 2)]"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:rainha_trevas",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "p1": "textures/entity/valdoria/rainha_trevas_1",
+        "p2": "textures/entity/valdoria/rainha_trevas_2",
+        "p3": "textures/entity/valdoria/rainha_trevas_3"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.rainha_trevas"
+      },
+      "animations": {
+        "look": "animation.valdoria.rainha_trevas.look",
+        "idle": "animation.valdoria.rainha_trevas.idle",
+        "move": "animation.valdoria.rainha_trevas.move",
+        "hurt": "animation.valdoria.rainha_trevas.hurt",
+        "attack": "animation.valdoria.rainha_trevas.attack",
+        "loadout": "animation.valdoria.rainha_trevas.loadout",
+        "dardos": "animation.valdoria.rainha_trevas.dardos",
+        "laminas": "animation.valdoria.rainha_trevas.laminas",
+        "correntes": "animation.valdoria.rainha_trevas.correntes",
+        "teleporte": "animation.valdoria.rainha_trevas.teleporte",
+        "espelhos": "animation.valdoria.rainha_trevas.espelhos",
+        "invocar": "animation.valdoria.rainha_trevas.invocar",
+        "eclipse": "animation.valdoria.rainha_trevas.eclipse",
+        "lancas": "animation.valdoria.rainha_trevas.lancas",
+        "transformar": "animation.valdoria.rainha_trevas.transformar",
+        "intro": "animation.valdoria.rainha_trevas.intro",
+        "morte": "animation.valdoria.rainha_trevas.morte",
+        "main": "controller.animation.valdoria.rainha_trevas.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ],
+        "scale": "query.property('valdoria:phase') == 3 ? 1.35 : 1.15"
+      },
+      "render_controllers": [
+        "controller.render.valdoria.rainha"
+      ],
+      "spawn_egg": {
+        "base_color": "#1e1228",
+        "overlay_color": "#c070ff"
+      }
+    }
+  }
+}

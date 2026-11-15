@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_abissal_botas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:netherite_scrap"
+      },
+      "X": {
+        "item": "valdoria:coracao_abismo"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherite_scrap"
+      }
+    ],
+    "result": {
+      "item": "valdoria:abissal_botas",
+      "count": 1
+    }
+  }
+}

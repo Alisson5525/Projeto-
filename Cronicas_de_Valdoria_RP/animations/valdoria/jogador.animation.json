@@ -1,0 +1,3568 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.player.conjurar_preparo": {
+      "loop": "hold_on_last_frame",
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? -35 : -100",
+                "variable.is_first_person ? 12 : 10",
+                "variable.is_first_person ? 8 : 5"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                "variable.is_first_person ? -42 : -112",
+                "variable.is_first_person ? 16 : 14",
+                "variable.is_first_person ? 10 : 8"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? 1.5 : 0",
+                "variable.is_first_person ? -2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                "variable.is_first_person ? -1.5 : 0",
+                "variable.is_first_person ? 2 : 0",
+                "variable.is_first_person ? -2.5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? 0 : -65",
+                "variable.is_first_person ? 0 : -20",
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -72",
+                "variable.is_first_person ? 0 : -24",
+                "variable.is_first_person ? 0 : -24"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? 0 : -4",
+                "variable.is_first_person ? 0 : 6",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 1.0
+    },
+    "animation.valdoria.player.conjurar_lancar": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -40 : -115",
+                14,
+                "variable.is_first_person ? 10 : 8"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? -62 : -85",
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? 4 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? -58 : -80",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? 2 : 0",
+                "variable.is_first_person ? -2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -6 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -70",
+                "variable.is_first_person ? 0 : -20",
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : -30",
+                0,
+                "variable.is_first_person ? 0 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -4",
+                "variable.is_first_person ? 0 : 6",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 0 : 6",
+                "variable.is_first_person ? 0 : -8",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.45
+    },
+    "animation.valdoria.player.conjurar_area": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? -75 : -170",
+                -10,
+                20
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? 12 : -20",
+                0,
+                "variable.is_first_person ? 6 : 10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                0,
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? -1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                0,
+                "variable.is_first_person ? -3 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 0 : -170",
+                "variable.is_first_person ? 0 : 10",
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? 0 : -20",
+                0,
+                "variable.is_first_person ? 0 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 0 : -8",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? 0 : 10",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.conjurar_proprio": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? -30 : -60",
+                "variable.is_first_person ? -35 : -30",
+                "variable.is_first_person ? 25 : 30"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? -34 : -70",
+                "variable.is_first_person ? -42 : -40",
+                "variable.is_first_person ? 30 : 35"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? -3 : 0",
+                0,
+                "variable.is_first_person ? -1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -1.5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -60",
+                "variable.is_first_person ? 0 : 30",
+                "variable.is_first_person ? 0 : -30"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? 0 : -70",
+                "variable.is_first_person ? 0 : 40",
+                "variable.is_first_person ? 0 : -35"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? 0 : 12",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.7
+    },
+    "animation.valdoria.player.conjurar_arremesso": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? -55 : -150",
+                "variable.is_first_person ? 35 : 20",
+                "variable.is_first_person ? 25 : 30"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.24": {
+              "post": [
+                "variable.is_first_person ? -10 : -60",
+                "variable.is_first_person ? -20 : -10",
+                "variable.is_first_person ? -10 : -5"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 2 : 0",
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.24": {
+              "post": [
+                "variable.is_first_person ? -1 : 0",
+                0,
+                "variable.is_first_person ? -5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : -40",
+                0,
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.24": {
+              "post": [
+                "variable.is_first_person ? 0 : 6",
+                "variable.is_first_person ? 0 : -15",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.5
+    },
+    "animation.valdoria.player.conjurar_raio": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? -80 : -175",
+                0,
+                "variable.is_first_person ? 12 : 10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.27": {
+              "post": [
+                "variable.is_first_person ? -45 : -95",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                0,
+                "variable.is_first_person ? 6 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.27": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -30",
+                0,
+                "variable.is_first_person ? 0 : -25"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? 0 : -15",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.55
+    },
+    "animation.valdoria.player.conjurar_canalizar": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? -50 : -88",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                "variable.is_first_person ? -53 : -92",
+                3,
+                2
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? -48 : -86",
+                -3,
+                -2
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                "variable.is_first_person ? -51 : -90",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -6 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? 0.3 : 0",
+                "variable.is_first_person ? 1.2 : 0",
+                "variable.is_first_person ? -6.5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -6 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 0 : -80",
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                "variable.is_first_person ? 0 : -80",
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 0 : 4",
+                "variable.is_first_person ? 0 : -5",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? 0 : 4",
+                "variable.is_first_person ? 0 : -5",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.7
+    },
+    "animation.valdoria.player.conjurar_invocar": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 25 : 20",
+                "variable.is_first_person ? -10 : 0",
+                25
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? -70 : -140",
+                0,
+                20
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.80": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? -2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                "variable.is_first_person ? 5 : 0",
+                "variable.is_first_person ? -2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.80": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : 20",
+                0,
+                "variable.is_first_person ? 0 : -25"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? 0 : -140",
+                0,
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.80": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : 14",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? 0 : -8",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.80": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.8
+    },
+    "animation.valdoria.player.rugido": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? -20 : -40",
+                "variable.is_first_person ? -20 : 0",
+                "variable.is_first_person ? 35 : 60"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? -22 : -45",
+                "variable.is_first_person ? -22 : 0",
+                "variable.is_first_person ? 38 : 65"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? -1 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? 3.5 : 0",
+                "variable.is_first_person ? -1 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -40",
+                0,
+                "variable.is_first_person ? 0 : -60"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? 0 : -45",
+                0,
+                "variable.is_first_person ? 0 : -65"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -12",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? 0 : -14",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -25",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                "variable.is_first_person ? 0 : -28",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.9
+    },
+    "animation.valdoria.player.preparar_golpe": {
+      "loop": "hold_on_last_frame",
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? -55 : -150",
+                "variable.is_first_person ? 15 : 10",
+                "variable.is_first_person ? 20 : 15"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                "variable.is_first_person ? -60 : -160",
+                "variable.is_first_person ? 18 : 12",
+                "variable.is_first_person ? 22 : 18"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 1.5 : 0",
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                "variable.is_first_person ? 1.8 : 0",
+                "variable.is_first_person ? 4.5 : 0",
+                "variable.is_first_person ? 1.2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 0 : -40",
+                0,
+                "variable.is_first_person ? 0 : -15"
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 0 : -5",
+                "variable.is_first_person ? 0 : 15",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 1.0
+    },
+    "animation.valdoria.player.ataque_varredura": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -30 : -90",
+                "variable.is_first_person ? 45 : 60",
+                "variable.is_first_person ? 10 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? -38 : -80",
+                "variable.is_first_person ? -50 : -70",
+                "variable.is_first_person ? -15 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? 1 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? -4 : 0",
+                0,
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : -30",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.45
+    },
+    "animation.valdoria.player.ataque_impacto": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -75 : -170",
+                "variable.is_first_person ? 5 : 0",
+                10
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 15 : -30",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 6 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                0,
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? -4 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -170",
+                0,
+                "variable.is_first_person ? 0 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 0 : -30",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -10",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 0 : 20",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.ataque_estocada": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -20 : -60",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? -55 : -95",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                "variable.is_first_person ? 2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -8 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 0 : 8",
+                "variable.is_first_person ? 0 : -10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.4
+    },
+    "animation.valdoria.player.ataque_giro": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "variable.is_first_person ? -35 : -90",
+              "variable.is_first_person ? 50 : 0",
+              0
+            ],
+            "0.30": [
+              "variable.is_first_person ? -40 : -90",
+              "variable.is_first_person ? -55 : 0",
+              "variable.is_first_person ? -10 : 0"
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.00": [
+              "variable.is_first_person ? 4 : 0",
+              0,
+              0
+            ],
+            "0.30": [
+              "variable.is_first_person ? -5 : 0",
+              0,
+              "variable.is_first_person ? -2 : 0"
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "variable.is_first_person ? 0 : -90",
+              0,
+              0
+            ],
+            "0.30": [
+              "variable.is_first_person ? 0 : -90",
+              0,
+              0
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              "variable.is_first_person ? 0 : 180",
+              0
+            ],
+            "0.60": [
+              0,
+              "variable.is_first_person ? 0 : 360",
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.ataque_vertical": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -80 : -175",
+                0,
+                5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 20 : -10",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 7 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                0,
+                "variable.is_first_person ? -5 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -175",
+                0,
+                "variable.is_first_person ? 0 : -5"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : -10",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -12",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.20": {
+              "post": [
+                "variable.is_first_person ? 0 : 18",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.55
+    },
+    "animation.valdoria.player.guarda": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "variable.is_first_person ? -30 : -70",
+              -40,
+              "variable.is_first_person ? -20 : -10"
+            ]
+          },
+          "position": {
+            "0.00": [
+              "variable.is_first_person ? -3 : 0",
+              "variable.is_first_person ? 1 : 0",
+              "variable.is_first_person ? -1 : 0"
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "variable.is_first_person ? 0 : -60",
+              "variable.is_first_person ? 0 : 30",
+              "variable.is_first_person ? 0 : 10"
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              "variable.is_first_person ? 0 : 10",
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.valdoria.player.esquiva": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 10 : -30",
+                "variable.is_first_person ? -20 : 0",
+                "variable.is_first_person ? 30 : 50"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? -5 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : -30",
+                0,
+                "variable.is_first_person ? 0 : -50"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : 15",
+                0,
+                "variable.is_first_person ? 0 : 20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.35
+    },
+    "animation.valdoria.player.transformacao": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? -15 : -30",
+                "variable.is_first_person ? -30 : 0",
+                "variable.is_first_person ? 45 : 100"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                "variable.is_first_person ? -75 : -170",
+                0,
+                20
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? -2 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                "variable.is_first_person ? 6 : 0",
+                "variable.is_first_person ? -1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? 0 : -30",
+                0,
+                "variable.is_first_person ? 0 : -100"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                "variable.is_first_person ? 0 : -170",
+                0,
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? 0 : 20",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                "variable.is_first_person ? 0 : -15",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.40": {
+              "post": [
+                "variable.is_first_person ? 0 : 30",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                "variable.is_first_person ? 0 : -35",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 1.25
+    },
+    "animation.valdoria.player.arma_adaga": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -10 : -40",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.08": {
+              "post": [
+                "variable.is_first_person ? -50 : -95",
+                "variable.is_first_person ? -8 : -10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? -15 : -45",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.26": {
+              "post": [
+                "variable.is_first_person ? -55 : -100",
+                "variable.is_first_person ? 10 : 15",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? 2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.08": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -6 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                0,
+                0,
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.26": {
+              "post": [
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -7 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 15",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.08": {
+              "post": [
+                "variable.is_first_person ? 0 : 5",
+                "variable.is_first_person ? 0 : -10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.26": {
+              "post": [
+                "variable.is_first_person ? 0 : 6",
+                "variable.is_first_person ? 0 : -12",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.5
+    },
+    "animation.valdoria.player.arma_espada_curta": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -30 : -85",
+                "variable.is_first_person ? 40 : 50",
+                "variable.is_first_person ? 10 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? -35 : -85",
+                "variable.is_first_person ? -45 : -55",
+                "variable.is_first_person ? -12 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.42": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? 0.5 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? -4 : 0",
+                0,
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.42": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : -25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.42": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.42
+    },
+    "animation.valdoria.player.arma_espada_grande": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? -85 : -185",
+                "variable.is_first_person ? 10 : -20",
+                25
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? 22 : -20",
+                "variable.is_first_person ? 0 : -5",
+                "variable.is_first_person ? -5 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? 8 : 0",
+                "variable.is_first_person ? 3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? -6 : 0",
+                "variable.is_first_person ? -4 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 0 : -185",
+                "variable.is_first_person ? 0 : 20",
+                "variable.is_first_person ? 0 : -25"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? 0 : -20",
+                "variable.is_first_person ? 0 : 5",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 0 : -15",
+                "variable.is_first_person ? 0 : 10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                "variable.is_first_person ? 0 : 25",
+                "variable.is_first_person ? 0 : -5",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.9
+    },
+    "animation.valdoria.player.arma_katana": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 15 : 10",
+                "variable.is_first_person ? 50 : 70",
+                "variable.is_first_person ? 30 : 40"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? -60 : -120",
+                -40,
+                "variable.is_first_person ? -25 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                "variable.is_first_person ? -55 : -110",
+                -45,
+                "variable.is_first_person ? -25 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? -4 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? 5 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? 5 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -20",
+                "variable.is_first_person ? 0 : 40",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                "variable.is_first_person ? 0 : -10",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 30",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.10": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : -25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.arma_lanca": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -15 : -50",
+                "variable.is_first_person ? 5 : 10",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? -48 : -90",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? -46 : -88",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                "variable.is_first_person ? 4 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -10 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                0,
+                "variable.is_first_person ? 1 : 0",
+                "variable.is_first_person ? -9 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -40",
+                "variable.is_first_person ? 0 : 30",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : -85",
+                "variable.is_first_person ? 0 : 25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -5",
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.12": {
+              "post": [
+                "variable.is_first_person ? 0 : 10",
+                "variable.is_first_person ? 0 : -5",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.55
+    },
+    "animation.valdoria.player.arma_machado": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.22": {
+              "post": [
+                "variable.is_first_person ? -75 : -170",
+                "variable.is_first_person ? 35 : 30",
+                "variable.is_first_person ? 30 : 40"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? 18 : -30",
+                -35,
+                -20
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.22": {
+              "post": [
+                "variable.is_first_person ? 3 : 0",
+                "variable.is_first_person ? 7 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? -5 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.22": {
+              "post": [
+                "variable.is_first_person ? 0 : -60",
+                0,
+                "variable.is_first_person ? 0 : -20"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.22": {
+              "post": [
+                "variable.is_first_person ? 0 : -10",
+                "variable.is_first_person ? 0 : 25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? 0 : 18",
+                "variable.is_first_person ? 0 : -25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.65
+    },
+    "animation.valdoria.player.arma_martelo": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                "variable.is_first_person ? -88 : -190",
+                0,
+                10
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? -90 : -195",
+                0,
+                10
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.62": {
+              "post": [
+                "variable.is_first_person ? 30 : 5",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                0,
+                "variable.is_first_person ? 9 : 0",
+                "variable.is_first_person ? 3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                0,
+                "variable.is_first_person ? 9.5 : 0",
+                "variable.is_first_person ? 3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.62": {
+              "post": [
+                0,
+                "variable.is_first_person ? -8 : 0",
+                "variable.is_first_person ? -4 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                "variable.is_first_person ? 0 : -190",
+                0,
+                "variable.is_first_person ? 0 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? 0 : -195",
+                0,
+                "variable.is_first_person ? 0 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.62": {
+              "post": [
+                "variable.is_first_person ? 0 : 5",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.35": {
+              "post": [
+                "variable.is_first_person ? 0 : -18",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.50": {
+              "post": [
+                "variable.is_first_person ? 0 : -20",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.62": {
+              "post": [
+                "variable.is_first_person ? 0 : 30",
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 1.0
+    },
+    "animation.valdoria.player.arma_maca": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? -60 : -150",
+                40,
+                "variable.is_first_person ? 40 : 60"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? 10 : -45",
+                "variable.is_first_person ? -25 : -20",
+                "variable.is_first_person ? -15 : -10"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? 6 : 0",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? -2 : 0",
+                "variable.is_first_person ? -4 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.18": {
+              "post": [
+                "variable.is_first_person ? 0 : -5",
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.32": {
+              "post": [
+                "variable.is_first_person ? 0 : 12",
+                "variable.is_first_person ? 0 : -15",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.55
+    },
+    "animation.valdoria.player.arma_alabarda": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? -20 : -60",
+                "variable.is_first_person ? 60 : 80",
+                "variable.is_first_person ? 10 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? -22 : -55",
+                "variable.is_first_person ? -65 : -80",
+                "variable.is_first_person ? -15 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 5 : 0",
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? 1 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? -6 : 0",
+                "variable.is_first_person ? -1 : 0",
+                "variable.is_first_person ? -3 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                "variable.is_first_person ? 0 : -50",
+                "variable.is_first_person ? 0 : 60",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                "variable.is_first_person ? 0 : -50",
+                "variable.is_first_person ? 0 : -60",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : 40",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                0,
+                "variable.is_first_person ? 0 : -45",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.70": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.7
+    },
+    "animation.valdoria.player.arma_foice": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? -60 : -120",
+                -40,
+                -30
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? -5 : -40",
+                50,
+                "variable.is_first_person ? 25 : 30"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? -3 : 0",
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? -6 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? 4 : 0",
+                "variable.is_first_person ? -2 : 0",
+                "variable.is_first_person ? 2 : 0"
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? 0 : -80",
+                "variable.is_first_person ? 0 : -20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? 0 : -40",
+                "variable.is_first_person ? 0 : 20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.15": {
+              "post": [
+                "variable.is_first_person ? 0 : 5",
+                "variable.is_first_person ? 0 : -20",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.38": {
+              "post": [
+                "variable.is_first_person ? 0 : -5",
+                "variable.is_first_person ? 0 : 25",
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.65": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      },
+      "animation_length": 0.65
+    }
+  }
+}

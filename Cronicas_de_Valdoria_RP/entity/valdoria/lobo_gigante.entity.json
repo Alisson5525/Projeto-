@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:lobo_gigante",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/lobo_gigante"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.lobo_gigante"
+      },
+      "animations": {
+        "look": "animation.valdoria.lobo_gigante.look",
+        "idle": "animation.valdoria.lobo_gigante.idle",
+        "move": "animation.valdoria.lobo_gigante.move",
+        "jump": "animation.valdoria.lobo_gigante.jump",
+        "hurt": "animation.valdoria.lobo_gigante.hurt",
+        "loadout": "animation.valdoria.lobo_gigante.loadout",
+        "uivo": "animation.valdoria.lobo_gigante.uivo",
+        "mordida": "animation.valdoria.lobo_gigante.mordida"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "move",
+          {
+            "jump": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#5e5f66",
+        "overlay_color": "#ffb020"
+      }
+    }
+  }
+}

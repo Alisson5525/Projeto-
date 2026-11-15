@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:dragao_ancestral",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "p1": "textures/entity/valdoria/dragao_ancestral_1",
+        "p2": "textures/entity/valdoria/dragao_ancestral_2",
+        "p3": "textures/entity/valdoria/dragao_ancestral_3"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.dragao_ancestral"
+      },
+      "animations": {
+        "look": "animation.valdoria.dragao_ancestral.look",
+        "idle": "animation.valdoria.dragao_ancestral.idle",
+        "walk": "animation.valdoria.dragao_ancestral.walk",
+        "hurt": "animation.valdoria.dragao_ancestral.hurt",
+        "voo": "animation.valdoria.dragao_ancestral.voo",
+        "voo_fogo": "animation.valdoria.dragao_ancestral.voo_fogo",
+        "rasante": "animation.valdoria.dragao_ancestral.rasante",
+        "mordida": "animation.valdoria.dragao_ancestral.mordida",
+        "cauda": "animation.valdoria.dragao_ancestral.cauda",
+        "sopro": "animation.valdoria.dragao_ancestral.sopro",
+        "rugido": "animation.valdoria.dragao_ancestral.rugido",
+        "decolar": "animation.valdoria.dragao_ancestral.decolar",
+        "pousar": "animation.valdoria.dragao_ancestral.pousar",
+        "exausto": "animation.valdoria.dragao_ancestral.exausto",
+        "meteoros": "animation.valdoria.dragao_ancestral.meteoros",
+        "anel": "animation.valdoria.dragao_ancestral.anel",
+        "intro": "animation.valdoria.dragao_ancestral.intro",
+        "morte": "animation.valdoria.dragao_ancestral.morte",
+        "main": "controller.animation.valdoria.dragao_ancestral.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ],
+        "scale": "1.7"
+      },
+      "render_controllers": [
+        "controller.render.valdoria.dragao"
+      ],
+      "spawn_egg": {
+        "base_color": "#8a2418",
+        "overlay_color": "#ffb040"
+      }
+    }
+  }
+}

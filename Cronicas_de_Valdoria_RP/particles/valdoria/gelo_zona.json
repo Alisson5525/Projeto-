@@ -1,0 +1,93 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "valdoria:gelo_zona",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "textures/particle/valdoria_particulas"
+      }
+    },
+    "components": {
+      "minecraft:emitter_rate_instant": {
+        "num_particles": "math.max(variable.radius, 0.5) * math.max(variable.radius, 0.5) * 3"
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 0.05
+      },
+      "minecraft:emitter_shape_disc": {
+        "offset": [
+          0,
+          3.5,
+          0
+        ],
+        "radius": "math.max(variable.radius, 0.5)",
+        "direction": [
+          0.3,
+          -1,
+          0
+        ],
+        "plane_normal": [
+          0,
+          1,
+          0
+        ]
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": "math.random(0.8, 1.2)"
+      },
+      "minecraft:particle_initial_speed": 0.4,
+      "minecraft:particle_motion_dynamic": {
+        "linear_acceleration": [
+          0,
+          -3,
+          0
+        ],
+        "linear_drag_coefficient": 1.0,
+        "rotation_drag_coefficient": 0.5
+      },
+      "minecraft:particle_initial_spin": {
+        "rotation": "math.random(0, 360)",
+        "rotation_rate": "math.random(-180, 180)"
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          "0.2 + (0.1 - 0.2) * (variable.particle_age / variable.particle_lifetime)",
+          "0.2 + (0.1 - 0.2) * (variable.particle_age / variable.particle_lifetime)"
+        ],
+        "facing_camera_mode": "rotate_xyz",
+        "uv": {
+          "texture_width": 128,
+          "texture_height": 128,
+          "uv": [
+            32,
+            0
+          ],
+          "uv_size": [
+            16,
+            16
+          ]
+        }
+      },
+      "minecraft:particle_appearance_tinting": {
+        "color": {
+          "gradient": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.659,
+              0.91,
+              1.0,
+              0.0
+            ]
+          ],
+          "interpolant": "variable.particle_age / variable.particle_lifetime"
+        }
+      }
+    }
+  }
+}

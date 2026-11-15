@@ -1,0 +1,168 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.goblin.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.goblin.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "math.sin(query.life_time * 150) * 2",
+            0,
+            0
+          ]
+        },
+        "earL": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 400) * 6 - 4"
+          ]
+        },
+        "earR": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(query.life_time * 400 + 60) * 6 + 4"
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 120) * 3 + 3"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(query.life_time * 120) * 3 - 3"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.goblin.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 45) * 45 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 45) * 45 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 45) * 35 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 45) * 35 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.cos(query.modified_distance_moved * 45)) * 0.8 * query.modified_move_speed",
+            0
+          ],
+          "rotation": [
+            "6 * query.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.goblin.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-math.sin(variable.attack_time * 180) * 90",
+            "math.sin(variable.attack_time * 180) * 20",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "math.sin(variable.attack_time * 180) * -15",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.goblin.cast": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-150 + math.sin(query.life_time * 900) * 5",
+            0,
+            -10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-130 + math.cos(query.life_time * 900) * 5",
+            0,
+            25
+          ]
+        },
+        "head": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            -8,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.goblin.loadout": {
+      "loop": true,
+      "bones": {
+        "dagger": {
+          "scale": "variable.shaman ? 0 : 1"
+        },
+        "staff": {
+          "scale": "variable.shaman ? 1 : 0"
+        },
+        "mask": {
+          "scale": "variable.shaman ? 1 : 0"
+        }
+      }
+    }
+  }
+}

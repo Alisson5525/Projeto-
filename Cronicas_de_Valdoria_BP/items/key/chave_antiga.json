@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:chave_antiga",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_chave_antiga",
+      "minecraft:max_stack_size": 16,
+      "minecraft:display_name": {
+        "value": "item.valdoria:chave_antiga.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:key",
+          "valdoria:rarity_raro"
+        ]
+      }
+    }
+  }
+}

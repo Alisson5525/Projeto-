@@ -1,0 +1,208 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.gargula.estatua": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            30,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            -2,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -40,
+            0,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -40,
+            0,
+            -10
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            -60,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            -60,
+            0,
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            0,
+            30,
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            -30,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.gargula.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.gargula.idle": {
+      "loop": true,
+      "bones": {
+        "rightWing": {
+          "rotation": [
+            0,
+            "10 + math.sin(query.life_time * 120) * 12",
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            "-10 - math.sin(query.life_time * 120) * 12",
+            0
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            0,
+            "math.sin(query.life_time * 90) * 15",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            15,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.gargula.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 40 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 40 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 25 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 25 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.gargula.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 110",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 110",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 20",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.gargula.salto": {
+      "loop": true,
+      "bones": {
+        "rightWing": {
+          "rotation": [
+            0,
+            "-50 + math.sin(query.life_time * 1400) * 25",
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            "50 - math.sin(query.life_time * 1400) * 25",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -150,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -150,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

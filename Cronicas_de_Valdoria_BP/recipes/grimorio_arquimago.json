@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_grimorio_arquimago"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "ECE",
+      "CBC",
+      "ECE"
+    ],
+    "key": {
+      "E": {
+        "item": "valdoria:essencia_arcana"
+      },
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "B": {
+        "item": "minecraft:book"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:essencia_arcana"
+      }
+    ],
+    "result": {
+      "item": "valdoria:grimorio_arquimago",
+      "count": 1
+    }
+  }
+}

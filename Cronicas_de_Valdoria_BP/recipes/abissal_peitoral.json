@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_abissal_peitoral"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M M",
+      "MXM",
+      "MMM"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:netherite_scrap"
+      },
+      "X": {
+        "item": "valdoria:coracao_abismo"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherite_scrap"
+      }
+    ],
+    "result": {
+      "item": "valdoria:abissal_peitoral",
+      "count": 1
+    }
+  }
+}

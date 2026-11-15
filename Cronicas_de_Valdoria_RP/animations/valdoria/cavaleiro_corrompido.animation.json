@@ -1,0 +1,154 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.cavaleiro_corrompido.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cavaleiro_corrompido.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "math.sin(query.life_time * 70) * 1.5",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -15,
+            0,
+            "math.sin(query.life_time * 60) * 3 + 4"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -25,
+            0,
+            -4
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cavaleiro_corrompido.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 35 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 35 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 38) * 20 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 38) * 20 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cavaleiro_corrompido.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-60 - (variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 80",
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 25",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 20",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cavaleiro_corrompido.escudo": {
+      "loop": true,
+      "bones": {
+        "leftArm": {
+          "rotation": [
+            -80,
+            -30,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            5,
+            10,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cavaleiro_corrompido.investida": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -100,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -60,
+            -20,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.life_time * 900) * 50",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.life_time * 900) * 50",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:lobo_espectral",
+      "materials": {
+        "default": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/lobo_espectral"
+      },
+      "geometry": {
+        "default": "geometry.wolf"
+      },
+      "animations": {
+        "walk": "animation.valdoria.lobo.walk",
+        "look": "animation.valdoria.lobo.look"
+      },
+      "scripts": {
+        "animate": [
+          "walk",
+          "look"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#9fd8f0",
+        "overlay_color": "#ffffff"
+      }
+    }
+  }
+}

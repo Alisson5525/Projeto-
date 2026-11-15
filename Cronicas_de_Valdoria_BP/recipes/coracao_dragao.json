@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_coracao_dragao"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "EEE",
+      "ENE",
+      "EEE"
+    ],
+    "key": {
+      "E": {
+        "item": "valdoria:escama_dragao"
+      },
+      "N": {
+        "item": "valdoria:nucleo_tita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:escama_dragao"
+      }
+    ],
+    "result": {
+      "item": "valdoria:coracao_dragao",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:elixir_renascimento",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_elixir_renascimento",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:elixir_renascimento.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:reset",
+          "valdoria:rarity_lendario"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

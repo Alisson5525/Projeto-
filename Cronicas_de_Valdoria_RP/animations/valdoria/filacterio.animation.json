@@ -1,0 +1,43 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.filacterio.idle": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "2 + math.sin(query.life_time * 120) * 1",
+            0
+          ]
+        },
+        "core": {
+          "rotation": [
+            0,
+            "query.life_time * 90",
+            0
+          ]
+        },
+        "runes": {
+          "rotation": [
+            0,
+            "-query.life_time * 140",
+            0
+          ]
+        },
+        "skull": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 160 + 40) * 0.8",
+            0
+          ],
+          "rotation": [
+            0,
+            "math.sin(query.life_time * 60) * 25",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

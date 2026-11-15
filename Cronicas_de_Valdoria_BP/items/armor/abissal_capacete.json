@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:abissal_capacete",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_abissal_capacete",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:abissal_capacete.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:armor",
+          "valdoria:rarity_mitico",
+          "valdoria:set_abissal"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.head",
+        "protection": 4
+      },
+      "minecraft:durability": {
+        "max_durability": 820
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 12
+      }
+    }
+  }
+}

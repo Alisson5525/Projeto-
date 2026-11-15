@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cajado_sombrio"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " CR",
+      " SC",
+      "S  "
+    ],
+    "key": {
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "R": {
+        "item": "valdoria:runa_sombra"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:cristal_aetherita"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cajado_sombrio",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:fantasma_anao",
+      "materials": {
+        "default": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/fantasma_anao"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.anao"
+      },
+      "animations": {
+        "look": "animation.valdoria.anao.look",
+        "idle": "animation.valdoria.anao.idle",
+        "flutuar": "animation.valdoria.anao.flutuar",
+        "walk": "animation.valdoria.anao.walk",
+        "attack": "animation.valdoria.anao.attack",
+        "loadout_fantasma": "animation.valdoria.anao.loadout_fantasma",
+        "loadout_rei": "animation.valdoria.anao.loadout_rei",
+        "hurt": "animation.valdoria.anao.hurt",
+        "martelada": "animation.valdoria.anao.martelada",
+        "giro": "animation.valdoria.anao.giro",
+        "arremesso": "animation.valdoria.anao.arremesso",
+        "fenda": "animation.valdoria.anao.fenda",
+        "invocar": "animation.valdoria.anao.invocar",
+        "furia": "animation.valdoria.anao.furia",
+        "escudo": "animation.valdoria.anao.escudo",
+        "intro": "animation.valdoria.anao.intro",
+        "morte": "animation.valdoria.anao.morte"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "flutuar",
+          "walk",
+          "attack",
+          "hurt",
+          "loadout_fantasma"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#9fe8f0",
+        "overlay_color": "#4a8898"
+      }
+    }
+  }
+}
