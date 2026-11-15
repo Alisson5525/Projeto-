@@ -316,6 +316,12 @@ async function dialogue(player, npc, info) {
   return opts[r.selection][2]();
 }
 
+const npcHooks = [];
+/** Outros sistemas (eventos do mundo, cativos de acampamentos) tratam NPCs marcados; o gancho devolve true se tratou. */
+export function onNpcInteract(fn) {
+  npcHooks.push(fn);
+}
+
 export function startDialogue() {
   world.beforeEvents.playerInteractWithEntity.subscribe((ev) => {
     const t = ev.target;
@@ -325,6 +331,13 @@ export function startDialogue() {
     const p = ev.player;
     system.run(() => {
       if (!ok(p) || !ok(t)) return;
+      for (const fn of npcHooks) {
+        try {
+          if (fn(p, t)) return;
+        } catch (e) {
+          console.warn(`[Valdoria] interação com NPC: ${e}`);
+        }
+      }
       if (id === `${NS}:prisioneiro`) freePrisoner(p, t);
       else talk(p, t);
     });

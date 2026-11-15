@@ -43,6 +43,9 @@ export function defaults() {
     flags: {},
     locais: [],
     lidos: [],
+    expl: {}, // progresso de exploração por local: { [id]: { o: {objetivo: 1}, c: 0|1 } }
+    rumores: [], // locais revelados (posto de observação, aventureiros, mapa) e ainda não visitados
+    pistas: {}, // pistas de enigmas lidas: { [idLocal:idMecanismo]: texto }
   };
 }
 
@@ -93,6 +96,8 @@ export function resetData(player, keepKit = true) {
   d.desc = old.desc;
   d.abates = old.abates;
   d.chefes = old.chefes;
+  // o renascimento muda raça/classe/atributos, mas não apaga o que o jogador explorou e leu no mundo
+  for (const k of ["locais", "lidos", "flags", "expl", "rumores", "pistas"]) if (old[k] !== undefined) d[k] = old[k];
   cache.set(player.id, d);
   saveNow(player);
   return d;

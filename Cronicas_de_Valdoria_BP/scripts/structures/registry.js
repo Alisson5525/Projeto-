@@ -7,6 +7,7 @@ import { addXP } from "../rpg/progression.js";
 import { build, rng } from "./builder.js";
 import { fillChest } from "./loot.js";
 import { scrollItem } from "./scrolls.js";
+import { rarityOf } from "../exploration/rarity.js";
 
 const IDX = `${NS}:locais`;
 const KEY = (id) => `${NS}:local_${id}`;
@@ -175,7 +176,7 @@ export async function createSite(dim, tipo, origin, rot, opts = {}) {
   saveIndex();
   saveSite(rec);
   try {
-    const { plans, plan } = await T.plan(dim, origin, rot, rng(seed));
+    const { plans, plan } = await T.plan(dim, origin, rot, rng(seed), seed);
     let errors = 0;
     for (const p of plans) errors += await build(dim, p);
     fillChests(dim, plan.chests);
@@ -184,6 +185,13 @@ export async function createSite(dim, tipo, origin, rot, opts = {}) {
     for (const [key, typeId] of T.guards || []) for (const pos of plan.marks[key] || []) rec.guards.push([typeId, pos.x, pos.y, pos.z]);
     spawnGuards(dim, rec);
     rec.estado = "ativo";
+    if (T.mecanismos) {
+      // marcações (posições e salas) usadas pelos mecanismos persistem com o local
+      const skip = new Set(["area", ...(T.guards || []).map(([k]) => k)]);
+      rec.mk = {};
+      for (const [k, v] of Object.entries(plan.marks)) if (!skip.has(k)) rec.mk[k] = v.map((q) => ({ x: q.x, y: q.y, z: q.z }));
+      rec.m.mec = {};
+    }
     if (T.afterBuild) T.afterBuild(rec, plan);
     saveSite(rec);
     for (const fn of listeners.criado) fn(rec, dim);
@@ -207,10 +215,13 @@ function discover(player, rec) {
   d.locais.push(rec.id);
   markDirty(player);
   const T = TYPES[rec.tipo];
-  player.onScreenDisplay.setTitle(`§6${rec.nome}`, { subtitle: `§7Local descoberto §8· §e+${T?.xp || 40} XP`,
+  const R = rarityOf(T);
+  const xp = Math.round((T?.xp || 40) * (T?.raridade ? R.xp : 1));
+  player.onScreenDisplay.setTitle(`${R.cor}${rec.nome}`, { subtitle: `§7Local ${R.cor}${R.nome.toLowerCase()}§7 descoberto §8· §e+${xp} XP`,
     fadeInDuration: 10, stayDuration: 50, fadeOutDuration: 15 });
-  psound(player, "random.toast", 0.8, 1);
-  addXP(player, T?.xp || 40, "exploração");
+  psound(player, R.ordem >= 2 ? "ui.toast.challenge_complete" : "random.toast", 0.8, 1);
+  addXP(player, xp, "exploração");
+  if (d.rumores?.includes(rec.id)) d.rumores = d.rumores.filter((x) => x !== rec.id);
   for (const fn of listeners.descoberto) fn(player, rec);
 }
 

@@ -227,4 +227,45 @@ export const LORE = {
       "uma forja apagada há séculos solta uma faísca. E em Nyxhal, pela primeira vez, chove.\n\nA Ruptura começa a fechar.\n\n" +
       "§7Fim da Crônica VII. A história principal de Valdoria termina aqui.",
   },
+  // ---------------------------------------------------------------- Edição Definitiva: descobertas
+  soldo_brom: {
+    titulo: "Bilhete no Saco de Moedas",
+    local: "Ruínas do Posto de Vigia (porão)",
+    texto: "Escrito às pressas:\n\n\"Se alguém achar isto e não for da guarnição: o soldo é seu. Ninguém voltou para buscar. " +
+      "Os goblins que vieram não eram saqueadores comuns - carregavam pedras roxas em sacos e falavam de uma Dama que paga em ouro.\"\n\n§7- Sgt. Brom",
+  },
+  lista_saque: {
+    titulo: "Lista de Saque dos Salteadores",
+    local: "Acampamento de Salteadores",
+    texto: "Uma lista de mercadorias riscadas:\n\n§7Sedas de Aurendel - VENDIDO\nCristais roxos - ENTREGAR À DAMA, NÃO ABRIR\n" +
+      "Mapa velho rasgado em três - o caolho ficou com um pedaço, o resto foi trocado na estrada\n\n§fAté os salteadores trabalham para o Véu Negro?",
+  },
+  diario_ossian: {
+    titulo: "Caderno de Ossian, o Coveiro",
+    local: "Cemitério Abandonado (túmulo)",
+    texto: "\"Quarenta invernos enterrando gente rica com o ouro no bolso. Peguei só o que os mortos não iam usar.\n\n" +
+      "Na noite em que o céu rachou - a tal Ruptura - os mortos daqui se levantaram pela primeira vez. Desde então, toda lua alta eles marcham. " +
+      "Não é magia de necromante. É a própria terra que esqueceu como prender os mortos.\"",
+  },
+  aetherianos_bibliotecas: {
+    titulo: "Sobre as Bibliotecas dos Aetherianos",
+    local: "Biblioteca Ancestral",
+    texto: "Os Aetherianos guardavam o saber em casas como esta, espalhadas pelo reino, cada uma com um Arquivo Proibido sob o piso. " +
+      "As alavancas seguem sempre um verso: quem conhece a poesia dos fundadores, entra.\n\n§7Na margem: \"Os tomos perdidos ensinam magia sem custo. " +
+      "Mas quem os lê esquece de onde veio o conhecimento.\"",
+  },
+  sacerdotes_runeval: {
+    titulo: "Regra dos Sacerdotes de Runeval",
+    local: "Templo Rúnico Subterrâneo (passagem secreta)",
+    texto: "\"Os sinos falam a língua dos cristais. Tocados na ordem certa, abrem as paredes de runa. O Guardião de Ithrel foi forjado para " +
+      "proteger o cofre de qualquer um que não seja sacerdote.\n\nSe o templo cair, levem os sinos de bolso: carregam um eco do canto " +
+      "e afinam a mente para a magia.\"",
+  },
+  testamento_reis: {
+    titulo: "Testamento dos Quatro Reis",
+    local: "Cofre dos Reis Esquecidos",
+    texto: "\"Nós, os quatro reis antes de Malachar, deixamos aqui a coroa que nenhum de nós mereceu sozinho.\n\n" +
+      "Que o próximo a usá-la saiba: a Aetherita não pertence a reis, a damas de véu, nem a dragões. Pertence à terra que a gerou. " +
+      "Quem reunir o Coração deve devolvê-lo, não empunhá-lo.\"\n\n§7Assinado: Aldemar, Corin, Ysra e Thalen.",
+  },
 };

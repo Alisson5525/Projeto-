@@ -17,7 +17,7 @@ export const RARITY = {
   comum: ["§f", "Comum", 1], incomum: ["§a", "Incomum", 2], raro: ["§9", "Raro", 3], epico: ["§d", "Épico", 4],
   lendario: ["§6", "Lendário", 5], mitico: ["§c", "Mítico", 6], divino: ["§e", "Divino", 7],
 };
-const LORE_V = 3;
+const LORE_V = 4;
 const MAX_UPGRADE = { comum: 3, incomum: 4, raro: 5, epico: 5, lendario: 6, mitico: 7, divino: 7 };
 const MOD_NAMES = {
   str: "Força", vit: "Vitalidade", agi: "Agilidade", int: "Inteligência", spi: "Espírito", def: "Defesa", pre: "Precisão",
@@ -25,14 +25,20 @@ const MOD_NAMES = {
   fire: "Dano de fogo", ice: "Dano de gelo", lightning: "Dano de raio", arcane: "Dano arcano", holy: "Dano sagrado",
   dark: "Dano sombrio", nature: "Dano natural", wind: "Dano de vento", blood: "Dano de sangue", summon: "Invocações",
   rFire: "Resist. fogo", rIce: "Resist. gelo", rDark: "Resist. sombra", rPhys: "Resist. física", kbImmune: "Imune a repulsão",
+  rEarth: "Resist. terra", rLightning: "Resist. raio", rHoly: "Resist. sagrada", rNature: "Resist. natureza",
+  crit: "Chance de crítico", critDmg: "Dano crítico", dodge: "Esquiva", cdr: "Redução de recarga", regen: "Regeneração de energia",
+  lootLuck: "Sorte nos saques", spellCost: "Custo dos feitiços", vsUndead: "Dano contra mortos-vivos", melee: "Dano corpo a corpo",
+  dr: "Redução de dano", hp: "Corações extras",
 };
+const LOWER_IS_BETTER = new Set(["spellCost", "dmgTaken"]);
 
 function fmtMod(k, v) {
   const name = MOD_NAMES[k] || k;
   if (k === "kbImmune") return `§a${name}`;
   const pctKey = !["str", "vit", "agi", "int", "spi", "def", "pre", "luk", "energyMax"].includes(k);
   const val = pctKey ? `${v > 0 ? "+" : ""}${Math.round(v * 100)}%` : `${v > 0 ? "+" : ""}${v}`;
-  return `§a${val} §7${name}`;
+  const good = LOWER_IS_BETTER.has(k) ? v < 0 : v > 0;
+  return `${good ? "§a" : "§c"}${val} §7${name}`;
 }
 
 export function getUpgrade(item) {
@@ -87,7 +93,9 @@ export function buildLore(item) {
   } else if (d.k === "accessory") {
     lines.push(`§7Acessório (${{ anel: "Anel", amuleto: "Amuleto", reliquia: "Relíquia" }[d.slot]}) - equipe pelo Diário`);
     for (const [k, v] of Object.entries(d.mods)) lines.push(fmtMod(k, v));
+    if (d.exclusivo) lines.push("§6Relíquia de exploração §7(não fabricável)");
   }
+  if (d.origem) lines.push(`§8Onde obter: ${d.origem}`);
   if (d.d) lines.push(`§o§8${d.d}`);
   return wrapLore(lines);
 }

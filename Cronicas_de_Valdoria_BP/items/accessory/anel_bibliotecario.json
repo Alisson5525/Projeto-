@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:anel_bibliotecario",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_anel_bibliotecario",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:anel_bibliotecario.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:accessory",
+          "valdoria:rarity_raro"
+        ]
+      }
+    }
+  }
+}

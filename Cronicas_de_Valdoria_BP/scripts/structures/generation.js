@@ -12,6 +12,15 @@ const SPACING = { acampamento: 320, torre: 480, cripta: 640, vila: 900, ninho: 1
 const SPACING_ANY = 160;
 const MIN_LEVEL = { acampamento: 1, torre: 3, cripta: 6, vila: 1, ninho: 14, santuario: 16, ninho_grifo: 12, kardum: 12 };
 const WEIGHT = { acampamento: 5, torre: 3, cripta: 2, vila: 2, ninho: 1, santuario: 1, ninho_grifo: 2, kardum: 2 };
+const spacingOf = (t) => SPACING[t] ?? TYPES[t]?.espaco ?? 400;
+const minLevelOf = (t) => MIN_LEVEL[t] ?? TYPES[t]?.nivel ?? 1;
+const weightOf = (t) => WEIGHT[t] ?? TYPES[t]?.peso ?? 0;
+/** Distância (2D) até o local mais próximo na mesma dimensão. */
+function nearestSiteDist(loc, dimId, sites) {
+  let best = Infinity;
+  for (const s of sites) if (s.dim === dimId) best = Math.min(best, dist2d(s, loc));
+  return best;
+}
 let chronicleFails = 0; // tentativas frustradas de gerar o covil pedido pela Crônica (depois de várias, o bioma é relevado)
 
 /** Covil exigido pelo passo atual da Crônica e ainda inexistente no mundo. */
@@ -70,7 +79,7 @@ function spacingOk(tipo, loc, sites) {
   for (const s of sites) {
     const d = dist2d(s, loc);
     if (d < Math.max(SPACING_ANY, (TYPES[tipo]?.raio || 10) + (TYPES[s.tipo]?.raio || 10) + 60)) return false;
-    if (s.tipo === tipo && d < (SPACING[tipo] || 320)) return false;
+    if (s.tipo === tipo && d < spacingOf(tipo)) return false;
   }
   try {
     const sp = world.getDefaultSpawnLocation();
@@ -87,10 +96,13 @@ function chooseType(player, sites, forced) {
   if (TYPES.vila && !sites.some((s) => s.tipo === "vila") && lvl >= 2) return "vila"; // a primeira vila é garantida cedo (comércio e serviços)
   const hasCamp = sites.some((s) => s.tipo === "acampamento");
   if (!hasCamp && lvl >= 3) return "acampamento"; // o primeiro acampamento é garantido para a Crônica
-  const opts = Object.keys(WEIGHT).filter((t) => TYPES[t] && lvl >= (MIN_LEVEL[t] || 1));
-  const total = opts.reduce((a, t) => a + WEIGHT[t], 0);
+  // variedade: tipos já presentes por perto pesam menos (evita repetição na mesma região)
+  const near = sites.filter((s) => s.dim === player.dimension.id && dist2d(s, player.location) < 700);
+  const opts = Object.keys(TYPES).filter((t) => weightOf(t) > 0 && lvl >= minLevelOf(t));
+  const w = (t) => weightOf(t) / (1 + near.filter((s) => s.tipo === t).length);
+  const total = opts.reduce((a, t) => a + w(t), 0);
   let r = Math.random() * total;
-  for (const t of opts) if ((r -= WEIGHT[t]) <= 0) return t;
+  for (const t of opts) if ((r -= w(t)) <= 0) return t;
   return opts[0];
 }
 
@@ -305,7 +317,10 @@ export function startGeneration() {
     const lvl = getData(p).nivel;
     const first = (!sites.some((s) => s.tipo === "acampamento") && lvl >= 3) || (!sites.some((s) => s.tipo === "vila") && lvl >= 2) ||
       !!chronicleNeed(p, sites);
-    if (!first && Math.random() > 0.1 * freq) return;
+    // longe de qualquer local, o mundo "oferece" algo mais depressa; perto de vários, mais devagar
+    const nd = nearestSiteDist(loc, p.dimension.id, sites);
+    const base = nd > 320 ? 0.25 : nd > 180 ? 0.12 : 0.06;
+    if (!first && Math.random() > base * freq) return;
     tryGenerate(p).catch((e) => console.warn(`[Valdoria] geração: ${e}`));
   }, 200);
 }

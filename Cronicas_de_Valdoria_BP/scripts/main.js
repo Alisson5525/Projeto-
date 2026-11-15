@@ -2,6 +2,7 @@
 // Organização: core (dados, dano, efeitos) · rpg (atributos, progressão, passivas) · abilities (motor, raças, classes)
 // · magic (feitiços) · combat (armas) · items (equipamentos, uso) · creatures/bosses (IA) · quests · structures · npc · ui.
 import { world, system, CommandPermissionLevel, CustomCommandStatus, CustomCommandParamType } from "@minecraft/server";
+import "./data/items_explore.js"; // mescla os itens de exploração em ITEM_DATA antes de qualquer tabela de saque
 import { startStore } from "./core/store.js";
 import { startDamage } from "./core/damage.js";
 import { startEngine } from "./abilities/engine.js";
@@ -30,6 +31,7 @@ import { startShadowCreatures } from "./creatures/sombrios.js";
 import { startAuriel } from "./bosses/auriel.js";
 import { startCelestialCreatures } from "./creatures/celestes.js";
 import { startStructures } from "./structures/index.js";
+import { startExploration } from "./exploration/index.js";
 import { startNpcs } from "./npc/index.js";
 import { startQuests } from "./quests/quests.js";
 import { openMainMenu } from "./ui/menus.js";
@@ -91,8 +93,9 @@ function start() {
   startDragonEggs();
   startQuests();
   startStructures();
+  startExploration();
   startNpcs();
-  console.info("[Valdoria] Crônicas de Valdoria v1.11.1 (Etapa 12 + correção da geração) carregado.");
+  console.info("[Valdoria] Crônicas de Valdoria v2.0.0 (Edição Definitiva) carregado.");
 }
 
 world.afterEvents.worldLoad.subscribe(start);

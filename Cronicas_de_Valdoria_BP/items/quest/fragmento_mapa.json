@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:fragmento_mapa",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_fragmento_mapa",
+      "minecraft:max_stack_size": 8,
+      "minecraft:display_name": {
+        "value": "item.valdoria:fragmento_mapa.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:map_fragment",
+          "valdoria:rarity_epico"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:mapa_reis",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_mapa_reis",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:mapa_reis.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:map_kings",
+          "valdoria:rarity_lendario"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

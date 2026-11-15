@@ -18,6 +18,7 @@ import { readLore } from "../ui/codex.js";
 import { useMap } from "../structures/index.js";
 import { useMountItem, mountType, ITEM_TYPE, OSSO_ALFA, REDEA_CELESTE, LOBO_NIVEL } from "../mounts/mounts.js";
 import { placeEgg, OVO_ITEM } from "../mounts/dragon.js";
+import { handleExploreItem } from "../exploration/items.js";
 
 const debounce = new Map();
 const INTERACTIVE = ["chest", "barrel", "door", "trapdoor", "gate", "button", "lever", "crafting", "furnace", "smoker", "anvil",
@@ -47,6 +48,7 @@ export function handleUse(player, item) {
   debounce.set(player.id, tick());
   const id = item.typeId;
   const d = itemData(item);
+  if (handleExploreItem(player, item)) return true;
   if (id === `${NS}:diario_aventureiro`) {
     openMainMenu(player);
     return true;

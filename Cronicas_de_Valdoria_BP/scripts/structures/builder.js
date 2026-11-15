@@ -32,6 +32,12 @@ function rotStates(states, rot) {
   if (s.facing_direction !== undefined && FACING[s.facing_direction]) s.facing_direction = FACING_INV[rotDir(FACING[s.facing_direction], rot)];
   if (s.direction !== undefined) s.direction = LEGACY_DIR.indexOf(rotDir(LEGACY_DIR[s.direction], rot));
   if (s.pillar_axis && rot % 2 === 1 && s.pillar_axis !== "y") s.pillar_axis = s.pillar_axis === "x" ? "z" : "x";
+  if (s.rail_direction !== undefined && s.rail_direction <= 1 && rot % 2 === 1) s.rail_direction = 1 - s.rail_direction;
+  if (s.lever_direction) {
+    const ld = s.lever_direction;
+    if (DIRS[ld]) s.lever_direction = rotDir(ld, rot);
+    else if (rot % 2 === 1) s.lever_direction = ld.endsWith("north_south") ? ld.replace("north_south", "east_west") : ld.replace("east_west", "north_south");
+  }
   const conn = ["north", "east", "south", "west"].map((d) => s[`minecraft:connection_${d}`]);
   if (conn.some((c) => c !== undefined)) {
     for (let i = 0; i < 4; i++) s[`minecraft:connection_${DIR_NAMES[(i + rot) & 3]}`] = !!conn[i];
@@ -57,6 +63,19 @@ export const B = {
   skull: () => ["minecraft:skeleton_skull", { facing_direction: 1 }],
   barrel: () => ["minecraft:barrel", { facing_direction: 1, open_bit: false }],
   cluster: () => ["minecraft:amethyst_cluster", { "minecraft:block_face": "up" }],
+  // mecanismos de exploração
+  lever: (axis = "z") => ["minecraft:lever", { lever_direction: axis === "x" ? "up_east_west" : "up_north_south", open_bit: false }],
+  wallLever: (dir) => ["minecraft:lever", { lever_direction: dir, open_bit: false }],
+  button: (dir, id = "minecraft:stone_button") => [id, { facing_direction: FACING_INV[dir], button_pressed_bit: false }],
+  bell: () => ["minecraft:bell", { attachment: "standing", direction: 0, toggle_bit: false }],
+  plate: (id = "minecraft:stone_pressure_plate") => [id, { redstone_signal: 0 }],
+  dispenser: (dir) => ["minecraft:dispenser", { facing_direction: FACING_INV[dir], triggered_bit: false }],
+  trapdoor: (id, dir, open = false, top = false) => [id, { direction: LEGACY_DIR.indexOf(dir), open_bit: open, upside_down_bit: top }],
+  soulFire: () => ["minecraft:soul_campfire", { extinguished: false, "minecraft:cardinal_direction": "south" }],
+  deadFire: () => ["minecraft:campfire", { extinguished: true, "minecraft:cardinal_direction": "south" }],
+  candleOff: (n = 1, id = "minecraft:candle") => [id, { candles: Math.max(0, Math.min(3, n - 1)), lit: false }],
+  rail: (axis = "z") => ["minecraft:rail", { rail_direction: axis === "x" ? 1 : 0 }],
+  leaves: (id = "minecraft:oak_leaves") => [id, { persistent_bit: true, update_bit: false }],
 };
 
 // ------------------------------------------------------------------ plano
@@ -126,7 +145,17 @@ function perm(id, st) {
   const key = st ? `${id}|${JSON.stringify(st)}` : id;
   let p = permCache.get(key);
   if (!p) {
-    p = BlockPermutation.resolve(id, st);
+    try {
+      p = BlockPermutation.resolve(id, st);
+    } catch (e) {
+      if (!st) throw e;
+      // estado inexistente nesta versão do jogo (ex.: conexões de cercas/vidraças antes da 1.26.50):
+      // mantém os estados aceitos e descarta os demais, em vez de deixar o bloco de fora
+      p = BlockPermutation.resolve(id);
+      for (const [k, v] of Object.entries(st)) {
+        try { p = p.withState(/** @type {any} */ (k), v); } catch { /* estado não suportado */ }
+      }
+    }
     permCache.set(key, p);
   }
   return p;

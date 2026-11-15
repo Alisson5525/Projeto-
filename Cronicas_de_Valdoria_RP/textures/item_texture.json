@@ -481,6 +481,42 @@
     },
     "valdoria_mapa_explorador": {
       "textures": "textures/items/valdoria/mapa_explorador"
+    },
+    "valdoria_fragmento_mapa": {
+      "textures": "textures/items/valdoria/fragmento_mapa"
+    },
+    "valdoria_mapa_reis": {
+      "textures": "textures/items/valdoria/mapa_reis"
+    },
+    "valdoria_chave_antiga": {
+      "textures": "textures/items/valdoria/chave_antiga"
+    },
+    "valdoria_tomo_perdido": {
+      "textures": "textures/items/valdoria/tomo_perdido"
+    },
+    "valdoria_anel_vigia": {
+      "textures": "textures/items/valdoria/anel_vigia"
+    },
+    "valdoria_amuleto_mineiro": {
+      "textures": "textures/items/valdoria/amuleto_mineiro"
+    },
+    "valdoria_estandarte_comandante": {
+      "textures": "textures/items/valdoria/estandarte_comandante"
+    },
+    "valdoria_sino_runico": {
+      "textures": "textures/items/valdoria/sino_runico"
+    },
+    "valdoria_lanterna_fadas": {
+      "textures": "textures/items/valdoria/lanterna_fadas"
+    },
+    "valdoria_medalhao_purificado": {
+      "textures": "textures/items/valdoria/medalhao_purificado"
+    },
+    "valdoria_coroa_reis_esquecidos": {
+      "textures": "textures/items/valdoria/coroa_reis_esquecidos"
+    },
+    "valdoria_anel_bibliotecario": {
+      "textures": "textures/items/valdoria/anel_bibliotecario"
     }
   }
 }
