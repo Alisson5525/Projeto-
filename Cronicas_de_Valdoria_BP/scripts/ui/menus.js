@@ -26,6 +26,7 @@ import { royalLines } from "../npc/capital.js";
 import { LORE } from "../data/lore.js";
 import { explorationMenu } from "../exploration/menu.js";
 import { victoriesOf } from "../bosses/postura.js";
+import { REACOES } from "../magic/reactions.js";
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
 
@@ -235,11 +236,16 @@ async function grimoireMenu(player) {
   const f = new ActionFormData().title("§lGrimório").body(`§fFeitiços aprendidos: §e${d.magias.length}\n\n§6Feitiços preparados:\n${slots}\n\n§7Segure um cajado/varinha: §fusar§7 lança o feitiço selecionado, §fagachar + usar§7 troca.`)
     .button("Aprender feitiços", ICON("essencia_arcana"))
     .button("Preparar feitiços (4 espaços)", ICON("grimorio_arquimago"))
+    .button("Reações entre escolas", ICON("cristal_aetherita"))
     .button("Voltar");
   const r = await show(player, f);
   if (r.canceled) return;
   if (r.selection === 0) return schoolsMenu(player);
   if (r.selection === 1) return prepareMenu(player);
+  if (r.selection === 2) {
+    return notice(player, "Reações entre escolas", "§7Cada escola deixa uma marca no alvo; combiná-las provoca reações. Valem para feitiços, " +
+      "armas com runa e flechas elementais.\n\n" + REACOES.map(([n, t]) => `${n}\n§f  ${t}`).join("\n"), grimoireMenu);
+  }
   return openMainMenu(player);
 }
 

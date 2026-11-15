@@ -9,6 +9,7 @@ import { startEngine } from "./abilities/engine.js";
 import "./abilities/racial.js";
 import "./abilities/class.js";
 import "./magic/spells.js";
+import { startReactions } from "./magic/reactions.js";
 import { startWeapons } from "./combat/weapons.js";
 import { startArchery } from "./combat/archery.js";
 import { startProgression, setAbilityLine, addXP } from "./rpg/progression.js";
@@ -71,6 +72,7 @@ function start() {
   started = true;
   startStore();
   startDamage();
+  startReactions();
   startEngine();
   startWeapons();
   startArchery();
@@ -99,7 +101,7 @@ function start() {
   startExploration();
   startPosture(); // depois de todos os chefes: o gancho de postura vê o dano já com as imunidades aplicadas
   startNpcs();
-  console.info("[Valdoria] Crônicas de Valdoria v2.1.0 (Edição Definitiva) carregado.");
+  console.info("[Valdoria] Crônicas de Valdoria v2.2.0 (Edição Definitiva) carregado.");
 }
 
 world.afterEvents.worldLoad.subscribe(start);

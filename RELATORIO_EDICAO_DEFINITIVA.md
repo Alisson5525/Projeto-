@@ -1,9 +1,9 @@
-# Crônicas de Valdoria — Edição Definitiva (v2.1.0)
+# Crônicas de Valdoria — Edição Definitiva (v2.2.0)
 
 Relatório de entrega da reformulação a partir da v1.11.1.
 
-**Pacote:** `dist/Cronicas_de_Valdoria_v2.1.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.239 arquivos).
-Os UUIDs dos manifests foram mantidos: a v2.1.0 substitui a v1.11.1 (ou a v2.0.0) em mundos existentes sem perder dados.
+**Pacote:** `dist/Cronicas_de_Valdoria_v2.2.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.241 arquivos).
+Os UUIDs dos manifests foram mantidos: a v2.2.0 substitui a v1.11.1 (ou as 2.x anteriores) em mundos existentes sem perder dados.
 
 > **Leia antes:** o pedido original cobre 18 partes (exploração, animações de todas as criaturas, IA, chefes, raças, classes,
 > texturas de todos os itens etc.). Este trabalho priorizou, como o próprio pedido determina, **a exploração**, e fez nela
@@ -210,6 +210,40 @@ retrofit passam na validação de blocos; o cenário simulado agora tem **43 ver
 um acampamento antigo, o Desafio do Tambor completo, quatro estilos de arma, a fase de reforços do guardião e o pedido de
 apoio dos goblins.
 
+## 7c. v2.2.0 — terceira etapa
+
+### Chefes: Postura (vulnerabilidade comum aos 8 chefes) — `bosses/postura.js`
+Por cima das fases e mecânicas próprias de cada chefe (que já eram ricas: ataques marcados, Eclipse, filactérios,
+enraizar etc.), todo chefe agora tem uma barra de **postura**. O dano a enche; martelos (×1,8), maças, machados, espadas
+grandes e críticos enchem mais; flechas e feitiços menos. Cheia, a postura **quebra**: o chefe fica exposto por 5 s
+(+30% de dano recebido, fraqueza e lentidão), com título na tela, tremor e um anel dourado aos pés dele; depois há 25 s de
+recuperação. O limite cresce com o número de jogadores, e dano anulado por imunidades (Durgan ajoelhado, Morthil
+enraizado etc.) não conta. Avisos aos 50% e 80% para quem está batendo.
+**Primeira vitória** contra cada chefe (por jogador, para todos que lutaram por perto): +500 XP e um Fragmento de Mapa;
+o Bestiário lista os chefes vencidos.
+
+### Arcos e bestas — `combat/archery.js`
+- **Arco:** *Tiro Perfeito* — soltar até 0,5 s após a carga completa dá +35%; a janela é sinalizada por um som agudo e um
+  brilho na mão direita (visível em 1ª pessoa). Segurar mais de 3 s além da carga cansa o braço (−15%). **Acerto na
+  cabeça:** +25%.
+- **Besta:** *Virote Pesado* — rompe a armadura (+12% de dano recebido por 3 s), empurra e causa +20% a menos de 6 blocos.
+- Os efeitos especiais das armas raras (tiro duplo, brasas, corrente, raízes, perfurante, leque) continuam e se somam.
+
+### Reações entre escolas mágicas — `magic/reactions.js`
+Cada escola marca o alvo e certas combinações reagem: **Frio** (gelo, 3 cargas congelam), **Choque Térmico** (fogo em
+alvo gelado), **Estilhaçar** (raio em alvo gelado), **Condução** (raio em alvo na água/chuva), **Labareda** (vento em alvo
+em chamas), **Purificação** (sagrado em alvo com Corrupção sombria, cura quem purificou), **Hemorragia** (sangue em alvo
+sangrando), **Ressonância** (arcano + outra escola, explosão em área) e **Podridão** (natural em alvo envenenado ou
+corrompido). Valem para feitiços, armas com runa e flechas elementais. Explicadas no Diário > Grimório > Reações.
+
+### Testes da v2.2.0
+A simulação passou a disparar os eventos de dano como o jogo (antes/depois, com cancelamento), tornando o cenário mais
+fiel; nenhum teste anterior quebrou. O cenário tem agora **52 verificações**, incluindo: postura do Titã quebrando em 5
+marteladas contra 9 golpes de espada curta, primeira vitória, Tiro Perfeito (9,5 contra 7 de dano), acerto na cabeça,
+virote rompendo armadura, Choque Térmico (14 contra 10), Purificação ×2 e Ressonância atingindo o inimigo ao lado.
+Durante esta etapa os testes também revelaram que os espectros do templo realmente drenam o jogador parado — a IA
+original agindo na simulação — e o teste foi ajustado.
+
 ## 8. O que não foi feito (escopo do pedido não coberto)
 
 Para não haver dúvida sobre o que "parece pronto" e não está:
@@ -218,11 +252,12 @@ Para não haver dúvida sobre o que "parece pronto" e não está:
   Kar'Dum, Nyxhal, Cripta, Santuário Celestial, Ninho do Dragão, Véu Negro, Vila e Ninho de Grifo ganharam raridade e
   entram no Diário, mas arquitetura e mecânicas internas são as da v1.11.1.
 - **Animações e modelos das 40 criaturas e 8 chefes**: não alterados.
-- **IA**: ganhou táticas por papel e fases de guardiões (v2.1.0), mas a IA dos chefes, animais, companheiros e montarias
-  continua a original.
+- **IA**: ganhou táticas por papel e fases de guardiões (v2.1) e a postura dos chefes (v2.2); os padrões de ataque dos
+  chefes, e a IA de animais, companheiros e montarias continuam os originais.
 - **Raças** (aparência visual e habilidades), **classes**, **especializações**, **árvores de habilidade**: não alteradas.
-- **Escolas de magia e combinações**: só ganharam gestos de conjuração por escola; os efeitos são os originais.
-- **Armas corpo a corpo** ganharam estilos (v2.1.0); **arcos e bestas**, **companheiros**, **montarias** e
+- **Escolas de magia**: ganharam gestos de conjuração (v2.0) e reações entre escolas (v2.2); os feitiços individuais e
+  as combinações do Grimório do Arquimago são os originais.
+- **Armas corpo a corpo** (v2.1) e **arcos e bestas** (v2.2) ganharam identidades; **companheiros**, **montarias** e
   **progressão/XP/atributos** não foram alterados.
 - **Texturas** existentes de criaturas, armas e armaduras: não alteradas (só os 12 itens novos foram desenhados).
 - **Partículas**: só uma nova (`mao_brilho`); as 62 existentes não foram retrabalhadas.

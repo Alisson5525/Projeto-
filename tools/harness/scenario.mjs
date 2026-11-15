@@ -21,7 +21,15 @@ function makeEntity(dim, typeId, loc) {
     setProperty() {}, getProperty() { return 0; }, setDynamicProperty: (k, v) => { dp[k] = v; }, getDynamicProperty: (k) => dp[k],
     getComponent: (c) => (c === "minecraft:health" ? e._hp : c === "minecraft:inventory" ? e._inv : c === "minecraft:equippable" ? e._eq : undefined),
     hasComponent: (c) => c === "minecraft:health", addEffect() {}, removeEffect() {}, getEffect() { return undefined; },
-    applyDamage(n) { e._hp.currentValue -= n; return true; }, applyImpulse(v) { e._imp = (e._imp || 0) + 1; }, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
+    applyDamage(n, o = {}) {
+      // como no jogo: dispara entityHurt (antes/depois); o "antes" pode cancelar ou alterar o dano
+      const ev = { hurtEntity: e, damageSource: { cause: String(o.cause || "none"), damagingEntity: o.damagingEntity }, damage: n, cancel: false };
+      for (const fn of subs["world.before.entityHurt"] || []) fn(ev);
+      if (ev.cancel) return false;
+      e._hp.currentValue -= ev.damage;
+      for (const fn of subs["world.after.entityHurt"] || []) fn({ hurtEntity: e, damageSource: ev.damageSource, damage: ev.damage });
+      return true;
+    }, applyImpulse(v) { e._imp = (e._imp || 0) + 1; }, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
     getViewDirection: () => ({ x: 0, y: 0, z: -1 }), getHeadLocation: () => ({ x: e.location.x, y: e.location.y + 1.6, z: e.location.z }),
     getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: (q) => !!q?.families?.includes("monster") && /zombie|skeleton|goblin/.test(typeId), teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
     runCommand() { return { successCount: 1 }; }, getRotation: () => ({ x: 0, y: 0 }), isOnGround: true,
@@ -316,6 +324,33 @@ await shoot("valdoria:besta_aco", 30, alvo, 71.5);
 check(Math.abs((dmgMod.debuff(alvo).vuln?.pct || 0) - 0.12) < 1e-9, "Besta: virote rompe a armadura do alvo (+12%)");
 alvo.remove();
 held = undefined;
+
+// ================================================================ reações elementais
+player.location = { x: 7000, y: 71, z: 7000 };
+const rz = (dx) => { const e = dim.spawnEntity("minecraft:zombie", { x: 7000 + dx, y: 71, z: 6995 }); e._hp.effectiveMax = e._hp.currentValue = 300; return e; };
+const zr1 = rz(0), zr2 = rz(40);
+dmgMod.dealDamage(player, zr2, 10, "fire");
+await __advance(15);
+const fogoSo = 300 - zr2._hp.currentValue;
+dmgMod.dealDamage(player, zr1, 2, "ice");
+await __advance(15);
+const hpGelo = zr1._hp.currentValue;
+dmgMod.dealDamage(player, zr1, 10, "fire");
+await __advance(15);
+check(hpGelo - zr1._hp.currentValue > fogoSo && ui.bar.some((b) => b.includes("Choque Térmico")),
+  `Fogo em alvo gelado: Choque Térmico (${(hpGelo - zr1._hp.currentValue).toFixed(1)} contra ${fogoSo.toFixed(1)} sem gelo)`);
+for (let i = 0; i < 2; i++) { dmgMod.dealDamage(player, zr1, 2, "dark"); await __advance(15); }
+dmgMod.dealDamage(player, zr1, 8, "holy");
+await __advance(15);
+check(ui.bar.some((b) => b.includes("Purificação ×2")), "Sagrado em alvo com 2 cargas de Corrupção: Purificação ×2");
+const zr3 = rz(2);
+dmgMod.dealDamage(player, zr1, 2, "arcane");
+await __advance(15);
+const hp3 = zr3._hp.currentValue;
+dmgMod.dealDamage(player, zr1, 10, "lightning");
+await __advance(15);
+check(zr3._hp.currentValue < hp3 && ui.bar.some((b) => b.includes("Ressonância")), "Arcano + outra escola: Ressonância atinge o inimigo ao lado");
+for (const e of [zr1, zr2, zr3]) e.remove();
 
 // ================================================================ táticas de IA: pedir apoio
 player.location = { x: 4000, y: 71, z: 4000 };

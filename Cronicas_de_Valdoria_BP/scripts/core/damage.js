@@ -20,6 +20,8 @@ const killHooks = [];
 export function onBeforeHurt(fn) { hurtHooks.push(fn); }
 export function onMeleeHit(fn) { hitHooks.push(fn); }
 export function onKill(fn) { killHooks.push(fn); }
+const elementHooks = []; // reações elementais (magic/reactions.js): (src, alvo, dano, elemento, tipo)
+export function onElementHit(fn) { elementHooks.push(fn); }
 
 // ------------------------------------------------------------------ resistências das criaturas (negativo = fraqueza)
 const UNDEAD = new Set(["minecraft:zombie", "minecraft:skeleton", "minecraft:husk", "minecraft:stray", "minecraft:drowned",
@@ -227,6 +229,9 @@ export function dealDamage(src, target, amount, element = "arcane", opts = {}) {
 
 function afterHit(src, target, dmg, element, kind) {
   if (!ok(src)) return;
+  for (const fn of elementHooks) {
+    try { fn(src, target, dmg, element, kind); } catch (e) { console.warn(`[Valdoria] reação elemental: ${e}`); }
+  }
   if (isPlayer(src)) {
     const s = stats(src);
     if (s.lifesteal > 0 && kind !== "dot") heal(src, dmg * s.lifesteal);

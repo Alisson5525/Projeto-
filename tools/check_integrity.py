@@ -91,7 +91,7 @@ known = items | entities | blocks
 refs = set(re.findall(r'I\("([a-z_0-9]+)"\)', js))
 refs |= set(re.findall(r'(?:spawnEntity|new ItemStack|spawnGuard)\([^`"\n]*[`"](?:\$\{NS\}:|valdoria:)([a-z_0-9]+)', js))
 refs |= set(re.findall(r'\[`\$\{NS\}:([a-z_0-9]+)`, \d+\]', js))  # [item, quantidade]
-refs |= set(re.findall(r'tipo: `\$\{NS\}:([a-z_0-9]+)`', js))
+refs |= {t for t in re.findall(r'tipo: `\$\{NS\}:([a-z_0-9]+)`', js) if t != "tipo"}  # "tipo: `${NS}:tipo`" é chave de propriedade
 refs |= set(re.findall(r'item: `\$\{NS\}:([a-z_0-9]+)`', js))
 for iid in sorted(refs):
     if f"valdoria:{iid}" not in known:
