@@ -165,11 +165,12 @@ check(blockAt(door) === "minecraft:air", "Chave Antiga abre o cofre (e é consum
 check(!slots[0], "chave consumida do inventário");
 // armadilha de dardos
 const plate = rec.mk.placa_dardo[0];
+player._hp.currentValue = player._hp.effectiveMax; // os espectros do templo drenam vida de verdade durante o teste
 const hpBefore = player._hp.currentValue;
 goto(plate);
 fire("world.after.pressurePlatePush", { block: dim.getBlock(plate), dimension: dim, redstonePower: 1, previousRedstonePower: 0, source: player });
 await __advance(15);
-check(player._hp.currentValue < hpBefore, "placa de pressão dispara dardos em quem pisou");
+check(player._hp.currentValue < hpBefore, `placa de pressão dispara dardos em quem pisou (${hpBefore.toFixed(1)} -> ${player._hp.currentValue.toFixed(1)})`);
 // exploração completa: limpa os guardas e verifica a recompensa
 for (const e of dim.getEntities({ tags: [`vl_${rec.id}`] })) e.remove();
 goto({ x: rec.x, y: rec.y + 1, z: rec.z });
@@ -249,6 +250,39 @@ const rip = await hitWith("valdoria:katana_aco", z4);
 const plain = await hitWith("valdoria:katana_aco", z4);
 check(rip > plain, `Katana: contra-ataque após bloqueio (${rip.toFixed(1)} contra ${plain.toFixed(1)})`);
 for (const e of [z1, z2, cow, sk, z3, z4]) e.remove();
+held = undefined;
+
+// ================================================================ chefes: postura e primeira vitória
+player.location = { x: 5000, y: 71, z: 5000 };
+const tita = dim.spawnEntity("valdoria:tita_pedra", { x: 5000, y: 71, z: 4997 });
+tita._hp.effectiveMax = tita._hp.currentValue = 560;
+let hits = 0;
+for (; hits < 40; hits++) {
+  await hitWith("valdoria:martelo_guerra_aco", tita, 9);
+  await __advance(25);
+  if ((dmgMod.debuff(tita).vuln?.pct || 0) >= 0.3) break;
+}
+check((dmgMod.debuff(tita).vuln?.pct || 0) >= 0.3 && ui.title.some((t) => t.includes("Postura quebrada")),
+  `Postura do Titã quebra após ${hits + 1} marteladas (exposto +30%)`);
+const espadaHits = await (async () => {
+  const t2 = dim.spawnEntity("valdoria:tita_pedra", { x: 5003, y: 71, z: 4997 });
+  t2._hp.effectiveMax = t2._hp.currentValue = 560;
+  let n = 0;
+  for (; n < 60; n++) {
+    await hitWith("valdoria:espada_curta_aco", t2, 9);
+    await __advance(25);
+    if ((dmgMod.debuff(t2).vuln?.pct || 0) >= 0.3) break;
+  }
+  t2.remove();
+  return n + 1;
+})();
+check(espadaHits > hits + 1, `Armas pesadas quebram a postura mais depressa (espada curta: ${espadaHits} golpes)`);
+const frag0 = slots.filter((x) => x?.typeId === "valdoria:fragmento_mapa").length;
+tita.remove();
+fire("world.after.entityDie", { deadEntity: tita, damageSource: { damagingEntity: player, cause: "entityAttack" } });
+await __advance(80);
+const frag1 = slots.filter((x) => x?.typeId === "valdoria:fragmento_mapa").length;
+check(!!store.getData(player).flags.vitoria_tita_pedra && frag1 > frag0, "Primeira vitória contra o Titã registra e entrega um Fragmento de Mapa");
 held = undefined;
 
 // ================================================================ táticas de IA: pedir apoio

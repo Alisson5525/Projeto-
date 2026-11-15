@@ -25,6 +25,7 @@ import { guildLines } from "../npc/guild.js";
 import { royalLines } from "../npc/capital.js";
 import { LORE } from "../data/lore.js";
 import { explorationMenu } from "../exploration/menu.js";
+import { victoriesOf } from "../bosses/postura.js";
 
 const ICON = (id) => `textures/items/valdoria/${id}`;
 
@@ -489,6 +490,8 @@ async function bestiaryMenu(player) {
     "§6§lBestiário§r", best.length ? best.join("\n") : "§7Nenhuma criatura derrotada ainda.",
     "", `§6§lRegiões descobertas (${d.desc.biomas.length})§r`, d.desc.biomas.map(biomeName).join(", ") || "§7Nenhuma.",
     "", `§6§lItens descobertos: §f${d.desc.itens.length}/${totalItems}`,
+    "", "§6§lChefes vencidos§r §8(postura: golpes pesados quebram a guarda e expõem o chefe)",
+    victoriesOf(player).map((v) => `${v.venceu ? "§a✔" : "§8✖"} §f${v.nome}`).join("\n"),
     "", "§6§lCriaturas de Valdoria§r",
     "§fGoblins§7 - bandos nas florestas e planícies ao entardecer; fogem quando feridos.",
     "§fGoblin Xamã§7 - conjura bolas de fogo e cura seus aliados.",
