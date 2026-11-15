@@ -2,12 +2,12 @@
   "format_version": 2,
   "header": {
     "name": "Crônicas de Valdoria - Recursos",
-    "description": "§6Texturas, modelos, animações, partículas e sons. §7v1.11.1",
+    "description": "§6Texturas, modelos, animações, partículas e sons. §eEdição Definitiva. §7v2.0.0",
     "uuid": "c688d98b-0c38-4396-894d-12cb510f367b",
     "version": [
-      1,
-      11,
-      1
+      2,
+      0,
+      0
     ],
     "min_engine_version": [
       1,
@@ -20,9 +20,9 @@
       "type": "resources",
       "uuid": "768041a5-5625-4242-a801-8c56ef41135a",
       "version": [
-        1,
-        11,
-        1
+        2,
+        0,
+        0
       ]
     }
   ],
@@ -30,9 +30,9 @@
     {
       "uuid": "7bd2b8b0-c63c-4376-8b6d-f41060f82364",
       "version": [
-        1,
-        11,
-        1
+        2,
+        0,
+        0
       ]
     }
   ],

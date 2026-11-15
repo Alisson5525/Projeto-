@@ -108,6 +108,7 @@ const FERAS = [
   { id: `${NS}:espectro`, nome: "§7Espectro Ancião", biomas: [""], lv: 2, noite: true, min: 4 },
 ];
 
+/** @type {[string, number, number, string][]} */
 const MERCHANT_STOCK = [
   [`${NS}:fragmento_mapa`, 1, 140, "Fragmento de Mapa Antigo"], [`${NS}:chave_antiga`, 1, 110, "Chave Antiga"],
   [`${NS}:tomo_perdido`, 1, 180, "Tomo Perdido"], [`${NS}:mapa_explorador`, 1, 70, "Mapa do Explorador"],

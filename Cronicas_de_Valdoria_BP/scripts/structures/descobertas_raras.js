@@ -140,7 +140,9 @@ const BOSQUE_CIRCULO = { k: "sequencia", id: "circulo", input: "button", n: 4, e
     fn: (dim, rec) => {
       const pos = rec.mk.coracao?.[0];
       if (!pos) return;
-      for (const [id, n] of [[`${NS}:unicornio`, 1], [`${NS}:cervo_magico`, 2]]) {
+      /** @type {[string, number][]} */
+      const herd = [[`${NS}:unicornio`, 1], [`${NS}:cervo_magico`, 2]];
+      for (const [id, n] of herd) {
         for (let i = 0; i < n; i++) {
           try {
             dim.spawnEntity(id, V.add(top(pos), { x: (Math.random() - 0.5) * 6, y: 0, z: (Math.random() - 0.5) * 6 }));
