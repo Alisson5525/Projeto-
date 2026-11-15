@@ -1,9 +1,9 @@
-# Crônicas de Valdoria — Edição Definitiva (v2.0.0)
+# Crônicas de Valdoria — Edição Definitiva (v2.1.0)
 
 Relatório de entrega da reformulação a partir da v1.11.1.
 
-**Pacote:** `dist/Cronicas_de_Valdoria_v2.0.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.238 arquivos).
-Os UUIDs dos manifests foram mantidos: a v2.0.0 substitui a v1.11.1 em mundos existentes sem perder dados.
+**Pacote:** `dist/Cronicas_de_Valdoria_v2.1.0_Edicao_Definitiva.mcaddon` (Behavior Pack + Resource Pack, 1.239 arquivos).
+Os UUIDs dos manifests foram mantidos: a v2.1.0 substitui a v1.11.1 (ou a v2.0.0) em mundos existentes sem perder dados.
 
 > **Leia antes:** o pedido original cobre 18 partes (exploração, animações de todas as criaturas, IA, chefes, raças, classes,
 > texturas de todos os itens etc.). Este trabalho priorizou, como o próprio pedido determina, **a exploração**, e fez nela
@@ -172,18 +172,58 @@ equilíbrio de dano/vida dos guardiões e frequência real de eventos precisam d
 - Dados de mundos antigos preservados: os campos novos do jogador (`expl`, `rumores`, `pistas`) são criados pela migração
   existente; locais antigos continuam funcionando.
 
+---
+
+## 7b. v2.1.0 — segunda etapa
+
+### Estruturas originais com mecanismos (retrofit)
+Novo sistema que acrescenta salas e mecanismos a locais **já gerados**, inclusive em mundos antigos: idempotente por
+versão, só com o chunk carregado e **sem jogador dentro do local** (nada surge diante dos olhos de alguém).
+- **Acampamento Goblin:** *Desafio do Tambor de Guerra* — tocar o tambor (blocos musicais sob um crânio) chama 3 ondas,
+  a última com um chefe goblin; vencer deixa um baú de tributo. *Esconderijo do chefe* — os rabiscos no barril da tenda
+  vermelha apontam a terra com raízes sob a cama; embaixo há um cofre.
+- **Torre do Mago:** *Círculo de Aldric* — quatro pedestais coloridos com botões na biblioteca; o atril traz a pista nas
+  margens do diário; resolver materializa o baú de estudos (chance de Tomo Perdido).
+- Esses objetivos entram na "exploração completa" dos dois locais. Ondas agora podem ter gatilho por interação.
+
+### Identidade das armas nos golpes comuns
+Antes, golpes comuns de qualquer arma só aplicavam efeito de elemento. Agora cada categoria tem um estilo (descrito na
+própria arma): adaga (sequência que abre sangramento), espada curta (contra-ataque após bloquear), espada longa (golpe
+amplo), espada grande (arco largo e desequilíbrio), katana (crítico sangra, contra-ataque forte), lança (dano na ponta e
++40% montado), machado (rompe-armadura acumulativo), martelo (atordoar, bônus contra constructos), maça (esmagar
+mortos-vivos e constructos), alabarda (varredura longa), foice (ceifar vida, execução). Os efeitos em arco atingem só
+inimigos hostis (não ferem animais ou aldeões ao lado).
+
+### Inteligência artificial
+- `alert_same_type` nativo em goblins, xamãs, chefe goblin, cavaleiro corrompido, fantasma anão e sentinela rúnica:
+  atacar um faz o grupo reagir.
+- `creatures/tactics.js`, por papel: **apoio** (ferido, o goblin grita e o bando corre até o agressor), **distância**
+  (o xamã recua quando o alvo chega a 5 blocos), **guarda** (cavaleiro e sentinela protegem aliados feridos com um brado
+  de resistência), **flanco** (o fantasma anão avança quando o jogador está de costas).
+- **Guardiões em fases:** aos 50% de vida chamam reforços (com aviso na tela), aos 25% entram em fúria.
+- **Criaturas raras** dos eventos entram em fúria aos 50% de vida.
+- Correção: mapas de estado da IA original cresciam sem limite com entidades que descarregavam sem morrer.
+
+### Testes da v2.1.0
+Os 14 locais com mecanismos (12 novos + Acampamento e Torre com retrofit) passam na busca de caminhos; os planos de
+retrofit passam na validação de blocos; o cenário simulado agora tem **43 verificações**, incluindo o retrofit aplicado a
+um acampamento antigo, o Desafio do Tambor completo, quatro estilos de arma, a fase de reforços do guardião e o pedido de
+apoio dos goblins.
+
 ## 8. O que não foi feito (escopo do pedido não coberto)
 
 Para não haver dúvida sobre o que "parece pronto" e não está:
 
-- **Estruturas originais** (Aurendel, Aelthar, Kar'Dum, Nyxhal, Cripta, Santuário Celestial, Ninho do Dragão, Véu Negro,
-  Vila, Acampamento, Torre, Ninho de Grifo): não foram reformuladas. Ganharam raridade e entram no novo Diário, mas
-  arquitetura e mecânicas internas são as da v1.11.1.
+- **Estruturas originais**: Acampamento Goblin e Torre do Mago ganharam mecanismos (v2.1.0). Aurendel, Aelthar,
+  Kar'Dum, Nyxhal, Cripta, Santuário Celestial, Ninho do Dragão, Véu Negro, Vila e Ninho de Grifo ganharam raridade e
+  entram no Diário, mas arquitetura e mecânicas internas são as da v1.11.1.
 - **Animações e modelos das 40 criaturas e 8 chefes**: não alterados.
-- **IA** de inimigos, chefes, animais, companheiros e montarias: não alterada (as novas atividades usam a IA existente).
+- **IA**: ganhou táticas por papel e fases de guardiões (v2.1.0), mas a IA dos chefes, animais, companheiros e montarias
+  continua a original.
 - **Raças** (aparência visual e habilidades), **classes**, **especializações**, **árvores de habilidade**: não alteradas.
 - **Escolas de magia e combinações**: só ganharam gestos de conjuração por escola; os efeitos são os originais.
-- **Arcos e bestas**, **companheiros**, **montarias**, **progressão/XP/atributos**: não alterados.
+- **Armas corpo a corpo** ganharam estilos (v2.1.0); **arcos e bestas**, **companheiros**, **montarias** e
+  **progressão/XP/atributos** não foram alterados.
 - **Texturas** existentes de criaturas, armas e armaduras: não alteradas (só os 12 itens novos foram desenhados).
 - **Partículas**: só uma nova (`mao_brilho`); as 62 existentes não foram retrabalhadas.
 - Vilas/cidades/NPCs/economia: só o gancho de interação para NPCs de eventos e cativos; rotinas e lojas originais.

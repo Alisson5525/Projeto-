@@ -244,6 +244,16 @@ const TIPOS = {
       const f = tagged(dim, ev, "vr_fera")[0];
       if (f) {
         ev.st.visto = 1;
+        const h = f.getComponent("minecraft:health");
+        if (!ev.st.furia && h && h.currentValue < h.effectiveMax * 0.5) {
+          // fase 2: a fera ferida enfurece (mais rápida e forte), com aviso claro
+          ev.st.furia = 1;
+          effect(f, "speed", 20 * 60 * 5, 1);
+          effect(f, "strength", 20 * 60 * 5, 1);
+          sound(dim, "mob.ravager.roar", f.location, 1.1, 1);
+          particle(dim, "onda_choque", f.location, { radius: 1.5 });
+          for (const p of players) p.onScreenDisplay.setActionBar(`§4${ev.st.nome || "A fera"} §centra em fúria!`);
+        }
         if (system.currentTick % 80 < 40) particle(dim, "cor_aura", V.up(f.location, 0.2), { color: "red", radius: 0.9 });
         return;
       }

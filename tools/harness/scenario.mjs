@@ -8,6 +8,7 @@ const { __world, __advance, subs, ItemStack, system } = srv;
 
 // ---------------------------------------------------------------- mundo simulado
 const blocks = new Map();
+const famOf = (t) => (t.includes("goblin") ? ["goblin", "monster"] : /zombie|skeleton/.test(t) ? ["monster", "undead"] : []);
 const K = (p) => `${Math.floor(p.x)},${Math.floor(p.y)},${Math.floor(p.z)}`;
 let eid = 0;
 function makeEntity(dim, typeId, loc) {
@@ -20,7 +21,7 @@ function makeEntity(dim, typeId, loc) {
     setProperty() {}, getProperty() { return 0; }, setDynamicProperty: (k, v) => { dp[k] = v; }, getDynamicProperty: (k) => dp[k],
     getComponent: (c) => (c === "minecraft:health" ? e._hp : c === "minecraft:inventory" ? e._inv : c === "minecraft:equippable" ? e._eq : undefined),
     hasComponent: (c) => c === "minecraft:health", addEffect() {}, removeEffect() {}, getEffect() { return undefined; },
-    applyDamage(n) { e._hp.currentValue -= n; return true; }, applyImpulse() {}, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
+    applyDamage(n) { e._hp.currentValue -= n; return true; }, applyImpulse(v) { e._imp = (e._imp || 0) + 1; }, applyKnockback() {}, clearVelocity() {}, setOnFire() {},
     getViewDirection: () => ({ x: 0, y: 0, z: -1 }), getHeadLocation: () => ({ x: e.location.x, y: e.location.y + 1.6, z: e.location.z }),
     getVelocity: () => ({ x: 0, y: 0, z: 0 }), matches: (q) => !!q?.families?.includes("monster") && /zombie|skeleton|goblin/.test(typeId), teleport(l) { e.location = { ...l }; }, triggerEvent() {}, playAnimation() {},
     runCommand() { return { successCount: 1 }; }, getRotation: () => ({ x: 0, y: 0 }), isOnGround: true,
@@ -46,7 +47,7 @@ const dim = {
   spawnItem(item, loc) { const e = makeEntity(dim, "minecraft:item", loc); e.item = item; dim._ents.push(e); return e; },
   getEntities(q = {}) {
     return [...dim._ents, ...__world.players].filter((e) => e.isValid && (!q.type || e.typeId === q.type) && (!q.tags || q.tags.every((t) => e.hasTag(t))) &&
-      (!q.excludeTypes || !q.excludeTypes.includes(e.typeId)) && (!q.families || false) &&
+      (!q.excludeTypes || !q.excludeTypes.includes(e.typeId)) && (!q.families || q.families.every((f) => famOf(e.typeId).includes(f))) &&
       (!q.location || Math.hypot(e.location.x - q.location.x, e.location.y - q.location.y, e.location.z - q.location.z) <= (q.maxDistance ?? 1e9)));
   },
   getPlayers(q = {}) {
@@ -141,6 +142,10 @@ goto({ x: gs[0].x + 3, y: gs[0].y, z: gs[0].z + 3 });
 await __advance(20);
 const guard = dim.getEntities({ tags: [`vg_${rec.id}_guardiao`] })[0];
 check(!!guard && guard.typeId === "valdoria:sentinela_runica" && guard.nameTag.includes("Guardião"), "Guardião Rúnico desperta ao entrar no salão");
+guard._hp.effectiveMax = 100;
+guard._hp.currentValue = 40;
+await __advance(15);
+check(dim.getEntities({ type: "valdoria:fragmento_pedra" }).length >= 2, "Guardião na metade da vida convoca reforços (fase 2)");
 guard.remove();
 fire("world.after.entityDie", { deadEntity: guard, damageSource: { damagingEntity: player, cause: "entityAttack" } });
 await __advance(5);
@@ -245,6 +250,16 @@ const plain = await hitWith("valdoria:katana_aco", z4);
 check(rip > plain, `Katana: contra-ataque após bloqueio (${rip.toFixed(1)} contra ${plain.toFixed(1)})`);
 for (const e of [z1, z2, cow, sk, z3, z4]) e.remove();
 held = undefined;
+
+// ================================================================ táticas de IA: pedir apoio
+player.location = { x: 4000, y: 71, z: 4000 };
+const g1 = dim.spawnEntity("valdoria:goblin", { x: 4000, y: 71, z: 3997 });
+const g2 = dim.spawnEntity("valdoria:goblin", { x: 4012, y: 71, z: 3990 });
+const tdm = await import(`${SCRIPTS}/core/damage.js`);
+g1._hp.currentValue = 8;
+fire("world.after.entityHurt", { hurtEntity: g1, damageSource: { cause: "entityAttack", damagingEntity: player }, damage: 4 });
+check((g2._imp || 0) > 0 && tdm.hasAggro(g2), "Goblin ferido chama o bando: aliado distante corre em direção ao agressor");
+g1.remove(); g2.remove();
 
 // ================================================================ eventos do mundo: forçar cada um e avançar
 player.location = { x: 2000, y: 71, z: 2000 };

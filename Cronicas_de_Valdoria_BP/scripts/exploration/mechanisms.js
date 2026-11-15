@@ -614,10 +614,12 @@ function guardianTick(dim, rec, M, players) {
       st.ativo = false;
       saveSite(rec);
       m.longe = 0;
+      m.fase = 0;
     }
     return;
   }
   m.longe = 0;
+  if (alive.length) guardianPhases(dim, rec, M, alive[0], near, m);
   if (!alive.length) {
     // pode ser só o chunk carregando; confirma algumas vezes antes de reiniciar
     if (++m.falta > 20) {
@@ -627,6 +629,45 @@ function guardianTick(dim, rec, M, players) {
     }
   } else m.falta = 0;
 }
+/** Lacaios padrão chamados pelos guardiões na metade da vida (por tipo de guardião). */
+const LACAIOS = {
+  [`${NS}:sentinela_runica`]: [[`${NS}:fragmento_pedra`, 2]],
+  [`${NS}:cavaleiro_corrompido`]: [["minecraft:skeleton", 2]],
+  [`${NS}:fantasma_anao`]: [["minecraft:zombie", 2]],
+  "minecraft:vindicator": [["minecraft:pillager", 2]],
+};
+/** Fases dos guardiões: aos 50% de vida chamam reforços (com aviso), aos 25% entram em fúria. */
+function guardianPhases(dim, rec, M, g, players, m) {
+  const h = g.getComponent("minecraft:health");
+  if (!h) return;
+  const pct = h.currentValue / Math.max(1, h.effectiveMax);
+  m.fase = m.fase || 0;
+  if (m.fase === 0 && pct < 0.5) {
+    m.fase = 1;
+    const list = M.lacaios || LACAIOS[g.typeId] || [];
+    for (const p of players) p.onScreenDisplay.setTitle(" ", { subtitle: `§c${M.nome} convoca reforços!`, fadeInDuration: 4, stayDuration: 30, fadeOutDuration: 8 });
+    sound(dim, "mob.evocation_illager.prepare_summon", g.location, 0.8, 1.5);
+    particle(dim, "cor_anel", g.location, { color: "red", radius: 3 });
+    let i = 0;
+    for (const [id, n] of list) {
+      for (let k = 0; k < n; k++) {
+        const a = (i++ / 4) * Math.PI * 2;
+        const pos = { x: g.location.x + Math.cos(a) * 2.5, y: g.location.y, z: g.location.z + Math.sin(a) * 2.5 };
+        spawnTagged(dim, id, { x: Math.floor(pos.x), y: Math.floor(pos.y), z: Math.floor(pos.z) }, WTAG(rec.id, M.id));
+      }
+    }
+  } else if (m.fase === 1 && pct < 0.25) {
+    m.fase = 2;
+    effect(g, "speed", 20 * 60, 1);
+    effect(g, "strength", 20 * 60, 1);
+    particle(dim, "brasas", V.up(g.location, 1), {});
+    sound(dim, "mob.ravager.roar", g.location, 0.9, 1);
+    for (const p of players) p.onScreenDisplay.setActionBar(`§4${M.nome} entra em fúria!`);
+  } else if (m.fase === 2 && system.currentTick % 20 === 0) {
+    particle(dim, "brasas", V.up(g.location, 1), {});
+  }
+}
+
 function onGuardianDeath(ev) {
   let tags;
   try { tags = ev.deadEntity.getTags(); } catch { return; }

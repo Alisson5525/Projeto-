@@ -213,6 +213,13 @@ export function startCreatures() {
     nextAct.delete(ev.deadEntity.id);
     fleeing.delete(ev.deadEntity.id);
   });
+  // entidades que descarregam sem morrer deixavam entradas para sempre nestes mapas
+  system.runInterval(() => {
+    const now = tick();
+    for (const [id, t] of nextAct) if (t < now - 2400) nextAct.delete(id);
+    for (const [id, t] of fleeing) if (t < now - 2400) fleeing.delete(id);
+    for (const [id, t] of cervoCd) if (t < now - 12000) cervoCd.delete(id);
+  }, 2400);
 }
 
 export { onBeforeHurt };

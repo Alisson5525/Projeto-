@@ -17,6 +17,7 @@ import { hudAbilityLine } from "./abilities/selection.js";
 import { startEquipment } from "./items/equipment.js";
 import { startItemUse } from "./items/use.js";
 import { startCreatures } from "./creatures/ai.js";
+import { startTactics } from "./creatures/tactics.js";
 import { startBoss } from "./bosses/tita.js";
 import { startLich } from "./bosses/senhor_mortos.js";
 import { startDragon } from "./bosses/dragao.js";
@@ -78,6 +79,7 @@ function start() {
   startEquipment();
   startItemUse();
   startCreatures();
+  startTactics();
   startBoss();
   startLich();
   startDragon();
@@ -95,7 +97,7 @@ function start() {
   startStructures();
   startExploration();
   startNpcs();
-  console.info("[Valdoria] Crônicas de Valdoria v2.0.0 (Edição Definitiva) carregado.");
+  console.info("[Valdoria] Crônicas de Valdoria v2.1.0 (Edição Definitiva) carregado.");
 }
 
 world.afterEvents.worldLoad.subscribe(start);
