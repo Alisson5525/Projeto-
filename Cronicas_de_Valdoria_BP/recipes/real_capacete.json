@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_real_capacete"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      },
+      "X": {
+        "item": "valdoria:selo_real"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:real_capacete",
+      "count": 1
+    }
+  }
+}

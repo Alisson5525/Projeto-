@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:grimorio_arquimago",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_grimorio_arquimago",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:grimorio_arquimago.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:caster",
+          "valdoria:rarity_lendario"
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 900
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:glint": true
+    }
+  }
+}

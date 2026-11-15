@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:reliquia_sagrada",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_reliquia_sagrada",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:reliquia_sagrada.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:accessory",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

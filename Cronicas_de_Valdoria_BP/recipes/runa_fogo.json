@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "valdoria:receita_runa_fogo"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:stone"
+      },
+      {
+        "item": "valdoria:cristal_aetherita"
+      },
+      {
+        "item": "minecraft:blaze_powder"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:stone"
+      }
+    ],
+    "result": {
+      "item": "valdoria:runa_fogo",
+      "count": 1
+    }
+  }
+}

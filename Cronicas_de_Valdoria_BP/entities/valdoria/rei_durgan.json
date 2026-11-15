@@ -1,0 +1,217 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "valdoria:rei_durgan",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "valdoria:anim": {
+          "type": "int",
+          "range": [
+            0,
+            16
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "valdoria:phase": {
+          "type": "int",
+          "range": [
+            1,
+            3
+          ],
+          "default": 1,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "valdoria:fase2": {
+        "minecraft:movement": {
+          "value": 0.25
+        }
+      },
+      "valdoria:fase3": {
+        "minecraft:movement": {
+          "value": 0.27
+        },
+        "minecraft:attack": {
+          "damage": 14
+        }
+      },
+      "valdoria:imovel": {
+        "minecraft:movement": {
+          "value": 0.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "rei_durgan",
+          "undead",
+          "monster",
+          "boss",
+          "valdoria_hostile",
+          "valdoria_boss"
+        ]
+      },
+      "minecraft:health": {
+        "value": 600,
+        "max": 600
+      },
+      "minecraft:movement": {
+        "value": 0.22
+      },
+      "minecraft:collision_box": {
+        "width": 1.1,
+        "height": 2.4
+      },
+      "minecraft:physics": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:follow_range": {
+        "value": 40,
+        "max": 40
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_damage_blocks": true,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "suffocation",
+            "deals_damage": "no"
+          },
+          {
+            "cause": "drowning",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40
+      },
+      "minecraft:attack": {
+        "damage": 10
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:persistent": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/valdoria/rei_durgan.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 160 : 0"
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.0,
+        "track_target": true,
+        "reach_multiplier": 1.6
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "valdoria_ally"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 32
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.5
+      }
+    },
+    "events": {
+      "valdoria:fase2": {
+        "add": {
+          "component_groups": [
+            "valdoria:fase2"
+          ]
+        }
+      },
+      "valdoria:fase3": {
+        "remove": {
+          "component_groups": [
+            "valdoria:fase2"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "valdoria:fase3"
+          ]
+        }
+      },
+      "valdoria:travar": {
+        "add": {
+          "component_groups": [
+            "valdoria:imovel"
+          ]
+        }
+      },
+      "valdoria:destravar": {
+        "remove": {
+          "component_groups": [
+            "valdoria:imovel"
+          ]
+        }
+      }
+    }
+  }
+}

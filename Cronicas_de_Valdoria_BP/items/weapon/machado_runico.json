@@ -1,0 +1,35 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:machado_runico",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_machado_runico",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:machado_runico.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:weapon",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 12,
+      "minecraft:durability": {
+        "max_durability": 2200
+      },
+      "minecraft:enchantable": {
+        "slot": "axe",
+        "value": 14
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:glint": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_adaga_aco"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M",
+      "S"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:adaga_aco",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:arcanista_botas",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_arcanista_botas",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:arcanista_botas.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:armor",
+          "valdoria:rarity_raro",
+          "valdoria:set_arcanista"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.feet",
+        "protection": 2
+      },
+      "minecraft:durability": {
+        "max_durability": 300
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_feet",
+        "value": 12
+      }
+    }
+  }
+}

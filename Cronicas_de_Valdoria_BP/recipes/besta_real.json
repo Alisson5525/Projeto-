@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_besta_real"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MSM",
+      "XWX",
+      " T "
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "W": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "valdoria:selo_real"
+      },
+      "T": {
+        "item": "minecraft:tripwire_hook"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:besta_real",
+      "count": 1
+    }
+  }
+}

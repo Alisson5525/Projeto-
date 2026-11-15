@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:talisma_sombrio",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_talisma_sombrio",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:talisma_sombrio.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:accessory",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

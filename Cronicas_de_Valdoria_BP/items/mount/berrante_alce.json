@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:berrante_alce",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_berrante_alce",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:berrante_alce.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:mount",
+          "valdoria:rarity_raro"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.morthil.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 110",
+            0,
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 20"
+          ]
+        },
+        "body": {
+          "rotation": [
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 10",
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 18",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

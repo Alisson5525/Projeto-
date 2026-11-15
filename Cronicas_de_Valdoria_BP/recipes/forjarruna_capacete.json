@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_forjarruna_capacete"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      },
+      "X": {
+        "item": "valdoria:runa_fogo"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:forjarruna_capacete",
+      "count": 1
+    }
+  }
+}

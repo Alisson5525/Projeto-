@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_celestial_capacete"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:pena_celeste"
+      },
+      "X": {
+        "item": "valdoria:pluma_auriel"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:pena_celeste"
+      }
+    ],
+    "result": {
+      "item": "valdoria:celestial_capacete",
+      "count": 1
+    }
+  }
+}

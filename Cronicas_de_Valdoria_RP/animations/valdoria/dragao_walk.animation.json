@@ -1,0 +1,78 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.dragao_ancestral.walk": {
+      "loop": true,
+      "bones": {
+        "legFL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 14 + 0) * 26 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 14 + 0)) * 30 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 14 + 180) * 26 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 14 + 180)) * 30 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 14 + 180) * 26 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "lowBL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 14 + 180)) * -30 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 14 + 0) * 26 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "lowBR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 14 + 0)) * -30 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.modified_distance_moved * 14) * 2 * math.min(query.modified_move_speed, 0.6) / 0.6"
+          ],
+          "position": [
+            0,
+            "math.abs(math.sin(query.modified_distance_moved * 14)) * 0.8 * math.min(query.modified_move_speed, 0.6) / 0.6",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

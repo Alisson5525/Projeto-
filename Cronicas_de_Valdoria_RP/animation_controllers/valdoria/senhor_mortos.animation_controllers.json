@@ -1,0 +1,149 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.senhor_mortos.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "move": "query.modified_move_speed > 0.02"
+            },
+            "attack",
+            "hurt"
+          ],
+          "transitions": [
+            {
+              "bolt": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "spikes": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "summon": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "teleport": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "shield": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "storm": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "death": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 8"
+            },
+            {
+              "nova": "query.property('valdoria:anim') == 9"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "bolt": {
+          "animations": [
+            "bolt"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "spikes": {
+          "animations": [
+            "spikes"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "summon": {
+          "animations": [
+            "summon"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "teleport": {
+          "animations": [
+            "teleport"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "shield": {
+          "animations": [
+            "shield"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "storm": {
+          "animations": [
+            "storm"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "death": {
+          "animations": [
+            "death"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        },
+        "nova": {
+          "animations": [
+            "nova"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 9"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

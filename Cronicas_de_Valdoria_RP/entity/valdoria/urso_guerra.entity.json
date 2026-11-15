@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:urso_guerra",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/urso_guerra"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.urso_guerra"
+      },
+      "animations": {
+        "look": "animation.valdoria.urso_guerra.look",
+        "idle": "animation.valdoria.urso_guerra.idle",
+        "move": "animation.valdoria.urso_guerra.move",
+        "hurt": "animation.valdoria.urso_guerra.hurt",
+        "loadout": "animation.valdoria.urso_guerra.loadout",
+        "patada": "animation.valdoria.urso_guerra.patada",
+        "rugido": "animation.valdoria.urso_guerra.rugido"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "move",
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#5a3a22",
+        "overlay_color": "#9aa3ae"
+      }
+    }
+  }
+}

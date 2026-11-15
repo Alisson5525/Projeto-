@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:real_calcas",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_real_calcas",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:real_calcas.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:armor",
+          "valdoria:rarity_lendario",
+          "valdoria:set_real"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.legs",
+        "protection": 7
+      },
+      "minecraft:durability": {
+        "max_durability": 900
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_legs",
+        "value": 12
+      }
+    }
+  }
+}

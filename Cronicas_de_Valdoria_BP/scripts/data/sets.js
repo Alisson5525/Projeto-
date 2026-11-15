@@ -1,0 +1,23 @@
+// Bônus de conjuntos de armadura (2 e 4 peças).
+export const SETS = {
+  cavaleiro: { nome: "Cavaleiro de Valdoria", b2: { def: 3 }, b4: { dr: 0.08, kbImmune: 1, vit: 2 },
+    texto: "2 peças: +3 Defesa · 4 peças: +8% redução de dano, imune a repulsão, +2 Vitalidade" },
+  arcanista: { nome: "Arcanista", b2: { int: 3 }, b4: { spell: 0.12, energyMax: 30, regen: 0.25 },
+    texto: "2 peças: +3 Inteligência · 4 peças: +12% poder mágico, +30 energia, +25% regeneração" },
+  patrulheiro: { nome: "Patrulheiro Élfico", b2: { agi: 3 }, b4: { ranged: 0.15, dodge: 0.05, pre: 3 },
+    texto: "2 peças: +3 Agilidade · 4 peças: +15% dano à distância, +5% esquiva, +3 Precisão" },
+  forjarruna: { nome: "Forjarruna Anã", b2: { def: 4 }, b4: { rFire: 0.3, dr: 0.06, kbImmune: 1, str: 2 },
+    texto: "2 peças: +4 Defesa · 4 peças: 30% resistência a fogo, +6% redução, imune a repulsão" },
+  draconica: { nome: "Escamas de Dragão", b2: { rFire: 0.2, str: 2 }, b4: { rFire: 0.4, dr: 0.06, fire: 0.15, vit: 3 },
+    texto: "2 peças: 20% resistência a fogo e +2 Força · 4 peças: 40% resistência a fogo, +6% redução, +15% dano de fogo, +3 Vitalidade" },
+  sombria: { nome: "Sombria do Véu", b2: { agi: 3 }, b4: { dodge: 0.08, dark: 0.15, lifesteal: 0.05, rDark: 0.2 },
+    texto: "2 peças: +3 Agilidade · 4 peças: +8% esquiva, +15% dano sombrio, 5% roubo de vida, 20% resistência a trevas" },
+  abissal: { nome: "Abismo", b2: { str: 2, vit: 2 }, b4: { dark: 0.2, lifesteal: 0.05, melee: 0.1, rDark: 0.25, rFire: 0.25 },
+    texto: "2 peças: +2 Força e +2 Vitalidade · 4 peças: +20% dano sombrio, 5% roubo de vida, +10% dano corpo a corpo, 25% resistência a sombra e fogo" },
+  celestial: { nome: "Celestial", b2: { int: 2, vit: 2 }, b4: { holy: 0.2, rHoly: 0.25, rWind: 0.25, regen: 0.25, spell: 0.08 },
+    texto: "2 peças: +2 Inteligência e +2 Vitalidade · 4 peças: +20% dano sagrado, +8% poder mágico, +25% regeneração, 25% resistência a sagrado e vento" },
+  aelthar: { nome: "Guarda de Aelthar", b2: { agi: 2, pre: 2 }, b4: { ranged: 0.15, nature: 0.15, dodge: 0.05, rNature: 0.2 },
+    texto: "2 peças: +2 Agilidade e +2 Precisão · 4 peças: +15% dano à distância, +15% dano de natureza, +5% esquiva, 20% resistência a natureza" },
+  real: { nome: "Real de Valdoria", b2: { def: 4, vit: 2 }, b4: { dr: 0.1, kbImmune: 1, str: 3, rDark: 0.15 },
+    texto: "2 peças: +4 Defesa e +2 Vitalidade · 4 peças: +10% redução de dano, imune a repulsão, +3 Força, 15% resistência a trevas" },
+};

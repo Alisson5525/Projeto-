@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:cavaleiro_corrompido",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/cavaleiro_corrompido"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.cavaleiro_corrompido"
+      },
+      "animations": {
+        "look": "animation.valdoria.cavaleiro_corrompido.look",
+        "idle": "animation.valdoria.cavaleiro_corrompido.idle",
+        "walk": "animation.valdoria.cavaleiro_corrompido.walk",
+        "attack": "animation.valdoria.cavaleiro_corrompido.attack",
+        "escudo": "animation.valdoria.cavaleiro_corrompido.escudo",
+        "investida": "animation.valdoria.cavaleiro_corrompido.investida"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          {
+            "escudo": "query.property('valdoria:anim') == 1"
+          },
+          {
+            "investida": "query.property('valdoria:anim') == 2"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2c2a30",
+        "overlay_color": "#ff4a20"
+      }
+    }
+  }
+}

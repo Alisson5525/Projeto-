@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:runa_trovao",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_runa_trovao",
+      "minecraft:max_stack_size": 64,
+      "minecraft:display_name": {
+        "value": "item.valdoria:runa_trovao.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:material",
+          "valdoria:rarity_incomum"
+        ]
+      }
+    }
+  }
+}

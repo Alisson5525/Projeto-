@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:bocal_chamas",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 6.0,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "query.any_tag('minecraft:is_pickaxe')"
+            },
+            "destroy_speed": 1.5
+          }
+        ]
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 20
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_masmorra_lado",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "valdoria_bocal_chamas_topo",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#3a1206",
+      "minecraft:light_emission": 3,
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

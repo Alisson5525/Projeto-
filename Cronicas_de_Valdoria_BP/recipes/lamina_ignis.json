@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_lamina_ignis"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:espada_longa_mithril"
+      },
+      "R": {
+        "item": "valdoria:runa_fogo"
+      },
+      "E": {
+        "item": "valdoria:cristal_aetherita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:espada_longa_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:lamina_ignis",
+      "count": 1
+    }
+  }
+}

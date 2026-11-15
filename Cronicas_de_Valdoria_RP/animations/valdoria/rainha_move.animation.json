@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.rainha_trevas.move": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 14",
+            0,
+            0
+          ]
+        },
+        "capa": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 45",
+            0,
+            0
+          ]
+        },
+        "saia": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 20",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

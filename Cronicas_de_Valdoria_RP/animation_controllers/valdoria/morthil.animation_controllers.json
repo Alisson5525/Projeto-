@@ -1,0 +1,135 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.morthil.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "walk": "query.modified_move_speed > 0.02"
+            },
+            "attack",
+            "hurt"
+          ],
+          "transitions": [
+            {
+              "raizes": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "varredura": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "esporos": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "chamado": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "enraizar": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "atordoado": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "morte": "query.property('valdoria:anim') == 8"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "raizes": {
+          "animations": [
+            "raizes"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "varredura": {
+          "animations": [
+            "varredura"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "esporos": {
+          "animations": [
+            "esporos"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "chamado": {
+          "animations": [
+            "chamado"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "enraizar": {
+          "animations": [
+            "enraizar"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "atordoado": {
+          "animations": [
+            "atordoado"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "morte": {
+          "animations": [
+            "morte"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

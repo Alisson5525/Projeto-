@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.tita.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "variable.attack_time > 0 ? -math.sin(variable.attack_time * 180) * 120 : 0",
+            0,
+            0
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "variable.attack_time > 0 ? -math.sin(variable.attack_time * 180) * 25 : 0",
+            0,
+            0
+          ]
+        },
+        "chest": {
+          "rotation": [
+            "variable.attack_time > 0 ? math.sin(variable.attack_time * 180) * 14 : 0",
+            "variable.attack_time > 0 ? math.sin(variable.attack_time * 180) * -12 : 0",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

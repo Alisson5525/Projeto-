@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_cavaleiro_calcas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "X": {
+        "item": "valdoria:lingote_aco"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:cavaleiro_calcas",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_arco_aco"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " MS",
+      "W S",
+      " MS"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "W": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:arco_aco",
+      "count": 1
+    }
+  }
+}

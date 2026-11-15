@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:sombria_botas",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_sombria_botas",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:sombria_botas.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:armor",
+          "valdoria:rarity_lendario",
+          "valdoria:set_sombria"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.feet",
+        "protection": 3
+      },
+      "minecraft:durability": {
+        "max_durability": 600
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_feet",
+        "value": 12
+      }
+    }
+  }
+}

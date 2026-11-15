@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.tita.hide_rock": {
+      "loop": true,
+      "bones": {
+        "rock": {
+          "scale": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

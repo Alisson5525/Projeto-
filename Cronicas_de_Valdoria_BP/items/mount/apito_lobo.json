@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:apito_lobo",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_apito_lobo",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:apito_lobo.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:mount",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

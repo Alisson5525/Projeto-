@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_anel_glacial"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "G G",
+      " G "
+    ],
+    "key": {
+      "R": {
+        "item": "valdoria:runa_gelo"
+      },
+      "G": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:runa_gelo"
+      }
+    ],
+    "result": {
+      "item": "valdoria:anel_glacial",
+      "count": 1
+    }
+  }
+}

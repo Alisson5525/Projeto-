@@ -1,0 +1,90 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "valdoria:gelo_prisao",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "textures/particle/valdoria_particulas"
+      }
+    },
+    "components": {
+      "minecraft:emitter_rate_instant": {
+        "num_particles": 14
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 0.05
+      },
+      "minecraft:emitter_shape_disc": {
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.6,
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "plane_normal": [
+          0,
+          1,
+          0
+        ],
+        "surface_only": true
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": "math.random(1.0, 1.6)"
+      },
+      "minecraft:particle_initial_speed": 0.1,
+      "minecraft:particle_motion_dynamic": {
+        "linear_acceleration": [
+          0,
+          0,
+          0
+        ],
+        "linear_drag_coefficient": 1.0
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [
+          "0.45 + (0.35 - 0.45) * (variable.particle_age / variable.particle_lifetime)",
+          "0.45 + (0.35 - 0.45) * (variable.particle_age / variable.particle_lifetime)"
+        ],
+        "facing_camera_mode": "rotate_xyz",
+        "uv": {
+          "texture_width": 128,
+          "texture_height": 128,
+          "uv": [
+            80,
+            0
+          ],
+          "uv_size": [
+            16,
+            16
+          ]
+        }
+      },
+      "minecraft:particle_appearance_tinting": {
+        "color": {
+          "gradient": [
+            [
+              0.91,
+              0.984,
+              1.0,
+              1.0
+            ],
+            [
+              0.498,
+              0.847,
+              1.0,
+              1.0
+            ]
+          ],
+          "interpolant": "variable.particle_age / variable.particle_lifetime"
+        }
+      },
+      "minecraft:particle_appearance_lighting": {}
+    }
+  }
+}

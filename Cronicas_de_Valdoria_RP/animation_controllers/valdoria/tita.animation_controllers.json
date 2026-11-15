@@ -1,0 +1,143 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.tita.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "walk": "query.modified_move_speed > 0.02"
+            },
+            "attack",
+            "hurt",
+            "hide_rock"
+          ],
+          "transitions": [
+            {
+              "slam": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "stomp": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "throw": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "roar": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "charge": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "death": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "stun": "query.property('valdoria:anim') == 8"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "slam": {
+          "animations": [
+            "slam",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "stomp": {
+          "animations": [
+            "stomp",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "throw": {
+          "animations": [
+            "throw"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "roar": {
+          "animations": [
+            "roar",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "charge": {
+          "animations": [
+            "charge",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "death": {
+          "animations": [
+            "death",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "stun": {
+          "animations": [
+            "stun",
+            "hide_rock"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

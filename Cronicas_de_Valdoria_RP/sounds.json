@@ -1,0 +1,460 @@
+{
+  "entity_sounds": {
+    "entities": {
+      "valdoria:goblin": {
+        "volume": 1.0,
+        "pitch": [
+          1.5,
+          1.7
+        ],
+        "events": {
+          "ambient": "mob.vindicator.idle",
+          "hurt": "mob.vindicator.hurt",
+          "death": "mob.vindicator.death"
+        }
+      },
+      "valdoria:goblin_xama": {
+        "volume": 1.0,
+        "pitch": [
+          1.4,
+          1.6
+        ],
+        "events": {
+          "ambient": "mob.evocation_illager.ambient",
+          "hurt": "mob.evocation_illager.hurt",
+          "death": "mob.evocation_illager.death"
+        }
+      },
+      "valdoria:cervo_magico": {
+        "volume": 0.8,
+        "pitch": [
+          1.2,
+          1.4
+        ],
+        "events": {
+          "ambient": "mob.goat.ambient",
+          "hurt": "mob.goat.hurt",
+          "death": "mob.goat.death"
+        }
+      },
+      "valdoria:espectro": {
+        "volume": 1.0,
+        "pitch": [
+          0.6,
+          0.75
+        ],
+        "events": {
+          "ambient": "mob.vex.ambient",
+          "hurt": "mob.vex.hurt",
+          "death": "mob.vex.death"
+        }
+      },
+      "valdoria:tita_pedra": {
+        "volume": 1.5,
+        "pitch": [
+          0.45,
+          0.55
+        ],
+        "events": {
+          "hurt": "mob.irongolem.hit",
+          "death": "mob.irongolem.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:fragmento_pedra": {
+        "volume": 1.0,
+        "pitch": [
+          1.1,
+          1.3
+        ],
+        "events": {
+          "hurt": "mob.irongolem.hit",
+          "death": "mob.irongolem.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:guardiao_vegetal": {
+        "volume": 1.0,
+        "pitch": [
+          0.9,
+          1.1
+        ],
+        "events": {
+          "hurt": "mob.zombie.wood",
+          "death": "random.break",
+          "step": "dig.stone"
+        }
+      },
+      "valdoria:lobo_espectral": {
+        "volume": 0.9,
+        "pitch": [
+          0.7,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.wolf.bark",
+          "hurt": "mob.wolf.hurt",
+          "death": "mob.wolf.death"
+        }
+      },
+      "valdoria:chefe_goblin": {
+        "volume": 1.2,
+        "pitch": [
+          1.0,
+          1.15
+        ],
+        "events": {
+          "ambient": "mob.vindicator.idle",
+          "hurt": "mob.vindicator.hurt",
+          "death": "mob.vindicator.death"
+        }
+      },
+      "valdoria:senhor_mortos": {
+        "volume": 1.4,
+        "pitch": [
+          0.5,
+          0.6
+        ],
+        "events": {
+          "ambient": "mob.skeleton.say",
+          "hurt": "mob.wither.hurt",
+          "death": "mob.skeleton.death"
+        }
+      },
+      "valdoria:filacterio": {
+        "volume": 1.0,
+        "pitch": [
+          1.2,
+          1.4
+        ],
+        "events": {
+          "hurt": "random.glass",
+          "death": "random.glass"
+        }
+      },
+      "valdoria:aldeao": {
+        "volume": 0.9,
+        "pitch": [
+          0.9,
+          1.1
+        ],
+        "events": {
+          "ambient": "mob.villager.idle",
+          "hurt": "mob.villager.hit",
+          "death": "mob.villager.death"
+        }
+      },
+      "valdoria:guarda": {
+        "volume": 1.0,
+        "pitch": [
+          0.75,
+          0.85
+        ],
+        "events": {
+          "hurt": "mob.villager.hit",
+          "death": "mob.villager.death"
+        }
+      },
+      "valdoria:prisioneiro": {
+        "volume": 0.9,
+        "pitch": [
+          1.2,
+          1.3
+        ],
+        "events": {
+          "ambient": "mob.villager.idle"
+        }
+      },
+      "valdoria:espiao_veu": {
+        "volume": 1.0,
+        "pitch": [
+          1.1,
+          1.2
+        ],
+        "events": {
+          "ambient": "mob.evocation_illager.ambient",
+          "hurt": "mob.evocation_illager.hurt",
+          "death": "mob.evocation_illager.death"
+        }
+      },
+      "valdoria:guerreiro_esqueletico": {
+        "volume": 1.0,
+        "pitch": [
+          0.8,
+          0.9
+        ],
+        "events": {
+          "ambient": "mob.skeleton.say",
+          "hurt": "mob.skeleton.hurt",
+          "death": "mob.skeleton.death"
+        }
+      },
+      "valdoria:cavalo_guerra": {
+        "volume": 1.0,
+        "pitch": [
+          0.8,
+          0.9
+        ],
+        "events": {
+          "ambient": "mob.horse.idle",
+          "hurt": "mob.horse.hit",
+          "death": "mob.horse.death",
+          "step": "mob.horse.gallop",
+          "jump": "mob.horse.jump",
+          "eat": "mob.horse.eat"
+        }
+      },
+      "valdoria:lobo_gigante": {
+        "volume": 1.2,
+        "pitch": [
+          0.55,
+          0.65
+        ],
+        "events": {
+          "ambient": "mob.wolf.growl",
+          "hurt": "mob.wolf.hurt",
+          "death": "mob.wolf.death",
+          "step": "mob.wolf.step"
+        }
+      },
+      "valdoria:alce": {
+        "volume": 1.0,
+        "pitch": [
+          0.5,
+          0.6
+        ],
+        "events": {
+          "ambient": "mob.goat.ambient",
+          "hurt": "mob.goat.hurt",
+          "death": "mob.goat.death",
+          "step": "mob.horse.wood"
+        }
+      },
+      "valdoria:urso_guerra": {
+        "volume": 1.0,
+        "pitch": [
+          0.7,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.polarbear.idle",
+          "hurt": "mob.polarbear.hurt",
+          "death": "mob.polarbear.death",
+          "step": "mob.polarbear.step"
+        }
+      },
+      "valdoria:unicornio": {
+        "volume": 1.0,
+        "pitch": [
+          1.3,
+          1.4
+        ],
+        "events": {
+          "ambient": "mob.horse.idle",
+          "hurt": "mob.horse.hit",
+          "death": "mob.horse.death",
+          "step": "mob.horse.soft",
+          "jump": "mob.horse.jump"
+        }
+      },
+      "valdoria:grifo": {
+        "volume": 1.0,
+        "pitch": [
+          0.6,
+          0.7
+        ],
+        "events": {
+          "ambient": "mob.parrot.idle",
+          "hurt": "mob.parrot.hurt",
+          "death": "mob.parrot.death",
+          "step": "mob.wolf.step"
+        }
+      },
+      "valdoria:dragao_ancestral": {
+        "volume": 2.5,
+        "pitch": [
+          0.7,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.enderdragon.growl",
+          "hurt": "mob.enderdragon.hit",
+          "death": "mob.enderdragon.death",
+          "step": "mob.ravager.step"
+        }
+      },
+      "valdoria:rainha_trevas": {
+        "volume": 1.3,
+        "pitch": [
+          0.8,
+          0.9
+        ],
+        "events": {
+          "ambient": "mob.evocation_illager.ambient",
+          "hurt": "mob.evocation_illager.hurt",
+          "death": "mob.evocation_illager.death"
+        }
+      },
+      "valdoria:ilusao_rainha": {
+        "volume": 1.0,
+        "pitch": [
+          1.3,
+          1.5
+        ],
+        "events": {
+          "hurt": "random.glass",
+          "death": "random.glass"
+        }
+      },
+      "valdoria:dragao_jovem": {
+        "volume": 0.8,
+        "pitch": [
+          1.5,
+          1.7
+        ],
+        "events": {
+          "ambient": "mob.enderdragon.growl",
+          "hurt": "mob.enderdragon.hit",
+          "death": "mob.enderdragon.death",
+          "step": "mob.ravager.step"
+        }
+      },
+      "valdoria:fantasma_anao": {
+        "volume": 0.9,
+        "pitch": [
+          0.7,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.vex.ambient",
+          "hurt": "mob.vex.hurt",
+          "death": "mob.vex.death"
+        }
+      },
+      "valdoria:rei_durgan": {
+        "volume": 1.0,
+        "pitch": [
+          0.5,
+          0.6
+        ],
+        "events": {
+          "ambient": "mob.vex.ambient",
+          "hurt": "mob.irongolem.hit",
+          "death": "mob.vex.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:sentinela_runica": {
+        "volume": 1.0,
+        "pitch": [
+          0.8,
+          0.9
+        ],
+        "events": {
+          "hurt": "mob.irongolem.hit",
+          "death": "mob.irongolem.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:broto_corrompido": {
+        "volume": 0.8,
+        "pitch": [
+          1.3,
+          1.5
+        ],
+        "events": {
+          "hurt": "hit.wood",
+          "death": "dig.wood",
+          "step": "step.grass"
+        }
+      },
+      "valdoria:morthil": {
+        "volume": 1.0,
+        "pitch": [
+          0.45,
+          0.55
+        ],
+        "events": {
+          "ambient": "mob.ravager.ambient",
+          "hurt": "hit.wood",
+          "death": "mob.ravager.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:cavaleiro_corrompido": {
+        "volume": 1.0,
+        "pitch": [
+          0.7,
+          0.8
+        ],
+        "events": {
+          "hurt": "entity.wither_skeleton.hurt",
+          "death": "entity.wither_skeleton.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:gargula": {
+        "volume": 0.9,
+        "pitch": [
+          0.8,
+          1.0
+        ],
+        "events": {
+          "hurt": "hit.stone",
+          "death": "dig.stone",
+          "step": "step.stone"
+        }
+      },
+      "valdoria:azrakar": {
+        "volume": 1.0,
+        "pitch": [
+          0.45,
+          0.55
+        ],
+        "events": {
+          "ambient": "mob.blaze.breathe",
+          "hurt": "mob.wither.hurt",
+          "death": "mob.wither.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:sentinela_celeste": {
+        "volume": 1.0,
+        "pitch": [
+          0.9,
+          1.1
+        ],
+        "events": {
+          "hurt": "mob.irongolem.hit",
+          "death": "mob.irongolem.death",
+          "step": "mob.irongolem.walk"
+        }
+      },
+      "valdoria:harpia": {
+        "volume": 0.9,
+        "pitch": [
+          1.1,
+          1.3
+        ],
+        "events": {
+          "ambient": "mob.phantom.idle",
+          "hurt": "mob.phantom.hurt",
+          "death": "mob.phantom.death"
+        }
+      },
+      "valdoria:guardiao_celeste": {
+        "volume": 1.0,
+        "pitch": [
+          0.6,
+          0.7
+        ],
+        "events": {
+          "ambient": "beacon.ambient",
+          "hurt": "mob.irongolem.hit",
+          "death": "beacon.deactivate",
+          "step": "mob.irongolem.walk"
+        }
+      }
+    }
+  }
+}

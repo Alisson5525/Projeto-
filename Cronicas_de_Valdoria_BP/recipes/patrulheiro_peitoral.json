@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_patrulheiro_peitoral"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M M",
+      "MXM",
+      "MMM"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:leather"
+      },
+      "X": {
+        "item": "valdoria:essencia_natural"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "result": {
+      "item": "valdoria:patrulheiro_peitoral",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:gargula",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/gargula"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.gargula"
+      },
+      "animations": {
+        "estatua": "animation.valdoria.gargula.estatua",
+        "look": "animation.valdoria.gargula.look",
+        "idle": "animation.valdoria.gargula.idle",
+        "walk": "animation.valdoria.gargula.walk",
+        "attack": "animation.valdoria.gargula.attack",
+        "salto": "animation.valdoria.gargula.salto"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "estatua": "!query.property('valdoria:acordada')"
+          },
+          {
+            "look": "query.property('valdoria:acordada')"
+          },
+          {
+            "idle": "query.property('valdoria:acordada')"
+          },
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          {
+            "salto": "query.property('valdoria:anim') == 1"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#6e6c72",
+        "overlay_color": "#ffb040"
+      }
+    }
+  }
+}

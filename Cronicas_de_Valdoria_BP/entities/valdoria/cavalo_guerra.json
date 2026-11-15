@@ -1,0 +1,187 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "valdoria:cavalo_guerra",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "valdoria:domado": {
+        "minecraft:is_tamed": {},
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "crouching_skip_interact": true,
+          "family_types": [
+            "player"
+          ],
+          "interact_text": "action.interact.ride.horse",
+          "seats": [
+            {
+              "position": [
+                0.0,
+                1.25,
+                -0.1
+              ]
+            }
+          ],
+          "on_rider_enter_event": "valdoria:montou"
+        },
+        "minecraft:input_ground_controlled": {},
+        "minecraft:can_power_jump": {},
+        "minecraft:behavior.player_ride_tamed": {}
+      },
+      "valdoria:seguir": {
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.25,
+          "start_distance": 9,
+          "stop_distance": 4,
+          "max_distance": 48,
+          "can_teleport": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "valdoria_montaria",
+          "cavalo_guerra",
+          "mob"
+        ]
+      },
+      "minecraft:health": {
+        "value": 60,
+        "max": 60
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:collision_box": {
+        "width": 1.4,
+        "height": 1.7
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:leashable": {},
+      "minecraft:persistent": {},
+      "minecraft:jump.static": {},
+      "minecraft:horse.jump_strength": {
+        "value": 0.9
+      },
+      "minecraft:variable_max_auto_step": {
+        "base_value": 1.0625,
+        "controlled_value": 1.0625,
+        "jump_prevented_value": 0.5625
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:knockback_resistance": {
+        "value": 0.5
+      },
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "wheat",
+            "heal_amount": 3
+          },
+          {
+            "item": "hay_block",
+            "heal_amount": 25
+          },
+          {
+            "item": "apple",
+            "heal_amount": 4
+          },
+          {
+            "item": "carrot",
+            "heal_amount": 3
+          },
+          {
+            "item": "golden_carrot",
+            "heal_amount": 8
+          },
+          {
+            "item": "golden_apple",
+            "heal_amount": 15
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "yes",
+            "damage_multiplier": 0.5
+          }
+        ]
+      },
+      "minecraft:tameable": {
+        "probability": 0.0,
+        "tame_items": "minecraft:barrier",
+        "tame_event": {
+          "event": "valdoria:domar",
+          "target": "self"
+        }
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/valdoria/cavalo_guerra.json"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      }
+    },
+    "events": {
+      "valdoria:domar": {
+        "add": {
+          "component_groups": [
+            "valdoria:domado",
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:seguir": {
+        "add": {
+          "component_groups": [
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:ficar": {
+        "remove": {
+          "component_groups": [
+            "valdoria:seguir"
+          ]
+        }
+      },
+      "valdoria:montou": {
+        "remove": {
+          "component_groups": [
+            "valdoria:seguir"
+          ]
+        }
+      }
+    }
+  }
+}

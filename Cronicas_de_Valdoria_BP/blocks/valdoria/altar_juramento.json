@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:altar_juramento",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": false,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_pedra_ventos_lado",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "valdoria_altar_juramento",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#f0e0a0",
+      "minecraft:light_emission": 10,
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

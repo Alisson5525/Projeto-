@@ -1,0 +1,109 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.espectro.float": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 100) * 1.5 + 2",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "math.sin(query.life_time * 140) * 10 + 10",
+            0,
+            "math.cos(query.life_time * 90) * 6"
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "math.sin(query.life_time * 140 - 40) * 14 + 8",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-20 + math.sin(query.life_time * 110) * 8",
+            0,
+            "math.sin(query.life_time * 80) * 4 + 6"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-20 + math.cos(query.life_time * 110) * 8",
+            0,
+            "-math.sin(query.life_time * 80) * 4 - 6"
+          ]
+        },
+        "body": {
+          "rotation": [
+            "10 + 15 * query.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.espectro.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.espectro.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-math.sin(variable.attack_time * 180) * 100",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-math.sin(variable.attack_time * 180) * 100",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.espectro.drain": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            -95,
+            "math.sin(query.life_time * 1200) * 4",
+            -10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -95,
+            "-math.sin(query.life_time * 1200) * 4",
+            10
+          ]
+        },
+        "head": {
+          "rotation": [
+            -15,
+            0,
+            "math.sin(query.life_time * 1500) * 3"
+          ]
+        }
+      }
+    }
+  }
+}

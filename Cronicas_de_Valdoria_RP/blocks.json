@@ -1,0 +1,57 @@
+{
+  "format_version": "1.1.0",
+  "valdoria:minerio_mithril": {
+    "sound": "stone"
+  },
+  "valdoria:minerio_aetherita": {
+    "sound": "stone"
+  },
+  "valdoria:mesa_runica": {
+    "sound": "wood"
+  },
+  "valdoria:portao_selado": {
+    "sound": "stone"
+  },
+  "valdoria:armadilha_espinhos": {
+    "sound": "stone"
+  },
+  "valdoria:bocal_chamas": {
+    "sound": "stone"
+  },
+  "valdoria:portao_anao": {
+    "sound": "stone"
+  },
+  "valdoria:runa_martelo": {
+    "sound": "stone"
+  },
+  "valdoria:runa_bigorna": {
+    "sound": "stone"
+  },
+  "valdoria:runa_chama": {
+    "sound": "stone"
+  },
+  "valdoria:runa_montanha": {
+    "sound": "stone"
+  },
+  "valdoria:raiz_corrompida": {
+    "sound": "wood"
+  },
+  "valdoria:selo_raizes": {
+    "sound": "wood"
+  },
+  "valdoria:selo_sombra": {
+    "sound": "stone"
+  },
+  "valdoria:barreira_sombria": {
+    "sound": "stone"
+  },
+  "valdoria:pedra_ventos": {
+    "sound": "stone"
+  },
+  "valdoria:altar_juramento": {
+    "sound": "stone"
+  },
+  "valdoria:barreira_celeste": {
+    "sound": "stone"
+  }
+}

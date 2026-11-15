@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_draconica_capacete"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "MXM",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:escama_dragao"
+      },
+      "X": {
+        "item": "valdoria:lingote_mithril"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:escama_dragao"
+      }
+    ],
+    "result": {
+      "item": "valdoria:draconica_capacete",
+      "count": 1
+    }
+  }
+}

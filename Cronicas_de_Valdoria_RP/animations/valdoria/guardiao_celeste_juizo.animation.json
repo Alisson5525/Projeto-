@@ -1,0 +1,66 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.guardiao_celeste.juizo": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "10 + math.sin(query.life_time * 120) * 1.5",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -175,
+            0,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -175,
+            0,
+            -10
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            0,
+            -45,
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            45,
+            0
+          ]
+        },
+        "rightWing2": {
+          "rotation": [
+            0,
+            -20,
+            0
+          ]
+        },
+        "leftWing2": {
+          "rotation": [
+            0,
+            20,
+            0
+          ]
+        },
+        "halo": {
+          "rotation": [
+            0,
+            0,
+            "query.life_time * 200"
+          ]
+        }
+      }
+    }
+  }
+}

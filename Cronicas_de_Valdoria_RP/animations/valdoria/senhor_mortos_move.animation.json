@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.senhor_mortos.move": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 14",
+            0,
+            0
+          ]
+        },
+        "robe": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 25",
+            0,
+            0
+          ]
+        },
+        "cape": {
+          "rotation": [
+            "math.min(query.modified_move_speed, 0.6) * 40",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

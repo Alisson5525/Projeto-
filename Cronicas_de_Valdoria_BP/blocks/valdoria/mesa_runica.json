@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:mesa_runica",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.5,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "query.any_tag('minecraft:is_axe')"
+            },
+            "destroy_speed": 0.625
+          }
+        ]
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 4
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_mesa_runica_lado",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "valdoria_mesa_runica_topo",
+          "render_method": "opaque"
+        },
+        "down": {
+          "texture": "valdoria_mesa_runica_base",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#5d3f24",
+      "minecraft:light_emission": 5
+    }
+  }
+}

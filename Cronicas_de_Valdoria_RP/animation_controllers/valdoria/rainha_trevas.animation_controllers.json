@@ -1,0 +1,197 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.valdoria.rainha_trevas.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "move": "query.modified_move_speed > 0.02"
+            },
+            "attack",
+            "hurt",
+            "loadout"
+          ],
+          "transitions": [
+            {
+              "dardos": "query.property('valdoria:anim') == 1"
+            },
+            {
+              "laminas": "query.property('valdoria:anim') == 2"
+            },
+            {
+              "correntes": "query.property('valdoria:anim') == 3"
+            },
+            {
+              "teleporte": "query.property('valdoria:anim') == 4"
+            },
+            {
+              "espelhos": "query.property('valdoria:anim') == 5"
+            },
+            {
+              "invocar": "query.property('valdoria:anim') == 6"
+            },
+            {
+              "eclipse": "query.property('valdoria:anim') == 7"
+            },
+            {
+              "lancas": "query.property('valdoria:anim') == 8"
+            },
+            {
+              "transformar": "query.property('valdoria:anim') == 9"
+            },
+            {
+              "intro": "query.property('valdoria:anim') == 10"
+            },
+            {
+              "morte": "query.property('valdoria:anim') == 11"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "dardos": {
+          "animations": [
+            "idle",
+            "dardos",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 1"
+            }
+          ]
+        },
+        "laminas": {
+          "animations": [
+            "idle",
+            "laminas",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 2"
+            }
+          ]
+        },
+        "correntes": {
+          "animations": [
+            "idle",
+            "correntes",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 3"
+            }
+          ]
+        },
+        "teleporte": {
+          "animations": [
+            "idle",
+            "teleporte",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 4"
+            }
+          ]
+        },
+        "espelhos": {
+          "animations": [
+            "idle",
+            "espelhos",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 5"
+            }
+          ]
+        },
+        "invocar": {
+          "animations": [
+            "idle",
+            "invocar",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 6"
+            }
+          ]
+        },
+        "eclipse": {
+          "animations": [
+            "eclipse",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 7"
+            }
+          ]
+        },
+        "lancas": {
+          "animations": [
+            "idle",
+            "lancas",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 8"
+            }
+          ]
+        },
+        "transformar": {
+          "animations": [
+            "idle",
+            "transformar",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 9"
+            }
+          ]
+        },
+        "intro": {
+          "animations": [
+            "intro",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 10"
+            }
+          ]
+        },
+        "morte": {
+          "animations": [
+            "morte",
+            "loadout"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "query.property('valdoria:anim') != 11"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

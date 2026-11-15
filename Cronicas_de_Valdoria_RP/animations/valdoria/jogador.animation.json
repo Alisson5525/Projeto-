@@ -1,0 +1,910 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.player.conjurar_preparo": {
+      "loop": "hold_on_last_frame",
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              "-100 * (variable.is_first_person ? 0.3 : 1.0)",
+              10,
+              5
+            ],
+            "1.00": [
+              "-112 * (variable.is_first_person ? 0.3 : 1.0)",
+              14,
+              8
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              "-65 * (variable.is_first_person ? 0.3 : 1.0)",
+              -20,
+              -20
+            ],
+            "1.00": [
+              "-72 * (variable.is_first_person ? 0.3 : 1.0)",
+              -24,
+              -24
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -4,
+              6,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.0
+    },
+    "animation.valdoria.player.conjurar_lancar": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-115 * (variable.is_first_person ? 0.3 : 1.0)",
+              14,
+              8
+            ],
+            "0.10": [
+              "-85 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              0
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "-70 * (variable.is_first_person ? 0.3 : 1.0)",
+              -20,
+              -20
+            ],
+            "0.10": [
+              "-20 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -10
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              -4,
+              6,
+              0
+            ],
+            "0.10": [
+              6,
+              -8,
+              0
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.45
+    },
+    "animation.valdoria.player.conjurar_area": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-160 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              10
+            ],
+            "0.22": [
+              "-175 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              14
+            ],
+            "0.36": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              20
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "-160 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -10
+            ],
+            "0.22": [
+              "-175 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -14
+            ],
+            "0.36": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -20
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              -6,
+              0,
+              0
+            ],
+            "0.36": [
+              12,
+              0,
+              0
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.conjurar_proprio": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              60
+            ],
+            "0.50": [
+              "-35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              60
+            ],
+            "0.70": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -60
+            ],
+            "0.50": [
+              "-35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -60
+            ],
+            "0.70": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              -15,
+              0,
+              0
+            ],
+            "0.70": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.7
+    },
+    "animation.valdoria.player.rugido": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              50
+            ],
+            "0.70": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              50
+            ],
+            "0.90": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -50
+            ],
+            "0.70": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -50
+            ],
+            "0.90": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              -25,
+              0,
+              0
+            ],
+            "0.70": [
+              -25,
+              0,
+              0
+            ],
+            "0.90": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": [
+            "math.sin(query.anim_time * 2400) * 2 - 6",
+            0,
+            0
+          ]
+        }
+      },
+      "animation_length": 0.9
+    },
+    "animation.valdoria.player.preparar_golpe": {
+      "loop": "hold_on_last_frame",
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-150 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              15
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -10
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.20": [
+              -5,
+              15,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.0
+    },
+    "animation.valdoria.player.ataque_varredura": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-80 * (variable.is_first_person ? 0.3 : 1.0)",
+              70,
+              0
+            ],
+            "0.16": [
+              "-85 * (variable.is_first_person ? 0.3 : 1.0)",
+              -60,
+              0
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              20,
+              0
+            ],
+            "0.16": [
+              0,
+              -25,
+              0
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.45
+    },
+    "animation.valdoria.player.ataque_impacto": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-170 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              8
+            ],
+            "0.28": [
+              "-176 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              8
+            ],
+            "0.40": [
+              "-30 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              5
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "-170 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -8
+            ],
+            "0.28": [
+              "-176 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -8
+            ],
+            "0.40": [
+              "-30 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -5
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              -5,
+              0,
+              0
+            ],
+            "0.40": [
+              16,
+              0,
+              0
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.ataque_estocada": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-60 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              0
+            ],
+            "0.10": [
+              "-95 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              0
+            ],
+            "0.40": [
+              0,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.10": [
+              0,
+              0,
+              -3
+            ],
+            "0.40": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.10": [
+              8,
+              -10,
+              0
+            ],
+            "0.40": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.4
+    },
+    "animation.valdoria.player.ataque_giro": {
+      "loop": false,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              0,
+              -360,
+              0
+            ],
+            "0.60": [
+              0,
+              -360,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-70 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              30
+            ],
+            "0.50": [
+              "-70 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              30
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "-30 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -40
+            ],
+            "0.50": [
+              "-30 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -40
+            ],
+            "0.60": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.6
+    },
+    "animation.valdoria.player.ataque_vertical": {
+      "loop": false,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              "-170 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              10
+            ],
+            "0.20": [
+              "-180 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              10
+            ],
+            "0.30": [
+              "-20 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              0
+            ],
+            "0.55": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              "-150 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -10
+            ],
+            "0.20": [
+              "-160 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -10
+            ],
+            "0.30": [
+              "-25 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              0
+            ],
+            "0.55": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": [
+              -6,
+              0,
+              0
+            ],
+            "0.30": [
+              18,
+              0,
+              0
+            ],
+            "0.55": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.55
+    },
+    "animation.valdoria.player.guarda": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-55 * (variable.is_first_person ? 0.3 : 1.0)",
+            -35,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-40 * (variable.is_first_person ? 0.3 : 1.0)",
+            30,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            5,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.player.esquiva": {
+      "loop": false,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.10": [
+              25,
+              0,
+              0
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.10": [
+              "35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              15
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.10": [
+              "35 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -15
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 0.35
+    },
+    "animation.valdoria.player.transformacao": {
+      "loop": false,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              "30 + math.sin(query.anim_time * 2500) * 4",
+              0,
+              0
+            ],
+            "0.90": [
+              30,
+              0,
+              0
+            ],
+            "1.25": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              20,
+              0,
+              0
+            ],
+            "0.90": [
+              -40,
+              0,
+              0
+            ],
+            "1.25": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              "-20 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              50
+            ],
+            "0.90": [
+              "-60 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              30
+            ],
+            "1.25": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              "-20 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -50
+            ],
+            "0.90": [
+              "-60 * (variable.is_first_person ? 0.3 : 1.0)",
+              0,
+              -30
+            ],
+            "1.25": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.25
+    }
+  }
+}

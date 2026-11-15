@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_mesa_runica"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "CBC",
+      "LPL",
+      "PPP"
+    ],
+    "key": {
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "B": {
+        "item": "minecraft:book"
+      },
+      "L": {
+        "item": "valdoria:lingote_aco"
+      },
+      "P": {
+        "item": "minecraft:oak_planks"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:cristal_aetherita"
+      }
+    ],
+    "result": {
+      "item": "valdoria:mesa_runica",
+      "count": 1
+    }
+  }
+}

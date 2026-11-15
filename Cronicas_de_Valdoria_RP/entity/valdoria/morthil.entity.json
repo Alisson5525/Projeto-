@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:morthil",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/morthil"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.morthil"
+      },
+      "animations": {
+        "look": "animation.valdoria.morthil.look",
+        "idle": "animation.valdoria.morthil.idle",
+        "walk": "animation.valdoria.morthil.walk",
+        "attack": "animation.valdoria.morthil.attack",
+        "hurt": "animation.valdoria.morthil.hurt",
+        "raizes": "animation.valdoria.morthil.raizes",
+        "varredura": "animation.valdoria.morthil.varredura",
+        "esporos": "animation.valdoria.morthil.esporos",
+        "chamado": "animation.valdoria.morthil.chamado",
+        "enraizar": "animation.valdoria.morthil.enraizar",
+        "atordoado": "animation.valdoria.morthil.atordoado",
+        "intro": "animation.valdoria.morthil.intro",
+        "morte": "animation.valdoria.morthil.morte",
+        "main": "controller.animation.valdoria.morthil.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#868274",
+        "overlay_color": "#ffb040"
+      }
+    }
+  }
+}

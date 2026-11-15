@@ -1,0 +1,121 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.cervo.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.6",
+            "query.target_y_rotation * 0.7",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cervo.idle": {
+      "loop": true,
+      "bones": {
+        "neck": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ],
+            "3.6": [
+              55,
+              0,
+              0
+            ],
+            "5.6": [
+              55,
+              0,
+              0
+            ],
+            "6.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 500) * 10"
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 90) * 0.15",
+            0
+          ]
+        }
+      },
+      "animation_length": 8
+    },
+    "animation.valdoria.cervo.walk": {
+      "loop": true,
+      "bones": {
+        "legFR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 30) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 30) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "legFL": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 30) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 30) * 40 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "neck": {
+          "rotation": [
+            "math.sin(query.modified_distance_moved * 30) * 5 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(query.modified_distance_moved * 30)) * 0.6 * query.modified_move_speed",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.cervo.glow": {
+      "loop": true,
+      "bones": {
+        "antlers": {
+          "scale": "1 + math.sin(query.life_time * 120) * 0.04"
+        }
+      }
+    }
+  }
+}

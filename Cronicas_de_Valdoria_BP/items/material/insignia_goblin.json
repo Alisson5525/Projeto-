@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:insignia_goblin",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_insignia_goblin",
+      "minecraft:max_stack_size": 64,
+      "minecraft:display_name": {
+        "value": "item.valdoria:insignia_goblin.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:material",
+          "valdoria:rarity_comum"
+        ]
+      }
+    }
+  }
+}

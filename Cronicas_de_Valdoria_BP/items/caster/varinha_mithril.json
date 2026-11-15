@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:varinha_mithril",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_varinha_mithril",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:varinha_mithril.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:caster",
+          "valdoria:rarity_raro"
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 900
+      },
+      "minecraft:can_destroy_in_creative": false
+    }
+  }
+}

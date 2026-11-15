@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_alabarda_aco"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " MM",
+      " SM",
+      "S  "
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:alabarda_aco",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.guardiao_celeste.lancas": {
+      "loop": false,
+      "bones": {
+        "leftArm": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -170,
+              0,
+              -15
+            ],
+            "1.00": [
+              -170,
+              0,
+              -15
+            ],
+            "1.40": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -30,
+              0,
+              0
+            ],
+            "1.00": [
+              -30,
+              0,
+              0
+            ],
+            "1.40": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.4
+    }
+  }
+}

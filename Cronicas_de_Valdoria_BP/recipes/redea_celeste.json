@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_redea_celeste"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " P ",
+      "GLG",
+      " C "
+    ],
+    "key": {
+      "P": {
+        "item": "valdoria:pena_grifo"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "L": {
+        "item": "minecraft:lead"
+      },
+      "C": {
+        "item": "valdoria:cristal_aetherita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:pena_grifo"
+      }
+    ],
+    "result": {
+      "item": "valdoria:redea_celeste",
+      "count": 1
+    }
+  }
+}

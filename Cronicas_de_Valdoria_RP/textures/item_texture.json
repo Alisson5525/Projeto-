@@ -1,0 +1,486 @@
+{
+  "resource_pack_name": "valdoria",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "valdoria_adaga_aco": {
+      "textures": "textures/items/valdoria/adaga_aco"
+    },
+    "valdoria_espada_curta_aco": {
+      "textures": "textures/items/valdoria/espada_curta_aco"
+    },
+    "valdoria_espada_longa_aco": {
+      "textures": "textures/items/valdoria/espada_longa_aco"
+    },
+    "valdoria_espada_grande_aco": {
+      "textures": "textures/items/valdoria/espada_grande_aco"
+    },
+    "valdoria_katana_aco": {
+      "textures": "textures/items/valdoria/katana_aco"
+    },
+    "valdoria_lanca_aco": {
+      "textures": "textures/items/valdoria/lanca_aco"
+    },
+    "valdoria_machado_guerra_aco": {
+      "textures": "textures/items/valdoria/machado_guerra_aco"
+    },
+    "valdoria_martelo_guerra_aco": {
+      "textures": "textures/items/valdoria/martelo_guerra_aco"
+    },
+    "valdoria_maca_aco": {
+      "textures": "textures/items/valdoria/maca_aco"
+    },
+    "valdoria_alabarda_aco": {
+      "textures": "textures/items/valdoria/alabarda_aco"
+    },
+    "valdoria_foice_aco": {
+      "textures": "textures/items/valdoria/foice_aco"
+    },
+    "valdoria_adaga_mithril": {
+      "textures": "textures/items/valdoria/adaga_mithril"
+    },
+    "valdoria_espada_curta_mithril": {
+      "textures": "textures/items/valdoria/espada_curta_mithril"
+    },
+    "valdoria_espada_longa_mithril": {
+      "textures": "textures/items/valdoria/espada_longa_mithril"
+    },
+    "valdoria_espada_grande_mithril": {
+      "textures": "textures/items/valdoria/espada_grande_mithril"
+    },
+    "valdoria_katana_mithril": {
+      "textures": "textures/items/valdoria/katana_mithril"
+    },
+    "valdoria_lanca_mithril": {
+      "textures": "textures/items/valdoria/lanca_mithril"
+    },
+    "valdoria_machado_guerra_mithril": {
+      "textures": "textures/items/valdoria/machado_guerra_mithril"
+    },
+    "valdoria_martelo_guerra_mithril": {
+      "textures": "textures/items/valdoria/martelo_guerra_mithril"
+    },
+    "valdoria_maca_mithril": {
+      "textures": "textures/items/valdoria/maca_mithril"
+    },
+    "valdoria_alabarda_mithril": {
+      "textures": "textures/items/valdoria/alabarda_mithril"
+    },
+    "valdoria_foice_mithril": {
+      "textures": "textures/items/valdoria/foice_mithril"
+    },
+    "valdoria_lamina_ignis": {
+      "textures": "textures/items/valdoria/lamina_ignis"
+    },
+    "valdoria_presa_inverno": {
+      "textures": "textures/items/valdoria/presa_inverno"
+    },
+    "valdoria_martelo_trovao": {
+      "textures": "textures/items/valdoria/martelo_trovao"
+    },
+    "valdoria_aurora_sagrada": {
+      "textures": "textures/items/valdoria/aurora_sagrada"
+    },
+    "valdoria_lamina_umbral": {
+      "textures": "textures/items/valdoria/lamina_umbral"
+    },
+    "valdoria_garra_draconica": {
+      "textures": "textures/items/valdoria/garra_draconica"
+    },
+    "valdoria_machado_runico": {
+      "textures": "textures/items/valdoria/machado_runico"
+    },
+    "valdoria_lanca_celestial": {
+      "textures": "textures/items/valdoria/lanca_celestial"
+    },
+    "valdoria_martelo_durgan": {
+      "textures": "textures/items/valdoria/martelo_durgan"
+    },
+    "valdoria_lamina_azrakar": {
+      "textures": "textures/items/valdoria/lamina_azrakar"
+    },
+    "valdoria_lanca_auriel": {
+      "textures": "textures/items/valdoria/lanca_auriel"
+    },
+    "valdoria_punho_tita": {
+      "textures": "textures/items/valdoria/punho_tita"
+    },
+    "valdoria_varinha_aprendiz": {
+      "textures": "textures/items/valdoria/varinha_aprendiz"
+    },
+    "valdoria_varinha_mithril": {
+      "textures": "textures/items/valdoria/varinha_mithril"
+    },
+    "valdoria_cajado_carvalho": {
+      "textures": "textures/items/valdoria/cajado_carvalho"
+    },
+    "valdoria_cajado_arcano": {
+      "textures": "textures/items/valdoria/cajado_arcano"
+    },
+    "valdoria_cajado_brasas": {
+      "textures": "textures/items/valdoria/cajado_brasas"
+    },
+    "valdoria_cajado_glacial": {
+      "textures": "textures/items/valdoria/cajado_glacial"
+    },
+    "valdoria_cajado_tempestade": {
+      "textures": "textures/items/valdoria/cajado_tempestade"
+    },
+    "valdoria_cetro_sagrado": {
+      "textures": "textures/items/valdoria/cetro_sagrado"
+    },
+    "valdoria_cajado_sombrio": {
+      "textures": "textures/items/valdoria/cajado_sombrio"
+    },
+    "valdoria_cajado_mortos": {
+      "textures": "textures/items/valdoria/cajado_mortos"
+    },
+    "valdoria_cetro_vaelith": {
+      "textures": "textures/items/valdoria/cetro_vaelith"
+    },
+    "valdoria_grimorio_arquimago": {
+      "textures": "textures/items/valdoria/grimorio_arquimago"
+    },
+    "valdoria_arco_teixo": {
+      "textures": "textures/items/valdoria/arco_teixo"
+    },
+    "valdoria_arco_aco": {
+      "textures": "textures/items/valdoria/arco_aco"
+    },
+    "valdoria_arco_elfico": {
+      "textures": "textures/items/valdoria/arco_elfico"
+    },
+    "valdoria_arco_brasas": {
+      "textures": "textures/items/valdoria/arco_brasas"
+    },
+    "valdoria_arco_tempestade": {
+      "textures": "textures/items/valdoria/arco_tempestade"
+    },
+    "valdoria_besta_aco": {
+      "textures": "textures/items/valdoria/besta_aco"
+    },
+    "valdoria_besta_kardum": {
+      "textures": "textures/items/valdoria/besta_kardum"
+    },
+    "valdoria_besta_real": {
+      "textures": "textures/items/valdoria/besta_real"
+    },
+    "valdoria_arco_ylthariel": {
+      "textures": "textures/items/valdoria/arco_ylthariel"
+    },
+    "valdoria_cavaleiro_capacete": {
+      "textures": "textures/items/valdoria/cavaleiro_capacete"
+    },
+    "valdoria_cavaleiro_peitoral": {
+      "textures": "textures/items/valdoria/cavaleiro_peitoral"
+    },
+    "valdoria_cavaleiro_calcas": {
+      "textures": "textures/items/valdoria/cavaleiro_calcas"
+    },
+    "valdoria_cavaleiro_botas": {
+      "textures": "textures/items/valdoria/cavaleiro_botas"
+    },
+    "valdoria_arcanista_capacete": {
+      "textures": "textures/items/valdoria/arcanista_capacete"
+    },
+    "valdoria_arcanista_peitoral": {
+      "textures": "textures/items/valdoria/arcanista_peitoral"
+    },
+    "valdoria_arcanista_calcas": {
+      "textures": "textures/items/valdoria/arcanista_calcas"
+    },
+    "valdoria_arcanista_botas": {
+      "textures": "textures/items/valdoria/arcanista_botas"
+    },
+    "valdoria_patrulheiro_capacete": {
+      "textures": "textures/items/valdoria/patrulheiro_capacete"
+    },
+    "valdoria_patrulheiro_peitoral": {
+      "textures": "textures/items/valdoria/patrulheiro_peitoral"
+    },
+    "valdoria_patrulheiro_calcas": {
+      "textures": "textures/items/valdoria/patrulheiro_calcas"
+    },
+    "valdoria_patrulheiro_botas": {
+      "textures": "textures/items/valdoria/patrulheiro_botas"
+    },
+    "valdoria_forjarruna_capacete": {
+      "textures": "textures/items/valdoria/forjarruna_capacete"
+    },
+    "valdoria_forjarruna_peitoral": {
+      "textures": "textures/items/valdoria/forjarruna_peitoral"
+    },
+    "valdoria_forjarruna_calcas": {
+      "textures": "textures/items/valdoria/forjarruna_calcas"
+    },
+    "valdoria_forjarruna_botas": {
+      "textures": "textures/items/valdoria/forjarruna_botas"
+    },
+    "valdoria_draconica_capacete": {
+      "textures": "textures/items/valdoria/draconica_capacete"
+    },
+    "valdoria_draconica_peitoral": {
+      "textures": "textures/items/valdoria/draconica_peitoral"
+    },
+    "valdoria_draconica_calcas": {
+      "textures": "textures/items/valdoria/draconica_calcas"
+    },
+    "valdoria_draconica_botas": {
+      "textures": "textures/items/valdoria/draconica_botas"
+    },
+    "valdoria_sombria_capacete": {
+      "textures": "textures/items/valdoria/sombria_capacete"
+    },
+    "valdoria_sombria_peitoral": {
+      "textures": "textures/items/valdoria/sombria_peitoral"
+    },
+    "valdoria_sombria_calcas": {
+      "textures": "textures/items/valdoria/sombria_calcas"
+    },
+    "valdoria_sombria_botas": {
+      "textures": "textures/items/valdoria/sombria_botas"
+    },
+    "valdoria_abissal_capacete": {
+      "textures": "textures/items/valdoria/abissal_capacete"
+    },
+    "valdoria_abissal_peitoral": {
+      "textures": "textures/items/valdoria/abissal_peitoral"
+    },
+    "valdoria_abissal_calcas": {
+      "textures": "textures/items/valdoria/abissal_calcas"
+    },
+    "valdoria_abissal_botas": {
+      "textures": "textures/items/valdoria/abissal_botas"
+    },
+    "valdoria_celestial_capacete": {
+      "textures": "textures/items/valdoria/celestial_capacete"
+    },
+    "valdoria_celestial_peitoral": {
+      "textures": "textures/items/valdoria/celestial_peitoral"
+    },
+    "valdoria_celestial_calcas": {
+      "textures": "textures/items/valdoria/celestial_calcas"
+    },
+    "valdoria_celestial_botas": {
+      "textures": "textures/items/valdoria/celestial_botas"
+    },
+    "valdoria_aelthar_capacete": {
+      "textures": "textures/items/valdoria/aelthar_capacete"
+    },
+    "valdoria_aelthar_peitoral": {
+      "textures": "textures/items/valdoria/aelthar_peitoral"
+    },
+    "valdoria_aelthar_calcas": {
+      "textures": "textures/items/valdoria/aelthar_calcas"
+    },
+    "valdoria_aelthar_botas": {
+      "textures": "textures/items/valdoria/aelthar_botas"
+    },
+    "valdoria_real_capacete": {
+      "textures": "textures/items/valdoria/real_capacete"
+    },
+    "valdoria_real_peitoral": {
+      "textures": "textures/items/valdoria/real_peitoral"
+    },
+    "valdoria_real_calcas": {
+      "textures": "textures/items/valdoria/real_calcas"
+    },
+    "valdoria_real_botas": {
+      "textures": "textures/items/valdoria/real_botas"
+    },
+    "valdoria_anel_brasa": {
+      "textures": "textures/items/valdoria/anel_brasa"
+    },
+    "valdoria_anel_glacial": {
+      "textures": "textures/items/valdoria/anel_glacial"
+    },
+    "valdoria_anel_tempestade": {
+      "textures": "textures/items/valdoria/anel_tempestade"
+    },
+    "valdoria_anel_vigor": {
+      "textures": "textures/items/valdoria/anel_vigor"
+    },
+    "valdoria_amuleto_arcano": {
+      "textures": "textures/items/valdoria/amuleto_arcano"
+    },
+    "valdoria_amuleto_fortuna": {
+      "textures": "textures/items/valdoria/amuleto_fortuna"
+    },
+    "valdoria_amuleto_natureza": {
+      "textures": "textures/items/valdoria/amuleto_natureza"
+    },
+    "valdoria_bracelete_cacador": {
+      "textures": "textures/items/valdoria/bracelete_cacador"
+    },
+    "valdoria_reliquia_sagrada": {
+      "textures": "textures/items/valdoria/reliquia_sagrada"
+    },
+    "valdoria_talisma_sombrio": {
+      "textures": "textures/items/valdoria/talisma_sombrio"
+    },
+    "valdoria_talisma_sangue": {
+      "textures": "textures/items/valdoria/talisma_sangue"
+    },
+    "valdoria_coroa_mortos": {
+      "textures": "textures/items/valdoria/coroa_mortos"
+    },
+    "valdoria_coracao_pedra": {
+      "textures": "textures/items/valdoria/coracao_pedra"
+    },
+    "valdoria_coracao_dragao": {
+      "textures": "textures/items/valdoria/coracao_dragao"
+    },
+    "valdoria_coroa_veu": {
+      "textures": "textures/items/valdoria/coroa_veu"
+    },
+    "valdoria_lingote_aco": {
+      "textures": "textures/items/valdoria/lingote_aco"
+    },
+    "valdoria_lingote_mithril": {
+      "textures": "textures/items/valdoria/lingote_mithril"
+    },
+    "valdoria_mithril_bruto": {
+      "textures": "textures/items/valdoria/mithril_bruto"
+    },
+    "valdoria_cristal_aetherita": {
+      "textures": "textures/items/valdoria/cristal_aetherita"
+    },
+    "valdoria_essencia_arcana": {
+      "textures": "textures/items/valdoria/essencia_arcana"
+    },
+    "valdoria_essencia_natural": {
+      "textures": "textures/items/valdoria/essencia_natural"
+    },
+    "valdoria_essencia_sombria": {
+      "textures": "textures/items/valdoria/essencia_sombria"
+    },
+    "valdoria_coracao_abismo": {
+      "textures": "textures/items/valdoria/coracao_abismo"
+    },
+    "valdoria_pena_celeste": {
+      "textures": "textures/items/valdoria/pena_celeste"
+    },
+    "valdoria_pluma_auriel": {
+      "textures": "textures/items/valdoria/pluma_auriel"
+    },
+    "valdoria_ectoplasma": {
+      "textures": "textures/items/valdoria/ectoplasma"
+    },
+    "valdoria_insignia_goblin": {
+      "textures": "textures/items/valdoria/insignia_goblin"
+    },
+    "valdoria_fragmento_tita": {
+      "textures": "textures/items/valdoria/fragmento_tita"
+    },
+    "valdoria_nucleo_tita": {
+      "textures": "textures/items/valdoria/nucleo_tita"
+    },
+    "valdoria_fragmento_alma": {
+      "textures": "textures/items/valdoria/fragmento_alma"
+    },
+    "valdoria_escama_dragao": {
+      "textures": "textures/items/valdoria/escama_dragao"
+    },
+    "valdoria_veu_sombrio": {
+      "textures": "textures/items/valdoria/veu_sombrio"
+    },
+    "valdoria_moeda_ouro": {
+      "textures": "textures/items/valdoria/moeda_ouro"
+    },
+    "valdoria_pedra_aprimoramento": {
+      "textures": "textures/items/valdoria/pedra_aprimoramento"
+    },
+    "valdoria_runa_fogo": {
+      "textures": "textures/items/valdoria/runa_fogo"
+    },
+    "valdoria_runa_gelo": {
+      "textures": "textures/items/valdoria/runa_gelo"
+    },
+    "valdoria_runa_trovao": {
+      "textures": "textures/items/valdoria/runa_trovao"
+    },
+    "valdoria_runa_luz": {
+      "textures": "textures/items/valdoria/runa_luz"
+    },
+    "valdoria_runa_sombra": {
+      "textures": "textures/items/valdoria/runa_sombra"
+    },
+    "valdoria_diario_aventureiro": {
+      "textures": "textures/items/valdoria/diario_aventureiro"
+    },
+    "valdoria_sigilo_aventureiro": {
+      "textures": "textures/items/valdoria/sigilo_aventureiro"
+    },
+    "valdoria_pocao_energia": {
+      "textures": "textures/items/valdoria/pocao_energia"
+    },
+    "valdoria_elixir_renascimento": {
+      "textures": "textures/items/valdoria/elixir_renascimento"
+    },
+    "valdoria_idolo_tita": {
+      "textures": "textures/items/valdoria/idolo_tita"
+    },
+    "valdoria_escritura_cavalo": {
+      "textures": "textures/items/valdoria/escritura_cavalo"
+    },
+    "valdoria_apito_lobo": {
+      "textures": "textures/items/valdoria/apito_lobo"
+    },
+    "valdoria_berrante_alce": {
+      "textures": "textures/items/valdoria/berrante_alce"
+    },
+    "valdoria_insignia_urso": {
+      "textures": "textures/items/valdoria/insignia_urso"
+    },
+    "valdoria_sino_prata": {
+      "textures": "textures/items/valdoria/sino_prata"
+    },
+    "valdoria_pena_dourada": {
+      "textures": "textures/items/valdoria/pena_dourada"
+    },
+    "valdoria_selo_real": {
+      "textures": "textures/items/valdoria/selo_real"
+    },
+    "valdoria_seiva_ancestral": {
+      "textures": "textures/items/valdoria/seiva_ancestral"
+    },
+    "valdoria_orvalho_lunar": {
+      "textures": "textures/items/valdoria/orvalho_lunar"
+    },
+    "valdoria_coracao_aetherita": {
+      "textures": "textures/items/valdoria/coracao_aetherita"
+    },
+    "valdoria_engrenagem_runica": {
+      "textures": "textures/items/valdoria/engrenagem_runica"
+    },
+    "valdoria_apito_companheiro": {
+      "textures": "textures/items/valdoria/apito_companheiro"
+    },
+    "valdoria_talisma_dragao": {
+      "textures": "textures/items/valdoria/talisma_dragao"
+    },
+    "valdoria_ovo_ignaroth": {
+      "textures": "textures/items/valdoria/ovo_ignaroth"
+    },
+    "valdoria_pena_grifo": {
+      "textures": "textures/items/valdoria/pena_grifo"
+    },
+    "valdoria_redea_celeste": {
+      "textures": "textures/items/valdoria/redea_celeste"
+    },
+    "valdoria_osso_alfa": {
+      "textures": "textures/items/valdoria/osso_alfa"
+    },
+    "valdoria_chave_cripta": {
+      "textures": "textures/items/valdoria/chave_cripta"
+    },
+    "valdoria_pergaminho_antigo": {
+      "textures": "textures/items/valdoria/pergaminho_antigo"
+    },
+    "valdoria_calice_sagrado": {
+      "textures": "textures/items/valdoria/calice_sagrado"
+    },
+    "valdoria_mapa_explorador": {
+      "textures": "textures/items/valdoria/mapa_explorador"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:alce",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/alce"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.alce"
+      },
+      "animations": {
+        "look": "animation.valdoria.alce.look",
+        "idle": "animation.valdoria.alce.idle",
+        "move": "animation.valdoria.alce.move",
+        "hurt": "animation.valdoria.alce.hurt",
+        "loadout": "animation.valdoria.alce.loadout",
+        "jump": "animation.valdoria.alce.jump",
+        "berro": "animation.valdoria.alce.berro"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "move",
+          {
+            "jump": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#5e4630",
+        "overlay_color": "#dccba4"
+      }
+    }
+  }
+}

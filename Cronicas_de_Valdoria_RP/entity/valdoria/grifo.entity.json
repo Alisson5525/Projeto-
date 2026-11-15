@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:grifo",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/grifo"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.grifo"
+      },
+      "animations": {
+        "look": "animation.valdoria.grifo.look",
+        "idle": "animation.valdoria.grifo.idle",
+        "move": "animation.valdoria.grifo.move",
+        "hurt": "animation.valdoria.grifo.hurt",
+        "loadout": "animation.valdoria.grifo.loadout",
+        "voo": "animation.valdoria.grifo.voo",
+        "grito": "animation.valdoria.grifo.grito"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          {
+            "idle": "query.is_on_ground"
+          },
+          {
+            "move": "query.is_on_ground"
+          },
+          {
+            "voo": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#c8902e",
+        "overlay_color": "#f4f0e6"
+      }
+    }
+  }
+}

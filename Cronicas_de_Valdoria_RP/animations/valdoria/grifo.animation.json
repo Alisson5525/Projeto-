@@ -1,0 +1,388 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.grifo.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.6",
+            "query.target_y_rotation * 0.6",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.grifo.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": [
+            1,
+            "1 + math.sin(query.life_time * 110) * 0.012",
+            1
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            0,
+            "math.sin(query.life_time * 120) * 12",
+            0
+          ]
+        },
+        "asaL": {
+          "rotation": [
+            0,
+            -80,
+            -10
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            80,
+            10
+          ]
+        },
+        "asaL2": {
+          "rotation": [
+            0,
+            165,
+            0
+          ]
+        },
+        "asaR2": {
+          "rotation": [
+            0,
+            -165,
+            0
+          ]
+        },
+        "neck": {
+          "rotation": [
+            "math.sin(query.life_time * 40) * 2",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            0,
+            "math.sin(query.life_time * 15) * 10",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.grifo.move": {
+      "loop": true,
+      "bones": {
+        "legFL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 0) * 36 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 0)) * 45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 50) * 36 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 50)) * 45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 180) * 36 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowBL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 180)) * -45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 230) * 36 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowBR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 230)) * -45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(query.modified_distance_moved * 28)) * 0.8 * math.min(query.modified_move_speed, 1.0)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.grifo.hurt": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-math.clamp(query.hurt_time, 0, 10) * 0.8",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.grifo.loadout": {
+      "loop": true,
+      "bones": {
+        "sela": {
+          "scale": "query.is_tamed ? 1 : 0"
+        }
+      }
+    },
+    "animation.valdoria.grifo.voo": {
+      "loop": true,
+      "bones": {
+        "asaL": {
+          "rotation": [
+            0,
+            -6,
+            "-5 - math.sin(query.life_time * 260) * 40"
+          ]
+        },
+        "asaL2": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(query.life_time * 260 - 50) * 25"
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            6,
+            "-(-5 - math.sin(query.life_time * 260) * 40)"
+          ]
+        },
+        "asaR2": {
+          "rotation": [
+            0,
+            0,
+            "-(-math.sin(query.life_time * 260 - 50) * 25)"
+          ]
+        },
+        "legFL": {
+          "rotation": [
+            40,
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            40,
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            -30,
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            -30,
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            55,
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            55,
+            0,
+            0
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            -25,
+            "math.sin(query.life_time * 60) * 6",
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 260) * 1.2",
+            0
+          ]
+        },
+        "neck": {
+          "rotation": [
+            -10,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.grifo.grito": {
+      "loop": false,
+      "bones": {
+        "neck": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              -30,
+              0,
+              0
+            ],
+            "0.90": [
+              -30,
+              0,
+              0
+            ],
+            "1.20": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              -20,
+              0,
+              0
+            ],
+            "0.90": [
+              -20,
+              0,
+              0
+            ],
+            "1.20": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "bico": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              35,
+              0,
+              0
+            ],
+            "0.90": [
+              35,
+              0,
+              0
+            ],
+            "1.20": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "asaL": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              40,
+              10
+            ],
+            "0.90": [
+              0,
+              40,
+              10
+            ],
+            "1.20": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "asaR": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              -40,
+              -10
+            ],
+            "0.90": [
+              0,
+              -40,
+              -10
+            ],
+            "1.20": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.2
+    }
+  }
+}

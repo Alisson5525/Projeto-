@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:pergaminho_antigo",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_pergaminho_antigo",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:pergaminho_antigo.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:scroll",
+          "valdoria:rarity_incomum"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:rei_durgan",
+      "materials": {
+        "default": "entity_alphablend"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/rei_durgan"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.anao"
+      },
+      "animations": {
+        "look": "animation.valdoria.anao.look",
+        "idle": "animation.valdoria.anao.idle",
+        "flutuar": "animation.valdoria.anao.flutuar",
+        "walk": "animation.valdoria.anao.walk",
+        "attack": "animation.valdoria.anao.attack",
+        "loadout_fantasma": "animation.valdoria.anao.loadout_fantasma",
+        "loadout_rei": "animation.valdoria.anao.loadout_rei",
+        "hurt": "animation.valdoria.anao.hurt",
+        "martelada": "animation.valdoria.anao.martelada",
+        "giro": "animation.valdoria.anao.giro",
+        "arremesso": "animation.valdoria.anao.arremesso",
+        "fenda": "animation.valdoria.anao.fenda",
+        "invocar": "animation.valdoria.anao.invocar",
+        "furia": "animation.valdoria.anao.furia",
+        "escudo": "animation.valdoria.anao.escudo",
+        "intro": "animation.valdoria.anao.intro",
+        "morte": "animation.valdoria.anao.morte",
+        "main": "controller.animation.valdoria.rei_durgan.main"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "main",
+          "loadout_rei"
+        ],
+        "scale": "1.6"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#b8f0ff",
+        "overlay_color": "#ffd860"
+      }
+    }
+  }
+}

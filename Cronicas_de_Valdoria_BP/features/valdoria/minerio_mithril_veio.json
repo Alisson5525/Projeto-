@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "valdoria:minerio_mithril_veio"
+    },
+    "count": 5,
+    "replace_rules": [
+      {
+        "places_block": "valdoria:minerio_mithril",
+        "may_replace": [
+          "minecraft:stone",
+          "minecraft:andesite",
+          "minecraft:diorite",
+          "minecraft:granite"
+        ]
+      }
+    ]
+  }
+}

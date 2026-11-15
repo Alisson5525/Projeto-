@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_anel_brasa"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "G G",
+      " G "
+    ],
+    "key": {
+      "R": {
+        "item": "valdoria:runa_fogo"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:runa_fogo"
+      }
+    ],
+    "result": {
+      "item": "valdoria:anel_brasa",
+      "count": 1
+    }
+  }
+}

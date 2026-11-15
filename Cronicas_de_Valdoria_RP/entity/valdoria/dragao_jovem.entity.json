@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:dragao_jovem",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/dragao_jovem"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.dragao_jovem"
+      },
+      "animations": {
+        "look": "animation.valdoria.dragao_ancestral.look",
+        "idle": "animation.valdoria.dragao_ancestral.idle",
+        "walk": "animation.valdoria.dragao_ancestral.walk",
+        "hurt": "animation.valdoria.dragao_ancestral.hurt",
+        "voo": "animation.valdoria.dragao_ancestral.voo",
+        "rugido": "animation.valdoria.dragao_ancestral.rugido",
+        "loadout": "animation.valdoria.dragao_jovem.loadout",
+        "sopro": "animation.valdoria.dragao_jovem.sopro"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          {
+            "idle": "query.is_on_ground"
+          },
+          {
+            "walk": "query.is_on_ground"
+          },
+          {
+            "voo": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ],
+        "scale": "0.62"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#c4502a",
+        "overlay_color": "#e8b830"
+      }
+    }
+  }
+}

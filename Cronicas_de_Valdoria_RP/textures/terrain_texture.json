@@ -1,0 +1,77 @@
+{
+  "resource_pack_name": "valdoria",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "valdoria_minerio_mithril": {
+      "textures": "textures/blocks/valdoria/minerio_mithril"
+    },
+    "valdoria_minerio_aetherita": {
+      "textures": "textures/blocks/valdoria/minerio_aetherita"
+    },
+    "valdoria_mesa_runica_lado": {
+      "textures": "textures/blocks/valdoria/mesa_runica_lado"
+    },
+    "valdoria_mesa_runica_topo": {
+      "textures": "textures/blocks/valdoria/mesa_runica_topo"
+    },
+    "valdoria_mesa_runica_base": {
+      "textures": "textures/blocks/valdoria/mesa_runica_base"
+    },
+    "valdoria_portao_selado": {
+      "textures": "textures/blocks/valdoria/portao_selado"
+    },
+    "valdoria_masmorra_lado": {
+      "textures": "textures/blocks/valdoria/masmorra_lado"
+    },
+    "valdoria_armadilha_espinhos_topo": {
+      "textures": "textures/blocks/valdoria/armadilha_espinhos_topo"
+    },
+    "valdoria_bocal_chamas_topo": {
+      "textures": "textures/blocks/valdoria/bocal_chamas_topo"
+    },
+    "valdoria_portao_anao": {
+      "textures": "textures/blocks/valdoria/portao_anao"
+    },
+    "valdoria_kardum_lado": {
+      "textures": "textures/blocks/valdoria/kardum_lado"
+    },
+    "valdoria_runa_martelo": {
+      "textures": "textures/blocks/valdoria/runa_martelo"
+    },
+    "valdoria_runa_bigorna": {
+      "textures": "textures/blocks/valdoria/runa_bigorna"
+    },
+    "valdoria_runa_chama": {
+      "textures": "textures/blocks/valdoria/runa_chama"
+    },
+    "valdoria_runa_montanha": {
+      "textures": "textures/blocks/valdoria/runa_montanha"
+    },
+    "valdoria_raiz_corrompida": {
+      "textures": "textures/blocks/valdoria/raiz_corrompida"
+    },
+    "valdoria_selo_raizes": {
+      "textures": "textures/blocks/valdoria/selo_raizes"
+    },
+    "valdoria_selo_sombra": {
+      "textures": "textures/blocks/valdoria/selo_sombra"
+    },
+    "valdoria_barreira_sombria": {
+      "textures": "textures/blocks/valdoria/barreira_sombria"
+    },
+    "valdoria_pedra_ventos_lado": {
+      "textures": "textures/blocks/valdoria/pedra_ventos_lado"
+    },
+    "valdoria_pedra_ventos": {
+      "textures": "textures/blocks/valdoria/pedra_ventos"
+    },
+    "valdoria_altar_juramento": {
+      "textures": "textures/blocks/valdoria/altar_juramento"
+    },
+    "valdoria_barreira_celeste": {
+      "textures": "textures/blocks/valdoria/barreira_celeste"
+    }
+  }
+}

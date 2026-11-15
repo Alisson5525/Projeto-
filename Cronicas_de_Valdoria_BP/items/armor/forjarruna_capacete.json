@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:forjarruna_capacete",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_forjarruna_capacete",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:forjarruna_capacete.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:armor",
+          "valdoria:rarity_epico",
+          "valdoria:set_forjarruna"
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.head",
+        "protection": 3
+      },
+      "minecraft:durability": {
+        "max_durability": 700
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 12
+      }
+    }
+  }
+}

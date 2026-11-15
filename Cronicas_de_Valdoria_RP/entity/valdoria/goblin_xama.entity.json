@@ -1,0 +1,50 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:goblin_xama",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/goblin_xama"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.goblin"
+      },
+      "animations": {
+        "look": "animation.valdoria.goblin.look",
+        "idle": "animation.valdoria.goblin.idle",
+        "walk": "animation.valdoria.goblin.walk",
+        "attack": "animation.valdoria.goblin.attack",
+        "cast": "animation.valdoria.goblin.cast",
+        "loadout": "animation.valdoria.goblin.loadout"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          "loadout",
+          {
+            "cast": "query.property('valdoria:anim') == 1"
+          }
+        ],
+        "initialize": [
+          "variable.shaman = 1;"
+        ],
+        "scale": "0.82"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#5a7f30",
+        "overlay_color": "#c070ff"
+      }
+    }
+  }
+}

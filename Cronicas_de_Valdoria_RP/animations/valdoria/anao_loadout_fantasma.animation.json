@@ -1,0 +1,19 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.anao.loadout_fantasma": {
+      "loop": true,
+      "bones": {
+        "martelo": {
+          "scale": 0
+        },
+        "coroa": {
+          "scale": 0
+        },
+        "capa": {
+          "scale": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:calice_sagrado",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_calice_sagrado",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:calice_sagrado.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:quest",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

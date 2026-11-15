@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:talisma_dragao",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_talisma_dragao",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:talisma_dragao.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:mount",
+          "valdoria:rarity_lendario"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

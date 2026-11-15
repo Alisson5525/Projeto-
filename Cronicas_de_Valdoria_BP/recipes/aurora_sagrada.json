@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_aurora_sagrada"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:espada_longa_mithril"
+      },
+      "R": {
+        "item": "valdoria:runa_luz"
+      },
+      "E": {
+        "item": "valdoria:nucleo_tita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:espada_longa_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:aurora_sagrada",
+      "count": 1
+    }
+  }
+}

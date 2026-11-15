@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_martelo_trovao"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:martelo_guerra_mithril"
+      },
+      "R": {
+        "item": "valdoria:runa_trovao"
+      },
+      "E": {
+        "item": "valdoria:nucleo_tita"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:martelo_guerra_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:martelo_trovao",
+      "count": 1
+    }
+  }
+}

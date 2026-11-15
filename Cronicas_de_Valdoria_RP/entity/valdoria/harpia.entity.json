@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:harpia",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/harpia"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.harpia"
+      },
+      "animations": {
+        "look": "animation.valdoria.harpia.look",
+        "voo": "animation.valdoria.harpia.voo",
+        "attack": "animation.valdoria.harpia.attack",
+        "mergulho": "animation.valdoria.harpia.mergulho"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "voo",
+          "attack",
+          {
+            "mergulho": "query.property('valdoria:anim') == 1"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#d8ccb0",
+        "overlay_color": "#ffd040"
+      }
+    }
+  }
+}

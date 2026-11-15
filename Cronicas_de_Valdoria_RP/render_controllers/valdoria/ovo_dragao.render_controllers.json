@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.valdoria.ovo_dragao": {
+      "arrays": {
+        "textures": {
+          "Array.calor": [
+            "Texture.p1",
+            "Texture.p2",
+            "Texture.p3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.calor[query.property('valdoria:calor') >= 10 ? 2 : (query.property('valdoria:calor') >= 4 ? 1 : 0)]"
+      ]
+    }
+  }
+}

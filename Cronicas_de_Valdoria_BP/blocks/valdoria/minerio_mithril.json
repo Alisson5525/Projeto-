@@ -1,0 +1,35 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "valdoria:minerio_mithril",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 4.5,
+        "item_specific_speeds": [
+          {
+            "item": {
+              "tags": "query.any_tag('minecraft:is_pickaxe')"
+            },
+            "destroy_speed": 1.125
+          }
+        ]
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 3
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "valdoria_minerio_mithril",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#7f7f7f",
+      "minecraft:loot": "loot_tables/blocks/valdoria/vazio.json"
+    }
+  }
+}

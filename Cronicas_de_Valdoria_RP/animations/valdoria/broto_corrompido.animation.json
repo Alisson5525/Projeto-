@@ -1,0 +1,109 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.broto_corrompido.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.6",
+            "query.target_y_rotation * 0.7",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.broto_corrompido.idle": {
+      "loop": true,
+      "bones": {
+        "copa": {
+          "rotation": [
+            "math.sin(query.life_time * 110) * 4",
+            0,
+            "math.cos(query.life_time * 90) * 4"
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 120) * 6 + 6"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(query.life_time * 120) * 6 - 6"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.broto_corrompido.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 60) * 45 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 60) * 45 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 60) * 35 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 60) * 35 * math.min(query.modified_move_speed, 1)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "math.cos(query.modified_distance_moved * 60) * 6 * math.min(query.modified_move_speed, 1)"
+          ]
+        }
+      }
+    },
+    "animation.valdoria.broto_corrompido.attack": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 120",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 120",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            "(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 15",
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_patrulheiro_botas"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "M M"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:leather"
+      },
+      "X": {
+        "item": "valdoria:essencia_natural"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "result": {
+      "item": "valdoria:patrulheiro_botas",
+      "count": 1
+    }
+  }
+}

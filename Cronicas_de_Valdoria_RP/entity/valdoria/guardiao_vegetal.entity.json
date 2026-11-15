@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:guardiao_vegetal",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/guardiao_vegetal"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.tita_pedra"
+      },
+      "animations": {
+        "look": "animation.valdoria.tita.look",
+        "idle": "animation.valdoria.tita.idle",
+        "walk": "animation.valdoria.tita.walk",
+        "attack": "animation.valdoria.tita.attack",
+        "hurt": "animation.valdoria.tita.hurt",
+        "hide_rock": "animation.valdoria.tita.hide_rock"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          "hurt",
+          "hide_rock"
+        ],
+        "scale": "0.5",
+        "pre_animation": [
+          "variable.passo = math.clamp(math.cos(query.modified_distance_moved * 13.5) * math.min(query.modified_move_speed, 0.6) * 25.0, -12.5, 12.5);",
+          "variable.passo_b = math.clamp(math.sin(query.modified_distance_moved * 13.5) * math.min(query.modified_move_speed, 0.6) * 25.0, -12.5, 12.5);"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#5a4028",
+        "overlay_color": "#4fa83a"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:chefe_goblin",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/chefe_goblin"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.chefe_goblin"
+      },
+      "animations": {
+        "look": "animation.valdoria.goblin.look",
+        "idle": "animation.valdoria.goblin.idle",
+        "walk": "animation.valdoria.goblin.walk",
+        "attack": "animation.valdoria.goblin.attack",
+        "cast": "animation.valdoria.goblin.cast",
+        "loadout": "animation.valdoria.chefe_goblin.loadout",
+        "roar": "animation.valdoria.chefe_goblin.roar",
+        "leap": "animation.valdoria.chefe_goblin.leap"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.02"
+          },
+          "attack",
+          "loadout",
+          {
+            "roar": "query.property('valdoria:anim') == 1"
+          },
+          {
+            "leap": "query.property('valdoria:anim') == 2"
+          }
+        ],
+        "scale": "1.3"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#557a2c",
+        "overlay_color": "#a01818"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.morthil.atordoado": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            28,
+            0,
+            "math.sin(query.life_time * 60) * 3"
+          ]
+        },
+        "head": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            20,
+            0,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            20,
+            0,
+            -10
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "root": {
+          "position": [
+            0,
+            -3,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

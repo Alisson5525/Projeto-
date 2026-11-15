@@ -1,0 +1,69 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.rainha_trevas.idle": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "2 + math.sin(query.life_time * 90) * 1",
+            0
+          ]
+        },
+        "saia": {
+          "rotation": [
+            "math.sin(query.life_time * 70) * 3",
+            0,
+            "math.cos(query.life_time * 55) * 2"
+          ]
+        },
+        "capa": {
+          "rotation": [
+            "6 + math.sin(query.life_time * 80) * 4",
+            0,
+            0
+          ]
+        },
+        "veu": {
+          "rotation": [
+            "4 + math.sin(query.life_time * 80 + 30) * 3",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-8 + math.sin(query.life_time * 60) * 3",
+            0,
+            4
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-20 + math.sin(query.life_time * 60 + 50) * 4",
+            0,
+            "-6 - math.sin(query.life_time * 50) * 3"
+          ]
+        },
+        "orbe": {
+          "scale": "1 + math.sin(query.life_time * 280) * 0.15"
+        },
+        "asaL": {
+          "rotation": [
+            0,
+            0,
+            "-6 - math.sin(query.life_time * 90) * 9"
+          ]
+        },
+        "asaR": {
+          "rotation": [
+            0,
+            0,
+            "6 + math.sin(query.life_time * 90) * 9"
+          ]
+        }
+      }
+    }
+  }
+}

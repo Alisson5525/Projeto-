@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:amuleto_arcano",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_amuleto_arcano",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:amuleto_arcano.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:accessory",
+          "valdoria:rarity_raro"
+        ]
+      }
+    }
+  }
+}

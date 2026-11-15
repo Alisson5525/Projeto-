@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:ovo_dragao",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "p1": "textures/entity/valdoria/ovo_dragao_0",
+        "p2": "textures/entity/valdoria/ovo_dragao_1",
+        "p3": "textures/entity/valdoria/ovo_dragao_2"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.ovo_dragao"
+      },
+      "animations": {
+        "tremor": "animation.valdoria.ovo_dragao.tremor",
+        "eclodir": "animation.valdoria.ovo_dragao.eclodir"
+      },
+      "scripts": {
+        "animate": [
+          "tremor"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.valdoria.ovo_dragao"
+      ]
+    }
+  }
+}

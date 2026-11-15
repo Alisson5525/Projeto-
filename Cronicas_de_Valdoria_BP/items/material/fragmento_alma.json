@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:fragmento_alma",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_fragmento_alma",
+      "minecraft:max_stack_size": 64,
+      "minecraft:display_name": {
+        "value": "item.valdoria:fragmento_alma.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:material",
+          "valdoria:rarity_epico"
+        ]
+      }
+    }
+  }
+}

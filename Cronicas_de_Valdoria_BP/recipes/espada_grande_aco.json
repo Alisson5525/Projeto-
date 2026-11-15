@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_espada_grande_aco"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " MM",
+      "MMM",
+      "S  "
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_aco"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_aco"
+      }
+    ],
+    "result": {
+      "item": "valdoria:espada_grande_aco",
+      "count": 1
+    }
+  }
+}

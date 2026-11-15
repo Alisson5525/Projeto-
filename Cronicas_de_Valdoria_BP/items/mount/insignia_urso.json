@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "valdoria:insignia_urso",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "valdoria_insignia_urso",
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.valdoria:insignia_urso.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "valdoria:mount",
+          "valdoria:rarity_epico"
+        ]
+      },
+      "minecraft:glint": true
+    }
+  }
+}

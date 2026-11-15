@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:cavalo_guerra",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/cavalo_guerra"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.cavalo_guerra"
+      },
+      "animations": {
+        "look": "animation.valdoria.cavalo_guerra.look",
+        "idle": "animation.valdoria.cavalo_guerra.idle",
+        "move": "animation.valdoria.cavalo_guerra.move",
+        "jump": "animation.valdoria.cavalo_guerra.jump",
+        "hurt": "animation.valdoria.cavalo_guerra.hurt",
+        "loadout": "animation.valdoria.cavalo_guerra.loadout",
+        "empinar": "animation.valdoria.cavalo_guerra.empinar"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "move",
+          {
+            "jump": "!query.is_on_ground"
+          },
+          "hurt",
+          "loadout"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#3a2a22",
+        "overlay_color": "#2f418f"
+      }
+    }
+  }
+}

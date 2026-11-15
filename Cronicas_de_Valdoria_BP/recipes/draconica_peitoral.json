@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_draconica_peitoral"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "M M",
+      "MXM",
+      "MMM"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:escama_dragao"
+      },
+      "X": {
+        "item": "valdoria:lingote_mithril"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:escama_dragao"
+      }
+    ],
+    "result": {
+      "item": "valdoria:draconica_peitoral",
+      "count": 1
+    }
+  }
+}

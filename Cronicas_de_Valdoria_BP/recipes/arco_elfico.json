@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_arco_elfico"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " MS",
+      "E S",
+      " MS"
+    ],
+    "key": {
+      "M": {
+        "item": "valdoria:lingote_mithril"
+      },
+      "E": {
+        "item": "valdoria:essencia_natural"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:lingote_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:arco_elfico",
+      "count": 1
+    }
+  }
+}

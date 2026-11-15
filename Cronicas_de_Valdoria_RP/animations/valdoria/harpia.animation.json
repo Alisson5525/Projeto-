@@ -1,0 +1,123 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.harpia.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.harpia.voo": {
+      "loop": true,
+      "bones": {
+        "rightWing": {
+          "rotation": [
+            0,
+            0,
+            "-10 + math.sin(query.life_time * 900) * 35"
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            0,
+            "10 - math.sin(query.life_time * 900) * 35"
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            "20 + math.sin(query.life_time * 300) * 8",
+            0,
+            0
+          ]
+        },
+        "root": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 200) * 1",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.harpia.attack": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 90",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-(variable.attack_time > 0 ? math.sin(variable.attack_time * 180) : 0) * 90",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.harpia.mergulho": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            60,
+            0,
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            0,
+            40,
+            -60
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            0,
+            -40,
+            60
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            -80,
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            -80,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  }
+}

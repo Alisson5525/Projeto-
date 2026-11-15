@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "valdoria:receita_machado_runico"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " R ",
+      "RWR",
+      " E "
+    ],
+    "key": {
+      "W": {
+        "item": "valdoria:machado_guerra_mithril"
+      },
+      "R": {
+        "item": "valdoria:cristal_aetherita"
+      },
+      "E": {
+        "item": "valdoria:essencia_arcana"
+      }
+    },
+    "unlock": [
+      {
+        "item": "valdoria:machado_guerra_mithril"
+      }
+    ],
+    "result": {
+      "item": "valdoria:machado_runico",
+      "count": 1
+    }
+  }
+}

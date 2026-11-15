@@ -1,0 +1,260 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.valdoria.alce.look": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation * 0.5",
+            "query.target_y_rotation * 0.5",
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.alce.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": [
+            1,
+            "1 + math.sin(query.life_time * 110) * 0.012",
+            1
+          ]
+        },
+        "cauda": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(query.life_time * 90) * 10"
+          ]
+        },
+        "neck": {
+          "rotation": [
+            "math.sin(query.life_time * 40) * 2",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.max(0, math.sin(query.life_time * 23)) * 8",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.alce.move": {
+      "loop": true,
+      "bones": {
+        "legFL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 0) * 40 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 0)) * 45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 50) * 40 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 50)) * 45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 180) * 40 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowBL": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 180)) * -45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 28 + 230) * 40 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "lowBR": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 28 + 230)) * -45 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(query.modified_distance_moved * 28)) * 1.0 * math.min(query.modified_move_speed, 1.0)",
+            0
+          ]
+        },
+        "neck": {
+          "rotation": [
+            "math.sin(query.modified_distance_moved * 56 + 30) * 5 * math.min(query.modified_move_speed, 1.0)",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.alce.hurt": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-math.clamp(query.hurt_time, 0, 10) * 0.8",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.alce.loadout": {
+      "loop": true,
+      "bones": {
+        "sela": {
+          "scale": "query.is_tamed ? 1 : 0"
+        }
+      }
+    },
+    "animation.valdoria.alce.jump": {
+      "loop": true,
+      "bones": {
+        "legFL": {
+          "rotation": [
+            -45,
+            0,
+            0
+          ]
+        },
+        "legFR": {
+          "rotation": [
+            -40,
+            0,
+            0
+          ]
+        },
+        "lowFL": {
+          "rotation": [
+            70,
+            0,
+            0
+          ]
+        },
+        "lowFR": {
+          "rotation": [
+            65,
+            0,
+            0
+          ]
+        },
+        "legBL": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "legBR": {
+          "rotation": [
+            35,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            -8,
+            0,
+            0
+          ]
+        },
+        "neck": {
+          "rotation": [
+            -15,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.valdoria.alce.berro": {
+      "loop": false,
+      "bones": {
+        "neck": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -45,
+              0,
+              0
+            ],
+            "1.40": [
+              -45,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.40": [
+              -25,
+              0,
+              0
+            ],
+            "1.40": [
+              -25,
+              0,
+              0
+            ],
+            "1.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "animation_length": 1.8
+    }
+  }
+}

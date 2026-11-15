@@ -1,0 +1,18 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "valdoria:minerio_aetherita_veio"
+    },
+    "count": 4,
+    "replace_rules": [
+      {
+        "places_block": "valdoria:minerio_aetherita",
+        "may_replace": [
+          "minecraft:deepslate",
+          "minecraft:tuff"
+        ]
+      }
+    ]
+  }
+}

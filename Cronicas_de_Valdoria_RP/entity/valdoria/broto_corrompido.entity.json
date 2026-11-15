@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "valdoria:broto_corrompido",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/valdoria/broto_corrompido"
+      },
+      "geometry": {
+        "default": "geometry.valdoria.broto_corrompido"
+      },
+      "animations": {
+        "look": "animation.valdoria.broto_corrompido.look",
+        "idle": "animation.valdoria.broto_corrompido.idle",
+        "walk": "animation.valdoria.broto_corrompido.walk",
+        "attack": "animation.valdoria.broto_corrompido.attack"
+      },
+      "scripts": {
+        "animate": [
+          "look",
+          "idle",
+          "walk",
+          "attack"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#8a8678",
+        "overlay_color": "#e0ffd0"
+      }
+    }
+  }
+}
