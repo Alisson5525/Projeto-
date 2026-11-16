@@ -42,7 +42,7 @@ system.beforeEvents.startup.subscribe((event) => {
 
                 spawnPos = { x: bowCenter.x + shootVector.x, y: bowCenter.y + 0.1, z: bowCenter.z + shootVector.z }
                 const spawnBlock = dim.getBlock(spawnPos)
-                if (!spawnBlock || (spawnBlock.isAir == false && spawnBlock.isLiquid == false && spawnBlock.typeId !== "mm:ballista")) return;
+                if (!spawnBlock) return;
                 const projectile = dim.spawnEntity("minecraft:arrow", spawnPos)
                 const projComp = projectile.getComponent("projectile")
                 projectile.addTag("mm:ballista_arrow")
