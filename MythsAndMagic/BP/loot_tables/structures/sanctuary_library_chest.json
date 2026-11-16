@@ -36,7 +36,7 @@
         },
         {
           "type": "item",
-          "name": "minecraft:map",
+          "name": "minecraft:filled_map",
           "weight": 5
         },
         {
@@ -113,7 +113,7 @@
         },
         {
           "type": "item",
-          "name": "minecraft:map",
+          "name": "minecraft:filled_map",
           "weight": 3,
           "functions": [
             {

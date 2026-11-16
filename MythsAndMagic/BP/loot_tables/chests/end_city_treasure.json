@@ -110,7 +110,7 @@
         },
         {
           "type": "item",
-          "name": "minecraft:horsearmoriron",
+          "name": "minecraft:iron_horse_armor",
           "weight": 1
         },
         {
@@ -120,12 +120,12 @@
         },
         {
           "type": "item",
-          "name": "minecraft:horsearmorgold",
+          "name": "minecraft:golden_horse_armor",
           "weight": 1
         },
         {
           "type": "item",
-          "name": "minecraft:horsearmordiamond",
+          "name": "minecraft:diamond_horse_armor",
           "weight": 1
         },
         {

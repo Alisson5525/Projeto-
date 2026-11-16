@@ -21,6 +21,7 @@ system.beforeEvents.startup.subscribe((event) => {
             const tagToBreak = p.params.tag
             var item = e.itemStack;
             const player = e.source
+            if (!player || player.typeId !== "minecraft:player") return;
             if (player.getGameMode() == "Creative") return;
             const equipment = player.getComponent("minecraft:equippable")
             const block = e.minedBlockPermutation;
@@ -49,7 +50,7 @@ system.beforeEvents.startup.subscribe((event) => {
                 equipment.setEquipment("Mainhand", item)
             } else {
                 equipment.setEquipment("Mainhand", undefined)
-                source.dimension.playSound("random.break", source.location, { volume: 1, pitch: 1 })
+                player.dimension.playSound("random.break", player.location, { volume: 1, pitch: 1 })
 
             }
 

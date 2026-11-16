@@ -8,7 +8,7 @@ import { validTarget, getElement, applyElementDamage, clampValue, getCurrentMana
 import { addCustomEffect } from "customEffects/main.js"
 export function runSpell(source, spell, level, originLoc, staff) {
     const enflamedL = world.scoreboard.getObjective("mm:enflamed_lvl")
-    if (enflamedL !== undefined && enflamedL.hasParticipant(source.scoreboardIdentity)) {
+    if (enflamedL !== undefined && source.scoreboardIdentity && enflamedL.hasParticipant(source.scoreboardIdentity)) {
         if (getElement(spell) == "fire") {
             level = level + 1 + enflamedL.getScore(source)
         }
@@ -41,7 +41,10 @@ export function runSpell(source, spell, level, originLoc, staff) {
 
     source.runCommand("scriptevent mm:spell_cast " + `${level}|${spell}`)
     if(!staff) source.runCommand("scriptevent mm:spell_cast_staffless " + `${level}|${spell}`)
-    if (staff || originLoc) source.runCommand("scriptevent mm:spell_cast_staff " + `${level}|${spell}|${originLoc.x},${originLoc.y},${originLoc.z}|${staff}`)
+    if (staff || originLoc) {
+        const castLoc = originLoc ?? source.location
+        source.runCommand("scriptevent mm:spell_cast_staff " + `${level}|${spell}|${castLoc.x},${castLoc.y},${castLoc.z}|${staff}`)
+    }
     switch (spell) {
         case "mm:launch":
             return launch(source, level, originLoc, staff)
@@ -756,7 +759,7 @@ function shadow(player, level, loc, staff) {
         dim.spawnParticle("mm:shadow_ranged", loc)
 
     }
-    dim.playSound("spell.shadow.charge", loc, { pitch: 0.66, volume: 2 })
+    dim.playSound("spell.shadow.cast", loc, { pitch: 0.66, volume: 2 })
     system.runTimeout(() => {
         dim.spawnParticle("mm:shadow_smoke", loc)
         dim.playSound("spell.shadow.slash", loc, { pitch: 0.5, volume: 8 })
@@ -828,7 +831,7 @@ function purify(player, level, loc) {
     const spawnLoc = { x: loc.x, y: loc.y + 0.5, z: loc.z }
     const dim = player.dimension;
     purifyPulse(spawnLoc, dim, player, level, level * 4 + 5)
-    dim.playSound("spell.purify", spawnLoc, { pitch: 0.9 })
+    dim.playSound("spell.purify.cast", spawnLoc, { pitch: 0.9 })
 }
 
 function imprison(player, level) {

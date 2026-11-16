@@ -96,9 +96,9 @@ world.afterEvents.entityDie.subscribe((e) => {
     const held = attacker.getComponent("equippable").getEquipment("Mainhand")
     if(!held || !held.getComponent("mm:icicle_spear")) return;
     if(attacker.getDynamicProperty("mm:icicle_spear_kill_cooldown")) return;
+    const dim = dead.dimension
+    const loc = dead.location
     system.runTimeout(() => {
-        const dim = dead.dimension
-        const loc = dead.location
 
         dim.playSound("item.icicle_spear.kill", loc, { pitch: 1, volume: 2 })
         dim.playSound("spell.chilling.2", loc, { pitch: 1.2, volume: 1.5 })
@@ -118,8 +118,7 @@ world.afterEvents.entityDie.subscribe((e) => {
             z: loc.z + 2
         }
         dim.runCommand(`fill ${corner1.x} ${corner1.y} ${corner1.z} ${corner2.x} ${corner2.y} ${corner2.z} air replace fire`)
-        if (!bonusTargets) {
-            snowballProjectile.remove()
+        if (!bonusTargets || !attacker.isValid) {
             return;
         }
         for (const target of bonusTargets) {

@@ -123,7 +123,7 @@ system.runInterval((e) => {
         }
     }
     for (const player of world.getPlayers({ tags: ["mm:meteor_armour_drop_active"] })) {
-        if (!player.isOnGround & (player.isFlying || !hasFullMeteorArmour(player) || !player.isFalling || player.getDynamicProperty("mm:airtime") <= 13)) {
+        if (!player.isOnGround && (player.isFlying || !hasFullMeteorArmour(player) || !player.isFalling || player.getDynamicProperty("mm:airtime") <= 13)) {
             player.removeTag("mm:meteor_armour_drop_active")
             continue;
         }

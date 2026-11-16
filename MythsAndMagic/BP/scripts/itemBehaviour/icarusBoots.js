@@ -83,7 +83,7 @@ function reduceHunger(entity, amount) {
 function momentumJump(entity, value, jumpIndex) {
     if (!value) {
         console.warn('No value specified');
-        val = 0.55
+        value = 0.55
     }
     const velocity = entity.getVelocity();
     var hmult = 1.1;

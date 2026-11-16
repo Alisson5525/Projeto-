@@ -101,7 +101,7 @@ world.afterEvents.entityDie.subscribe((e) => {
                 equippable.setEquipment("Chest", undefined)
                 equippable.setEquipment("Legs", undefined)
                 equippable.setEquipment("Feet", undefined)
-                dead.dimension.playSound("item.demon_armour.break", player.location)
+                dead.dimension.playSound("item.demon_armour.break", dead.location)
             }
 
         }

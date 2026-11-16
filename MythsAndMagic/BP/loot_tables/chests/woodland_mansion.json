@@ -48,12 +48,12 @@
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:record_13",
+                    "name": "minecraft:music_disc_13",
                     "weight": 75
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:record_cat",
+                    "name": "minecraft:music_disc_cat",
                     "weight": 75
                 },
                 {
