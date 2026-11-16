@@ -1,0 +1,86 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player.inspect_staff": {
+			"animation_length": 1.2083,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							"v.is_first_person ? 0 : -137.5",
+							0,
+							"v.is_first_person ? 0 : -10"
+						],
+						"0.875": [
+							"v.is_first_person ? 0 : -137.5",
+							0,
+							"v.is_first_person ? 0 : -10"
+						],
+						"1.2083": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"rightItem": {
+					"rotation": {
+						"0.25": {
+							"pre": [
+								0,
+								0,
+								0
+							],
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.875": {
+							"post": [
+								-320,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.2083": [
+							-360,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							0,
+							"v.is_first_person ? 0 : -4",
+							"v.is_first_person ? 0 : -4"
+						],
+						"0.875": [
+							0,
+							"v.is_first_person ? 0 : -4",
+							"v.is_first_person ? 0 : -4"
+						],
+						"1.2083": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}

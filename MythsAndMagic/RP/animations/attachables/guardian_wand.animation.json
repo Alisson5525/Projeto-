@@ -1,0 +1,80 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.guardian_wand.first_person_hold": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"root_item": {
+					"rotation": [25, -30, -140],
+					"position": [7, 25, 6],
+					"scale": 1
+				},
+				"skull": {
+					"rotation": {
+						"3.9583": {
+							"pre": [0, 10, 0],
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.6667": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"6.0": [0, -350, 0]
+					},
+					"position": [0, "math.cos(q.life_time*180)*0.5", 0]
+				},
+				"root_item_offhand": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.guardian_wand.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [90, 0, 0],
+					"position": ["-v.offhand ? -0.5 : 0.5", 22.5, 4.5],
+					"scale": 0.8
+				},
+				"root_item2": {
+					"scale": 0
+				},
+				"root_item_offhand": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.guardian_wand.first_person_hold_offhand": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"root_item": {
+					"scale": 0
+				},
+				"root_item_offhand": {
+					"rotation": [144.4175, -33.394, -279.3019],
+					"position": [16, 34, -19],
+					"scale": 1
+				},
+				"skull2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"3.9583": {
+							"pre": [0, 10, 0],
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.6667": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"6.0": [0, -350, 0]
+					},
+					"position": [0, "math.cos(q.life_time*180)*0.5", 0]
+				}
+			}
+		}
+	}
+}

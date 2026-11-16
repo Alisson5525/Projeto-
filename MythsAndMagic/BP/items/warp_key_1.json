@@ -1,0 +1,22 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:warp_key",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "mm:warp_key": {},
+            "minecraft:icon": "warp_key",
+            "minecraft:use_animation": "bow",
+            "minecraft:use_modifiers": {
+                "use_duration": 4,
+                "movement_modifier": 0.4
+            },
+            "minecraft:rarity": "rare",
+            "minecraft:max_stack_size": 1
+        }
+    }
+}

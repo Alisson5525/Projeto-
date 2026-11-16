@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "warp_key_keyhole",
+        "metalness_emissive_roughness": "warp_key_keyhole_mer"
+    }
+}

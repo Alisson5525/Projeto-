@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:altercult_bottom"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "altercult_lair/altercult_lair",
+                    "processors": "mm:altercult_lair"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

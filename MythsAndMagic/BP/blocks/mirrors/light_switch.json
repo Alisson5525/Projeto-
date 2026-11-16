@@ -1,0 +1,124 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:light_switch",
+            "menu_category": {
+                "category": "items"
+            },
+            "states": {
+                "mm:powered_ticks": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "mm:active": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:active') == false",
+                "components": {
+                    "minecraft:redstone_producer": {
+                        "power": 0
+                    },
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "light_switch_side_off",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:active') == true",
+                "components": {
+                    "minecraft:redstone_producer": {
+                        "power": 15
+                    },
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "light_switch_side_on",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "mm:light_switch": {},
+            "minecraft:tick": {
+                "interval_range": [
+                    1,
+                    1
+                ],
+                "looping": true
+            },
+            "minecraft:geometry": {
+                "identifier": "minecraft:geometry.full_block"
+            },
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "raymaker_bottom",
+                    "render_method": "alpha_test"
+                },
+                "*": {
+                    "texture": "light_switch_side_off",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "raymaker_bottom",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:selection_box": true,
+            "minecraft:collision_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 16.667, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 5 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

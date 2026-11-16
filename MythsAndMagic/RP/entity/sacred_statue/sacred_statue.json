@@ -1,0 +1,51 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:sacred_statue",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/sacred_statue/sacred_statue",
+                "cracked": "textures/entity/sacred_statue/sacred_statue_cracked"
+            },
+            "geometry": {
+                "default": "geometry.sacred_statue"
+            },
+            "scripts": {
+                "animate": [
+                    "idle",
+                    "move_controller",
+                    "attack_controller"
+                ]
+            },
+            "animations": {
+                "idle": "animation.sacred_statue.idle",
+                "move": "animation.sacred_statue.move",
+                "attack": "animation.sacred_statue.stomp_attack",
+                "large_attack": "animation.sacred_statue.large_attack",
+                "move_controller": "controller.animation.sacred_statue.move",
+                "attack_controller": "controller.animation.sacred_statue.attack"
+            },
+            "render_controllers": [
+                "controller.render.sacred_statue"
+            ],
+            "particle_effects": {
+                "statue_attack": "mm:statue_attack",
+                "charge_slam": "mm:statue_charge"
+            },
+            "sound_effects": {
+                "awaken": "mob.sacred_statue.awaken",
+                "heavy_attack": "mob.sacred_statue.heavy_attack",
+                "charge_up": "mob.sacred_statue.charge_up",
+                "step": "mob.sacred_statue.step",
+                "attack": "mob.sacred_statue.attack"
+            },
+            "spawn_egg": {
+                "texture": "egg_sacred_statue"
+            }
+        }
+    }
+}

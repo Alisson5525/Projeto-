@@ -1,0 +1,341 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:stone_platform",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "properties": {
+                "mm:level": {
+                    "default": 1,
+                    "type": "int",
+                    "range": [
+                        1,
+                        10
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "mm:scale_1": {
+                "minecraft:scale": {
+                    "value": 1.24
+                }
+            },
+            "mm:scale_2": {
+                "minecraft:scale": {
+                    "value": 1.65
+                }
+            },
+            "mm:scale_3": {
+                "minecraft:scale": {
+                    "value": 2
+                }
+            },
+            "mm:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "mm:crumbling": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:timer": {
+                    "time": 3,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "mm:despawn",
+                        "target": "self"
+                    }
+                }
+            },
+            "mm:timer": {
+                "minecraft:timer": {
+                    "time": 5,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "mm:timer_up",
+                        "target": "self"
+                    }
+                }
+            },
+            "mm:can_crumble": {
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_tag",
+                                    "value": "mm:empty_platform"
+                                }
+                            ]
+                        },
+                        "event": "mm:begin_crumble"
+                    }
+                }
+            },
+            "mm:check_passengers": {
+                "minecraft:entity_sensor": {
+                    "find_players_only": true,
+                    "relative_range": false,
+                    "subsensors": [
+                        {
+                            "event": "mm:no_passengers",
+                            "cooldown": 0.0,
+                            "y_offset": 4.5,
+                            "range": [
+                                3.5,
+                                2.0
+                            ],
+                            "minimum_count": 0,
+                            "maximum_count": 0,
+                            // This filter must match exactly the one used by "minecraft:become_mobile".
+                            "event_filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_vehicle_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "happy_ghast"
+                                    },
+                                    {
+                                        "test": "actor_health",
+                                        "operator": ">",
+                                        "value": 0
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "event": "mm:has_passengers",
+                            "cooldown": 0.0,
+                            "y_offset": 4.5,
+                            "range": [
+                                3.0,
+                                1.5
+                            ],
+                            "minimum_count": 1,
+                            // This filter must match exactly the one used by "minecraft:become_immobile".
+                            "event_filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_vehicle_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "happy_ghast"
+                                    },
+                                    {
+                                        "test": "actor_health",
+                                        "operator": ">",
+                                        "value": 0
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    
+                    "advancements:not_tameable",
+                    "mm:spell"
+                ]
+            },
+            "minecraft:scale": {
+                "value": 1.5
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/empty.json"
+            },
+            "minecraft:collision_box": {
+                "width": 2,
+                "height": 1
+            },
+            "minecraft:health": {
+                "max": 20,
+                "value": 20
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": "no"
+                }
+            },
+            "minecraft:transient": {},
+            "minecraft:knockback_resistance": {
+                "max": 1.0,
+                "value": 1.0
+            },
+            "minecraft:tameable": {
+                "probability": 1
+            },
+            "minecraft:body_rotation_blocked": {},
+            "minecraft:dimension_bound": {},
+            "minecraft:reflect_projectiles": {
+                "reflected_projectiles": [
+                    "fishing_hook",
+                    "player",
+                    "experience_bottle",
+                    "thrown_trident",
+                    "shulker_bullet",
+                    "dragon_fireball",
+                    "arrow",
+                    "snowball",
+                    "thrownegg",
+                    "fireball",
+                    "splash_potion",
+                    "ender_pearl",
+                    "thrownenderpearl",
+                    "wither_skull",
+                    "small_fireball",
+                    "lingering_potion",
+                    "llama_spit",
+                    "evocation_fang",
+                    "ice_bomb",
+                    "thrownicebomb"
+                ],
+                "azimuth_angle": "180.0 + Math.random(-5.0, 5.0)",
+                "reflection_scale": "0.0625"
+            },
+            "minecraft:rotation_axis_aligned": {},
+            "minecraft:is_collidable": {},
+            "minecraft:cannot_be_attacked": {},
+            "minecraft:mob_effect_immunity": {
+                "mob_effects": [
+                    "absorption",
+                    "bad_omen",
+                    "blindness",
+                    "conduit_power",
+                    "darkness",
+                    "fatal_poison",
+                    "fire_resistance",
+                    "haste",
+                    "health_boost",
+                    "hunger",
+                    "infested",
+                    "instant_damage",
+                    "instant_health",
+                    "invisibility",
+                    "fire_resistance",
+                    "jump_boost",
+                    //"levitation", levitation is used by its code
+                    "mining_fatigue",
+                    "nausea",
+                    "night_vision",
+                    "oozing",
+                    "poison",
+                    "raid_omen",
+                    "regeneration",
+                    "resistance",
+                    "saturation",
+                    "slow_falling",
+                    "slowness",
+                    "speed",
+                    "strength",
+                    "trial_omen",
+                    "village_hero",
+                    "water_breathing",
+                    "weakness",
+                    "weaving",
+                    "wind_charged",
+                    "wither"
+                ]
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "mm:scale_1": {
+                "add": {
+                    "component_groups": [
+                        "mm:scale_1"
+                    ]
+                }
+            },
+            "mm:scale_2": {
+                "add": {
+                    "component_groups": [
+                        "mm:scale_2"
+                    ]
+                }
+            },
+            "mm:scale_3": {
+                "add": {
+                    "component_groups": [
+                        "mm:scale_3"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "mm:check_passengers",
+                        "mm:timer"
+                    ]
+                }
+            },
+            "mm:timer_up": {
+                "add": {
+                    "component_groups": [
+                        "mm:can_crumble"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:timer"
+                    ]
+                }
+            },
+            "mm:no_passengers": {
+                "queue_command": {
+                    "command": [
+                        "tag @s add mm:empty_platform"
+                    ]
+                }
+            },
+            "mm:has_passengers": {
+                "queue_command": {
+                    "command": [
+                        "tag @s remove mm:empty_platform"
+                    ]
+                }
+            },
+            "mm:begin_crumble": {
+                "remove": {
+                    "component_groups": [
+                        "mm:can_crumble",
+                        "mm:check_passengers"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:crumbling"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "playsound mob.creaking.deactivate @a ~ ~ ~ 1 0.2"
+                    ]
+                }
+            },
+            "mm:despawn": {
+                "queue_command": {
+                    "command": [
+                        "particle mm:stone_platform_crumble ~~-0.5~",
+                        "playsound mob.creaking.death @a ~ ~ ~ 1 0.7",
+                        "scriptevent mm:crumble_despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

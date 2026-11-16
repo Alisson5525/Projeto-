@@ -1,0 +1,54 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "mm:alyadvancement_myths_and_magic",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": true
+      }
+    },
+    "components": {
+      "minecraft:icon": "stick",
+      "minecraft:tags": {
+        "tags": [
+          "alyadvancements:type_challenge",
+          "alyadvancements:value_100",
+          "alyadvancements:progresstag_mm:dash_recipe_unlocked",
+          "alyadvancements:progresstag_mm:launch_recipe_unlocked",
+          "alyadvancements:progresstag_mm:supersonic_recipe_unlocked",
+          "alyadvancements:progresstag_mm:retrieval_recipe_unlocked",
+          "alyadvancements:progresstag_mm:burst_recipe_unlocked",
+          "alyadvancements:progresstag_mm:cauterise_recipe_unlocked",
+          "alyadvancements:progresstag_mm:hellfire_recipe_unlocked",
+          "alyadvancements:progresstag_mm:overheat_recipe_unlocked",
+          "alyadvancements:progresstag_mm:bolt_recipe_unlocked",
+          "alyadvancements:progresstag_mm:overclock_recipe_unlocked",
+          "alyadvancements:progresstag_mm:spark_recipe_unlocked",
+          "alyadvancements:progresstag_mm:thunderbolt_recipe_unlocked",
+          "alyadvancements:progresstag_mm:chilling_recipe_unlocked",
+          "alyadvancements:progresstag_mm:glaciate_recipe_unlocked",
+          "alyadvancements:progresstag_mm:icicle_recipe_unlocked",
+          "alyadvancements:progresstag_mm:snowflake_recipe_unlocked",
+          "alyadvancements:progresstag_mm:quake_recipe_unlocked",
+          "alyadvancements:progresstag_mm:roots_recipe_unlocked",
+          "alyadvancements:progresstag_mm:terraform_recipe_unlocked",
+          "alyadvancements:progresstag_mm:toxic_recipe_unlocked",
+          "alyadvancements:progresstag_mm:purify_recipe_unlocked",
+          "alyadvancements:progresstag_mm:shadow_recipe_unlocked",
+          "alyadvancements:progresstag_mm:siphoning_recipe_unlocked",
+          "alyadvancements:progresstag_mm:swap_recipe_unlocked",
+          "alyadvancements:progresstag_mm:teleport_recipe_unlocked",
+          "alyadvancements:progresstag_mm:guardian_recipe_unlocked",
+          "alyadvancements:progresstag_mm:cluster_recipe_unlocked",
+          "alyadvancements:progresstag_mm:imprison_recipe_unlocked",
+          "alyadvancements:progresstag_mm:snowball_recipe_unlocked",
+          "alyadvancements:progresstag_mm:entangle_recipe_unlocked",
+          "alyadvancements:progresstag_mm:meteor_recipe_unlocked",
+          "alyadvancements:progresstag_mm:cloudsurf_recipe_unlocked",
+          "alyadvancements:progresstag_mm:hurricane_recipe_unlocked"
+        ]
+      }
+    }
+  }
+}

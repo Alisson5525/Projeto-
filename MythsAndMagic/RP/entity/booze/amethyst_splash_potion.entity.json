@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "mm:amethyst_splash_potion",
+      "materials": {
+        "default": "splash_potion_enchanted"
+      },
+      "textures": {
+        "enchanted": "textures/misc/enchanted_item_glint",
+        "fireresistance": "textures/items/potions/fireresistance_splash",
+        "invisibility": "textures/items/potions/invisibility_splash",
+        "jumpboost": "textures/items/potions/jumpboost_splash",
+        "nightvision": "textures/items/potions/nightvision_splash",
+        "regeneration": "textures/items/potions/regeneration_splash",
+        "slowfalling": "textures/items/potions/slowfalling_splash",
+        "speed": "textures/items/potions/swiftness_splash",
+        "waterbreathing": "textures/items/potions/waterbreathing_splash",
+        "haste": "textures/items/potions/haste_splash",
+        "metallurgy": "textures/items/potions/metallurgy_splash",
+        "reduction": "textures/items/potions/reduction_splash",
+        "blindness": "textures/items/potions/blindness_splash",
+        "fragile": "textures/items/potions/fragile_splash",
+        "default": "textures/items/potions/fireresistance_splash"
+      },
+      "geometry": {
+        "default": "geometry.item_sprite"
+      },
+      "render_controllers": [
+        "controller.render.amethyst_splash_potion"
+      ],
+      "animations": {
+        "flying": "animation.actor.billboard"
+      },
+      "scripts": {
+        "animate": [
+          "flying"
+        ]
+      }
+    }
+  }
+}

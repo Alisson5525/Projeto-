@@ -1,0 +1,17 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "mm:twisted_woods_moss_feature"
+        },
+        "replace_rules": [
+            {
+                "may_replace": [
+                    "grass_block"
+                ],
+                "places_block": "moss_block"
+            }
+        ],
+        "count": 20
+    }
+}

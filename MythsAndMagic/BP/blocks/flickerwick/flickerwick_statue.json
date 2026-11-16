@@ -1,0 +1,128 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:flickerwick_statue",
+            "menu_category": {
+                "category": "items"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "mm:flickerwick_statue": {
+                "type": "normal",
+                "tall": false
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    9,
+                    6
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    9,
+                    6
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:destruction_particles": {
+                "texture": "candle"
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true
+                    }
+                ]
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.flickerwick_block"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "flickerwick_block",
+                    "render_method": "alpha_test",
+                    "ambient_occlusion": false,
+                    "face_dimming": false
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

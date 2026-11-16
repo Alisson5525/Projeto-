@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:cracked_arid_sandstone_bricks",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:cracked_arid_sandstone_bricks.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:cracked_arid_sandstone_bricks",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_regular"
+                ]
+            }
+        }
+    }
+}

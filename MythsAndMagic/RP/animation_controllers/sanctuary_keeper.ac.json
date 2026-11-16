@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.sanctuary_keeper.idle": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"stun": "q.variant == 1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"stun": {
+					"animations": [
+						"stun"
+					],
+					"transitions": [
+						{
+							"idle": "q.variant == 0"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.mystery_scroll.use": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"used": "query.is_using_item"
+						}
+					]
+				},
+				"used": {
+					"animations": [
+						"used"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_using_item"
+						},
+						{
+							"loop": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.5
+				},
+				"loop": {
+					"animations": [
+						"used_loop"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_using_item"
+						}
+					],
+					"blend_transition": 0.5
+				}
+			}
+		}
+	}
+}

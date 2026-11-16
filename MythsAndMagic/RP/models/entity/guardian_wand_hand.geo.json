@@ -1,0 +1,56 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.guardian_wand_hand",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 8]
+				},
+				{
+					"name": "hand",
+					"parent": "root",
+					"pivot": [0, 7, 8],
+					"rotation": [67.5, 0, 0],
+					"cubes": [
+						{"origin": [-5.25, 2, 7], "size": [7, 5, 2], "uv": [73, 0]}
+					]
+				},
+				{
+					"name": "hand_0_digit2",
+					"parent": "hand",
+					"pivot": [0, 7, 8],
+					"cubes": [
+						{"origin": [-0.25, 6, 6], "size": [2, 6, 2], "inflate": -0.01, "pivot": [0.75, 7, 7], "rotation": [157.5, 0, 10], "uv": [81, 7]}
+					]
+				},
+				{
+					"name": "hand_0_digit0",
+					"parent": "hand",
+					"pivot": [-4.25, 7, 7],
+					"rotation": [130.98084, -11.43563, -9.77243],
+					"cubes": [
+						{"origin": [-5.25, 6, 6], "size": [2, 6, 2], "inflate": -0.01, "pivot": [-4.25, 7, 7], "rotation": [27.5, 0, -15], "uv": [81, 7]}
+					]
+				},
+				{
+					"name": "hand_0_digit1",
+					"parent": "hand",
+					"pivot": [-2, 7, 8],
+					"rotation": [142.5, 0, 0],
+					"cubes": [
+						{"origin": [-2.75, 6.75, 7.75], "size": [2, 5, 2], "uv": [73, 7]}
+					]
+				}
+			]
+		}
+	]
+}

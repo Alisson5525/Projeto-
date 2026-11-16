@@ -1,0 +1,409 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:mymik",
+            "spawn_category": "monster",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "mm:ranged_attack_cooldown": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 10,
+                    "time_down_event": {
+                        "event": "mm:ranged_attack_enabled",
+                        "target": "self"
+                    }
+                }
+            },
+            "mm:ranged_attacking": {
+                "minecraft:is_saddled": {},
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 1.1333,
+                    "time_down_event": {
+                        "event": "mm:ranged_attack_end",
+                        "target": "self"
+                    }
+                }
+            },
+            "mm:ranged_attack_ready": {
+                "minecraft:entity_sensor": {
+                    "subsensors": [
+                        {
+                            "cooldown": -1,
+                            "maximum_count": 0,
+                            "range": [
+                                8,
+                                8
+                            ],
+                            "minimum_count": 0,
+                            "event": "mm:ranged_attack",
+                            "event_filters": [
+                                {
+                                    "all_of": [
+                                        {
+                                            "test": "is_target",
+                                            "subject": "other",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "has_target",
+                                            "subject": "self",
+                                            "value": true
+                                        },
+                                        {
+                                            "test": "target_distance",
+                                            "value": 12,
+                                            "operator": "<="
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "mm:opening": {
+                "minecraft:damage_sensor": {
+                    "triggers": {
+                        "cause": "all",
+                        "deals_damage": "no"
+                    }
+                },
+                "minecraft:entity_sensor": {},
+                "minecraft:mark_variant": {
+                    "value": 1
+                },
+                "minecraft:timer": {
+                    "time": 1,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "mm:open_finish",
+                        "target": "self"
+                    }
+                },
+                "minecraft:interact": {}
+            },
+            "mm:closed": {
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "fall",
+                            "deals_damage": "no"
+                        },
+                        {
+                            "cause": "all",
+                            "deals_damage": "yes",
+                            "damage_multiplier": 0.5,
+                            "on_damage": {
+                                "event": "mm:open",
+                                "target": "self"
+                            }
+                        },
+                        {
+                            "cause": "all",
+                            "deals_damage": "no"
+                        }
+                    ]
+                },
+                "minecraft:entity_sensor": {
+                    "find_players_only": true,
+                    "subsensors": [
+                        {
+                            "cooldown": -1,
+                            "event": "mm:open",
+                            "minimum_count": 1,
+                            "range": [
+                                5,
+                                5
+                            ],
+                            "event_filters": [
+                                {
+                                    "all_of": [
+                                        {
+                                            "any_of": [
+                                                {
+                                                    "test": "is_sprinting",
+                                                    "subject": "other",
+                                                    "value": true
+                                                },
+                                                {
+                                                    "test": "has_container_open",
+                                                    "subject": "other",
+                                                    "value": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "test": "is_difficulty",
+                                            "value": "peaceful",
+                                            "operator": "not"
+                                        },
+                                        {
+                                            "test": "has_ability",
+                                            "value": "instabuild",
+                                            "subject": "other",
+                                            "operator": "!="
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "minecraft:variant": {
+                    "value": 0
+                },
+                "minecraft:mark_variant": {
+                    "value": 0
+                },
+                "minecraft:interact": {
+                    "interactions": [
+                        {
+                            "cooldown": 1,
+                            "interact_text": "Open",
+                            "on_interact": {
+                                "event": "mm:open",
+                                "target": "self"
+                            }
+                        }
+                    ]
+                },
+                "minecraft:collision_box": {
+                    "width": 0.7,
+                    "height": 0.95
+                }
+            },
+            "mm:open": {
+                "minecraft:tameable": {
+                    "probability": 1
+                },
+                "minecraft:behavior.follow_owner": {
+                    "can_teleport": false,
+                    "max_distance": 64,
+                    "priority": 3,
+                    "speed_multiplier": 1,
+                    "start_distance": 10,
+                    "stop_distance": 6
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 0
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": {
+                        "cause": "fall",
+                        "deals_damage": "no"
+                    }
+                },
+                "minecraft:entity_sensor": {},
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:mark_variant": {
+                    "value": 0
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 1
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 2,
+                    "must_see": true,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            "max_dist": 24.0
+                        }
+                    ]
+                },
+                "minecraft:navigation.walk": {
+                    "can_path_over_water": true,
+                    "avoid_water": true,
+                    "avoid_damage_blocks": true
+                },
+                "minecraft:movement.basic": {},
+                "minecraft:jump.static": {},
+                "minecraft:can_climb": {},
+                "minecraft:collision_box": {
+                    "width": 0.7,
+                    "height": 1.8
+                },
+                "minecraft:attack": {
+                    "damage": 6
+                },
+                "minecraft:behavior.melee_box_attack": {
+                    "priority": 3
+                },
+                "minecraft:behavior.float": {
+                    "priority": 0
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 4,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 5
+                }
+            }
+        },
+        "components": {
+            "minecraft:home": {
+                "restriction_radius": 24,
+                "restriction_type": "random_movement"
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0
+            },
+            "minecraft:inventory": {
+                "container_type": "inventory",
+                "restrict_to_owner": true,
+                "inventory_size": 9
+            },
+            "minecraft:collision_box": {
+                "width": 0.7,
+                "height": 0.95
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? 10 : 0"
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/mymik.json"
+            },
+            "minecraft:movement": {
+                "value": 0.5
+            },
+            "minecraft:health": {
+                "value": 20,
+                "max": 20
+            },
+            "minecraft:follow_range": {
+                "value": 48,
+                "max": 48
+            },
+            "minecraft:nameable": {},
+            "minecraft:type_family": {
+                "family": [
+                    "love_medallion_target",
+                    "longshot_heavy",
+                    "mymik",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "mm:closed"
+                    ]
+                }
+            },
+            "mm:spawn_opened": {
+                "add": {
+                    "component_groups": [
+                        "mm:open",
+                        "mm:ranged_attack_ready"
+                    ]
+                }
+            },
+            "mm:open": {
+                "queue_command": {
+                    "command": [
+                        "playsound mob.mymik.wake_up @a ~~~"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:opening"
+                    ]
+                }
+            },
+            "mm:open_finish": {
+                "add": {
+                    "component_groups": [
+                        "mm:open",
+                        "mm:ranged_attack_ready"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:closed",
+                        "mm:opening"
+                    ]
+                }
+            },
+            "mm:ranged_attack_enabled": {
+                "queue_command": {
+                    "command": [
+                        "tag @s remove mm:mymik_pulling"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:ranged_attack_ready"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:ranged_attack_cooldown",
+                        "mm:ranged_attacking"
+                    ]
+                }
+            },
+            "mm:ranged_attack_end": {
+                "queue_command": {
+                    "target": "target",
+                    "command": [
+                        "tag @s add mm:mymik_pull",
+                        "damage @s 6 entity_attack entity @e[type=mm:mymik,c=1,tag=mm:mymik_pulling]"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:ranged_attack_cooldown"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:ranged_attack_ready",
+                        "mm:ranged_attacking"
+                    ]
+                }
+            },
+            "mm:ranged_attack": {
+                "queue_command": {
+                    "command": [
+                        "tag @s add mm:mymik_pulling",
+                        "effect @s slowness 2 12 true",
+                        "scriptevent mm:mymik_ranged_timeout"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:ranged_attacking"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:ranged_attack_cooldown",
+                        "mm:ranged_attack_ready"
+                    ]
+                }
+            }
+        }
+    }
+}

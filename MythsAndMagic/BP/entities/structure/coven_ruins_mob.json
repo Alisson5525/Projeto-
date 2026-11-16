@@ -1,0 +1,69 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:coven_ruins_mob",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "mm:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "mm:become_booze": {
+                "minecraft:transformation": {
+                    "into": "mm:booze<mm:captive_booze>"
+                }
+            },
+            "mm:become_witch": {
+                "minecraft:transformation": {
+                    "into": "minecraft:witch<minecraft:entity_spawned>"
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:dimension_bound": {},
+            "minecraft:timer": {
+                "time": 60,
+                "time_down_event": {
+                    "event": "mm:despawn"
+                }
+            }
+        },
+        "events": {
+            "mm:despawn": {
+                "add": {
+                    "component_groups": [
+                        "mm:despawn"
+                    ]
+                }
+            },
+            "mm:structure_booze": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_booze"
+                    ]
+                }
+            },
+            "mm:structure_witch": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_witch"
+                    ]
+                }
+            }
+        }
+    }
+}

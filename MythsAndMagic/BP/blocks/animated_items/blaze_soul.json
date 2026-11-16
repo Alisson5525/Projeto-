@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:blaze_soul"
+        },
+        "components": {
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "blaze_soul",
+                    "render_method": "alpha_test",
+                    "ambient_occlusion": false,
+                    "face_dimming": false
+                }
+            },
+            "minecraft:placement_filter": {
+                "allowed_faces": [
+                    "up"
+                ],
+                "block_filter": [
+                    "mm:blaze_soul"
+                ]
+            },
+            "minecraft:geometry": "geometry.animated_item"
+        }
+    }
+}

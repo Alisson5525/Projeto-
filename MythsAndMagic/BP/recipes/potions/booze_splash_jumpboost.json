@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "mm:booze_splash_jumpboost"
+        },
+        "input": "mm:booze_potion_jumpboost_strong",
+        "reagent": "gunpowder",
+        "output": "mm:booze_potion_jumpboost_splash",
+        "tags": [
+            "brewing_stand"
+        ]
+    }
+}

@@ -1,0 +1,105 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:palacite_vent",
+            "menu_category": {
+                "category": "nature",
+                "is_hidden_in_commands": false
+            },
+            "states": {
+                "mm:active": [
+                    true,
+                    false
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:active') == true",
+                "components": {
+                    "minecraft:light_emission": 2
+                }
+            },
+            {
+                "condition": "query.block_state('mm:active') == false",
+                "components": {
+                    "minecraft:light_emission": 0
+                }
+            }
+        ],
+        "components": {
+            "minecraft:tick": {
+                "looping": true,
+                "interval_range": [
+                    10,
+                    10
+                ]
+            },
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "none"
+            },
+            "minecraft:destruction_particles": {
+                "texture": "palacite"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "mm:palacite_vent": {},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "palacite_vent",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    10,
+                    6
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    10,
+                    6
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 10,
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 3
+                    }
+                ]
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {},
+            "minecraft:geometry": {
+                "identifier": "geometry.palacite_vent"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:unobtanium_from_raw"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "mm:raw_unobtanium",
+        "output": "mm:unobtanium_ingot"
+    }
+}

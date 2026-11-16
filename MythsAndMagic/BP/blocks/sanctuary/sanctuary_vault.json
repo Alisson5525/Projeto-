@@ -1,0 +1,126 @@
+{
+    "format_version": "1.21.110",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:sanctuary_vault",
+            "menu_category": {
+                "category": "construction"
+            },
+            "states": {
+                "mm:active": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('mm:active') == false",
+                "components": {
+                    "mm:sanctuary_vault_openable": {
+                        "unlock_item": "mm:sanctuary_key",
+                        "loot_table": "structures/sanctuary_vault_common",
+                        "rare_loot_table": "structures/sanctuary_vault_high"
+                    },
+                    "minecraft:tick": {
+                        "interval_range": [
+                            20,
+                            20
+                        ],
+                        "looping": true
+                    },
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "sanctuary_vault_top",
+                            "render_method": "opaque"
+                        },
+                        "down": {
+                            "texture": "sanctuary_vault_top",
+                            "render_method": "opaque"
+                        },
+                        "*": {
+                            "texture": "sanctuary_vault_side",
+                            "render_method": "opaque"
+                        }
+                    },
+                    "minecraft:light_emission": 4
+                }
+            },
+            {
+                "condition": "q.block_state('mm:active') == true",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "sanctuary_vault_top",
+                            "render_method": "opaque"
+                        },
+                        "down": {
+                            "texture": "sanctuary_vault_top",
+                            "render_method": "opaque"
+                        },
+                        "*": {
+                            "texture": "sanctuary_vault_side_off",
+                            "render_method": "opaque"
+                        }
+                    },
+                    "minecraft:light_emission": 0
+                }
+            }
+        ],
+        "components": {
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:light_emission": 4,
+            "minecraft:geometry": {
+                "identifier": "geometry.sanctuary_vault"
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "sanctuary_vault_top",
+                    "render_method": "opaque"
+                },
+                "down": {
+                    "texture": "sanctuary_vault_top",
+                    "render_method": "opaque"
+                },
+                "*": {
+                    "texture": "sanctuary_vault_side",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    16,
+                    14
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    16,
+                    14
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 99999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 60
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "tag:mm:ignore_silk_touch": {}
+        }
+    }
+}

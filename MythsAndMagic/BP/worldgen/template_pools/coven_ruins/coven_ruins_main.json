@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:coven_ruins_main"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "coven_ruins/coven_ruins",
+                    "processors": "mm:coven_ruins"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "music_disc_keeper",
+        "metalness_emissive_roughness": "music_disc_keeper_mer"
+    }
+}

@@ -1,0 +1,137 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.scrubel.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"roll": "query.is_delayed_attacking"
+						},
+						{
+							"attack": "v.attack_time >= 0.1"
+						}
+					]
+				},
+				"roll": {
+					"animations": [
+						{
+							"roll": "!query.is_baby"
+						},
+						{
+							"roll_baby": "query.is_baby"
+						}
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scrubel.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0 && q.is_item_equipped(0) == 0"
+						},
+						{
+							"walking_holding": "query.ground_speed > 1.0 && q.is_item_equipped(0) == 1"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						},
+						{
+							"walking_holding": "q.is_item_equipped(0) == 1"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking_holding": {
+					"animations": [
+						"walk_holding"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						},
+						{
+							"walking": "q.is_item_equipped(0) == 0"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.scrubel.sleep": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"sleeping": "query.is_sleeping"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"sleeping": {
+					"animations": [
+						{
+							"sleeping": "!query.is_baby"
+						},
+						{
+							"sleeping_baby": "query.is_baby"
+						}
+					],
+					"transitions": [
+						{
+							"waking": "!query.is_sleeping"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"waking": {
+					"animations": [
+						{
+							"waking": "!query.is_baby"
+						},
+						{
+							"waking_baby": "query.is_baby"
+						}
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:smithing_template_shifting"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "CTC",
+            "CBC",
+            "CCC"
+        ],
+        "key": {
+            "T": {
+                "item": "mm:shifting_staff_design_smithing_template"
+            },
+            "C": {
+                "item": "mm:sparkling_crystal"
+            },
+            "B": {
+                "item": "pale_moss_block"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:shifting_staff_design_smithing_template"
+            }
+        ],
+        "result": [
+            {
+                "item": "mm:shifting_staff_design_smithing_template",
+                "count": 1
+            },
+            {
+                "item": "mm:shifting_staff_design_smithing_template",
+                "count": 1
+            }
+        ]
+    }
+}

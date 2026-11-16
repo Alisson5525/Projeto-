@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:snowy_stone_bricks",
+            "menu_category": {
+                "category": "construction",
+                "group": "minecraft:itemGroup.name.stoneBrick"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:snowy_stone_bricks.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:snowy_stone_bricks",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_regular"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "hanging_moss",
+        "metalness_emissive_roughness": "hanging_moss_mer"
+    }
+}

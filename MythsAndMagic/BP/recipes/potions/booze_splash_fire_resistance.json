@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "mm:booze_splash_fire_resistance"
+        },
+        "input": "mm:booze_potion_fireresistance_long",
+        "reagent": "gunpowder",
+        "output": "mm:booze_potion_fireresistance_splash",
+        "tags": [
+            "brewing_stand"
+        ]
+    }
+}

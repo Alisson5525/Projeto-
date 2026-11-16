@@ -1,0 +1,104 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:fake_cactus",
+            "menu_category": {
+                "category": "none"
+            }
+        },
+        "components": {
+            "mm:fake_cactus": {},
+            "minecraft:tick": {
+                "looping": true,
+                "interval_range": [
+                    2,
+                    2
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    16,
+                    14
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    16,
+                    14
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.4
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.4
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.fake_cactus"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "cactus_side",
+                    "render_method": "alpha_test"
+                },
+                "up": {
+                    "texture": "cactus_top",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "cactus_bottom",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "tag:mm:ignore_silk_touch": {},
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:destruction_particles": {
+                "texture": "cactus_side"
+            },
+            "minecraft:display_name": "tile.cactus.name",
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ],
+                        "block_filter": [
+                            {
+                                "tags": "query.any_tag('sand')"
+                            },
+                            "sand",
+                            "red_sand",
+                            "cactus",
+                            "mm:fake_cactus",
+                            "structure_void"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

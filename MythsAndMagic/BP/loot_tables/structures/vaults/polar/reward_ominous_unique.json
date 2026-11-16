@@ -1,0 +1,34 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_icicle",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:shivering_amulet",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:chilling_staff_design_smithing_template",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:sacred_snowflake",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

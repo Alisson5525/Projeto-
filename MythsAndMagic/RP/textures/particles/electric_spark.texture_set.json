@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "electric_spark",
+        "metalness_emissive_roughness": "electric_spark_mer"
+    }
+}

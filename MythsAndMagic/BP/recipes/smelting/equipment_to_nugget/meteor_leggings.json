@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:smelt_meteor_leggings"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "mm:meteor_leggings",
+        "output": "mm:meteor_nugget"
+    }
+}

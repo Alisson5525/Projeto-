@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "sparkling_shard",
+        "metalness_emissive_roughness": "sparkling_shard_mer"
+    }
+}

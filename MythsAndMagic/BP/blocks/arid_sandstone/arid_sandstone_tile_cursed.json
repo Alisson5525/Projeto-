@@ -1,0 +1,35 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:cursed_arid_sandstone_tile",
+            "menu_category": {
+                "category": "none"
+            }
+        },
+        "components": {
+            "minecraft:collision_box": true,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 999999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 999999
+            },
+            "mm:cursed_tile": {},
+            "minecraft:tick": {
+                "interval_range": [
+                    10,
+                    10
+                ],
+                "looping": true
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

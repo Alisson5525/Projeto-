@@ -1,0 +1,81 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:coven_ruins_mob",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "mm:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "mm:become_sacred_statue_sleeping": {
+                "minecraft:transformation": {
+                    "into": "mm:sacred_statue<mm:spawn_statue>"
+                }
+            },
+            "mm:become_mymik_sleeping": {
+                "minecraft:transformation": {
+                    "into": "mm:mymik<minecraft:entity_spawned>"
+                }
+            },
+            "mm:become_mymik_awake": {
+                "minecraft:transformation": {
+                    "into": "mm:mymik<mm:spawn_opened>"
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:dimension_bound": {},
+            "minecraft:timer": {
+                "time": 60,
+                "time_down_event": {
+                    "event": "mm:despawn"
+                }
+            }
+        },
+        "events": {
+            "mm:despawn": {
+                "add": {
+                    "component_groups": [
+                        "mm:despawn"
+                    ]
+                }
+            },
+            "mm:structure_mymik_sleeping": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_mymik_sleeping"
+                    ]
+                }
+            },
+            "mm:structure_mymik_awake": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_mymik_awake"
+                    ]
+                }
+            },
+            "mm:structure_sacred_statue_sleeping": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_sacred_statue_sleeping"
+                    ]
+                }
+            }
+        }
+    }
+}

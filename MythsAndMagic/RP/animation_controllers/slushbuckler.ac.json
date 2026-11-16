@@ -1,0 +1,110 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.slushbuckler.popsicle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"popsicle_hidden",
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"consuming": "q.variant == 1"
+						},
+						{
+							"snowstorm": "query.property('mm:snowstorm')"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"consuming": {
+					"animations": [
+						"eat_popsicle"
+					],
+					"transitions": [
+						{
+							"default": "q.variant == 0 && !query.property('mm:snowstorm')"
+						},
+						{
+							"snowstorm": "q.variant == 0 && query.property('mm:snowstorm')"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"snowstorm": {
+					"animations": [
+						"popsicle_hidden",
+						"snowstorm"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "query.property('mm:snowstorm') == false && q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.slushbuckler.sit": {
+			"initial_state": "standing",
+			"states": {
+				"standing": {
+					"transitions": [
+						{
+							"sit": "query.is_sitting && q.variant != 1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"transitions": [
+						{
+							"stand": "!query.is_sitting || q.variant == 1"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"stand": {
+					"animations": [
+						"stand"
+					],
+					"transitions": [
+						{
+							"standing": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.slushbuckler.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 0.3"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.15"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

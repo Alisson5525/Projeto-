@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:unobtanium_clock"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " x ",
+            "x#x",
+            " r "
+        ],
+        "key": {
+            "#": {
+                "item": "mm:terragna_residue"
+            },
+            "r": {
+                "item": "redstone"
+            },
+            "x": {
+                "item": "mm:unobtanium_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:unobtanium_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:unobtanium_clock",
+            "count": 1
+        }
+    }
+}

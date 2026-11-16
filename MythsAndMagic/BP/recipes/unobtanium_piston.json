@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:unobtanium_piston"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAA",
+            "URU",
+            "GGG"
+        ],
+        "key": {
+            "A": {
+                "item": "mm:alchatite_ingot"
+            },
+            "U": {
+                "item": "mm:unobtanium_ingot"
+            },
+            "R": {
+                "item": "redstone"
+            },
+            "G": {
+                "item": "gold_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:alchatite_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:magnetic_piston",
+            "count": 2
+        }
+    }
+}

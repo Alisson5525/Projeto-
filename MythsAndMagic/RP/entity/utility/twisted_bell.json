@@ -1,0 +1,21 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:twisted_bell",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/blocks/twisted_bell"
+            },
+            "geometry": {
+                "default": "geometry.mm_bell_entity"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

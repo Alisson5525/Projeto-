@@ -1,0 +1,274 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:sparkling_cluster",
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            },
+            "states": {
+                "mm:type": [
+                    "tip",
+                    "middle",
+                    "base"
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up' && query.block_state('mm:type') == 'tip'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_up_tip",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3.5,
+                            0,
+                            -3.5
+                        ],
+                        "size": [
+                            7,
+                            11,
+                            7
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -3.5,
+                            0,
+                            -3.5
+                        ],
+                        "size": [
+                            7,
+                            11,
+                            7
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down' && query.block_state('mm:type') == 'tip'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_down_tip",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3.5,
+                            5,
+                            -3.5
+                        ],
+                        "size": [
+                            7,
+                            11,
+                            7
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -3.5,
+                            5,
+                            -3.5
+                        ],
+                        "size": [
+                            7,
+                            11,
+                            7
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up' && query.block_state('mm:type') == 'middle'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_up_mid",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -5.5,
+                            0,
+                            -5.5
+                        ],
+                        "size": [
+                            11,
+                            16,
+                            11
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -5.5,
+                            0,
+                            -5.5
+                        ],
+                        "size": [
+                            11,
+                            16,
+                            11
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down' && query.block_state('mm:type') == 'middle'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_down_mid",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -5.5,
+                            0,
+                            -5.5
+                        ],
+                        "size": [
+                            11,
+                            16,
+                            11
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -5.5,
+                            0,
+                            -5.5
+                        ],
+                        "size": [
+                            11,
+                            16,
+                            11
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up' && query.block_state('mm:type') == 'base'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_up_base",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6.5,
+                            0,
+                            -6.5
+                        ],
+                        "size": [
+                            13,
+                            16,
+                            13
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -6.5,
+                            0,
+                            -6.5
+                        ],
+                        "size": [
+                            13,
+                            16,
+                            13
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down' && query.block_state('mm:type') == 'base'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "sparkling_cluster_down_base",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6.5,
+                            0,
+                            -6.5
+                        ],
+                        "size": [
+                            13,
+                            16,
+                            13
+                        ]
+                    },
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -6.5,
+                            0,
+                            -6.5
+                        ],
+                        "size": [
+                            13,
+                            16,
+                            13
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "mm:glowstone_spike": {
+                "can_grow": "mm:sparkling_crystal_block"
+            },
+            "minecraft:light_emission": 6,
+            "minecraft:selection_box": false,
+            "minecraft:collision_box": false,
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "none"
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.permafrost_crystal"
+            },
+            "minecraft:movable": {
+                "movement_type": "popped"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "sparkling_cluster_up_tip",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:loot": "loot_tables/blocks/sparkling_cluster.json",
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mm:ominous_polar_trial_key",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

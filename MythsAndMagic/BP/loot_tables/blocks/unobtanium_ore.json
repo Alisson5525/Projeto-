@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mm:raw_unobtanium",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:processor_list": {
+		"description": {
+			"identifier": "mm:alterrealm"
+		},
+		"processors": [
+			{
+				"processor_type": "minecraft:rule",
+				"rules": [
+					{
+						"input_predicate": {
+							"block": "netherite_block",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 1
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "mm:alterbedrock"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "mm:alterstone",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.005
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "mm:unobtanium_ore"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "mm:alterstone",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.01
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "mm:veiny_alterstone"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "mm:occuleye",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.2
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "air"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "mm:shockweed",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.2
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "air"
+						}
+					}
+				]
+			}
+		]
+	}
+}

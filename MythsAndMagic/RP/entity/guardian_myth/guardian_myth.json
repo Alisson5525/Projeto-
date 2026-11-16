@@ -1,0 +1,45 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:guardian_myth",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/guardian_myth/guardian_myth"
+            },
+            "geometry": {
+                "default": "geometry.guardian_myth"
+            },
+            "scripts": {
+                "animate": [
+                    "idle",
+                    "fire_burn",
+                    "hand_scale",
+                    "attack_controller"
+                ]
+            },
+            "sound_effects": {
+                "punch": "mob.guardian_myth.punch"
+            },
+            "animations": {
+                "idle": "animation.guardian_myth.idle",
+                "fire_burn": "animation.guardian_myth.fire_burn",
+                "hand_scale": "animation.guardian_myth.hand_scale",
+                "attack": "animation.guardian_myth.melee_attack",
+                "attack_full": "animation.guardian_myth.melee_attack_sound_full",
+                "attack_half": "animation.guardian_myth.melee_attack_sound_half",
+                "casting": "animation.guardian_myth.cast_hellfire",
+                "attack_controller": "controller.animation.guardian_myth.attack"
+            },
+            "render_controllers": [
+                "controller.render.guardian_myth"
+            ],
+            "spawn_egg": {
+                "texture": "egg_guardian_myth"
+            }
+        }
+    }
+}

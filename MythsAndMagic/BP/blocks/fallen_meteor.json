@@ -1,0 +1,149 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:fallen_meteor",
+            "menu_category": {
+                "category": "none",
+                "is_hidden_in_commands": false
+            },
+            "states": {
+                "mm:destruction_state": [
+                    0,
+                    1,
+                    2,
+                    3
+                ],
+                "mm:player_placed": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:destruction_state') == 0",
+                "components": {
+                    "minecraft:light_emission": 10,
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "meteor_state_0",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:destruction_state') == 1",
+                "components": {
+                    "minecraft:light_emission": 7,
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "meteor_state_1",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:destruction_state') == 2",
+                "components": {
+                    "minecraft:light_emission": 4,
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "meteor_state_2",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:destruction_state') == 3",
+                "components": {
+                    "minecraft:light_emission": 1,
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "meteor_state_3",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "obstruct_rain"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water",
+                        "on_liquid_touches": "no_reaction"
+                    }
+                ]
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.fallen_meteor"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "meteor_state_0",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    12,
+                    14
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -7,
+                    0,
+                    -7
+                ],
+                "size": [
+                    14,
+                    12,
+                    14
+                ]
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:tick": {
+                "interval_range": [
+                    100,
+                    100
+                ]
+            },
+            "mm:fallen_meteor": {},
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 999999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 15, //15(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 3 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "mm:ore_fortune": {},
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

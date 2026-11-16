@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:permafrost_shard",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "permafrost_shard"
+        }
+    }
+}

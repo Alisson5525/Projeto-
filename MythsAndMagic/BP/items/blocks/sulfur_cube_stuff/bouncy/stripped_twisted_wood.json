@@ -1,0 +1,30 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:stripped_twisted_wood",
+            "menu_category": {
+                "category": "nature",
+                "group": "minecraft:itemGroup.name.wood"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:stripped_twisted_wood.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:stripped_twisted_wood",
+                "replace_block_item": true
+            },
+            "minecraft:fuel": {
+                "duration": 15
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:logs",
+                    "minecraft:sulfur_cube_archetype_bouncy"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:paint_projectile",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/misc/empty"
+            },
+            "geometry": {
+                "default": "geometry.mm_particle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles": "animation.paint_projectile.particles"
+            },
+            "scripts": {
+                "animate": [
+                    "particles"
+                ]
+            },
+            "particle_effects": {
+                "paint": "mm:paint_projectile"
+            }
+        }
+    }
+}

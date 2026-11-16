@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:sparkling_geode"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 90112024,
+			"separation": 3,
+			"spacing": 10
+		},
+		"structures": [
+			{
+				"structure": "mm:sparkling_geode",
+				"weight": 1
+			}
+		]
+	}
+}

@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sparkling_flickerwick"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "construction",
+        "ingredients": [
+            {
+                "item": "honeycomb"
+            },
+            {
+                "item": "string"
+            },
+            {
+                "item": "mm:blaze_soul"
+            },
+            {
+                "item": "mm:sparkling_shard"
+            }
+        ],
+        "priority": 0,
+        "result": {
+            "item": "mm:sparkling_flickerwick_statue",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "mm:blaze_soul"
+            }
+        ]
+    }
+}

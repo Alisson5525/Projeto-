@@ -1,0 +1,24 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:twisted_button",
+            "menu_category": {
+                "category": "items",
+                "group": "minecraft:itemGroup.name.buttons"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:twisted_button.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:twisted_button",
+                "replace_block_item": true
+            },
+            "minecraft:fuel": {
+                "duration": 5
+            }
+        }
+    }
+}

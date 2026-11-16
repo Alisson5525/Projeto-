@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:blazing_amulet"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "IxI",
+            "x#x",
+            "IxI"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:amulet_core"
+            },
+            "I": {
+                "item": "iron_ingot"
+            },
+            "x": {
+                "item": "mm:blaze_soul"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:amulet_core"
+            }
+        ],
+        "result": {
+            "item": "mm:blazing_amulet",
+            "count": 1
+        }
+    }
+}

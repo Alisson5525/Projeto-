@@ -1,0 +1,173 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:sanctuary_key_holder",
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            },
+            "states": {
+                "mm:interactions": [
+                    0,
+                    1
+                ],
+                "mm:locked": [
+                    true,
+                    false
+                ]
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -3
+                ],
+                "size": [
+                    12,
+                    2,
+                    6
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -3
+                ],
+                "size": [
+                    12,
+                    12,
+                    6
+                ]
+            },
+            "minecraft:random_offset": {
+                "x": {
+                    "range": {
+                        "min": -1,
+                        "max": 1
+                    }
+                },
+                "z": {
+                    "range": {
+                        "min": -2,
+                        "max": 2
+                    }
+                }
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 9999999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 999999
+            },
+            "minecraft:destruction_particles": {
+                "texture": "arid_sandstone"
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true
+                    }
+                ]
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.sanctuary_key_holder"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "sanctuary_key_holder",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "tag:mm:ignore_silk_touch": {},
+            "mm:sanctuary_key_holder": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:locked') == true",
+                "components": {
+                    "minecraft:tick": {
+                        "interval_range": [
+                            50,
+                            50
+                        ],
+                        "looping": true
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:locked') == false",
+                "components": {
+                    "minecraft:tick": {
+                        "interval_range": [
+                            5,
+                            5
+                        ],
+                        "looping": true
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

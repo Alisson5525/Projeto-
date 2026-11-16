@@ -1,0 +1,163 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mirror_panel",
+				"texture_width": 96,
+				"texture_height": 96,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [
+					0,
+					1.25,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "base",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								0.18518,
+								-8
+							],
+							"size": [
+								16,
+								8,
+								16
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				},
+				{
+					"name": "arm",
+					"parent": "base",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"rotation": [
+						0,
+						-45,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-1.99708,
+								7.90527,
+								-2.00292
+							],
+							"size": [
+								4,
+								22,
+								4
+							],
+							"pivot": [
+								0,
+								19,
+								0
+							],
+							"rotation": [
+								0,
+								-45,
+								0
+							],
+							"uv": [
+								30,
+								48
+							]
+						},
+						{
+							"origin": [
+								-6.99708,
+								13.90527,
+								-2.00292
+							],
+							"size": [
+								9,
+								15,
+								9
+							],
+							"inflate": 0.1,
+							"pivot": [
+								0,
+								19,
+								0
+							],
+							"rotation": [
+								0,
+								-45,
+								0
+							],
+							"uv": [
+								30,
+								24
+							]
+						},
+						{
+							"origin": [
+								-4.89192,
+								9.81499,
+								-6.5
+							],
+							"size": [
+								2,
+								20,
+								13
+							],
+							"inflate": 0.05,
+							"uv": [
+								0,
+								24
+							]
+						}
+					]
+				}
+			],
+			"item_display_transforms": {
+				"gui": {
+					"rotation": [
+						30,
+						-135,
+						0
+					],
+					"translation": [
+						0,
+						-2.5,
+						0
+					],
+					"scale": [
+						0.56,
+						0.56,
+						0.56
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					],
+					"fit_to_frame": false
+				}
+			}
+		}
+	]
+}

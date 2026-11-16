@@ -1,0 +1,66 @@
+	{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:sparkling_tower_bookshelf"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book1",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book2",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book3",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book4",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book5",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book6",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_tower/mage_book7",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

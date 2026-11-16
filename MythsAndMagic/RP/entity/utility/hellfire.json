@@ -1,0 +1,53 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:hellfire",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/misc/empty"
+            },
+            "geometry": {
+                "default": "geometry.mm_particle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles_0": "animation.hellfire.particles_0",
+                "particles_1": "animation.hellfire.particles_1",
+                "particles_2": "animation.hellfire.particles_2",
+                "particles_3": "animation.hellfire.particles_3"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "particles_0": "query.property('mm:heat') == 0"
+                    },
+                    {
+                        "particles_1": "query.property('mm:heat') == 1"
+                    },
+                    {
+                        "particles_2": "query.property('mm:heat') == 2"
+                    },
+                    {
+                        "particles_3": "query.property('mm:heat') == 3"
+                    }
+                ]
+            },
+            "particle_effects": {
+                "fire_0": "mm:hellfire_0",
+                "magic_0": "mm:hellfire_magic_0",
+                "fire_1": "mm:hellfire_1",
+                "magic_1": "mm:hellfire_magic_1",
+                "fire_2": "mm:hellfire_2",
+                "magic_2": "mm:hellfire_magic_2",
+                "fire_3": "mm:hellfire_3",
+                "magic_3": "mm:hellfire_magic_3"
+            }
+        }
+    }
+}

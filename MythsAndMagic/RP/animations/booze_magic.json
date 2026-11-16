@@ -1,0 +1,161 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.booze.fragile": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fragile",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.jump_boost": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "jump_boost",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.blindness": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "blindness",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.speed": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "speed",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.fire_resistance": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire_resistance",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.regeneration": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "regeneration",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.water_breathing": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "water_breathing",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.night_vision": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "night_vision",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.slow_falling": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "slow_falling",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.haste": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "haste",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.invisibility": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "invisibility",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.metallurgy": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "metallurgy",
+						"locator": "particles"
+					}
+				]
+			}
+		},
+		"animation.booze.reduction": {
+			"loop": true,
+			"animation_length": 0.2,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "reduction",
+						"locator": "particles"
+					}
+				]
+			}
+		}
+	}
+}

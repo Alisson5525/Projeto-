@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:lime_padded_alchatite"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " # ",
+            "#B#",
+            " #"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:alchatite_ingot"
+            },
+            "B": {
+                "item": "lime_wool"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:alchatite_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:lime_padded_alchatite",
+            "count": 4
+        }
+    }
+}

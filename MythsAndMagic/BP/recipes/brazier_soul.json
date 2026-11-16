@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:soul_brazier"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " # ",
+            "SMS",
+            " S "
+        ],
+        "key": {
+            "#": {
+                "item": "coal"
+            },
+            "M": {
+                "tag": "minecraft:soul_fire_base_blocks"
+            },
+            "S": {
+                "item": "smooth_stone"
+            }
+        },
+        "unlock": [
+            {
+                "tag": "minecraft:soul_fire_base_blocks"
+            }
+        ],
+        "result": {
+            "item": "mm:soul_brazier",
+            "count": 2
+        }
+    }
+}

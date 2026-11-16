@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:cut_azsilva",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:cut_azsilva.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:cut_azsilva",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_slow_flat"
+                ]
+            }
+        }
+    }
+}

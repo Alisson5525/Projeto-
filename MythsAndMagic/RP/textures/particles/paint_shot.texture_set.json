@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "paint_shot",
+        "metalness_emissive_roughness": "paint_shot_mer"
+    }
+}

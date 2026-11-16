@@ -1,0 +1,109 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mage_hat",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [
+					0,
+					1.25,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "root_item",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "helmet",
+					"parent": "root_item",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"binding": "'head'",
+					"cubes": [
+						{
+							"origin": [
+								-4,
+								25.61732,
+								3.92388
+							],
+							"size": [
+								8,
+								3,
+								7
+							],
+							"pivot": [
+								3,
+								8.61732,
+								-3.07612
+							],
+							"rotation": [
+								-12.5,
+								0,
+								0
+							],
+							"uv": [
+								69,
+								0
+							]
+						},
+						{
+							"origin": [
+								-12,
+								8,
+								-12
+							],
+							"size": [
+								24,
+								1,
+								24
+							],
+							"uv": [
+								0,
+								39
+							]
+						},
+						{
+							"origin": [
+								-4,
+								8.61732,
+								-4.07612
+							],
+							"size": [
+								8,
+								20,
+								8
+							],
+							"pivot": [
+								3,
+								8.61732,
+								-3.07612
+							],
+							"rotation": [
+								-12.5,
+								0,
+								0
+							],
+							"uv": [
+								37,
+								0
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

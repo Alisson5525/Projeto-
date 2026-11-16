@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:alterstone"
+        },
+        "tags": [
+            "furnace"
+        ],
+        "input": "mm:cobbled_alterstone",
+        "output": "mm:alterstone"
+    }
+}

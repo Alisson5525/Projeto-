@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "hellfire_key",
+        "metalness_emissive_roughness": "hellfire_key_mer"
+    }
+}

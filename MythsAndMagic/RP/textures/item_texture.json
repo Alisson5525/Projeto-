@@ -1,0 +1,940 @@
+{
+  "resource_pack_name": "myths",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "egg_scrubel": {
+      "textures": "textures/items/spawn_eggs/scrubel_egg"
+    },
+    "egg_booze": {
+      "textures": "textures/items/spawn_eggs/booze_egg"
+    },
+    "egg_mage": {
+      "textures": "textures/items/spawn_eggs/mage_egg"
+    },
+    "egg_flickerwick": {
+      "textures": "textures/items/spawn_eggs/flickerwick_egg"
+    },
+    "egg_alterbeast": {
+      "textures": "textures/items/spawn_eggs/alterbeast_egg"
+    },
+    "egg_revoid": {
+      "textures": "textures/items/spawn_eggs/revoid_egg"
+    },
+    "egg_slushbuckler": {
+      "textures": "textures/items/spawn_eggs/slushbuckler_egg"
+    },
+    "egg_mymik": {
+      "textures": "textures/items/spawn_eggs/mymik_egg"
+    },
+    "egg_dyzgise": {
+      "textures": "textures/items/spawn_eggs/dyzgise_egg"
+    },
+    "egg_sacred_statue": {
+      "textures": "textures/items/spawn_eggs/sacred_statue_egg"
+    },
+    "egg_sanctuary_keeper": {
+      "textures": "textures/items/spawn_eggs/sanctuary_keeper_egg"
+    },
+    "egg_sanguine_spider": {
+      "textures": "textures/items/spawn_eggs/sanguine_spider_egg"
+    },
+    "egg_chill": {
+      "textures": "textures/items/spawn_eggs/chill_egg"
+    },
+    "egg_stray_polar_bear": {
+      "textures": "textures/items/spawn_eggs/stray_polar_bear_egg"
+    },
+    "popsicle": {
+      "textures": "textures/items/popsicle"
+    },
+    "mystery_scroll": {
+      "textures": "textures/items/spells/mystery_scroll"
+    },
+    "blank_scroll": {
+      "textures": "textures/items/spells/blank_scroll"
+    },
+    "creative_scroll": {
+      "textures": "textures/items/spells/creative_scroll"
+    },
+    "magic_book": {
+      "textures": "textures/items/magic_book"
+    },
+    "red_spell_book": {
+      "textures": "textures/items/dyed/magic_book_red"
+    },
+    "orange_spell_book": {
+      "textures": "textures/items/dyed/magic_book_orange"
+    },
+    "yellow_spell_book": {
+      "textures": "textures/items/dyed/magic_book_yellow"
+    },
+    "green_spell_book": {
+      "textures": "textures/items/dyed/magic_book_green"
+    },
+    "lime_spell_book": {
+      "textures": "textures/items/dyed/magic_book_lime"
+    },
+    "cyan_spell_book": {
+      "textures": "textures/items/dyed/magic_book_cyan"
+    },
+    "blue_spell_book": {
+      "textures": "textures/items/dyed/magic_book_blue"
+    },
+    "light_blue_spell_book": {
+      "textures": "textures/items/dyed/magic_book_light_blue"
+    },
+    "purple_spell_book": {
+      "textures": "textures/items/dyed/magic_book_purple"
+    },
+    "magenta_spell_book": {
+      "textures": "textures/items/dyed/magic_book_magenta"
+    },
+    "pink_spell_book": {
+      "textures": "textures/items/dyed/magic_book_pink"
+    },
+    "white_spell_book": {
+      "textures": "textures/items/dyed/magic_book_white"
+    },
+    "gray_spell_book": {
+      "textures": "textures/items/dyed/magic_book_gray"
+    },
+    "light_gray_spell_book": {
+      "textures": "textures/items/dyed/magic_book_light_gray"
+    },
+    "black_spell_book": {
+      "textures": "textures/items/dyed/magic_book_black"
+    },
+    "brown_spell_book": {
+      "textures": "textures/items/dyed/magic_book_brown"
+    },
+    "cursed_mask": {
+      "textures": "textures/items/cursed_mask"
+    },
+    "sanctuary_key": {
+      "textures": "textures/items/sanctuary_key"
+    },
+    "booze_rod": {
+      "textures": "textures/items/booze_rod"
+    },
+    "spell_charge": {
+      "textures": "textures/items/spell_charge"
+    },
+    "amethyst_bottle": {
+      "textures": "textures/items/amethyst_bottle"
+    },
+    "permafrost_shard": {
+      "textures": "textures/items/permafrost_shard"
+    },
+    "permafrost_crystal": {
+      "textures": "textures/blocks/permafrost_crystal_down"
+    },
+    "icarus_boots": {
+      "textures": "textures/items/icarus_boots"
+    },
+    "ember_mask": {
+      "textures": "textures/items/ember_mask"
+    },
+    "frost_mask": {
+      "textures": "textures/items/frost_mask"
+    },
+    "breeze_mask": {
+      "textures": "textures/items/breeze_mask"
+    },
+    "boulder_mask": {
+      "textures": "textures/items/boulder_mask"
+    },
+    "thunder_mask": {
+      "textures": "textures/items/thunder_mask"
+    },
+    "azsilva_ingot": {
+      "textures": "textures/items/azsilva_ingot"
+    },
+    "azsilva_nugget":{
+      "textures": "textures/items/azsilva_nugget"
+    },
+    "azsilva_raw": {
+      "textures": "textures/items/azsilva_raw"
+    },
+    "azsilva_helmet": {
+      "textures": "textures/items/armour/azsilva_helmet"
+    },
+    "azsilva_chestplate": {
+      "textures": "textures/items/armour/azsilva_chestplate"
+    },
+    "azsilva_leggings": {
+      "textures": "textures/items/armour/azsilva_leggings"
+    },
+    "azsilva_boots": {
+      "textures": "textures/items/armour/azsilva_boots"
+    },
+    "azsilva_sword": {
+      "textures": "textures/items/tools/azsilva_sword"
+    },
+    "azsilva_spear": {
+      "textures": "textures/items/tools/azsilva_spear_held"
+    },
+    "azsilva_axe": {
+      "textures": "textures/items/tools/azsilva_axe"
+    },
+    "azsilva_pickaxe": {
+      "textures": "textures/items/tools/azsilva_pickaxe"
+    },
+    "azsilva_shovel": {
+      "textures": "textures/items/tools/azsilva_shovel"
+    },
+    "azsilva_hoe": {
+      "textures": "textures/items/tools/azsilva_hoe"
+    },
+    "blazing_amulet": {
+      "textures": "textures/items/blaze_amulet"
+    },
+    "shivering_amulet": {
+      "textures": "textures/items/shivering_amulet"
+    },
+    "sparkling_amulet": {
+      "textures": "textures/items/sparkling_amulet"
+    },
+    "altered_amulet": {
+      "textures": "textures/items/altered_amulet"
+    },
+    "music_disc_keeper": {
+      "textures": "textures/items/music_disc_keeper"
+    },
+    "music_disc_myths_and_magic": {
+      "textures": "textures/items/music_disc_myths_and_magic"
+    },
+    "music_disc_devoid": {
+      "textures": "textures/items/music_disc_devoid"
+    },
+    "music_disc_devoid_altered": {
+      "textures": "textures/items/music_disc_devoid_altered"
+    },
+    "music_disc_farewell": {
+      "textures": "textures/items/music_disc_farewell"
+    },
+    "record_what": {
+      "textures": "textures/items/record_what"
+    },
+    "sparkling_shard": {
+      "textures": "textures/items/sparkling_shard"
+    },
+    "sparkling_crystal": {
+      "textures": "textures/items/sparkling_crystal"
+    },
+    "mages_hat": {
+      "textures": "textures/items/mages_hat"
+    },
+    "amulet_core": {
+      "textures": "textures/items/amulet_core"
+    },
+    "spellcrafter_core": {
+      "textures": "textures/items/spellcrafter_core"
+    },
+    "azsilva_carrot": {
+      "textures": "textures/items/carrot_azsilva"
+    },
+    "warp_key": {
+      "textures": "textures/items/warp_key"
+    },
+    "demon_helmet": {
+      "textures": "textures/items/armour/demon_helmet"
+    },
+    "demon_chestplate": {
+      "textures": "textures/items/armour/demon_chestplate"
+    },
+    "demon_leggings": {
+      "textures": "textures/items/armour/demon_leggings"
+    },
+    "demon_boots": {
+      "textures": "textures/items/armour/demon_boots"
+    },
+    "wooden_halberd": {
+      "textures": "textures/items/halberd/wood_halberd_held"
+    },
+    "stone_halberd": {
+      "textures": "textures/items/halberd/stone_halberd_held"
+    },
+    "copper_halberd": {
+      "textures": "textures/items/halberd/copper_halberd_held"
+    },
+    "iron_halberd": {
+      "textures": "textures/items/halberd/iron_halberd_held"
+    },
+    "azsilva_halberd": {
+      "textures": "textures/items/halberd/azsilva_halberd_held"
+    },
+    "diamond_halberd": {
+      "textures": "textures/items/halberd/diamond_halberd_held"
+    },
+    "golden_halberd": {
+      "textures": "textures/items/halberd/gold_halberd_held"
+    },
+    "netherite_halberd": {
+      "textures": "textures/items/halberd/netherite_halberd_held"
+    },
+    "altered_key": {
+      "textures": "textures/items/altered_key"
+    },
+    "unobtanium_ingot": {
+      "textures": "textures/items/unobtanium_ingot"
+    },
+    "raw_unobtanium": {
+      "textures": "textures/items/unobtanium_raw"
+    },
+    "altermoss_growth": {
+      "textures": "textures/blocks/alterblocks/altermoss_growth_up"
+    },
+    "occuleye": {
+      "textures": "textures/items/occuleye"
+    },
+    "shockweed": {
+      "textures": "textures/blocks/alterblocks/shockweed"
+    },
+    "vampire_fang": {
+      "textures": "textures/items/vampire_fang"
+    },
+    "fangangler": {
+      "textures": "textures/items/fangangler"
+    },
+    "disc_fragment_devoid": {
+      "textures": "textures/items/disc_fragment_devoid"
+    },
+    "alchatite_ingot": {
+      "textures": "textures/items/alchatite_ingot"
+    },
+    "booze_potion_speed": {
+      "textures": "textures/items/potions/swiftness"
+    },
+    "booze_potion_speed_splash": {
+      "textures": "textures/items/potions/swiftness_splash"
+    },
+    "booze_potion_regeneration": {
+      "textures": "textures/items/potions/regeneration"
+    },
+    "booze_potion_regeneration_splash": {
+      "textures": "textures/items/potions/regeneration_splash"
+    },
+    "booze_potion_jumpboost": {
+      "textures": "textures/items/potions/jumpboost"
+    },
+    "booze_potion_jumpboost_splash": {
+      "textures": "textures/items/potions/jumpboost_splash"
+    },
+    "booze_potion_fireresistance": {
+      "textures": "textures/items/potions/fireresistance"
+    },
+    "booze_potion_fireresistance_splash": {
+      "textures": "textures/items/potions/fireresistance_splash"
+    },
+    "booze_potion_invisibility": {
+      "textures": "textures/items/potions/invisibilty"
+    },
+    "booze_potion_invisibility_splash": {
+      "textures": "textures/items/potions/invisibility_splash"
+    },
+    "booze_potion_waterbreathing": {
+      "textures": "textures/items/potions/waterbreathing"
+    },
+    "booze_potion_waterbreathing_splash": {
+      "textures": "textures/items/potions/waterbreathing_splash"
+    },
+    "booze_potion_nightvision": {
+      "textures": "textures/items/potions/nightvision"
+    },
+    "booze_potion_nightvision_splash": {
+      "textures": "textures/items/potions/nightvision_splash"
+    },
+    "booze_potion_haste": {
+      "textures": "textures/items/potions/haste"
+    },
+    "booze_potion_haste_splash": {
+      "textures": "textures/items/potions/haste_splash"
+    },
+    "booze_potion_blindness": {
+      "textures": "textures/items/potions/blindness"
+    },
+    "booze_potion_blindness_splash": {
+      "textures": "textures/items/potions/blindness_splash"
+    },
+    "booze_potion_slowfalling": {
+      "textures": "textures/items/potions/slowfalling"
+    },
+    "booze_potion_slowfalling_splash": {
+      "textures": "textures/items/potions/slowfalling_splash"
+    },
+    "booze_potion_metallurgy": {
+      "textures": "textures/items/potions/metallurgy"
+    },
+    "booze_potion_metallurgy_splash": {
+      "textures": "textures/items/potions/metallurgy_splash"
+    },
+    "booze_potion_reduction": {
+      "textures": "textures/items/potions/reduction"
+    },
+    "booze_potion_reduction_splash": {
+      "textures": "textures/items/potions/reduction_splash"
+    },
+    "polar_trial_key": {
+      "textures": "textures/items/polar_trial_key"
+    },
+    "ominous_polar_trial_key": {
+      "textures": "textures/items/ominous_polar_trial_key"
+    },
+    "ancient_texts": {
+      "textures": "textures/items/spells/ancient_texts"
+    },
+    "sparkling_lantern": {
+      "textures": "textures/items/sparkling_lantern"
+    },
+    "sparkling_torch": {
+      "textures": "textures/blocks/sparkling_torch"
+    },
+    "brazier": {
+      "textures": "textures/items/brazier"
+    },
+    "soul_brazier": {
+      "textures": "textures/items/soul_brazier"
+    },
+    "copper_brazier": {
+      "textures": "textures/items/copper_brazier"
+    },
+    "sparkling_brazier": {
+      "textures": "textures/items/sparkling_brazier"
+    },
+    "empty_slot": {
+      "textures": "textures/misc/empty"
+    },
+    "unobtanium_nugget": {
+      "textures": "textures/items/unobtanium_nugget"
+    },
+    "unobtanium_lantern": {
+      "textures": "textures/items/unobtanium_lantern"
+    },
+    "unobtanium_torch": {
+      "textures": "textures/blocks/unobtanium_torch"
+    },
+    "unobtanium_brazier": {
+      "textures": "textures/items/unobtanium_brazier"
+    },
+    //1.1.0
+    "egg_guardian_myth": {
+      "textures": "textures/items/spawn_eggs/guardian_myth_egg"
+    },
+    "egg_testplayer": {
+      "textures": "textures/items/spawn_eggs/testplayer_egg"
+    },
+    "egg_tangled": {
+      "textures": "textures/items/spawn_eggs/tangled_egg"
+    },
+    "terragna_bucket": {
+      "textures": "textures/items/bucket_terragna"
+    },
+    "ectoplasm": {
+      "textures": "textures/items/ectoplasm"
+    },
+    "music_disc_jakynbocks": {
+      "textures": "textures/items/music_disc_jakynbocks"
+    },
+    "jakynknife": {
+      "textures": "textures/items/jakynknife_held"
+    },
+    "pondering_book": {
+      "textures": "textures/items/spells/pondering_book"
+    },
+    "twisted_cord": {
+      "textures": "textures/items/twisted_cord"
+    },
+    "longshot": {
+      "textures": "textures/items/longshot"
+    },
+    "lava_cookie": {
+      "textures": "textures/items/lava_cookie"
+    },
+    "experience_orb": {
+      "textures": "textures/items/experience_orb"
+    },
+    "moon_dust": {
+      "textures": "textures/items/moon_dust"
+    },
+    "lycan_fluff": {
+      "textures": "textures/items/lycan_fluff"
+    },
+    "lycan_claw": {
+      "textures": "textures/items/lycan_claw"
+    },
+    "ring_of_splinters": {
+      "textures": "textures/items/ring_of_splinters"
+    },
+    "glowstone_spike": {
+      "textures": "textures/blocks/glowstone_spike/down"
+    },
+    "sparkling_cluster": {
+      "textures": "textures/blocks/sparkling_cluster/down"
+    },
+    "guardian_wand": {
+      "textures": "textures/items/guardian_wand"
+    },
+    "unobtanium_clock": {
+      "textures": "textures/items/unobtanium_clock"
+    },
+    "terragna_residue": {
+      "textures": "textures/items/altered_essence"
+    },
+    "empty_staff": {
+      "textures": "textures/items/magic_staff/icon/empty_staff"
+    },
+    "mana_staff": {
+      "textures": "textures/items/magic_staff/icon/mana_staff"
+    },
+    "fire_staff": {
+      "textures": "textures/items/magic_staff/icon/fire_staff"
+    },
+    "ice_staff": {
+      "textures": "textures/items/magic_staff/icon/ice_staff"
+    },
+    "earth_staff": {
+      "textures": "textures/items/magic_staff/icon/earth_staff"
+    },
+    "electric_staff": {
+      "textures": "textures/items/magic_staff/icon/electric_staff"
+    },
+    "air_staff": {
+      "textures": "textures/items/magic_staff/icon/air_staff"
+    },
+    "empty_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/empty_staff"
+    },
+    "mana_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/mana_staff"
+    },
+    "fire_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/fire_staff"
+    },
+    "ice_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/ice_staff"
+    },
+    "earth_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/earth_staff"
+    },
+    "electric_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/electric_staff"
+    },
+    "air_staff_magistrate": {
+      "textures": "textures/items/magic_staff/eclipze/icon/air_staff"
+    },
+    "staff_design_magistrate": {
+      "textures": "textures/items/smithing_template/magistrate"
+    },
+    "empty_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/empty_staff"
+    },
+    "mana_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/mana_staff"
+    },
+    "fire_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/fire_staff"
+    },
+    "ice_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/ice_staff"
+    },
+    "earth_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/earth_staff"
+    },
+    "electric_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/electric_staff"
+    },
+    "air_staff_ancient": {
+      "textures": "textures/items/magic_staff/ancient/icon/air_staff"
+    },
+    "staff_design_ancient": {
+      "textures": "textures/items/smithing_template/ancient"
+    },
+    "empty_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/empty_staff"
+    },
+    "mana_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/mana_staff"
+    },
+    "fire_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/fire_staff"
+    },
+    "ice_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/ice_staff"
+    },
+    "earth_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/earth_staff"
+    },
+    "electric_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/electric_staff"
+    },
+    "air_staff_arcane": {
+      "textures": "textures/items/magic_staff/arcane/icon/air_staff"
+    },
+    "staff_design_arcane": {
+      "textures": "textures/items/smithing_template/arcane"
+    },
+    "empty_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/empty_staff"
+    },
+    "mana_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/mana_staff"
+    },
+    "fire_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/fire_staff"
+    },
+    "ice_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/ice_staff"
+    },
+    "earth_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/earth_staff"
+    },
+    "electric_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/electric_staff"
+    },
+    "air_staff_chilling": {
+      "textures": "textures/items/magic_staff/chilling/icon/air_staff"
+    },
+    "staff_design_chilling": {
+      "textures": "textures/items/smithing_template/chilling"
+    },
+    "empty_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/empty_staff"
+    },
+    "mana_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/mana_staff"
+    },
+    "fire_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/fire_staff"
+    },
+    "ice_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/ice_staff"
+    },
+    "earth_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/earth_staff"
+    },
+    "electric_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/electric_staff"
+    },
+    "air_staff_alter": {
+      "textures": "textures/items/magic_staff/alter/icon/air_staff"
+    },
+    "staff_design_alter": {
+      "textures": "textures/items/smithing_template/alterrealm"
+    },
+    "empty_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/empty_staff"
+    },
+    "mana_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/mana_staff"
+    },
+    "fire_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/fire_staff"
+    },
+    "ice_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/ice_staff"
+    },
+    "earth_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/earth_staff"
+    },
+    "electric_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/electric_staff"
+    },
+    "air_staff_spine": {
+      "textures": "textures/items/magic_staff/spine/icon/air_staff"
+    },
+    "staff_design_spine": {
+      "textures": "textures/items/smithing_template/spine"
+    },
+    "empty_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/empty_staff"
+    },
+    "mana_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/mana_staff"
+    },
+    "fire_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/fire_staff"
+    },
+    "ice_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/ice_staff"
+    },
+    "earth_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/earth_staff"
+    },
+    "electric_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/electric_staff"
+    },
+    "air_staff_curse": {
+      "textures": "textures/items/magic_staff/curse/icon/air_staff"
+    },
+    "staff_design_curse": {
+      "textures": "textures/items/smithing_template/curse"
+    },
+    "empty_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/empty_staff"
+    },
+    "mana_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/mana_staff"
+    },
+    "fire_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/fire_staff"
+    },
+    "ice_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/ice_staff"
+    },
+    "earth_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/earth_staff"
+    },
+    "electric_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/electric_staff"
+    },
+    "air_staff_ware": {
+      "textures": "textures/items/magic_staff/ware/icon/air_staff"
+    },
+    "staff_design_ware": {
+      "textures": "textures/items/smithing_template/ware"
+    },
+    "empty_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/empty_staff"
+    },
+    "mana_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/mana_staff"
+    },
+    "fire_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/fire_staff"
+    },
+    "ice_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/ice_staff"
+    },
+    "earth_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/earth_staff"
+    },
+    "electric_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/electric_staff"
+    },
+    "air_staff_shifting": {
+      "textures": "textures/items/magic_staff/shifting/icon/air_staff"
+    },
+    "staff_design_shifting": {
+      "textures": "textures/items/smithing_template/shifting"
+    },
+    "empty_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/empty_staff"
+    },
+    "mana_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/mana_staff"
+    },
+    "fire_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/fire_staff"
+    },
+    "ice_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/ice_staff"
+    },
+    "earth_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/earth_staff"
+    },
+    "electric_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/electric_staff"
+    },
+    "air_staff_walker": {
+      "textures": "textures/items/magic_staff/walker/icon/air_staff"
+    },
+    "staff_design_walker": {
+      "textures": "textures/items/smithing_template/walker"
+    },
+    "empty_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/empty_staff"
+    },
+    "mana_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/mana_staff"
+    },
+    "fire_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/fire_staff"
+    },
+    "ice_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/ice_staff"
+    },
+    "earth_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/earth_staff"
+    },
+    "electric_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/electric_staff"
+    },
+    "air_staff_howl": {
+      "textures": "textures/items/magic_staff/howl/icon/air_staff"
+    },
+    "staff_design_howl": {
+      "textures": "textures/items/smithing_template/howl"
+    },
+    "empty_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/empty_staff"
+    },
+    "mana_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/mana_staff"
+    },
+    "fire_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/fire_staff"
+    },
+    "ice_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/ice_staff"
+    },
+    "earth_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/earth_staff"
+    },
+    "electric_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/electric_staff"
+    },
+    "air_staff_commander": {
+      "textures": "textures/items/magic_staff/commander/icon/air_staff"
+    },
+    "staff_design_commander": {
+      "textures": "textures/items/smithing_template/commander"
+    },
+    "empty_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/empty_staff"
+    },
+    "mana_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/mana_staff"
+    },
+    "fire_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/fire_staff"
+    },
+    "ice_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/ice_staff"
+    },
+    "earth_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/earth_staff"
+    },
+    "electric_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/electric_staff"
+    },
+    "air_staff_twilight": {
+      "textures": "textures/items/magic_staff/twilight/icon/air_staff"
+    },
+    "staff_design_twilight": {
+      "textures": "textures/items/smithing_template/twilight"
+    },
+    "empty_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/empty_staff"
+    },
+    "mana_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/mana_staff"
+    },
+    "fire_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/fire_staff"
+    },
+    "ice_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/ice_staff"
+    },
+    "earth_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/earth_staff"
+    },
+    "electric_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/electric_staff"
+    },
+    "air_staff_twisted": {
+      "textures": "textures/items/magic_staff/twisted/icon/air_staff"
+    },
+    "staff_design_twisted": {
+      "textures": "textures/items/smithing_template/twisted"
+    },
+    "hellfire_key": {
+      "textures": "textures/items/hellfire_key"
+    },
+    "foe_pottery_sherd": {
+      "textures": "textures/items/sherds/foe"
+    },
+    "onlooker_pottery_sherd": {
+      "textures": "textures/items/sherds/onlooker"
+    },
+    "spirit_lantern": {
+      "textures": "textures/items/spirit_lantern_item"
+    },
+    "spirit_lantern_active": {
+      "textures": "textures/items/spirit_lantern_active_item"
+    },
+    "booze_potion_fragile": {
+      "textures": "textures/items/potions/fragile"
+    },
+    "booze_potion_fragile_splash": {
+      "textures": "textures/items/potions/fragile_splash"
+    },
+    "raw_meteor_fragment": {
+      "textures": "textures/items/raw_meteor_fragment"
+    },
+    "meteor_ingot": {
+      "textures": "textures/items/meteor_ingot"
+    },
+    "meteor_nugget": {
+      "textures": "textures/items/meteor_nugget"
+    },
+    "meteor_helmet": {
+      "textures": "textures/items/armour/meteor_helmet"
+    },
+    "meteor_chestplate": {
+      "textures": "textures/items/armour/meteor_chestplate"
+    },
+    "meteor_leggings": {
+      "textures": "textures/items/armour/meteor_leggings"
+    },
+    "meteor_boots": {
+      "textures": "textures/items/armour/meteor_boots"
+    },
+    "resonance_amulet": {
+      "textures": "textures/items/resonance_amulet"
+    },
+    "meteor_lantern": {
+      "textures": "textures/items/meteor_lantern"
+    },
+    "meteor_torch": {
+      "textures": "textures/blocks/meteor_torch"
+    },
+    "meteor_brazier": {
+      "textures": "textures/items/meteor_brazier"
+    },
+    "ilymia": {
+      "textures": "textures/blocks/twisted/ilymia"
+    },
+    "twisted_shrub": {
+      "textures": "textures/blocks/twisted/twisted_shrub"
+    },
+    "twisted_stalks": {
+      "textures": "textures/blocks/twisted/twisted_stalks"
+    },
+    "twisted_door": {
+      "textures": "textures/items/twisted_door"
+    },
+    "twisted_sapling": {
+      "textures": "textures/blocks/twisted/twisted_sapling"
+    },
+    "expired_torch": {
+      "textures": "textures/blocks/expired_torch"
+    },
+    "hanging_moss": {
+      "textures": "textures/blocks/twisted/hanging_moss_carried"
+    },
+    "twisted_hanging_moss": {
+      "textures": "textures/blocks/twisted/twisted_hanging_moss"
+    },
+    "twisted_mushroom": {
+      "textures": "textures/blocks/twisted/twisted_mushroom_dim"
+    },
+    "luminous_twisted_mushroom": {
+      "textures": "textures/blocks/twisted/twisted_mushroom_lit"
+    },
+    "magic_brush": {
+      "textures": "textures/items/magic_brush"
+    },
+    "icicle_spear": {
+      "textures": "textures/items/tools/icicle_spear_held"
+    },
+    "sacred_snowflake": {
+      "textures": "textures/items/sacred_snowflake"
+    },
+    "candle_holder": {
+      "textures": "textures/items/candle_holder"
+    },
+    "candle_holder_flickerwick": {
+      "textures": "textures/items/candle_holder_flickerwick"
+    }
+  }
+}

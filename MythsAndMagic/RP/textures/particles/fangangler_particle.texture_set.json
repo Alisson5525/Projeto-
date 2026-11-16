@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "fangangler_particle",
+        "metalness_emissive_roughness": "fangangler_particle_mer"
+    }
+}

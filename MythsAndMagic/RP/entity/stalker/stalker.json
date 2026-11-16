@@ -1,0 +1,60 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:tangled",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/tangled/tangled"
+            },
+            "geometry": {
+                "default": "geometry.tangled"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.walking = query.modified_move_speed > 0.01;",
+                    "variable.attacking = variable.attack_time > 0.0;",
+                    "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+                ],
+                "animate": [
+                    "staff_controller",
+                    "walk_controller",
+                    "attack_controller",
+                    {
+                        "despawn": "q.property('mm:despawning')"
+                    },
+                    "spawn"
+                ]
+            },
+            "animations": {
+                "start_crouch": "animation.tangled.start_crouch",
+                "hold_crouch": "animation.tangled.hold_crouch",
+                "end_crouch": "animation.tangled.end_crouch",
+                "shake_staff": "animation.tangled.shake_staff",
+                "staff_controller": "controller.animation.tangled.absorbing",
+                "walk": "animation.tangled.walk",
+                "walk_controller": "controller.animation.tangled.walk",
+                "attack": "animation.tangled.attack_melee",
+                "attack_controller": "controller.animation.tangled.attack",
+                "despawn": "animation.tangled.despawn",
+                "spawn": "animation.tangled.spawn"
+            },
+            "sound_effects": {
+                "hurt": "mob.tangled.hurt",
+                "spawn": "mob.tangled.spawn",
+                "despawn": "mob.tangled.despawn",
+                "crouch": "mob.tangled.crouch_down",
+                "stand_up": "mob.tangled.stand_up"
+            },
+            "render_controllers": [
+                "controller.render.tangled"
+            ],
+            "spawn_egg": {
+                "texture": "egg_tangled"
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:polar_dungeon_side_room"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/battle0",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/battle1",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/battle2",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/encounter2",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/encounter1",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/encounter3",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/encounter4",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/fallback",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

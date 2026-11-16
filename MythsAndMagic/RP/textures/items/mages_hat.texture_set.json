@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "mages_hat",
+        "metalness_emissive_roughness": "mages_hat_mer"
+    }
+}

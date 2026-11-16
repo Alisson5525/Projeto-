@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:mossy_alterstone",
+            "menu_category": {
+                "category": "nature"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:mossy_alterstone.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:mossy_alterstone",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_regular"
+                ]
+            }
+        }
+    }
+}

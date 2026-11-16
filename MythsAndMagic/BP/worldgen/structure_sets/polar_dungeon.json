@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:polar_dungeon"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 25122025,
+			"separation": 8,
+			"spacing": 24
+		},
+		"structures": [
+			{
+				"structure": "mm:polar_dungeon",
+				"weight": 1
+			}
+		]
+	}
+}

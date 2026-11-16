@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "netherite_halberd_held",
+        "metalness_emissive_roughness": "netherite_halberd_held_mer"
+    }
+}

@@ -1,0 +1,175 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.twisted_roots",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [
+					0,
+					1.25,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "block",
+					"pivot": [
+						0,
+						28,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								0,
+								-8
+							],
+							"size": [
+								16,
+								16,
+								16
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										-64
+									],
+									"uv_size": [
+										16,
+										256
+									]
+								},
+								"east": {
+									"uv": [
+										0,
+										-64
+									],
+									"uv_size": [
+										16,
+										256
+									]
+								},
+								"south": {
+									"uv": [
+										0,
+										-64
+									],
+									"uv_size": [
+										16,
+										256
+									]
+								},
+								"west": {
+									"uv": [
+										0,
+										-64
+									],
+									"uv_size": [
+										16,
+										256
+									]
+								},
+								"up": {
+									"uv": [
+										16,
+										192
+									],
+									"uv_size": [
+										-16,
+										-256
+									]
+								},
+								"down": {
+									"uv": [
+										16,
+										192
+									],
+									"uv_size": [
+										-16,
+										-256
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "roots",
+					"parent": "block",
+					"pivot": [
+						0,
+						28,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								16,
+								-8
+							],
+							"size": [
+								16,
+								13,
+								16
+							],
+							"inflate": 0.1,
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										3
+									],
+									"uv_size": [
+										16,
+										13
+									],
+									"material_instance": "roots"
+								},
+								"east": {
+									"uv": [
+										0,
+										3
+									],
+									"uv_size": [
+										16,
+										13
+									],
+									"material_instance": "roots"
+								},
+								"south": {
+									"uv": [
+										0,
+										3
+									],
+									"uv_size": [
+										16,
+										13
+									],
+									"material_instance": "roots"
+								},
+								"west": {
+									"uv": [
+										0,
+										3
+									],
+									"uv_size": [
+										16,
+										13
+									],
+									"material_instance": "roots"
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.paint_projectile.particles": {
+            "animation_length": 0.2,
+            "loop": "hold_on_last_frame",
+            "particle_effects": {
+                "0.0": [
+                    {
+                        "locator": "particles",
+                        "effect": "paint"
+                    }
+                ]
+            }
+        }
+    }
+}

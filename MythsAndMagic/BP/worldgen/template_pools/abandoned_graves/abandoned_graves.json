@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:abandoned_graves"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "abandoned_graves/ab_graves_main",
+                    "processors": "mm:abandoned_graves",
+                    "projection": "terrain_matching"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

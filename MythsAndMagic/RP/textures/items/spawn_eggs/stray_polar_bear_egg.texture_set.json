@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "stray_polar_bear_egg",
+        "metalness_emissive_roughness": "stray_polar_bear_egg_mer"
+    }
+}

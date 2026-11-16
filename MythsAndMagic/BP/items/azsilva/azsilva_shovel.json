@@ -1,0 +1,62 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:azsilva_shovel",
+            "menu_category": {
+                "category": "equipment",
+                "group": "minecraft:itemGroup.name.shovel"
+            }
+        },
+        "components": {
+            "mm:deplete_durability": {
+                "tag": "minecraft:is_shovel_item_destructible"
+            },
+            "minecraft:damage": 3,
+            "minecraft:durability": {
+                "max_durability": 351
+            },
+            "minecraft:enchantable": {
+                "slot": "shovel",
+                "value": 30
+            },
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "azsilva_shovel",
+            "minecraft:max_stack_size": 1,
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "mm:azsilva_ingot"
+                        ],
+                        "repair_amount": "q.max_durability * 0.25"
+                    },
+                    {
+                        "items": [
+                            "mm:azsilva_shovel"
+                        ],
+                        "repair_amount": "c.other -> q.remaining_durability + 0.12 * c.other -> q.max_durability"
+                    }
+                ]
+            },
+            "minecraft:digger": {
+                "use_efficiency": true,
+                "destroy_speeds": [
+                    {
+                        "speed": 10,
+                        "block": {
+                            "tags": "q.any_tag('minecraft:is_shovel_item_destructible')"
+                        }
+                    }
+                ]
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:is_tool",
+                    "minecraft:is_shovel",
+                    "minecraft:digger"
+                ]
+            }
+        }
+    }
+}

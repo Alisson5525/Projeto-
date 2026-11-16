@@ -1,0 +1,287 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:twisted_button",
+            "menu_category": {
+                "category": "construction"
+            },
+            "states": {
+                "mm:pressed": [
+                    false,
+                    true
+                ],
+                "mm:wall": [
+                    false,
+                    true
+                ]
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:pressed')",
+                "components": {
+                    "mm:button_pressed": {
+                        "on_sound": "click_on.nether_wood_button",
+                        "off_sound": "click_off.nether_wood_button"
+                    },
+                    "minecraft:tick": {
+                        "looping": true,
+                        "interval_range": [
+                            30,
+                            30
+                        ]
+                    },
+                    "minecraft:redstone_producer": {
+                        "connected_faces": [
+                            "east",
+                            "down",
+                            "north",
+                            "south",
+                            "west"
+                        ],
+                        "power": 15,
+                        "strongly_powered_face": "down",
+                        "transform_relative": true
+                    }
+                }
+            },
+            {
+                "condition": "!query.block_state('mm:pressed')",
+                "components": {
+                    "minecraft:redstone_producer": {
+                        "connected_faces": [
+                            "east",
+                            "down",
+                            "north",
+                            "south",
+                            "west"
+                        ],
+                        "power": 0,
+                        "strongly_powered_face": "down",
+                        "transform_relative": true
+                    }
+                }
+            },
+            {
+                //up unpressed
+                "condition": "!q.block_state('mm:pressed') && (query.block_state('minecraft:block_face') == 'up' || query.block_state('minecraft:block_face') == 'down')",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3,
+                            0,
+                            -2
+                        ],
+                        "size": [
+                            6,
+                            2,
+                            4
+                        ]
+                    }
+                }
+            },
+            {
+                //up pressed
+                "condition": "q.block_state('mm:pressed') && (query.block_state('minecraft:block_face') == 'up' || query.block_state('minecraft:block_face') == 'down')",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3,
+                            0,
+                            -2
+                        ],
+                        "size": [
+                            6,
+                            1,
+                            4
+                        ]
+                    }
+                }
+            },
+            {
+                //side unpressed
+                "condition": "!q.block_state('mm:pressed') && (query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down')",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3,
+                            6,
+                            6
+                        ],
+                        "size": [
+                            6,
+                            4,
+                            2
+                        ]
+                    }
+                }
+            },
+            {
+                //side pressed
+                "condition": "q.block_state('mm:pressed') && (query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down')",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -3,
+                            6,
+                            7
+                        ],
+                        "size": [
+                            6,
+                            4,
+                            1
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            -180,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:movable": {
+                "movement_type": "popped"
+            },
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "obstruct_rain"
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "all"
+                        ]
+                    }
+                ]
+            },
+            "mm:button": {
+                "on_sound": "click_on.nether_wood_button",
+                "off_sound": "click_off.nether_wood_button"
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:collision_box": false,
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -2
+                ],
+                "size": [
+                    6,
+                    2,
+                    4
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.mm_button",
+                "bone_visibility": {
+                    "floor": "!query.block_state('mm:pressed') && !query.block_state('mm:wall')",
+                    "floor_pressed": "query.block_state('mm:pressed') && !query.block_state('mm:wall')",
+                    "wall": "!query.block_state('mm:pressed') && query.block_state('mm:wall')",
+                    "wall_pressed": "query.block_state('mm:pressed') && query.block_state('mm:wall')"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "twisted_planks"
+                }
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:flammable": true,
+            "minecraft:map_color": "#E896F9",
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.5, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_axe')"
+                        },
+                        "destroy_speed": 0.5 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:axe_mine": {},
+            "tag:minecraft:is_axe_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": false,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:longshot"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "TTT",
+            "GSG",
+            " W "
+        ],
+        "key": {
+            "S": {
+                "item": "string"
+            },
+            "G": {
+                "item": "gold_ingot"
+            },
+            "T": {
+                "item": "mm:twisted_cord"
+            },
+            "W": {
+                "tag": "minecraft:planks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:twisted_cord"
+            }
+        ],
+        "result": {
+            "item": "mm:longshot",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:fangangler_projectile",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha_one_sided"
+            },
+            "textures": {
+                "default": "textures/entity/utility/fangangler_projectile"
+            },
+            "geometry": {
+                "default": "geometry.fangangler_projectile"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles": "animation.fangangler_projectile.particles",
+                "sound": "animation.fangangler_projectile.sound",
+                "throw": "animation.spell_charge.throw",
+                "scale": "animation.fangangler_projectile.scale"
+            },
+            "scripts": {
+                "animate": [
+                    "sound",
+                    "scale",
+                    "particles",
+                    "throw"
+                ]
+            },
+            "particle_effects": {
+                "1": "mm:fangangler_projectile",
+                "2": "mm:fangangler_projectile_2"
+            },
+            "sound_effects": {
+                "ambient": "item.fangangler_projectile.ambient"
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "format_version": "1.20.100",
+        "assume_symmetry": true,
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:icicle_spear"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "PP ",
+            "PS ",
+            "  I"
+        ],
+        "key": {
+            "P": {
+                "item": "mm:permafrost_shard"
+            },
+            "S":{
+                "item": "mm:sacred_snowflake"
+            },
+            "I":{
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:sacred_snowflake"
+            }
+        ],
+        "result": {
+            "item": "mm:icicle_spear",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:alterstone_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS",
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:alterstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:alterstone"
+            }
+        ],
+        "result": {
+            "item": "mm:alterstone_wall",
+            "count": 6
+        }
+    }
+}

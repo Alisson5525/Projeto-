@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§6[§b1.0.9 R§6] §dAlylica's Myths & Magic",
+    "description": "§eAdds the textures, sounds, and more for the addon.\n§6Made by : §dAlylica",
+    "uuid": "0390068a-704c-42d6-8cf9-8c9753e670aa",
+    "version": [1, 0, 9],
+    "min_engine_version": [1, 26, 30]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "83688e13-3641-44a1-8bf3-e280f730f622",
+      "version": [1, 0, 9]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "d40f5cf2-861b-4815-847d-296ca7db92ec",
+      "version": [1, 0, 9]
+    }
+  ],
+  "capabilities": ["pbr"]
+}

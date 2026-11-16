@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "attachable_longshot",
+        "metalness_emissive_roughness": "attachable_longshot_mer"
+    }
+}

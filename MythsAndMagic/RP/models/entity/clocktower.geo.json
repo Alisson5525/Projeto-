@@ -1,0 +1,224 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.clocktower",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [
+					0,
+					1.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "frame",
+					"pivot": [
+						0,
+						0,
+						-12
+					],
+					"cubes": [
+						{
+							"origin": [
+								-24,
+								0,
+								-20
+							],
+							"size": [
+								48,
+								48,
+								16
+							],
+							"uv": [
+								0,
+								0
+							]
+						},
+						{
+							"origin": [
+								-24,
+								16,
+								-4
+							],
+							"size": [
+								48,
+								16,
+								16
+							],
+							"uv": [
+								128,
+								0
+							]
+						},
+						{
+							"origin": [
+								-2,
+								22,
+								-22
+							],
+							"size": [
+								4,
+								4,
+								2
+							],
+							"uv": [
+								46,
+								82
+							]
+						},
+						{
+							"origin": [
+								20,
+								0,
+								-24
+							],
+							"size": [
+								4,
+								48,
+								4
+							],
+							"uv": [
+								0,
+								80
+							]
+						},
+						{
+							"origin": [
+								-24,
+								0,
+								-24
+							],
+							"size": [
+								4,
+								48,
+								4
+							],
+							"uv": [
+								16,
+								80
+							]
+						},
+						{
+							"origin": [
+								-20,
+								0,
+								-24
+							],
+							"size": [
+								40,
+								4,
+								4
+							],
+							"uv": [
+								0,
+								64
+							]
+						},
+						{
+							"origin": [
+								-20,
+								44,
+								-24
+							],
+							"size": [
+								40,
+								4,
+								4
+							],
+							"uv": [
+								0,
+								72
+							]
+						}
+					]
+				},
+				{
+					"name": "minute_hand",
+					"parent": "frame",
+					"pivot": [
+						0,
+						24,
+						-21
+					],
+					"cubes": [
+						{
+							"origin": [
+								-3,
+								4,
+								-21
+							],
+							"size": [
+								6,
+								20,
+								0
+							],
+							"uv": [
+								32,
+								100
+							]
+						}
+					]
+				},
+				{
+					"name": "second_hand",
+					"parent": "frame",
+					"pivot": [
+						0,
+						24,
+						-20.8
+					],
+					"cubes": [
+						{
+							"origin": [
+								-3,
+								4,
+								-20.8
+							],
+							"size": [
+								6,
+								20,
+								0
+							],
+							"uv": [
+								32,
+								120
+							]
+						}
+					]
+				},
+				{
+					"name": "hour_hand",
+					"parent": "frame",
+					"pivot": [
+						0,
+						24,
+						-21
+					],
+					"cubes": [
+						{
+							"origin": [
+								-3,
+								4,
+								-21
+							],
+							"size": [
+								6,
+								20,
+								0
+							],
+							"uv": [
+								32,
+								80
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

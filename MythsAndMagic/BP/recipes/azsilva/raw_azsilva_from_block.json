@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:raw_azsilva_from_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:raw_azsilva_block"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:raw_azsilva_block"
+            }
+        ],
+        "result": {
+            "item": "mm:raw_azsilva",
+            "count": 9
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "format_version": "1.26.50",
+    "minecraft:biome": {
+        "description": {
+            "identifier": "mm:alterrealm"
+        },
+        "components": {
+            "minecraft:climate": {
+                "downfall": 0.0,
+                "snow_accumulation": [
+                    0,
+                    0.125
+                ],
+                "temperature": 0.5
+            },
+            "minecraft:replace_biomes": {
+                "replacements": [
+                    {
+                        "dimension": "minecraft:nether",
+                        "noise_frequency_scale": 1,
+                        "amount": 0.1,
+                        "targets": [
+                            "minecraft:deep_ocean"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:surface_builder": {
+                "builder": {
+                    "type": "minecraft:capped",
+                    "floor_materials": [
+                        "mm:alterstone"
+                    ],
+                    "ceiling_materials": [
+                        "mm:alterstone"
+                    ],
+                    "sea_material": "minecraft:lava",
+                    "beach_material": "mm:veiny_alterstone",
+                    "foundation_material": "mm:alterstone"
+                }
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "alterrealm"
+                ]
+            }
+        }
+    }
+}

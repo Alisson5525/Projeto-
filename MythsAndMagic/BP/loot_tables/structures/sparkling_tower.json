@@ -1,0 +1,269 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 1,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "web",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "string",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "stick",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:twisted_sapling",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:twisted_moss_block",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 2,
+        "max": 5
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "mm:azsilva_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "mm:sparkling_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "mm:spell_book",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "mm:red_spell_book",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:blue_spell_book",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:brown_spell_book",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:white_spell_book",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:yellow_spell_book",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:amulet_core",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_teleport_swap_siphoning",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "enchant_randomly"
+            },
+            {
+              "function": "specific_enchants",
+              "enchants": [
+                {
+                  "id": "mending",
+                  "level": [
+                    1,
+                    1
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 8
+        },
+        {
+          "type": "empty",
+          "weight": 6
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 7
+        },
+        {
+          "type": "item",
+          "name": "minecraft:eye_armor_trim_smithing_template",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:arcane_staff_design_smithing_template",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 55
+        },
+        {
+          "type": "item",
+          "name": "mm:music_disc_myths_and_magic",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "mm:ancient_texts",
+          "weight": 30
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.110",
+    "minecraft:recipe_smithing_transform": {
+        "description": {
+            "identifier": "mm:netherite_halberd"
+        },
+        "tags": [
+            "smithing_table"
+        ],
+        "template": "minecraft:netherite_upgrade_smithing_template",
+        "base": "mm:diamond_halberd",
+        "addition": "minecraft:netherite_ingot",
+        "result": "mm:netherite_halberd"
+    }
+}

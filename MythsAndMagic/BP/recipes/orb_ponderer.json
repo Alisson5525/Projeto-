@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:orb_ponderer"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " S ",
+            "DOD",
+            "ODO"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "D": {
+                "item": "diamond"
+            },
+            "O": {
+                "item": "mm:arcane_deepslate"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:sparkling_crystal"
+            },
+            {
+                "item": "diamond"
+            }
+        ],
+        "result": {
+            "item": "mm:orb_ponderer",
+            "count": 1
+        }
+    }
+}

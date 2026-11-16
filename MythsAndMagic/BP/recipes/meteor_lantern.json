@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:meteor_lantern"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "...",
+            ".|.",
+            "..."
+        ],
+        "key": {
+            "|": {
+                "item": "mm:meteor_torch"
+            },
+            ".": {
+                "item": "minecraft:iron_nugget"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:meteor_torch"
+            }
+        ],
+        "result": {
+            "item": "mm:meteor_lantern"
+        }
+    }
+}

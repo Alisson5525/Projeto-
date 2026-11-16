@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:giant_snowball",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/entity/utility/giant_snowball"
+            },
+            "geometry": {
+                "default": "geometry.giant_snowball"
+            },
+            "animations": {
+                "snowball": "animation.giant_snowball.rotate"
+            },
+            "particle_effects": {
+                "particle": "mm:snowball_smoke",
+                "particle2": "mm:snowball_swirls"
+            },
+            "scripts": {
+                "animate": [
+                    "snowball"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

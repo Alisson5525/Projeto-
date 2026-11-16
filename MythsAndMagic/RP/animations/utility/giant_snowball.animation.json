@@ -1,0 +1,59 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.giant_snowball.rotate": {
+			"loop": true,
+			"animation_length": 1,
+			"particle_effects": {
+				"0.0": {
+					"effect": "particle",
+					"locator": "particles"
+				},
+				"0.1": {
+					"effect": "particle2",
+					"locator": "particles"
+				},
+				"0.25": {
+					"effect": "particle",
+					"locator": "particles"
+				},
+				"0.36": {
+					"effect": "particle2",
+					"locator": "particles"
+				},
+				"0.5": {
+					"effect": "particle",
+					"locator": "particles"
+				},
+				"0.51": {
+					"effect": "particle2",
+					"locator": "particles"
+				},
+				"0.75": {
+					"effect": "particle",
+					"locator": "particles"
+				},
+				"0.76": {
+					"effect": "particle2",
+					"locator": "particles"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"1.0": [
+							360,
+							0,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}

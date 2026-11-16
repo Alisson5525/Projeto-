@@ -1,0 +1,54 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player.air_surfer_riding": {
+			"loop": true,
+			"animation_length": 0.6,
+			"bones": {
+				"root": {
+					"rotation": [
+						0,
+						//57.5,
+						0,
+						0
+					]
+				},
+				"waist": {
+					"rotation": [
+						0,
+						0,
+						"v.is_first_person ? 0 : 7.5"
+					]
+				},
+				"leftArm": {
+					"rotation": [
+						"v.is_first_person ? 0 : 17.5",
+						0,
+						"v.is_first_person ? 0 : -75"
+					]
+				},
+				"rightArm": {
+					"rotation": [
+						"v.is_first_person ? 0 : 52.5",
+						0,
+						"v.is_first_person ? 0 : 47.5"
+					]
+				},
+				"leftLeg": {
+					"rotation": [
+						"v.is_first_person ? 0 : 79.3212",
+						"v.is_first_person ? 0 : -37.4911",
+						"v.is_first_person ? 0 : 1.0744"
+					]
+				},
+				"rightLeg": {
+					"rotation": [
+						"v.is_first_person ? 0 : 70",
+						0,
+						0
+					]
+				}
+			}
+		}
+	}
+}

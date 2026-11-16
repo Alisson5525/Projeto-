@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sanctuary_keeper",
+				"texture_width": 17,
+				"texture_height": 17,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 4, 0],
+					"locators": {
+						"particles": [0, 4, 2]
+					}
+				},
+				{
+					"name": "mask",
+					"parent": "head",
+					"pivot": [0, 4, -0.15],
+					"cubes": [
+						{"origin": [-4, 0, -0.5], "size": [8, 8, 1], "uv": [0, 0]},
+						{"origin": [-4, 0, -0.3], "size": [8, 8, 0], "uv": [0, 9]}
+					]
+				}
+			]
+		}
+	]
+}

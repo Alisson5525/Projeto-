@@ -1,0 +1,19 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:snap_to_surface_feature": {
+        "description": {
+            "identifier": "mm:twisted_hanging_moss_snap_to_surface_feature"
+        },
+        "feature_to_snap": "mm:twisted_decide_hanging_moss_feature",
+        "vertical_search_range": 12,
+        "surface": "ceiling",
+        "allowed_surface_blocks": [
+            {
+                "name": "mm:healthy_twisted_leaves"
+            },
+            {
+                "name": "minecraft:oak_log"
+            }
+        ]
+    }
+}

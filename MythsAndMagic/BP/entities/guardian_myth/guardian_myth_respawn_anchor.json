@@ -1,0 +1,68 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:guardian_myth_respawn_anchor",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:timer": {
+                "time": [
+                    24000,
+                    48000
+                ],
+                "looping": true,
+                "time_down_event": {
+                    "event": "mm:respawn_guardian_myth",
+                    "filters": {
+                        "all_of": [
+                            {
+                                "test": "is_difficulty",
+                                "operator": "not",
+                                "value": "peaceful"
+                            },
+                            {
+                                "test": "is_game_rule",
+                                "domain": "domobspawning",
+                                "value": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "ignore"
+                ]
+            },
+            "minecraft:scale": {
+                "value": 0
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:persistent": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": "no"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "mm:respawn_guardian_myth": {}
+        }
+    }
+}

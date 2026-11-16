@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:polished_arcane_deepslate",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:polished_arcane_deepslate.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:polished_arcane_deepslate",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_regular"
+                ]
+            }
+        }
+    }
+}

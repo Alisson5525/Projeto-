@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:badlands_treasure_pile"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 10022026,
+			"separation": 4,
+			"spacing": 12
+		},
+		"structures": [
+			{
+				"structure": "mm:badlands_treasure_pile",
+				"weight": 1
+			}
+		]
+	}
+}

@@ -1,0 +1,89 @@
+{
+    "format_version": "1.19.0",
+    "animation_controllers": {
+        "controller.animation.tangled.absorbing":{
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "begin":"q.property('mm:absorbing_energy')"
+                        }
+                    ]
+                },
+                "begin":{
+                    "animations": ["start_crouch"],
+                    "transitions": [
+                        {
+                            "loop": "q.all_animations_finished"
+                        }
+                    ]
+                },
+                "loop":{
+                    "animations": ["hold_crouch", "shake_staff"],
+                    "transitions": [
+                        {
+                            "end":"!q.property('mm:absorbing_energy')"
+                        }
+                    ]
+                },
+                "end":{
+                    "animations": ["end_crouch"],
+                    "transitions": [
+                        {
+                            "default": "q.all_animations_finished"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.tangled.walk": {
+            "initial_state": "default",
+            "states": {
+                "walking": {
+                    "animations": [
+                        {
+                            "walk": "1.5 - math.pow(1.5, 1.0 - 015.0 * query.modified_move_speed)"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!variable.walking || variable.attacking"
+                        }
+                    ],
+                    "blend_transition": 0.05
+                },
+                "default": {
+                    "transitions": [
+                        {
+                            "walking": "variable.walking && !variable.attacking && !q.property('mm:stunned')"
+                        }
+                    ],
+                    "blend_transition": 0.05
+                }
+            }
+        },
+        "controller.animation.tangled.attack": {
+            "initial_state": "default",
+            "states": {
+                "attack": {
+                    "animations": [
+                        "attack"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "default": {
+                    "transitions": [
+                        {
+                            "attack": "variable.attacking && !q.property('mm:stunned')"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

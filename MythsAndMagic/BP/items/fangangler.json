@@ -1,0 +1,76 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:fangangler",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "mm:deplete_durability": {
+                "tag": "minecraft:is_sword_item_destructible"
+            },
+            "minecraft:rarity": "uncommon",
+            "mm:fangangler": {},
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "fangangler",
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:damage": 7,
+            "minecraft:cooldown": {
+                "category": "fangangler",
+                "duration": 1
+            },
+            "minecraft:durability": {
+                "max_durability": 320
+            },
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "mm:fangangler"
+                        ],
+                        "repair_amount": "context.other->query.remaining_durability"
+                    },
+                    {
+                        "items": [
+                            "mm:vampire_fang"
+                        ],
+                        "repair_amount": "query.max_durability * 0.25"
+                    }
+                ]
+            },
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 5
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "spear",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.9,
+                "use_duration": 999999,
+                "emit_vibrations": true
+            },
+            "minecraft:swing_duration": {
+                "value": 0.25
+            },
+            "minecraft:digger": {
+                "use_efficiency": true,
+                "destroy_speeds": [
+                    {
+                        "speed": 10,
+                        "block": {
+                            "tags": "q.any_tag('minecraft:is_sword_item_destructible')"
+                        }
+                    }
+                ]
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:is_sword",
+                    "minecraft:digger"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:twisted_door"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "PP",
+            "PP",
+            "PP"
+        ],
+        "key": {
+            "P": {
+                "item": "mm:twisted_planks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:twisted_planks"
+            }
+        ],
+        "result": {
+            "item": "mm:twisted_door",
+            "count": 3
+        }
+    }
+}

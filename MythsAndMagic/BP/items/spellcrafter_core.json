@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:spellcrafter_core",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "spellcrafter_core",
+            "minecraft:rarity": "uncommon"
+        }
+    }
+}

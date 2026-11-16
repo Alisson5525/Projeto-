@@ -1,0 +1,364 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sacred_statue.idle": {
+			"loop": true,
+			"bones": {
+				"right_leg": {
+					"rotation": [
+						-12.5,
+						0,
+						0
+					],
+					"position": [
+						0,
+						0,
+						-1
+					]
+				},
+				"left_leg": {
+					"rotation": [
+						10,
+						0,
+						0
+					],
+					"position": [
+						0,
+						0,
+						1.5
+					]
+				},
+				"right_arm": {
+					"rotation": [
+						-26,
+						5,
+						5
+					]
+				},
+				"head": {
+					"rotation": [
+						10,
+						0,
+						0
+					]
+				},
+				"left_arm": {
+					"rotation": [
+						5,
+						0,
+						-5
+					]
+				}
+			}
+		},
+		"animation.sacred_statue.move": {
+			"loop": true,
+			"animation_length": 1.5,
+			"anim_time_update": "query.anim_time + q.delta_time * (4*q.modified_move_speed)",
+			"sound_effects": {
+				"0.38": {
+					"effect": "step"
+				},
+				"1.13": {
+					"effect": "step"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [
+							-2,
+							0,
+							0
+						],
+						"0.375": [
+							3.65,
+							0,
+							0
+						],
+						"0.75": [
+							3.65,
+							0,
+							0
+						],
+						"1.125": [
+							-2,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							0,
+							6,
+							0
+						],
+						"0.375": [
+							0,
+							0,
+							0
+						],
+						"0.75": [
+							0,
+							0,
+							0
+						],
+						"1.0": [
+							0,
+							6,
+							0
+						],
+						"1.125": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.sacred_statue.stomp_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"particle_effects": {
+				"0.38": {
+					"effect": "statue_attack",
+					"locator": "particles"
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "attack"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.375": [
+							0,
+							0,
+							0
+						],
+						"0.4583": [
+							5,
+							0,
+							0
+						],
+						"0.5833": [
+							-3,
+							0,
+							0
+						],
+						"0.6667": [
+							1,
+							0,
+							0
+						],
+						"0.75": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							0,
+							24,
+							-6
+						],
+						"0.375": [
+							0,
+							0,
+							-6
+						],
+						"0.7083": [
+							0,
+							0,
+							-6
+						],
+						"1.0": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.sacred_statue.large_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 3,
+			"sound_effects": {
+				"0.35": {
+					"effect": "attack"
+				},
+				"0.8": {
+					"effect": "heavy_attack"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.375": [
+							-7.5,
+							"-math.sin(query.anim_time * 2160) * 2",
+							0
+						],
+						"0.625": [
+							-10,
+							"-math.sin(query.anim_time * 2160) * 10",
+							0
+						],
+						"0.9167": [
+							77.5,
+							"-math.sin(query.anim_time * 540) * 2",
+							0
+						],
+						"1.9167": [
+							77.5,
+							0,
+							0
+						],
+						"2.7917": [
+							-5,
+							"-math.sin(query.anim_time * 2160) * 1",
+							0
+						],
+						"3.0": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.625": [
+							0,
+							0,
+							0
+						],
+						"0.9167": [
+							0,
+							0,
+							15
+						],
+						"1.9167": [
+							0,
+							0,
+							15
+						],
+						"2.7917": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.sacred_statue.awaken": {
+			"loop": false,
+			"animation_length": 0.25,
+			"sound_effects": {
+				"0.0": {
+					"effect": "awaken"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [
+							0,
+							"-math.sin(query.anim_time * 2160) * 10",
+							0
+						],
+						"0.25": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.0417": [
+							0,
+							2,
+							0
+						],
+						"0.0833": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.sacred_statue.charge_slam_attack": {
+			"loop": false,
+			"animation_length": 0.25,
+			"sound_effects": {
+				"0.0": {
+					"effect": "charge_up"
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "charge_slam",
+					"locator": "particles"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [
+							0,
+							"-math.sin(query.anim_time * 2160) * 10",
+							0
+						],
+						"0.25": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.0417": [
+							0,
+							2,
+							0
+						],
+						"0.0833": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}

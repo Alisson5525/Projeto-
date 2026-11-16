@@ -1,0 +1,418 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "runtime_identifier": "minecraft:vindicator",
+            "identifier": "mm:guardian_myth",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "properties": {
+                "mm:is_casting_hellfire": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                },
+                "mm:hands_active": {
+                    "client_sync": true,
+                    "default": 4,
+                    "type": "int",
+                    "range": [
+                        0,
+                        4
+                    ]
+                },
+                "mm:respawn_after_killed": {
+                    "client_sync": false,
+                    "default": false,
+                    "type": "bool"
+                },
+                "mm:mana": {
+                    "default": 20,
+                    "type": "int",
+                    "range": [
+                        0,
+                        20
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "mm:structure_mob": {
+                "minecraft:home": {
+                    "restriction_radius": 8,
+                    "restriction_type": "random_movement"
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/empty.json"
+                }
+            },
+            "mm:regular_attack": {
+                "minecraft:entity_sensor": {
+                    "subsensors": [
+                        {
+                            "cooldown": 6,
+                            "minimum_count": 1,
+                            "event": "mm:cast_hellfire",
+                            "range": [
+                                24,
+                                24
+                            ],
+                            "event_filters": [
+                                {
+                                    "all_of": [
+                                        {
+                                            "test": "target_distance",
+                                            "value": 4,
+                                            "operator": ">="
+                                        },
+                                        {
+                                            "test": "is_target",
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "bool_property",
+                                            "domain": "mm:is_casting_hellfire",
+                                            "value": false
+                                        },
+                                        {
+                                            "test": "int_property",
+                                            "domain": "mm:mana",
+                                            "operator": ">=",
+                                            "value": 8
+                                        },
+                                        {
+                                            "test": "int_property",
+                                            "domain": "mm:hands_active",
+                                            "operator": ">=",
+                                            "value": 2
+                                        },
+                                        {
+                                            "test": "has_component",
+                                            "value": "minecraft:fire_immune",
+                                            "subject": "other",
+                                            "operator": "not"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "attack_duration": 1.92,
+                    "hit_delay_pct": 0.27,
+                    "cooldown_time": 1,
+                    "priority": 1,
+                    "sound_event": "attack",
+                    "reach_multiplier": 8,
+                    "speed_multiplier": 1.1
+                }
+            },
+            "mm:casting_hellfire": {
+                "minecraft:shooter": {
+                    "def": "mm:guardian_hellfire"
+                },
+                "minecraft:behavior.ranged_attack": {
+                    "attack_interval_min": 1,
+                    "attack_interval_max": 1,
+                    "attack_radius": 64,
+                    "attack_radius_min": 1,
+                    "charge_charged_trigger": 0,
+                    "charge_shoot_trigger": 0.8,
+                    "burst_shots": 1,
+                    "priority": 0,
+                    "burst_interval": 0,
+                    "speed_multiplier": 0
+                },
+                "minecraft:behavior.delayed_attack": {
+                    "reach_multiplier": 0,
+                    "speed_multiplier": 0,
+                    "attack_duration": 1,
+                    "hit_delay_pct": 1,
+                    "priority": 100
+                },
+                "minecraft:behavior.timer_flag_1": {
+                    "duration_range": 1.5417,
+                    "on_end": {
+                        "target": "self",
+                        "event": "mm:finish_casting_hellfire"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:loot": {
+                "table": "loot_tables/entities/guardian_myth.json"
+            },
+            "minecraft:timer": {
+                "time": 1,
+                "time_down_event": {
+                    "event": "mm:restore_mana_to_self",
+                    "filters": {
+                        "test": "int_property",
+                        "subject": "self",
+                        "domain": "mm:mana",
+                        "value": 20,
+                        "operator": "not"
+                    }
+                }
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "skeleton",
+                    "miniboss",
+                    "monster",
+                    "mob",
+                    "guardian_myth",
+                    "longshot_heavy"
+                ]
+            },
+            "minecraft:scale": {
+                "value": 1.1
+            },
+            "minecraft:health": {
+                "max": 120,
+                "value": 120
+            },
+            "minecraft:movement": {
+                "max": 0.26,
+                "value": 0.26
+            },
+            "minecraft:collision_box": {
+                "width": 0.7,
+                "height": 2.9
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:persistent": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:knockback_resistance": {
+                "max": 0.66,
+                "value": 0.66
+            },
+            "minecraft:variable_max_auto_step": {
+                "base_value": 1.0625,
+                "jump_prevented_value": 0.5625
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fire",
+                        "deals_damage": "no"
+                    },
+                    {
+                        "cause": "fire_tick",
+                        "deals_damage": "no"
+                    },
+                    {
+                        "cause": "magma",
+                        "deals_damage": "no"
+                    },
+                    {
+                        "cause": "lava",
+                        "deals_damage": "no"
+                    },
+                    {
+                        "cause": "all",
+                        "on_damage": {
+                            "filters": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "all_of": [
+                                                {
+                                                    "test": "actor_health",
+                                                    "value": 90,
+                                                    "operator": "<"
+                                                },
+                                                {
+                                                    "test": "int_property",
+                                                    "domain": "mm:hands_active",
+                                                    "value": 4,
+                                                    "operator": ">="
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "all_of": [
+                                                {
+                                                    "test": "actor_health",
+                                                    "value": 60,
+                                                    "operator": "<"
+                                                },
+                                                {
+                                                    "test": "int_property",
+                                                    "domain": "mm:hands_active",
+                                                    "value": 3,
+                                                    "operator": ">="
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "all_of": [
+                                                {
+                                                    "test": "actor_health",
+                                                    "value": 30,
+                                                    "operator": "<"
+                                                },
+                                                {
+                                                    "test": "int_property",
+                                                    "domain": "mm:hands_active",
+                                                    "value": 2,
+                                                    "operator": ">="
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "all_of": [
+                                                {
+                                                    "test": "actor_health",
+                                                    "value": 0,
+                                                    "operator": "<="
+                                                },
+                                                {
+                                                    "test": "int_property",
+                                                    "domain": "mm:hands_active",
+                                                    "value": 1,
+                                                    "operator": ">="
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ],
+                            "event": "mm:remove_hand"
+                        }
+                    }
+                ]
+            },
+            "minecraft:fire_immune": {},
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": true,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        "max_dist": 16.0
+                    }
+                ]
+            },
+            "minecraft:navigation.walk": {
+                "can_sink": true,
+                "can_path_over_water": true,
+                "avoid_water": true,
+                "avoid_damage_blocks": true
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:attack": {
+                "damage": 14
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 4,
+                "speed_multiplier": 1.0
+            }
+        },
+        "events": {
+            "mm:spawn_for_structure": {
+                "add": {
+                    "component_groups": [
+                        "mm:regular_attack",
+                        "mm:structure_mob"
+                    ]
+                },
+                "set_property": {
+                    "mm:respawn_after_killed": true
+                }
+            },
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "mm:regular_attack"
+                    ]
+                }
+            },
+            "mm:cast_hellfire": {
+                "set_property": {
+                    "mm:is_casting_hellfire": true,
+                    "mm:mana": "query.property('mm:mana')-8"
+                },
+                "stop_movement": {
+                    "stop_horizontal_movement": true,
+                    "stop_vertical_movement": true
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:casting_hellfire"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:regular_attack"
+                    ]
+                }
+            },
+            "mm:finish_casting_hellfire": {
+                "set_property": {
+                    "mm:is_casting_hellfire": false
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:casting_hellfire"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:regular_attack"
+                    ]
+                }
+            },
+            "mm:remove_hand": {
+                "filters": [
+                    {
+                        "test": "int_property",
+                        "value": 0,
+                        "subject": "self",
+                        "domain": "mm:hands_active",
+                        "operator": ">"
+                    }
+                ],
+                "set_property": {
+                    "mm:hands_active": "query.property('mm:hands_active')-1"
+                }
+            },
+            "mm:add_hand": {
+                "filters": [
+                    {
+                        "test": "int_property",
+                        "value": 4,
+                        "subject": "self",
+                        "domain": "mm:hands_active",
+                        "operator": "<"
+                    }
+                ],
+                "set_property": {
+                    "mm:hands_active": "query.property('mm:hands_active')+1"
+                }
+            },
+            "mm:restore_mana_to_self": {
+                "set_property": {
+                    "mm:mana": "query.property('mm:mana')+1"
+                }
+            }
+        }
+    }
+}

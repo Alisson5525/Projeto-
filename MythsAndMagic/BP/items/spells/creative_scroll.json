@@ -1,0 +1,22 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:creative_scroll",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:icon": "creative_scroll",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.4,
+                "use_duration": 0.1
+            },
+            "minecraft:rarity": "epic",
+            "minecraft:use_animation": "bow",
+            "mm:creative_scroll": {}
+        }
+    }
+}

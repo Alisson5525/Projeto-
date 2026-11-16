@@ -1,0 +1,55 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:whitewinter_loader",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "mm:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": "no"
+                }
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:persistent": {},
+            "minecraft:tick_world": {
+                "never_despawn": true,
+                "radius": 2
+            },
+            "minecraft:timer": {
+                "time": 10,
+                "time_down_event": {
+                    "event": "mm:despawn"
+                }
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            }
+        },
+        "events": {
+            "mm:despawn": {
+                "add": {
+                    "component_groups": [
+                        "mm:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

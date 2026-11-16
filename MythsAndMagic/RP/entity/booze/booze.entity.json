@@ -1,0 +1,129 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:booze",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/booze/booze",
+                "fire_resistance": "textures/entity/booze/fire_resistance",
+                "speed": "textures/entity/booze/speed",
+                "regeneration": "textures/entity/booze/regeneration",
+                "jump_boost": "textures/entity/booze/jump_boost",
+                "water_breathing": "textures/entity/booze/water_breathing",
+                "night_vision": "textures/entity/booze/night_vision",
+                "invisibility": "textures/entity/booze/invisibility",
+                "slow_falling": "textures/entity/booze/slow_falling",
+                "haste": "textures/entity/booze/haste",
+                "blindness": "textures/entity/booze/blindness",
+                "metallurgy": "textures/entity/booze/metallurgy",
+                "reduction": "textures/entity/booze/reduction",
+                "fragile": "textures/entity/booze/fragile"
+            },
+            "geometry": {
+                "default": "geometry.booze"
+            },
+            "scripts": {
+                "animate": [
+                    "arms_hidden",
+                    "move_controller",
+                    "sink_controller",
+                    "idle",
+                    "idle_cauldron",
+                    {
+                        "jump_boost": "query.property('mm:potion') == 'jump_boost'"
+                    },
+                    {
+                        "speed": "query.property('mm:potion') == 'speed'"
+                    },
+                    {
+                        "fire_resistance": "query.property('mm:potion') == 'fire_resistance'"
+                    },
+                    {
+                        "regeneration": "query.property('mm:potion') == 'regeneration'"
+                    },
+                    {
+                        "haste": "query.property('mm:potion') == 'haste'"
+                    },
+                    {
+                        "slow_falling": "query.property('mm:potion') == 'slow_falling'"
+                    },
+                    {
+                        "invisibility": "query.property('mm:potion') == 'invisibility'"
+                    },
+                    {
+                        "night_vision": "query.property('mm:potion') == 'night_vision'"
+                    },
+                    {
+                        "water_breathing": "query.property('mm:potion') == 'water_breathing'"
+                    },
+                    {
+                        "metallurgy": "query.property('mm:potion') == 'metallurgy'"
+                    },
+                    {
+                        "reduction": "query.property('mm:potion') == 'reduction'"
+                    },
+                    {
+                        "blindness": "query.property('mm:potion') == 'blindness'"
+                    },
+                    {
+                        "fragile": "query.property('mm:potion') == 'fragile'"
+                    }
+                ]
+            },
+            "animations": {
+                "idle": "animation.booze.idle",
+                "idle_cauldron": "animation.booze.idle_cauldron",
+                "arms_hidden": "animation.booze.arms_hidden",
+                "walk": "animation.booze.walk",
+                "sink_into_cauldron": "animation.booze.sink_into_cauldron",
+                "sunken": "animation.booze.sunken",
+                "rise_from_cauldron": "animation.booze.rise_from_cauldron",
+                "move_controller": "controller.animation.booze.walk",
+                "sink_controller": "controller.animation.booze.sink",
+                "spoil": "animation.booze.spoil",
+                "bubbling": "animation.booze.bubbling",
+                "jump_boost": "animation.booze.jump_boost",
+                "speed": "animation.booze.speed",
+                "fire_resistance": "animation.booze.fire_resistance",
+                "regeneration": "animation.booze.regeneration",
+                "haste": "animation.booze.haste",
+                "slow_falling": "animation.booze.slow_falling",
+                "invisibility": "animation.booze.invisibility",
+                "night_vision": "animation.booze.night_vision",
+                "water_breathing": "animation.booze.water_breathing",
+                "metallurgy": "animation.booze.metallurgy",
+                "reduction": "animation.booze.reduction",
+                "blindness": "animation.booze.blindness",
+                "fragile": "animation.booze.fragile"
+            },
+            "particle_effects": {
+                "spoil1": "mm:booze_spoil_1",
+                "spoil2": "mm:booze_spoil_2",
+                "bubbling": "mm:booze_bubbling",
+                "jump_boost": "mm:booze_magic_jump_boost",
+                "speed": "mm:booze_magic_speed",
+                "fire_resistance": "mm:booze_magic_fire_resistance",
+                "regeneration": "mm:booze_magic_regeneration",
+                "haste": "mm:booze_magic_haste",
+                "slow_falling": "mm:booze_magic_slow_falling",
+                "invisibility": "mm:booze_magic_invisibility",
+                "night_vision": "mm:booze_magic_night_vision",
+                "water_breathing": "mm:booze_magic_water_breathing",
+                "metallurgy": "mm:booze_magic_metallurgy",
+                "reduction": "mm:booze_magic_reduction",
+                "blindness": "mm:booze_magic_blindness",
+                "fragile": "mm:booze_magic_fragile"
+            },
+            "render_controllers": [
+                "controller.render.booze"
+            ],
+            "spawn_egg": {
+                "texture": "egg_booze"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:soul_brazier",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:soul_brazier",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "soul_brazier"
+        }
+    }
+}

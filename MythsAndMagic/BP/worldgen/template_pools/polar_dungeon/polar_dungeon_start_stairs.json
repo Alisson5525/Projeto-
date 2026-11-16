@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:polar_dungeon_start_stairs"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/main_stairs",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

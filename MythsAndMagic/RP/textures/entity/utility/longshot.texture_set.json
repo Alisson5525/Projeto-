@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "longshot_projectile",
+        "metalness_emissive_roughness": "longshot_projectile_mer"
+    }
+}

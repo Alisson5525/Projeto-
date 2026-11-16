@@ -1,0 +1,34 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.icarus_boots.flutter": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"flutter": "query.is_jumping"
+						}
+					]
+				},
+				"flutter": {
+					"animations": [
+						"flutter"
+					],
+					"transitions": [
+						{
+							"finished": "query.all_animations_finished"
+						}
+					]
+				},
+				"finished": {
+					"transitions": [
+						{
+							"default": "query.is_on_ground && !q.is_jumping"
+						}
+					]
+				}
+			}
+		}
+	}
+}

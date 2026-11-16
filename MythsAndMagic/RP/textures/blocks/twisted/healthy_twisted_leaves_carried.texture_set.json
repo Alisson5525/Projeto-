@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "healthy_twisted_leaves_carried",
+        "metalness_emissive_roughness": "twisted_leaves_mer"
+    }
+}

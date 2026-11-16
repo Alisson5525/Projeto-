@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:frost_mask"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "sxs",
+            "xSx"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "s": {
+                "item": "string"
+            },
+            "x": {
+                "item": "mm:permafrost_shard"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:permafrost_shard"
+            }
+        ],
+        "result": {
+            "item": "mm:frost_mask",
+            "count": 1
+        }
+    }
+}

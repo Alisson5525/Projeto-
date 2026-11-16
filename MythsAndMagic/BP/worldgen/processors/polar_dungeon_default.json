@@ -1,0 +1,54 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:processor_list": {
+		"description": {
+			"identifier": "mm:polar_dungeon"
+		},
+		"processors": [
+			{
+				"processor_type": "minecraft:rule",
+				"rules": [
+					{
+						"input_predicate": {
+							"block": "web",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.44
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "minecraft:air"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "mm:calcite_bricks",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.15
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "mm:polished_calcite"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "stone_bricks",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.2
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "cracked_stone_bricks"
+						}
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,69 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.guardian_myth": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "textures": [
+                "Texture.default"
+            ],
+            "part_visibility": [
+                {
+                    "*": true
+                },
+                {
+                    "hand3": "query.property('mm:hands_active') >= 4"
+                },
+                {
+                    "hand_0_digit9": "query.property('mm:hands_active') >= 4"
+                },
+                {
+                    "hand_0_digit10": "query.property('mm:hands_active') >= 4"
+                },
+                {
+                    "hand_0_digit11": "query.property('mm:hands_active') >= 4"
+                },
+                {
+                    "hand2": "query.property('mm:hands_active') >= 3"
+                },
+                {
+                    "hand_0_digit6": "query.property('mm:hands_active') >= 3"
+                },
+                {
+                    "hand_0_digit7": "query.property('mm:hands_active') >= 3"
+                },
+                {
+                    "hand_0_digit8": "query.property('mm:hands_active') >= 3"
+                },
+                {
+                    "hand1": "query.property('mm:hands_active') >= 2"
+                },
+                {
+                    "hand_0_digit3": "query.property('mm:hands_active') >= 2"
+                },
+                {
+                    "hand_0_digit4": "query.property('mm:hands_active') >= 2"
+                },
+                {
+                    "hand_0_digit5": "query.property('mm:hands_active') >= 2"
+                },
+                {
+                    "hand0": "query.property('mm:hands_active') >= 1"
+                },
+                {
+                    "hand_0_digit0": "query.property('mm:hands_active') >= 1"
+                },
+                {
+                    "hand_0_digit1": "query.property('mm:hands_active') >= 1"
+                },
+                {
+                    "hand_0_digit2": "query.property('mm:hands_active') >= 1"
+                }
+            ]
+        }
+    }
+}

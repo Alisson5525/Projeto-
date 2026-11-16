@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "regeneration",
+        "metalness_emissive_roughness": "booze_mer"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:orb_ponderer_orb",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha_one_sided"
+            },
+            "textures": {
+                "default": "textures/entity/utility/pondering_orb"
+            },
+            "geometry": {
+                "default": "geometry.pondering_orb"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "idle": "animation.orb_ponderer.idle"
+            },
+            "scripts": {
+                "scale": 0.8,
+                "animate": [
+                    "idle"
+                ]
+            }
+        }
+    }
+}

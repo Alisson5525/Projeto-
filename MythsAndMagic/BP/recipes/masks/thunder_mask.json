@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:thunder_mask"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "sxs",
+            "xSx"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "s": {
+                "item": "string"
+            },
+            "x": {
+                "item": "copper_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "copper_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:thunder_mask",
+            "count": 1
+        }
+    }
+}

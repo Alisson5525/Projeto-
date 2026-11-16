@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "reforged_spellcrafter_top",
+		"metalness_emissive_roughness": "reforged_spellcrafter_top_mer"
+	}
+}

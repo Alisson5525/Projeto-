@@ -1,0 +1,32 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:booze_potion_regeneration_splash",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "potion.regeneration.splash.name"
+            },
+            "minecraft:glint": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:throwable": {
+                "do_swing_animation": true,
+                "launch_power_scale": 1.5,
+                "max_launch_power": 1
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "mm:amethyst_splash_potion<mm:regeneration>"
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "mm:booze_splash_potion"
+                ]
+            },
+            "minecraft:icon": "booze_potion_regeneration_splash"
+        }
+    }
+}

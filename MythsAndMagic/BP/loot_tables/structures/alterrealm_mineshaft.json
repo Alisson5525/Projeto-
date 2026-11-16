@@ -1,0 +1,180 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 4,
+        "max": 6
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "mm:unobtanium_ingot",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 10,
+          "name": "iron_axe"
+        },
+        {
+          "type": "item",
+          "name": "gold_ingot",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "diamond",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:alchatite_ingot",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "string",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:raw_unobtanium",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "mm:sparkling_shard",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "web",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "mm:disc_fragment_devoid",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_terraform",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_imprison",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_shadow_purify",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 89
+        },
+        {
+          "type": "item",
+          "name": "mm:alter_staff_design_smithing_template",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "mm:walker_staff_design_smithing_template",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

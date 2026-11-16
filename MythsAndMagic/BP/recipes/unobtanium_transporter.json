@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:unobtanium_transporter"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "UEU",
+            "URU",
+            "URU"
+        ],
+        "key": {
+            "U": {
+                "item": "mm:unobtanium_ingot"
+            },
+            "R": {
+                "item": "redstone"
+            },
+            "E": {
+                "item": "ender_pearl"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:unobtanium_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:unobtanium_transporter",
+            "count": 2
+        }
+    }
+}

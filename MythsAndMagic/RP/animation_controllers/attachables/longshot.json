@@ -1,0 +1,53 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.longshot.visible": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"used": "query.cooldown_time_remaining('longshot') >= 21 && c.is_first_person"
+						},
+						{
+							"hidden": "query.cooldown_time_remaining('longshot') >= 21 && !c.is_first_person"
+						}
+					]
+				},
+				"used": {
+					"animations": [
+						"used"
+					],
+					"transitions": [
+						{
+							"hidden": "query.all_animations_finished || !c.is_first_person"
+						}
+					]
+				},
+				"hidden": {
+					"animations": [
+						"hide"
+					],
+					"transitions": [
+						{
+							"default": "query.cooldown_time_remaining('longshot') <=4 && !c.is_first_person"
+						},
+						{
+							"finished": "query.cooldown_time_remaining('longshot') <= 4"
+						}
+					]
+				},
+				"finished": {
+					"animations": [
+						"catch"
+					],
+					"transitions": [
+						{
+							"default": "q.all_animations_finished || !c.is_first_person"
+						}
+					]
+				}
+			}
+		}
+	}
+}

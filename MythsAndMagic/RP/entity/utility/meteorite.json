@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:meteorite",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive"
+            },
+            "textures": {
+                "default": "textures/entity/utility/meteor"
+            },
+            "geometry": {
+                "default": "geometry.giant_snowball"
+            },
+            "animations": {
+                "meteorite": "animation.meteorite.rotate",
+                "water_particles": "animation.meteorite.water_particles",
+                "particles": "animation.meteorite.fire_particles"
+            },
+            "particle_effects": {
+                "particle": "mm:meteorite_trail",
+                "water_particle": "minecraft:ice_evaporation_emitter"
+            },
+            "scripts": {
+                "should_update_effects_offscreen": true,
+                "should_update_bones_and_effects_offscreen": true,
+                "animate": [
+                    {
+                        "water_particles": "query.is_in_water"
+                    },
+                    {
+                        "particles": "!query.is_in_water"
+                    },
+                    "meteorite"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

@@ -1,0 +1,174 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mm:red_splinters",
+      "spawn_category": "creature",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "mm:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:transient": {},
+      "minecraft:timer": {
+        "time": 30,
+        "looping": true,
+        "time_down_event": {
+          "event": "mm:despawn"
+        }
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:health": {
+        "value": 21
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:flying_speed": {
+        "value": 0.33
+      },
+      "minecraft:navigation.hover": {
+        "can_path_over_water": true,
+        "can_sink": false,
+        "can_pass_doors": false,
+        "can_path_from_air": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_sun": false
+      },
+      "minecraft:movement.hover": {},
+      "minecraft:follow_range": {
+        "value": 180
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_fly": {},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:area_attack": {
+        "damage_range": 1,
+        "damage_per_tick": 6,
+        "damage_cooldown": 0.1,
+        "cause": "magic",
+        "entity_filter": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "irongolem"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "snowgolem"
+            }
+          ]
+        }
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:attack": {
+        "damage": 6
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ]
+      },
+      "minecraft:cannot_be_attacked": {},
+      "minecraft:behavior.melee_attack": {
+        "priority": 4,
+        "speed_multiplier": 1.3,
+        "track_target": false,
+        "reach_multiplier": 0.0 // this prevents creepers from ocasionally performing melee attacks while using this goal to chase
+      },
+      "minecraft:behavior.float": {
+        "priority": 7
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.9
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "target_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:behavior.random_hover": {
+        "priority": 9,
+        "xz_dist": 8,
+        "y_dist": 8,
+        "y_offset": -1,
+        "interval": 1,
+        "hover_height": [
+          1,
+          4
+        ]
+      }
+    },
+    "events": {
+      "mm:despawn": {
+        "add": {
+          "component_groups": [
+            "mm:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:ancient_texts",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:icon": "ancient_texts",
+            "minecraft:max_stack_size": 1,
+            "minecraft:rarity": "uncommon",
+            "mm:ancient_texts": {},
+            "minecraft:cooldown": {
+                "category": "ancient_texts",
+                "duration": 1
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:bookshelf_books"
+                ]
+            }
+        }
+    }
+}

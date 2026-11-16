@@ -1,0 +1,41 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§6[§b1.0.9 B§6] §dAlylica's Myths & Magic",
+    "description": "§eAdds a fantasy magic system with all sorts of mobs!\n§6Made By : §dAlylica",
+    "uuid": "d40f5cf2-861b-4815-847d-296ca7db92ec",
+    "version": [1, 0, 9],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "0f755fea-33ce-47d6-a68c-6a9df53176d8",
+      "version": [1, 0, 9]
+    },
+    {
+      "uuid": "c75bd061-dd71-4114-8b63-3b74e95599ab",
+      "version": [1, 0, 9],
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "0390068a-704c-42d6-8cf9-8c9753e670aa",
+      "version": [1, 0, 9]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    }
+  ],
+  "metadata": {
+    "product_type": "addon"
+  }
+}

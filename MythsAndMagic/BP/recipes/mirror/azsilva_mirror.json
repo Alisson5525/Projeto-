@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:azsilva_mirror"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "###",
+            " S "
+        ],
+        "key": {
+            "#": {
+                "item": "mm:azsilva_ingot"
+            },
+            "S": {
+                "item": "smooth_stone_slab"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:azsilva_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:azsilva_mirror",
+            "count": 2
+        }
+    }
+}

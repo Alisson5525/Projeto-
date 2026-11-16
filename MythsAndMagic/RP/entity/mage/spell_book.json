@@ -1,0 +1,38 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:spell_book",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/mage/spell_book"
+            },
+            "geometry": {
+                "default": "geometry.spell_book"
+            },
+            "scripts": {
+                "animate": [
+                    "flap",
+                    "spawn"
+                ]
+            },
+            "sound_effects": {
+                "flap_wings": "mob.spell_book.flap_wings",
+                "spawn": "mob.spell_book.spawn"
+            },
+            "particle_effects": {
+                "spell_book_idle": "mm:spell_book_idle"
+            },
+            "animations": {
+                "spawn": "animation.spell_book.spawn",
+                "flap": "animation.spell_book.flap_wings"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

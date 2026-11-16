@@ -1,0 +1,48 @@
+{
+    "format_version": "1.21.40",
+    "minecraft:atmosphere_settings": {
+        "description": {
+            "identifier": "mm:alterrealm_atmosphere"
+        },
+        "sky_zenith_color": {
+            "0.000000": [
+                225,
+                32,
+                155
+            ]
+        },
+        "sky_horizon_color": {
+            "0.000000": [
+                255,
+                55,
+                155
+            ]
+        },
+        "rayleigh_strength": {
+            "0.000000": 30.0
+        },
+        "sun_mie_strength": {
+            "0.000000": 8.05
+        },
+        "moon_mie_strength": {
+            "0.000000": 0
+        },
+        "sun_glare_shape": {
+            "0.000000": 0.05
+        },
+        "horizon_blend_stops": {
+            "min": {
+                "0.000000": 0.31
+            },
+            "start": {
+                "0.000000": 0.74
+            },
+            "mie_start": {
+                "0.000000": 1.0
+            },
+            "max": {
+                "0.000000": 0.42
+            }
+        }
+    }
+}

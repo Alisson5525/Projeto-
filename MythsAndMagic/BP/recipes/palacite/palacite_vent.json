@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:palacite_vent"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#",
+            "#",
+            "M"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:palacite"
+            },
+            "M": {
+                "item": "magma"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:palacite"
+            }
+        ],
+        "result": {
+            "item": "mm:palacite_vent",
+            "count": 1
+        }
+    }
+}

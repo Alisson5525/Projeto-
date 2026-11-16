@@ -1,0 +1,37 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:music_disc_myths_and_magic"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "DP"
+        ],
+        "key": {
+            "D": {
+                "item": "mm:music_disc_farewell"
+            },
+            "P": {
+                "item": "mm:pink_plushie"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:music_disc_farewell"
+            }
+        ],
+        "result": [
+            {
+                "item": "mm:music_disc_myths_and_magic",
+                "count": 1
+            },
+            {
+                "item": "mm:pink_plushie",
+                "count": 1
+            }
+        ]
+    }
+}

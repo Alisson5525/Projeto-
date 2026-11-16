@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:hellfire_key",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "hellfire_key",
+            "minecraft:rarity": "uncommon"
+        }
+    }
+}

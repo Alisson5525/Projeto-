@@ -1,0 +1,159 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player.stun_mm": {
+			"loop": true,
+			"animation_length": 0.55,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								-10
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								0,
+								0,
+								-15
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": [
+							0,
+							0,
+							-10
+						]
+					},
+					"position": {
+						"0.0": {
+							"post": [
+								4,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								3.9,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": [
+							4,
+							0,
+							0
+						]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								40
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								0,
+								0,
+								37.5
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": {
+							"post": [
+								0,
+								0,
+								40
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								-40
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								0,
+								0,
+								-50
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": {
+							"post": [
+								0,
+								0,
+								-40
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								10
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								0,
+								0,
+								15
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.55": [
+							0,
+							0,
+							10
+						]
+					}
+				},
+				"leftLeg": {
+					"rotation": [
+						0,
+						0,
+						-35
+					]
+				},
+				"body": {
+					"rotation": [
+						0,
+						0,
+						-2.5
+					],
+					"position": [
+						-0.5,
+						0,
+						0
+					]
+				}
+			}
+		}
+	}
+}

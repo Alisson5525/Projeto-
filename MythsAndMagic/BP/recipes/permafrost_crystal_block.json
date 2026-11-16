@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:permafrost_crystal_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:permafrost_shard"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:permafrost_shard"
+            }
+        ],
+        "result": {
+            "item": "mm:permafrost_crystal_block",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,50 @@
+	{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:scroll_crafter",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "mm:scroll_crafter": {},
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 2.5
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2.5, //(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_axe')"
+                        },
+                        "destroy_speed": 2.5 //(blocks hardness)
+                    }
+                ]
+            },
+            "minecraft:destruction_particles": {
+                "texture": "dark_oak_planks"
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.spell_manager"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "scroll_crafter",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "tag:axe_mine": {},
+            "tag:minecraft:is_axe_item_destructible": {}
+        }
+    }
+}

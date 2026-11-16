@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:polished_palacite_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:polished_palacite"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:polished_palacite"
+            }
+        ],
+        "result": {
+            "item": "mm:polished_palacite_wall",
+            "count": 6
+        }
+    }
+}

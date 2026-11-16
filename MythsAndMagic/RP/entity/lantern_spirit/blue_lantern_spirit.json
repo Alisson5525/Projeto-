@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:blue_lantern_spirit",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/misc/empty"
+            },
+            "geometry": {
+                "default": "geometry.mm_particle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles": "animation.lantern_spirit.particles"
+            },
+            "scripts": {
+                "animate": [
+                    "particles"
+                ]
+            },
+            "particle_effects": {
+                "souls": "mm:lantern_spirit_blue_0",
+                "smoke": "mm:lantern_spirit_1"
+            }
+        }
+    }
+}

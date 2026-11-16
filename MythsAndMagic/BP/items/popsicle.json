@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:popsicle",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "popsicle",
+            "minecraft:food": {
+                "nutrition": 2,
+                "saturation_modifier": 1,
+                "using_converts_to": "stick"
+            },
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.4,
+                "use_duration": 1.6
+            },
+            "minecraft:use_animation": "eat",
+            "mm:popsicle": {}
+        }
+    }
+}

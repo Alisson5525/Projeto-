@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:azsilva_from_deepslate"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "mm:deepslate_azsilva_ore",
+        "output": "mm:azsilva_ingot"
+    }
+}

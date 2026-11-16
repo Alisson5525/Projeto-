@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:cracked_palacite_bricks"
+        },
+        "tags": [
+            "furnace"
+        ],
+        "input": "mm:palacite_bricks",
+        "output": "mm:cracked_palacite_bricks"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:spark",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/misc/empty"
+            },
+            "geometry": {
+                "default": "geometry.mm_particle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles": "animation.spark.particles"
+            },
+            "scripts": {
+                "animate": [
+                    "particles"
+                ]
+            },
+            "particle_effects": {
+                "electricity": "mm:spark_electricity",
+                "magic": "mm:spark_magic"
+            }
+        }
+    }
+}

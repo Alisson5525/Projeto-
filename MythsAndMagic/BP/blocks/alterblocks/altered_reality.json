@@ -1,0 +1,49 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:altered_reality",
+            "menu_category": {
+                "category": "nature"
+            }
+        },
+        "components": {
+            "minecraft:collision_box": false,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "minecraft:replaceable": {},
+            "minecraft:movable": {
+                "movement_type": "popped"
+            },
+            "minecraft:light_emission": 1,
+            "tag:mm:ignore_silk_touch": {},
+            "minecraft:geometry": {
+                "identifier": "geometry.custom_leaves",
+                "culling": "mm:culling.custom_leaves",
+                "culling_layer": "minecraft:culling_layer.leaves"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "altered_reality",
+                    "render_method": "alpha_test_to_opaque",
+                    "ambient_occlusion": 0.8,
+                    "isotropic": true
+                }
+            }
+        }
+    }
+}

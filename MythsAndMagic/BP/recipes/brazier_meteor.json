@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:meteor_brazier"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " # ",
+            "SMS",
+            " S "
+        ],
+        "key": {
+            "#": {
+                "item": "coal"
+            },
+            "M": {
+                "item": "mm:meteor_ingot"
+            },
+            "S": {
+                "item": "smooth_stone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:meteor_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:meteor_brazier",
+            "count": 2
+        }
+    }
+}

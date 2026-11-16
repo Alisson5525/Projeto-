@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "scroll_crafter",
+		"metalness_emissive_roughness": "scroll_crafter_mer"
+	}
+}

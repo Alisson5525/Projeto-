@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sc_pol_palacite_to_cracked_brick_slab"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "mm:polished_palacite"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "mm:polished_palacite"
+            }
+        ],
+        "result": {
+            "item": "mm:cracked_palacite_brick_slab",
+            "count": 2
+        }
+    }
+}

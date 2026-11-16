@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:reforged_spellcrafter"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " S ",
+            "AOA",
+            "OCO"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_shard"
+            },
+            "A": {
+                "item": "amethyst_shard"
+            },
+            "C": {
+                "item": "mm:spellcrafter_core"
+            },
+            "O": {
+                "item": "obsidian"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:spellcrafter_core"
+            }
+        ],
+        "result": {
+            "item": "mm:reforged_spellcrafter",
+            "count": 1
+        }
+    }
+}

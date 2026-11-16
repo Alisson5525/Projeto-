@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:breeze_mask"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "sxs",
+            "xSx"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "s": {
+                "item": "string"
+            },
+            "x": {
+                "item": "wind_charge"
+            }
+        },
+        "unlock": [
+            {
+                "item": "wind_charge"
+            }
+        ],
+        "result": {
+            "item": "mm:breeze_mask",
+            "count": 1
+        }
+    }
+}

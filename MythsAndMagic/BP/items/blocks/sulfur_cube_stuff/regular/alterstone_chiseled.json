@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:chiseled_alterstone",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:chiseled_alterstone.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:chiseled_alterstone",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_regular"
+                ]
+            }
+        }
+    }
+}

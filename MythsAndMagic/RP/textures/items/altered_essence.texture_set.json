@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "altered_essence",
+        "metalness_emissive_roughness": "altered_essence_mer"
+    }
+}

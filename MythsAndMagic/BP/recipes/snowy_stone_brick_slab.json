@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:snowy_stone_brick_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:snowy_stone_bricks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:snowy_stone_bricks"
+            }
+        ],
+        "result": {
+            "item": "mm:snowy_stone_brick_slab",
+            "count": 6
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:sparkling_brazier",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:sparkling_brazier",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "sparkling_brazier"
+        }
+    }
+}

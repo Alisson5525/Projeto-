@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "mm:booze_splash_metallurgy"
+        },
+        "input": "mm:booze_potion_metallurgy",
+        "reagent": "gunpowder",
+        "output": "mm:booze_potion_metallurgy_splash",
+        "tags": [
+            "brewing_stand"
+        ]
+    }
+}

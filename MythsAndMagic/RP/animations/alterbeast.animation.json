@@ -1,0 +1,118 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.revoid.particles": {
+      "animation_length": 0.05,
+      "loop": true,
+      "particle_effects": {
+        "0.0": [
+          {
+            "locator": "particles0",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles1",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles2",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles3",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles4",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles5",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles6",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles7",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles8",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles9",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles10",
+            "effect": "trail"
+          }
+        ]
+      }
+    },
+    "animation.alterbeast.particles": {
+      "animation_length": 0.05,
+      "loop": true,
+      "particle_effects": {
+        "0.0": [
+          {
+            "locator": "particles0",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles1",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles2",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles3",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles4",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles5",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles6",
+            "effect": "trail"
+          },
+          {
+            "locator": "particles7",
+            "effect": "trail"
+          }
+        ]
+      }
+    },
+    "animation.alterbeast.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-q.life_time*120",
+            "-q.life_time*-180",
+            "q.life_time*300"
+          ],
+          "scale": "q.has_target ? 1+math.cos(q.life_time*720)*0.5: 1"
+        },
+        "inner": {
+          "rotation": [
+            "-q.life_time*-120",
+            "-q.life_time*180",
+            "q.life_time*-300"
+          ],
+          "scale": "q.has_target ? 1+math.cos(q.life_time*360)*0.5 : 1"
+        }
+      }
+    }
+  }
+}

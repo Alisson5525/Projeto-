@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "haste_splash",
+        "metalness_emissive_roughness": "potion_booze_splash_mer"
+    }
+}

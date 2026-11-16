@@ -1,0 +1,51 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.jakynbocks.biting": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"start_bite": "query.property('mm:biting_attack') == true"
+						}
+					],
+					"blend_transition": 0
+				},
+				"start_bite": {
+					"animations": [
+						"enter_bite"
+					],
+					"transitions": [
+						{
+							"bite_state": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.0
+				},
+				"bite_state": {
+					"animations": [
+						"loop_bite"
+					],
+					"transitions": [
+						{
+							"exit_bite": "query.property('mm:biting_attack') == false"
+						}
+					],
+					"blend_transition": 0.0
+				},
+				"exit_bite": {
+					"animations": [
+						"exit_bite"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.0
+				}
+			}
+		}
+	}
+}

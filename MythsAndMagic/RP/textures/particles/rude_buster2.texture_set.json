@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "rude_buster2",
+        "metalness_emissive_roughness": "rude_buster2_mer"
+    }
+}

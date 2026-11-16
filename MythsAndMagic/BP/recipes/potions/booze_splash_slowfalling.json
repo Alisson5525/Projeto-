@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "mm:booze_splash_slowfalling"
+        },
+        "input": "mm:booze_potion_slowfalling_long",
+        "reagent": "gunpowder",
+        "output": "mm:booze_potion_slowfalling_splash",
+        "tags": [
+            "brewing_stand"
+        ]
+    }
+}

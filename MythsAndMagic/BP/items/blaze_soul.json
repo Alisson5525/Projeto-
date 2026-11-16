@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:blaze_soul",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:blaze_soul",
+                "use_on": [
+                    "mm:blaze_soul"
+                ],
+                "replace_block_item": true
+            }
+        }
+    }
+}

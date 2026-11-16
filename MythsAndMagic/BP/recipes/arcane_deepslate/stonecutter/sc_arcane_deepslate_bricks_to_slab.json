@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sc_arcane_deepslate_bricks_to_slab"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "mm:arcane_deepslate_bricks"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "mm:arcane_deepslate"
+            }
+        ],
+        "result": {
+            "item": "mm:arcane_deepslate_brick_slab",
+            "count": 2
+        }
+    }
+}

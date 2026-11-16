@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:sanctuary_bricks"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " G ",
+            "GSG",
+            " G "
+        ],
+        "key": {
+            "S": {
+                "item": "stone_bricks"
+            },
+            "G": {
+                "item": "gold_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "gold_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:sanctuary_bricks",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:sanctuary_keeper",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/sanctuary_keeper/sanctuary_keeper"
+            },
+            "geometry": {
+                "default": "geometry.sanctuary_keeper"
+            },
+            "scripts": {
+                "animate": [
+                    "idle_controller",
+                    "particles"
+                ]
+            },
+            "animations": {
+                "idle": "animation.sanctuary_keeper.idle",
+                "stun": "animation.sanctuary_keeper.stun",
+                "particles": "animation.sanctuary_keeper.particles",
+                "idle_controller": "controller.animation.sanctuary_keeper.idle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "particle_effects": {
+                "aura": "mm:sanctuary_keeper_aura",
+                "smoke": "mm:sanctuary_keeper_smoke"
+            },
+            "sound_effects": {
+                "stun": "mob.sanctuary_keeper.stun"
+            },
+            "spawn_egg": {
+                "texture": "egg_sanctuary_keeper"
+            }
+        }
+    }
+}

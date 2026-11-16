@@ -1,0 +1,39 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "mm:sanctuary"
+    },
+    "biome_filters": [
+      {
+        "any_of": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "desert"
+          }
+        ]
+      }
+    ],
+    "heightmap_projection": "none",
+    "max_depth": 20,
+    "dimension_padding": {
+      "bottom": 0,
+      "top": 128
+    },
+    "start_height": {
+      "type": "constant",
+      "value": {
+        "above_bottom": 84
+      }
+    },
+    "max_distance_from_center": {
+      "vertical": 128,
+      "horizontal": 128
+    },
+    "liquid_settings": "ignore_waterlogging",
+    "start_pool": "mm:sanctuary_start",
+    "step": "underground_structures",
+    "terrain_adaptation": "encapsulate"
+  }
+}

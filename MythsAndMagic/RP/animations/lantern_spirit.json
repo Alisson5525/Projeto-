@@ -1,0 +1,21 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.lantern_spirit.particles": {
+            "animation_length": 1,
+            "loop": true,
+            "particle_effects": {
+                "0.0": [
+                    {
+                        "locator": "particles",
+                        "effect": "smoke"
+                    },
+                    {
+                        "locator": "particles",
+                        "effect": "souls"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/loot.json",
+          "weight": 7
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_haste.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_fire_resistance.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_jump_boost.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_fragile.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_reduction.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_swiftness.json",
+          "weight": 1
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/structures/coven_ruins/recipe_water_breathing.json",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

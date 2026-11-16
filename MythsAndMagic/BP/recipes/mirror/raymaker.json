@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:raymaker"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS",
+            "GQE",
+            "SSS"
+        ],
+        "key": {
+            "Q": {
+                "item": "quartz"
+            },
+            "E": {
+                "item": "mm:azsilva_nugget"
+            },
+            "G": {
+                "item": "glowstone"
+            },
+            "S": {
+                "item": "stone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:azsilva_nugget"
+            }
+        ],
+        "result": {
+            "item": "mm:raymaker",
+            "count": 1
+        }
+    }
+}

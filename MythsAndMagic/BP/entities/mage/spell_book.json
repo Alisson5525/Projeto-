@@ -1,0 +1,166 @@
+{
+  "format_version": "1.21.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mm:spell_book",
+      "spawn_category": "creature",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "mm:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "time": 15,
+        "looping": true,
+        "time_down_event": {
+          "event": "mm:despawn"
+        }
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.3
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:health": {
+        "value": 16
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.17
+      },
+      "minecraft:flying_speed": {
+        "value": 0.17
+      },
+      "minecraft:navigation.hover": {
+        "can_path_over_water": true,
+        "can_sink": false,
+        "can_pass_doors": false,
+        "can_path_from_air": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_sun": false
+      },
+      "minecraft:movement.hover": {},
+      "minecraft:follow_range": {
+        "value": 180
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_fly": {},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:area_attack": {
+        "damage_range": 1,
+        "damage_per_tick": 3,
+        "damage_cooldown": 2,
+        "cause": "magic",
+        "entity_filter": {
+          "all_of": [
+            {
+              "test": "has_ability",
+              "value": "instabuild",
+              "operator": "not"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          ]
+        }
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ]
+      },
+      "minecraft:cannot_be_attacked": {},
+      "minecraft:behavior.melee_attack": {
+        "priority": 4,
+        "speed_multiplier": 3,
+        "track_target": false,
+        "reach_multiplier": 0.0 // this prevents mob from ocasionally performing melee attacks while using this goal to chase
+      },
+      "minecraft:behavior.float": {
+        "priority": 7
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.25
+      },
+      "minecraft:behavior.random_hover": {
+        "priority": 9,
+        "xz_dist": 8,
+        "y_dist": 8,
+        "y_offset": -1,
+        "interval": 1,
+        "hover_height": [
+          1,
+          4
+        ]
+      }
+    },
+    "events": {
+      "mm:despawn": {
+        "filters": [
+          {
+            "test": "has_target",
+            "value": false
+          }
+        ],
+        "add": {
+          "component_groups": [
+            "mm:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

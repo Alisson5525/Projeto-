@@ -1,0 +1,253 @@
+{
+    "format_version": "1.26.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:twisted_trapdoor",
+            "menu_category": {
+                "category": "construction"
+            },
+            "states": {
+                "mm:open": [
+                    false,
+                    true
+                ]
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:vertical_half"
+                    ]
+                },
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180
+                }
+            }
+        },
+        "permutations": [
+            {
+                //bottom_closed
+                "condition": "!query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'bottom'",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            -8
+                        ],
+                        "size": [
+                            16,
+                            3,
+                            16
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            -8
+                        ],
+                        "size": [
+                            16,
+                            3,
+                            16
+                        ]
+                    }
+                }
+            },
+            {
+                //top_closed
+                "condition": "!query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'top'",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -8,
+                            13,
+                            -8
+                        ],
+                        "size": [
+                            16,
+                            3,
+                            16
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -8,
+                            13,
+                            -8
+                        ],
+                        "size": [
+                            16,
+                            3,
+                            16
+                        ]
+                    }
+                }
+            },
+            {
+                //open
+                "condition": "query.block_state('mm:open')",
+                "components": {
+                    "minecraft:collision_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            5
+                        ],
+                        "size": [
+                            16,
+                            16,
+                            3
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -8,
+                            0,
+                            5
+                        ],
+                        "size": [
+                            16,
+                            16,
+                            3
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "obstruct_rain"
+            },
+            "minecraft:redstone_consumer": {
+                "min_power": 0,
+                "propogates_power": true
+            },
+            "mm:trapdoor": {
+                "open_sound": "open.nether_wood_trapdoor",
+                "close_sound": "close.nether_wood_trapdoor"
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    3,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    3,
+                    16
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.mm_trapdoor",
+                "bone_visibility": {
+                    "bottom_closed": "!query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'bottom'",
+                    "bottom_open": "query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'bottom'",
+                    "top_closed": "!query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'top'",
+                    "top_open": "query.block_state('mm:open') && query.block_state('minecraft:vertical_half') == 'top'"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "twisted_trapdoor"
+                }
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:flammable": true,
+            "minecraft:map_color": "#E896F9",
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_axe')"
+                        },
+                        "destroy_speed": 2 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:axe_mine": {},
+            "tag:minecraft:is_axe_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": false,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

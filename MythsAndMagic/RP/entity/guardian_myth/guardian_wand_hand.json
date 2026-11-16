@@ -1,0 +1,29 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:guardian_wand_hand",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive"
+            },
+            "textures": {
+                "default": "textures/entity/guardian_myth/guardian_myth"
+            },
+            "geometry": {
+                "default": "geometry.guardian_wand_hand"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "attack": "animation.guardian_wand_hand.hit"
+            },
+            "scripts": {
+                "animate": [
+                    "attack"
+                ]
+            }
+        }
+    }
+}

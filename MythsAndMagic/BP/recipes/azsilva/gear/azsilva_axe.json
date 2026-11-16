@@ -1,0 +1,34 @@
+{
+    "format_version": "1.21.100",
+    "minecraft:recipe_shaped": {
+        "assume_symmetry": true,
+        "description": {
+            "identifier": "mm:azsilva_axe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " ##",
+            " S#",
+            " S "
+        ],
+        "key": {
+            "#": {
+                "item": "mm:azsilva_ingot"
+            },
+            "S": {
+                "item": "stick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:azsilva_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:azsilva_axe",
+            "count": 1
+        }
+    }
+}

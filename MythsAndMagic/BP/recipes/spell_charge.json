@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:spell_charge"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "#"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:booze_rod"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:booze_rod"
+            }
+        ],
+        "result": {
+            "item": "mm:spell_charge",
+            "count": 3
+        }
+    }
+}

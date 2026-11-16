@@ -1,0 +1,53 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.sacred_statue.move": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 0.2"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"walking": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.05 || q.hurt_time > 0"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.sacred_statue.attack": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"attacking": "query.is_delayed_attacking"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"attacking": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		}
+	}
+}

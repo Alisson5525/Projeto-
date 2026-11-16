@@ -1,0 +1,116 @@
+[
+    {
+        "flipbook_texture": "textures/blocks/arid_sandstone_chiseled_tile_animated",
+        "atlas_tile": "arid_sandstone_chiseled_tile_animated",
+        "ticks_per_frame": 16,
+        "blend_frames": true
+    },
+    {
+        "flipbook_texture": "textures/blocks/sanctuary_vault_side",
+        "atlas_tile": "sanctuary_vault_side",
+        "ticks_per_frame": 5,
+        "blend_frames": true
+    },
+    {
+        "flipbook_texture": "textures/items/blaze_soul",
+        "atlas_tile": "blaze_soul",
+        "ticks_per_frame": 2,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/chiller/top_on",
+        "atlas_tile": "chiller_top_on",
+        "ticks_per_frame": 1
+    },
+    {
+        "flipbook_texture": "textures/blocks/alterblocks/shockweed",
+        "atlas_tile": "shockweed",
+        "ticks_per_frame": 30,
+        "blend_frames": true
+    },
+    {
+        "flipbook_texture": "textures/blocks/magnetic_piston/top_on_blue",
+        "atlas_tile": "magnetic_piston_top_blue",
+        "ticks_per_frame": 4,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/magnetic_piston/top_on_orange",
+        "atlas_tile": "magnetic_piston_top_orange",
+        "ticks_per_frame": 4,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/alterblocks/altered_reality",
+        "atlas_tile": "altered_reality",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/sparkling_lantern",
+        "atlas_tile": "sparkling_lantern",
+        "ticks_per_frame": 8
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/brazier",
+        "atlas_tile": "brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/copper_brazier",
+        "atlas_tile": "copper_brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/soul_brazier",
+        "atlas_tile": "soul_brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/sparkling_brazier",
+        "atlas_tile": "sparkling_brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/unobtanium_brazier",
+        "atlas_tile": "unobtanium_brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/unobtanium_lantern",
+        "atlas_tile": "unobtanium_lantern",
+        "ticks_per_frame": 8
+    },
+    {
+        "ticks_per_frame": 1,
+        "blend_frames": false,
+        "flipbook_texture": "textures/blocks/unobtanium_transporter/unobtanium_transporter_top",
+        "atlas_tile": "unobtanium_transporter_top"
+    },
+    {
+        "flipbook_texture": "textures/blocks/spirit_lantern",
+        "atlas_tile": "spirit_lantern",
+        "ticks_per_frame": 8
+    },
+    {
+        "flipbook_texture": "textures/blocks/spirit_lantern_active",
+        "atlas_tile": "spirit_lantern_active",
+        "ticks_per_frame": 16
+    },
+    {
+        "flipbook_texture": "textures/blocks/brazier/meteor_brazier",
+        "atlas_tile": "meteor_brazier",
+        "ticks_per_frame": 1,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/meteor_lantern",
+        "atlas_tile": "meteor_lantern",
+        "ticks_per_frame": 8
+    }
+]

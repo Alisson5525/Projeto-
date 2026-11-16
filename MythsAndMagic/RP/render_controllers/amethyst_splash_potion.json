@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.amethyst_splash_potion": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.fireresistance",
+            "Texture.invisibility",
+            "Texture.jumpboost",
+            "Texture.nightvision",
+            "Texture.regeneration",
+            "Texture.slowfalling",
+            "Texture.speed",
+            "Texture.waterbreathing",
+            "Texture.haste",
+            "Texture.metallurgy",
+            "Texture.reduction",
+            "Texture.blindness",
+            "Texture.fragile",
+            "Texture.default"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.variant]",
+        "Texture.enchanted"
+      ],
+      "filter_lighting": true
+    }
+  }
+}

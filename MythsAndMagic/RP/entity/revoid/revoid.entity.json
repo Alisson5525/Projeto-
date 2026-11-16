@@ -1,0 +1,59 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:revoid",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/revoid/revoid"
+            },
+            "geometry": {
+                "default": "geometry.revoid"
+            },
+            "scripts": {
+                "animate": [
+                    "particles",
+                    "attack_controller",
+                    "idle_controller",
+                    "move_controller",
+                    "rising_controller",
+                    "target_controller",
+                    "crouch_controller"
+                ]
+            },
+            "particle_effects": {
+                "trail": "mm:alterbeast_trail"
+            },
+            "animations": {
+                "look_at_target": "animation.revoid.look_at_target",
+                "roar": "animation.revoid.roar",
+                "idle": "animation.revoid.idle",
+                "idle_floating": "animation.revoid.idle_floating",
+                "move": "animation.revoid.move",
+                "attack": "animation.revoid.attack",
+                "rise": "animation.revoid.spawn",
+                "crouch_position": "animation.revoid.crouch_position",
+                "exit_crouch_position": "animation.revoid.exit_crouch_position",
+                "enter_crouch_position": "animation.revoid.enter_crouch_position",
+                "move_crouched": "animation.revoid.move_crouched",
+                "attack_crouched": "animation.revoid.attack_crouched",
+                "particles": "animation.revoid.particles",
+                "move_controller": "controller.animation.revoid.move",
+                "idle_controller": "controller.animation.revoid.idle",
+                "attack_controller": "controller.animation.revoid.attack",
+                "rising_controller": "controller.animation.revoid.rising",
+                "target_controller": "controller.animation.revoid.lat",
+                "crouch_controller": "controller.animation.revoid.crouch"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "texture": "egg_revoid"
+            }
+        }
+    }
+}

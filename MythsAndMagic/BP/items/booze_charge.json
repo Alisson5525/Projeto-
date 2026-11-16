@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:spell_charge",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:throwable": {
+                "do_swing_animation": true,
+                "launch_power_scale": 1.5,
+                "max_launch_power": 1
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "mm:spell_charge"
+            },
+            "minecraft:icon": "spell_charge",
+            "minecraft:cooldown": {
+                "category": "spell_charge",
+                "duration": 0.5
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "occuleye",
+		"metalness_emissive_roughness": "occuleye_mer"
+	}
+}

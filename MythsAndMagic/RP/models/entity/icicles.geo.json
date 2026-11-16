@@ -1,0 +1,75 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.icicles",
+				"texture_width": 32,
+				"texture_height": 27,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "shard_1",
+					"parent": "root",
+					"pivot": [0, -12, 0]
+				},
+				{
+					"name": "icicle2",
+					"parent": "shard_1",
+					"pivot": [0, -12, 0],
+					"rotation": [22.5, 0, 0],
+					"cubes": [
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "uv": [0, -16], "mirror": true},
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "pivot": [-0.1, 0, 0], "rotation": [0, -90, 0], "uv": [0, -16], "mirror": true}
+					]
+				},
+				{
+					"name": "icicle3",
+					"parent": "shard_1",
+					"pivot": [0, -12, 0],
+					"rotation": [-22.19157, 3.81024, 9.25249],
+					"cubes": [
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "uv": [0, -16], "mirror": true},
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "pivot": [-0.1, 0, 0], "rotation": [0, -90, 0], "uv": [0, -16], "mirror": true}
+					]
+				},
+				{
+					"name": "icicle4",
+					"parent": "shard_1",
+					"pivot": [0, -12, 0],
+					"rotation": [-1.6404, 3.4533, -20.80723],
+					"cubes": [
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "uv": [0, -16], "mirror": true},
+						{"origin": [-0.1, -12, -8], "size": [0, 27, 16], "pivot": [-0.1, 0, 0], "rotation": [0, -90, 0], "uv": [0, -16], "mirror": true}
+					]
+				},
+				{
+					"name": "icicle5",
+					"parent": "shard_1",
+					"pivot": [0, -14, 0],
+					"rotation": [1.44133, 3.54093, 26.78678],
+					"cubes": [
+						{"origin": [-0.1, -14, -8], "size": [0, 27, 16], "uv": [0, -16], "mirror": true},
+						{"origin": [-0.1, -14, -8], "size": [0, 27, 16], "pivot": [-0.1, -2, 0], "rotation": [0, -90, 0], "uv": [0, -16], "mirror": true}
+					]
+				},
+				{
+					"name": "icicle",
+					"parent": "shard_1",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 0, -8], "size": [0, 27, 16], "uv": [0, -16]},
+						{"origin": [0, 0, -8], "size": [0, 27, 16], "pivot": [0, 12, 0], "rotation": [0, -90, 0], "uv": [0, -16]}
+					]
+				}
+			]
+		}
+	]
+}

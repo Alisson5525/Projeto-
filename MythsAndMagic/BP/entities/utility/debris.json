@@ -1,0 +1,48 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:debris",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "runtime_identifier": "minecraft:snowball"
+        },
+        "components": {
+            "minecraft:friction_modifier": {
+                "value": 1
+            },
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 1
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 6,
+                        "destroy_on_hit": true,
+                        "knockback": false
+                    },
+                    "remove_on_hit": {}
+                },
+                "power": 1,
+                "gravity": 0.05,
+                "inertia": 1,
+                "liquid_inertia": 1,
+                "uncertainty_base": 0,
+                "offset": [
+                    0,
+                    0.5,
+                    0
+                ],
+                "semi_random_diff_damage": false,
+                "reflect_on_hurt": false
+            },
+            "minecraft:physics": {},
+            "minecraft:transient": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            }
+        }
+    }
+}

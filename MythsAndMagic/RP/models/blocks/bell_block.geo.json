@@ -1,0 +1,551 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mm_bell_block",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "support_side_partial",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								13,
+								-5
+							],
+							"size": [
+								2,
+								2,
+								13
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"east": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										13,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"south": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"west": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										13,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"up": {
+									"uv": [
+										13,
+										6
+									],
+									"uv_size": [
+										-13,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"down": {
+									"uv": [
+										13,
+										8
+									],
+									"uv_size": [
+										-13,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "support_floor",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								10,
+								-6
+							],
+							"size": [
+								2,
+								2,
+								12
+							],
+							"pivot": [
+								0,
+								11,
+								0
+							],
+							"rotation": [
+								0,
+								90,
+								0
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"east": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										12,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"south": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"west": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										12,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"up": {
+									"uv": [
+										12,
+										6
+									],
+									"uv_size": [
+										-12,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"down": {
+									"uv": [
+										12,
+										8
+									],
+									"uv_size": [
+										-12,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								}
+							}
+						},
+						{
+							"origin": [
+								6,
+								0,
+								-2
+							],
+							"size": [
+								2,
+								13,
+								4
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										1,
+										3
+									],
+									"uv_size": [
+										2,
+										13
+									]
+								},
+								"east": {
+									"uv": [
+										3,
+										3
+									],
+									"uv_size": [
+										4,
+										13
+									]
+								},
+								"south": {
+									"uv": [
+										7,
+										3
+									],
+									"uv_size": [
+										2,
+										13
+									]
+								},
+								"west": {
+									"uv": [
+										9,
+										3
+									],
+									"uv_size": [
+										4,
+										13
+									]
+								},
+								"up": {
+									"uv": [
+										16,
+										9
+									],
+									"uv_size": [
+										-2,
+										-4
+									]
+								},
+								"down": {
+									"uv": [
+										16,
+										5
+									],
+									"uv_size": [
+										-2,
+										-4
+									]
+								}
+							}
+						},
+						{
+							"origin": [
+								-8,
+								0,
+								-2
+							],
+							"size": [
+								2,
+								13,
+								4
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										1,
+										3
+									],
+									"uv_size": [
+										2,
+										13
+									]
+								},
+								"east": {
+									"uv": [
+										3,
+										3
+									],
+									"uv_size": [
+										4,
+										13
+									]
+								},
+								"south": {
+									"uv": [
+										7,
+										3
+									],
+									"uv_size": [
+										2,
+										13
+									]
+								},
+								"west": {
+									"uv": [
+										9,
+										3
+									],
+									"uv_size": [
+										4,
+										13
+									]
+								},
+								"up": {
+									"uv": [
+										16,
+										9
+									],
+									"uv_size": [
+										-2,
+										-4
+									]
+								},
+								"down": {
+									"uv": [
+										16,
+										5
+									],
+									"uv_size": [
+										-2,
+										-4
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "support_side_full",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								13,
+								-8
+							],
+							"size": [
+								2,
+								2,
+								16
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"east": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										16,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"south": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										2,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"west": {
+									"uv": [
+										0,
+										2
+									],
+									"uv_size": [
+										16,
+										2
+									],
+									"material_instance": "bell_plank"
+								},
+								"up": {
+									"uv": [
+										16,
+										6
+									],
+									"uv_size": [
+										-16,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"down": {
+									"uv": [
+										16,
+										8
+									],
+									"uv_size": [
+										-16,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "support_top",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								13,
+								-1
+							],
+							"size": [
+								2,
+								3,
+								2
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										5,
+										5
+									],
+									"uv_size": [
+										3,
+										2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"east": {
+									"uv": [
+										11,
+										5
+									],
+									"uv_size": [
+										3,
+										2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"south": {
+									"uv": [
+										2,
+										5
+									],
+									"uv_size": [
+										3,
+										2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"west": {
+									"uv": [
+										8,
+										5
+									],
+									"uv_size": [
+										3,
+										2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"up": {
+									"uv": [
+										16,
+										7
+									],
+									"uv_size": [
+										-2,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								},
+								"down": {
+									"uv": [
+										2,
+										7
+									],
+									"uv_size": [
+										-2,
+										-2
+									],
+									"uv_rotation": 90,
+									"material_instance": "bell_plank"
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

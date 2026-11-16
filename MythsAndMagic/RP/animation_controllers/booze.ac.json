@@ -1,0 +1,76 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.booze.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.booze.sink": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"start_sink": "query.property('mm:tired') == true"
+						}
+					],
+					"blend_transition": 0
+				},
+				"start_sink": {
+					"animations": [
+						"sink_into_cauldron"
+					],
+					"transitions": [
+						{
+							"sink_state": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"sink_state": {
+					"animations": [
+						"sunken",
+						"bubbling"
+					],
+					"transitions": [
+						{
+							"rise_from_cauldron": "query.property('mm:tired') == false"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"rise_from_cauldron": {
+					"animations": [
+						"rise_from_cauldron"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.icicles.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"hidden"
+					],
+					"transitions": [
+						{
+							"rise": "query.variant == 0"
+						}
+					]
+				},
+				"rise": {
+					"animations": [
+						"rise"
+					],
+					"transitions": [
+						{
+							"still": "query.all_animations_finished"
+						}
+					]
+				},
+				"still": {
+					"transitions": [
+						{
+							"fall": "query.variant == 1"
+						}
+					]
+				},
+				"fall": {
+					"animations": [
+						"sink"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

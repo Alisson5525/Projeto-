@@ -1,0 +1,333 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "mm:arid_sandstone",
+              "name": "mm:itemGroup.name.aridSandstone"
+            },
+            "items": [
+              "mm:arid_sandstone",
+              "mm:arid_sandstone_tile",
+              "mm:arid_sandstone_bricks",
+              "mm:chiseled_arid_sandstone_tile",
+              "mm:cracked_arid_sandstone_bricks",
+              "mm:arid_sandstone_slab",
+              "mm:arid_sandstone_tile_slab",
+              "mm:arid_sandstone_brick_slab",
+              "mm:arid_sandstone_tile_wall",
+              "mm:arid_sandstone_brick_wall"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:polished_calcite",
+              "name": "mm:itemGroup.name.calciteBlockset"
+            },
+            "items": [
+              "mm:polished_calcite",
+              "mm:chiseled_calcite",
+              "mm:calcite_bricks",
+              "mm:chiseled_calcite_bricks",
+              "mm:polished_calcite_slab",
+              "mm:calcite_brick_slab",
+              "mm:polished_calcite_wall",
+              "mm:calcite_brick_wall"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:polished_alterstone",
+              "name": "mm:itemGroup.name.alterstoneBlockset"
+            },
+            "items": [
+              "mm:polished_alterstone",
+              "mm:alterstone_bricks",
+              "mm:chiseled_alterstone",
+              "mm:polished_alterstone_slab",
+              "mm:alterstone_brick_slab",
+              "mm:alterstone_wall",
+              "mm:cobbled_alterstone_wall",
+              "mm:polished_alterstone_wall",
+              "mm:alterstone_brick_wall",
+              "mm:polished_veiny_alterstone",
+              "mm:veiny_alterstone_bricks",
+              "mm:chiseled_veiny_alterstone",
+              "mm:polished_veiny_alterstone_slab",
+              "mm:veiny_alterstone_brick_slab"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:polished_arcane_deepslate",
+              "name": "mm:itemGroup.name.arcaneBlockset"
+            },
+            "items": [
+              "mm:polished_arcane_deepslate",
+              "mm:arcane_deepslate_bricks",
+              "mm:chiseled_arcane_deepslate",
+              "mm:polished_arcane_deepslate_slab",
+              "mm:arcane_deepslate_brick_slab"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:polished_palacite",
+              "name": "mm:itemGroup.name.palaciteBlockset"
+            },
+            "items": [
+              "mm:polished_palacite",
+              "mm:palacite_bricks",
+              "mm:cracked_palacite_bricks",
+              "mm:chiseled_palacite",
+              "mm:polished_palacite_slab",
+              "mm:palacite_brick_slab",
+              "mm:cracked_palacite_brick_slab",
+              "mm:palacite_wall",
+              "mm:polished_palacite_wall",
+              "mm:palacite_brick_wall"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:brazier",
+              "name": "mm:itemGroup.name.braziers"
+            },
+            "items": [
+              "mm:brazier",
+              "mm:soul_brazier",
+              "mm:copper_brazier",
+              "mm:sparkling_brazier",
+              "mm:unobtanium_brazier",
+              "mm:meteor_brazier"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:white_padded_alchatite",
+              "name": "mm:itemGroup.name.paddedAlchatite"
+            },
+            "items": [
+              "mm:white_padded_alchatite",
+              "mm:light_gray_padded_alchatite",
+              "mm:gray_padded_alchatite",
+              "mm:black_padded_alchatite",
+              "mm:brown_padded_alchatite",
+              "mm:red_padded_alchatite",
+              "mm:orange_padded_alchatite",
+              "mm:yellow_padded_alchatite",
+              "mm:lime_padded_alchatite",
+              "mm:green_padded_alchatite",
+              "mm:cyan_padded_alchatite",
+              "mm:light_blue_padded_alchatite",
+              "mm:blue_padded_alchatite",
+              "mm:purple_padded_alchatite",
+              "mm:magenta_padded_alchatite",
+              "mm:pink_padded_alchatite"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "equipment", // The Category
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "mm:wooden_halberd",
+              "name": "mm:itemGroup.name.halberds"
+            },
+            "items": [
+              "mm:wooden_halberd",
+              "mm:stone_halberd",
+              "mm:copper_halberd",
+              "mm:iron_halberd",
+              "mm:golden_halberd",
+              "mm:diamond_halberd",
+              "mm:netherite_halberd",
+              "mm:azsilva_halberd"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:spell_book",
+              "name": "mm:itemGroup.name.spellBooks"
+            },
+            "items": [
+              "mm:spell_book",
+              "mm:white_spell_book",
+              "mm:light_gray_spell_book",
+              "mm:gray_spell_book",
+              "mm:black_spell_book",
+              "mm:brown_spell_book",
+              "mm:red_spell_book",
+              "mm:orange_spell_book",
+              "mm:yellow_spell_book",
+              "mm:lime_spell_book",
+              "mm:green_spell_book",
+              "mm:cyan_spell_book",
+              "mm:light_blue_spell_book",
+              "mm:blue_spell_book",
+              "mm:purple_spell_book",
+              "mm:magenta_spell_book",
+              "mm:pink_spell_book"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:ember_mask",
+              "name": "mm:itemGroup.name.elementalMasks"
+            },
+            "items": [
+              "mm:ember_mask",
+              "mm:breeze_mask",
+              "mm:thunder_mask",
+              "mm:boulder_mask",
+              "mm:frost_mask"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:sparkling_amulet",
+              "name": "mm:itemGroup.name.amulets"
+            },
+            "items": [
+              "mm:sparkling_amulet",
+              "mm:blazing_amulet",
+              "mm:shivering_amulet",
+              "mm:altered_amulet",
+              "mm:resonance_amulet",
+              "mm:amulet_core"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:booze_potion_fireresistance_long",
+              "name": "mm:itemGroup.name.boozePotions"
+            },
+            "items": [
+              "mm:booze_potion_fireresistance_long",
+              "mm:booze_potion_invisibility_long",
+              "mm:booze_potion_nightvision_long",
+              "mm:booze_potion_slowfalling_long",
+              "mm:booze_potion_waterbreathing_long",
+              "mm:booze_potion_blindness",
+              "mm:booze_potion_haste",
+              "mm:booze_potion_jumpboost_strong",
+              "mm:booze_potion_regeneration_strong",
+              "mm:booze_potion_speed_strong",
+              "mm:booze_potion_metallurgy",
+              "mm:booze_potion_reduction",
+              "mm:booze_potion_fragile"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:booze_potion_fireresistance_splash",
+              "name": "mm:itemGroup.name.boozePotionsSplash"
+            },
+            "items": [
+              "mm:booze_potion_fireresistance_splash",
+              "mm:booze_potion_invisibility_splash",
+              "mm:booze_potion_nightvision_splash",
+              "mm:booze_potion_slowfalling_splash",
+              "mm:booze_potion_waterbreathing_splash",
+              "mm:booze_potion_blindness_splash",
+              "mm:booze_potion_haste_splash",
+              "mm:booze_potion_jumpboost_splash",
+              "mm:booze_potion_regeneration_splash",
+              "mm:booze_potion_speed_splash",
+              "mm:booze_potion_metallurgy_splash",
+              "mm:booze_potion_reduction_splash",
+              "mm:booze_potion_fragile_splash"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "mm:veiny_alterstone",
+              "name": "mm:itemGroup.name.alterrealmBlocks"
+            },
+            "items": [
+              "mm:veiny_alterstone",
+              "mm:alterstone",
+              "mm:cobbled_alterstone",
+              "mm:mossy_alterstone",
+              "mm:altermoss_block",
+              "mm:altermoss_growth",
+              "mm:alterbrush",
+              "mm:shockweed",
+              "mm:occuleye",
+              "mm:alterbedrock",
+              "mm:altered_reality"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "mm:ancient_staff_design_smithing_template",
+              "name": "mm:itemGroup.name.staffDesigns"
+            },
+            "items": [
+              "mm:ancient_staff_design_smithing_template",
+              "mm:arcane_staff_design_smithing_template",
+              "mm:shifting_staff_design_smithing_template",
+              "mm:ware_staff_design_smithing_template",
+              "mm:howl_staff_design_smithing_template",
+              "mm:chilling_staff_design_smithing_template",
+              "mm:curse_staff_design_smithing_template",
+              "mm:spine_staff_design_smithing_template",
+              "mm:twisted_staff_design_smithing_template",
+              "mm:twilight_staff_design_smithing_template",
+              "mm:magistrate_staff_design_smithing_template",
+              "mm:commander_staff_design_smithing_template",
+              "mm:alter_staff_design_smithing_template",
+              "mm:walker_staff_design_smithing_template"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:flickerwick_statue",
+              "name": "mm:itemGroup.name.flickerwickStatues"
+            },
+            "items": [
+              "mm:flickerwick_statue",
+              "mm:soul_flickerwick_statue",
+              "mm:copper_flickerwick_statue",
+              "mm:sparkling_flickerwick_statue",
+              "mm:tall_flickerwick_statue",
+              "mm:tall_soul_flickerwick_statue",
+              "mm:tall_copper_flickerwick_statue",
+              "mm:tall_sparkling_flickerwick_statue"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "mm:music_disc_keeper",
+              "name": "mm:itemGroup.name.musicDiscs"
+            },
+            "items": [
+              "mm:music_disc_keeper",
+              "mm:music_disc_myths_and_magic",
+              "mm:music_disc_devoid",
+              "mm:music_disc_devoid_altered",
+              "mm:music_disc_farewell",
+              "mm:music_disc_shadowboxing"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:meteor_lantern",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:meteor_lantern",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "meteor_lantern"
+        }
+    }
+}

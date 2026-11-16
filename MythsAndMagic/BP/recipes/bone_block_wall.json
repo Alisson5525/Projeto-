@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:bone_block_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "bone_block"
+            }
+        },
+        "unlock": [
+            {
+                "item": "bone_block"
+            }
+        ],
+        "result": {
+            "item": "mm:bone_block_wall",
+            "count": 6
+        }
+    }
+}

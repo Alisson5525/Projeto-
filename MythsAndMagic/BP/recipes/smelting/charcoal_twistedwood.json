@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:charcoal_twisted_woodd"
+        },
+        "tags": [
+            "furnace"
+        ],
+        "input": "mm:twisted_wood",
+        "output": "charcoal"
+    }
+}

@@ -1,0 +1,147 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mystery_scroll.first_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						-37.6818,
+						51.1182,
+						-97.281
+					],
+					"position": [
+						9,
+						13,
+						4
+					]
+				},
+				"pivot": {
+					"position": [
+						4,
+						-7,
+						-4
+					]
+				},
+				"pivot2": {
+					"position": [
+						4,
+						-7,
+						-4
+					],
+					"scale": 0.001
+				}
+			}
+		},
+		"animation.mystery_scroll.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						132.5,
+						0,
+						0
+					],
+					"position": [
+						0.5,
+						31.5,
+						5.5
+					]
+				},
+				"pivot": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"scale": [
+						1,
+						0.7,
+						0.7
+					]
+				},
+				"pivot2": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"scale": 0
+				}
+			}
+		},
+		"animation.mystery_scroll.unroll": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.2083,
+			"bones": {
+				"pivot": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.125": [
+							0,
+							0,
+							-62.5
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							16,
+							-12,
+							"0 + math.cos(q.anim_time*1440)*1"
+						]
+					},
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.2083": [
+							1.1,
+							1.1,
+							1.1
+						]
+					}
+				}
+			}
+		},
+		"animation.mystery_scroll.unroll_loop": {
+			"loop": true,
+			"bones": {
+				"pivot": {
+					"rotation": [
+						0,
+						0,
+						-62.5
+					],
+					"position": [
+						16,
+						-12,
+						"0 + math.cos(q.anim_time*1440)*1"
+					],
+					"scale": 1.1
+				}
+			}
+		}
+	}
+}

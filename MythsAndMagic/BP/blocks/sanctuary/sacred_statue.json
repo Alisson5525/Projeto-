@@ -1,0 +1,177 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:inanimate_statue",
+            "menu_category": {
+                "category": "construction"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -4,
+                    0,
+                    -4
+                ],
+                "size": [
+                    8,
+                    16,
+                    8
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -4,
+                    0,
+                    -4
+                ],
+                "size": [
+                    8,
+                    16,
+                    8
+                ]
+            },
+            "minecraft:transformation": {
+                "scale_pivot": [
+                    0,
+                    -0.5,
+                    0
+                ],
+                "scale": [
+                    1.65,
+                    1.65,
+                    1.65
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 999999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 6
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true
+                    }
+                ]
+            },
+            "minecraft:destruction_particles": {
+                "texture": "stone"
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.inanimate_statue"
+            },
+            "minecraft:loot": "loot_tables/blocks/inanimate_statue.json",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "inanimate_statue",
+                    "render_method": "alpha_test"
+                }
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ],
+                        "scale_pivot": [
+                            0,
+                            -0.5,
+                            0
+                        ],
+                        "scale": [
+                            1.65,
+                            1.65,
+                            1.65
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "scale_pivot": [
+                            0,
+                            -0.5,
+                            0
+                        ],
+                        "scale": [
+                            1.65,
+                            1.65,
+                            1.65
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ],
+                        "scale_pivot": [
+                            0,
+                            -0.5,
+                            0
+                        ],
+                        "scale": [
+                            1.65,
+                            1.65,
+                            1.65
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ],
+                        "scale_pivot": [
+                            0,
+                            -0.5,
+                            0
+                        ],
+                        "scale": [
+                            1.65,
+                            1.65,
+                            1.65
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

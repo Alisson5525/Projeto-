@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "guardian_myth_hand",
+        "metalness_emissive_roughness": "guardian_myth_hand_mer"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "icicle_spear_held",
+        "metalness_emissive_roughness": "icicle_spear_held_mer"
+    }
+}

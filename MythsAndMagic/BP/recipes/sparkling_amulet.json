@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:sparkling_amulet"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "IxI",
+            "x#x",
+            "IxI"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:amulet_core"
+            },
+            "I": {
+                "item": "iron_ingot"
+            },
+            "x": {
+                "item": "mm:sparkling_crystal"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:amulet_core"
+            }
+        ],
+        "result": {
+            "item": "mm:sparkling_amulet",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:chiller"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "CIC",
+            "WPW",
+            "CRC"
+        ],
+        "key": {
+            "C": {
+                "item": "calcite"
+            },
+            "I": {
+                "item": "iron_ingot"
+            },
+            "R": {
+                "item": "redstone"
+            },
+            "P": {
+                "item": "mm:permafrost_shard"
+            },
+            "W": {
+                "tag": "minecraft:planks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:permafrost_shard"
+            }
+        ],
+        "result": {
+            "item": "mm:chiller",
+            "count": 1
+        }
+    }
+}

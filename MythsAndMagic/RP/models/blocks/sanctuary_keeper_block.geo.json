@@ -1,0 +1,324 @@
+{
+	"format_version": "1.21.120",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sanctuary_keeper_block",
+				"texture_width": 17,
+				"texture_height": 17,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-4,
+								4,
+								-8
+							],
+							"size": [
+								8,
+								8,
+								1
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										9
+									],
+									"uv_size": [
+										8,
+										8
+									]
+								},
+								"east": {
+									"uv": [
+										9,
+										1
+									],
+									"uv_size": [
+										1,
+										8
+									]
+								},
+								"south": {
+									"uv": [
+										1,
+										1
+									],
+									"uv_size": [
+										8,
+										8
+									]
+								},
+								"west": {
+									"uv": [
+										0,
+										1
+									],
+									"uv_size": [
+										1,
+										8
+									]
+								},
+								"up": {
+									"uv": [
+										9,
+										1
+									],
+									"uv_size": [
+										-8,
+										-1
+									]
+								},
+								"down": {
+									"uv": [
+										17,
+										1
+									],
+									"uv_size": [
+										-8,
+										-1
+									]
+								}
+							}
+						}
+					]
+				}
+			],
+			"item_display_transforms": {
+				"thirdperson_righthand": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						6.25
+					],
+					"scale": [
+						1,
+						1,
+						1
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				"thirdperson_lefthand": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						6.25
+					],
+					"scale": [
+						1,
+						1,
+						1
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				"firstperson_righthand": {
+					"rotation": [
+						0,
+						-36,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						0
+					],
+					"scale": [
+						1,
+						1,
+						1
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				"firstperson_lefthand": {
+					"rotation": [
+						0,
+						-36,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						0
+					],
+					"scale": [
+						1,
+						1,
+						1
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				"ground": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"translation": [
+						0,
+						4.5,
+						0
+					],
+					"scale": [
+						1.09,
+						1.09,
+						1.09
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				"gui": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						0
+					],
+					"scale": [
+						1.09,
+						1.09,
+						1.09
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					],
+					"fit_to_frame": false
+				},
+				"fixed": {
+					"rotation": [
+						0,
+						-180,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						-12
+					],
+					"scale": [
+						1.6,
+						1.6,
+						1.6
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				} /*,
+				"on_shelf": {
+					"rotation": [
+						0,
+						0,
+						0
+					],
+					"translation": [
+						0,
+						0,
+						5.25
+					],
+					"scale": [
+						1.16,
+						1.16,
+						1.16
+					],
+					"rotation_pivot": [
+						0,
+						0,
+						0
+					],
+					"scale_pivot": [
+						0,
+						0,
+						0
+					]
+				}*/
+			}
+		}
+	]
+}

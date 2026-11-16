@@ -1,0 +1,39 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:altered_key"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "UAU",
+            " Ag",
+            " Ag"
+        ],
+        "key": {
+            "A": {
+                "item": "mm:cobbled_alterstone"
+            },
+            "U": {
+                "item": "mm:unobtanium_ingot"
+            },
+            "g": {
+                "item": "gold_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:cobbled_alterstone"
+            },
+            {
+                "item": "mm:raw_unobtanium"
+            }
+        ],
+        "result": {
+            "item": "mm:altered_key",
+            "count": 1
+        }
+    }
+}

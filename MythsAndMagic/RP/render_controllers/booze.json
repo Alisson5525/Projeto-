@@ -1,0 +1,36 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.booze": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.default",
+                        "texture.fire_resistance",
+                        "texture.speed",
+                        "texture.regeneration",
+                        "texture.jump_boost",
+                        "texture.water_breathing",
+                        "texture.slow_falling",
+                        "texture.night_vision",
+                        "texture.invisibility",
+                        "texture.haste",
+                        "texture.metallurgy",
+                        "texture.reduction",
+                        "Texture.blindness",
+                        "Texture.fragile"
+                    ]
+                }
+            },
+            "textures": [
+                "query.property('mm:potion') == 'none' ? texture.default : query.property('mm:potion') == 'fire_resistance' ? texture.fire_resistance : query.property('mm:potion') == 'speed' ? texture.speed : query.property('mm:potion') == 'regeneration' ? texture.regeneration : query.property('mm:potion') == 'jump_boost' ? texture.jump_boost : query.property('mm:potion') == 'water_breathing' ? texture.water_breathing : query.property('mm:potion') == 'night_vision' ? texture.night_vision : query.property('mm:potion') == 'invisibility' ? texture.invisibility : query.property('mm:potion') == 'slow_falling' ? texture.slow_falling : query.property('mm:potion') == 'haste' ? texture.haste : query.property('mm:potion') == 'metallurgy' ? texture.metallurgy : query.property('mm:potion') == 'reduction' ? texture.reduction : query.property('mm:potion') == 'blindness' ? texture.blindness :  query.property('mm:potion') == 'fragile' ? texture.fragile : texture.default"
+            ]
+        }
+    }
+}

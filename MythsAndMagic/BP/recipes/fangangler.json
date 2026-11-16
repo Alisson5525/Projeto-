@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:fangangler"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " # ",
+            " # ",
+            "IXI"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:vampire_fang"
+            },
+            "I": {
+                "item": "iron_ingot"
+            },
+            "X": {
+                "item": "spider_eye"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:vampire_fang"
+            }
+        ],
+        "result": {
+            "item": "mm:fangangler",
+            "count": 1
+        }
+    }
+}

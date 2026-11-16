@@ -1,0 +1,21 @@
+{
+    "format_version": "1.21.40",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:shifting_staff_design_smithing_template",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "staff_design_shifting",
+            "minecraft:rarity": "uncommon",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "mm:staff_design_template"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sanctuary_keeper.stun": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"sound_effects": {
+				"0.0": {
+					"effect": "stun"
+				}
+			},
+			"bones": {
+				"mask": {
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							-90,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0833": [
+							0,
+							0,
+							0
+						],
+						"0.25": [
+							0,
+							-3.5,
+							2
+						]
+					}
+				}
+			}
+		},
+		"animation.sanctuary_keeper.idle": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [
+						"query.target_x_rotation",
+						"query.target_y_rotation",
+						"math.cos(q.anim_time*60)*10"
+					],
+					"position": [
+						0,
+						"math.cos(q.anim_time*120)*0.5",
+						"math.cos(q.anim_time*60)*0.5"
+					]
+				}
+			}
+		},
+		"animation.sanctuary_keeper.particles": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.00": {
+					"effect": "smoke",
+					"locator": "particles"
+				},
+				"0.1": {
+					"effect": "smoke",
+					"locator": "particles"
+				},
+				"0.2": {
+					"effect": "smoke",
+					"locator": "particles"
+				},
+				"0.3": {
+					"effect": "smoke",
+					"locator": "particles"
+				},
+				"0.4": {
+					"effect": "smoke",
+					"locator": "particles"
+				},
+				"0.49": {
+					"effect": "aura",
+					"locator": "particles"
+				}
+			}
+		}
+	}
+}

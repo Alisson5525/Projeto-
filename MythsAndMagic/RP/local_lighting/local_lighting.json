@@ -1,0 +1,262 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:local_light_settings": {
+        "mm:sparkling_torch": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sparkling_lantern": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sparkling_cluster": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sparkling_crystal_block": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:unobtanium_torch": {
+            "light_color": [
+                11,
+                3,
+                128
+            ],
+            "light_type": "point_light"
+        },
+        "mm:unobtanium_lantern": {
+            "light_color": [
+                11,
+                3,
+                128
+            ],
+            "light_type": "point_light"
+        },
+        "mm:brazier": {
+            "light_color": [
+                125,
+                67,
+                38
+            ],
+            "light_type": "point_light"
+        },
+        "mm:soul_brazier": {
+            "light_color": [
+                53,
+                175,
+                200
+            ],
+            "light_type": "point_light"
+        },
+        "mm:copper_brazier": {
+            "light_color": [
+                95,
+                175,
+                102
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sparkling_brazier": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:unobtanium_brazier": {
+            "light_color": [
+                11,
+                3,
+                128
+            ],
+            "light_type": "point_light"
+        },
+        "mm:spellcrafter": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:reforged_spellcrafter": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sanctuary_vault": {
+            "light_color": [
+                255,
+                0,
+                0
+            ],
+            "light_type": "point_light"
+        },
+        "mm:revoid_light": {
+            "light_color": [
+                255,
+                0,
+                0
+            ],
+            "light_type": "point_light"
+        },
+        "mm:flickerwick_light": {
+            "light_color": [
+                125,
+                67,
+                38
+            ],
+            "light_type": "point_light"
+        },
+        "mm:soul_flickerwick_light": {
+            "light_color": [
+                53,
+                175,
+                200
+            ],
+            "light_type": "point_light"
+        },
+        "mm:copper_flickerwick_light": {
+            "light_color": [
+                95,
+                175,
+                102
+            ],
+            "light_type": "point_light"
+        },
+        "mm:sparkling_flickerwick_light": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:veiny_alterstone": {
+            "light_color": [
+                138,
+                0,
+                48
+            ],
+            "light_type": "point_light"
+        },
+        "mm:veiny_alterstone_slab": {
+            "light_color": [
+                138,
+                0,
+                48
+            ],
+            "light_type": "point_light"
+        },
+        "mm:orb_ponderer": {
+            "light_color": [
+                247,
+                196,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        //1.1.0
+        "mm:raymaker": {
+            "light_color": [
+                134,
+                231,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:glowstone_spike": {
+            "light_color": [
+                255,
+                205,
+                114
+            ],
+            "light_type": "static_light"
+        },
+        "mm:altermoss_growth": {
+            "light_color": [
+                11,
+                3,
+                128
+            ],
+            "light_type": "point_light"
+        },
+        "mm:arcane_deepslate": {
+            "light_color": [
+                155,
+                85,
+                231
+            ],
+            "light_type": "point_light"
+        },
+        "mm:arcane_deepslate_slab": {
+            "light_color": [
+                155,
+                85,
+                231
+            ],
+            "light_type": "point_light"
+        },
+        "mm:fallen_meteor": {
+            "light_color": [
+                53,
+                175,
+                200
+            ],
+            "light_type": "point_light"
+        },
+        "mm:meteor_torch": {
+            "light_color": [
+                126,
+                146,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:meteor_lantern": {
+            "light_color": [
+                126,
+                146,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:meteor_brazier": {
+            "light_color": [
+                126,
+                146,
+                255
+            ],
+            "light_type": "point_light"
+        },
+        "mm:luminous_twisted_mushroom": {
+            "light_color": [
+                251,
+                18,
+                255
+            ],
+            "light_type": "point_light"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:twisted_moss_block",
+            "menu_category": {
+                "category": "nature"
+            }
+        },
+        "components": {
+            "mm:twisted_moss": {},
+            "minecraft:collision_box": true,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.1
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.1, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_hoe')"
+                        },
+                        "destroy_speed": 0.1 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:hoe_mine": {},
+            "tag:minecraft:is_hoe_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+        "description": {
+            "identifier": "mm:twisted_mushroom_feature"
+        },
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_attach_to": {
+            "min_sides_must_attach": 1,
+            "bottom": [
+                "moss_block"
+            ]
+        },
+        "may_replace": [
+            "air",
+            "short_grass"
+        ],
+        "places_block": "mm:twisted_mushroom"
+    }
+}

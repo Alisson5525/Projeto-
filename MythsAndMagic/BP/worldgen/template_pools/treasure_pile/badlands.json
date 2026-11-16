@@ -1,0 +1,34 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:treasure_pile_badlands"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "scrubel/badlands_small",
+                    "processors": "mm:scrubel"
+                },
+                "weight": 2
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "scrubel/badlands_medium",
+                    "processors": "mm:scrubel"
+                },
+                "weight": 2
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "scrubel/badlands_large",
+                    "processors": "mm:scrubel"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

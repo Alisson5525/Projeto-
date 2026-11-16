@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:arid_sandstone_tile_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:arid_sandstone_tile"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:arid_sandstone"
+            }
+        ],
+        "result": {
+            "item": "mm:arid_sandstone_tile_slab",
+            "count": 1
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "mage_plushie",
+        "metalness_emissive_roughness": "mage_plushie_mer"
+    }
+}

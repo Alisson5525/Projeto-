@@ -1,0 +1,161 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:altermoss_growth",
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            },
+            "states": {
+                "mm:tip": [
+                    true,
+                    false
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up' && query.block_state('mm:tip') == false",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "altermoss_growth_up_mid",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:light_emission": 0,
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6,
+                            0,
+                            -6
+                        ],
+                        "size": [
+                            12,
+                            16,
+                            12
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down' && query.block_state('mm:tip') == false",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "altermoss_growth_down_mid",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:light_emission": 0,
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6,
+                            0,
+                            -6
+                        ],
+                        "size": [
+                            12,
+                            16,
+                            12
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'up' && query.block_state('mm:tip') == true",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "altermoss_growth_up",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:light_emission": 8,
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6,
+                            0,
+                            -6
+                        ],
+                        "size": [
+                            12,
+                            15,
+                            12
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'down' && query.block_state('mm:tip') == true",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "altermoss_growth_down",
+                            "render_method": "alpha_test"
+                        }
+                    },
+                    "minecraft:light_emission": 8,
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -6,
+                            2,
+                            -6
+                        ],
+                        "size": [
+                            12,
+                            14,
+                            12
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "mm:permafrost_icicle": {},
+            "minecraft:tick": {
+                "interval_range": [
+                    4,
+                    4
+                ],
+                "looping": true
+            },
+            "minecraft:selection_box": false,
+            "minecraft:collision_box": false,
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "none"
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.1
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.0
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.permafrost_crystal"
+            },
+            "minecraft:movable": {
+                "movement_type": "popped"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "on_liquid_touches": "popped",
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "altermoss_growth_up",
+                    "render_method": "alpha_test"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.chaos_buster.particles": {
+            "animation_length": 0.2,
+            "loop": true,
+            "particle_effects": {
+                "0.0": [
+                    {
+                        "locator": "particles",
+                        "effect": "magic"
+                    },
+                    {
+                        "locator": "particles",
+                        "effect": "electricity"
+                    }
+                ],
+                "0.05": {
+                    "effect": "magic",
+                    "locator": "particles"
+                },
+                "0.1": {
+                    "effect": "magic",
+                    "locator": "particles"
+                },
+                "0.15": {
+                    "effect": "magic",
+                    "locator": "particles"
+                }
+            }
+        }
+    }
+}

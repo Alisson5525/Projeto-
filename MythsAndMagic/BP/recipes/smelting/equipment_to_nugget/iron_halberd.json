@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:smelt_iron_halberd"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "mm:iron_halberd",
+        "output": "iron_nugget"
+    }
+}

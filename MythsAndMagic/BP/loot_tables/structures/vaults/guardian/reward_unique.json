@@ -1,0 +1,33 @@
+{
+  "pools": [
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "mm:guardian_wand",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:magistrate_staff_design_smithing_template",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_hellfire",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_guardian",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

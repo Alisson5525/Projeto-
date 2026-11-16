@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:alterstone_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:alterstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:alterstone"
+            }
+        ],
+        "result": {
+            "item": "mm:alterstone_slab",
+            "count": 6
+        }
+    }
+}

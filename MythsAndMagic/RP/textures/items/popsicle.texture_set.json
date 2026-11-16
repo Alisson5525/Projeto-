@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "popsicle",
+        "metalness_emissive_roughness": "popsicle_mer"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:arid_dirt"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "construction",
+        "ingredients": [
+            {
+                "item": "dirt"
+            },
+            {
+                "item": "dirt"
+            },
+            {
+                "item": "sand"
+            },
+            {
+                "item": "sand"
+            }
+        ],
+        "priority": 0,
+        "result": {
+            "item": "mm:arid_dirt",
+            "count": 4
+        },
+        "unlock": [
+            {
+                "item": "sand"
+            }
+        ]
+    }
+}

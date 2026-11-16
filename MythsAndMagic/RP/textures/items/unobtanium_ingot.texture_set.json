@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "unobtanium_ingot",
+        "metalness_emissive_roughness": "unobtanium_ingot_mer"
+    }
+}

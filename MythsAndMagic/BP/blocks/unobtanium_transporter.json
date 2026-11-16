@@ -1,0 +1,165 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:unobtanium_transporter",
+            "menu_category": {
+                "category": "items"
+            },
+            "states": {
+                "mm:charge": [
+                    4,
+                    3,
+                    2,
+                    1,
+                    0
+                ],
+                "mm:powered": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:charge') == 4",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "unobtanium_transporter_top",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "unobtanium_transporter_side_4",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "unobtanium_transporter_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:charge') == 3",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "magnetic_piston_top_off",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "unobtanium_transporter_side_3",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "unobtanium_transporter_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:charge') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "magnetic_piston_top_off",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "unobtanium_transporter_side_2",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "unobtanium_transporter_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:charge') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "magnetic_piston_top_off",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "unobtanium_transporter_side_1",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "unobtanium_transporter_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:charge') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "magnetic_piston_top_off",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "unobtanium_transporter_side_0",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "unobtanium_transporter_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:redstone_consumer": {
+                "min_power": 0,
+                "propogates_power": true
+            },
+            "mm:unobtanium_transporter": {},
+            "minecraft:tick": {
+                "interval_range": [
+                    30,
+                    30
+                ],
+                "looping": true
+            },
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "unobtanium_transporter_top",
+                    "render_method": "alpha_test"
+                },
+                "*": {
+                    "texture": "unobtanium_transporter_side_4",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "unobtanium_transporter_bottom",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:selection_box": true,
+            "minecraft:collision_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": {
+                "identifier": "minecraft:geometry.full_block"
+            },
+            "tag:mm:magnet_pullable": {}
+        }
+    }
+}

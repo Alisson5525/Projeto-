@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:smelt_copper_halberd"
+        },
+        "tags": [
+            "furnace",
+            "blast_furnace"
+        ],
+        "input": "mm:copper_halberd",
+        "output": "copper_nugget"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:twisted_door",
+            "menu_category": {
+                "category": "construction",
+                "group": "minecraft:itemGroup.name.door"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:twisted_door.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:twisted_door",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "twisted_door",
+            "minecraft:fuel": {
+                "duration": 10
+            }
+        }
+    }
+}

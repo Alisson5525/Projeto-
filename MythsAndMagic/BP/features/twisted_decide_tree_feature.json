@@ -1,0 +1,22 @@
+{
+    "format_version": "1.20.40",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "mm:twisted_decide_tree_feature"
+        },
+        "features": [
+            [
+                "mm:twisted_tree_feature",
+                1
+            ],
+            [
+                "mm:twisted_tree_with_roots_feature",
+                9
+            ],
+            [
+                "minecraft:fallen_oak_tree_feature",
+                1
+            ]
+        ]
+    }
+}

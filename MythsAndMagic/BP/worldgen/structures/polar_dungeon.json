@@ -1,0 +1,44 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "mm:polar_dungeon"
+    },
+    "biome_filters": [
+      {
+        "all_of": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "cold"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "not",
+            "value": "ocean"
+          }
+        ]
+      }
+    ],
+    "heightmap_projection": "world_surface",
+    "max_depth": 20,
+    "dimension_padding": {
+      "bottom": 32,
+      "top": 230
+    },
+    "start_height": {
+      "type": "constant",
+      "value": {
+        "absolute": -16
+      }
+    },
+    "max_distance_from_center": {
+      "vertical": 128,
+      "horizontal": 128
+    },
+    "liquid_settings": "ignore_waterlogging",
+    "start_pool": "mm:polar_dungeon_start_stairs",
+    "step": "underground_structures",
+    "terrain_adaptation": "bury"
+  }
+}

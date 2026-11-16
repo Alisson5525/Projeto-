@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:diamond_halberd"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "##S",
+            "#S#",
+            "S  "
+        ],
+        "key": {
+            "#": {
+                "item": "diamond"
+            },
+            "S": {
+                "item": "stick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "diamond"
+            }
+        ],
+        "result": {
+            "item": "mm:diamond_halberd",
+            "count": 1
+        }
+    }
+}

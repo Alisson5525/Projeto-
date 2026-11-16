@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "alchatite_chiseled",
+        "metalness_emissive_roughness": "alchatite_chiseled_mer"
+    }
+}

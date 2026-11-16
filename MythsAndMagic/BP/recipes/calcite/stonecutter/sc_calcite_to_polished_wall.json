@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sc_calcite_to_polished_wall"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "calcite"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "calcite"
+            }
+        ],
+        "result": {
+            "item": "mm:polished_calcite_wall"
+        }
+    }
+}

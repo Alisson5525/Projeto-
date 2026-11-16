@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "azsilva_ore_deepslate",
+        "metalness_emissive_roughness": "azsilva_ore_deepslate_mer"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:scatter_feature": {
+        "description": {
+            "identifier": "mm:twisted_tree_scatter_hanging_moss_feature"
+        },
+        "iterations": 100,
+        "x": {
+            "extent": [
+                -6,
+                6
+            ],
+            "distribution": "uniform"
+        },
+        "z": {
+            "extent": [
+                -6,
+                6
+            ],
+            "distribution": "uniform"
+        },
+        "y": 0,
+        "project_input_to_floor": false,
+        "places_feature": "mm:twisted_hanging_moss_snap_to_surface_feature"
+    }
+}

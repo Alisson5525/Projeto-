@@ -1,0 +1,195 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 4,
+        "max": 7
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "mm:pondering_book",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_lore",
+              "lore": [
+                "PONDERING_BOOK_tether"
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": 50,
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:demon_boots",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:demon_leggings",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:demon_chestplate",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:demon_helmet",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:blaze_soul",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:azsilva_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 6
+              }
+            },
+            {
+              "function": "set_potion",
+              "id": "wither"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:ember_mask",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:sparkling_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 5,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "mm:amulet_core",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:blazing_amulet",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 8,
+                "max": 15
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "resonance_amulet",
+        "metalness_emissive_roughness": "resonance_amulet_mer"
+    }
+}

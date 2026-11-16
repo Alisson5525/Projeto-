@@ -1,0 +1,14 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+        "description": {
+            "identifier": "mm:glowstone_spike_sequence_feature"
+        },
+        "features": [
+            "mm:glowstone_spike_test_1_feature",
+            "mm:glowstone_spike_test_2_feature",
+            "mm:glowstone_spike_offset_feature"
+        ],
+        "early_out": "first_failure"
+    }
+}

@@ -1,0 +1,540 @@
+{
+  "namespace": "mm_effects",
+  // METALLURGY
+  "metallurgy_effect_wrapper": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [
+      0,
+      0
+    ],
+    "offset": [
+      -10,
+      5
+    ],
+    "controls": [
+      {
+        "metallurgy_effect1@metallurgy_effect": {
+          "offset": [
+            -36,
+            62
+          ],
+          "$update_string": "§mm:metallurgy:",
+          "$controls": [
+            {
+              "metallurgy@custom_actual_effect": {
+                "$bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "data_control_metallurgy1",
+                    "source_property_name": "(not (#preserved_text = $update_string) and not (#preserved_text = ''))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "$controls": [
+                  {
+                    "metallurgy_img@mm_effects.metallurgy_img": {
+                      "$bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "data_control_metallurgy1",
+                          "source_property_name": "((#preserved_text - $update_string) * 1.0)",
+                          "target_property_name": "#health"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "data_control_metallurgy1@data_control_METALLURGY_EFFECT": {}
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "data_control_metallurgy1",
+              "source_property_name": "(#preserved_text - $update_string)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "data_control_METALLURGY_EFFECT": {
+    "type": "panel",
+    "size": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#preserved_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "metallurgy_img": {
+    "type": "image",
+    "size": [
+      "100% -8px",
+      "100% -8px"
+    ],
+    "texture": "textures/ui/effects/metallurgy",
+    "layer": 1,
+    "bindings": "$bindings"
+  },
+  "metallurgy_effect": {
+    "type": "label",
+    "text": "#text",
+    "text_alignment": "right",
+    "$max_health": 1.0,
+    "controls": "$controls",
+    "bindings": "$bindings"
+  },
+  //REDUCTION
+  "reduction_effect_wrapper": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [
+      0,
+      0
+    ],
+    "offset": [
+      -10,
+      5
+    ],
+    "controls": [
+      {
+        "reduction_effect1@reduction_effect": {
+          "offset": [
+            -36,
+            82
+          ],
+          "$update_string": "§mm:reduction:",
+          "$controls": [
+            {
+              "reduction@custom_actual_effect": {
+                "$bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "data_control_reduction1",
+                    "source_property_name": "(not (#preserved_text = $update_string) and not (#preserved_text = ''))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "$controls": [
+                  {
+                    "reduction_img@mm_effects.reduction_img": {
+                      "$bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "data_control_reduction1",
+                          "source_property_name": "((#preserved_text - $update_string) * 1.0)",
+                          "target_property_name": "#health"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "data_control_reduction1@data_control_REDUCTION_EFFECT": {}
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "data_control_reduction1",
+              "source_property_name": "(#preserved_text - $update_string)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "data_control_REDUCTION_EFFECT": {
+    "type": "panel",
+    "size": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#preserved_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "reduction_img": {
+    "type": "image",
+    "size": [
+      "100% -8px",
+      "100% -8px"
+    ],
+    "texture": "textures/ui/effects/reduction",
+    "layer": 1,
+    "bindings": "$bindings"
+  },
+  "reduction_effect": {
+    "type": "label",
+    "text": "#text",
+    "text_alignment": "right",
+    "$max_health": 1.0,
+    "controls": "$controls",
+    "bindings": "$bindings"
+  },
+  //ENFLAMED
+  "enflamed_effect_wrapper": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [
+      0,
+      0
+    ],
+    "offset": [
+      -10,
+      5
+    ],
+    "controls": [
+      {
+        "enflamed_effect1@enflamed_effect": {
+          "offset": [
+            -36,
+            102
+          ],
+          "$update_string": "§mm:enflamed:",
+          "$controls": [
+            {
+              "enflamed@custom_actual_effect": {
+                "$bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "data_control_enflamed1",
+                    "source_property_name": "(not (#preserved_text = $update_string) and not (#preserved_text = ''))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "$controls": [
+                  {
+                    "enflamed_img@mm_effects.enflamed_img": {
+                      "$bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "data_control_enflamed1",
+                          "source_property_name": "((#preserved_text - $update_string) * 1.0)",
+                          "target_property_name": "#health"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "data_control_enflamed1@data_control_ENFLAMED_EFFECT": {}
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "data_control_enflamed1",
+              "source_property_name": "(#preserved_text - $update_string)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "data_control_ENFLAMED_EFFECT": {
+    "type": "panel",
+    "size": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#preserved_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "enflamed_img": {
+    "type": "image",
+    "size": [
+      "100% -8px",
+      "100% -8px"
+    ],
+    "texture": "textures/ui/effects/enflamed",
+    "layer": 1,
+    "bindings": "$bindings"
+  },
+  "enflamed_effect": {
+    "type": "label",
+    "text": "#text",
+    "text_alignment": "right",
+    "$max_health": 1.0,
+    "controls": "$controls",
+    "bindings": "$bindings"
+  },
+  //FRAGILE
+  "fragile_effect_wrapper": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [
+      0,
+      0
+    ],
+    "offset": [
+      -10,
+      5
+    ],
+    "controls": [
+      {
+        "fragile_effect1@fragile_effect": {
+          "offset": [
+            -36,
+            122
+          ],
+          "$update_string": "§mm:fragile:",
+          "$controls": [
+            {
+              "fragile@custom_actual_effect": {
+                "$bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "data_control_fragile1",
+                    "source_property_name": "(not (#preserved_text = $update_string) and not (#preserved_text = ''))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "$controls": [
+                  {
+                    "fragile_img@mm_effects.fragile_img": {
+                      "$bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "data_control_fragile1",
+                          "source_property_name": "((#preserved_text - $update_string) * 1.0)",
+                          "target_property_name": "#health"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "data_control_fragile1@data_control_FRAGILE_EFFECT": {}
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "data_control_fragile1",
+              "source_property_name": "(#preserved_text - $update_string)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "data_control_FRAGILE_EFFECT": {
+    "type": "panel",
+    "size": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#preserved_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "fragile_img": {
+    "type": "image",
+    "size": [
+      "100% -8px",
+      "100% -8px"
+    ],
+    "texture": "textures/ui/effects/fragile",
+    "layer": 1,
+    "bindings": "$bindings"
+  },
+  "fragile_effect": {
+    "type": "label",
+    "text": "#text",
+    "text_alignment": "right",
+    "$max_health": 1.0,
+    "controls": "$controls",
+    "bindings": "$bindings"
+  },
+  //ELECTRIFIED
+  "electrified_effect_wrapper": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [
+      0,
+      0
+    ],
+    "offset": [
+      -10,
+      5
+    ],
+    "controls": [
+      {
+        "electrified_effect1@electrified_effect": {
+          "offset": [
+            -36,
+            142 //add 20 for each effect
+          ],
+          "$update_string": "§mm:electrified:",
+          "$controls": [
+            {
+              "electrified@custom_actual_effect": {
+                "$bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "data_control_electrified1",
+                    "source_property_name": "(not (#preserved_text = $update_string) and not (#preserved_text = ''))",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "$controls": [
+                  {
+                    "electrified_img@mm_effects.electrified_img": {
+                      "$bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "data_control_electrified1",
+                          "source_property_name": "((#preserved_text - $update_string) * 1.0)",
+                          "target_property_name": "#health"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "data_control_electrified1@data_control_ELECTRIFIED_EFFECT": {}
+            }
+          ],
+          "$bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "data_control_electrified1",
+              "source_property_name": "(#preserved_text - $update_string)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "data_control_ELECTRIFIED_EFFECT": {
+    "type": "panel",
+    "size": [
+      0,
+      0
+    ],
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#preserved_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "electrified_img": {
+    "type": "image",
+    "size": [
+      "100% -8px",
+      "100% -8px"
+    ],
+    "texture": "textures/ui/effects/electrified",
+    "layer": 1,
+    "bindings": "$bindings"
+  },
+  "electrified_effect": {
+    "type": "label",
+    "text": "#text",
+    "text_alignment": "right",
+    "$max_health": 1.0,
+    "controls": "$controls",
+    "bindings": "$bindings"
+  },
+  //GENERIC
+  "custom_actual_effect": {
+    "type": "image",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "texture": "textures/ui/effects/mm_effect_gui",
+    "offset": [
+      21.5,
+      -5
+    ],
+    "size": [
+      19.5,
+      19.5
+    ],
+    "bindings": "$bindings",
+    "controls": "$controls"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:tower_ruin"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "tower_ruin/short",
+                    "processors": "mm:tower_ruin"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "tower_ruin/tall",
+                    "processors": "mm:tower_ruin"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

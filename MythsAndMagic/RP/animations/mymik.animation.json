@@ -1,0 +1,546 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mymik.cold_breath": {
+			"loop": true,
+			"animation_length": 1.5,
+			"particle_effects": {
+				"0.0": {
+					"effect": "cold_breath",
+					"locator": "particles"
+				}
+			}
+		},
+		"animation.mymik.idle_shut": {
+			"loop": true,
+			"animation_length": 3,
+			"particle_effects": {
+				"0.0": {
+					"effect": "snore",
+					"locator": "particles"
+				}
+			},
+			"bones": {
+				"lid": {
+					"rotation": [
+						112.5,
+						0,
+						0
+					]
+				},
+				"face": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.mymik.open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.2,
+			"bones": {
+				"lid": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								112.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [
+								-10,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.625": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"root": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": {
+						"0.0": [
+							0,
+							0,
+							"math.sin(query.anim_time * 2160) * 11"
+						],
+						"1.0": [
+							30,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.625": [
+							0,
+							6,
+							0
+						]
+					}
+				},
+				"face": {
+					"scale": {
+						"0.3333": {
+							"pre": [
+								0,
+								0,
+								0
+							],
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.4583": {
+							"post": [
+								1.1,
+								1.1,
+								1.1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": [
+							1,
+							1,
+							1
+						]
+					}
+				}
+			}
+		},
+		"animation.mymik.open_idle": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"lid": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								12.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.75": {
+							"post": [
+								12.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.0": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"root": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [
+						30,
+						"math.cos(query.anim_time * 4320) * 4",
+						"math.sin(query.anim_time * 2160) * 4"
+					],
+					"position": {
+						"0.0": {
+							"post": [
+								0,
+								6,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [
+								0,
+								2,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.0": [
+							0,
+							6,
+							0
+						]
+					}
+				},
+				"face": {
+					"scale": 1
+				},
+				"arms": {
+					"rotation": [
+						-0.5,
+						"math.cos(query.anim_time * 4320) * -4",
+						"math.sin(query.anim_time * 2160) * -4"
+					]
+				}
+			}
+		},
+		"animation.mymik.snap": {
+			"loop": true,
+			"animation_length": 0.3333,
+			"sound_effects": {
+				"0.16667": {
+					"effect": "bite"
+				}
+			},
+			"bones": {
+				"root": {
+					"position": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.125": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.1667": {
+							"post": [
+								0,
+								-1,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"face": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.2917": {
+							"post": [
+								0,
+								0,
+								-20
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [
+							0,
+							0,
+							0
+						]
+					},
+					"position": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.2917": {
+							"post": [
+								0,
+								0,
+								-5
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [
+							0,
+							0,
+							0
+						]
+					},
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.1667": {
+							"post": [
+								1,
+								0,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [
+							1,
+							1,
+							1
+						]
+					}
+				},
+				"lid": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.1667": {
+							"post": [
+								72.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.mymik.arms_hidden": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"arms": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.mymik.grab_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.3333,
+			"sound_effects": {
+				"0.0": {
+					"effect": "grab"
+				}
+			},
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								-25,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5833": {
+							"post": [
+								-22.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.75": {
+							"post": [
+								15,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.0833": {
+							"post": [
+								15,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.1667": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"lid": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [
+								87.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5833": {
+							"post": [
+								87.5,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.75": {
+							"post": [
+								-15,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.0833": {
+							"post": [
+								-15,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.3333": [
+							0,
+							0,
+							0
+						]
+					}
+				},
+				"arms": {
+					"rotation": {
+						"0.6667": [
+							0,
+							0,
+							0
+						],
+						"0.75": [
+							"math.clamp(query.target_x_rotation,-45,30)-10",
+							0,
+							0
+						],
+						"0.9583": [
+							"math.clamp(query.target_x_rotation,-45,30)-17.5",
+							0,
+							0
+						]
+					},
+					"scale": {
+						"0.0": [
+							0,
+							0,
+							0
+						],
+						"0.625": {
+							"pre": [
+								0,
+								0,
+								0
+							],
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"0.7917": {
+							"post": [
+								1,
+								3,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.0": {
+							"post": [
+								1,
+								5,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.1667": [
+							1,
+							0,
+							1
+						]
+					}
+				}
+			}
+		},
+		"animation.mymik.face_target": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [
+						0,
+						"query.target_y_rotation",
+						0
+					]
+				}
+			}
+		}
+	}
+}

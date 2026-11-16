@@ -1,0 +1,18 @@
+{
+    "format_version": "1.20.40",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "mm:twisted_decide_hanging_moss_feature"
+        },
+        "features": [
+            [
+                "mm:twisted_hanging_moss_feature",
+                13
+            ],
+            [
+                "mm:twisted_hanging_cluster_feature",
+                1
+            ]
+        ]
+    }
+}

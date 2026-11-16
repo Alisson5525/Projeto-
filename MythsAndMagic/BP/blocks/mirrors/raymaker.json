@@ -1,0 +1,182 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:raymaker",
+            "menu_category": {
+                "category": "items"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            },
+            "states": {
+                "mm:powered": [
+                    false,
+                    true
+                ],
+                "mm:just_became_powered": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:powered') == false",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        },
+                        "north": {
+                            "texture": "raymaker_front_off",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "raymaker_side_off",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:powered') == true",
+                "components": {
+                    "minecraft:light_emission": 6,
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        },
+                        "north": {
+                            "texture": "raymaker_front_on",
+                            "render_method": "alpha_test"
+                        },
+                        "*": {
+                            "texture": "raymaker_side_on",
+                            "render_method": "alpha_test"
+                        },
+                        "down": {
+                            "texture": "raymaker_bottom",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "minecraft:geometry.full_block"
+            },
+            "minecraft:redstone_consumer": {
+                "min_power": 0,
+                "propogates_power": true
+            },
+            "mm:raymaker": {},
+            "minecraft:tick": {
+                "interval_range": [
+                    1,
+                    1
+                ],
+                "looping": true
+            },
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "raymaker_bottom",
+                    "render_method": "alpha_test"
+                },
+                "north": {
+                    "texture": "raymaker_front_off",
+                    "render_method": "alpha_test"
+                },
+                "*": {
+                    "texture": "chiller_side_off",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "raymaker_bottom",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:selection_box": true,
+            "minecraft:collision_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 16.667, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 5 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

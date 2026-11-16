@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "terraform_platform",
+        "metalness_emissive_roughness": "terraform_platform_mer"
+    }
+}

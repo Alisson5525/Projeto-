@@ -1,0 +1,24 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:lava_cookie",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "lava_cookie",
+            "minecraft:food": {
+                "nutrition": 4,
+                "saturation_modifier": 0.5
+            },
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.4,
+                "use_duration": 1.6
+            },
+            "minecraft:use_animation": "eat",
+            "mm:lava_cookie": {}
+        }
+    }
+}

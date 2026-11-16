@@ -1,0 +1,41 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:processor_list": {
+		"description": {
+			"identifier": "mm:tower_ruin"
+		},
+		"processors": [
+			{
+				"processor_type": "minecraft:rule",
+				"rules": [
+					{
+						"input_predicate": {
+							"block": "chest",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.33
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "air"
+						}
+					},
+					{
+						"input_predicate": {
+							"block": "stone_bricks",
+							"predicate_type": "minecraft:random_block_match",
+							"probability": 0.5
+						},
+						"location_predicate": {
+							"predicate_type": "minecraft:always_true"
+						},
+						"output_state": {
+							"name": "cracked_stone_bricks"
+						}
+					}
+				]
+			}
+		]
+	}
+}

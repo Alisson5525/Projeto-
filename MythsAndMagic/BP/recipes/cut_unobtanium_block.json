@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:cut_unobtanium_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "##",
+            "##"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:unobtanium_block"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:unobtanium_block"
+            }
+        ],
+        "result": {
+            "item": "mm:cut_unobtanium_block",
+            "count": 4
+        }
+    }
+}

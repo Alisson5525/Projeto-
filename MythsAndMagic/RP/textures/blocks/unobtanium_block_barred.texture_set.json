@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "unobtanium_block_barred",
+        "metalness_emissive_roughness": "unobtanium_block_barred_mer"
+    }
+}

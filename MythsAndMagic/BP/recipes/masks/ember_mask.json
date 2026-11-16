@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:ember_mask"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "sxs",
+            "xSx"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "s": {
+                "item": "string"
+            },
+            "x": {
+                "item": "mm:blaze_soul"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:blaze_soul"
+            }
+        ],
+        "result": {
+            "item": "mm:ember_mask",
+            "count": 1
+        }
+    }
+}

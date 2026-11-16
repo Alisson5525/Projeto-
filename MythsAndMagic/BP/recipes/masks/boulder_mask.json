@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:boulder_mask"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "sxs",
+            "xSx"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_crystal"
+            },
+            "s": {
+                "item": "string"
+            },
+            "x": {
+                "item": "pointed_dripstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "pointed_dripstone"
+            }
+        ],
+        "result": {
+            "item": "mm:boulder_mask",
+            "count": 1
+        }
+    }
+}

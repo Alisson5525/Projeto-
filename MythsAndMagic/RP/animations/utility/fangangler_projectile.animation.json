@@ -1,0 +1,42 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.fangangler_projectile.scale": {
+            "loop": true,
+            "bones": {
+                "root": {
+                    "scale": 0.5
+                },
+                "particles": {
+                    "scale": 2
+                }
+            }
+        },
+        "animation.fangangler_projectile.particles": {
+            "animation_length": 0.05,
+            "loop": true,
+            "particle_effects": {
+                "0.0": [
+                    {
+                        "locator": "particles",
+                        "effect": "1"
+                    },
+                    {
+                        "locator": "particles",
+                        "effect": "2"
+                    }
+                ]
+            }
+        },
+        "animation.fangangler_projectile.sound": {
+            "animation_length": 0.6,
+            "loop": true,
+            "sound_effects": {
+                "0.0": {
+                    "effect": "ambient",
+                    "locator": "particles"
+                }
+            }
+        }
+    }
+}

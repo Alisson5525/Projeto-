@@ -1,0 +1,41 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:item": {
+    "description": {
+      "identifier": "mm:demon_helmet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "minecraft:itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:rarity": "uncommon",
+      "minecraft:durability": {
+        "max_durability": 4,
+        "damage_chance": {
+          "max": 100,
+          "min": 0
+        }
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 3
+      },
+      "minecraft:icon": "demon_helmet",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": true,
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_armor",
+          "minecraft:transformable_items",
+          "minecraft:trimmable_armors",
+          "mm:demon_armour"
+        ]
+      },
+      "minecraft:wearable": {
+        "protection": 1,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

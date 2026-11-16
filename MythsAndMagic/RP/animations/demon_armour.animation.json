@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.demon_armour.ponytail": {
+			"loop": true,
+			"bones": {
+				"ponytail": {
+					"rotation": [
+						"math.clamp(-q.head_x_rotation(0), -45, 85)",
+						0,
+						0
+					]
+				}
+			}
+		},
+		"animation.demon_armour.walk": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"ponytail": {
+					"rotation": [
+						30,
+						0,
+						0
+					]
+				},
+				"ponytail2": {
+					"rotation": [
+						15,
+						0,
+						0
+					]
+				},
+				"ponytail3": {
+					"rotation": [
+						7.5,
+						0,
+						0
+					]
+				},
+				"ponytail4": {
+					"rotation": [
+						3.75,
+						0,
+						0
+					]
+				}
+			}
+		}
+	}
+}

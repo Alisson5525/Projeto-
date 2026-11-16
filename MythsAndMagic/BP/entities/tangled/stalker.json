@@ -1,0 +1,520 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mm:tangled",
+      "spawn_category": "monster",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "mm:stunned": {
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        },
+        "mm:player_spawned": {
+          "client_sync": false,
+          "type": "bool",
+          "default": false
+        },
+        "mm:despawning": {
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        },
+        "mm:absorbing_energy": {
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        },
+        "mm:mana": {
+          "client_sync": true,
+          "default": 3,
+          "type": "int",
+          "range": [0, 3]
+        }
+      }
+    },
+    "component_groups": {
+      "mm:unkillable": {
+        "minecraft:cannot_be_attacked": {},
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "void",
+              "deals_damage": "yes"
+            },
+            {
+              "cause": "all",
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {
+                      "test": "bool_property",
+                      "domain": "mm:despawning",
+                      "value": true
+                    },
+                    {
+                      "test": "bool_property",
+                      "domain": "mm:stunned",
+                      "value": true
+                    }
+                  ]
+                }
+              },
+              "deals_damage": "no"
+            },
+            {
+              "cause": "all",
+              "on_damage": {
+                "event": "minecraft:damaged_by_entity",
+                "filters": {
+                  "all_of": [
+                    {
+                      "subject": "other",
+                      "test": "is_family",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_nametag",
+                      "value": false
+                    }
+                  ]
+                }
+              },
+              "deals_damage": "no_but_side_effects_apply"
+            },
+            {
+              "cause": "all",
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "subject": "other",
+                      "test": "is_family",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_nametag",
+                      "value": true
+                    }
+                  ]
+                }
+              },
+              "deals_damage": "yes"
+            },
+            {
+              "cause": "all",
+              "on_damage": {
+                "event": "minecraft:damaged_by_entity",
+                "filters": {
+                  "subject": "other",
+                  "test": "is_family",
+                  "value": "mob"
+                }
+              },
+              "deals_damage": "no_but_side_effects_apply"
+            },
+            {
+              "cause": "projectile",
+              "on_damage": {
+                "event": "minecraft:damaged_by_entity"
+              },
+              "deals_damage": "no_but_side_effects_apply"
+            },
+            {
+              "cause": "all",
+              "deals_damage": "no_but_side_effects_apply"
+            }
+          ]
+        }
+      },
+      "mm:start_despawning": {
+        "minecraft:behavior.timer_flag_1": {
+          "duration_range": {
+            "min": 1,
+            "max": 1
+          },
+          "cooldown_range": {
+            "min": 0,
+            "max": 0
+          },
+          "priority": 0,
+          "on_end": {
+            "event": "mm:despawn"
+          }
+        }
+      },
+      "mm:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "mm:no_energy": {
+        "minecraft:movement": {
+          "value": 0.28
+        },
+        "minecraft:timer": {
+          "time": [3, 7],
+          "looping": true,
+          "time_down_event": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "bool_property",
+                  "domain": "mm:despawning",
+                  "value": false
+                },
+                {
+                  "test": "bool_property",
+                  "domain": "mm:stunned",
+                  "value": false
+                }
+              ]
+            },
+            "event": "mm:attempt_to_absorb_energy",
+            "target": "self"
+          }
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "mm:start_despawning",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "bool_property",
+                    "domain": "mm:player_spawned",
+                    "value": false
+                  },
+                  {
+                    "test": "bool_property",
+                    "domain": "mm:despawning",
+                    "value": false
+                  },
+                  {
+                    "test": "has_nametag",
+                    "value": false
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_daytime",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "event": "mm:has_energy",
+              "target": "self",
+              "filters": {
+                "test": "int_property",
+                "domain": "mm:mana",
+                "operator": ">=",
+                "value": 1
+              }
+            }
+          ]
+        }
+      },
+      "mm:absorbing_energy": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:body_rotation_blocked": {},
+        "minecraft:timer": {
+          "time": 5,
+          "looping": true,
+          "time_down_event": {
+            "event": "mm:has_no_energy",
+            "target": "self"
+          }
+        }
+      },
+      "mm:has_energy": {
+        "minecraft:behavior.ranged_attack": {
+          "attack_interval": {
+            "min": 2,
+            "max": 2
+          },
+          "burst_interval": 1,
+          "burst_shots": 1,
+          "priority": 3,
+          "speed_multiplier": 0.98,
+          "in_range_movement_mode": "follow_target",
+          "charge_charged_trigger": 2,
+          "charge_shoot_trigger": 0.5,
+          "ranged_fov": 180,
+          "target_in_sight_time": 0.3,
+          "swing": true,
+          "attack_range": {
+            "min": 1,
+            "max": 16
+          }
+        },
+        "minecraft:shooter": {
+          "def": "mm:tangled_projectile"
+        },
+        "minecraft:movement": {
+          "value": 0.28
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "mm:start_despawning",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "bool_property",
+                    "domain": "mm:player_spawned",
+                    "value": false
+                  },
+                  {
+                    "test": "bool_property",
+                    "domain": "mm:despawning",
+                    "value": false
+                  },
+                  {
+                    "test": "has_nametag",
+                    "value": false
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_daytime",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "event": "mm:has_no_energy",
+              "target": "self",
+              "filters": {
+                "test": "int_property",
+                "domain": "mm:mana",
+                "operator": "<",
+                "value": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:behavior.melee_box_attack": {
+        "priority": 4,
+        "cooldown_time": 1.0,
+        "speed_multiplier": 1.3
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+      "minecraft:annotation.break_door": {
+        "min_difficulty": "easy",
+        "break_time": 4
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:nameable": {},
+      "minecraft:collision_box": {
+        "width": 0.495,
+        "height": 2.5
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "can_pass_doors": true,
+        "can_walk": true,
+        "can_break_doors": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:health": {
+        "value": 9,
+        "max": 9
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava"
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:attack": {
+        "damage": 4,
+        "effect_name": "weakness",
+        "effect_duration": 3
+      },
+      "minecraft:type_family": {
+        "family": ["tangled", "twisted", "monster", "mob"]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "not",
+              "value": "breeze"
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 35
+          }
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "mm:start_despawning": {
+        "set_property": {
+          "mm:despawning": true
+        },
+        "add": {
+          "component_groups": ["mm:start_despawning"]
+        }
+      },
+      "mm:despawn": {
+        "queue_command": {
+          "command": ["particle minecraft:ice_evaporation_emitter ~~1~"]
+        },
+        "add": {
+          "component_groups": ["mm:despawn"]
+        }
+      },
+      "minecraft:damaged_by_entity": {
+        "queue_command": {
+          "command": [
+            "playanimation @s animation.tangled.sway",
+            "particle mm:twisted_leaves_corruption ~ ~1 ~"
+          ]
+        }
+      },
+      "mm:spawned_from_roots": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "trigger": "mm:has_energy",
+                "weight": 1
+              },
+              {
+                "trigger": "mm:has_no_energy",
+                "weight": 2
+              }
+            ]
+          },
+          {
+            "add": {
+              "component_groups": ["mm:unkillable"]
+            }
+          }
+        ]
+      },
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "mm:player_spawned": true,
+          "mm:mana": 3
+        },
+        "add": {
+          "component_groups": ["mm:has_energy"]
+        }
+      },
+      "mm:attempt_to_absorb_energy": {},
+      "mm:complete_absorbing_energy": {},
+      "mm:begin_absorbing_energy": {
+        "set_property": {
+          "mm:absorbing_energy": true
+        },
+        "add": {
+          "component_groups": ["mm:absorbing_energy"]
+        }
+      },
+      "mm:has_energy": {
+        "set_property": {
+          "mm:mana": 3,
+          "mm:absorbing_energy": false
+        },
+        "remove": {
+          "component_groups": ["mm:no_energy", "mm:absorbing_energy"]
+        },
+        "add": {
+          "component_groups": ["mm:has_energy"]
+        }
+      },
+      "mm:has_no_energy": {
+        "set_property": {
+          "mm:mana": 0,
+          "mm:absorbing_energy": false
+        },
+        "remove": {
+          "component_groups": ["mm:has_energy", "mm:absorbing_energy"]
+        },
+        "add": {
+          "component_groups": ["mm:no_energy"]
+        }
+      }
+    }
+  }
+}

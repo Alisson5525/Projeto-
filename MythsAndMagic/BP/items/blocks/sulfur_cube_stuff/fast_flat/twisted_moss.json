@@ -1,0 +1,28 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:twisted_moss_block",
+            "menu_category": {
+                "category": "nature"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:twisted_moss_block.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:twisted_moss_block",
+                "replace_block_item": true
+            },
+            "minecraft:compostable": {
+                "composting_chance": 60
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:sulfur_cube_archetype_fast_flat"
+                ]
+            }
+        }
+    }
+}

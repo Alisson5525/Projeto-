@@ -1,0 +1,27 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.sacred_statue": {
+            "geometry": "geometry.default",
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "arrays": {
+                "textures": {
+                    "Array.skins": [
+                        "Texture.default",
+                        "Texture.cracked"
+                    ]
+                }
+            },
+            "textures": [
+                "Array.skins[q.health > 75 ? 0 : 1]"
+            ],
+            "is_hurt_color": {
+                "a": 0.2
+            }
+        }
+    }
+}

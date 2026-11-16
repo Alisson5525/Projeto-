@@ -1,0 +1,989 @@
+## spawn eggs
+
+item.spawn_egg.entity.mm:mage.name=法师刷怪蛋
+entity.mm:mage.name=法师
+item.spawn_egg.entity.mm:booze.name=酒徒刷怪蛋
+entity.mm:booze.name=酒徒
+item.spawn_egg.entity.mm:flickerwick.name=闪芯刷怪蛋
+entity.mm:flickerwick.name=闪芯
+item.spawn_egg.entity.mm:slushbuckler.name=雪泥剑客刷怪蛋
+entity.mm:slushbuckler.name=雪泥剑客
+item.spawn_egg.entity.mm:mymik.name=米米克刷怪蛋
+entity.mm:mymik.name=米米克
+item.spawn_egg.entity.mm:dyzgise.name=迪兹吉斯刷怪蛋
+entity.mm:dyzgise.name=迪兹吉斯
+item.spawn_egg.entity.mm:scrubel.name=斯克拉贝尔刷怪蛋
+entity.mm:scrubel.name=斯克拉贝尔
+item.spawn_egg.entity.mm:sanctuary_keeper.name=圣所守护者刷怪蛋
+entity.mm:sanctuary_keeper.name=圣所守护者
+item.spawn_egg.entity.mm:sacred_statue.name=神圣雕像刷怪蛋
+entity.mm:sacred_statue.name=神圣雕像
+item.spawn_egg.entity.mm:alterbeast.name=异变兽刷怪蛋
+entity.mm:alterbeast.name=异变兽
+item.spawn_egg.entity.mm:revoid.name=红噬刷怪蛋
+entity.mm:revoid.name=红噬
+item.spawn_egg.entity.mm:sanguine_spider.name=血红蜘蛛刷怪蛋
+entity.mm:sanguine_spider.name=血红蜘蛛
+item.spawn_egg.entity.mm:chill.name=寒颤刷怪蛋
+entity.mm:chill.name=寒颤
+item.spawn_egg.entity.mm:stray_polar_bear.name=流浪北极熊刷怪蛋
+entity.mm:stray_polar_bear.name=流浪北极熊
+item.spawn_egg.entity.mm:guardian_myth.name=Guardian Myth Spawn Egg
+entity.mm:guardian_myth.name=Guardian Myth
+item.spawn_egg.entity.mm:testplayer.name=TestPlayer Spawn Egg
+entity.mm:testplayer.name=TestPlayer
+item.spawn_egg.entity.mm:tangled.name=Tangled Spawn Egg
+entity.mm:tangled.name=Tangled
+item.spawn_egg.entity.mm:jakynbocks.name=§eJakynbocks Spawn Egg§r
+entity.mm:jakynbocks.name=Jakynbocks
+
+## mob related items
+
+tile.mm:flickerwick_statue.name=闪芯雕像
+tile.mm:soul_flickerwick_statue.name=灵魂闪芯雕像
+tile.mm:copper_flickerwick_statue.name=铜制闪芯雕像
+tile.mm:sparkling_flickerwick_statue.name=闪光闪芯雕像
+tile.mm:tall_flickerwick_statue.name=高闪芯雕像
+tile.mm:tall_soul_flickerwick_statue.name=高灵魂闪芯雕像
+tile.mm:tall_copper_flickerwick_statue.name=高铜制闪芯雕像
+tile.mm:tall_sparkling_flickerwick_statue.name=高闪光闪芯雕像k
+
+item.mm:candle_holder=Candle Holder
+item.mm:flickerwick_candle_holder=Flickerwick Candle Holder
+
+item.mm:booze_rod=酒徒之杖
+item.mm:spell_charge=法术充能
+
+item.mm:vampire_fang=吸血鬼之牙
+item.mm:fangangler=獠牙钩
+item.mm:sacred_snowflake=Sacred Snowflake
+item.mm:icicle_spear=Icicle Spear
+
+item.mm:cursed_mask=圣所面具
+item.mm:sanctuary_key=圣所钥匙
+tile.mm:sanctuary_vault.name=圣所宝库
+tile.mm:sanctuary_key_holder.name=圣所钥匙架
+
+tile.mm:inanimate_statue.name=无生命雕像
+tile.mm:dormant_sanctuary_keeper.name=休眠的圣所守护者
+
+tile.mm:revoid_light.name=闪光
+tile.mm:flickerwick_light.name=闪光
+tile.mm:soul_flickerwick_light.name=闪光
+tile.mm:copper_flickerwick_light.name=闪光
+tile.mm:sparkling_flickerwick_light.name=闪光
+
+item.mm:popsicle=冰棍
+
+tile.mm:scrubel_treasure_pile.name=宝藏堆
+tile.mm:arid_dirt.name=焦土
+entity.mm:scrubel_treasure_pile.name=宝藏容器
+
+item.mm:ectoplasm=Ectoplasm
+
+item.mm:jakynknife=Jakynknife
+entity.mm:jakynknife_projectile.name=Jakynknife Projectile
+entity.mm:chaos_buster.name=Chaos Buster
+
+item.mm:twisted_cord=Twisted Cord
+item.mm:longshot=Longshot
+
+item.mm:lava_cookie=Lava Cookie
+item.mm:molten_tear=Molten Tear
+
+item.mm:moon_dust=Moon Dust
+
+item.mm:lycan_fur=Lycan Fur
+item.mm:lycan_claw=Lycan Claw
+
+item.mm:hellfire_key=Hellfire Key
+item.mm:guardian_wand=Guardian Wand
+
+item.mm:spirit_lantern=Spirit Lantern
+tile.mm:spirit_lantern.name=Spirit Lantern
+item.mm:active_spirit_lantern=Vengeful Spirit Lantern
+tile.mm:active_spirit_lantern.name=Vengeful Spirit Lantern
+
+## magic stuff
+
+item.mm:mages_hat=法师帽
+
+item.mm:scroll=卷轴
+item.mm:creative_scroll=创造模式卷轴
+item.mm:mystery_scroll=卷轴
+item.mm:spell_book=法术书
+item.mm:staff=Staff
+
+item.mm:red_spell_book=红色法术书
+item.mm:orange_spell_book=橙色法术书
+item.mm:yellow_spell_book=黄色法术书
+item.mm:lime_spell_book=黄绿色法术书
+item.mm:green_spell_book=绿色法术书
+item.mm:cyan_spell_book=青色法术书
+item.mm:blue_spell_book=蓝色法术书
+item.mm:light_blue_spell_book=淡蓝色法术书
+item.mm:purple_spell_book=紫色法术书
+item.mm:magenta_spell_book=品红色法术书
+item.mm:pink_spell_book=粉色法术书
+item.mm:white_spell_book=白色法术书
+item.mm:gray_spell_book=灰色法术书
+item.mm:light_gray_spell_book=淡灰色法术书
+item.mm:black_spell_book=黑色法术书
+item.mm:brown_spell_book=棕色法术书
+
+item.mm:ancient_texts=古代典籍
+
+item.mm:amulet_core=护符核心
+item.mm:blazing_amulet=炽热护符
+item.mm:shivering_amulet=战栗护符
+item.mm:sparkling_amulet=闪光护符
+item.mm:altered_amulet=异变护符
+item.mm:resonance_amulet=Resonance Amulet
+
+item.mm:ring_of_splinters=Ring of Splinters
+
+item.mm:ember_mask=余烬面具
+item.mm:frost_mask=寒霜面具
+item.mm:breeze_mask=微风面具
+item.mm:boulder_mask=巨岩面具
+item.mm:thunder_mask=雷鸣面具
+
+tile.mm:orb_ponderer.name=宝珠沉思器
+entity.mm:orb_ponderer_orb.name=Pondering Orb
+item.mm:pondering_book=Pondering Book
+tile.mm:spellcrafter.name=法术锻造台
+tile.mm:reforged_spellcrafter.name=重铸法术锻造台
+tile.mm:spell_manager.name=法术管理器
+tile.mm:scroll_crafter.name=卷轴锻造台
+item.mm:spellcrafter_core=法术锻造台核心
+
+item.mm:experience_orb=Experience Orb
+
+## equipment
+
+item.mm:wooden_halberd=木戟
+item.mm:azsilva_halberd=阿兹西尔瓦戟
+item.mm:stone_halberd=石戟
+item.mm:golden_halberd=金戟
+item.mm:copper_halberd=铜戟
+item.mm:netherite_halberd=下界合金戟
+item.mm:diamond_halberd=钻石戟
+item.mm:iron_halberd=铁戟
+
+item.mm:demon_boots=恶魔靴子
+item.mm:demon_leggings=恶魔护腿
+item.mm:demon_chestplate=恶魔胸甲
+item.mm:demon_helmet=恶魔头盔
+item.mm:bound_demon_boots=§v恶魔靴子§r
+item.mm:bound_demon_leggings=§v恶魔护腿§r
+item.mm:bound_demon_chestplate=§v恶魔胸甲§r
+item.mm:bound_demon_helmet=§v恶魔头盔§r
+
+item.mm:azsilva_boots=阿兹西尔瓦靴子
+item.mm:azsilva_chestplate=阿兹西尔瓦胸甲
+item.mm:azsilva_leggings=阿兹西尔瓦护腿
+item.mm:azsilva_helmet=阿兹西尔瓦头盔
+item.mm:azsilva_axe=阿兹西尔瓦斧
+item.mm:azsilva_sword=阿兹西尔瓦剑
+item.mm:azsilva_pickaxe=阿兹西尔瓦镐
+item.mm:azsilva_shovel=阿兹西尔瓦锹
+item.mm:azsilva_spear=阿兹西尔瓦矛
+item.mm:azsilva_hoe=阿兹西尔瓦锄
+
+item.mm:icarus_boots=伊卡洛斯之靴
+
+item.mm:warp_key=传送钥匙
+item.mm:altered_key=异变钥匙
+
+item.mm:meteor_boots=Meteor Boots
+item.mm:meteor_chestplate=Meteor Chestplate
+item.mm:meteor_leggings=Meteor Leggings
+item.mm:meteor_helmet=Meteor Helmet
+
+## materials
+
+tile.mm:fallen_meteor.name=Fallen Meteorite
+item.mm:raw_meteor_fragment=Raw Meteor Fragment
+item.mm:meteor_ingot=Meteor Ingot
+item.mm:meteor_nugget=Meteor Nugget
+
+item.mm:meteor_torch=Meteor Torch
+item.mm:meteor_lantern=Meteor Lantern
+tile.mm:meteor_torch.name=Meteor Torch
+tile.mm:meteor_lantern.name=Meteor Lantern
+
+tile.mm:permafrost_crystal_block.name=永冻水晶块
+tile.mm:permafrost_icicle.name=永冻冰锥
+item.mm:permafrost_icicle=永冻冰锥
+item.mm:permafrost_shard=永冻水晶碎片
+
+tile.mm:sanctuary_bricks.name=圣所砖
+tile.mm:arid_sandstone.name=焦砂岩
+tile.mm:arid_sandstone_tile.name=焦砂岩石板
+tile.mm:chiseled_arid_sandstone_tile.name=錾制焦砂岩石板
+tile.mm:cursed_arid_sandstone_tile.name=诅咒焦砂岩石板
+tile.mm:arid_sandstone_bricks.name=焦砂岩砖
+tile.mm:cracked_arid_sandstone_bricks.name=裂纹焦砂岩砖
+tile.mm:arid_sandstone_slab.name=焦砂岩台阶
+tile.mm:arid_sandstone_tile_slab.name=焦砂岩石板台阶
+tile.mm:arid_sandstone_brick_slab.name=焦砂岩砖台阶
+tile.mm:sanctuary_brick_wall.name=Sanctuary Brick Wall
+tile.mm:arid_sandstone_tile_wall.name=Scorched Sandstone Tile Wall
+tile.mm:arid_sandstone_brick_wall.name=Scorched Sandstone Brick Wall
+
+item.mm:azsilva_ingot=阿兹西尔瓦锭
+item.mm:azsilva_nugget=Azsilva Nugget
+item.mm:raw_azsilva=粗阿兹西尔瓦
+tile.mm:azsilva_ore.name=阿兹西尔瓦矿石
+tile.mm:deepslate_azsilva_ore.name=深板岩阿兹西尔瓦矿石
+tile.mm:azsilva_block.name=阿兹西尔瓦块
+tile.mm:raw_azsilva_block.name=粗阿兹西尔瓦块
+tile.mm:cut_azsilva.name=切制阿兹西尔瓦
+tile.mm:cut_azsilva_tiles.name=切制阿兹西尔瓦瓷砖
+item.mm:azsilva_carrot=阿兹西尔瓦胡萝卜
+
+tile.mm:arcane_deepslate.name=奥术深板岩
+tile.mm:arcane_deepslate_slab.name=奥术深板岩台阶
+tile.mm:polished_arcane_deepslate.name=磨制奥术深板岩
+tile.mm:polished_arcane_deepslate_slab.name=磨制奥术深板岩台阶
+tile.mm:arcane_deepslate_bricks.name=奥术深板岩砖
+tile.mm:arcane_deepslate_brick_slab.name=奥术深板岩砖台阶
+tile.mm:chiseled_arcane_deepslate.name=錾制奥术深板岩
+tile.mm:moonstone_ore.name=Ender Moonstone Ore
+tile.mm:prismat_crystal_block.name=Prismat Crystal Block
+tile.mm:prismat_crystal_glass.name=Prismat Crystal Glass
+
+item.mm:sparkling_crystal=闪光水晶
+item.mm:sparkling_shard=闪光碎片
+tile.mm:sparkling_cluster.name=Sparkling Cluster
+tile.mm:sparkling_crystal_block.name=闪光水晶块
+tile.mm:sparkling_ore.name=闪光矿石
+tile.mm:deepslate_sparkling_ore.name=深板岩闪光矿石
+
+item.mm:sparkling_torch=闪光火把
+item.mm:sparkling_lantern=闪光灯笼
+tile.mm:sparkling_torch.name=闪光火把
+tile.mm:sparkling_lantern.name=闪光灯笼
+item.mm:unobtanium_torch=玄铁火把
+item.mm:unobtanium_lantern=玄铁灯笼
+tile.mm:unobtanium_torch.name=玄铁火把
+tile.mm:unobtanium_lantern.name=玄铁灯笼
+item.mm:expired_torch=Expired Torch
+item.mm:terragna_residue=Terragna Residue
+
+item.mm:unobtanium_ingot=玄铁锭
+item.mm:unobtanium_nugget=玄铁粒
+item.mm:raw_unobtanium=粗玄铁
+tile.mm:unobtanium_block.name=玄铁块
+tile.mm:cut_unobtanium_block.name=切制玄铁块
+tile.mm:raw_unobtanium_block.name=Block of Raw Unobtanium
+item.mm:unobtanium_clock=Unobtanium Clock
+
+item.mm:alchatite_ingot=阿查泰特锭
+tile.mm:alchatite_block.name=阿查泰特块
+tile.mm:bolted_alchatite_block.name=螺栓阿查泰特块
+tile.mm:chiseled_alchatite_block.name=錾制阿查泰特块
+
+tile.mm:red_padded_alchatite.name=Red Padded Alchatite
+tile.mm:orange_padded_alchatite.name=Orange Padded Alchatite
+tile.mm:yellow_padded_alchatite.name=Yellow Padded Alchatite
+tile.mm:lime_padded_alchatite.name=Lime Padded Alchatite
+tile.mm:green_padded_alchatite.name=Green Padded Alchatite
+tile.mm:light_blue_padded_alchatite.name=Light Blue Padded Alchatite
+tile.mm:blue_padded_alchatite.name=Blue Padded Alchatite
+tile.mm:cyan_padded_alchatite.name=Cyan Padded Alchatite
+tile.mm:purple_padded_alchatite.name=Purple Padded Alchatite
+tile.mm:magenta_padded_alchatite.name=Magenta Padded Alchatite
+tile.mm:pink_padded_alchatite.name=Pink Padded Alchatite
+tile.mm:white_padded_alchatite.name=White Padded Alchatite
+tile.mm:light_gray_padded_alchatite.name=Light Grey Padded Alchatite
+tile.mm:gray_padded_alchatite.name=Grey Padded Alchatite
+tile.mm:black_padded_alchatite.name=Black Padded Alchatite
+tile.mm:brown_padded_alchatite.name=Brown Padded Alchatite
+
+tile.mm:polished_calcite.name=磨制方解石
+tile.mm:polished_calcite_slab.name=磨制方解石台阶
+tile.mm:calcite_bricks.name=方解石砖
+tile.mm:calcite_brick_slab.name=方解石砖台阶
+tile.mm:chiseled_calcite_bricks.name=錾制方解石砖
+tile.mm:chiseled_calcite.name=Chiseled Calcite
+tile.mm:polished_calcite_wall.name=Polished Calcite Wall
+tile.mm:calcite_brick_wall.name=Calcite Brick Wall
+
+tile.mm:alterstone.name=异变石
+tile.mm:alterstone_bricks.name=异变石砖
+tile.mm:cobbled_alterstone.name=异变圆石
+tile.mm:mossy_alterstone.name=苔异变石
+tile.mm:altermoss_block.name=异变苔块
+tile.mm:alterbedrock.name=异变基岩
+tile.mm:altermoss_growth.name=异变苔藓
+item.mm:altermoss_growth=异变苔藓
+tile.mm:alterbrush.name=异变灌木
+tile.mm:veiny_alterstone.name=脉状异变石
+tile.mm:unobtanium_ore.name=玄铁矿石
+tile.mm:altered_reality.name=异变现实
+tile.mm:alterstone_slab.name=异变石台阶
+tile.mm:cobbled_alterstone_slab.name=异变圆石台阶
+tile.mm:alterstone_brick_slab.name=异变石砖台阶
+tile.mm:veiny_alterstone_slab.name=Veiny Alterstone Slab
+tile.mm:alterstone_wall.name=Alterstone Wall
+tile.mm:cobbled_alterstone_wall.name=Cobbled Alterstone Wall
+tile.mm:polished_alterstone_wall.name=Polished Alterstone Wall
+tile.mm:alterstone_brick_wall.name=Alterstone Brick Wall
+tile.mm:altermoss_carpet.name=Altermoss Carpet
+
+tile.mm:polished_alterstone.name=Polished Alterstone
+tile.mm:polished_alterstone_slab.name=Polished Alterstone Slab
+tile.mm:chiseled_alterstone.name=Chiseled Alterstone
+tile.mm:polished_veiny_alterstone.name=Polished Veiny Alterstone
+tile.mm:polished_veiny_alterstone_slab.name=Polished Veiny Alterstone Slab
+tile.mm:chiseled_veiny_alterstone.name=Chiseled Veiny Alterstone
+tile.mm:veiny_alterstone_bricks.name=Veiny Alterstone Bricks
+tile.mm:veiny_alterstone_brick_slab.name=Veiny Alterstone Brick Slab
+
+tile.mm:palacite.name=Palacite
+tile.mm:palacite_slab.name=Palacite Slab
+tile.mm:polished_palacite.name=Polished Palacite
+tile.mm:polished_palacite_slab.name=Polished Palacite Slab
+tile.mm:palacite_bricks.name=Palacite Bricks
+tile.mm:palacite_brick_slab.name=Palacite Brick Slab
+tile.mm:cracked_palacite_bricks.name=Cracked Palacite Bricks
+tile.mm:cracked_palacite_brick_slab.name=Cracked Palacite Brick Slab
+tile.mm:chiseled_palacite.name=Chiseled Palacite
+tile.mm:palacite_wall.name=Palacite Wall
+tile.mm:polished_palacite_wall.name=Polished Palacite Wall
+tile.mm:palacite_brick_wall.name=Palacite Brick Wall
+tile.mm:palacite_vent.name=Palacite Vent
+
+tile.mm:bone_block_wall.name=Bone Block Wall
+
+tile.mm:glowstone_spike.name=Glowstone Spike
+item.mm:glowstone_spike=Glowstone Spike
+
+tile.mm:twisted_moss_block.name=Twisted Moss Block
+tile.mm:twisted_moss_carpet.name=Twisted Moss Carpet
+tile.mm:twisted_stalks.name=Twisted Stalks
+item.mm:twisted_stalks=Twisted Stalks
+tile.mm:twisted_shrub.name=Twisted Shrub
+item.mm:twisted_shrub=Twisted Shrub
+tile.mm:twisted_mushroom.name=Twisted Mushroom
+item.mm:twisted_mushroom=Twisted Mushroom
+tile.mm:luminous_twisted_mushroom.name=Luminous Twisted Mushroom
+item.mm:luminous_twisted_mushroom=Luminous Twisted Mushroom
+tile.mm:hanging_moss.name=Hanging Moss
+item.mm:hanging_moss=Hanging Moss
+tile.mm:twisted_hanging_moss.name=Twisted Hanging Moss
+item.mm:twisted_hanging_moss=Twisted Hanging Moss
+tile.mm:ilymia.name=Ilymia
+item.mm:ilymia=Ilymia
+
+tile.mm:twisted_roots.name=Twisted Roots
+tile.mm:healthy_twisted_leaves.name=Healthy Twisted Leaves
+
+tile.mm:twisted_leaves.name=Twisted Leaves
+tile.mm:twisted_log.name=Twisted Log
+tile.mm:twisted_wood.name=Twisted Wood
+tile.mm:stripped_twisted_log.name=Stripped Twisted Log
+tile.mm:stripped_twisted_wood.name=Stripped Twisted Wood
+tile.mm:twisted_planks.name=Twisted Planks
+tile.mm:twisted_slab.name=Twisted Slab
+tile.mm:twisted_stairs.name=Twisted Stairs
+tile.mm:twisted_door.name=Twisted Door
+tile.mm:twisted_trapdoor.name=Twisted Trapdoor
+tile.mm:twisted_button.name=Twisted Button
+tile.mm:twisted_pressure_plate.name=Twisted Pressure Plate
+tile.mm:twisted_fence.name=Twisted Fence
+tile.mm:twisted_fence_gate.name=Twisted Fence Gate
+tile.mm:twisted_sapling.name=Twisted Sapling
+item.mm:twisted_sapling=Twisted Sapling
+
+## other stuff
+
+tile.mm:chiller.name=制冷机
+tile.mm:magnetic_piston.name=磁力活塞
+tile.mm:unobtanium_transporter.name=玄铁传送器
+tile.mm:azsilva_mirror.name=Azsilva Mirror
+tile.mm:raymaker.name=Raymaker
+tile.mm:light_switch.name=Light Switch
+tile.mm:light_vault.name=Light Vault
+tile.mm:ballista.name=Ballista
+
+item.mm:polar_trial_key=极地试炼钥匙
+item.mm:ominous_polar_trial_key=不祥的极地试炼钥匙
+
+tile.mm:occuleye.name=魔眼
+item.mm:occuleye=魔眼
+tile.mm:shockweed.name=电击草
+item.mm:shockweed=电击草
+
+tile.mm:pink_plushie.name=粉色玩偶
+item.mm:pink_plushie=粉色玩偶
+
+tile.mm:snowy_stone_bricks.name=积雪石砖
+tile.mm:snowy_stone_brick_slab.name=积雪石砖台阶
+
+item.mm:blaze_soul=烈焰人之魂
+
+item.mm:brazier=火盆
+tile.mm:brazier.name=火盆
+item.mm:soul_brazier=灵魂火盆
+tile.mm:soul_brazier.name=灵魂火盆
+item.mm:copper_brazier=铜火盆
+tile.mm:copper_brazier.name=铜火盆
+item.mm:sparkling_brazier=闪光火盆
+tile.mm:sparkling_brazier.name=闪光火盆
+item.mm:unobtanium_brazier=玄铁火盆
+tile.mm:unobtanium_brazier.name=玄铁火盆
+item.mm:meteor_brazier=Meteor Brazier
+tile.mm:meteor_brazier.name=Meteor Brazier
+
+##sherds
+
+item.mm:foe_pottery_sherd.name=Foe Pottery Sherd
+item.mm:onlooker_pottery_sherd.name=Onlooker Pottery Sherd
+
+## potions
+
+item.mm:amethyst_bottle=紫水晶瓶
+item.mm:booze_potion_haste=急迫药水
+item.mm:booze_potion_metallurgy=冶金药水
+item.mm:booze_potion_reduction=减耗药水
+item.mm:booze_potion_blindness=失明药水
+
+item.mm:booze_potion_haste_splash=喷溅型急迫药水
+item.mm:booze_potion_metallurgy_splash=喷溅型冶金药水
+item.mm:booze_potion_reduction_splash=喷溅型减耗药水
+item.mm:booze_potion_blindness_splash=喷溅型失明药水
+
+
+
+
+
+item.mm:booze_potion_fragile=Potion of Shattering
+item.mm:booze_potion_fragile_splash=Splash Potion of Shattering
+staff_design.design=Design:
+item.mm:magistrate_staff_design_smithing_template=Magistrate Staff Design
+tile.mm:magistrate_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.magistrate=Magistrate
+item.mm:ancient_staff_design_smithing_template=Ancient Staff Design
+tile.mm:ancient_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.ancient=Ancient
+item.mm:arcane_staff_design_smithing_template=Arcane Staff Design
+tile.mm:arcane_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.arcane=Arcane
+item.mm:chilling_staff_design_smithing_template=Chilling Staff Design
+tile.mm:chilling_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.chilling=Chilling
+item.mm:alter_staff_design_smithing_template=Alter Staff Design
+tile.mm:alter_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.alter=Alter
+item.mm:spine_staff_design_smithing_template=Spine Staff Design
+tile.mm:spine_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.spine=Spine
+item.mm:curse_staff_design_smithing_template=Curse Staff Design
+tile.mm:curse_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.curse=Curse
+item.mm:ware_staff_design_smithing_template=Ware Staff Design
+tile.mm:ware_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.ware=Ware
+item.mm:shifting_staff_design_smithing_template=Shifting Staff Design
+tile.mm:shifting_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.shifting=Shifting
+item.mm:walker_staff_design_smithing_template=Walker Staff Design
+tile.mm:walker_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.walker=Walker
+item.mm:howl_staff_design_smithing_template=Howl Staff Design
+tile.mm:howl_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.howl=Howl
+item.mm:commander_staff_design_smithing_template=Commander Staff Design
+tile.mm:commander_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.commander=Commander
+item.mm:twilight_staff_design_smithing_template=Twilight Staff Design
+tile.mm:twilight_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.twilight=Twilight
+item.mm:twisted_staff_design_smithing_template=Twisted Staff Design
+tile.mm:twisted_staff_design_smithing_template.tooltip=§r§7Smithing Template~LINEBREAK~~LINEBREAK~§r§7Applies To:~LINEBREAK~§r§9 Staff~LINEBREAK~§r§7Applied With: ~LINEBREAK~§r§9 Spell Manager
+spell_manager.twisted=Twisted
+
+## non-important-entities
+
+entity.mm:icicles.name=冰锥
+entity.mm:stone_platform.name=石质平台
+entity.mm:debris.name=碎片
+entity.mm:spark.name=火花
+entity.mm:hellfire.name=地狱火
+entity.mm:spell_charge.name=法术充能
+entity.mm:red_splinters.name=红噬
+entity.mm:spell_book.name=飞行法术书
+entity.mm:giant_snowball.name=Giant Snowball
+entity.mm:guardian_hellfire.name=Hellfire
+entity.mm:lantern_spirit.name=Lantern Spirit
+entity.mm:blue_lantern_spirit.name=Lantern Spirit
+entity.mm:meteorite.name=Meteorite
+entity.mm:air_surfer.name=Air Surfer
+entity.mm:guardian_wand_hand.name=Guardian Hand
+
+## creative menu
+
+mm:itemGroup.name.spellBooks=法术书
+mm:itemGroup.name.elementalMasks=元素面具
+mm:itemGroup.name.amulets=护符
+mm:itemGroup.name.aridSandstone=焦砂岩
+mm:itemGroup.name.calciteBlockset=方解石
+mm:itemGroup.name.alterstoneBlockset=Alterstone
+mm:itemGroup.name.arcaneBlockset=Arcane Deepslate
+mm:itemGroup.name.halberds=戟
+mm:itemGroup.name.alterrealmBlocks=异变维度方块
+mm:itemGroup.name.boozePotions=紫水晶药水
+mm:itemGroup.name.boozePotionsSplash=紫水晶喷溅药水
+mm:itemGroup.name.braziers=火盆
+mm:itemGroup.name.flickerwickStatues=闪芯雕像
+mm:itemGroup.name.palaciteBlockset=Palacite
+mm:itemGroup.name.musicDiscs=Music Discs §d(Alylica's Myths & Magic)§r
+mm:itemGroup.name.paddedAlchatite=Padded Alchatite
+mm:itemGroup.name.staffDesigns=Staff Design Templates
+
+## orb ponderer
+orb_ponderer.no_held_item=No item is held.
+orb_ponderer.no_pondering_book=You must be holding a Book or Pondering Book.
+orb_ponderer.no_enchants_avaliable=This item has no avaliable enchantments.
+orb_ponderer.not_enough_items=You do not have sufficient ingredients.
+orb_ponderer.not_enough_exp=You do not have sufficient experience levels.
+orb_ponderer.in_use=Someone else is pondering the orb.
+orb_ponderer.stack_too_large=You cannot ponder with a stacked item.
+orb_ponderer.select_level=Select Level
+orb_ponderer.level_label=Enchantment Level
+orb_ponderer.confirm_title=Confirm Pondering
+orb_ponderer.experience_levels=Enchanting Levels
+orb_ponderer.creative_no_cost=§7§o(Creative Mode ignores costs)
+orb_ponderer.confirm=Confirm
+orb_ponderer.back=Return
+orb_ponderer.cancel=Cancel
+orb_ponderer.enchant_failed=Pondering Failed
+pondering_tome.empty=§7§oNo enchantments!
+pondering_tome.no_valid_items=§7§oThere are no enchantable items in your inventory.
+pondering_tome.no_valid_enchants=§7§oNo enchantment in this book was compatible.
+
+orb_ponderer.sharpness=Sharpness
+orb_ponderer.sharpness.desc=Raises attack damage
+orb_ponderer.smite=Smite
+orb_ponderer.smite.desc=Greatly raises attack damage against Undead Mobs
+orb_ponderer.bane_of_arthropods=Bane of Arthropods
+orb_ponderer.bane_of_arthropods.desc=Greatly raises attack damage against Arthropod Mobs - Also applies slowness
+orb_ponderer.looting=Looting
+orb_ponderer.looting.desc=Increases drop rates for most mob loot
+orb_ponderer.knockback=Knockback
+orb_ponderer.knockback.desc=Raises knockback from attacks
+orb_ponderer.fire_aspect=Fire Aspect
+orb_ponderer.fire_aspect.desc=Attacks set mobs on fire
+orb_ponderer.unbreaking=Unbreaking
+orb_ponderer.unbreaking.desc=Decreases the rate at which durability depletes
+orb_ponderer.mending=Mending
+orb_ponderer.mending.desc=Collected experience will restore durability if equipped
+orb_ponderer.lunge=Lunge
+orb_ponderer.lunge.desc=Consumes hunger to dash forward when swinging
+orb_ponderer.efficiency=Efficiency
+orb_ponderer.efficiency.desc=Raises mining speed
+orb_ponderer.fortune=Fortune
+orb_ponderer.fortune.desc=Increases loot drops from certain blocks such as ores
+orb_ponderer.silk_touch=Silk Touch
+orb_ponderer.silk_touch.desc=Most blocks mined will drop in their exact state
+orb_ponderer.power=Power
+orb_ponderer.power.desc=Raises ranged attack damage
+orb_ponderer.punch=Punch
+orb_ponderer.punch.desc=Raises ranged knockback
+orb_ponderer.flame=Flame
+orb_ponderer.flame.desc=Ignites arrows with fire
+orb_ponderer.infinity=Infinity
+orb_ponderer.infinity.desc=Arrows are not consumed when fired - Does not apply to tipped arrows
+orb_ponderer.quick_charge=Quick Charge
+orb_ponderer.quick_charge.desc=Raises charging speed
+orb_ponderer.multishot=Multishot
+orb_ponderer.multishot.desc=Fire three arrows at once
+orb_ponderer.piercing=Piercing
+orb_ponderer.piercing.desc=Arrows will pierce through mobs and shields
+orb_ponderer.density=Density
+orb_ponderer.density.desc=Raises smash attack damage per distance fallen
+orb_ponderer.breach=Breach
+orb_ponderer.breach.desc=Reduces effectiveness of enemy armour
+orb_ponderer.wind_burst=Wind Burst
+orb_ponderer.wind_burst.desc=Launches you upwards after landing a smash attack
+orb_ponderer.impaling=Impaling
+orb_ponderer.impaling.desc=Greatly raises damage against underwater mobs
+orb_ponderer.loyalty=Loyalty
+orb_ponderer.loyalty.desc=After thrown, item attempts to returns to your hand
+orb_ponderer.channeling=Channeling
+orb_ponderer.channeling.desc=During a thunderstorm, succesful ranged attacks will strike lightning
+orb_ponderer.riptide=Riptide
+orb_ponderer.riptide.desc=Can be used to move at high speeds in water - Prevents ranged attacks
+orb_ponderer.protection=Protection
+orb_ponderer.protection.desc=Reduces damage taken
+orb_ponderer.fire_protection=Fire Protection
+orb_ponderer.fire_protection.desc=Greatly reduces damage taken from fire - Reduces the duration of burning
+orb_ponderer.projectile_protection=Projectile Protection
+orb_ponderer.projectile_protection.desc=Greatly reduces damage taken from ranged attacks
+orb_ponderer.blast_protection=Blast Protection
+orb_ponderer.blast_protection.desc=Greatly reduces damage and knockback taken from explosives
+orb_ponderer.thorns=Thorns
+orb_ponderer.thorns.desc=Can damage attackers when worn - Depletes durability when doing so
+orb_ponderer.respiration=Respiration
+orb_ponderer.respiration.desc=Raises underwater breathing duration, reduces drowning speed
+orb_ponderer.aqua_affinity=Aqua Affinity
+orb_ponderer.aqua_affinity.desc=Grealty raises mining speed underwwater
+orb_ponderer.swift_sneak=Swift Sneak
+orb_ponderer.swift_sneak.desc=Raises sneaking speed
+orb_ponderer.depth_strider=Depth Strider
+orb_ponderer.depth_strider.desc=Raises underwater movement speed
+orb_ponderer.frost_walker=Frost Walker
+orb_ponderer.frost_walker.desc=Freezes water below you into Frosted Ice
+orb_ponderer.soul_speed=Soul Speed
+orb_ponderer.soul_speed.desc=Raises movement speed on Soul Sand and Soul Soil - Consumes durability when doing so
+orb_ponderer.feather_falling=Feather Falling
+orb_ponderer.feather_falling.desc=Greatly reduces damage taken from falls
+orb_ponderer.luck_of_the_sea=Luck of the Sea
+orb_ponderer.luck_of_the_sea.desc=Raises the chance of fishing up valuables
+orb_ponderer.lure=Lure
+orb_ponderer.lure.desc=Increases fishing speed
+orb_ponderer.extension=Extension
+orb_ponderer.extension.desc=Increases projectile distance
+orb_ponderer.reeling=Reeling
+orb_ponderer.reeling.desc=Increases travel speed
+orb_ponderer.tether=Tether
+orb_ponderer.tether.desc=Pulls in mobs that are attached to the Longshot
+orb_ponderer.clashing=Clashing
+orb_ponderer.clashing.desc=Increases damage of heavy attacks - Allows heavy attacks to disarm shields
+orb_ponderer.ruthless=Ruthless
+orb_ponderer.ruthless.desc=Increases damage against low health targets
+orb_ponderer.boomburst=Boomburst
+orb_ponderer.boomburst.desc=Increases explosive projectile damage
+orb_ponderer.starshot=Starshot
+orb_ponderer.starshot.desc=Deals damage to mobs while returning to the owner
+orb_ponderer.chaos_buster=Chaos Buster
+orb_ponderer.chaos_buster.desc=Item can no longer be thrown, instead consuming mana to fire powerful magic projectiles
+orb_ponderer.frozen_touch=Frozen Touch
+orb_ponderer.frozen_touch.desc=Attacks slow down mobs
+orb_ponderer.draining=Draining
+orb_ponderer.draining.desc=Melee Attacks drain a bit of health from mobs.
+orb_ponderer.toxicity=Toxicity
+orb_ponderer.toxicity.desc=Projectile Attacks poison mobs.
+
+## hints
+
+action.hint.exit.mm:stray_polar_bear=按潜行键下骑
+action.interact.mage=给予闪光水晶
+action.interact.popsicle=喂食
+
+##this is empty intentionally
+action.hint.exit.mm:air_surfer=
+
+spellcrafter.scroll_dropped=已丢弃选中的卷轴。
+spellcrafter.no_scrolls=你的物品栏中必须有一张卷轴。
+spellcrafter.scroll_full_durability=只有使用过的卷轴才能被修复。
+spellcrafter.out_of_power=给予法师一个闪光水晶可为法术锻造台充能。
+spellcrafter.held_item_invalid=你必须手持法术书或卷轴才能使用。
+spellcrafter.no_held_item=未持有物品。
+spellcrafter.cannot_duplicate=This spell cannot be applied more than once.
+
+reforged_spellcrafter.out_of_power=使用闪光水晶为法术锻造台充能。
+
+spell_manager.no_dyes=未持有染料。
+spell_manager.no_templates=No applicable Smithing Templates are held.
+spell_manager.empty_scroll=选中的卷轴是空的。
+spell_manager.held_item_invalid=You must hold a Spell Book, Staff or Scroll to use.
+spell_manager.no_held_item=未持有物品。
+spell_manager.same_spell=无法重新排序两个相同的法术。
+
+scroll_crafter.held_item_invalid=你必须手持空白卷轴才能使用。
+scroll_crafter.no_held_item=未持有物品。
+scroll_crafter.no_recipes=未知配方。
+scroll_crafter.insufficient_items=材料不足。
+
+spell_manager.black_dye=黑色染料
+spell_manager.light_gray_dye=淡灰色染料
+spell_manager.gray_dye=灰色染料
+spell_manager.white_dye=白色染料
+spell_manager.red_dye=红色染料
+spell_manager.orange_dye=橙色染料
+spell_manager.yellow_dye=黄色染料
+spell_manager.lime_dye=黄绿色染料
+spell_manager.green_dye=绿色染料
+spell_manager.light_blue_dye=淡蓝色染料
+spell_manager.cyan_dye=青色染料
+spell_manager.blue_dye=蓝色染料
+spell_manager.purple_dye=紫色染料
+spell_manager.magenta_dye=品红色染料
+spell_manager.pink_dye=粉色染料
+spell_manager.brown_dye=棕色染料
+spell_manager.remove_dye=移除染料
+
+ancient_texts.all_known=这本书已无法再教你任何东西。
+
+
+
+
+
+desc.pink_plushie.easter_egg=§r§d限量版副本§r
+
+desc.exp_orb=Experience Points
+
+
+mm.nowPlaying=Now playing: 
+
+playing.keeper=§r§cFurnace - Keeper§r
+playing.myths_and_magic=§r§uFurnace - Myths and Magic§r
+playing.devoid=§r§vFurnace - Devoid§r
+playing.devoid_altered=§r§9Alylica - Devoid (§vAltered§9)§r
+playing.farewell=§r§aFurnace - Farewell§r
+playing.what=§r§aWhat?§r
+playing.shadowboxing=§r§bFurnace - §eShadow§dboxing§r
+
+
+##tooltips
+
+##tooltips mobs
+tile.mm:sacred_statue_spawn_egg.tooltip=§cMini-Boss
+tile.mm:guardian_myth_spawn_egg.tooltip=§cMini-Boss
+
+tile.mm:candle_holder.tooltip=Pickup Flickerwicks
+tile.mm:flickerwick_candle_holder.tooltip=Contains:
+
+##tooltips magic
+
+tile.mm:amulet_core.tooltip=Craft Amulets
+tile.mm:shivering_amulet.tooltip=§7In Offhand:§r~LINEBREAK~§9-33% Spell Cost§r~LINEBREAK~§c+25% Spell Cooldown Duration
+tile.mm:blazing_amulet.tooltip=§7In Offhand:§r~LINEBREAK~§9+100% Mana Regeneration§r~LINEBREAK~§9-33% Spell Cooldown Duration§r
+tile.mm:sparkling_amulet.tooltip=§7In Offhand:§r~LINEBREAK~§9+10 Mana Capacity§r~LINEBREAK~§9+50% Mana Regeneration§r
+tile.mm:altered_amulet.tooltip=§7In Offhand:§r~LINEBREAK~§9+30% Spell Damage§r~LINEBREAK~§cReduces HP after Spell Use§r
+tile.mm:resonance_amulet.tooltip=§7In Offhand:§r~LINEBREAK~§9+4% Spell Damage Per Succesive Use§r~LINEBREAK~§c+20% Spell Delay Duration§r
+tile.mm:ring_of_splinters.tooltip=§7In Offhand:§r~LINEBREAK~§9-50% Ice Spell Cost§r~LINEBREAK~§cWearer takes damage from pain.§r
+
+tile.mm:ember_mask.tooltip=+50% Fire Element Damage~LINEBREAK~+50% Ice Element Resistance
+tile.mm:breeze_mask.tooltip=+50% Air Element Damage~LINEBREAK~+50% Fire Element Resistance
+tile.mm:boulder_mask.tooltip=+50% Earth Element Damage~LINEBREAK~+50% Electric Element Resistance
+tile.mm:frost_mask.tooltip=+50% Ice Element Damage~LINEBREAK~+50% Earth Element Resistance
+tile.mm:thunder_mask.tooltip=+50% Electric Element Damage~LINEBREAK~+50% Air Element Resistance
+
+tile.mm:ancient_texts.tooltip=Learn Spell Recipes
+tile.mm:mystery_scroll.tooltip=Contains a Spell
+tile.mm:creative_scroll.tooltip=§uContains any Spell
+
+tile.mm:spellcrafter.tooltip=Create Spellcasters
+tile.mm:scroll_crafter.tooltip=Craft Scrolls
+tile.mm:spell_manager.tooltip=Organise Spellcasters
+tile.mm:orb_ponderer.tooltip=Ponder Enchantments
+tile.mm:pondering_book.tooltip=Apply Enchantments
+tile.mm:azsilva_axe.tooltip=+7 Chop Efficiency
+tile.mm:azsilva_pickaxe.tooltip=+7 Mining Efficiency
+tile.mm:azsilva_shovel.tooltip=+7 Dig Efficiency
+tile.mm:azsilva_hoe.tooltip=Farming
+
+##tooltips equipment
+
+tile.mm:longshot.tooltip=Launches arrows to grapple
+tile.mm:fangangler.tooltip=Projectile Attacks
+tile.mm:icicle_spear.tooltip=Freezes nearby mobs
+tile.mm:guardian_wand.tooltip=§7In Offhand:§r~LINEBREAK~§9Strengthens Melee Attacks
+
+tile.mm:warp_key.tooltip=Return to spawn
+tile.mm:altered_key.tooltip=Enter the Alterrealm
+
+tile.mm:azsilva_helmet.tooltip=+25% Mana Regeneration
+tile.mm:azsilva_chestplate.tooltip=+25% Mana Regeneration
+tile.mm:azsilva_leggings.tooltip=+25% Mana Regeneration
+tile.mm:azsilva_boots.tooltip=+25% Mana Regeneration
+tile.mm:meteor_helmet.tooltip=Meteor Damage when falling §8(Full Set)
+tile.mm:meteor_chestplate.tooltip=Meteor Damage when falling §8(Full Set)
+tile.mm:meteor_leggings.tooltip=Meteor Damage when falling §8(Full Set)
+tile.mm:meteor_boots.tooltip=Meteor Damage when falling §8(Full Set)
+tile.mm:demon_helmet.tooltip=Only powerful with a full set
+tile.mm:demon_chestplate.tooltip=Only powerful with a full set
+tile.mm:demon_leggings.tooltip=Only powerful with a full set
+tile.mm:demon_boots.tooltip=Only powerful with a full set
+tile.mm:bound_demon_helmet.tooltip=§cRefuses to be removed
+tile.mm:bound_demon_chestplate.tooltip=§cRefuses to be removed
+tile.mm:bound_demon_leggings.tooltip=§cRefuses to be removed
+tile.mm:bound_demon_boots.tooltip=§cRefuses to be removed
+
+##tooltips redstone blocks
+
+tile.mm:chiller.tooltip=Slows mobs~LINEBREAK~§cRedstone powered
+tile.mm:magnetic_piston.tooltip=Moves Magnetic Blocks~LINEBREAK~§cRedstone powered
+tile.mm:unobtanium_transporter.tooltip=Teleports between Transporters~LINEBREAK~§cRedstone powered
+tile.mm:ballista.tooltip=Fires arrows with high power~LINEBREAK~§cRedstone powered
+tile.mm:azsilva_mirror.tooltip=Reflects light
+tile.mm:raymaker.tooltip=Shines light~LINEBREAK~§cRedstone powered
+tile.mm:light_switch.tooltip=Turns light into power~LINEBREAK~§cRedstone power source
+
+##tooltips potions
+
+tile.mm:booze_potion_speed_strong.tooltip=Speed III (1:30)~LINEBREAK~+60% Speed
+tile.mm:booze_potion_jumpboost_strong.tooltip=Jump Boost III (1:30)
+tile.mm:booze_potion_regeneration_strong.tooltip=Regeneration III (0:22)
+tile.mm:booze_potion_fireresistance_long.tooltip=Fire Resistance (12:00)
+tile.mm:booze_potion_waterbreathing_long.tooltip=Water Breathing (12:00)
+tile.mm:booze_potion_nightvision_long.tooltip=Night Vision (12:00)
+tile.mm:booze_potion_invisibility_long.tooltip=Invisibility (12:00)
+tile.mm:booze_potion_slowfalling_long.tooltip=Slow Falling (8:00)
+
+tile.mm:booze_potion_speed_splash.tooltip=Speed III (1:30)~LINEBREAK~+60% Speed
+tile.mm:booze_potion_jumpboost_splash.tooltip=Jump Boost III (1:30)
+tile.mm:booze_potion_regeneration_splash.tooltip=Regeneration III (0:22)
+tile.mm:booze_potion_fireresistance_splash.tooltip=Fire Resistance (12:00)
+tile.mm:booze_potion_waterbreathing_splash.tooltip=Water Breathing (12:00)
+tile.mm:booze_potion_nightvision_splash.tooltip=Night Vision (12:00)
+tile.mm:booze_potion_invisibility_splash.tooltip=Invisibility (12:00)
+tile.mm:booze_potion_slowfalling_splash.tooltip=Slow Falling (8:00)
+
+tile.mm:booze_potion_haste.tooltip=Haste II (1:30)~LINEBREAK~+40% Mining Efficiency
+tile.mm:booze_potion_metallurgy.tooltip=§cMetallurgy (5:00)
+tile.mm:booze_potion_reduction.tooltip=§cReduction (1:30)~LINEBREAK~-0.1 Mana Regeneration
+tile.mm:booze_potion_blindness.tooltip=§cBlindness (0:45)
+tile.mm:booze_potion_fragile.tooltip=§cFragile (1:30)~LINEBREAK~-15% Damage Resistance
+
+tile.mm:booze_potion_haste_splash.tooltip=Haste II (1:30)~LINEBREAK~+40% Mining Efficiency
+tile.mm:booze_potion_metallurgy_splash.tooltip=§cMetallurgy (5:00)
+tile.mm:booze_potion_reduction_splash.tooltip=§cReduction (0:30)~LINEBREAK~-0.1 Mana Regeneration
+tile.mm:booze_potion_blindness_splash.tooltip=§cBlindness (0:20)
+tile.mm:booze_potion_fragile_splash.tooltip=§cFragile (1:00)~LINEBREAK~-15% Damage Resistance
+
+##tooltips discs
+
+tile.mm:disc_fragment_devoid.tooltip=§r§7Furnace - Devoid§r
+
+tile.mm:music_disc_keeper.tooltip=§r§7Furnace - Keeper§r
+tile.mm:music_disc_myths_and_magic.tooltip=§r§7Furnace - Myths and Magic§r
+tile.mm:music_disc_devoid.tooltip=§r§7Furnace - Devoid§r
+tile.mm:music_disc_devoid_altered.tooltip=§r§7Alylica - Devoid (Altered)§r
+tile.mm:music_disc_farewell.tooltip=§r§7Furnace - Farewell§r
+tile.mm:music_disc_shadowboxing.tooltip=§r§7Furnace - Shadowboxing§r
+tile.mm:music_disc_what.tooltip=§r§dWhat?§r
+
+
+##bossbars (DO NOT TRANSLATE)
+
+mm.bossbar.jakynbocks1=§1§eJakynbocks
+mm.bossbar.jakynbocks2=§2§eJakynbocks
+mm.bossbar.jakynbocks3=§3§eJakynbocks
+mm.bossbar.jakynbocks4=§4§eJakynbocks
+mm.bossbar.jakynbocks5=§5§eJakynbocks
+mm.bossbar.jakynbocks6=§6§eJakynbocks
+
+## death messages
+
+death.mm.slain_by=was slain by
+death.mm.died=Died
+death.mm.sacred_statue=was crushed by
+death.mm.revoid=was destroyed by §c§k
+
+##game loading
+mm:tips.game.1=Be careful of suspicious looking chests.
+mm:tips.game.2=The number of unique Spellbooks is.. over 9000!
+mm:tips.game.3=The Reforged Spellcrafter can be recharged using hoppers.
+mm:tips.game.5=Sanctuary Keepers will attack anything that has their precious key.
+mm:tips.game.6=The Imprison Spell can be used to drain the mana of mobs that cast spells.
+mm:tips.game.7=The Quake Spell can only damage mobs that are on the ground.
+mm:tips.game.8=On a chance, you might happen upon a meteor shower at nighttime.
+mm:tips.game.9=In the Alterrealm, take care to avoid the §c§kRevoid§r.
+mm:tips.game.10=Craft an Unobtanium Clock to see how much time you can stay in the Alterrealm.
+mm:tips.game.11=In the Alterrealm, casting Spells is impossible.
+mm:tips.game.12=Did you know there is a hidden room in the Tower's Hat?
+mm:tips.game.13=Vex Spawners.. who thought that was a good idea?
+mm:tips.game.14=Craft an Unobtanium Clock to see how much time you can stay in the Alterrealm.
+mm:tips.game.15=Most spells can be learned about from the Ancient Texts.
+mm:tips.game.16=Scrubels can be tamed by giving them water.
+mm:tips.game.17=Waxing a Flickerwick will let it last a little longer.
+mm:tips.game.18=You can make lots of Potions with the Booze!
+mm:tips.game.19=Slushbucklers LOVE Ice Cream.
+mm:tips.game.20=Mymiks and Dyzgises can pilfer items out of your inventory.
+mm:tips.game.21=There is a hidden room in the Sanctuary somewhere.. Can you find it?
+mm:tips.game.22=Demon armour is extremely powerful, but comes at a price.
+mm:tips.game.23=Armour crafted from Azsilva will restore mana when equipped.
+mm:tips.game.24=Meteorite Armour lets you unleash powerful crash attacks.
+mm:tips.game.26=Craft a Longshot to travel in speed AND style.
+mm:tips.game.27=Magnetic Pistons can move any magnetic material like nothing.
+mm:tips.game.28=Spells in a Spellbook will gain EXP as you use them.
+mm:tips.game.29=Spells from a Staff are always cast at Level III.
+mm:tips.game.30=There are over 100 different apperances that a Staff can take.
+mm:tips.game.31=You don't want to be caught in the Twisted Woods after sundown.
+mm:tips.game.32=Sacred Statues can only be harmed with Pickaxes!
+mm:tips.game.33=The Guardian Myth will respawn in its arena a while after it is defeated.
+
+##advancemnets
+
+adv.category.mm.title=§uMyths & Magic§r
+adv.category.mm.desc=Uncover the secrets of your world
+
+adv.mm:just_getting_started.title=Just Getting Started
+adv.mm:just_getting_started.desc=Create a Spellbook
+adv.mm:secrets_secrets.title=Secrets Secrets
+adv.mm:secrets_secrets.desc=Find or craft a Spell Scroll
+adv.mm:magic_101.title=Magic 101
+adv.mm:magic_101.desc=Cast a spell
+adv.mm:magic_103.title=Magic 103
+adv.mm:magic_103.desc=Cast a spell.. at max level!
+adv.mm:stylish_spellcasting.title=Stylish Spellcasting
+adv.mm:stylish_spellcasting.desc=Obtain an Elemental Mask
+adv.mm:trinket_collector.title=Trinket Collector
+adv.mm:trinket_collector.desc=Acquire an Amulet Core
+adv.mm:study_well.title=Study Well!
+adv.mm:study_well.desc=Use the Ancient Texts
+adv.mm:makeshift_wizardry.title=Makeshift-Wizardry
+adv.mm:makeshift_wizardry.desc=Use a Sparkling Crystal to charge a Reforged Spellcrafter
+adv.mm:special_silverwear.title=Special Silverwear
+adv.mm:special_silverwear.desc=Create Azsilva armour to help regenerate your mana
+adv.mm:myths_and_magic.title=Myths & Magic
+adv.mm:myths_and_magic.desc=Learn all spell recipes
+adv.mm:ice_to_meet_you.title="Ice" to Meet You!
+adv.mm:ice_to_meet_you.desc=Feed a Slushbuckler with a Popsicle
+adv.mm:its_alive.title=It's Alive!!
+adv.mm:its_alive.desc=Bring a Flickerwick to life using fire
+adv.mm:life_insurance.title=Life Insurance
+adv.mm:life_insurance.desc=Extend the life of a Flickerwick with some honeycomb
+adv.mm:brewing_buddies.title=Brewing Buddies
+adv.mm:brewing_buddies.desc=Succesfully create a potion with a Booze
+adv.mm:violent_alarm_clock.title=Violent Alarm Clock
+adv.mm:violent_alarm_clock.desc=Awaken a Mymik from its slumber
+adv.mm:double_trouble.title=Double Trouble
+adv.mm:double_trouble.desc=Destroy a Sacred Statue
+adv.mm:key_keeper.title=Key-Keeper
+adv.mm:key_keeper.desc=Unlock a Sanctuary Vault
+adv.mm:super_speed.title=Super Speed
+adv.mm:super_speed.desc=Obtain a pair of Icarus Boots
+adv.mm:crash_bang_boom.title=Crash, Bang, Boom!
+adv.mm:crash_bang_boom.desc=Deal over 30 damage in a single strike using a Halberd 
+adv.mm:big_shot.title=[BIG SHOT]
+adv.mm:big_shot.desc=Shoot as many projectiles as possible from a single Fangangler ranged-attack
+adv.mm:under_snow_and_ice.title=Under Snow and Ice
+adv.mm:under_snow_and_ice.desc=Unlock a Vault with a Polar Trial Key
+adv.mm:recooling.title=Re-Cooling
+adv.mm:recooling.desc=Unlock a Vault with an Ominous Polar Trial Key
+adv.mm:stranger_things.title=Stranger Things
+adv.mm:stranger_things.desc=Use an Altered Key and see what lies on the other side
+adv.mm:i_dont_like_this.title=I Don't Like This...
+adv.mm:i_dont_like_this.desc=Encounter a Revoid
+adv.mm:take_good_care.title=Take Good Care
+adv.mm:take_good_care.desc=Find, love and cherish a Pink Plushie
+adv.mm:you_shall_not_pass.title=You Shall Not Pass!
+adv.mm:you_shall_not_pass.desc=Use a Staff to cast some magic
+adv.mm:design_detail.title=Design Detail
+adv.mm:design_detail.desc=Use the Spell Manager to apply a Staff Design
+adv.mm:pure_stardust.title=Pure Stardust
+adv.mm:pure_stardust.desc=Obtain a Meteor Ingot
+adv.mm:flash_fire.title=Flash Fire
+adv.mm:flash_fire.desc=Find and Defeat the Guardian Myth
+adv.mm:thwip.title=Thwip!
+adv.mm:thwip.desc=Fire an arrow from a Longshot and go flying!
+adv.mm:prismatic.title=Prismatic
+adv.mm:prismatic.desc=Use a Raymaker and Azsilva Mirror to bounce light between two points
+adv.mm:terminal_velocity.title=Terminal Velocity
+adv.mm:terminal_velocity.desc=Fall over 100 blocks using the Meteor Armour's Fall Attack
+adv.mm:repeated_history.title=Repeated History
+adv.mm:repeated_history.desc=Hit a Sniffer using a Meteor.. and maybe apologise after
+adv.mm:instant_transmission.title=Instant Transmission
+adv.mm:instant_transmission.desc=Use a Warp Key to travel 5000 blocks or more in an instant
+adv.mm:magic_reversion.title=Magic Reversion
+adv.mm:magic_reversion.desc=Use the Imprison Spell to drain mana from a mob that has it
+adv.mm:pressure_watcher.title=Pressure Watcher
+adv.mm:pressure_watcher.desc=Craft an Unobtanium Clock to track the Alterrealm's cycle
+adv.mm:magnetic_rail.title=Magnetic Rail
+adv.mm:magnetic_rail.desc=Travel over 50 blocks on a Magnetised Block

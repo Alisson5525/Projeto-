@@ -1,0 +1,39 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:alterbeast",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/alterbeast/alterbeast"
+            },
+            "geometry": {
+                "default": "geometry.alterbeast"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "idle": "query.has_target*0.2 + 0.4"
+                    },
+                    "particles"
+                ]
+            },
+            "particle_effects": {
+                "trail": "mm:alterbeast_trail"
+            },
+            "animations": {
+                "idle": "animation.alterbeast.idle",
+                "particles": "animation.alterbeast.particles"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "texture": "egg_alterbeast"
+            }
+        }
+    }
+}

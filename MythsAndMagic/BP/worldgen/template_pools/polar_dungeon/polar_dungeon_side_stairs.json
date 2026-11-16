@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:polar_dungeon_side_stairs"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/side_stairs1",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 3
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/side_stairs2",
+                    "processors": "mm:polar_dungeon"
+                },
+                "weight": 2
+            }
+        ]
+    }
+}

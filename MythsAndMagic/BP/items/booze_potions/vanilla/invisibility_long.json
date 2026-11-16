@@ -1,0 +1,41 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:booze_potion_invisibility_long",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "potion.invisibility.name"
+            },
+            "minecraft:icon": "booze_potion_invisibility",
+            "minecraft:glint": true,
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.4,
+                "use_duration": 1.6
+            },
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 0,
+                "saturation_modifier": 0,
+                "using_converts_to": "mm:amethyst_bottle"
+            },
+            "minecraft:use_animation": "drink",
+            "mm:booze_potion": {
+                "effects": [
+                    "invisibility"
+                ],
+                "durations": [
+                    720
+                ],
+                "amplifiers": [
+                    0
+                ]
+            }
+        }
+    }
+}

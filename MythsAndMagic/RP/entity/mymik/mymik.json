@@ -1,0 +1,49 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:mymik",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/mymik/mymik"
+            },
+            "geometry": {
+                "default": "geometry.mymik"
+            },
+            "scripts": {
+                "animate": [
+                    "attack_controller",
+                    "open_controller",
+                    "face_target"
+                ]
+            },
+            "animations": {
+                "arms_hidden": "animation.mymik.arms_hidden",
+                "closed_idle": "animation.mymik.idle_shut",
+                "open": "animation.mymik.open",
+                "open_idle": "animation.mymik.open_idle",
+                "jaws": "animation.mymik.snap",
+                "ranged": "animation.mymik.grab_attack",
+                "attack_controller": "controller.animation.mymik.attack",
+                "open_controller": "controller.animation.mymik.open",
+                "face_target": "animation.mymik.face_target"
+            },
+            "particle_effects": {
+                "snore": "mm:mymik_sleep_particle"
+            },
+            "sound_effects": {
+                "grab": "mob.mymik.grab",
+                "bite": "mob.mymik.bite"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "texture": "egg_mymik"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:guardian_lookout"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "guardian_lookout/guardian_lookout",
+                    "processors": "mm:guardian_lookout"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

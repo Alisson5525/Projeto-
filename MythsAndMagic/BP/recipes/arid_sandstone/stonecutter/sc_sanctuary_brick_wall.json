@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sc_sanctuary_brick_wall"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "mm:sanctuary_bricks"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "mm:sanctuary_bricks"
+            }
+        ],
+        "result": {
+            "item": "mm:sanctuary_brick_wall"
+        }
+    }
+}

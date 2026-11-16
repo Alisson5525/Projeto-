@@ -1,0 +1,758 @@
+{
+	"resource_pack_name": "myths",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"none": {
+			"textures": "textures/misc/empty"
+		},
+		"permafrost_crystal_block": {
+			"textures": "textures/blocks/permafrost_block"
+		},
+		"permafrost_crystal_up": {
+			"textures": "textures/blocks/permafrost_crystal_up"
+		},
+		"permafrost_crystal_up_mid": {
+			"textures": "textures/blocks/permafrost_crystal_up_mid"
+		},
+		"permafrost_crystal_down": {
+			"textures": "textures/blocks/permafrost_crystal_down"
+		},
+		"permafrost_crystal_down_mid": {
+			"textures": "textures/blocks/permafrost_crystal_down_mid"
+		},
+		"orb_ponderer": {
+			"textures": "textures/blocks/orb_ponderer"
+		},
+		"azsilva_ore": {
+			"textures": "textures/blocks/azsilva_ore"
+		},
+		"deepslate_azsilva_ore": {
+			"textures": "textures/blocks/azsilva_ore_deepslate"
+		},
+		"azsilva_block": {
+			"textures": "textures/blocks/azsilva_block"
+		},
+		"cut_azsilva_block": {
+			"textures": "textures/blocks/azsilva_cut"
+		},
+		"cut_azsilva_tiles": {
+			"textures": "textures/blocks/azsilva_tiles"
+		},
+		"raw_azsilva_block": {
+			"textures": "textures/blocks/raw_azsilva_block"
+		},
+		"sanctuary_bricks": {
+			"textures": "textures/blocks/sanctuary_bricks"
+		},
+		"arid_sandstone": {
+			"textures": "textures/blocks/arid_sandstone"
+		},
+		"arid_sandstone_top": {
+			"textures": "textures/blocks/arid_sandstone_top"
+		},
+		"arid_sandstone_bottom": {
+			"textures": "textures/blocks/arid_sandstone_bottom"
+		},
+		"arid_sandstone_tile": {
+			"textures": "textures/blocks/arid_sandstone_tile"
+		},
+		"arid_sandstone_chiseled_tile": {
+			"textures": "textures/blocks/arid_sandstone_chiseled_tile"
+		},
+		"arid_sandstone_chiseled_tile_animated": {
+			"textures": "textures/blocks/arid_sandstone_chiseled_tile_animated"
+		},
+		"arid_sandstone_bricks": {
+			"textures": "textures/blocks/arid_sandstone_bricks"
+		},
+		"arid_sandstone_cracked_bricks": {
+			"textures": "textures/blocks/arid_sandstone_cracked_bricks"
+		},
+		"inanimate_statue": {
+			"textures": "textures/entity/sacred_statue/sacred_statue"
+		},
+		"sanctuary_keeper_dormant": {
+			"textures": "textures/entity/sanctuary_keeper/sanctuary_keeper"
+		},
+		"flickerwick_block": {
+			"textures": "textures/entity/flickerwick/flickerwick"
+		},
+		"soul_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/flickerwick_soul"
+		},
+		"copper_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/flickerwick_copper"
+		},
+		"sparkling_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/flickerwick_sparkling"
+		},
+		"tall_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/tall_flickerwick"
+		},
+		"tall_soul_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/tall_flickerwick_soul"
+		},
+		"tall_copper_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/tall_flickerwick_copper"
+		},
+		"tall_sparkling_flickerwick_block": {
+			"textures": "textures/entity/flickerwick/tall_flickerwick_sparkling"
+		},
+		"sanctuary_vault_side": {
+			"textures": "textures/blocks/sanctuary_vault_side"
+		},
+		"sanctuary_vault_side_off": {
+			"textures": "textures/blocks/sanctuary_vault_side_off"
+		},
+		"sanctuary_vault_top": {
+			"textures": "textures/blocks/sanctuary_vault_top"
+		},
+		"sanctuary_key_holder": {
+			"textures": "textures/blocks/sanctuary_key_holder"
+		},
+		"blaze_soul": {
+			"textures": "textures/items/blaze_soul"
+		},
+		"spellcrafter_bottom": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_bottom"
+		},
+		"spellcrafter_side": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_side"
+		},
+		"spellcrafter_crystal": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_crystal"
+		},
+		"spellcrafter_top_0": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_top_0"
+		},
+		"spellcrafter_top_1": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_top_1"
+		},
+		"spellcrafter_top_2": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_top_2"
+		},
+		"spellcrafter_top_3": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_top_3"
+		},
+		"spellcrafter_top_4": {
+			"textures": "textures/blocks/spellcrafter/spellcrafter_top_4"
+		},
+		"reforged_spellcrafter_bottom": {
+			"textures": "textures/blocks/spellcrafter/reforged_spellcrafter_bottom"
+		},
+		"reforged_spellcrafter_side": {
+			"textures": "textures/blocks/spellcrafter/reforged_spellcrafter_side"
+		},
+		"reforged_spellcrafter_top": {
+			"textures": "textures/blocks/spellcrafter/reforged_spellcrafter_top"
+		},
+		"reforged_spellcrafter_top_off": {
+			"textures": "textures/blocks/spellcrafter/reforged_spellcrafter_top_off"
+		},
+		"spell_manager": {
+			"textures": "textures/blocks/spell_manager"
+		},
+		"scroll_crafter": {
+			"textures": "textures/blocks/scroll_crafter"
+		},
+		"arcane_deepslate": {
+			"textures": "textures/blocks/arcane_deepslate"
+		},
+		"polished_arcane_deepslate": {
+			"textures": "textures/blocks/polished_arcane_deepslate"
+		},
+		"arcane_deepslate_bricks": {
+			"textures": "textures/blocks/arcane_deepslate_bricks"
+		},
+		"chiseled_arcane_deepslate": {
+			"textures": "textures/blocks/chiseled_arcane_deepslate"
+		},
+		"polished_calcite": {
+			"textures": "textures/blocks/polished_calcite"
+		},
+		"calcite_bricks": {
+			"textures": "textures/blocks/calcite_bricks"
+		},
+		"chiseled_calcite_bricks": {
+			"textures": "textures/blocks/chiseled_calcite_bricks"
+		},
+		"chiseled_calcite_bricks_top": {
+			"textures": "textures/blocks/chiseled_calcite_bricks_top"
+		},
+		"chiseled_calcite": {
+			"textures": "textures/blocks/chiseled_calcite"
+		},
+		"snowy_stone_bricks": {
+			"textures": "textures/blocks/stonebrick_snowy"
+		},
+		"chiller_bottom": {
+			"textures": "textures/blocks/chiller/bottom"
+		},
+		"chiller_side_off": {
+			"textures": "textures/blocks/chiller/side_off"
+		},
+		"chiller_side_on": {
+			"textures": "textures/blocks/chiller/side_on"
+		},
+		"chiller_top_off": {
+			"textures": "textures/blocks/chiller/top_off"
+		},
+		"chiller_top_on": {
+			"textures": "textures/blocks/chiller/top_on"
+		},
+		"alterstone": {
+			"textures": "textures/blocks/alterblocks/alterstone"
+		},
+		"cobbled_alterstone": {
+			"textures": "textures/blocks/alterblocks/cobbled_alterstone"
+		},
+		"altermoss_block": {
+			"textures": "textures/blocks/alterblocks/altermoss_block"
+		},
+		"mossy_alterstone": {
+			"textures": "textures/blocks/alterblocks/mossy_alterstone"
+		},
+		"alterbedrock": {
+			"textures": "textures/blocks/alterblocks/alterbedrock"
+		},
+		"altermoss_growth_up": {
+			"textures": "textures/blocks/alterblocks/altermoss_growth_up"
+		},
+		"altermoss_growth_up_mid": {
+			"textures": "textures/blocks/alterblocks/altermoss_growth_up_mid"
+		},
+		"altermoss_growth_down": {
+			"textures": "textures/blocks/alterblocks/altermoss_growth_down"
+		},
+		"altermoss_growth_down_mid": {
+			"textures": "textures/blocks/alterblocks/altermoss_growth_down_mid"
+		},
+		"alterbrush": {
+			"textures": "textures/blocks/alterblocks/alterbrush"
+		},
+		"veiny_alterstone": {
+			"textures": "textures/blocks/alterblocks/veiny_alterstone"
+		},
+		"alterstone_bricks": {
+			"textures": "textures/blocks/alterblocks/alterstone_bricks"
+		},
+		"chiseled_alterstone": {
+			"textures": "textures/blocks/alterblocks/chiseled_polished_alterstone"
+		},
+		"polished_alterstone": {
+			"textures": "textures/blocks/alterblocks/polished_alterstone"
+		},
+		"veiny_alterstone_bricks": {
+			"textures": "textures/blocks/alterblocks/veiny_alterstone_bricks"
+		},
+		"veiny_polished_alterstone": {
+			"textures": "textures/blocks/alterblocks/polished_veiny_alterstone"
+		},
+		"veiny_chiseled_alterstone": {
+			"textures": "textures/blocks/alterblocks/chiseled_polished_veiny_alterstone"
+		},
+		"unobtanium_ore": {
+			"textures": "textures/blocks/alterblocks/unobtanium_ore"
+		},
+		"unobtanium_block": {
+			"textures": "textures/blocks/unobtanium_block"
+		},
+		"raw_unobtanium_block": {
+			"textures": "textures/blocks/raw_unobtanium_block"
+		},
+		"occuleye": {
+			"textures": "textures/blocks/alterblocks/occuleye"
+		},
+		"shockweed": {
+			"textures": "textures/blocks/alterblocks/shockweed"
+		},
+		"alchatite_block": {
+			"textures": "textures/blocks/alchatite_block"
+		},
+		"magnetic_piston_top_off": {
+			"textures": "textures/blocks/magnetic_piston/top_off"
+		},
+		"magnetic_piston_top_blue": {
+			"textures": "textures/blocks/magnetic_piston/top_on_blue"
+		},
+		"magnetic_piston_top_orange": {
+			"textures": "textures/blocks/magnetic_piston/top_on_orange"
+		},
+		"magnetic_piston_side_off": {
+			"textures": "textures/blocks/magnetic_piston/side_off"
+		},
+		"magnetic_piston_side_blue": {
+			"textures": "textures/blocks/magnetic_piston/side_on_blue"
+		},
+		"magnetic_piston_side_orange": {
+			"textures": "textures/blocks/magnetic_piston/side_on_orange"
+		},
+		"magnetic_piston_bottom_blue": {
+			"textures": "textures/blocks/magnetic_piston/bottom_blue"
+		},
+		"magnetic_piston_bottom_orange": {
+			"textures": "textures/blocks/magnetic_piston/bottom_orange"
+		},
+		"alchatite_bolted": {
+			"textures": "textures/blocks/alchatite_bolted"
+		},
+		"chiseled_alchatite": {
+			"textures": "textures/blocks/alchatite_chiseled"
+		},
+		"altered_reality": {
+			"textures": "textures/blocks/alterblocks/altered_reality"
+		},
+		"sparkling_crystal_block": {
+			"textures": "textures/blocks/sparkling_crystal_block"
+		},
+		"sparkling_ore": {
+			"textures": "textures/blocks/sparkling_crystal_ore"
+		},
+		"deepslate_sparkling_ore": {
+			"textures": "textures/blocks/sparkling_crystal_ore_deepslate"
+		},
+		"sparkling_lantern": {
+			"textures": "textures/blocks/sparkling_lantern"
+		},
+		"sparkling_torch": {
+			"textures": "textures/blocks/sparkling_torch"
+		},
+		"brazier": {
+			"textures": "textures/blocks/brazier/brazier"
+		},
+		"soul_brazier": {
+			"textures": "textures/blocks/brazier/soul_brazier"
+		},
+		"copper_brazier": {
+			"textures": "textures/blocks/brazier/copper_brazier"
+		},
+		"sparkling_brazier": {
+			"textures": "textures/blocks/brazier/sparkling_brazier"
+		},
+		"pink_plushie": {
+			"textures": "textures/blocks/pink_plushie"
+		},
+		"arid_dirt": {
+			"textures": "textures/blocks/scrubel_treasure_pile_top"
+		},
+		"scrubel_treasure_pile": {
+			"textures": "textures/blocks/scrubel_treasure_pile"
+		},
+		"unobtanium_block_barred": {
+			"textures": "textures/blocks/unobtanium_block_barred"
+		},
+		"unobtanium_transporter_bottom": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_bottom"
+		},
+		"unobtanium_transporter_side_0": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_side_0"
+		},
+		"unobtanium_transporter_side_1": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_side_1"
+		},
+		"unobtanium_transporter_side_2": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_side_2"
+		},
+		"unobtanium_transporter_side_3": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_side_3"
+		},
+		"unobtanium_transporter_side_4": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_side_4"
+		},
+		"unobtanium_transporter_top": {
+			"textures": "textures/blocks/unobtanium_transporter/unobtanium_transporter_top"
+		},
+		"unobtanium_lantern": {
+			"textures": "textures/blocks/unobtanium_lantern"
+		},
+		"unobtanium_torch": {
+			"textures": "textures/blocks/unobtanium_torch"
+		},
+		"unobtanium_brazier": {
+			"textures": "textures/blocks/brazier/unobtanium_brazier"
+		},
+		//1.1 stuff
+		"azsilva_mirror": {
+			"textures": "textures/blocks/mirror_panel"
+		},
+		"azsilva_mirror_locked": {
+			"textures": "textures/blocks/mirror_panel_locked"
+		},
+		"raymaker_front_on": {
+			"textures": "textures/blocks/raymaker/raymaker_front_on"
+		},
+		"raymaker_front_off": {
+			"textures": "textures/blocks/raymaker/raymaker_front_off"
+		},
+		"raymaker_side_on": {
+			"textures": "textures/blocks/raymaker/raymaker_side_on"
+		},
+		"raymaker_side_off": {
+			"textures": "textures/blocks/raymaker/raymaker_side_off"
+		},
+		"raymaker_bottom": {
+			"textures": "textures/blocks/raymaker/raymaker_bottom"
+		},
+		"light_switch_side_on": {
+			"textures": "textures/blocks/light_switch_side_on"
+		},
+		"light_switch_side_off": {
+			"textures": "textures/blocks/light_switch_side_off"
+		},
+		"palacite": {
+			"textures": "textures/blocks/palacite"
+		},
+		"palacite_bricks": {
+			"textures": "textures/blocks/palacite_bricks"
+		},
+		"polished_palacite": {
+			"textures": "textures/blocks/palacite_polished"
+		},
+		"cracked_palacite_bricks": {
+			"textures": "textures/blocks/palacite_bricks_cracked"
+		},
+		"chiseled_palacite": {
+			"textures": "textures/blocks/palacite_chiseled"
+		},
+		"light_vault_side_off": {
+			"textures": "textures/blocks/light_vault_side_off"
+		},
+		"light_vault_side_on": {
+			"textures": "textures/blocks/light_vault_side_on"
+		},
+		"light_vault_top_off": {
+			"textures": "textures/blocks/light_vault_top_closed"
+		},
+		"light_vault_top_on": {
+			"textures": "textures/blocks/light_vault_top_open"
+		},
+		"palacite_vent": {
+			"textures": "textures/blocks/palacite_vent"
+		},
+		"ballista_top": {
+			"textures": "textures/blocks/ballista"
+		},
+		"ballista_base_side": {
+			"textures": "textures/blocks/ballista_base_side"
+		},
+		"ballista_base_bottom": {
+			"textures": "textures/blocks/ballista_base_bottom"
+		},
+		"moonstone_ore": {
+			"textures": "textures/blocks/moon_dust_ore"
+		},
+		"padded_alchatite_red": {
+			"textures": "textures/blocks/padded_alchatite/red"
+		},
+		"padded_alchatite_orange": {
+			"textures": "textures/blocks/padded_alchatite/orange"
+		},
+		"padded_alchatite_yellow": {
+			"textures": "textures/blocks/padded_alchatite/yellow"
+		},
+		"padded_alchatite_lime": {
+			"textures": "textures/blocks/padded_alchatite/lime"
+		},
+		"padded_alchatite_green": {
+			"textures": "textures/blocks/padded_alchatite/green"
+		},
+		"padded_alchatite_blue": {
+			"textures": "textures/blocks/padded_alchatite/blue"
+		},
+		"padded_alchatite_cyan": {
+			"textures": "textures/blocks/padded_alchatite/cyan"
+		},
+		"padded_alchatite_light_blue": {
+			"textures": "textures/blocks/padded_alchatite/light_blue"
+		},
+		"padded_alchatite_purple": {
+			"textures": "textures/blocks/padded_alchatite/purple"
+		},
+		"padded_alchatite_magenta": {
+			"textures": "textures/blocks/padded_alchatite/magenta"
+		},
+		"padded_alchatite_pink": {
+			"textures": "textures/blocks/padded_alchatite/pink"
+		},
+		"padded_alchatite_black": {
+			"textures": "textures/blocks/padded_alchatite/black"
+		},
+		"padded_alchatite_white": {
+			"textures": "textures/blocks/padded_alchatite/white"
+		},
+		"padded_alchatite_gray": {
+			"textures": "textures/blocks/padded_alchatite/gray"
+		},
+		"padded_alchatite_light_gray": {
+			"textures": "textures/blocks/padded_alchatite/light_gray"
+		},
+		"padded_alchatite_brown": {
+			"textures": "textures/blocks/padded_alchatite/brown"
+		},
+		"glowstone_spike_up_tip": {
+			"textures": "textures/blocks/glowstone_spike/up"
+		},
+		"glowstone_spike_up_mid": {
+			"textures": "textures/blocks/glowstone_spike/up_mid"
+		},
+		"glowstone_spike_up_base": {
+			"textures": "textures/blocks/glowstone_spike/up_base"
+		},
+		"glowstone_spike_down_tip": {
+			"textures": "textures/blocks/glowstone_spike/down"
+		},
+		"glowstone_spike_down_mid": {
+			"textures": "textures/blocks/glowstone_spike/down_mid"
+		},
+		"glowstone_spike_down_base": {
+			"textures": "textures/blocks/glowstone_spike/down_base"
+		},
+		"spirit_lantern": {
+			"textures": "textures/blocks/spirit_lantern"
+		},
+		"spirit_lantern_active": {
+			"textures": "textures/blocks/spirit_lantern_active"
+		},
+		"spirit_lantern_charging": {
+			"textures": "textures/blocks/spirit_lantern_charging"
+		},
+		"meteor_state_0": {
+			"textures": "textures/blocks/meteor/fallen_meteor_0"
+		},
+		"meteor_state_1": {
+			"textures": "textures/blocks/meteor/fallen_meteor_1"
+		},
+		"meteor_state_2": {
+			"textures": "textures/blocks/meteor/fallen_meteor_2"
+		},
+		"meteor_state_3": {
+			"textures": "textures/blocks/meteor/fallen_meteor_3"
+		},
+		"meteor_brazier": {
+			"textures": "textures/blocks/brazier/meteor_brazier"
+		},
+		"meteor_torch": {
+			"textures": "textures/blocks/meteor_torch"
+		},
+		"meteor_lantern": {
+			"textures": "textures/items/meteor_lantern"
+		},
+		"prismat_0": {
+			"textures": "textures/blocks/prismat_crystal/prismat_0"
+		},
+		"prismat_1": {
+			"textures": "textures/blocks/prismat_crystal/prismat_1"
+		},
+		"prismat_2": {
+			"textures": "textures/blocks/prismat_crystal/prismat_2"
+		},
+		"prismat_3": {
+			"textures": "textures/blocks/prismat_crystal/prismat_3"
+		},
+		"prismat_4": {
+			"textures": "textures/blocks/prismat_crystal/prismat_4"
+		},
+		"prismat_5": {
+			"textures": "textures/blocks/prismat_crystal/prismat_5"
+		},
+		"prismat_6": {
+			"textures": "textures/blocks/prismat_crystal/prismat_6"
+		},
+		"prismat_7": {
+			"textures": "textures/blocks/prismat_crystal/prismat_7"
+		},
+		"prismat_8": {
+			"textures": "textures/blocks/prismat_crystal/prismat_8"
+		},
+		"prismat_9": {
+			"textures": "textures/blocks/prismat_crystal/prismat_9"
+		},
+		"prismat_10": {
+			"textures": "textures/blocks/prismat_crystal/prismat_10"
+		},
+		"prismat_11": {
+			"textures": "textures/blocks/prismat_crystal/prismat_11"
+		},
+		"prismat_12": {
+			"textures": "textures/blocks/prismat_crystal/prismat_12"
+		},
+		"prismat_13": {
+			"textures": "textures/blocks/prismat_crystal/prismat_13"
+		},
+		"prismat_14": {
+			"textures": "textures/blocks/prismat_crystal/prismat_14"
+		},
+		"prismat_15": {
+			"textures": "textures/blocks/prismat_crystal/prismat_15"
+		},
+		"prismat_16": {
+			"textures": "textures/blocks/prismat_crystal/prismat_16"
+		},
+		"prismat_17": {
+			"textures": "textures/blocks/prismat_crystal/prismat_17"
+		},
+		"prismat_18": {
+			"textures": "textures/blocks/prismat_crystal/prismat_18"
+		},
+		"prismat_19": {
+			"textures": "textures/blocks/prismat_crystal/prismat_19"
+		},
+		"prismat_20": {
+			"textures": "textures/blocks/prismat_crystal/prismat_20"
+		},
+		"prismat_21": {
+			"textures": "textures/blocks/prismat_crystal/prismat_21"
+		},
+		"prismat_22": {
+			"textures": "textures/blocks/prismat_crystal/prismat_22"
+		},
+		"prismat_23": {
+			"textures": "textures/blocks/prismat_crystal/prismat_23"
+		},
+		"prismat_24": {
+			"textures": "textures/blocks/prismat_crystal/prismat_24"
+		},
+		"prismat_25": {
+			"textures": "textures/blocks/prismat_crystal/prismat_25"
+		},
+		"prismat_26": {
+			"textures": "textures/blocks/prismat_crystal/prismat_26"
+		},
+		"prismat_27": {
+			"textures": "textures/blocks/prismat_crystal/prismat_27"
+		},
+		"prismat_28": {
+			"textures": "textures/blocks/prismat_crystal/prismat_28"
+		},
+		"prismat_29": {
+			"textures": "textures/blocks/prismat_crystal/prismat_29"
+		},
+		"prismat_30": {
+			"textures": "textures/blocks/prismat_crystal/prismat_30"
+		},
+		"prismat_31": {
+			"textures": "textures/blocks/prismat_crystal/prismat_31"
+		},
+		"prismat_glass_pink": {
+			"textures": "textures/blocks/prismat_crystal/prismat_glass"
+		},
+		"healthy_twisted_leaves": {
+			"textures": "textures/blocks/twisted/healthy_twisted_leaves"
+		},
+		"healthy_twisted_leaves_fast": {
+			"textures": "textures/blocks/twisted/healthy_twisted_leaves_fast"
+		},
+		"carried_healthy_twisted_leaves": {
+			"textures": "textures/blocks/twisted/healthy_twisted_leaves_carried"
+		},
+		"twisted_leaves": {
+			"textures": "textures/blocks/twisted/twisted_leaves"
+		},
+		"twisted_leaves_fast": {
+			"textures": "textures/blocks/twisted/twisted_leaves_fast"
+		},
+		"twisted_log": {
+			"textures": {
+				"variations": [
+					{
+						"path": "textures/blocks/twisted/twisted_log_side",
+						"weight": 11
+					},
+					{
+						"path": "textures/blocks/twisted/twisted_log_side_sparkly",
+						"weight": 1
+					}
+				]
+			}
+		},
+		"twisted_log_top": {
+			"textures": "textures/blocks/twisted/twisted_log_top"
+		},
+		"stripped_twisted_log": {
+			"textures": "textures/blocks/twisted/stripped_twisted_log_side"
+		},
+		"stripped_twisted_log_top": {
+			"textures": "textures/blocks/twisted/stripped_twisted_log_top"
+		},
+		"twisted_planks": {
+			"textures": "textures/blocks/twisted/twisted_planks"
+		},
+		"twisted_trapdoor": {
+			"textures": "textures/blocks/twisted/twisted_trapdoor"
+		},
+		"twisted_door_lower": {
+			"textures": "textures/blocks/twisted/twisted_door_lower"
+		},
+		"twisted_door_top": {
+			"textures": "textures/blocks/twisted/twisted_door_top"
+		},
+		"twisted_sapling": {
+			"textures": "textures/blocks/twisted/twisted_sapling"
+		},
+		"twisted_moss_block": {
+			"textures": "textures/blocks/twisted/twisted_moss"
+		},
+		"twisted_roots": {
+			"textures": "textures/blocks/twisted/twisted_roots_dormant"
+		},
+		"twisted_roots_active": {
+			"textures": "textures/blocks/twisted/twisted_roots_active"
+		},
+		"twisted_roots_side": {
+			"textures": "textures/blocks/twisted/twisted_roots_side"
+		},
+		"ilymia": {
+			"textures": "textures/blocks/twisted/ilymia"
+		},
+		"twisted_shrub": {
+			"textures": "textures/blocks/twisted/twisted_shrub"
+		},
+		"twisted_stalks": {
+			"textures": "textures/blocks/twisted/twisted_stalks"
+		},
+		"mage_plushie": {
+			"textures": "textures/blocks/plushie/mage_plushie"
+		},
+		"expired_torch": {
+			"textures": "textures/blocks/expired_torch"
+		},
+		"hanging_forest_moss_tip": {
+			"textures": "textures/blocks/twisted/hanging_moss_tip"
+		},
+		"hanging_forest_moss": {
+			"textures": "textures/blocks/twisted/hanging_moss"
+		},
+		"twisted_hanging_moss_tip": {
+			"textures": "textures/blocks/twisted/twisted_hanging_moss_tip"
+		},
+		"twisted_hanging_moss": {
+			"textures": "textures/blocks/twisted/twisted_hanging_moss"
+		},
+		"twisted_mushroom": {
+			"textures": "textures/blocks/twisted/twisted_mushroom_dim"
+		},
+		"luminous_twisted_mushroom": {
+			"textures": "textures/blocks/twisted/twisted_mushroom_lit"
+		},
+		"sparkling_cluster_up_tip": {
+			"textures": "textures/blocks/sparkling_cluster/up"
+		},
+		"sparkling_cluster_up_mid": {
+			"textures": "textures/blocks/sparkling_cluster/up_mid"
+		},
+		"sparkling_cluster_up_base": {
+			"textures": "textures/blocks/sparkling_cluster/up_base"
+		},
+		"sparkling_cluster_down_tip": {
+			"textures": "textures/blocks/sparkling_cluster/down"
+		},
+		"sparkling_cluster_down_mid": {
+			"textures": "textures/blocks/sparkling_cluster/down_mid"
+		},
+		"sparkling_cluster_down_base": {
+			"textures": "textures/blocks/sparkling_cluster/down_base"
+		}
+	}
+}

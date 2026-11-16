@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:abandoned_graves"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 10102026,
+			"separation": 2,
+			"spacing": 6
+		},
+		"structures": [
+			{
+				"structure": "mm:abandoned_graves",
+				"weight": 1
+			}
+		]
+	}
+}

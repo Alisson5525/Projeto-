@@ -1,0 +1,162 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:reforged_spellcrafter",
+            "menu_category": {
+                "category": "items"
+            },
+            "states": {
+                "mm:in_use": [
+                    false,
+                    true
+                ],
+                "mm:power": [
+                    0,
+                    1
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('mm:power') == 1",
+                "components": {
+                    "minecraft:loot": "loot_tables/blocks/reforged_spellcrafter_sparkling_crystal.json",
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "reforged_spellcrafter_top",
+                            "render_method": "opaque"
+                        },
+                        "down": {
+                            "texture": "reforged_spellcrafter_bottom",
+                            "render_method": "opaque"
+                        },
+                        "crystal": {
+                            "texture": "spellcrafter_crystal",
+                            "face_dimming": false,
+                            "ambient_occlusion": false,
+                            "render_method": "opaque"
+                        },
+                        "*": {
+                            "texture": "reforged_spellcrafter_side",
+                            "render_method": "opaque"
+                        }
+                    },
+                    "minecraft:light_emission": 4
+                }
+            },
+            {
+                "condition": "q.block_state('mm:power') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "up": {
+                            "texture": "reforged_spellcrafter_top_off",
+                            "render_method": "opaque"
+                        },
+                        "down": {
+                            "texture": "reforged_spellcrafter_bottom",
+                            "render_method": "opaque"
+                        },
+                        "crystal": {
+                            "texture": "spellcrafter_crystal",
+                            "face_dimming": false,
+                            "ambient_occlusion": false,
+                            "render_method": "opaque"
+                        },
+                        "*": {
+                            "texture": "reforged_spellcrafter_side",
+                            "render_method": "opaque"
+                        }
+                    },
+                    "minecraft:light_emission": 0
+                }
+            }
+        ],
+        "components": {
+            "mm:spellcrafter": {},
+            "mm:reforged_spellcrafter": {},
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 999999
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 10
+            },
+            "minecraft:destruction_particles": {
+                "texture": "reforged_spellcrafter_bottom"
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.reforged_spellcrafter",
+                "bone_visibility": {
+                    "crystal": "query.block_state('mm:power') > 0"
+                }
+            },
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "reforged_spellcrafter_top",
+                    "render_method": "opaque"
+                },
+                "down": {
+                    "texture": "reforged_spellcrafter_bottom",
+                    "render_method": "opaque"
+                },
+                "crystal": {
+                    "texture": "spellcrafter_crystal",
+                    "face_dimming": false,
+                    "ambient_occlusion": false,
+                    "render_method": "opaque"
+                },
+                "*": {
+                    "texture": "reforged_spellcrafter_side",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:light_emission": 4,
+            "minecraft:tick": {
+                "looping": true,
+                "interval_range": [
+                    5,
+                    5
+                ]
+            },
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "none"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "stops_liquid_flowing_from_direction": [
+                            "down"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    8,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    8,
+                    16
+                ]
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

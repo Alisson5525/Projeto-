@@ -1,0 +1,111 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:sparkling_brazier",
+            "states": {
+                "mm:lit": [
+                    true,
+                    false
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:lit') == true",
+                "components": {
+                    "minecraft:light_emission": 15,
+                    "minecraft:tick": {
+                        "looping": true,
+                        "interval_range": [
+                            1,
+                            1
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:lit') == false",
+                "components": {
+                    "minecraft:light_emission": 0,
+                    "minecraft:tick": {
+                        "looping": true,
+                        "interval_range": [
+                            1,
+                            1
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "none"
+            },
+            "minecraft:destruction_particles": {
+                "texture": "stone_bricks"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "mm:brazier": {},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "sparkling_brazier",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -6
+                ],
+                "size": [
+                    12,
+                    14,
+                    12
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -6,
+                    0,
+                    -6
+                ],
+                "size": [
+                    12,
+                    14,
+                    12
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 5, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 1.5 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.brazier",
+                "bone_visibility": {
+                    "flame": "q.block_state('mm:lit') == true"
+                }
+            }
+        }
+    }
+}

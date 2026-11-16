@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "ring_of_splinters",
+        "metalness_emissive_roughness": "ring_of_splinters_mer"
+    }
+}

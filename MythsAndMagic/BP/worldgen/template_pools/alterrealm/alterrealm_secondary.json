@@ -1,0 +1,138 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:alterrealm_secondary"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/hall1",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 50
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/hall2",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 50
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/turn1",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/turn2",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/fork_road",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/wind_room",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/room_crystal",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/room_splitway",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/room_pillar",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/structures/cult_room",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 13
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/structures/sanctuary_room",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 13
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/structures/mineshaft_room",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 13
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/structures/stronghold_room",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 13
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/fallback0",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 13
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/fallback",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "alterrealm/fallback2",
+                    "processors": "mm:alterrealm"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

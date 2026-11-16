@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:spell_book"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " s ",
+            "sBs"
+        ],
+        "key": {
+            "s": {
+                "item": "mm:sparkling_shard"
+            },
+            "B": {
+                "item": "book"
+            }
+        },
+        "unlock": [
+            {
+                "item": "book"
+            }
+        ],
+        "result": {
+            "item": "mm:spell_book",
+            "count": 1
+        }
+    }
+}

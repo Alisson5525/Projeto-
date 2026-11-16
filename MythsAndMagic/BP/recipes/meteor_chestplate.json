@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:meteor_chestplate"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "# #",
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:meteor_ingot"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:meteor_ingot"
+            }
+        ],
+        "result": {
+            "item": "mm:meteor_chestplate",
+            "count": 1
+        }
+    }
+}

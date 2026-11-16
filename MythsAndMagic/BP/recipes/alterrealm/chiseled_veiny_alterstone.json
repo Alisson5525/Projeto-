@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:chiseled_veiny_alterstone"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "S",
+            "S"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:polished_veiny_alterstone_slab"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:polished_veiny_alterstone_slab"
+            }
+        ],
+        "result": {
+            "item": "mm:chiseled_veiny_alterstone",
+            "count": 1
+        }
+    }
+}

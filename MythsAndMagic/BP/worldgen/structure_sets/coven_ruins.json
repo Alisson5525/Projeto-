@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:coven_ruins"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 10052024,
+			"separation": 12,
+			"spacing": 26
+		},
+		"structures": [
+			{
+				"structure": "mm:coven_ruins",
+				"weight": 1
+			}
+		]
+	}
+}

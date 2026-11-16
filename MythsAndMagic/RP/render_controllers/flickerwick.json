@@ -1,0 +1,44 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.flickerwick": {
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "arrays": {
+                "geometries": {
+                    "array.geo": [
+                        "Geometry.default",
+                        "Geometry.tall"
+                    ]
+                },
+                "textures": {
+                    "array.skins": [
+                        "texture.default",
+                        "texture.soul",
+                        "texture.copper",
+                        "texture.sparkling",
+                        "texture.happy",
+                        "texture.soul_happy",
+                        "texture.copper_happy",
+                        "texture.sparkling_happy",
+                        "texture.tall",
+                        "texture.tall_soul",
+                        "texture.tall_copper",
+                        "texture.tall_sparkling",
+                        "texture.tall_happy",
+                        "texture.tall_soul_happy",
+                        "texture.tall_copper_happy",
+                        "texture.tall_sparkling_happy"
+                    ]
+                }
+            },
+            "geometry": "array.geo[q.skin_id]",
+            "textures": [
+                "q.skin_id == 0 ? array.skins[query.variant+(4*q.is_saddled)] : array.skins[8+(query.variant+(4*q.is_saddled))]"
+            ]
+        }
+    }
+}

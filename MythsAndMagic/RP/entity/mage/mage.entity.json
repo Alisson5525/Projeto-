@@ -1,0 +1,48 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:mage",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/mage/mage"
+            },
+            "geometry": {
+                "default": "geometry.mage"
+            },
+            "scripts": {
+                "animate": [
+                    "hide_controller",
+                    "crystal_controller",
+                    "walk_controller",
+                    "hat_jump_controller"
+                ]
+            },
+            "sound_effects": {
+                "use_crystal": "mob.mage.use_crystal",
+                "refuse_crystal": "mob.mage.refuse_crystal"
+            },
+            "animations": {
+                "crystal_controller": "controller.animation.mage.crystal",
+                "hide_controller": "controller.animation.mage.hide",
+                "idle": "animation.mage.idle",
+                "walk": "animation.mage.walk",
+                "hat_jump": "animation.mage.hat_jump",
+                "walk_controller": "controller.animation.mage.walk",
+                "hat_jump_controller": "controller.animation.mage.hat_jump",
+                "hide": "animation.mage.hide",
+                "unhide": "animation.mage.unhide",
+                "use_crystal": "animation.mage.use_crystal"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "texture": "egg_mage"
+            }
+        }
+    }
+}

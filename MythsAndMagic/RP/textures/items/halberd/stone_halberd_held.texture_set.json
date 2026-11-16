@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "stone_halberd_held",
+        "metalness_emissive_roughness": "stone_halberd_held_mer"
+    }
+}

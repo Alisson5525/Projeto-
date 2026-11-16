@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:altermoss_carpet"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:altermoss_block"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:altermoss_block"
+            }
+        ],
+        "result": {
+            "item": "mm:altermoss_carpet",
+            "count": 3
+        }
+    }
+}

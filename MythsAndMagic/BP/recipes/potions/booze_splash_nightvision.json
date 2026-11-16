@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "mm:booze_splash_nightvision"
+        },
+        "input": "mm:booze_potion_nightvision_long",
+        "reagent": "gunpowder",
+        "output": "mm:booze_potion_nightvision_splash",
+        "tags": [
+            "brewing_stand"
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "spell_manager",
+		"metalness_emissive_roughness": "spell_manager_mer"
+	}
+}

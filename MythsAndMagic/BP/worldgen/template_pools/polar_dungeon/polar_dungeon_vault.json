@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:polar_dungeon_vault"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/vault",
+                    "processors": "mm:none"
+                },
+                "weight": 3
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "polar_dungeon/vault_ominous",
+                    "processors": "mm:none"
+                },
+                "weight": 2
+            }
+        ]
+    }
+}

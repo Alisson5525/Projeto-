@@ -1,0 +1,50 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.jakynknife.visible": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hidden": "query.cooldown_time_remaining('jakynknife') > 6"
+						},
+						{
+							"rudebuster": "c.is_first_person && query.cooldown_time_remaining('jakynknife') > 1 && query.cooldown_time_remaining('jakynknife') <= 6"
+						}
+					]
+				},
+				"hidden": {
+					"animations": [
+						"hide"
+					],
+					"transitions": [
+						{
+							"finished": "query.cooldown_time_remaining('jakynknife') <=4"
+						}
+					]
+				},
+				"rudebuster": {
+					"animations": [
+						"rudebuster"
+					],
+					"transitions": [
+						{
+							"default": "(query.cooldown_time_remaining('jakynknife') == 0 && query.all_animations_finished) || !c.is_first_person"
+						}
+					]
+				},
+				"finished": {
+					"animations": [
+						"catch"
+					],
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

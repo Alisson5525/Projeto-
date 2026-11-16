@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "mirror_panel_locked",
+        "metalness_emissive_roughness": "mirror_panel_locked_mer"
+    }
+}

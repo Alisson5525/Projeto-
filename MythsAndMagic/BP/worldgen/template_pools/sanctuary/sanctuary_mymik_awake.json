@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:sanctuary_mymik_awake"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/mymik_awake",
+                    "processors": "mm:none"
+                },
+                "weight": 3
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/no_mob",
+                    "processors": "mm:none"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

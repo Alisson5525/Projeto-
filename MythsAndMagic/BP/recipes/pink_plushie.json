@@ -1,0 +1,43 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:pink_plushie"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WFW",
+            "FPF",
+            "WDW"
+        ],
+        "key": {
+            "P": {
+                "item": "mm:pink_plushie"
+            },
+            "F": {
+                "item": "pink_petals"
+            },
+            "W": {
+                "item": "pink_wool"
+            },
+            "D": {
+                "item": "diamond"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:pink_plushie"
+            }
+        ],
+        "result": [
+            {
+                "item": "mm:pink_plushie"
+            },
+            {
+                "item": "mm:pink_plushie"
+            }
+        ]
+    }
+}

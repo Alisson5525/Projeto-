@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:sparkling_geode"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sparkling_geode",
+                    "processors": "mm:sparkling_geode"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

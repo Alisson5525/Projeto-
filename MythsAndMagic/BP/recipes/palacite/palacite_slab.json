@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:palacite_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:palacite"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:palacite"
+            }
+        ],
+        "result": {
+            "item": "mm:palacite_slab",
+            "count": 6
+        }
+    }
+}

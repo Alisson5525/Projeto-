@@ -1,0 +1,28 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:azsilva_carrot",
+            "menu_category": {
+                "category": "nature",
+                "group": "minecraft:itemGroup.name.crop"
+            }
+        },
+        "components": {
+            "minecraft:icon": "azsilva_carrot",
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 3,
+                "saturation_modifier": 3 // 9 saturation (gcarrot has 14.4)
+            },
+            "minecraft:use_modifiers": {
+                "use_duration": 1.6,
+                "movement_modifier": 0.4
+            },
+            "minecraft:use_animation": "eat",
+            "mm:restore_mana_on_consume": {
+                "amount": 3
+            }
+        }
+    }
+}

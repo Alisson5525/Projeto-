@@ -1,0 +1,91 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:orb_ponderer",
+            "menu_category": {
+                "category": "items"
+            },
+            "states": {
+                "mm:in_use": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "components": {
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "can_contain_liquid": true,
+                        "liquid_type": "water",
+                        "stops_liquid_flowing_from_direction": [
+                            "down"
+                        ]
+                    }
+                ]
+            },
+            "mm:orb_ponderer": {},
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    12,
+                    16
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -8
+                ],
+                "size": [
+                    16,
+                    12,
+                    16
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 11.6, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_pickaxe')"
+                        },
+                        "destroy_speed": 3.5 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "minecraft:destruction_particles": {
+                "texture": "arcane_deepslate"
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.orb_ponderer"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "orb_ponderer",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:light_emission": 8,
+            "minecraft:tick": {
+                "looping": true,
+                "interval_range": [
+                    5,
+                    5
+                ]
+            },
+            "tag:pickaxe_mine": {},
+            "tag:minecraft:is_pickaxe_item_destructible": {}
+        }
+    }
+}

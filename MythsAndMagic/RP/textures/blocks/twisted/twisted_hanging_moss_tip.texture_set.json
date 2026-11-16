@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "twisted_hanging_moss_tip",
+		"metalness_emissive_roughness": "twisted_hanging_moss_tip_mer"
+	}
+}

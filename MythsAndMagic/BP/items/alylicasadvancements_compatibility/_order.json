@@ -1,0 +1,56 @@
+{
+    "format_version": "1.21.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:advancementorder",
+            "menu_category": {
+                "category": "none",
+                "is_hidden_in_commands": true
+            }
+        },
+        "components": {
+            "minecraft:icon": "stick",
+            "minecraft:tags": {
+                "tags": [
+                    "mm:just_getting_started",
+                    "mm:secrets_secrets",
+                    "mm:magic_101",
+                    "mm:magic_103",
+                    "mm:stylish_spellcasting",
+                    "mm:trinket_collector",
+                    "mm:study_well",
+                    "mm:makeshift_wizardry",
+                    "mm:special_silverwear",
+                    "mm:you_shall_not_pass",
+                    "mm:design_detail",
+                    "mm:magic_reversion",
+                    "mm:myths_and_magic",
+                    "mm:ice_to_meet_you",
+                    "mm:its_alive",
+                    "mm:life_insurance",
+                    "mm:brewing_buddies",
+                    "mm:violent_alarm_clock",
+                    "mm:thwip",
+                    "mm:double_trouble",
+                    "mm:key_keeper",
+                    "mm:super_speed",
+                    "mm:instant_transmission",
+                    "mm:flash_fire",
+                    "mm:crash_bang_boom",
+                    "mm:big_shot",
+                    "mm:prismatic",
+                    "mm:under_snow_and_ice",
+                    "mm:recooling",
+                    "mm:pure_stardust",
+                    "mm:terminal_velocity",
+                    "mm:repeated_history",
+                    "mm:stranger_things",
+                    "mm:i_dont_like_this",
+                    "mm:pressure_watcher",
+                    "mm:magnetic_rail",
+                    "mm:take_good_care"
+                ]
+            }
+        }
+    }
+}

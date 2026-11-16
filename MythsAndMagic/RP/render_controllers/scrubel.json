@@ -1,0 +1,37 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.scrubel": {
+            "materials": [
+                {
+                    "*": "material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "flower": "query.is_saddled"
+                }
+            ],
+            "arrays": {
+                "geometries": {
+                    "array.geo": [
+                        "Geometry.default",
+                        "Geometry.baby"
+                    ]
+                },
+                "textures": {
+                    "array.skins": [
+                        "texture.default",
+                        "texture.sleeping",
+                        "Texture.baby",
+                        "Texture.baby_sleeping"
+                    ]
+                }
+            },
+            "geometry": "array.geo[q.is_baby]",
+            "textures": [
+                "array.skins[q.is_sleeping + 2*q.is_baby]"
+            ]
+        }
+    }
+}

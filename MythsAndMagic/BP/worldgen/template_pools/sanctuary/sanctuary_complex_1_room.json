@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:sanctuary_complex_1_room"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/complex1_1",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/complex1_2",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

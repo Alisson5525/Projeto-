@@ -1,0 +1,107 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mm:cluster_projectile",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "properties": {
+        "mm:level": {
+          "type": "int",
+          "default": 1,
+          "range": [1, 10]
+        }
+      }
+    },
+    "components": {
+      "minecraft:area_attack": {
+        "entity_filter": {
+          "all_of": [
+            {
+              "test": "is_owner",
+              "subject": "other",
+              "value": false
+            }
+          ]
+        },
+        "damage_per_tick": 2,
+        "damage_range": 1,
+        "cause": "fire"
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true
+      },
+      "minecraft:uses_uniform_air_drag": {},
+      "minecraft:leashable": {},
+      "minecraft:leashable_to": {},
+      "minecraft:rotation_axis_aligned": {},
+      "minecraft:breathable": {
+        "breathes_lava": true,
+        "breathes_water": true,
+        "suffocate_time": 0,
+        "total_supply": 15
+      },
+      "minecraft:collision_box": {
+        "height": 0.1,
+        "width": 0.1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": -2.0
+      },
+      "minecraft:bounciness": {
+        "value": 0.9
+      },
+      "minecraft:friction_modifier": {
+        "value": 0.3
+      },
+      "minecraft:air_drag_modifier": {
+        "value": 0.01
+      },
+      "minecraft:tameable": {
+        "probability": 1
+      },
+      "minecraft:type_family": {
+        "family": [
+                    "advancements:not_tameable","mm:spell"]
+      },
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "web"
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "mm:final_explosion",
+            "target": "self",
+            "filters": {
+              "test": "in_water",
+              "value": true
+            }
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 10,
+        "looping": true,
+        "time_down_event": {
+            "event": "mm:final_explosion",
+            "target": "self"
+        }
+      }
+    },
+    "events": {
+      "mm:mini_explosion": {},
+      "mm:final_explosion": {}
+    }
+  }
+}

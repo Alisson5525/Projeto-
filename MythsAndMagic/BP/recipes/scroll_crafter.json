@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:scroll_crafter"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WSW",
+            "PPP"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:sparkling_shard"
+            },
+            "P": {
+                "tag": "minecraft:planks"
+            },
+            "W": {
+                "tag": "minecraft:wool"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:sparkling_shard"
+            }
+        ],
+        "result": {
+            "item": "mm:scroll_crafter",
+            "count": 1
+        }
+    }
+}

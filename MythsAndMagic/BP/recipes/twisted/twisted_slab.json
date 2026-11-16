@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:twisted_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "PPP"
+        ],
+        "key": {
+            "P": {
+                "item": "mm:twisted_planks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:twisted_planks"
+            }
+        ],
+        "result": {
+            "item": "mm:twisted_slab",
+            "count": 6
+        }
+    }
+}

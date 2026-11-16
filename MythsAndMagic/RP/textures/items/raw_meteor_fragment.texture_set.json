@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "raw_meteor_fragment",
+        "metalness_emissive_roughness": "raw_meteor_fragment_mer"
+    }
+}

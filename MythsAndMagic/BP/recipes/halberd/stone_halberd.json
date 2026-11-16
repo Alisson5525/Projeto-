@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:stone_halberd"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "##S",
+            "#S#",
+            "S  "
+        ],
+        "key": {
+            "#": {
+                "tag": "minecraft:stone_tool_materials"
+            },
+            "S": {
+                "item": "stick"
+            }
+        },
+        "unlock": [
+            {
+                "tag": "minecraft:stone_tool_materials"
+            }
+        ],
+        "result": {
+            "item": "mm:stone_halberd",
+            "count": 1
+        }
+    }
+}

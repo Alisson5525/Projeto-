@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "alterbeast_egg",
+        "metalness_emissive_roughness": "alterbeast_egg_mer"
+    }
+}

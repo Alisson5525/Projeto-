@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "chiseled_polished_veiny_alterstone",
+		"metalness_emissive_roughness": "chiseled_polished_veiny_alterstone_mer"
+	}
+}

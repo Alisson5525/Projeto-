@@ -1,0 +1,26 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+        "description": {
+            "identifier": "mm:twisted_roots_feature"
+        },
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_attach_to": {
+            "min_sides_must_attach": 1,
+            "top": [
+                "oak_log",
+                "mm:twisted_log"
+            ]
+        },
+        "may_replace": [
+            "grass_block",
+            "dirt",
+            "dirt_with_roots",
+            "coarse_dirt",
+            "moss_block",
+            "mm:twisted_moss_block"
+        ],
+        "places_block": "mm:twisted_roots"
+    }
+}

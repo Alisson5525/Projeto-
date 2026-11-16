@@ -1,0 +1,52 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:orb_ponderer_orb",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "orb_ponderer_orb"
+                ]
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:rotation_axis_aligned": {},
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": "no"
+                }
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:environment_sensor": {
+                "triggers": {
+                    "filters": {
+                        "test": "in_block",
+                        "subject": "self",
+                        "value": "mm:orb_ponderer",
+                        "operator": "not"
+                    },
+                    "event": "mm:kill",
+                    "target": "self"
+                }
+            },
+            "minecraft:dimension_bound": {}
+        },
+        "events": {
+            "mm:kill": {}
+        }
+    }
+}

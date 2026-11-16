@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:disc_fragment_devoid",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "item.disc_fragment.name"
+            },
+            "minecraft:icon": "disc_fragment_devoid",
+            "minecraft:rarity": "uncommon"
+        }
+    }
+}

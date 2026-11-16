@@ -1,0 +1,57 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:sparkling_tower_mob",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "mm:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "mm:become_mage": {
+                "minecraft:transformation": {
+                    "into": "mm:mage<minecraft:entity_spawned>"
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:dimension_bound": {},
+            "minecraft:timer": {
+                "time": 60,
+                "time_down_event": {
+                    "event": "mm:despawn"
+                }
+            }
+        },
+        "events": {
+            "mm:despawn": {
+                "add": {
+                    "component_groups": [
+                        "mm:despawn"
+                    ]
+                }
+            },
+            "mm:structure_mage": {
+                "add": {
+                    "component_groups": [
+                        "mm:become_mage"
+                    ]
+                }
+            }
+        }
+    }
+}

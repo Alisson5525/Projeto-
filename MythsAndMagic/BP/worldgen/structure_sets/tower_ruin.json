@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:tower_ruin"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 26122025,
+			"separation": 12,
+			"spacing": 26
+		},
+		"structures": [
+			{
+				"structure": "mm:tower_ruin",
+				"weight": 1
+			}
+		]
+	}
+}

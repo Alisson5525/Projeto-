@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "slowfalling",
+        "metalness_emissive_roughness": "potion_booze_mer"
+    }
+}

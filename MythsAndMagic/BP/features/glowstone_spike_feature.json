@@ -1,0 +1,22 @@
+{
+    "format_version": "1.20.40",
+    "minecraft:weighted_random_feature": {
+        "description": {
+            "identifier": "mm:glowstone_spike_feature"
+        },
+        "features": [
+            [
+                "mm:glowstone_spike_3_feature",
+                2
+            ],
+            [
+                "mm:glowstone_spike_4_feature",
+                1
+            ],
+            [
+                "mm:glowstone_spike_5_feature",
+                1
+            ]
+        ]
+    }
+}

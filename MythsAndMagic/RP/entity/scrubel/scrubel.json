@@ -1,0 +1,65 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:scrubel",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/scrubel/scrubel",
+                "sleeping": "textures/entity/scrubel/scrubel_sleep",
+                "baby": "textures/entity/scrubel/baby",
+                "baby_sleeping": "textures/entity/scrubel/baby_sleep"
+            },
+            "geometry": {
+                "default": "geometry.scrubel",
+                "baby": "geometry.baby_scrubel"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "move_controller": "!query.is_sleeping"
+                    },
+                    {
+                        "holding_item": "query.is_item_equipped(0)"
+                    },
+                    "attack_controller",
+                    "sleep_controller",
+                    {
+                        "baby_item": "query.is_baby"
+                    }
+                ]
+            },
+            "animations": {
+                "baby_item": "animation.scrubel.baby_item_rendering_eugh",
+                "idle": "animation.scrubel.idle",
+                "walk": "animation.scrubel.walk",
+                "walk_holding": "animation.scrubel.walk_with_held_item",
+                "move_controller": "controller.animation.scrubel.walk",
+                "holding_item": "animation.scrubel.holding_item",
+                "sleeping": "animation.scrubel.sleep",
+                "waking": "animation.scrubel.wake",
+                "sleeping_baby": "animation.scrubel.sleep_baby",
+                "waking_baby": "animation.scrubel.wake_baby",
+                "sleep_controller": "controller.animation.scrubel.sleep",
+                "roll": "animation.scrubel.roll",
+                "roll_baby": "animation.scrubel.roll_baby",
+                "attack": "animation.scrubel.attack_with_item",
+                "attack_controller": "controller.animation.scrubel.attack"
+            },
+            "render_controllers": [
+                "controller.render.scrubel"
+            ],
+            "sound_effects": {
+                "melee": "mob.scrubel.melee",
+                "roll": "mob.scrubel.roll"
+            },
+            "enable_attachables": true,
+            "spawn_egg": {
+                "texture": "egg_scrubel"
+            }
+        }
+    }
+}

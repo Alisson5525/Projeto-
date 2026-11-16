@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:icicles",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/utility/icicles"
+            },
+            "geometry": {
+                "default": "geometry.icicles"
+            },
+            "scripts": {
+                "animate": [
+                    "root_controller"
+                ]
+            },
+            "animations": {
+                "root_controller": "controller.animation.icicles.general",
+                "hidden": "animation.icicles.hidden",
+                "rise": "animation.icicles.rise",
+                "sink": "animation.icicles.sink"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

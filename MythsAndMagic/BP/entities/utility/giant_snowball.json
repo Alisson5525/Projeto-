@@ -1,0 +1,106 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mm:giant_snowball",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "mm:level": {
+          "default": 1,
+          "type": "int",
+          "range": [
+            1,
+            10
+          ]
+        }
+      }
+    },
+    "component_groups": {
+      "mm:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 1,
+            "knockback": false
+          }
+        },
+        "power": 0.65,
+        "gravity": 0.035,
+        "inertia": 0.99,
+        "liquid_inertia": 0.8,
+        "anchor": 2,
+        "offset": [
+          0,
+          0.5,
+          0
+        ],
+        "semi_random_diff_damage": true,
+        "uncertainty_base": 0,
+        "reflect_on_hurt": true
+      },
+      "minecraft:transient": {},
+      "minecraft:physics": {},
+      "minecraft:timer": {
+        "looping": false,
+        "time": 12,
+        "time_down_event": {
+          "event": "mm:despawn"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:environment_sensor": {
+        "triggers": {
+          "filters": {
+            "test": "in_lava",
+            "value": true
+          },
+          "event": "mm:fizzle_out",
+          "target": "self"
+        }
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "mm:fizzle_out": {
+        "queue_command": {
+          "command": [
+            "particle minecraft:ice_evaporation_emitter ~~~",
+            "playsound random.fizz @a ~~~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "mm:despawn"
+          ]
+        }
+      },
+      "mm:despawn": {
+        "add": {
+          "component_groups": [
+            "mm:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

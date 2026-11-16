@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:veiny_alterstone"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "DDD",
+            "D#D",
+            "DDD"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:terragna_residue"
+            },
+            "D": {
+                "item": "mm:alterstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:sparkling_crystal"
+            }
+        ],
+        "result": {
+            "item": "mm:veiny_alterstone",
+            "count": 8
+        }
+    }
+}

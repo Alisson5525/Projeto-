@@ -1,0 +1,42 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:abandoned_graves_side"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:empty_pool_element"
+                },
+                "weight": 3
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "abandoned_graves/ab_graves_side_chest",
+                    "processors": "mm:abandoned_graves"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "abandoned_graves/ab_graves_side_wall",
+                    "processors": "mm:abandoned_graves",
+                    "projection": "terrain_matching"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "abandoned_graves/ab_graves_side_pillar",
+                    "processors": "mm:abandoned_graves",
+                    "projection": "terrain_matching"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

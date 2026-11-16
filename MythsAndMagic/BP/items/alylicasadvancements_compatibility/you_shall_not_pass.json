@@ -1,0 +1,21 @@
+{
+    "format_version": "1.21.50",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:alyadvancement_you_shall_not_pass",
+            "menu_category": {
+                "category": "none",
+                "is_hidden_in_commands": true
+            }
+        },
+        "components": {
+            "minecraft:icon": "stick",
+            "minecraft:tags": {
+                "tags": [
+                    "alyadvancements:type_advancement",
+                    "alyadvancements:value_0"
+                ]
+            }
+        }
+    }
+}

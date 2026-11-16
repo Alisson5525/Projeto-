@@ -1,0 +1,337 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "mm:air_surfer",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "properties": {
+                "mm:level": {
+                    "default": 1,
+                    "type": "int",
+                    "range": [
+                        1,
+                        10
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "mm:midair_speed_on": {
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_underwater"
+                                        },
+                                        {
+                                            "test": "rider_count",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "event": "mm:despawn"
+                        },
+                        {
+                            "filters": [
+                                {
+                                    "test": "on_ground",
+                                    "value": true
+                                }
+                            ],
+                            "event": "mm:speed_off"
+                        }
+                    ]
+                },
+                "minecraft:spell_effects": {
+                    "add_effects": [
+                        {
+                            "amplifier": 0,
+                            "duration": "infinite",
+                            "effect": "slow_falling",
+                            "visible": false
+                        },
+                        {
+                            "effect": "speed",
+                            "amplifier": 5,
+                            "display_on_screen_animation": false,
+                            "duration": "infinite",
+                            "visible": false
+                        }
+                    ]
+                }
+            },
+            "mm:midair_speed_off": {
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_underwater"
+                                        },
+                                        {
+                                            "test": "rider_count",
+                                            "value": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "event": "mm:despawn"
+                        },
+                        {
+                            "filters": [
+                                {
+                                    "test": "on_ground",
+                                    "value": false
+                                }
+                            ],
+                            "event": "mm:speed_on"
+                        }
+                    ]
+                },
+                "minecraft:spell_effects": {
+                    "add_effects": [
+                        {
+                            "amplifier": 0,
+                            "duration": "infinite",
+                            "effect": "slow_falling",
+                            "visible": false
+                        }
+                    ],
+                    "remove_effects": [
+                        "speed"
+                    ]
+                }
+            },
+            "mm:speed_1": {
+                "minecraft:movement": {
+                    "value": 0.25
+                }
+            },
+            "mm:speed_2": {
+                "minecraft:movement": {
+                    "value": 0.325
+                }
+            },
+            "mm:speed_3": {
+                "minecraft:movement": {
+                    "value": 0.4
+                }
+            },
+            "mm:despawn": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:loot": {
+                "table": "loot_tables/empty.json"
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 2.85
+            },
+            "minecraft:behavior.player_ride_tamed": {},
+            "minecraft:variable_max_auto_step": {
+                "base_value": 1.0625,
+                "controlled_value": 1.0625,
+                "jump_prevented_value": 0.5625
+            },
+            "minecraft:spell_effects": {
+                "add_effects": [
+                    {
+                        "amplifier": 0,
+                        "duration": "infinite",
+                        "effect": "slow_falling",
+                        "visible": false
+                    }
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": "no"
+                }
+            },
+            "minecraft:transient": {},
+            "minecraft:tameable": {
+                "probability": 1
+            },
+            "minecraft:body_rotation_blocked": {},
+            "minecraft:dimension_bound": {},
+            "minecraft:cannot_be_attacked": {},
+            "minecraft:mob_effect_immunity": {
+                "mob_effects": [
+                    "absorption",
+                    "bad_omen",
+                    "blindness",
+                    "conduit_power",
+                    "darkness",
+                    "fatal_poison",
+                    "fire_resistance",
+                    "haste",
+                    "health_boost",
+                    "hunger",
+                    "infested",
+                    "instant_damage",
+                    "instant_health",
+                    "invisibility",
+                    "fire_resistance",
+                    "jump_boost",
+                    "levitation",
+                    "mining_fatigue",
+                    "nausea",
+                    "night_vision",
+                    "oozing",
+                    "poison",
+                    "raid_omen",
+                    "regeneration",
+                    "resistance",
+                    "saturation",
+                    "slowness",
+                    "strength",
+                    "trial_omen",
+                    "village_hero",
+                    "water_breathing",
+                    "weakness",
+                    "weaving",
+                    "wind_charged",
+                    "wither"
+                ]
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:input_ground_controlled": {},
+            "minecraft:behavior.float": {
+                "priority": 0,
+                "chance_per_tick_to_float": 0.0,
+                "time_under_water_to_dismount_passengers": 0.5
+            },
+            "minecraft:buoyant": {
+                "base_buoyancy": 1.0,
+                "can_auto_step_from_liquid": true,
+                "apply_gravity": false,
+                "big_wave_probability": 0.03,
+                "big_wave_speed": 10.0,
+                "liquid_blocks": [
+                    "minecraft:water",
+                    "minecraft:flowing_water"
+                ],
+                "movement_type": "waves"
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "advancements:not_tameable",
+                    "mm:spell",
+                    "mm_rideable_for_movement_spells"
+                ]
+            },
+            "minecraft:timer": {
+                "time": 0.25,
+                "looping": true,
+                "time_down_event": {
+                    "event": "mm:wake",
+                    "filters": {
+                        "test": "is_moving",
+                        "value": true
+                    }
+                }
+            },
+            "minecraft:rideable": {
+                "controlling_seat": 0,
+                "rider_can_interact": false,
+                "seats": [
+                    {
+                        "position": [
+                            0,
+                            1,
+                            0
+                        ],
+                        "third_person_camera_radius": 5
+                    }
+                ],
+                "dismount_mode": "default",
+                "family_types": [
+                    "player"
+                ],
+                "pull_in_entities": false,
+                "seat_count": 1,
+                "on_rider_exit_event": "mm:despawn"
+            }
+        },
+        "events": {
+            "mm:wake": {},
+            "mm:speed_on": {
+                "add": {
+                    "component_groups": [
+                        "mm:midair_speed_on"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:midair_speed_off"
+                    ]
+                }
+            },
+            "mm:speed_off": {
+                "add": {
+                    "component_groups": [
+                        "mm:midair_speed_off"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "mm:midair_speed_on"
+                    ]
+                }
+            },
+            "mm:level_1": {
+                "add": {
+                    "component_groups": [
+                        "mm:midair_speed_off",
+                        "mm:speed_1"
+                    ]
+                }
+            },
+            "mm:level_2": {
+                "add": {
+                    "component_groups": [
+                        "mm:midair_speed_off",
+                        "mm:speed_2"
+                    ]
+                }
+            },
+            "mm:level_3": {
+                "add": {
+                    "component_groups": [
+                        "mm:midair_speed_off",
+                        "mm:speed_3"
+                    ]
+                }
+            },
+            "mm:despawn": {
+                "queue_command": {
+                    "command": [
+                        "playsound spell.cloudsurf.despawn @a[r=20] ~~~ 1 0.4"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "mm:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.mage.crystal": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"active": "query.property('mm:using_crystal')"
+						}
+					]
+				},
+				"active": {
+					"animations": [
+						"use_crystal"
+					],
+					"transitions": [
+						{
+							"default": "!query.property('mm:using_crystal')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.mage.hide": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"hide": "query.property('mm:hiding')"
+						}
+					]
+				},
+				"hide": {
+					"animations": [
+						"hide"
+					],
+					"transitions": [
+						{
+							"unhide": "!query.property('mm:hiding')"
+						}
+					]
+				},
+				"unhide": {
+					"animations": [
+						"unhide"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.mage.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0 && !query.property('mm:hiding')"
+						}
+					],
+					"blend_transition": 0.8
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5 || query.property('mm:hiding')"
+						}
+					],
+					"blend_transition": 0.8
+				}
+			}
+		},
+		"controller.animation.mage.hat_jump": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 1.0 && !query.property('mm:hiding')"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"walking": {
+					"animations": [
+						"hat_jump"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.5 || query.property('mm:hiding')"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

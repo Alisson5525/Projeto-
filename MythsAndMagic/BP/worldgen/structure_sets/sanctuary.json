@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:sanctuary"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 28112025,
+			"separation": 16,
+			"spacing": 36
+		},
+		"structures": [
+			{
+				"structure": "mm:sanctuary",
+				"weight": 1
+			}
+		]
+	}
+}

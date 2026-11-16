@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:polished_veiny_alterstone"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SS",
+            "SS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:veiny_alterstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:veiny_alterstone"
+            }
+        ],
+        "result": {
+            "item": "mm:polished_veiny_alterstone",
+            "count": 4
+        }
+    }
+}

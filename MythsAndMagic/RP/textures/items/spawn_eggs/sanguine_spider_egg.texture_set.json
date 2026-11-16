@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "sanguine_spider_egg",
+        "metalness_emissive_roughness": "sanguine_spider_egg_mer"
+    }
+}

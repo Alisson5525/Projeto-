@@ -1,0 +1,42 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:stone_platform",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/utility/terraform_platform"
+            },
+            "geometry": {
+                "default": "geometry.stone_platform"
+            },
+            "animations": {
+                "rise": "animation.stone_platform.rise",
+                "crumbling": "animation.stone_platform.crumbling",
+                "particles": "animation.stone_platform.particles",
+                "crumbling_particles": "animation.stone_platform.crumbling_particles"
+            },
+            "particle_effects": {
+                "idle_smoke": "mm:stone_platform_idle"
+            },
+            "scripts": {
+                "animate": [
+                    "particles",
+                    "rise",
+                    {
+                        "crumbling": "query.variant == 1"
+                    },
+                    {
+                        "crumbling_particles": "query.variant == 1"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

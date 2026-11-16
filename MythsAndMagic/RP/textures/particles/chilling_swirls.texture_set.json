@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "chilling_swirls",
+        "metalness_emissive_roughness": "chilling_swirls_mer"
+    }
+}

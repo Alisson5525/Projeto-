@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "guardian_wand",
+        "metalness_emissive_roughness": "guardian_wand_mer"
+    }
+}

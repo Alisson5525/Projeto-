@@ -1,0 +1,59 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:flickerwick",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/flickerwick/flickerwick",
+                "happy": "textures/entity/flickerwick/flickerwick_happy",
+                "soul": "textures/entity/flickerwick/flickerwick_soul",
+                "soul_happy": "textures/entity/flickerwick/flickerwick_soul_happy",
+                "copper": "textures/entity/flickerwick/flickerwick_copper",
+                "copper_happy": "textures/entity/flickerwick/flickerwick_copper_happy",
+                "sparkling": "textures/entity/flickerwick/flickerwick_sparkling",
+                "sparkling_happy": "textures/entity/flickerwick/flickerwick_sparkling_happy",
+                "tall": "textures/entity/flickerwick/tall_flickerwick",
+                "tall_happy": "textures/entity/flickerwick/tall_flickerwick_happy",
+                "tall_soul": "textures/entity/flickerwick/tall_flickerwick_soul",
+                "tall_soul_happy": "textures/entity/flickerwick/tall_flickerwick_soul_happy",
+                "tall_copper": "textures/entity/flickerwick/tall_flickerwick_copper",
+                "tall_copper_happy": "textures/entity/flickerwick/tall_flickerwick_copper_happy",
+                "tall_sparkling": "textures/entity/flickerwick/tall_flickerwick_sparkling",
+                "tall_sparkling_happy": "textures/entity/flickerwick/tall_flickerwick_sparkling_happy"
+            },
+            "geometry": {
+                "default": "geometry.flickerwick",
+                "tall": "geometry.tall_flickerwick"
+            },
+            "scripts": {
+                "animate": [
+                    "time_out_controller",
+                    "move_controller",
+                    "idle",
+                    "flame",
+                    "awaken"
+                ]
+            },
+            "animations": {
+                "awaken": "animation.flickerwick.awaken",
+                "idle": "animation.flickerwick.idle",
+                "walk": "animation.flickerwick.walk",
+                "run": "animation.flickerwick.run",
+                "flame": "animation.flickerwick.flame",
+                "time_out": "animation.flickerwick.time_out",
+                "move_controller": "controller.animation.flickerwick.walk",
+                "time_out_controller": "controller.animation.flickerwick.time_out"
+            },
+            "render_controllers": [
+                "controller.render.flickerwick"
+            ],
+            "spawn_egg": {
+                "texture": "egg_flickerwick"
+            }
+        }
+    }
+}

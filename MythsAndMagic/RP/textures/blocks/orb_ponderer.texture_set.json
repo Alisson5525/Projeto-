@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "orb_ponderer",
+        "metalness_emissive_roughness": "orb_ponderer_mer"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:sc_palacite_to_polished"
+        },
+        "tags": [
+            "stonecutter"
+        ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "mm:palacite"
+            }
+        ],
+        "unlock": [
+            {
+                "item": "mm:palacite"
+            }
+        ],
+        "result": {
+            "item": "mm:polished_palacite"
+        }
+    }
+}

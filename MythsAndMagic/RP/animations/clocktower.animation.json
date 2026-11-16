@@ -1,0 +1,38 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.clocktower.face": {
+			"loop": true,
+			"bones": {
+				"frame": {
+					"rotation": [
+						0,
+						0,
+						"math.cos(q.life_time*72)*2"
+					]
+				},
+				"hour_hand": {
+					"rotation": [
+						0,
+						0,
+						"180 + (q.property('mm:hour')*(360/12))"
+					]
+				},
+				"minute_hand": {
+					"rotation": [
+						0,
+						0,
+						"180 + (q.property('mm:minute')*(360/60))"
+					]
+				},
+				"second_hand": {
+					"rotation": [
+						0,
+						0,
+						"180 + (q.property('mm:second') *(360/60))"
+					]
+				}
+			}
+		}
+	}
+}

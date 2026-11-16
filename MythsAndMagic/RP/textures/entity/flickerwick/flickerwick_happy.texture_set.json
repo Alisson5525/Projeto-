@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "flickerwick_happy",
+        "metalness_emissive_roughness": "flickerwick_happy_mer"
+    }
+}

@@ -1,0 +1,115 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:shockweed"
+        },
+        "components": {
+            "minecraft:tick": {
+                "looping": true,
+                "interval_range": [
+                    5,
+                    5
+                ]
+            },
+            "mm:shockweed": {},
+            "minecraft:collision_box": false,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:embedded_visual": {
+                "geometry": "minecraft:geometry.cross",
+                "material_instances": {
+                    "*": {
+                        "face_dimming": false,
+                        "ambient_occlusion": false,
+                        "render_method": "alpha_test_single_sided",
+                        "texture": "shockweed"
+                    }
+                }
+            },
+            "minecraft:flammable": true,
+            "minecraft:flower_pottable": {},
+            "minecraft:geometry": {
+                "identifier": "minecraft:geometry.cross"
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "on_liquid_touches": "popped"
+                    }
+                ]
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "face_dimming": false,
+                    "ambient_occlusion": false,
+                    "render_method": "alpha_test_single_sided",
+                    "texture": "shockweed"
+                }
+            },
+            "minecraft:movable": {
+                "movement_type": "popped"
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ],
+                        "block_filter": [
+                            "grass_block",
+                            "dirt",
+                            "podzol",
+                            "mycelium",
+                            "dirt_with_roots",
+                            "coarse_dirt",
+                            "mud",
+                            "muddy_mangrove_roots",
+                            "moss_block",
+                            "pale_moss_block",
+                            "mm:altermoss_block",
+                            "mm:alterstone",
+                            "mm:mossy_alterstone",
+                            "mm:cobbled_alterstone"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:random_offset": {
+                "x": {
+                    "range": {
+                        "min": -4,
+                        "max": 4
+                    }
+                },
+                "y": {
+                    "range": {
+                        "min": 0,
+                        "max": 0
+                    }
+                },
+                "z": {
+                    "range": {
+                        "min": -4,
+                        "max": 4
+                    }
+                }
+            },
+            "minecraft:replaceable": {},
+            "minecraft:selection_box": {
+                "origin": [
+                    -4,
+                    0,
+                    -4
+                ],
+                "size": [
+                    8,
+                    14,
+                    8
+                ]
+            }
+        }
+    }
+}

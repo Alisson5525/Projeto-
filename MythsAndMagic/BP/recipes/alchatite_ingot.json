@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "mm:alchatite_ingot"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "construction",
+        "ingredients": [
+            {
+                "item": "iron_ingot"
+            },
+            {
+                "item": "iron_ingot"
+            },
+            {
+                "item": "iron_ingot"
+            },
+            {
+                "item": "mm:unobtanium_ingot"
+            }
+        ],
+        "priority": 0,
+        "result": {
+            "item": "mm:alchatite_ingot",
+            "count": 3
+        },
+        "unlock": [
+            {
+                "item": "mm:unobtanium_ingot"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:leaf_litter_from_twisted"
+        },
+        "tags": [
+            "furnace"
+        ],
+        "input": "mm:twisted_leaves",
+        "output": "leaf_litter"
+    }
+}

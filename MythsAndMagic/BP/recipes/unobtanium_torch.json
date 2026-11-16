@@ -1,0 +1,36 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:unobtanium_torch"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "^",
+            ".",
+            "|"
+        ],
+        "key": {
+            ".": {
+                "tag": "minecraft:coals"
+            },
+            "|": {
+                "item": "minecraft:stick"
+            },
+            "^": {
+                "item": "mm:unobtanium_nugget"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:unobtanium_nugget"
+            }
+        ],
+        "result": {
+            "item": "mm:unobtanium_torch",
+            "count": 4
+        }
+    }
+}

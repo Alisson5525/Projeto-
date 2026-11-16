@@ -1,0 +1,18 @@
+{
+    "pools": [
+        {
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "empty",
+                    "weight": 9
+                },
+                {
+                    "type": "item",
+                    "name": "mm:permafrost_shard",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

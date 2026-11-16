@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:spell_manager"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WpW",
+            "PPP"
+        ],
+        "key": {
+            "p": {
+                "item": "paper"
+            },
+            "P": {
+                "tag": "minecraft:planks"
+            },
+            "W": {
+                "tag": "minecraft:wool"
+            }
+        },
+        "unlock": [
+            {
+                "item": "paper"
+            }
+        ],
+        "result": {
+            "item": "mm:spell_manager",
+            "count": 1
+        }
+    }
+}

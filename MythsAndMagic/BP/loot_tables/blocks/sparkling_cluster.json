@@ -1,0 +1,18 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "empty",
+                    "weight": 15
+                },
+                {
+                    "type": "item",
+                    "name": "mm:sparkling_shard",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

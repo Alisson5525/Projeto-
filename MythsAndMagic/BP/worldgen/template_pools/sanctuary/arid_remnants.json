@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:arid_remnants"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/arid_remnants",
+                    "processors": "mm:none",
+                    "projection": "terrain_matching"
+                },
+                "weight": 1
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:empty_pool_element"
+                },
+                "weight": 2
+            }
+        ]
+    }
+}

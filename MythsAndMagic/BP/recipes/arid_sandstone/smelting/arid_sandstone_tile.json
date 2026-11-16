@@ -1,0 +1,13 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "mm:arid_sandstone_tile"
+        },
+        "tags": [
+            "furnace"
+        ],
+        "input": "mm:arid_sandstone",
+        "output": "mm:arid_sandstone_tile"
+    }
+}

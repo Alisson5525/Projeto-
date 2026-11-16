@@ -1,0 +1,99 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:hanging_moss",
+            "menu_category": {
+                "category": "nature"
+            },
+            "states": {
+                "mm:tip": [
+                    true,
+                    false
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "!query.block_state('mm:tip')",
+                "components": {
+                    "minecraft:selection_box": true,
+                    "minecraft:material_instances": {
+                        "*": {
+                            "tint_method": "default_foliage",
+                            "render_method": "alpha_test_single_sided",
+                            "texture": "hanging_forest_moss"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:tip')",
+                "components": {
+                    "minecraft:selection_box": {
+                        "origin": [
+                            -8,
+                            2,
+                            -8
+                        ],
+                        "size": [
+                            16,
+                            14,
+                            16
+                        ]
+                    },
+                    "minecraft:material_instances": {
+                        "*": {
+                            "tint_method": "default_foliage",
+                            "render_method": "alpha_test_single_sided",
+                            "texture": "hanging_forest_moss_tip"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:liquid_detection": {
+                "detection_rules": [
+                    {
+                        "on_liquid_touches": "popped",
+                        "liquid_type": "water"
+                    }
+                ]
+            },
+            "minecraft:loot": "loot_tables/empty.json",
+            "minecraft:material_instances": {
+                "*": {
+                    "tint_method": "default_foliage",
+                    "render_method": "alpha_test_single_sided",
+                    "texture": "hanging_forest_moss"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "down"
+                        ]
+                    }
+                ]
+            },
+            "mm:hanging_moss": {},
+            "minecraft:geometry": "minecraft:geometry.cross",
+            "minecraft:collision_box": false,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.1
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.0
+            },
+            "tag:mm:drop_from_shears": {},
+            "tag:mm:requires_block_above": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

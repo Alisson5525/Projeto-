@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:sanctuary_brick_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "###",
+            "###"
+        ],
+        "key": {
+            "#": {
+                "item": "mm:sanctuary_bricks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:sanctuary_bricks"
+            }
+        ],
+        "result": {
+            "item": "mm:sanctuary_brick_wall",
+            "count": 6
+        }
+    }
+}

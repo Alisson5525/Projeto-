@@ -1,0 +1,102 @@
+{
+    "format_version": "1.21.130",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:twisted_roots",
+            "menu_category": {
+                "category": "nature"
+            },
+            "states": {
+                "mm:active": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('mm:active') == true",
+                "components": {
+                    "minecraft:geometry": {
+                        "identifier": "geometry.twisted_roots",
+                        "bone_visibility": {
+                            "roots": "query.block_state('mm:active')"
+                        }
+                    },
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "twisted_roots_active",
+                            "render_method": "alpha_test"
+                        },
+                        "roots": {
+                            "texture": "twisted_roots_side",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('mm:active') == false",
+                "components": {
+                    "minecraft:geometry": {
+                        "identifier": "geometry.twisted_roots",
+                        "bone_visibility": {
+                            "roots": "query.block_state('mm:active')"
+                        }
+                    },
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "twisted_roots",
+                            "render_method": "alpha_test"
+                        },
+                        "roots": {
+                            "texture": "twisted_roots_side",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "minecraft:geometry.full_block"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "twisted_roots",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:tick": {
+                "interval_range": [
+                    10,
+                    10
+                ],
+                "looping": true
+            },
+            "mm:twisted_roots": {},
+            "minecraft:collision_box": true,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 4
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 4, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_hoe')"
+                        },
+                        "destroy_speed": 2 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:shovel_mine": {},
+            "tag:minecraft:is_shovel_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

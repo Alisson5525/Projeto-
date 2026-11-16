@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "cluster_smoke",
+        "metalness_emissive_roughness": "cluster_smoke_mer"
+    }
+}

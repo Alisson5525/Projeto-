@@ -1,0 +1,7 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "sacred_statue",
+		"metalness_emissive_roughness": "sacred_statue_mer"
+	}
+}

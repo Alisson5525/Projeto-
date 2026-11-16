@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "azsilva_block",
+        "metalness_emissive_roughness": "azsilva_block_mer"
+    }
+}

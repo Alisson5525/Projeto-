@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.40",
+    "minecraft:single_block_feature": {
+        "description": {
+            "identifier": "mm:palacite_lavatest_1_feature"
+        },
+        "places_block": "minecraft:cobblestone", //Any block that isn't in "may_replace" list.
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_replace": [
+            "minecraft:air"
+        ], //Only blocks the feature is allowed to be placed in.
+        "may_attach_to": { //Attachment conditions - what blocks can surround the feature when its being placed
+            "bottom": [
+                "lava"
+            ]
+        }
+    }
+}

@@ -1,0 +1,71 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.flickerwick.walk": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 0.25 && q.ground_speed < 1.0"
+						},
+						{
+							"running": "q.ground_speed >= 1.0"
+						}
+					],
+					"blend_transition": 0.6
+				},
+				"walking": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.125"
+						},
+						{
+							"running": "q.ground_speed >= 1.0"
+						}
+					],
+					"blend_transition": 0.6
+				},
+				"running": {
+					"animations": [
+						"run"
+					],
+					"transitions": [
+						{
+							"idle": "q.ground_speed < 0.125"
+						},
+						{
+							"walking": "q.ground_speed >= 0.125 && q.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.6
+				}
+			}
+		},
+		"controller.animation.flickerwick.time_out": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"time_out": "query.mark_variant == 1"
+						}
+					]
+				},
+				"time_out": {
+					"animations": [
+						"time_out"
+					],
+					"transitions": [
+						{
+							"default": "query.mark_variant == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

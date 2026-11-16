@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "creative_scroll",
+        "metalness_emissive_roughness": "creative_scroll_mer"
+    }
+}

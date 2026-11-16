@@ -1,0 +1,38 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "mm:cluster_projectile",
+            "min_engine_version": "1.10.0",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/misc/empty"
+            },
+            "geometry": {
+                "default": "geometry.mm_particle"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "particles": "animation.cluster.particles",
+                "loop_particles": "animation.cluster.loop_particles"
+            },
+            "scripts": {
+                "should_update_effects_offscreen": true,
+                "animate": [
+                    "particles",
+                    "loop_particles"
+                ]
+            },
+            "particle_effects": {
+                "particle": "mm:cluster_smoke_emitter",
+                "particle2": "mm:cluster_flame_emitter",
+                "lava": "minecraft:lava_particle",
+                "smoke": "mm:cluster_smoke_trail"
+            }
+        }
+    }
+}

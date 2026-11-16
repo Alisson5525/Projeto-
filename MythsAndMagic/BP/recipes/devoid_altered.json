@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:devoid_altered"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "DDD",
+            "DDD",
+            "DDD"
+        ],
+        "key": {
+            "D": {
+                "item": "mm:disc_fragment_devoid"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:disc_fragment_devoid"
+            }
+        ],
+        "result": {
+            "item": "mm:music_disc_devoid_altered",
+            "count": 1
+        }
+    }
+}

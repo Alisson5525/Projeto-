@@ -1,0 +1,85 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.mymik.open": {
+			"initial_state": "closed",
+			"states": {
+				"closed": {
+					"animations": [
+						"closed_idle"
+					],
+					"transitions": [
+						{
+							"opening": "query.variant == 0 && q.mark_variant != 0"
+						},
+						{
+							"open": "q.variant == 1"
+						}
+					]
+				},
+				"opening": {
+					"animations": [
+						"open"
+					],
+					"transitions": [
+						{
+							"closed": "query.variant == 0 && q.mark_variant == 0"
+						},
+						{
+							"open": "query.all_animations_finished"
+						}
+					]
+				},
+				"open": {
+					"animations": [
+						"open_idle"
+					],
+					"transitions": [
+						{
+							"closed": "query.variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.mymik.attack": {
+			"initial_state": "neutral",
+			"states": {
+				"neutral": {
+					"animations": [
+						"arms_hidden"
+					],
+					"transitions": [
+						{
+							"attacking": "query.has_target"
+						}
+					]
+				},
+				"attacking": {
+					"animations": [
+						"arms_hidden",
+						"jaws"
+					],
+					"transitions": [
+						{
+							"ranged": "query.is_saddled"
+						},
+						{
+							"neutral": "!q.has_target && q.all_animations_finished"
+						}
+					]
+				},
+				"ranged": {
+					"animations": [
+						"ranged"
+					],
+					"transitions": [
+						{
+							"neutral": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

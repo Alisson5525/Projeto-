@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:unobtanium_torch",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:unobtanium_torch",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "unobtanium_torch"
+        }
+    }
+}

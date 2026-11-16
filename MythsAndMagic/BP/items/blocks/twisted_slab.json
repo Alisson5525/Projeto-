@@ -1,0 +1,29 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:twisted_slab",
+            "menu_category": {
+                "category": "construction",
+                "group": "minecraft:itemGroup.name.slab"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "tile.mm:twisted_slab.name"
+            },
+            "minecraft:block_placer": {
+                "block": "mm:twisted_slab",
+                "replace_block_item": true
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:wooden_slabs"
+                ]
+            },
+            "minecraft:fuel": {
+                "duration": 15
+            }
+        }
+    }
+}

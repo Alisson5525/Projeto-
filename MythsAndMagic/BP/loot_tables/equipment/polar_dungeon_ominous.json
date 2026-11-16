@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "loot_tables/equipment/polar_dungeon_azsilva.json",
+          "weight": 2
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/equipment/polar_dungeon_diamond.json",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:sacred_snowflake",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:rarity": "rare",
+            "minecraft:icon": "sacred_snowflake"
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "mm:altercult_lair"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 44412026,
+			"separation": 14,
+			"spacing": 36
+		},
+		"structures": [
+			{
+				"structure": "mm:altercult_lair",
+				"weight": 1
+			}
+		]
+	}
+}

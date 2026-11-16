@@ -1,0 +1,99 @@
+	{
+    "format_version": "1.21.110",
+    "minecraft:block": {
+        "description": {
+            "identifier": "mm:stripped_twisted_log",
+            "menu_category": {
+                "category": "nature"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'west' || q.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'down' || q.block_state('minecraft:block_face') == 'up'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:light_dampening": 15,
+            "minecraft:collision_box": true,
+            "minecraft:selection_box": true,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 3
+            },
+            "minecraft:geometry": "minecraft:geometry.full_block",
+            "minecraft:material_instances": {
+                "up": {
+                    "texture": "stripped_twisted_log_top",
+                    "render_method": "opaque"
+                },
+                "*": {
+                    "texture": "stripped_twisted_log",
+                    "render_method": "opaque"
+                },
+                "down": {
+                    "texture": "stripped_twisted_log_top",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:flammable": true,
+            "minecraft:map_color": "#E896F9",
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2, //25(Block base speed) * 2/3
+                "item_specific_speeds": [
+                    {
+                        "item": {
+                            "tags": "query.any_tag('minecraft:is_axe')"
+                        },
+                        "destroy_speed": 2 //(10/5)*1.5 (blocks hardness)
+                    }
+                ]
+            },
+            "tag:mm:custom_log": {},
+            "tag:axe_mine": {},
+            "tag:minecraft:is_axe_item_destructible": {},
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": true,
+                "redstone_conductor": true
+            }
+        }
+    }
+}

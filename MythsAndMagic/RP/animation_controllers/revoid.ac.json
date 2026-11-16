@@ -1,0 +1,233 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.revoid.lat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"lat": "query.variant == 0 && q.timer_flag_3 == 0"
+						},
+						{
+							"roaring": "query.timer_flag_3"
+						}
+					]
+				},
+				"lat": {
+					"animations": [
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"default": "query.variant != 1 || q.timer_flag_3 == 1"
+						}
+					]
+				},
+				"roaring": {
+					"animations": [
+						"roar"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.revoid.idle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"idle": "q.has_target == 0"
+						},
+						{
+							"idle_with_target": "query.has_target && q.variant == 0"
+						}
+					]
+				},
+				"idle": {
+					"animations": [
+						"idle",
+						"idle_floating"
+					],
+					"transitions": [
+						{
+							"idle_with_target": "query.has_target || q.variant == 1"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"idle_with_target": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"idle": "!query.has_target && q.variant == 0"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.revoid.move": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"walking": "q.ground_speed > 0.05 && q.has_target && !query.property('mm:crouched')"
+						},
+						{
+							"walking_crouched": "q.ground_speed > 0.05 && q.has_target && query.property('mm:crouched')"
+						}
+					],
+					"blend_transition": 1
+				},
+				"walking": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"walking_crouched": "query.property('mm:crouched')"
+						},
+						{
+							"idle": "q.ground_speed < 0.01 || q.hurt_time > 0"
+						}
+					],
+					"blend_transition": 1
+				},
+				"walking_crouched": {
+					"animations": [
+						"move_crouched"
+					],
+					"transitions": [
+						{
+							"walking": "!query.property('mm:crouched')"
+						},
+						{
+							"idle": "q.ground_speed < 0.01 || q.hurt_time > 0"
+						}
+					],
+					"blend_transition": 1
+				}
+			}
+		},
+		"controller.animation.revoid.attack": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"attacking": "query.is_delayed_attacking && !query.property('mm:crouched')"
+						},
+						{
+							"attacking_crouched": "query.is_delayed_attacking && query.property('mm:crouched')"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"attacking": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"attacking_crouched": {
+					"animations": [
+						"attack_crouched"
+					],
+					"transitions": [
+						{
+							"idle": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.revoid.rising": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"transitions": [
+						{
+							"rising": "query.variant"
+						}
+					],
+					"blend_transition": 0
+				},
+				"rising": {
+					"animations": [
+						"rise"
+					],
+					"transitions": [
+						{
+							"done": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0
+				},
+				"done": {
+					"blend_transition": 0
+				}
+			}
+		},
+		"controller.animation.revoid.crouch": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"enter_crouch": "query.property('mm:crouched')"
+						}
+					],
+					"blend_transition": 0
+				},
+				"enter_crouch": {
+					"animations": [
+						"enter_crouch_position"
+					],
+					"transitions": [
+						{
+							"crouched": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0
+				},
+				"crouched": {
+					"animations": [
+						"crouch_position"
+					],
+					"transitions": [
+						{
+							"exit_crouch": "!query.property('mm:crouched')"
+						}
+					],
+					"blend_transition": 0
+				},
+				"exit_crouch": {
+					"animations": [
+						"exit_crouch_position"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
+					],
+					"blend_transition": 0
+				}
+			}
+		}
+	}
+}

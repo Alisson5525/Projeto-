@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:smithing_template_magistrate"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "CTC",
+            "CBC",
+            "CCC"
+        ],
+        "key": {
+            "T": {
+                "item": "mm:magistrate_staff_design_smithing_template"
+            },
+            "C": {
+                "item": "mm:sparkling_crystal"
+            },
+            "B": {
+                "item": "netherrack"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:magistrate_staff_design_smithing_template"
+            }
+        ],
+        "result": [
+            {
+                "item": "mm:magistrate_staff_design_smithing_template",
+                "count": 1
+            },
+            {
+                "item": "mm:magistrate_staff_design_smithing_template",
+                "count": 1
+            }
+        ]
+    }
+}

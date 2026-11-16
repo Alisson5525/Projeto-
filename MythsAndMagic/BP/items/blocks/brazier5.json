@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.120",
+    "minecraft:item": {
+        "description": {
+            "identifier": "mm:unobtanium_brazier",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:block_placer": {
+                "block": "mm:unobtanium_brazier",
+                "replace_block_item": true
+            },
+            "minecraft:icon": "unobtanium_brazier"
+        }
+    }
+}

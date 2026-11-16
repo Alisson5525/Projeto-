@@ -1,0 +1,48 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "mm:howl_staff_design_smithing_template",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_hurricane",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "mm:sparkling_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "music_disc_otherside",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "mm:mystery_scroll_glaciate_chilling_icicle",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "mm:sanctuary_side_room"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/crypt_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/parched_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/spider_room",
+                    "processors": "mm:sanctuary_spider_room"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/book_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/dungeon_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 66
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/shrine_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 66
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/shrine_room_silver",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 22
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/demon_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 30
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/clay_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/house_room",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 33
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/side_room/side_stairs",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 66
+            },
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "sanctuary/wall",
+                    "processors": "mm:sanctuary_cracked_bricks"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

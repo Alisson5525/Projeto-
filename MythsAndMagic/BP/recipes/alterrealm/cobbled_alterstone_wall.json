@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "mm:cobbled_alterstone_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "SSS",
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "mm:cobbled_alterstone"
+            }
+        },
+        "unlock": [
+            {
+                "item": "mm:cobbled_alterstone"
+            }
+        ],
+        "result": {
+            "item": "mm:cobbled_alterstone_wall",
+            "count": 6
+        }
+    }
+}
