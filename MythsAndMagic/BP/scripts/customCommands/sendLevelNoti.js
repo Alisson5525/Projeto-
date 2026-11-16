@@ -24,20 +24,20 @@ system.beforeEvents.startup.subscribe(event => {
         optionalParameters: [line2, imagepath, element, background]
     }
     registry.registerCommand(sendToast,
-        (source, victim, number, title, body, image, element) => {
+        (source, victim, number, title, body, image, element, bgPath) => {
             system.run(() => {
                 if (body == undefined) body = ""
-                if (image == undefined) image = "textures/icons/no_image.png"
+                if (image == undefined) image = "textures/icons/category/mm/icon"
                 if (number == undefined) number = 1
                 if (number < 1) number = 1
                 if (element == undefined) element = "mana"
-                if (background == undefined) image = "textures/ui/toast/style_myths.png"
+                const toastBackground = bgPath == undefined ? undefined : bgPath
                 const message = `§d${title}\n§r${body}`
                 for (const player of victim) {
                     for (let i = 0; i < number; i++)
                         system.runTimeout(() => {
 
-                            sendNotification(player, message, image, element, background)
+                            sendNotification(player, message, image, element, toastBackground)
                         }, i)
 
                 }

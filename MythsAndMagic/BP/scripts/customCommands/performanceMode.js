@@ -22,7 +22,7 @@ system.beforeEvents.startup.subscribe(event => {
     registry.registerCommand(performancemode,
         (source, state) => {
             system.run(() => {
-                if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("PerformanceMode set to : " + `${state}`)
+                if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("PerformanceMode set to : " + `${state}`)
                 world.setDynamicProperty("mm:performancemode", state)
             })
         }

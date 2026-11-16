@@ -19,7 +19,7 @@ system.beforeEvents.startup.subscribe(event => {
             system.run(() => {
                 if (state == true) source.sourceEntity.addTag("mm:disableflashes")
                 if (state == false) source.sourceEntity.removeTag("mm:disableflashes")
-                if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("Flashes set to : " + `${state}`)
+                if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("Flashes set to : " + `${state}`)
             })
         }
     );

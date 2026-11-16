@@ -87,7 +87,7 @@ function damageItem(slot, player, damage) {
 system.runInterval((e) => {
     for (const player of world.getPlayers({ excludeGameModes: ["Spectator"], tags: ["mm:been_loaded"] })) {
         if (!player.isValid) continue;
-        const airTimer = player.getDynamicProperty("mm:airtime")
+        const airTimer = player.getDynamicProperty("mm:airtime") ?? 0
         if (player.isOnGround || player.isFlying || player.isInWater) {
             if (airTimer !== 0) player.setDynamicProperty("mm:airtime", 0)
         } else {

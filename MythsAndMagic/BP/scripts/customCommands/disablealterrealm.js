@@ -17,7 +17,7 @@ system.beforeEvents.startup.subscribe(event => {
     registry.registerCommand(disablealterrealm,
         (source, state) => {
             system.run(() => {
-                if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("DisableAlterrealm set to : " + `${state}`)
+                if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("DisableAlterrealm set to : " + `${state}`)
                 world.setDynamicProperty("mm:disablealterrealm", state)
             })
         }

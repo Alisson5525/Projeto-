@@ -101,14 +101,14 @@ system.beforeEvents.startup.subscribe(event => {
                 for (const player of victim) {
                     const held = player.getComponent("equippable").getEquipment("Mainhand")
                     if (!held) {
-                        if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("No item to enchant")
+                        if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("No item to enchant")
                     }
                     var newItem = applyCustomEnchant(held, enchantId, level)
                     if (newItem[0] !== undefined) {
                         player.getComponent("equippable").setEquipment("Mainhand", newItem[0])
-                        if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("Applied " + enchantId + " at lvl " + `${level} `)
+                        if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("Applied " + enchantId + " at lvl " + `${level} `)
                     } else {
-                        source.sourceEntity.sendMessage(newItem[1])
+                        source.sourceEntity?.sendMessage?.(newItem[1])
                     }
                 }
             })

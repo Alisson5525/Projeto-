@@ -113,7 +113,6 @@
                 "looping": true
             },
             "minecraft:tags": [
-                "pickaxe_mine",
                 "minecraft:is_pickaxe_item_destructible"
             ],
             "minecraft:destruction_particles": {

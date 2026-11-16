@@ -66,9 +66,9 @@ world.afterEvents.entityHurt.subscribe((event) => {
 })
 
 system.afterEvents.scriptEventReceive.subscribe((event) => {
-    if (event.id !== "mymik_ranged_timeout") return;
+    if (event.id !== "mm:mymik_ranged_timeout") return;
     const entity = event.sourceEntity;
     system.runTimeout(() => {
-        if (entity.hasTag("mm:mymik_pulling")) entity.triggerEvent("mm:ranged_attack_enabled")
+        if (entity?.isValid && entity.hasTag("mm:mymik_pulling")) entity.triggerEvent("mm:ranged_attack_enabled")
     }, 40)
 })

@@ -19,13 +19,13 @@ system.beforeEvents.startup.subscribe(event => {
         (source, chance) => {
             system.run(() => {
                 if (chance < 0) {
-                    source.sourceEntity.sendMessage(`§c Value of ${chance} is too low! Chance must be 0-100`)
+                    source.sourceEntity?.sendMessage?.(`§c Value of ${chance} is too low! Chance must be 0-100`)
                 }
                 if (chance > 100) {
-                    source.sourceEntity.sendMessage(`§c Value of ${chance} is too high! Chance must be 0-100`)
+                    source.sourceEntity?.sendMessage?.(`§c Value of ${chance} is too high! Chance must be 0-100`)
                 }
                 if (chance > 100 || chance < 0) return;
-                if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage(`${chance}% Of a Meteor Shower next nighttime (from ${world.getDynamicProperty("mm:meteor_chance")})`)
+                if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.(`${chance}% Of a Meteor Shower next nighttime (from ${world.getDynamicProperty("mm:meteor_chance")})`)
                 world.setDynamicProperty("mm:meteor_chance", chance)
             })
         }

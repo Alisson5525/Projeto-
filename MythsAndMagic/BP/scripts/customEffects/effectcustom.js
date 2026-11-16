@@ -31,7 +31,7 @@ system.beforeEvents.startup.subscribe(event => {
             system.run(() => {
                 for (const player of victim) {
                     addCustomEffect(player, effectname, seconds * 20, level)
-                    if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("Gave " + effectname + " * " + level + " to " + player.name + " for " + `${seconds} Seconds`)
+                    if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("Gave " + effectname + " * " + level + " to " + player.name + " for " + `${seconds} Seconds`)
                 }
             })
         }
@@ -52,10 +52,10 @@ system.beforeEvents.startup.subscribe(event => {
                         for (const effect of effectIds) {
                             removeCustomEffect(player, effect)
                         }
-                        if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("Took all effects from " + player.name)
+                        if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("Took all effects from " + player.name)
                     } else {
                         removeCustomEffect(player, effectname)
-                        if (world.gameRules.sendCommandFeedback) source.sourceEntity.sendMessage("Took " + effectname + " from " + player.name)
+                        if (world.gameRules.sendCommandFeedback) source.sourceEntity?.sendMessage?.("Took " + effectname + " from " + player.name)
                     }
                 }
             })

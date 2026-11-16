@@ -284,7 +284,7 @@
                     }
                 ]
             },
-            "minecraft:tags": ["axe_mine", "minecraft:is_axe_item_destructible", "mm:requires_block_below"],
+            "minecraft:tags": [ "minecraft:is_axe_item_destructible", "mm:requires_block_below"],
             "minecraft:redstone_conductivity": {
                 "allows_wire_to_step_down": false,
                 "redstone_conductor": true

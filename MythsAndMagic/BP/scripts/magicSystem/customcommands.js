@@ -41,7 +41,7 @@ system.beforeEvents.startup.subscribe(event => {
         (source, colour, level, spell1, spell2, spell3) => {
             const sourceEntity = source.sourceEntity;
             if (!colours.includes(colour)) {
-                sourceEntity.sendMessage("Invalid colour for spellbook")
+                sourceEntity?.sendMessage?.("Invalid colour for spellbook")
                 return;
             }
             var itemId = ""
@@ -60,7 +60,7 @@ system.beforeEvents.startup.subscribe(event => {
             if (levelOverride > 3) levelOverride = 3
             levelOverride = Math.floor(levelOverride)
             var book = new ItemStack(itemId, 1)
-            sourceEntity.sendMessage("Granted " + itemId)
+            sourceEntity?.sendMessage?.("Granted " + itemId)
 
             system.run(() => {
                 if (spell1 !== undefined) {

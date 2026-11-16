@@ -48,9 +48,7 @@
 			},
 			"minecraft:tags": [
 				"minecraft:cornerable_stairs",
-				"minecraft:is_axe_item_destructible",
-				"axe_mine"
-			],
+				"minecraft:is_axe_item_destructible"],
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "twisted_planks",
