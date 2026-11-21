@@ -139,3 +139,54 @@ every(20 * 30, () => {
 }, "exploration");
 
 world.afterEvents.playerLeave.subscribe(({ playerId }) => nextAt.delete(playerId));
+
+// ---------------------------------------------------------------------------
+// Spawn balancer: the vanilla monster cap is shared with zombies, skeletons...
+// so add-on mobs could be rare and uneven. This tops up the area around each
+// player with add-on creatures in strict rotation, so every type appears the
+// same number of times.
+// ---------------------------------------------------------------------------
+
+export const NIGHT_ROTATION = ["sunrise:weak_vampire", "sunrise:weak_werewolf", "sunrise:vampire", "sunrise:werewolf",
+  "sunrise:chicken_vampiro", "sunrise:bat_minion", "sunrise:vampire_witch", "sunrise:black_werewolf"];
+const ADDON_FAMILIES = ["vampiro", "lobisomem", "supernatural"];
+let rotation = 0;
+let dayRotation = 0;
+
+export function nextNightMob() {
+  const id = NIGHT_ROTATION[rotation % NIGHT_ROTATION.length];
+  rotation++;
+  return id;
+}
+
+function nearbyAddonMobs(p, radius) {
+  return (safe(() => p.dimension.getEntities({ location: p.location, maxDistance: radius })) ?? [])
+    .filter((e) => e.typeId.startsWith("sunrise:") && e.typeId !== "minecraft:player").length;
+}
+
+every(20 * 25, () => {
+  const s = getSettings();
+  if (s.spawnBoost === false) return;
+  const night = isNight();
+  for (const p of players()) {
+    safe(() => {
+      if (p.dimension.id !== "minecraft:overworld" || isCreative(p)) return;
+      const near = nearbyAddonMobs(p, 64);
+      if (night) {
+        if (near >= 6 || !chance(70)) return;
+        const spot = surfaceSpot(p, 24, 40);
+        if (!spot) return;
+        spawnGroup(p, nextNightMob(), 1, spot);
+      } else {
+        // Daytime: hunters patrol (they are the only day-walking add-on mob).
+        if (near >= 3 || !chance(35)) return;
+        const spot = surfaceSpot(p, 24, 40);
+        if (!spot) return;
+        dayRotation++;
+        spawnGroup(p, "sunrise:hunter", 1 + (dayRotation % 2), spot);
+      }
+    }, "spawnBalancer");
+  }
+}, "spawnBalancer");
+
+export { ADDON_FAMILIES };

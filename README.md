@@ -3,13 +3,13 @@
 Reformulação completa do add-on **Vampire Craft v4.7.4** para **Minecraft Bedrock (Android, iOS, Windows, consoles)**.
 Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte poderes e sobreviva à **Lua de Sangue**.
 
-> **Versão:** 5.1.1 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
+> **Versão:** 5.2.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
 
 ---
 
 ## 📦 Instalação (Android)
 
-1. Baixe `dist/Vampire_Craft_v5.1.1.mcaddon`.
+1. Baixe `dist/Vampire_Craft_v5.2.0.mcaddon`.
 2. Toque no arquivo → abrir com **Minecraft**. Os dois pacotes (BEH e RES) são importados juntos.
 3. No mundo: **Configurações → Pacotes de Comportamento → Ativar "Vampire Craft [5.0.0] BEH"** (o de recursos é ativado junto).
 4. **Não é preciso ativar nenhum experimento.**
@@ -17,6 +17,18 @@ Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte podere
 **Atualizando de um mundo da v4.7.4?** Os pacotes usam os mesmos UUIDs, então o mundo atualiza sozinho. Na primeira entrada cada jogador é migrado automaticamente: raça, habilidades desbloqueadas, nível do lobisomem, atributos do caçador e sangue são convertidos para o novo sistema.
 
 ---
+
+## 🆕 5.2.0
+- **Spawn igual e maior**: todas as 8 criaturas da noite usam o mesmo peso (25), mesmo grupo e os mesmos 14 biomas; caçadores idem de dia. Um **equilibrador** (ligável no Codex → Administração) completa a área em volta dos jogadores em rodízio estrito, então cada tipo aparece o mesmo número de vezes.
+- **Galinha Vampira** e **Morcego Sombrio** refeitos: antes a galinha cruzava com galinhas e nunca atacava, e o morcego era persistente e andava no chão. Agora caçam à noite, queimam no sol e têm loot próprio.
+- **Sons** para todos os mobs do add-on (antes eram mudos).
+- **Armas com identidade**: Espada Vampírica rouba vida; Garras fazem sangrar e batem mais forte na forma de fera.
+- **Bônus de conjunto Eclipse**: Solar (vampiros imunes ao sol) e Lunar (visão noturna, força à noite).
+- **Alho** na mão enfraquece vampiros próximos.
+- **Capacete volta sozinho** para a cabeça ao sair da forma de morcego/lobo.
+- **Curas e Água Filosofal agora fabricáveis na bancada** (antes só no suporte de poções, que não aceita esses itens).
+- Receitas novas: Arco do Caçador, Pedra da Mudança, Frasco de Sangue com fígados. Brilho encantado em itens raros.
+- Corrigidos: animação de voo do vampiro-morcego, modelos inexistentes nos itens de habilidade, campos antigos da Bruxa Vampira e da magia.
 
 ## 🩹 5.1.1
 - **Altar de Sangue e demais blocos com função** (altar de recarga, moedor, caixões, fogueira, alho) voltaram ao formato de bloco original da v4.7.4, que já funcionava — na 5.0/5.1 eles usavam o formato novo de componentes e não carregavam em alguns aparelhos.

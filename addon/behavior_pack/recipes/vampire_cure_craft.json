@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "sunrise:vampire_cure_craft"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "sunrise:philosopher_water"
+      },
+      {
+        "item": "sunrise:vampire_tooth"
+      },
+      {
+        "item": "sunrise:garlic"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:vampire_cure",
+      "count": 1
+    }
+  }
+}

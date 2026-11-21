@@ -2,7 +2,7 @@ import { world, system, MoonPhase } from "@minecraft/server";
 import { TAG, WEREWOLF, LOOP_TICKS, DP } from "../core/config.js";
 import { isWerewolf, getLevel, getWolfTier, setWolfTier, getNum, setNum } from "../core/data.js";
 import { safe, msg, sound, particleAt, effect, removeEffect, isNight, every, players, isCreative, hasFamily, isValid, chance } from "../core/util.js";
-import { hasSkill, putHead, clearHead, state, bonusDamage, WOLF_HOOKS } from "./skills.js";
+import { hasSkill, putHead, clearHead, restoreHelmet, state, bonusDamage, WOLF_HOOKS } from "./skills.js";
 import { grantXp } from "./factions.js";
 
 export function isFullMoon() {
@@ -34,6 +34,7 @@ export function exitForm(p) {
   if (!inForm(p)) return;
   p.removeTag(TAG.IN_FORM);
   WEREWOLF.HEAD_ITEM.forEach((id) => clearHead(p, id));
+  restoreHelmet(p);
   removeEffect(p, "invisibility");
   particleAt(p, "sunrise:transform_smoke", 1);
   sound(p, "mob.wolf.whine", 0.8, 0.8);

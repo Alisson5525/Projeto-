@@ -1,27 +1,204 @@
 {
-	"entity_sounds": {
-		"entities": {
-			"sunrise:bullet_queen": {
-				"volume": 1,
-				"pitch": [
-					0.8,
-					1.2
-				],
-				"events": {
-					"hurt": "mob.bullet_queen.hurt",
-					"hurt.in.water": "mob.bullet_queen.hurt",
-					"flop": {
-						"sound": "mob.bullet_queen.flop",
-						"volume": 1,
-						"pitch": 1
-					},
-					"step": {
-						"sound": "mob.bullet_queen.step",
-						"volume": 0.15,
-						"pitch": 1
-					}
-				}
-			}
-		}
-	}
+  "entity_sounds": {
+    "entities": {
+      "sunrise:bullet_queen": {
+        "volume": 1,
+        "pitch": [
+          0.8,
+          1.2
+        ],
+        "events": {
+          "hurt": "mob.bullet_queen.hurt",
+          "hurt.in.water": "mob.bullet_queen.hurt",
+          "flop": {
+            "sound": "mob.bullet_queen.flop",
+            "volume": 1,
+            "pitch": 1
+          },
+          "step": {
+            "sound": "mob.bullet_queen.step",
+            "volume": 0.15,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:vampire": {
+        "volume": 1,
+        "pitch": [
+          0.6,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.vex.ambient",
+          "hurt": "mob.vex.hurt",
+          "death": "mob.vex.death",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:weak_vampire": {
+        "volume": 1,
+        "pitch": [
+          0.8,
+          1.0
+        ],
+        "events": {
+          "ambient": "mob.vex.ambient",
+          "hurt": "mob.vex.hurt",
+          "death": "mob.vex.death",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:vampire_witch": {
+        "volume": 1,
+        "pitch": [
+          0.6,
+          0.75
+        ],
+        "events": {
+          "ambient": "mob.witch.ambient",
+          "hurt": "mob.witch.hurt",
+          "death": "mob.witch.death",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:werewolf": {
+        "volume": 1,
+        "pitch": [
+          0.6,
+          0.8
+        ],
+        "events": {
+          "ambient": "mob.wolf.big.growl",
+          "hurt": "mob.wolf.big.hurt",
+          "death": "mob.wolf.big.death",
+          "step": {
+            "sound": "mob.wolf.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:weak_werewolf": {
+        "volume": 1,
+        "pitch": [
+          0.8,
+          0.95
+        ],
+        "events": {
+          "ambient": "mob.wolf.big.growl",
+          "hurt": "mob.wolf.big.hurt",
+          "death": "mob.wolf.big.death",
+          "step": {
+            "sound": "mob.wolf.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:black_werewolf": {
+        "volume": 1.2,
+        "pitch": [
+          0.45,
+          0.55
+        ],
+        "events": {
+          "ambient": "mob.wolf.big.growl",
+          "hurt": "mob.wolf.big.hurt",
+          "death": "mob.wolf.big.death",
+          "step": {
+            "sound": "mob.wolf.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:hunter": {
+        "volume": 1,
+        "pitch": [
+          1.0,
+          1.15
+        ],
+        "events": {
+          "ambient": "mob.pillager.idle",
+          "hurt": "mob.pillager.hurt",
+          "death": "mob.pillager.death",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:hunter_treiner": {
+        "volume": 1,
+        "pitch": [
+          0.85,
+          0.9
+        ],
+        "events": {
+          "ambient": "mob.pillager.idle",
+          "hurt": "mob.pillager.hurt",
+          "death": "mob.pillager.death",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:chicken_vampiro": {
+        "volume": 1,
+        "pitch": [
+          0.5,
+          0.6
+        ],
+        "events": {
+          "ambient": "mob.chicken.say",
+          "hurt": "mob.chicken.hurt",
+          "death": "mob.chicken.hurt",
+          "step": {
+            "sound": "mob.zombie.step",
+            "volume": 0.25,
+            "pitch": 1
+          }
+        }
+      },
+      "sunrise:bat_minion": {
+        "volume": 1,
+        "pitch": [
+          0.6,
+          0.7
+        ],
+        "events": {
+          "ambient": "mob.bat.idle",
+          "hurt": "mob.bat.hurt",
+          "death": "mob.bat.death"
+        }
+      },
+      "sunrise:servantsbat": {
+        "volume": 0.6,
+        "pitch": [
+          0.9,
+          1.1
+        ],
+        "events": {
+          "ambient": "mob.bat.idle",
+          "hurt": "mob.bat.hurt",
+          "death": "mob.bat.death"
+        }
+      }
+    }
+  }
 }

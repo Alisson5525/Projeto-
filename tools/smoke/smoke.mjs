@@ -296,6 +296,43 @@ harness.setTime(15000);
 harness.step(20 * 60 * 6);
 check(overworld._entities.length > before3 || [...(overworld._blocks?.values() ?? [])].some((b) => b.typeId === "minecraft:chest"), "an exploration encounter happened");
 
+// --- 5.2: equal spawn rotation, gear, garlic, helmet restore ---------------------------------
+const expl = await import(`${BP}/systems/exploration.js`);
+const counts = {};
+for (let i = 0; i < expl.NIGHT_ROTATION.length * 5; i++) { const id = expl.nextNightMob(); counts[id] = (counts[id] ?? 0) + 1; }
+check(Object.values(counts).every((c) => c === 5) && Object.keys(counts).length === 8, "spawn rotation is perfectly equal " + JSON.stringify(counts));
+const p4 = new Player("Gear", overworld);
+world.afterEvents.playerSpawn.fire({ player: p4, initialSpawn: true });
+harness.step(2);
+p4._equip.Head = new ItemStack("sunrise:eclipse_armor_helmet"); p4._equip.Feet = new ItemStack("sunrise:eclipse_armor_boots");
+p4._equip.Chest = new ItemStack("sunrise:sun_eclipse_armor_chestplate"); p4._equip.Legs = new ItemStack("sunrise:sun_eclipse_armor_leggings");
+const gear = await import(`${BP}/systems/gear.js`);
+check(gear.armorSet(p4) === "sun", "solar set detected");
+harness.step(25);
+check(!!p4.getEffect("fire_resistance"), "solar set gives fire resistance");
+p4._health.currentValue = 10;
+p4.selectedSlotIndex = 0;
+p4._inv.setItem(0, new ItemStack("sunrise:vampire_sword"));
+const z2 = new Entity("minecraft:zombie", overworld, { x: 0, y: 64, z: 1 }, ["zombie", "monster", "undead"]);
+world.afterEvents.entityHitEntity.fire({ damagingEntity: p4, hitEntity: z2 });
+check(p4._health.currentValue === 12, "vampiric sword steals life");
+p4._inv.setItem(0, new ItemStack("sunrise:garlic"));
+const v3m = new Entity("sunrise:weak_vampire", overworld, { x: 1, y: 64, z: 1 }, ["vampiro", "monster"]);
+v3m.location = { ...p4.location, x: p4.location.x + 2 };
+harness.step(25);
+check(!!v3m.getEffect("weakness"), "garlic weakens nearby vampires");
+// Helmet goes back on after bat form.
+factions.become(p4, "vampire");
+p4._inv.setItem(0, undefined);
+p4._equip.Head = new ItemStack("minecraft:iron_helmet");
+skills.grantSkill(p4, "fly", "vampire");
+data.setLevel(p4, 5); data.setBlood(p4, 20);
+check(skills.castSkill(p4, "fly"), "enter bat form with a helmet");
+check(p4._equip.Head?.typeId === "sunrise:trans_bat", "bat head replaced helmet");
+harness.step(80);
+skills.castSkill(p4, "fly");
+check(p4._equip.Head?.typeId === "minecraft:iron_helmet", "helmet restored after bat form (" + p4._equip.Head?.typeId + ")");
+
 // Run a long stretch of world time with everything active.
 p._inv.setItem(8, new ItemStack("sunrise:vampire_skill_item", 1));
 harness.step(2400);

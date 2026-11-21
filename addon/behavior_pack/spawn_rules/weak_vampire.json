@@ -18,7 +18,7 @@
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 14
+          "default": 25
         },
         "minecraft:herd": {
           "min_size": 1,
@@ -80,6 +80,21 @@
               "test": "has_biome_tag",
               "operator": "==",
               "value": "jungle"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mega"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "meadow"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "cherry_grove"
             }
           ]
         }

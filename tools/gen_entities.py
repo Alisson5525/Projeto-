@@ -273,9 +273,85 @@ def servant_bat(e):
 
 
 patch("vampire_witch", witch)
-patch("bullet_queen", lambda e: e["components"]["minecraft:projectile"].pop("destroyOnHurt", None))
+patch("bullet_queen", lambda e: (e["components"]["minecraft:projectile"].pop("destroyOnHurt", None), e["components"]["minecraft:projectile"].update({"anchor": "eye_height"})))
 patch("servantsbat", servant_bat)
 
+
+# ---------------------------------------------------------------------------
+# Small night creatures (v4 versions were broken: the chicken bred with normal
+# chickens and never attacked; the bat minion was persistent and walked)
+# ---------------------------------------------------------------------------
+def vampire_chicken():
+    comps = {
+        "minecraft:type_family": {"family": ["chicken_vampiro", "vampiro", "monster", "supernatural"]},
+        "minecraft:health": {"value": 10, "max": 10},
+        "minecraft:attack": {"damage": 3},
+        "minecraft:collision_box": {"width": 0.6, "height": 0.8},
+        "minecraft:movement": {"value": 0.3},
+        "minecraft:movement.basic": {},
+        "minecraft:navigation.walk": {"can_path_over_water": True, "avoid_damage_blocks": True},
+        "minecraft:jump.static": {},
+        "minecraft:can_climb": {},
+        "minecraft:physics": {},
+        "minecraft:pushable": {"is_pushable": True, "is_pushable_by_piston": True},
+        "minecraft:breathable": {"total_supply": 15, "suffocate_time": 0},
+        "minecraft:nameable": {},
+        "minecraft:damage_sensor": {"triggers": {"cause": "fall", "deals_damage": False}},
+        "minecraft:burns_in_daylight": {},
+        "minecraft:despawn": {"despawn_from_distance": {}},
+        "minecraft:loot": {"table": "loot_tables/entities/vampire_chicken.json"},
+        "minecraft:experience_reward": {"on_death": "query.last_hit_by_player ? 5 : 0"},
+        "minecraft:conditional_bandwidth_optimization": {},
+        "minecraft:behavior.float": {"priority": 0},
+        "minecraft:behavior.hurt_by_target": {"priority": 1},
+        "minecraft:behavior.flee_sun": {"priority": 2, "speed_multiplier": 1.3},
+        "minecraft:behavior.leap_at_target": {"priority": 3, "yd": 0.4, "must_be_on_ground": True},
+        "minecraft:behavior.random_stroll": {"priority": 6, "speed_multiplier": 1.0},
+        "minecraft:behavior.look_at_player": {"priority": 7, "look_distance": 6, "probability": 0.02},
+        "minecraft:behavior.random_look_around": {"priority": 8},
+    }
+    comps.update(melee(4, 1.3))
+    comps.update(targets([
+        {"filters": NOT_VAMPIRE_PLAYER, "max_dist": 16},
+        {"filters": {"any_of": [fam("chicken"), fam("villager")]}, "max_dist": 16},
+    ]))
+    return entity("sunrise:chicken_vampiro", {}, comps, {"minecraft:entity_spawned": {}})
+
+
+def bat_minion():
+    comps = {
+        "minecraft:type_family": {"family": ["bat", "vampiro", "monster", "supernatural"]},
+        "minecraft:health": {"value": 8, "max": 8},
+        "minecraft:attack": {"damage": 2},
+        "minecraft:collision_box": {"width": 0.6, "height": 0.6},
+        "minecraft:can_fly": {},
+        "minecraft:flying_speed": {"value": 0.4},
+        "minecraft:movement": {"value": 0.4},
+        "minecraft:navigation.hover": {"can_path_over_water": True, "can_sink": False, "can_pass_doors": True, "avoid_water": True, "avoid_damage_blocks": True},
+        "minecraft:movement.hover": {},
+        "minecraft:jump.static": {},
+        "minecraft:physics": {"has_gravity": False},
+        "minecraft:pushable": {"is_pushable": True, "is_pushable_by_piston": True},
+        "minecraft:breathable": {"total_supply": 15, "suffocate_time": 0},
+        "minecraft:nameable": {},
+        "minecraft:damage_sensor": {"triggers": {"cause": "fall", "deals_damage": False}},
+        "minecraft:burns_in_daylight": {},
+        "minecraft:despawn": {"despawn_from_distance": {}},
+        "minecraft:loot": {"table": "loot_tables/entities/bat_minion.json"},
+        "minecraft:experience_reward": {"on_death": "query.last_hit_by_player ? 3 : 0"},
+        "minecraft:follow_range": {"value": 24, "max": 24},
+        "minecraft:conditional_bandwidth_optimization": {},
+        "minecraft:behavior.float": {"priority": 0},
+        "minecraft:behavior.hurt_by_target": {"priority": 1},
+        "minecraft:behavior.random_hover": {"priority": 6, "xz_dist": 8, "y_dist": 4, "y_offset": -1, "interval": 1, "hover_height": [1, 4]},
+    }
+    comps.update(melee(3, 1.4))
+    comps.update(targets([{"filters": NOT_VAMPIRE_PLAYER, "max_dist": 20}]))
+    return entity("sunrise:bat_minion", {}, comps, {"minecraft:entity_spawned": {}})
+
+
+save("vampire_chicken", vampire_chicken())
+save("bat_minion", bat_minion())
 
 # ---------------------------------------------------------------------------
 # Spawn rules
@@ -301,17 +377,18 @@ def night_surface(weight, herd, biomes, extra=None):
     return c
 
 
-OVERWORLD_LAND = ["plains", "forest", "taiga", "savanna", "swamp", "roofed", "birch", "extreme_hills", "mesa", "desert", "jungle"]
-spawn_rule("sunrise:weak_vampire", "monster", [night_surface(14, (1, 2), OVERWORLD_LAND)])
-spawn_rule("sunrise:vampire", "monster", [night_surface(6, (1, 1), ["forest", "roofed", "taiga", "swamp", "birch"])])
-spawn_rule("sunrise:vampire_witch", "monster", [night_surface(1, (1, 1), ["swamp", "roofed"])])
-spawn_rule("sunrise:weak_werewolf", "monster", [night_surface(10, (1, 3), ["forest", "taiga", "birch", "extreme_hills"])])
-spawn_rule("sunrise:werewolf", "monster", [night_surface(5, (1, 2), ["taiga", "forest", "extreme_hills"])])
-spawn_rule("sunrise:black_werewolf", "monster", [night_surface(1, (1, 1), ["taiga", "extreme_hills", "mega"])])
+OVERWORLD_LAND = ["plains", "forest", "taiga", "savanna", "swamp", "roofed", "birch", "extreme_hills", "mesa", "desert", "jungle", "mega", "meadow", "cherry_grove"]
+# Every creature of the night uses the SAME weight, herd size and biomes, so
+# they all show up equally often (v4/5.0 favoured fledgling vampires 14:1).
+EQUAL_WEIGHT = 25
+NIGHT_MOBS = ["sunrise:weak_vampire", "sunrise:vampire", "sunrise:vampire_witch", "sunrise:weak_werewolf",
+              "sunrise:werewolf", "sunrise:black_werewolf", "sunrise:chicken_vampiro", "sunrise:bat_minion"]
+for mob in NIGHT_MOBS:
+    spawn_rule(mob, "monster", [night_surface(EQUAL_WEIGHT, (1, 2), OVERWORLD_LAND)])
 spawn_rule("sunrise:hunter", "animal", [{
     "minecraft:spawns_on_surface": {},
     "minecraft:brightness_filter": {"min": 9, "max": 15, "adjust_for_weather": False},
-    "minecraft:weight": {"default": 3},
+    "minecraft:weight": {"default": EQUAL_WEIGHT},
     "minecraft:herd": {"min_size": 1, "max_size": 2},
-    "minecraft:biome_filter": {"any_of": [{"test": "has_biome_tag", "operator": "==", "value": b} for b in ["plains", "forest", "taiga", "savanna"]]},
+    "minecraft:biome_filter": {"any_of": [{"test": "has_biome_tag", "operator": "==", "value": b} for b in OVERWORLD_LAND]},
 }])

@@ -3,7 +3,7 @@
 // touching gameplay code.
 
 export const NS = "sunrise";
-export const VERSION = "5.1.1";
+export const VERSION = "5.2.0";
 
 /** Legacy tags kept for compatibility with worlds created on v4.x */
 export const TAG = {
@@ -53,6 +53,7 @@ export const DEFAULT_WORLD_SETTINGS = {
   mobAmbush: true,
   starterBook: true,
   encounters: true,
+  spawnBoost: true,
 };
 
 export const MAX_LEVEL = 10;

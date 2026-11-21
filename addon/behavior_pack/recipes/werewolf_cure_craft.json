@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "sunrise:werewolf_cure_craft"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "sunrise:philosopher_water"
+      },
+      {
+        "item": "sunrise:werewolf_fang"
+      },
+      {
+        "item": "sunrise:moon_stone_ingot"
+      }
+    ],
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:werewolf_cure",
+      "count": 1
+    }
+  }
+}

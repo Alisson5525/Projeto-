@@ -77,7 +77,7 @@ const TOPICS = {
   vampire: ["become", "blood", "bite", "sun", "skills", "level"],
   werewolf: ["become", "form", "tiers", "skills", "level"],
   hunter: ["become", "missions", "stats", "bow", "skills"],
-  items: ["altar", "recharge", "grinder", "coffin", "cures", "armor"],
+  items: ["altar", "recharge", "weapons", "grinder", "coffin", "cures", "armor"],
   world: ["bloodmoon", "explore", "structures", "drops", "mobs", "commands"],
 };
 
@@ -316,11 +316,12 @@ async function openAdmin(player) {
     .slider(T("vc.admin.bloodmoon_chance"), 0, 100, { valueStep: 5, defaultValue: s.bloodMoonChance })
     .toggle(T("vc.admin.ambush"), { defaultValue: s.mobAmbush })
     .toggle(T("vc.admin.book"), { defaultValue: s.starterBook })
-    .toggle(T("vc.admin.encounters"), { defaultValue: s.encounters !== false });
+    .toggle(T("vc.admin.encounters"), { defaultValue: s.encounters !== false })
+    .toggle(T("vc.admin.spawn_boost"), { defaultValue: s.spawnBoost !== false });
   const res = await show(form, player);
   if (res.canceled || !res.formValues) return;
-  const [sun, inf, bm, bmc, amb, book, enc] = res.formValues;
-  saveSettings({ sunDamage: !!sun, infectionChance: Number(inf), bloodMoon: !!bm, bloodMoonChance: Number(bmc), mobAmbush: !!amb, starterBook: !!book, encounters: !!enc });
+  const [sun, inf, bm, bmc, amb, book, enc, boost] = res.formValues;
+  saveSettings({ sunDamage: !!sun, infectionChance: Number(inf), bloodMoon: !!bm, bloodMoonChance: Number(bmc), mobAmbush: !!amb, starterBook: !!book, encounters: !!enc, spawnBoost: !!boost });
   msg(player, "vc.settings.saved");
 }
 

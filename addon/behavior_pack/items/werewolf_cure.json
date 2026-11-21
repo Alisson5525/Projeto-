@@ -23,7 +23,8 @@
       },
       "minecraft:icon": "sunrise_werewolf_cure",
       "minecraft:max_stack_size": 16,
-      "minecraft:hand_equipped": false
+      "minecraft:hand_equipped": false,
+      "minecraft:glint": true
     }
   }
 }

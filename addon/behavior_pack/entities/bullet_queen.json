@@ -39,7 +39,7 @@
         "gravity": 0.05,
         "uncertainty_base": 16,
         "uncertainty_multiplier": 4,
-        "anchor": 1,
+        "anchor": "eye_height",
         "offset": [
           0,
           -0.1,

@@ -271,6 +271,8 @@ export function putHead(player, typeId) {
       return false;
     }
     inv.addItem(current);
+    // Remember it so the helmet goes back on when the form ends.
+    setStr(player, "vc:stored_helmet", current.typeId);
   }
   const stack = new ItemStack(typeId, 1);
   // Inventory lock: dragging it off the head slot removes it (see purgeLooseCosmetics),
@@ -279,6 +281,24 @@ export function putHead(player, typeId) {
   stack.keepOnDeath = true;
   setEquip(player, EquipmentSlot.Head, stack);
   return true;
+}
+
+/** Put back the helmet that a form moved to the inventory. */
+export function restoreHelmet(player) {
+  const id = getStr(player, "vc:stored_helmet", "");
+  if (!id) return;
+  setStr(player, "vc:stored_helmet", "");
+  if (getEquip(player, EquipmentSlot.Head)) return;
+  const inv = getInventory(player);
+  if (!inv) return;
+  for (let i = 0; i < inv.size; i++) {
+    const it = inv.getItem(i);
+    if (it && it.typeId === id) {
+      inv.setItem(i, undefined);
+      setEquip(player, EquipmentSlot.Head, it);
+      return;
+    }
+  }
 }
 
 /** Cosmetic heads must only exist on the head slot; delete copies left in the inventory. */
@@ -568,6 +588,7 @@ export function exitBatForm(p) {
   if (!p.hasTag(TAG.BAT_FORM)) return;
   p.removeTag(TAG.BAT_FORM);
   clearHead(p, ITEM.BAT_HEAD);
+  restoreHelmet(p);
   setNum(p, "vc:eyes_placed", 0); // let the vampire eyes come back
   removeEffect(p, "invisibility");
   removeEffect(p, "slow_falling");

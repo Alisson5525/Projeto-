@@ -274,7 +274,7 @@ for t in set(re.findall(r'"(textures/[a-z0-9_/]+)"', scripts_text)):
 particles = {d["particle_effect"]["description"]["identifier"] for d in docs.values() if isinstance(d, dict) and "particle_effect" in d}
 for pid in set(re.findall(r'"((?:sunrise|minecraft):[a-z0-9_]+)"', scripts_text)):
     pass
-for call in re.findall(r'(?:particle|particleAt|ring|spawnParticle)\([^"]*"([a-z]+:[a-z0-9_]+)"', scripts_text):
+for call in re.findall(r'\b(?:particle|particleAt|ring|spawnParticle)\([^"]*"([a-z]+:[a-z0-9_]+)"', scripts_text):
     if call.startswith("sunrise:") and call not in particles:
         err(f"script particle missing: {call}")
 rp_sounds = set(docs.get(os.path.join(RP, "sounds", "sound_definitions.json"), {}).get("sound_definitions", {}).keys())

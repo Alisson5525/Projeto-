@@ -7,6 +7,7 @@ import {
 } from "../core/util.js";
 import { hasSkill, exitBatForm, putHead, isCosmeticHead, state, bonusDamage } from "./skills.js";
 import { grantXp, infect } from "./factions.js";
+import { armorSet } from "./gear.js";
 import { ItemStack } from "@minecraft/server";
 
 // ---------------------------------------------------------------------------
@@ -102,7 +103,7 @@ function tickVampire(p) {
   if (!creative && getSettings().sunDamage && p.dimension.id === "minecraft:overworld" && isDay() && !raining.overworld && seesSky(p) && !p.isInWater) {
     r.inSun = true;
     r.sunTicks += LOOP_TICKS;
-    const resist = hasSkill(p, "sunresistence");
+    const resist = hasSkill(p, "sunresistence") || armorSet(p) === "sun";
     effect(p, "weakness", 3, 0);
     if (r.sunTicks % 20 === 0) particleAt(p, "sunrise:burn_smoke", 1.2);
     if (r.sunTicks >= VAMPIRE.SUN_GRACE_TICKS) {

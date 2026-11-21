@@ -13,7 +13,8 @@
       },
       "minecraft:icon": "change_stone",
       "minecraft:max_stack_size": 1,
-      "minecraft:hand_equipped": false
+      "minecraft:hand_equipped": false,
+      "minecraft:glint": true
     }
   }
 }

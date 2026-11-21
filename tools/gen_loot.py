@@ -118,6 +118,11 @@ save("entities/vampire_chicken.json", [
     pool([item(S + "blood_bottle_1")], chance=0.2),
 ])
 
+save("entities/bat_minion.json", [
+    pool([item("minecraft:leather", 1, 0, 1, 1)]),
+    pool([item(S + "vampire_blood")], player_only=True, chance=0.25, looting_mult=0.05),
+])
+
 # ---------------------------------------------------------------- structures
 save("sunrise/vampire_tower.json", [
     pool([item(S + "blood_bottle_4", 4, 1, 3), item(S + "vampire_blood", 4, 1, 3), item(S + "weak_human_heart", 3, 1, 2),
