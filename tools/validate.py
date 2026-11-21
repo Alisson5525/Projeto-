@@ -188,6 +188,8 @@ for p in list(glob.glob(os.path.join(BP, "**", "*.json"), recursive=True)) + scr
         pass
     text = open(p, encoding="utf-8").read()
     for m in set(ID_RE.findall(text)):
+        if m.endswith("_"):
+            continue  # prefix used in startsWith() checks, e.g. "sunrise:caixao_"
         if m in known or m in defined_other or m in state_names or m in script_components or m.startswith(ignore_prefixes):
             continue
         if re.search(rf'"{re.escape(m)}"\s*:\s*\{{', text) and ("events" in text or "component_groups" in text):
