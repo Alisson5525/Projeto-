@@ -1,13 +1,13 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "sunrise:sun_stone_ingot"
-		},
-		"tags": [
-			"furnace"
-		],
-		"input": "sunrise:sun_stone_ore",
-		"output": "sunrise:sun_stone_ingot"
-	}
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "sunrise:sun_stone_ingot"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": "sunrise:sun_stone_ore",
+    "output": "sunrise:sun_stone_ingot"
+  }
 }

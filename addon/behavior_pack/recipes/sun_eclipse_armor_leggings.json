@@ -1,35 +1,31 @@
 {
-	"format_version": "1.20.10",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "sunrise:sun_eclipse_armor_leggings"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"XMX",
-			"X X",
-			"X X"
-		],
-		"key": {
-			"X": {
-				"item": "sunrise:eclipse_ingot",
-				"data": 0
-			},
-			"M": {
-				"item": "sunrise:sun_stone_ingot",
-				"data": 0
-			}
-		},
-		"unlock": [
-			{
-				"item": "sunrise:eclipse_ingot"
-			}
-		],
-		"result": {
-			"item": "sunrise:sun_eclipse_armor_leggings",
-			"count": 1
-		}
-	}
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sunrise:sun_eclipse_armor_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "XMX",
+      "X X",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "sunrise:eclipse_ingot"
+      },
+      "M": {
+        "item": "sunrise:sun_stone_ingot"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:sun_eclipse_armor_leggings",
+      "count": 1
+    }
+  }
 }

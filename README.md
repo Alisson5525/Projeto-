@@ -3,13 +3,13 @@
 Reformulação completa do add-on **Vampire Craft v4.7.4** para **Minecraft Bedrock (Android, iOS, Windows, consoles)**.
 Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte poderes e sobreviva à **Lua de Sangue**.
 
-> **Versão:** 5.0.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
+> **Versão:** 5.0.1 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
 
 ---
 
 ## 📦 Instalação (Android)
 
-1. Baixe `dist/Vampire_Craft_v5.0.0.mcaddon`.
+1. Baixe `dist/Vampire_Craft_v5.0.1.mcaddon`.
 2. Toque no arquivo → abrir com **Minecraft**. Os dois pacotes (BEH e RES) são importados juntos.
 3. No mundo: **Configurações → Pacotes de Comportamento → Ativar "Vampire Craft [5.0.0] BEH"** (o de recursos é ativado junto).
 4. **Não é preciso ativar nenhum experimento.**

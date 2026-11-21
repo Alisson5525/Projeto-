@@ -1,36 +1,31 @@
 {
-	"format_version": "1.20.10",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "sunrise:eclipse_ingot"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"XS ","   ","   "
-		],
-		"key": {
-			"X": {
-				"item": "sunrise:moon_stone_ingot",
-				"data": 0
-			},
-			"S": {
-				"item": "sunrise:sun_stone_ingot",
-				"data": 0
-			}
-		},
-		"unlock": [
-			{
-				"item": "sunrise:moon_stone_ingot"
-			},
-			{
-				"item": "sunrise:sun_stone_ingot"
-			}
-		],
-		"result": {
-			"item": "sunrise:eclipse_ingot",
-			"count": 1
-		}
-	}
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sunrise:eclipse_ingot"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "XS ",
+      "   ",
+      "   "
+    ],
+    "key": {
+      "X": {
+        "item": "sunrise:moon_stone_ingot"
+      },
+      "S": {
+        "item": "sunrise:sun_stone_ingot"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:eclipse_ingot",
+      "count": 1
+    }
+  }
 }

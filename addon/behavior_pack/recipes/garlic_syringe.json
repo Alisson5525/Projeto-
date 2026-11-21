@@ -1,32 +1,30 @@
 {
-	"format_version": "1.20.10",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "sunrise:garlic_syringe"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"#X ",
-			"   ",
-			"   "
-		],
-		"key": {
-			"#": {
-				"item": "sunrise:garlic"
-			},
-			"X": {
-				"item": "sunrise:syringe"
-			}
-		},
-		"unlock": [
-			{
-				"item": "sunrise:syringe"
-			}
-		],
-		"result": {
-			"item": "sunrise:garlic_syringe"
-		}
-	}
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sunrise:garlic_syringe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "#X ",
+      "   ",
+      "   "
+    ],
+    "key": {
+      "#": {
+        "item": "sunrise:garlic"
+      },
+      "X": {
+        "item": "sunrise:syringe"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:garlic_syringe"
+    }
+  }
 }

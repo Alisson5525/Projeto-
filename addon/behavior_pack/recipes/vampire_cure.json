@@ -1,14 +1,14 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_brewing_mix": {
-		"description": {
-			"identifier": "sunrise:vampire_cure"
-		},
-		"tags": [
-			"brewing_stand"
-		],
-		"input": "sunrise:philosopher_water",
-		"reagent": "sunrise:vampire_tooth",
-		"output": "sunrise:vampire_cure"
-	}
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "sunrise:vampire_cure"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "sunrise:philosopher_water",
+    "reagent": "sunrise:vampire_tooth",
+    "output": "sunrise:vampire_cure"
+  }
 }

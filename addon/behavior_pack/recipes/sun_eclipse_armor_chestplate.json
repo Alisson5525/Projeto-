@@ -1,35 +1,31 @@
 {
-	"format_version": "1.20.10",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "sunrise:sun_eclipse_armor_chestplate"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"X X",
-			"XXX",
-			"XMX"
-		],
-		"key": {
-			"X": {
-				"item": "sunrise:eclipse_ingot",
-				"data": 0
-			},
-			"M": {
-				"item": "sunrise:sun_stone_ingot",
-				"data": 0
-			}
-		},
-		"unlock": [
-			{
-				"item": "sunrise:eclipse_ingot"
-			}
-		],
-		"result": {
-			"item": "sunrise:sun_eclipse_armor_chestplate",
-			"count": 1
-		}
-	}
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sunrise:sun_eclipse_armor_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "XXX",
+      "XMX"
+    ],
+    "key": {
+      "X": {
+        "item": "sunrise:eclipse_ingot"
+      },
+      "M": {
+        "item": "sunrise:sun_stone_ingot"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "sunrise:sun_eclipse_armor_chestplate",
+      "count": 1
+    }
+  }
 }

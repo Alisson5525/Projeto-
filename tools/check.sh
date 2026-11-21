@@ -10,3 +10,8 @@ echo "== Cross-reference validation"
 python3 validate.py ../addon $SAMPLES
 echo "== Engine-mock smoke test"
 (cd smoke && node --import ./loader.mjs smoke.mjs)
+if [ -n "${SCHEMAS:-}" ]; then
+  echo "== Schema check (Blockception schemas at \$SCHEMAS)"
+  [ -d node_modules/ajv ] || npm install --no-save --no-audit --no-fund ajv@8 >/dev/null
+  node schema_check.mjs "$SCHEMAS" ../addon | tail -1
+fi
