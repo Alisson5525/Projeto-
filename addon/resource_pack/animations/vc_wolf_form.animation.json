@@ -1,0 +1,129 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.vc.wolf_form.breathe": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "att_body": {
+          "rotation": [
+            "math.sin(query.anim_time * 180) * 1.5",
+            0,
+            0
+          ]
+        },
+        "att_head": {
+          "rotation": [
+            "-math.sin(query.anim_time * 180) * 2",
+            0,
+            0
+          ]
+        },
+        "att_boca": {
+          "rotation": [
+            "3 + math.sin(query.anim_time * 360) * 3",
+            0,
+            0
+          ]
+        },
+        "att_body_tail": {
+          "rotation": [
+            0,
+            "math.sin(query.anim_time * 180) * 9",
+            0
+          ]
+        },
+        "att_body_tail2": {
+          "rotation": [
+            0,
+            "math.sin(query.anim_time * 180 - 50) * 12",
+            0
+          ]
+        }
+      }
+    },
+    "animation.vc.wolf_form.sneak": {
+      "loop": true,
+      "bones": {
+        "att_waist": {
+          "position": [
+            0,
+            -2.5,
+            0
+          ]
+        },
+        "att_body": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "att_head": {
+          "rotation": [
+            -18,
+            0,
+            0
+          ]
+        },
+        "att_leftArm": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "att_rightArm": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.vc.wolf_form.attack_jaw": {
+      "animation_length": 0.35,
+      "bones": {
+        "att_boca": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              28,
+              0,
+              0
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "att_head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              8,
+              0,
+              0
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

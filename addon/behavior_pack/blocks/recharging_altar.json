@@ -1,26 +1,24 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "sunrise:recharging_altar",
-			"menu_category": {
-				"category": "items"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.recharging_altar",
-			"minecraft:destructible_by_mining":{
-				"seconds_to_destroy": 0.75
-			},
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "sunrise_recharging_altar",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:custom_components": [
-                "sunrise:item_usable_component"
-            ]
-		}
-	}
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "sunrise:recharging_altar",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.recharging_altar",
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.75
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sunrise_recharging_altar",
+          "render_method": "alpha_test"
+        }
+      },
+      "sunrise:recharging_altar_component": {}
+    }
+  }
 }

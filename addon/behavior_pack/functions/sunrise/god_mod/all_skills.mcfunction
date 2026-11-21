@@ -1,21 +1,2 @@
-tag @s add nightvision
-tag @s add fly
-tag @s add indetectavel
-tag @s add waterproof
-tag @s add rage
-tag @s add sunresistence
-tag @s add servantsbat
-tag @s add acrobata
-tag @s add blooddrinker
-tag @s add poucasede
-tag @s add teleport
-tag @s add icetouch
-tag @s add regeneration
-tag @s add invisibilidade
-tag @s add absorption
-tag @s add suntransform
-tag @s add poucafome
-tag @s add onehit
-tag @s add acrobata
-tag @s add defencive
-tag @s add sangramento
+# Unlock every skill of the executing player faction
+scriptevent vc:skills all

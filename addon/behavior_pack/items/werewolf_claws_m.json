@@ -1,44 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "sunrise:werewolf_claws_m",
-			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.sword"
-			}
-		},
-		"components": {
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 96,
-				"damage_chance": {
-					"min": 0,
-					"max": 2
-				}
-			},
-			"minecraft:damage": 7,
-			"minecraft:display_name": {
-				"value": "item.sunrise:werewolf_claws.name"
-			},
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_sword",
-					"minecraft:is_tool"
-				]
-			},
-			"minecraft:cooldown":{
-			    "category" : "attack",
-			    "duration" : 0.5
-			},
-			"minecraft:icon": "sunrise_werewolf_claws",
-			"minecraft:can_destroy_in_creative": false,
-
-			"minecraft:max_stack_size": 1,
-			"minecraft:enchantable": {
-				"slot": "sword",
-				"value": 15
-			}
-		}
-	}
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sunrise:werewolf_claws_m",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 96,
+        "damage_chance": {
+          "min": 0,
+          "max": 2
+        }
+      },
+      "minecraft:damage": 7,
+      "minecraft:display_name": {
+        "value": "item.sunrise:werewolf_claws_m.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword",
+          "minecraft:is_tool"
+        ]
+      },
+      "minecraft:cooldown": {
+        "category": "attack",
+        "duration": 0.5
+      },
+      "minecraft:icon": "sunrise_werewolf_claws",
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "slot": "sword",
+        "value": 15
+      }
+    }
+  }
 }

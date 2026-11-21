@@ -1,302 +1,388 @@
-item.sunrise:vampire_tooth.name=Dente de vampiro
-item.sunrise:weak_human_heart.name=Coração humano fraco
-item.sunrise:werewolf_fang.name=Presa de lobisomem
-item.sunrise:human_heart.name=Coração humano
-item.sunrise:vampire_blood.name=Sangue de vampiro
-item.sunrise:pure_vampire_blood.name=§eSangue puro de vampiro
-item.sunrise:blood_bottle_4.name=Frasco de sangue [4/4]
-item.sunrise:blood_bottle_1.name=Frasco de sangue [1/4]
-item.sunrise:blood_bottle_2.name=Frasco de sangue [2/4]
-item.sunrise:blood_bottle_3.name=Frasco de sangue [3/4]
-item.sunrise:moon_stone_ore.name=Moeda de pedra da lua
-item.sunrise:sun_stone_ore.name=Minério de pedra do sol
-tile.sunrise:moon_stone_ore_block.name=Bloco de minério de pedra da Lua
-tile.sunrise:sun_stone_ore_block.name=Bloco de minério de pedra do sol
-tile.sunrise:recharging_altar.name=Altar de recarga
-tile.sunrise:blood_altar.name=Altar de sangue
-item.sunrise:eclipse_ingot.name=Lingote Eclipse
-item.sunrise:sun_stone_ingot.name=Lingote de pedra do sol
-item.sunrise:moon_stone_ingot.name=Lingote de pedra da Lua
-item.sunrise:werewolf_claws.name=§dGarras de lobisomem
-item.sunrise:change_stone.name=§ePedra da mudança
-item.sunrise:philosopher_stone.name=Pedra do filosofal
-item.sunrise:philosopher_water.name=Água filosofal
-item.sunrise:vampire_cure.name=§dCura de vampiro
-item.sunrise:werewolf_cure.name=§dCura de lobisomem
-item.sunrise:vampire_sword.name=§dEspada de vampiro
-
-
-gui.button.UnlockSkill_moreDamage1=Mais dano LV1 ===> §a20XP
-gui.button.UnlockSkill_moreDamage2=Mais dano LV2 ===> §a30XP
-gui.button.UnlockSkill_moreDamage3=Mais dano LV3 ===> §a40XP
-gui.button.UnlockSkill_moreLife1=Mais vida LV1 ===> §a20XP
-gui.button.UnlockSkill_moreLife2=Mais vida LV2 ===> §a30XP
-gui.button.UnlockSkill_moreLife3=Mais vida LV3 ===> §a40XP
-gui.button.UnlockSkill_moreSpeed=Mais velocidade ===> §a40XP
-gui.button.UnlockSkill_moreJump=Mais salto ===> §a40XP
-gui.button.UnlockSkill_breathControl=Controle de respiração ===> §a40XP
-gui.button.UnlockSkill_skillPotions=Habilidade com poções ===> §a40XP
-gui.button.UnlockSkill_undetectable=Indetectável ===> §a40XP
-gui.button.UnlockSkill_GarlicInTheVein=Alho na veia ===> §a40XP
-gui.button.UnlockSkill_wolvesTamer=Domador de lobos ===> §a40XP
-gui.button.UnlockSkill_blessedHunter=Caçador abençoado ===> §a40XP
-botão do gui.UnlockSkill_kingHunter=Caçador de reis ===> §a40XP
-gui.button.UnlockSkill_loneHunter=Caçador solitário ===> §a40XP
-gui.button.UnlockSkill_saturation=Saturação ===> §a40XP
-gui.button.vampire_player.eyes=Customizar olho
-
-##botões##
-gui.button.vp.UnlockSkill_absorption=Absorção ===> 
-gui.button.vp.UnlockSkill_nightvision=Visão noturna ===> 
-gui.button.vp.UnlockSkill_fly=Voar ===> 
-
-gui.button.vp.UnlockSkill_indetectavel=Indetectável ===> 
-gui.button.vp.UnlockSkill_waterproof=À prova d'água ===> 
-gui.button.vp.UnlockSkill_fogremoval=Remoção de neblina ===> 
-
-
-gui.button.vp.UnlockSkill_sunresistence=Resistência ao sol ===> 
-gui.button.vp.UnlockSkill_servantsbat=Servos morcegos ===> 
-gui.button.vp.UnlockSkill_rage=Fúria ===> 
-
-gui.button.vp.UnlockSkill_acrobata=Acrobata ===> 
-gui.button.vp.UnlockSkill_poucaSede=Sedezinha ===> 
-gui.button.vp.UnlockSkill_blooddrinker=Bebedor de sangue ===> 
-
-gui.button.vp.UnlockSkill_teleport=Teletransporte ===> 
-gui.button.vp.UnlockSkill_defencive=Defensor ===> 
-gui.button.vp.UnlockSkill_sworddex=Sword dex ===> 
-
-gui.button.vp.UnlockSkill_invisibilidade=Invisibilidade ===> 
-gui.button.vp.UnlockSkill_regeneration=Regeneração ===> 
-gui.button.vp.UnlockSkill_icetouch=Toque de Gelo ===> 
-
-
-
-gui.button.lb.UnlockSkill_absorption=Absorção ===> 
-gui.button.lb.UnlockSkill_nightvision=Visão noturna ===> 
-
-gui.button.lb.UnlockSkill_indetectavel=Indetectável ===> 
-gui.button.lb.UnlockSkill_waterproof=À prova d'água ===> 
-gui.button.lb.UnlockSkill_fogremoval=Remoção de neblina ===> 
-
-gui.button.lb.UnlockSkill_rage=Fúria ===> 
-gui.button.lb.UnlockSkill_suntransform=Transformação do sol ===> 
-
-gui.button.lb.UnlockSkill_onehit=Um Acerto ===> 
-gui.button.lb.UnlockSkill_poucafome=Fomezinha ===> 
-gui.button.lb.UnlockSkill_acrobata=Acrobata ===> 
-
-gui.button.lb.UnlockSkill_defencive=Defensivo ===> 
-gui.button.lb.UnlockSkill_esquiva=Dodge ===> 
-
-gui.button.lb.UnlockSkill_regeneration=Regeneração ===> 
-gui.button.lb.UnlockSkill_invisibilidade=Invisibilidade ===> 
-gui.button.lb.UnlockSkill_sangramento=Sangramento ===> 
-
-
-gui.button.UseSkill_nightvision=§fVisão noturna
-gui.button.UseSkill_fly=§fVoar
-gui.button.UseSkill_sunresistence=§fResistência ao sol
-gui.button.UseSkill_absorption=§fAbsorção
-gui.button.UseSkill_servantsbat=§fServos morcegos
-gui.button.UseSkill_rage=§fFúria
-gui.button.UseSkill_acrobata=§fAcrobata
-gui.button.UseSkill_poucaSede=§fSedezinha 
-gui.button.UseSkill_blooddrinker=§fBebedor de sangue
-gui.button.UseSkill_indetectavel=§fIndetectável
-gui.button.UseSkill_waterproof=§fÀ prova d'água
-gui.button.UseSkill_fogremoval=§fRemoção de neblina
-gui.button.UseSkill_teleport=§fTeletransporte
-gui.button.UseSkill_defencive=§fDefensivo
-gui.button.UseSkill_sworddex=§fSword dex
-gui.button.UseSkill_invisibilidade=§fInvisibilidade
-gui.button.UseSkill_regeneration=§fRegeneração
-gui.button.UseSkill_icetouch=§fToque de gelo
-gui.button.UseSkill_onehit=§fUm golpe
-
-gui.button.UseSkill_suntransform=§fTransformação do sol
-gui.button.UseSkill_sangramento=§fSangramento
-gui.button.UseSkill_none=§fNenhuma
-gui.button.UseSkill_cooldown=§f...Em cooldown...
-
-##dialogos##
-text.virar_hunter=Você quer se tornar um caçador?
-button.sim=sim
-button.nao=no
-aviso.sede=Você está com sede
-msg_transformou=Você sente uma tremenda sede de sangue...
-chat.redmoon_Event=A lua vermelha acende ao ceu...
-
-##vampire_craft_book##
-gui.button.vampire=Vampiros
-gui.button.werewolf=Lobisomem
-gui.button.HowTurnVampire=Como virar vampiro
-gui.button.HowTurnWerewolf=Como virar lobisomem
-gui.button.HowTurnHunter=Como virar caçador
-gui.button.drinkBlood=Beber sangue
-gui.button.unlockSkillVPLB=Desbloquear nova habilidade
-vampire_craft_book.HowTurnVampire1=É possível se tornar\n um vampiro usando um dente de vampiro ou sendo mordido por um, embora as chances sejam baixas nesse último caso. Os vampiros podem ser encontrados na floresta escura, onde é o lugar mais fácil de se tornar um vampiro. O item dente de vampiro tem 50% de chance de cair ao derrotar um vampiro.
-vampire_craft_book.HowTurnVampire2=A transformação leva 5 minutos, e você poderá acompanhar o tempo por meio do efeito de fome adicionado ao jogador. Ao final do tempo, você receberá um item chamado "Vampire skills" (Habilidades de vampiro), no qual poderá escolher e usar as habilidades de vampiro.
-vampire_craft_book.HowTurnVampire3=Se quiser evitar se tornar um vampiro, dentro dos 5 minutos, você pode evitar isso aquecendo um balde de leite na fornalha e bebendo o balde de leite quente.
-
-vampire_craft_book.drinkBlood1=Somente quando for um vampiro você sentirá um novo tipo de fome, a sede de sangue. Com o indicador de sede localizado logo acima do indicador de fome, você pode monitorar o nível de sede do vampiro.
-vampire_craft_book.drinkBlood2=A sede do vampiro não pode ser satisfeita com alimentos comuns; você precisa beber sangue para preencher a barra de sede de sangue. Você pode fazer isso de duas maneiras: bebendo garrafas de sangue, que podem ser obtidas mordendo uma multidão enquanto segura uma garrafa de vidro, ou encontrando-as em estruturas em todo o mundo. O segundo método é beber diretamente da fonte tocando o botão na tela ou o botão de interação com as mãos vazias.
-vampire_craft_book.drinkBlood3=Se a barra de sede chegar a zero, o vampiro ficará mais fraco e não poderá mais usar suas habilidades, perdendo temporariamente todas as suas habilidades de resistência.
-
-vampire_craft_book.HowTurnWerewolf1=É possível se tornar um lobisomem usando uma presa de lobisomem ou sendo mordido por um, embora as chances sejam baixas nesse último caso. Os lobisomens podem ser encontrados na floresta escura, onde é o lugar mais fácil de se tornar um lobisomem. O item werewolf fang tem 50% de chance de cair ao derrotar um lobisomem.
-vampire_craft_book.HowTurnWerewolf2=A transformação leva 5 minutos, e você poderá acompanhar o tempo por meio do efeito de fome adicionado ao jogador. Ao final do tempo, você receberá um item chamado "Werewolf skills" (Habilidades de lobisomem), no qual poderá escolher e usar as habilidades de lobisomem.
-vampire_craft_book.HowTurnWerewolf3=Se quiser evitar se tornar um lobisomem, dentro dos 5 minutos, você pode evitar isso aquecendo um balde de leite na fornalha e bebendo o balde de leite quente.
-
-gui.button.niveisLB=Níveis de lobisomem
-vampire_craft_book.unlockSkillVP1=Depois de se tornar um vampiro, você pode desbloquear novas habilidades. Para fazer isso, você precisa de um altar de sangue e garrafas cheias de sangue.
-vampire_craft_book.unlockSkillVP2=Quando o altar estiver cheio, basta usar um dente de vampiro no altar. Aparecerá uma tela com as habilidades ainda não desbloqueadas; você precisa de XP suficiente para desbloqueá-las.
-vampire_craft_book.unlockSkillLB1=Depois de se tornar um lobisomem, você pode desbloquear novas habilidades. Para fazer isso, você precisa de um altar de sangue e usar fígado de lobisomem.
-vampire_craft_book.unlockSkillLB2=Quando o altar estiver cheio, basta usar uma presa de lobisomem no altar. Aparecerá uma tela com as habilidades ainda não desbloqueadas; você precisa de XP suficiente para desbloqueá-las; também é necessário ter o nível específico de lobisomem, dependendo da habilidade (veja mais sobre isso no tópico abaixo aqui no livro).
-vampire_craft_book.niveisLB1=Depois de se tornar um lobisomem, você recebe o nível de lobisomem §mI§r. Você pode subir de nível matando lobisomens de nível superior ao seu. A ordem de força é §mI§r - branco (beta), §mII§r - azulado (ômega) e §mIII§r - preto (alfa).
-vampire_craft_book.commands.removeLB=function sunrise/removeLB: Remove instantaneamente a transformação do jogador em um lobisomem
-vampire_craft_book.commands.removeVP=function sunrise/removeVP: remove instantaneamente a transformação do jogador em um vampiro
-
-
-
-
-line.breaker=-----------------
-line.textsepare=%%%%%%%%%%%%%%%%%
-
-text.vampire_craft.description=Seja o vampiro ou lobisomem mais forte de todos com o addon Vampire Craft.
-
-vampire_craft_book.commands.funcVP=function sunrise/transVP: Transforma o jogador instantaneamente em um vampiro
-vampire_craft_book.commands.funcLB=function sunrise/transLB: Transforma o jogador instantaneamente em um lobisomem
-vampire_craft_book.commands.funcHU=function sunrise/transHU: Transforma instantaneamente o jogador em um caçador
-
-gui.button.new.UnlockSkill_moreDamage1=Mais dano ===> §a10XP
-gui.button.new.UnlockSkill_moreDamage2=Mais dano ===> §a30XP
-gui.button.new.UnlockSkill_moreDamage3=Mais dano ===> §a60XP
-gui.button.new.UnlockSkill_regeneration1=Regeneração ===> §a15XP
-gui.button.new.UnlockSkill_regeneration2=Regeneração ===> §a30XP
-gui.button.UnlockSkill_rage=Fúria ===> §a15XP
-gui.button.new.UnlockSkill_filho_lua=Filho da lua ===> §a60XP
-gui.button.new.UnlockSkill_vontade_rei=Vontade do rei ===> §a60XP
-gui.button.new.UnlockSkill_protecao_divina=Proteção divina ===> §a60XP
-
-gui.button.hunter=Caçador
-gui.title.choose_type=Escolha o seu tipo
-gui.button.SelectType_lonehunter=Caçador solitário
-gui.button.SelectType_blessedHunter=Caçador de igreja
-gui.button.SelectType_kingHunter=Caçador real do rei
-gui.button.cacador=Caçador
-
-gui.button.howUpLevel=Como subir de nivel
-gui.button.hunterAtributes=Tipos de niveis
-vampire_craft_book.howUpLevel1=Diferente do vampiro e lobisomem, o caçador não desbloqueia habilidades.
-vampire_craft_book.howUpLevel2=O caçador pode subir o nivel de seus atributos fazendo missões para algum "Treinador de caçadores" que pode ser encontrados pelo mundo.
-
-vampire_craft_book.commands.removeHU=function sunrise/removeHU: Remove instantaneamente a transformação do jogador em um caçador
-vampire_craft_book.HowTurnHunter1=Você pode se transformar em um caçador usando uma seringa com alho em si mesmo, isso leva 5 minutos, você pode ver o tempo restante pelo efeito da fome.
-vampire_craft_book.huntersSkill1=As habilidades de caçador melhoram os atributos do caçador e isso só se aplica a caçadores reais e caçadores de igreja. Os caçadores solitários têm apenas as habilidades de sua escolha (vampiro ou lobisomem).
-vampire_craft_book.huntersSkill2=O item de habilidade é usado para desbloquear habilidades. Eles podem ser comprados com xp.
-gui.button.huntersTypes=Tipos de caçadores
-vampire_craft_book.huntersTypes1=Caçador da igreja: Os caçadores da igreja são subordinados da igreja, podem negociar e interagir com o padre.
-vampire_craft_book.huntersTypes2=Royal hunter (caçador real): Esses são caçadores reais subordinados ao rei, agem de acordo com a vontade do rei e recebem benefícios reais.
-vampire_craft_book.huntersTypes3=Caçador solitário: Eles não recebem ordens de ninguém nem benefícios de nenhum dos lados. Podem se transformar em vampiros ou lobisomens e recebem a habilidade especial de se misturar aos humanos.
-
-hunter_book.info1= - O nivel de vigor, melhora o fisico e energia do corpo.
-hunter_book.info2= - O nivel de mana, quantidade de energia magica.
-hunter_book.info3= - O nivel de maestria, nivel minimo de maestria é exigido para usar armas.
-hunter_book.info4= - O nivel de proficiencia, melhora o uso de algumas armas, itens e criação de ferramentas.
-
-
-vampire_craft_book.line=-----
-tile.sunrise:vampire_skill_item.name=Item de habilidade de vampiro
-tile.sunrise:werewolf_skill_item.name=Item de habilidade de lobisomem
-item.sunrise:vampire_craft_book.name=Guia Vampire Craft
-item.sunrise:trans_lob.name=Lob 1
-item.sunrise:trans_lob_blue.name=Lob 2
-item.sunrise:trans_lob_black.name=Lob 3
-item.sunrise:vampire_skill_item=§4Item de habilidade [vampiro]
-item.sunrise:werewolf_skill_item=§4Item de habilidade [lobisomem]
-item.sunrise:teleport_skill.name=habilidade de teleporte
-item.spawn_egg.entity.sunrise:vampire_chicken.name=Spawn Vampire chicken
-entity.sunrise:vampire_chicken.name=Frango vampiro
-item.spawn_egg.entity.sunrise:vampire.name=Spawn Vampire
-entity.sunrise:vampire.name=Vampiro
-item.spawn_egg.entity.sunrise:weak_vampire.name=Spawn Vampiro Fraco
-entity.sunrise:weak_vampire.name=Vampiro fraco
-item.spawn_egg.entity.sunrise:weak_werewolf.name=Spawn Weak werewolf
-entity.sunrise:weak_werewolf.name=Ser lobisomem fraco
-item.sunrise:liver.name=Fígado de lobisomem
-item.spawn_egg.entity.sunrise:werewolf.name=Spawn Werewolf
-item.sunrise:werewolf.name=Werewolf
-item.spawn_egg.entity.sunrise:black_werewolf.name=Spawn Lobisomem Preto
-item.spawn_egg.entity.sunrise:black_werewolf.name=Spawn Lobisomem Preto
-item.spawn_egg.entity.sunrise:vampire_witch.name=Spawn Vampire witch
-entity.sunrise:vampire_witch.name=Bruxa vampira
-item.spawn_egg.entity.sunrise:bullet_queen.name=Spawn Magic
-entity.sunrise:bullet_queen.name=Magic
-item.spawn_egg.entity.sunrise:hunter.name=Spawn Hunter
-entity.sunrise:hunter.name=Hunter
-item.sunrise:syringe.name=Seringa
-item.sunrise:garlic_syringe.name=Seringa de alho
-item.sunrise:garlic_syringe.name=Seringa de alho
-item.sunrise:hunter_skill_item.name=§eItem de habilidade [Caçador]
-item.sunrise:garlic.name=Alho
-tile.sunrise:garlic_block.name=Bloco de alho
-tile.sunrise:meat_grinder.name=Moedor de carne
-tile.sunrise:eclipse_sun_stone_bricks.name=Eclipse stone bricks
-tile.sunrise:cracked_eclipse_sun_stone_bricks.name=Cracked eclipse stone bricks
-item.sunrise:dont_use.name=Não use! [Item cosmetico]
-tile.sunrise:caixao_acacia.name=Caixão de acacia
-tile.sunrise:caixao_oak.name=Caixão de pinheiro
-tile.sunrise:caixao_birch.name=Caixão de bétula
-tile.sunrise:caixao_crimson.name=Caixão de caule distorcido
-tile.sunrise:caixao_warped.name=Caixão de caule carmesim
-tile.sunrise:caixao_spruce.name=Caixão de carvalho
-tile.sunrise:caixao_jungle.name=Caixão de tora da selva
-
-potion.vampire_cure=Uma poção que torna vampiros em humanos.
-potion.philosopher_water= 
-potion.werewolf_cure=Uma poção que torna lobisomens em humanos.
-
-item.sunrise:eclipse_armor_helmet=Capacete de eclipse
-item.sunrise:sun_eclipse_armor_chestplate=Peitoral de eclipse do solar
-item.sunrise:moon_eclipse_armor_chestplate=Peitoral de eclipse da lunar
-item.sunrise:sun_eclipse_armor_leggings=Calças de eclipse da solar
-item.sunrise:moon_eclipse_armor_leggings=Calças de eclipse da lunar
-item.sunrise:eclipse_armor_boots=Botas de eclipse
-
-gui.hunter_skillvelo.select=Treinar velocidade
-gui.hunter_skillvital.select=Treinar vitalidade
-gui.hunter_skillmana.select=Treinar mana
-gui.hunter_skillhab.select=Treinar habilidade
-gui.hunter_noneskillpoint.text=Nenhum ponto de mehloria disponivel
-gui.hunter_captulo1.select=Guia basico [CAP 1]
-
-item.sunrise:witchcraft_guide.name=Guia de bruxaria
-
-entity.sunrise:hunter_treiner.name=Treinador
-
-hunter.dialog.in_levelmax=Me desculpe, não a mais nada que eu posso te ensinar...
-
-hunter.dialog.five_vamp_tooth.mission=Prove o seu valor e consiga §l5 dentes de vampiro§r
-hunter.dialog.five_vamp_tooth.curent_mission=Consiga §l5 dentes de vampiro§r
-
-hunter.dialog.vampire_blood.mission=Consiga e me de §l5 garrafa de sangue de vampiro§r
-hunter.dialog.vampire_blood.curent_mission=De §l5 garrafa de sangue de vampiro§r
-
-hunter.dialog.pure_vampire_blood.mission=Consiga e me de §l1 garrafa de sangue de vampiro puro§r
-hunter.dialog.pure_vampire_blood.curent_mission=De §l1 garrafa de sangue de vampiro puro§r
-
-hunter.dialog.philosopher_stone.mission=Consiga e me de uma §lpedra filosofal§r
-hunter.dialog.philosopher_stone.curent_mission=De uma §lpedra filosofal§r
-
-hunter.dialog.have_avaliable_new_skill=Melhore suas habilidades antes de querer aprender coisas novas...
-
-hunter.dialog.mission_completed=Muito bom...
-hunter.dialog.non_completed_mission=Volte apenas quando a missão estiver completa...
-
-
-gui.hunter_mission_status.text=Status da missão
-item.spawn_egg.entity.sunrise:hunter_treiner.name=Ovo de Invocação do Terinador de Caçadores
-item.spawn_egg.entity.sunrise:chicken_vampiro.name=Ovo de Invocação da Galinha Vampira
-item.spawn_egg.entity.sunrise:bat_minion.name=Ovo de Invocação do Minion Morcego
-hunter.book.mission_completed=Missão Completa: Fale com o Treinador
+## Vampire Craft 5 — generated by tools/gen_lang.py
+entity.sunrise:bat_minion.name=Morcego Servo	#
+entity.sunrise:black_werewolf.name=§8Lobisomem Alfa	#
+entity.sunrise:bullet_queen.name=Magia	#
+entity.sunrise:chicken_vampiro.name=Galinha Vampira	#
+entity.sunrise:hunter.name=Caçador	#
+entity.sunrise:hunter_treiner.name=§eMestre Caçador	#
+entity.sunrise:servantsbat.name=Morcego Servo	#
+entity.sunrise:vampire.name=Vampiro	#
+entity.sunrise:vampire_witch.name=Bruxa Vampira	#
+entity.sunrise:weak_vampire.name=Vampiro Recém-Nascido	#
+entity.sunrise:weak_werewolf.name=Lobisomem Jovem	#
+entity.sunrise:werewolf.name=Lobisomem	#
+item.spawn_egg.entity.sunrise:bat_minion.name=Gerar Morcego Servo	#
+item.spawn_egg.entity.sunrise:black_werewolf.name=Gerar §8Lobisomem Alfa	#
+item.spawn_egg.entity.sunrise:bullet_queen.name=Gerar Magia	#
+item.spawn_egg.entity.sunrise:chicken_vampiro.name=Gerar Galinha Vampira	#
+item.spawn_egg.entity.sunrise:hunter.name=Gerar Caçador	#
+item.spawn_egg.entity.sunrise:hunter_treiner.name=Gerar §eMestre Caçador	#
+item.spawn_egg.entity.sunrise:servantsbat.name=Gerar Morcego Servo	#
+item.spawn_egg.entity.sunrise:vampire.name=Gerar Vampiro	#
+item.spawn_egg.entity.sunrise:vampire_witch.name=Gerar Bruxa Vampira	#
+item.spawn_egg.entity.sunrise:weak_vampire.name=Gerar Vampiro Recém-Nascido	#
+item.spawn_egg.entity.sunrise:weak_werewolf.name=Gerar Lobisomem Jovem	#
+item.spawn_egg.entity.sunrise:werewolf.name=Gerar Lobisomem	#
+item.sunrise:blood_bottle_1.name=Frasco de Sangue [1/4]	#
+item.sunrise:blood_bottle_2.name=Frasco de Sangue [2/4]	#
+item.sunrise:blood_bottle_3.name=Frasco de Sangue [3/4]	#
+item.sunrise:blood_bottle_4.name=§cFrasco de Sangue [4/4]	#
+item.sunrise:change_stone.name=§ePedra da Mudança	#
+item.sunrise:dont_use.name=§8[Item cosmético]	#
+item.sunrise:eclipse_armor_boots.name=Botas do Eclipse	#
+item.sunrise:eclipse_armor_helmet.name=Elmo do Eclipse	#
+item.sunrise:eclipse_ingot.name=§dLingote do Eclipse	#
+item.sunrise:garlic.name=Alho	#
+item.sunrise:garlic_syringe.name=§eSeringa de Alho	#
+item.sunrise:human_heart.name=Coração Humano	#
+item.sunrise:hunter_bow.name=§6Arco do Caçador	#
+item.sunrise:hunter_skill_item.name=§eInsígnia do Caçador	#
+item.sunrise:liver.name=Fígado de Lobisomem	#
+item.sunrise:moon_eclipse_armor_chestplate.name=Peitoral do Eclipse Lunar	#
+item.sunrise:moon_eclipse_armor_leggings.name=Calças do Eclipse Lunar	#
+item.sunrise:moon_stone_ingot.name=Lingote de Pedra da Lua	#
+item.sunrise:moon_stone_ore.name=Fragmento de Pedra da Lua	#
+item.sunrise:philosopher_stone.name=§bPedra Filosofal	#
+item.sunrise:philosopher_water.name=§bÁgua Filosofal	#
+item.sunrise:pure_vampire_blood.name=§eSangue Puro de Vampiro	#
+item.sunrise:sun_eclipse_armor_chestplate.name=Peitoral do Eclipse Solar	#
+item.sunrise:sun_eclipse_armor_leggings.name=Calças do Eclipse Solar	#
+item.sunrise:sun_stone_ingot.name=Lingote de Pedra do Sol	#
+item.sunrise:sun_stone_ore.name=Fragmento de Pedra do Sol	#
+item.sunrise:syringe.name=Seringa	#
+item.sunrise:vampire_blood.name=Sangue de Vampiro	#
+item.sunrise:vampire_craft_book.name=§4Codex Vampire Craft	#
+item.sunrise:vampire_cure.name=§dCura do Vampirismo	#
+item.sunrise:vampire_skill_item.name=§4Cálice de Sangue §7[Habilidades]	#
+item.sunrise:vampire_sword.name=§dEspada Vampírica	#
+item.sunrise:vampire_sword_e.name=§dEspada Vampírica §8(seca)	#
+item.sunrise:vampire_sword_m.name=§dEspada Vampírica §7(sedenta)	#
+item.sunrise:vampire_tooth.name=Presa de Vampiro	#
+item.sunrise:weak_human_heart.name=Coração Humano Fraco	#
+item.sunrise:werewolf_claws.name=§6Garras de Lobisomem	#
+item.sunrise:werewolf_claws_e.name=§6Garras de Lobisomem §8(cegas)	#
+item.sunrise:werewolf_claws_m.name=§6Garras de Lobisomem §7(gastas)	#
+item.sunrise:werewolf_cure.name=§dCura da Licantropia	#
+item.sunrise:werewolf_fang.name=Presa de Lobisomem	#
+item.sunrise:werewolf_skill_item.name=§6Totem da Lua §7[Habilidades]	#
+item.sunrise:witchcraft_guide.name=Guia de Bruxaria	#
+tile.sunrise:blood_altar.name=§4Altar de Sangue	#
+tile.sunrise:caixao_acacia.name=Caixão de Acácia	#
+tile.sunrise:caixao_birch.name=Caixão de Bétula	#
+tile.sunrise:caixao_crimson.name=Caixão Carmesim	#
+tile.sunrise:caixao_jungle.name=Caixão da Selva	#
+tile.sunrise:caixao_oak.name=Caixão de Carvalho	#
+tile.sunrise:caixao_spruce.name=Caixão de Pinheiro	#
+tile.sunrise:caixao_up_collision.name=Caixão	#
+tile.sunrise:caixao_warped.name=Caixão Distorcido	#
+tile.sunrise:cracked_eclipse_sun_stone_bricks.name=Tijolos do Eclipse Rachados	#
+tile.sunrise:eclipse_sun_stone_bricks.name=Tijolos do Eclipse	#
+tile.sunrise:hunter_campfire.name=Fogueira dos Caçadores	#
+tile.sunrise:meat_grinder.name=Moedor de Carne	#
+tile.sunrise:moon_stone_ore_block.name=Minério de Pedra da Lua	#
+tile.sunrise:recharging_altar.name=§5Altar de Recarga	#
+tile.sunrise:sun_stone_ore_block.name=Minério de Pedra do Sol	#
+tile.thini:garlic_crop.name=Plantação de Alho	#
+vc.admin.ambush=Emboscadas de vampiros à noite	#
+vc.admin.bloodmoon=Lua de Sangue	#
+vc.admin.bloodmoon_chance=Chance da lua cheia virar Lua de Sangue (%)	#
+vc.admin.book=Dar o Codex aos novos jogadores	#
+vc.admin.done=§7Comando §f%s§7 executado (%s, nível %s).	#
+vc.admin.infection=Chance de infecção por mordida (%)	#
+vc.admin.sun=Sol queima vampiros	#
+vc.admin.title=Configurações do Mundo	#
+vc.altar.all_unlocked=§aVocê já despertou todos os poderes!	#
+vc.altar.body=§7Seu nível: §f%s§7. Escolha um poder para despertar. Itens em §avermelho/verde§7 mostram se você os possui.	#
+vc.altar.confirm=§7Nível necessário: §f%s§7. Os itens serão consumidos.	#
+vc.altar.fill=§7O altar tem §c%s/%s§7 de sangue. Use §cfrascos de sangue cheios§7 ou §cfígados§7 nele.	#
+vc.altar.need_fang=§7O altar está cheio. Ofereça uma §fPresa de Lobisomem§7.	#
+vc.altar.need_tooth=§7O altar está cheio. Ofereça uma §fPresa de Vampiro§7.	#
+vc.altar.not_supernatural=§7O altar ignora você. Apenas vampiros e lobisomens podem usá-lo.	#
+vc.altar.req_level=§8Requer nível %s	#
+vc.altar.title=Altar de Sangue	#
+vc.become.hunter.sub=§7Você jurou caçar as trevas	#
+vc.become.hunter.tip=§eVocê agora é um caçador. §7Use a §eInsígnia§7 para ver missões e treinar. Seu sangue com alho queima vampiros!	#
+vc.become.hunter.title=§eCaçador	#
+vc.become.vampire.sub=§7A sede começou...	#
+vc.become.vampire.tip=§cVocê agora é um vampiro. §7Agache e ataque uma criatura para §cmorder§7. Fuja do sol! Use o §4Cálice de Sangue§7 para suas habilidades.	#
+vc.become.vampire.title=§4Vampiro	#
+vc.become.werewolf.sub=§7A lua agora te chama...	#
+vc.become.werewolf.tip=§6Você agora é um lobisomem. §7À noite você se transforma. Caçe para subir de nível e evoluir sua fera. Use o §6Totem da Lua§7.	#
+vc.become.werewolf.title=§6Lobisomem	#
+vc.bite.garlic=§cSangue com alho! Isso queima!	#
+vc.blood.low=§cSua sede está insuportável... morda alguém!	#
+vc.bloodmoon.ambush=§cVampiros sentiram seu cheiro!	#
+vc.bloodmoon.end=§7A Lua de Sangue se pôs.	#
+vc.bloodmoon.sub=§cAs criaturas da noite estão mais fortes...	#
+vc.bloodmoon.title=§4LUA DE SANGUE	#
+vc.bottle.human=§7Eca... isso é sangue.	#
+vc.codex.hunter.become.1=Fabrique uma §fSeringa§r (vidro + ferro) e combine com §fAlho§r para criar a §eSeringa de Alho§r. Use-a para fazer o juramento.	#
+vc.codex.hunter.become.2=Alho cresce em plantações (plante em terra arada) e aparece em baús de vilas e masmorras.	#
+vc.codex.hunter.become.title=Como virar caçador	#
+vc.codex.hunter.bow.1=Atira flechas abençoadas rápidas (gasta flechas normais). Elas queimam criaturas sobrenaturais.	#
+vc.codex.hunter.bow.2=Só caçadores sabem usá-lo. Toque e segure para atirar.	#
+vc.codex.hunter.bow.title=Arco do Caçador	#
+vc.codex.hunter.intro=§7Humanos que juraram limpar o mundo das trevas.	#
+vc.codex.hunter.missions.1=Cada patente exige uma missão: caçar criaturas ou entregar relíquias. Missões de caça se completam sozinhas.	#
+vc.codex.hunter.missions.2=Fale com o §eMestre Caçador§r ou use a Insígnia para entregar relíquias. Cada missão dá recompensas e 1 ponto de treino.	#
+vc.codex.hunter.missions.title=Missões	#
+vc.codex.hunter.skills.1=§fSentido do Caçador§r (patente 2) revela sobrenaturais próximos. §fProteção Divina§r (patente 5) cria uma aura sagrada.	#
+vc.codex.hunter.skills.2=§fExplosão Sagrada§r (patente 8) queima tudo que é sobrenatural ao redor.	#
+vc.codex.hunter.skills.title=Habilidades	#
+vc.codex.hunter.stats.1=§fVitalidade§r aumenta a vida, §fAgilidade§r a velocidade e o pulo e §fCombate§r o dano contra vampiros e lobisomens.	#
+vc.codex.hunter.stats.2=Cada atributo vai até 8. Escolha bem: são 10 missões no total.	#
+vc.codex.hunter.stats.title=Treinamento	#
+vc.codex.intro=§7Tudo que você precisa saber sobre vampiros, lobisomens e caçadores.	#
+vc.codex.items.altar.1=Enche-se com 10 frascos de sangue cheios ou fígados de lobisomem. Cheio, aceite a oferenda da sua raça.	#
+vc.codex.items.altar.2=Cada skill custa corações humanos e sangue de vampiro (dropados por caçadores e vampiros) e exige um nível mínimo.	#
+vc.codex.items.altar.title=Altar de Sangue	#
+vc.codex.items.armor.1=Feita com lingotes de Pedra do Sol e da Lua, minérios encontrados no subsolo.	#
+vc.codex.items.armor.2=Vampiros com capacete sofrem bem menos com o sol.	#
+vc.codex.items.armor.title=Armadura do Eclipse	#
+vc.codex.items.coffin.1=Vampiros e lobisomens podem usá-lo como cama: define seu ponto de renascimento.	#
+vc.codex.items.coffin.2=Usado durante o dia, você dorme até a noite.	#
+vc.codex.items.coffin.title=Caixão	#
+vc.codex.items.cures.1=§dCura do Vampirismo§r e §dCura da Licantropia§r devolvem sua humanidade (você perde nível e habilidades).	#
+vc.codex.items.cures.2=A §bÁgua Filosofal§r (Pedra Filosofal + poção no suporte de poções) cura qualquer condição.	#
+vc.codex.items.cures.title=Curas	#
+vc.codex.items.grinder.1=4 carnes cruas iguais + 1 garrafa de vidro = 1 frasco de sangue cheio.	#
+vc.codex.items.grinder.2=Uma forma pacífica de se alimentar sem caçar.	#
+vc.codex.items.grinder.title=Moedor de Carne	#
+vc.codex.items.intro=§7Ferramentas, armas e blocos.	#
+vc.codex.items.recharge.1=A §dEspada Vampírica§r e as §6Garras§r perdem força com o uso (sedenta → seca).	#
+vc.codex.items.recharge.2=Recarregue no §5Altar de Recarga§r com 4 frascos cheios ou 4 fígados. Encantamentos e nomes são mantidos.	#
+vc.codex.items.recharge.title=Armas de sangue	#
+vc.codex.page.admin=§cAdministração	#
+vc.codex.page.hunter=Caçadores	#
+vc.codex.page.items=Itens e Blocos	#
+vc.codex.page.settings=Configurações	#
+vc.codex.page.status=Meu Status	#
+vc.codex.page.vampire=Vampiros	#
+vc.codex.page.werewolf=Lobisomens	#
+vc.codex.page.world=O Mundo	#
+vc.codex.title=§4Codex Vampire Craft	#
+vc.codex.vampire.become.1=Use uma §fPresa de Vampiro§r (dropada por vampiros) ou seja mordido por um jogador vampiro.	#
+vc.codex.vampire.become.2=A transformação leva 5 minutos e traz fome e fraqueza. Beba §fleite§r para cancelar.	#
+vc.codex.vampire.become.title=Como virar vampiro	#
+vc.codex.vampire.bite.1=§fAgache e ataque§r um animal, aldeão ou humano para mordê-lo. O ícone de presas aparece no HUD quando o alvo está ao alcance.	#
+vc.codex.vampire.bite.2=Segurando uma §fgarrafa de vidro§r, a mordida enche frascos em vez de beber. Cuidado: caçadores têm alho no sangue!	#
+vc.codex.vampire.bite.title=Morder	#
+vc.codex.vampire.blood.1=Vampiros não sentem fome: eles precisam de §csangue§r (gotas na barra de status). Com sangue alto você regenera; com sangue baixo fica lento e fraco.	#
+vc.codex.vampire.blood.2=Sem sangue você começa a morrer. Beba §cFrascos de Sangue§r ou morda criaturas.	#
+vc.codex.vampire.blood.title=Sangue	#
+vc.codex.vampire.intro=§7Criaturas imortais da noite, movidas por sangue.	#
+vc.codex.vampire.level.1=Você ganha experiência ao morder. São 10 níveis; cada um libera novos poderes no altar e fortalece seu corpo.	#
+vc.codex.vampire.level.2=Nível 3: velocidade. Nível 4: força à noite. Nível 5: mais vida. Nível 8: força II à noite. Nível 9: vida extra. Nível 10: o sol só te incendeia, sem dano extra.	#
+vc.codex.vampire.level.title=Níveis	#
+vc.codex.vampire.skills.1=Desperte poderes no §4Altar de Sangue§r: encha-o com 10 frascos cheios (ou fígados) e ofereça uma Presa de Vampiro.	#
+vc.codex.vampire.skills.2=Use o §4Cálice de Sangue§r para lançar. §fAgache + use§r lança a habilidade selecionada instantaneamente — ideal no celular.	#
+vc.codex.vampire.skills.title=Habilidades	#
+vc.codex.vampire.sun.1=Sob o sol direto você queima. Vampiros jovens sofrem mais; anciões resistem. Um capacete, a chuva ou um teto te protegem.	#
+vc.codex.vampire.sun.2=A água corrente te fere, a menos que você tenha §fPele Impermeável§r. Durma num §fcaixão§r para pular o dia.	#
+vc.codex.vampire.sun.title=Sol e água	#
+vc.codex.version=§8Versão %s	#
+vc.codex.werewolf.become.1=Use uma §fPresa de Lobisomem§r (dropada por lobisomens). A transformação leva 5 minutos — leite cancela.	#
+vc.codex.werewolf.become.2=Como lobisomem você continua precisando de comida, e na forma de fera a fome aumenta.	#
+vc.codex.werewolf.become.title=Como virar lobisomem	#
+vc.codex.werewolf.form.1=Ao anoitecer você se transforma. Use §fTransformação§r no Totem da Lua para alternar. Na §flua cheia§r a fera não pode ser contida.	#
+vc.codex.werewolf.form.2=Na forma de fera você é rápido, salta alto, bate forte e enxerga no escuro. Ao amanhecer volta a ser humano.	#
+vc.codex.werewolf.form.title=A forma de fera	#
+vc.codex.werewolf.intro=§7Humanos amaldiçoados pela lua.	#
+vc.codex.werewolf.level.1=Ganhe experiência caçando — muito mais na forma de fera. Criaturas sobrenaturais valem mais.	#
+vc.codex.werewolf.level.2=A partir do nível 3 você fica mais rápido à noite mesmo na forma humana.	#
+vc.codex.werewolf.level.title=Níveis	#
+vc.codex.werewolf.skills.1=Encha o §4Altar de Sangue§r e ofereça uma Presa de Lobisomem para despertar poderes como Uivo, Investida e Golpe Brutal.	#
+vc.codex.werewolf.skills.2=§fAgache + use§r o Totem da Lua lança a habilidade selecionada sem abrir o menu.	#
+vc.codex.werewolf.skills.title=Habilidades	#
+vc.codex.werewolf.tiers.1=Sua fera tem 3 formas (I, II, III), liberadas nos níveis 1, 4 e 8. Cada forma muda sua aparência e poder.	#
+vc.codex.werewolf.tiers.2=Derrotar lobisomens mais fortes pode despertar a próxima forma antes da hora.	#
+vc.codex.werewolf.tiers.title=Evolução da fera	#
+vc.codex.world.bloodmoon.1=Algumas luas cheias se tornam §4Luas de Sangue§r: o céu fica vermelho, monstros ficam mais fortes e vampiros emboscam humanos.	#
+vc.codex.world.bloodmoon.2=Vampiros e lobisomens ficam muito mais poderosos durante o evento.	#
+vc.codex.world.bloodmoon.title=Lua de Sangue	#
+vc.codex.world.commands.1=/function sunrise/transvp, /translb, /transhunter — transformam. /function sunrise/removevp — cura. /function sunrise/bloodmoon — Lua de Sangue.	#
+vc.codex.world.commands.2=Avançado: /scriptevent vc:level 10, vc:blood 20, vc:skills all, vc:infect vampire. Dê a tag §fvc_admin§r para acessar a Administração.	#
+vc.codex.world.commands.title=Comandos	#
+vc.codex.world.intro=§7Eventos, lugares e criaturas.	#
+vc.codex.world.mobs.1=Vampiros queimam no sol e, feridos, viram morcegos para fugir. Lobisomens caçam à noite e somem ao amanhecer.	#
+vc.codex.world.mobs.2=Mortos-vivos ignoram vampiros e lobisomens. Golens de ferro os atacam.	#
+vc.codex.world.mobs.title=Criaturas	#
+vc.codex.world.structures.1=Procure §ftorres vampíricas§r, §facampamentos e casas de caçadores§r e §fcemitérios§r pelo mundo.	#
+vc.codex.world.structures.2=Elas guardam baús com relíquias raras.	#
+vc.codex.world.structures.title=Estruturas	#
+vc.coffin.human=§7Deitar num caixão? Melhor não...	#
+vc.coffin.slept=§7Você dormiu durante o dia. A noite chegou.	#
+vc.coffin.spawn=§7Ponto de renascimento definido.	#
+vc.cure.nothing=§7Nada aconteceu... você não precisa desta cura.	#
+vc.cure.sub=§7Você é humano novamente	#
+vc.cure.title=§aCurado	#
+vc.eyes.1=Carmesim	#
+vc.eyes.2=Dourado	#
+vc.eyes.3=Violeta	#
+vc.eyes.4=Sangue	#
+vc.eyes.body=§7Escolha a cor dos seus olhos.	#
+vc.eyes.none=Sem brilho	#
+vc.eyes.title=Olhos Vampíricos	#
+vc.faction.human=Humano	#
+vc.faction.hunter=Caçador	#
+vc.faction.vampire=Vampiro	#
+vc.faction.werewolf=Lobisomem	#
+vc.form.helmet_full=§cSeu inventário está cheio — não há onde guardar o capacete.	#
+vc.grinder.hint=§7Precisa de §f4 carnes cruas§7 do mesmo tipo e §f1 garrafa de vidro§7.	#
+vc.hud.infect.hunter=Juramento	#
+vc.hud.infect.vampire=Vampirismo	#
+vc.hud.infect.werewolf=Licantropia	#
+vc.hud.lvl=Nv.	#
+vc.hud.rank=Pat.	#
+vc.hunter.all_done=§6Você completou todas as missões. Lenda viva!	#
+vc.hunter.delivered=§aEntrega aceita!	#
+vc.hunter.is_kill_mission=§7Esta missão é de caça — ela se completa sozinha.	#
+vc.hunter.menu.body=§7Patente: §f%s§7   Pontos: §a%s	#
+vc.hunter.menu.deliver=Entregar missão	#
+vc.hunter.menu.title=Guilda dos Caçadores	#
+vc.hunter.menu.train=Treinamento	#
+vc.hunter.missing_items=§cVocê ainda não tem os itens da missão.	#
+vc.hunter.mission.0=Mate 3 vampiros	#
+vc.hunter.mission.2=Mate 3 lobisomens	#
+vc.hunter.mission.4=Mate 5 vampiros adultos	#
+vc.hunter.mission.6=Derrote um Lobisomem Alfa	#
+vc.hunter.mission.8=Derrote uma Bruxa Vampira	#
+vc.hunter.mission.9=Elimine 10 criaturas sobrenaturais	#
+vc.hunter.mission.current=§eMissão:§f	#
+vc.hunter.mission.deliver=Entregue %s	#
+vc.hunter.mission_done.sub=§7Patente §f%s§7 — +1 ponto de treino	#
+vc.hunter.mission_done.title=§eMissão cumprida!	#
+vc.hunter.no_arrows=§cVocê não tem flechas.	#
+vc.hunter.no_points=§cSem pontos de treino. Complete missões!	#
+vc.hunter.only_hunters=§7Só caçadores sabem usar este arco.	#
+vc.hunter.progress=§eMissão: §f%s/%s	#
+vc.hunter.stat.agility=Agilidade	#
+vc.hunter.stat.agility.desc=Mais velocidade e pulo	#
+vc.hunter.stat.combat=Combate	#
+vc.hunter.stat.combat.desc=+1 de dano contra sobrenaturais	#
+vc.hunter.stat.vital=Vitalidade	#
+vc.hunter.stat.vital.desc=+2 corações por ponto	#
+vc.hunter.stat_max=§7Este atributo já está no máximo.	#
+vc.hunter.stat_up=§aAtributo melhorado!	#
+vc.hunter.train.body=§7Pontos disponíveis: §a%s§7. Cada missão concluída dá 1 ponto.	#
+vc.infect.already=§cVocê já está passando por uma transformação.	#
+vc.infect.cured_milk=§aO leite limpou seu sangue. A transformação parou.	#
+vc.infect.hunter.start=§eO alho queima em seu sangue. Seu juramento se completará em breve.	#
+vc.infect.not_human=§cSó humanos podem usar isso.	#
+vc.infect.vampire.start=§4Algo frio corre em suas veias... §7(beba §fleite§7 para impedir a transformação)	#
+vc.infect.werewolf.start=§6Você sente a lua dentro de você... §7(beba §fleite§7 para impedir a transformação)	#
+vc.item.wrong_faction=§7Este item não reage a você.	#
+vc.levelup.max=§6Você alcançou o nível máximo!	#
+vc.levelup.new_skills=§d%s nova(s) habilidade(s) disponível(is) no Altar de Sangue!	#
+vc.levelup.sub=§7Agora você é nível §f%s	#
+vc.levelup.title=§bNível acima!	#
+vc.recharge.hint=§7Segure uma §dEspada Vampírica§7 ou §6Garras§7 desgastadas e toque no altar.	#
+vc.recharge.need_fuel=§cPrecisa de 4 frascos de sangue cheios ou 4 fígados.	#
+vc.settings.hud=Mostrar HUD do Vampire Craft	#
+vc.settings.saved=§aConfigurações salvas.	#
+vc.settings.title=Configurações	#
+vc.skill.already=§7Você já possui esta habilidade.	#
+vc.skill.cooldown=§7Recarregando... §f%ss	#
+vc.skill.fly.on=§7Forma de morcego! §fSegure pular§7 para voar. Use de novo para sair.	#
+vc.skill.hunter.divine.desc=Aura sagrada que fere monstros próximos.	#
+vc.skill.hunter.divine.name=Proteção Divina	#
+vc.skill.hunter.holy_burst.desc=Queima criaturas sobrenaturais ao seu redor.	#
+vc.skill.hunter.holy_burst.name=Explosão Sagrada	#
+vc.skill.hunter.hunter_sense.desc=Marca vampiros e lobisomens num raio de 40 blocos.	#
+vc.skill.hunter.hunter_sense.name=Sentido do Caçador	#
+vc.skill.hunter_sense.on=§eSeus sentidos revelam as criaturas da noite...	#
+vc.skill.icetouch.on=§bSeus golpes congelam por 30s.	#
+vc.skill.need_items=§cVocê não tem os itens necessários.	#
+vc.skill.need_level=§cVocê precisa ser nível §f%s§c.	#
+vc.skill.no_blood=§cSangue insuficiente!	#
+vc.skill.no_target=§7Nenhum alvo à sua frente.	#
+vc.skill.none_selected=§7Nenhuma habilidade selecionada. Use o item sem agachar para escolher.	#
+vc.skill.onehit.on=§6Seu próximo golpe será devastador!	#
+vc.skill.teleport.blocked=§cNão há espaço para se teleportar ali.	#
+vc.skill.unknown=§cHabilidade desconhecida.	#
+vc.skill.unlocked=§aHabilidade desbloqueada!	#
+vc.skill.vampire.absorption.desc=Absorção constante enquanto tiver sangue.	#
+vc.skill.vampire.absorption.name=Pele de Pedra	#
+vc.skill.vampire.acrobata.desc=Velocidade e pulo aprimorados permanentemente.	#
+vc.skill.vampire.acrobata.name=Acrobata	#
+vc.skill.vampire.blood_nova.desc=Explosão que fere tudo ao redor e te cura.	#
+vc.skill.vampire.blood_nova.name=Explosão de Sangue	#
+vc.skill.vampire.blooddrinker.desc=Mordidas rendem mais sangue e enchem frascos mais rápido.	#
+vc.skill.vampire.blooddrinker.name=Bebedor de Sangue	#
+vc.skill.vampire.fly.desc=Vire um morcego e voe (segure pular). Gasta sangue.	#
+vc.skill.vampire.fly.name=Forma de Morcego	#
+vc.skill.vampire.hypnosis.desc=Paralisa e enfraquece quem estiver à sua frente.	#
+vc.skill.vampire.hypnosis.name=Hipnose	#
+vc.skill.vampire.icetouch.desc=Por 30s seus golpes congelam os inimigos.	#
+vc.skill.vampire.icetouch.name=Toque Gélido	#
+vc.skill.vampire.indetectavel.desc=Creepers e golens deixam de te perceber.	#
+vc.skill.vampire.indetectavel.name=Indetectável	#
+vc.skill.vampire.invisibilidade.desc=Fique invisível e mais rápido por 20s.	#
+vc.skill.vampire.invisibilidade.name=Forma de Névoa	#
+vc.skill.vampire.nightvision.desc=Enxergue no escuro enquanto tiver sangue.	#
+vc.skill.vampire.nightvision.name=Visão Noturna	#
+vc.skill.vampire.poucasede.desc=Seu sangue se esgota na metade da velocidade.	#
+vc.skill.vampire.poucasede.name=Sede Contida	#
+vc.skill.vampire.rage.desc=Força II e Velocidade II por 30s.	#
+vc.skill.vampire.rage.name=Fúria Sanguínea	#
+vc.skill.vampire.regeneration.desc=Regeneração III por 8s.	#
+vc.skill.vampire.regeneration.name=Regeneração	#
+vc.skill.vampire.servantsbat.desc=Invoque morcegos que atacam inimigos e te trazem sangue.	#
+vc.skill.vampire.servantsbat.name=Morcegos Servos	#
+vc.skill.vampire.sunresistence.desc=O sol não te queima mais, apenas te enfraquece.	#
+vc.skill.vampire.sunresistence.name=Resistência Solar	#
+vc.skill.vampire.teleport.desc=Teleporte-se para onde estiver olhando.	#
+vc.skill.vampire.teleport.name=Passo Sombrio	#
+vc.skill.vampire.waterproof.desc=A água não te machuca mais.	#
+vc.skill.vampire.waterproof.name=Pele Impermeável	#
+vc.skill.werewolf.absorption.desc=Absorção constante.	#
+vc.skill.werewolf.absorption.name=Couro Grosso	#
+vc.skill.werewolf.acrobata.desc=Velocidade e pulo aprimorados.	#
+vc.skill.werewolf.acrobata.name=Caçador Ágil	#
+vc.skill.werewolf.defencive.desc=Resistência IV por 8s.	#
+vc.skill.werewolf.defencive.name=Postura Defensiva	#
+vc.skill.werewolf.howl.desc=Aliados ficam mais fortes, inimigos ficam lentos e fracos.	#
+vc.skill.werewolf.howl.name=Uivo	#
+vc.skill.werewolf.invisibilidade.desc=Invisibilidade total por 20s.	#
+vc.skill.werewolf.invisibilidade.name=Sombra da Lua	#
+vc.skill.werewolf.lunge.desc=Avance rasgando tudo no caminho.	#
+vc.skill.werewolf.lunge.name=Investida	#
+vc.skill.werewolf.nightvision.desc=Visão noturna permanente.	#
+vc.skill.werewolf.nightvision.name=Olhos da Fera	#
+vc.skill.werewolf.onehit.desc=Seu próximo golpe causa dano massivo.	#
+vc.skill.werewolf.onehit.name=Golpe Brutal	#
+vc.skill.werewolf.poucafome.desc=A forma de fera não te dá fome.	#
+vc.skill.werewolf.poucafome.name=Fome Contida	#
+vc.skill.werewolf.rage.desc=Força III e Pressa II por 30s.	#
+vc.skill.werewolf.rage.name=Fúria Lunar	#
+vc.skill.werewolf.regeneration.desc=Regeneração III por 8s.	#
+vc.skill.werewolf.regeneration.name=Regeneração	#
+vc.skill.werewolf.sangramento.desc=Seus golpes podem fazer o alvo sangrar.	#
+vc.skill.werewolf.sangramento.name=Sangramento	#
+vc.skill.werewolf.suntransform.desc=Pode se transformar também durante o dia.	#
+vc.skill.werewolf.suntransform.name=Fera Diurna	#
+vc.skill.werewolf.transform.desc=Assuma ou abandone a forma de fera (à noite).	#
+vc.skill.werewolf.transform.name=Transformação	#
+vc.skill.werewolf.waterproof.desc=A água não te atrasa.	#
+vc.skill.werewolf.waterproof.name=Pelagem Seca	#
+vc.skills.body=§7Toque para usar. §fDica:§7 agache + use o item para lançar a habilidade selecionada (§a»§7) sem abrir o menu.	#
+vc.skills.passives=Passivas	#
+vc.skills.title=Habilidades	#
+vc.status.blood=§7Sangue:	#
+vc.status.faction=§7Raça:	#
+vc.status.level=§7Nível:	#
+vc.status.points=§7Pontos de treino:	#
+vc.status.skills=§7Habilidades:	#
+vc.status.tier=§7Forma:	#
+vc.status.xp=§7Experiência:	#
+vc.trainer.human=§e[Mestre]§f Quer caçar monstros? Injete uma §eSeringa de Alho§f e volte a falar comigo.	#
+vc.trainer.monster=§e[Mestre]§f Afaste-se, criatura!	#
+vc.ui.back=« Voltar	#
+vc.ui.close=Fechar	#
+vc.ui.unlock=§aDesbloquear	#
+vc.weapon.drained=§7Sua arma está perdendo poder. Recarregue-a no §5Altar de Recarga§7.	#
+vc.welcome=§7Bem-vindo ao §4Vampire Craft 5§7! Leia o §4Codex§7 que está no seu inventário.	#
+vc.werewolf.forced=§6A lua desperta a fera!	#
+vc.werewolf.full_moon_lock=§6Na lua cheia a fera não pode ser contida!	#
+vc.werewolf.need_night=§7Você só pode se transformar à noite.	#
+vc.werewolf.tier_up=§6Sua fera evoluiu! Nova forma desbloqueada.	#

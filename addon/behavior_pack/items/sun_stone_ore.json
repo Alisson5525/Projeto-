@@ -1,9 +1,18 @@
 {
-	"format_version": "1.10.0",
-	"minecraft:item": {
-		"description": {
-			"identifier": "sunrise:sun_stone_ore"
-		},
-		"components": {}
-	}
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sunrise:sun_stone_ore",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "sunrise_sun_stone_ore",
+      "minecraft:display_name": {
+        "value": "item.sunrise:sun_stone_ore.name"
+      },
+      "minecraft:max_stack_size": 64
+    }
+  }
 }

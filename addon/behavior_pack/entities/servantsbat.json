@@ -6,18 +6,18 @@
       "is_spawnable": false,
       "is_summonable": true
     },
-
     "components": {
-      "minecraft:is_hidden_when_invisible": {
-      },
-
+      "minecraft:is_hidden_when_invisible": {},
       "minecraft:behavior.random_hover": {
         "priority": 12,
         "xz_dist": 8,
         "y_dist": 8,
         "y_offset": -1,
         "interval": 1,
-        "hover_height": [ 1, 4 ]
+        "hover_height": [
+          1,
+          4
+        ]
       },
       "minecraft:leashable": {
         "soft_distance": 4.0,
@@ -31,9 +31,12 @@
         "priority": 19
       },
       "minecraft:type_family": {
-        "family": [ "bat", "mob" ]
+        "family": [
+          "bat",
+          "vc_servant",
+          "mob"
+        ]
       },
-
       "minecraft:breathable": {
         "totalSupply": 15,
         "suffocateTime": 0
@@ -42,12 +45,10 @@
         "width": 0.55,
         "height": 0.5
       },
-      "minecraft:conditional_bandwidth_optimization": {
-      },
+      "minecraft:conditional_bandwidth_optimization": {},
       "minecraft:game_event_movement_tracking": {
         "emit_flap": true
       },
-
       "minecraft:damage_sensor": {
         "triggers": [
           {
@@ -57,7 +58,9 @@
           {
             "on_damage": {
               "filters": {
-                "test": "is_block", "subject": "block", "value": "minecraft:sweet_berry_bush"
+                "test": "is_block",
+                "subject": "block",
+                "value": "minecraft:sweet_berry_bush"
               }
             },
             "deals_damage": false
@@ -68,7 +71,10 @@
         "damage_conditions": [
           {
             "filters": {
-              "test": "in_lava", "subject": "self", "operator": "==", "value": true
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
             },
             "cause": "lava",
             "damage_per_tick": 4
@@ -90,68 +96,59 @@
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 1,
         "must_see": false,
-        "must_see_forget_duration": 3.0,
+        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
-                "all_of":[
-                  {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "cacador",
-                  "operator": "!="
+              "all_of": [
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "humano"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "irongolem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "lobisomem"
+                    }
+                  ]
                 },
                 {
                   "test": "is_family",
                   "subject": "other",
-                  "value": "player",
-                  "operator": "!="
+                  "operator": "!=",
+                  "value": "vampiro"
                 },
                 {
                   "test": "is_family",
                   "subject": "other",
-                  "value": "bat",
-                  "operator": "!="
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "iron_golem",
-                  "operator": "!="
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "monster",
-                  "operator": "!="
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "vampiro",
-                  "operator": "!="
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "lobisomem",
-                  "operator": "!="
-                },                 
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "mob",
-                  "operator": "=="
+                  "operator": "!=",
+                  "value": "vampire"
                 }
-                ]
-              }
-            ,
-            "max_dist": 32
+              ]
+            },
+            "max_dist": 16
           }
         ]
       },
       "minecraft:attack": {
-        "damage": 1
+        "damage": 2
       },
       "minecraft:navigation.hover": {
         "can_path_over_water": true,
@@ -162,18 +159,14 @@
         "avoid_damage_blocks": true,
         "avoid_sun": false
       },
-      "minecraft:movement.hover": {
-      },
-      "minecraft:jump.static": {
-      },
-      "minecraft:can_fly": {
-      },
+      "minecraft:movement.hover": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_fly": {},
       "minecraft:health": {
         "value": 10,
         "max": 10
       },
-      "minecraft:nameable": {
-      },
+      "minecraft:nameable": {},
       "minecraft:block_sensor": {
         "sensor_radius": 16,
         "sources": [
@@ -193,8 +186,7 @@
           }
         ]
       },
-      "minecraft:physics": {
-      },
+      "minecraft:physics": {},
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true

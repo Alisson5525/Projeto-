@@ -1,32 +1,32 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "sunrise:vampire_sword_e",
-			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.sword"
-			}
-		},
-		"components": {
-			"minecraft:hand_equipped": true,
-			"minecraft:damage": 4,
-			"minecraft:display_name": {
-				"value": "item.sunrise:vampire_sword.name"
-			},
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_sword",
-					"minecraft:is_tool"
-				]
-			},
-			"minecraft:icon": "sunrise_vampire_sword_e",
-			"minecraft:can_destroy_in_creative": false,
-			"minecraft:max_stack_size": 1,
-			"minecraft:enchantable": {
-				"slot": "sword",
-				"value": 15
-			}
-		}
-	}
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sunrise:vampire_sword_e",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 4,
+      "minecraft:display_name": {
+        "value": "item.sunrise:vampire_sword_e.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword",
+          "minecraft:is_tool"
+        ]
+      },
+      "minecraft:icon": "sunrise_vampire_sword_e",
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "slot": "sword",
+        "value": 15
+      }
+    }
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "sunrise:hunter_campfire",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

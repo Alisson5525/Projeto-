@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.21.90",
   "minecraft:block": {
     "description": {
       "identifier": "sunrise:caixao_up_collision",
@@ -14,19 +14,17 @@
       "minecraft:collision_box": true,
       "minecraft:light_emission": 0,
       "minecraft:light_dampening": 0,
-			"minecraft:loot": "loot_tables/nino.json",
+      "minecraft:loot": "loot_tables/empty.json",
       "minecraft:geometry": "geometry.coffin_colision",
-      "minecraft:custom_components": [
-        "sunrise:sleep_coffin",
-        "sunrise:support_coffin_collision_up"
-    ],
       "minecraft:material_instances": {
         "*": {
           "ambient_occlusion": true,
           "texture": "transparent",
           "render_method": "alpha_test"
         }
-      }
+      },
+      "sunrise:sleep_coffin": {},
+      "sunrise:support_coffin_collision_up": {}
     }
   }
 }

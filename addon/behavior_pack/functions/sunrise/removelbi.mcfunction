@@ -1,1 +1,1 @@
-execute as @p run function sunrise/removelb
+execute as @p run scriptevent vc:cure

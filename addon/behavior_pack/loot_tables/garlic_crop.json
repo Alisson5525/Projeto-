@@ -5,7 +5,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "thini:garlic_seed",
+                    "name": "sunrise:garlic",
                     "functions": [
                         {
                             "function": "set_count",

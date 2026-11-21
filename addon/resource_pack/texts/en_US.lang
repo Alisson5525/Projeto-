@@ -1,313 +1,388 @@
-item.sunrise:vampire_tooth.name=Vampire tooth
-item.sunrise:weak_human_heart.name=Weak human heart
-item.sunrise:werewolf_fang.name=Werewolf fang
-item.sunrise:human_heart.name=Human heart
-item.sunrise:vampire_blood.name=Vampire blood
-item.sunrise:pure_vampire_blood.name=§ePure vampire blood
-item.sunrise:blood_bottle_4.name=Blood bottle [4/4]
-item.sunrise:blood_bottle_1.name=Blood bottle [1/4]
-item.sunrise:blood_bottle_2.name=Blood bottle [2/4]
-item.sunrise:blood_bottle_3.name=Blood bottle [3/4]
-item.sunrise:moon_stone_ore.name=Moon stone ore
-item.sunrise:sun_stone_ore.name=Sun stone ore
-tile.sunrise:moon_stone_ore_block.name=Moon stone ore block
-tile.sunrise:sun_stone_ore_block.name=Sun stone ore block
-tile.sunrise:recharging_altar.name=Recharging altar
-tile.sunrise:blood_altar.name=Blood altar
-item.sunrise:eclipse_ingot.name=Eclipse ingot
-item.sunrise:sun_stone_ingot.name=Sun stone ingot
-item.sunrise:moon_stone_ingot.name=Moon stone ingot
-item.sunrise:werewolf_claws.name=§dWerewolf claws
-item.sunrise:change_stone.name=§eChange stone
-item.sunrise:philosopher_stone.name=Philosopher stone
-item.sunrise:philosopher_water.name=Philosopher water
-item.sunrise:vampire_cure.name=§dVampire cure
-item.sunrise:werewolf_cure.name=§dWerewolf cure
-item.sunrise:vampire_sword.name=§dVampire sword
-
-item.sunrise:eclipse_armor_helmet=Eclipse Helmet
-item.sunrise:eclipse_armor_chestplate=Eclipse Chestplate
-item.sunrise:eclipse_armor_leggings=Eclipse Leggings
-item.sunrise:eclipse_armor_boots=Eclipse Boots
-
-
-gui.button.UnlockSkill_moreDamage1=More damage LV1 ===> §a20XP
-gui.button.UnlockSkill_moreDamage2=More damage LV2 ===> §a30XP
-gui.button.UnlockSkill_moreDamage3=More damage LV3 ===> §a40XP
-gui.button.UnlockSkill_moreLife1=More life LV1 ===> §a20XP
-gui.button.UnlockSkill_moreLife2=More life LV2 ===> §a30XP
-gui.button.UnlockSkill_moreLife3=More life LV3 ===> §a40XP
-gui.button.UnlockSkill_moreSpeed=More speed ===> §a40XP
-gui.button.UnlockSkill_moreJump=More jump ===> §a40XP
-gui.button.UnlockSkill_breathControl=Breath Control ===> §a40XP
-gui.button.UnlockSkill_skillPotions=Skill with potions ===> §a40XP
-gui.button.UnlockSkill_undetectable=Undetectable ===> §a40XP
-gui.button.UnlockSkill_GarlicInTheVein=Garlic in the vein ===> §a40XP
-gui.button.UnlockSkill_wolvesTamer=Wolves tamer ===> §a40XP
-gui.button.UnlockSkill_blessedHunter=Blessed hunter ===> §a40XP
-gui.button.UnlockSkill_kingHunter=King Hunter ===> §a40XP
-gui.button.UnlockSkill_loneHunter=Lone Hunter ===> §a40XP
-gui.button.UnlockSkill_saturation=Saturation ===> §a40XP
-gui.button.vampire_player.eyes=Customize eye
-
-##buttons##
-gui.button.vp.UnlockSkill_absorption=Absorption ===> 
-gui.button.vp.UnlockSkill_nightvision=Night vision ===> 
-gui.button.vp.UnlockSkill_fly=Fly ===> 
-
-gui.button.vp.UnlockSkill_indetectavel=Undetectable ===> 
-gui.button.vp.UnlockSkill_waterproof=Waterproof ===> 
-gui.button.vp.UnlockSkill_fogremoval=Fog removal ===> 
-
-
-gui.button.vp.UnlockSkill_sunresistence=Sun resistence  ===> 
-gui.button.vp.UnlockSkill_servantsbat=Servants bat ===> 
-gui.button.vp.UnlockSkill_rage=Rage ===> 
-
-gui.button.vp.UnlockSkill_acrobata=Acrobata  ===> 
-gui.button.vp.UnlockSkill_poucaSede=Little thirsty  ===> 
-gui.button.vp.UnlockSkill_blooddrinker=Blood drinker ===> 
-
-gui.button.vp.UnlockSkill_teleport=Teleport ===> 
-gui.button.vp.UnlockSkill_defencive=Defencive ===> 
-gui.button.vp.UnlockSkill_sworddex=Sword dex ===> 
-
-gui.button.vp.UnlockSkill_invisibilidade=Invisibility ===> 
-gui.button.vp.UnlockSkill_regeneration=Regeneration ===> 
-gui.button.vp.UnlockSkill_icetouch=Ice Touch ===> 
-
-
-
-gui.button.lb.UnlockSkill_absorption=Absorption ===> 
-gui.button.lb.UnlockSkill_nightvision=Night vision ===> 
-
-gui.button.lb.UnlockSkill_indetectavel=Undetectable ===> 
-gui.button.lb.UnlockSkill_waterproof=Waterproof ===> 
-gui.button.lb.UnlockSkill_fogremoval=Fog removal ===> 
-
-gui.button.lb.UnlockSkill_rage=Rage ===> 
-gui.button.lb.UnlockSkill_suntransform=Sun Transform ===> 
-
-gui.button.lb.UnlockSkill_onehit=OneHit ===> 
-gui.button.lb.UnlockSkill_poucafome=Little hunger  ===> 
-gui.button.lb.UnlockSkill_acrobata=Acrobata  ===> 
-
-gui.button.lb.UnlockSkill_defencive=Defencive ===> 
-gui.button.lb.UnlockSkill_esquiva=Dodge ===> 
-
-gui.button.lb.UnlockSkill_regeneration=Regeneration ===> 
-gui.button.lb.UnlockSkill_invisibilidade=Invisibility ===> 
-gui.button.lb.UnlockSkill_sangramento=Bleeding ===> 
-
-
-gui.button.UseSkill_nightvision=§fNight vision
-gui.button.UseSkill_fly=§fFly
-gui.button.UseSkill_sunresistence=§fSun resistence
-gui.button.UseSkill_absorption=§fAbsorption
-gui.button.UseSkill_servantsbat=§fServants bat
-gui.button.UseSkill_rage=§fRage
-gui.button.UseSkill_acrobata=§fAcrobata
-gui.button.UseSkill_poucaSede=§fLittle thirsty 
-gui.button.UseSkill_blooddrinker=§fBlood drinker
-gui.button.UseSkill_indetectavel=§fUndetectable
-gui.button.UseSkill_waterproof=§fWaterproof
-gui.button.UseSkill_fogremoval=§fFog removal
-gui.button.UseSkill_teleport=§fTeleport
-gui.button.UseSkill_defencive=§fDefencive
-gui.button.UseSkill_sworddex=§fSword dex
-gui.button.UseSkill_invisibilidade=§fInvisibility
-gui.button.UseSkill_regeneration=§fRegeneration
-gui.button.UseSkill_icetouch=§fIce Touch
-gui.button.UseSkill_onehit=§fOneHit
-
-gui.button.UseSkill_suntransform=§fSun Transform
-
-gui.button.UseSkill_sangramento=§fBleeding
-gui.button.UseSkill_none=§fNone
-
-
-
-##dialogos##
-text.virar_hunter=Do you want to become a hunter?
-button.sim=yes
-button.nao=no
-aviso.sede=You are thirsty
-msg_transformou=You feel a tremendous thirst for blood...
-chat.redmoon_Event=The red moon lights up the sky...
-
-##vampire_craft_book##
-gui.button.vampire=Vampires
-gui.button.werewolf=Werewolfs
-gui.button.HowTurnVampire=How to turn vampire
-gui.button.HowTurnWerewolf=How to turn werewolf
-gui.button.HowTurnHunter=How to turn hunter
-gui.button.drinkBlood=Drink blood
-gui.button.unlockSkillVPLB=Unlock new skill
-vampire_craft_book.HowTurnVampire1=It's possible to become a vampire by using a vampire tooth or by being bitten by one, although the chances are low in the latter case. Vampires can be found in the dark forest, where it's the easiest place to become a vampire. The vampire tooth item has a 50% chance of dropping when defeating a vampire.
-vampire_craft_book.HowTurnVampire2=The transformation takes 5 minutes, and you'll be able to track the time through the hunger effect added to the player. At the end of the time, you'll receive an item called "Vampire skills," where you can choose and use vampire abilities.
-vampire_craft_book.HowTurnVampire3=If you want to avoid becoming a vampire, within the 5 minutes, you can prevent it by heating a bucket of milk in the furnace and drinking the hot milk bucket.
-
-vampire_craft_book.drinkBlood1=Only when you're a vampire will you feel a new type of hunger, the thirst for blood. With the thirst indicator located just above the hunger indicator, you can monitor the vampire's thirst level.
-vampire_craft_book.drinkBlood2=The vampire's thirst cannot be satisfied with regular food; you need to drink blood to fill the blood thirst bar. You can do this in two ways: by drinking blood bottles, which can be obtained by biting a mob while holding a glass bottle, or by finding them in structures throughout the world. The second method is to drink directly from the source by tapping the button on the screen or the interaction button with empty hands.
-vampire_craft_book.drinkBlood3=If the thirst bar reaches zero, the vampire will become weaker and won't be able to use its abilities anymore, losing all its resistance abilities temporarily.
-
-vampire_craft_book.HowTurnWerewolf1=It's possible to become a werewolf by using a werewolf fang or by being bitten by one, although the chances are low in the latter case. Werewolves can be found in the dark forest, where it's the easiest place to become a werewolf. The werewolf fang item has a 50% chance of dropping when defeating a werewolf.
-vampire_craft_book.HowTurnWerewolf2=The transformation takes 5 minutes, and you'll be able to track the time through the hunger effect added to the player. At the end of the time, you'll receive an item called "Werewolf skills," where you can choose and use werewolf abilities.
-vampire_craft_book.HowTurnWerewolf3=If you want to avoid becoming a werewolf, within the 5 minutes, you can prevent it by heating a bucket of milk in the furnace and drinking the hot milk bucket.
-
-gui.button.niveisLB=Werewolf levels
-vampire_craft_book.unlockSkillVP1=After becoming a vampire, you can unlock new skills. To do this, you need a blood altar and full bottles of blood.
-vampire_craft_book.unlockSkillVP2=Once the altar is full, just use a vampire tooth on the altar. A screen will appear with the skills not yet unlocked; you need enough XP to unlock them.
-vampire_craft_book.unlockSkillLB1=After becoming a werewolf, you can unlock new skills. To do this, you need a blood altar and to use werewolf liver.
-vampire_craft_book.unlockSkillLB2=When the altar is full, just use a werewolf tusk on the altar. A screen will appear with the skills not yet unlocked; you need enough XP to unlock them; you also need to have the specific werewolf level depending on the skill (see more about this in the topic below here in the book).
-vampire_craft_book.niveisLB1=After becoming a werewolf, you receive the werewolf level §mI§r. You can level up by killing werewolves of a higher level than you. The order of strength is §mI§r - white (beta), §mII§r - bluish (omega) and §mIII§r - black (alpha).
-vampire_craft_book.commands.removeLB=function sunrise/removeLB: Removes the player's transformation instantly into a werewolf
-vampire_craft_book.commands.removeVP=function sunrise/removeVP: Removes the player's transformation instantly into a vampire
-
-gui.button.howUpLevel=How to level up  
-gui.button.hunterAtributes=Types of levels  
-vampire_craft_book.howUpLevel1=Unlike vampires and werewolves, hunters do not unlock abilities.  
-vampire_craft_book.howUpLevel2=Hunters can level up their attributes by completing quests for a "Hunter Trainer," who can be found throughout the world.  
-hunter_book.info1= - The stamina level improves physical strength and body energy.  
-hunter_book.info2= - The mana level determines the amount of magical energy.  
-hunter_book.info3= - The mastery level. A minimum mastery level is required to use weapons.  
-hunter_book.info4= - The proficiency level improves the use of certain weapons, items, and tool crafting.  
-
-
-line.breaker=-----------------
-line.textsepare=%%%%%%%%%%%%%%%%%
-
-vampire_craft_book.commands.funcVP=function sunrise/transVP: Turns the player instantly into a vampire
-vampire_craft_book.commands.funcLB=function sunrise/transLB: Turns the player instantly into a werewolf
-vampire_craft_book.commands.funcHU=function sunrise/transHU: Instantly turns the player into a hunter
-
-gui.button.new.UnlockSkill_moreDamage1=More damage ===> §a10XP
-gui.button.new.UnlockSkill_moreDamage2=More damage ===> §a30XP
-gui.button.new.UnlockSkill_moreDamage3=More damage ===> §a60XP
-gui.button.new.UnlockSkill_regeneration1=Regeneration ===> §a15XP
-gui.button.new.UnlockSkill_regeneration2=Regeneration ===> §a30XP
-gui.button.UnlockSkill_rage=Rage ===> §a15XP
-gui.button.new.UnlockSkill_filho_lua=Son of moon ===> §a60XP
-gui.button.new.UnlockSkill_vontade_rei=Will of the King ===> §a60XP
-gui.button.new.UnlockSkill_protecao_divina=Divine protection ===> §a60XP
-
-gui.button.hunter=Hunter
-gui.title.choose_type=Choose your type
-gui.button.SelectType_lonehunter=Lone hunter
-gui.button.SelectType_blessedHunter=Church hunter
-gui.button.SelectType_kingHunter=King's royal hunter
-gui.button.cacador=Hunter
-vampire_craft_book.commands.removeHU=function sunrise/removeHU: Removes the player's transformation instantly into a hunter
-vampire_craft_book.HowTurnHunter1=You can turn into a hunter by using a syringe with garlic on yourself, it takes 5 minutes, you can see the remaining time by the hunger effect.
-vampire_craft_book.HowTurnHunter2=Then you can choose a type of hunter, see the button below.
-vampire_craft_book.huntersSkill1=Hunter skills improve hunter attributes and this only applies to real hunters and church hunters. Lone hunters only have the skills of their choice (vampire or werewolf).
-vampire_craft_book.huntersSkill2=The skill item is used to unlock skills. They can be bought with xp.
-gui.button.huntersTypes=Hunter types
-vampire_craft_book.huntersTypes1=Church hunter: Church hunters are subordinates of the church, they can trade and interact with the priest.
-vampire_craft_book.huntersTypes2=Royal hunter: These are royal hunters subordinate to the king, they act at the king's will and receive royal benefits.
-vampire_craft_book.huntersTypes3=Lone hunter: They receive no orders from anyone and no benefits from either side, they can transform into vampires or werewolves and receive the special ability to blend in with humans.
-
-hunter_book.info1= - The level of vigor, improves the body's physique and energy.
-hunter_book.info2= - Mana level, amount of magical energy.
-hunter_book.info3= - Mastery level, minimum mastery level required to use weapons.
-hunter_book.info4= - The proficiency level, improves the use of some weapons, items and tool creation.
-
-vampire_craft_book.line=-----
-tile.sunrise:vampire_skill_item.name=Vampire skill item
-tile.sunrise:werewolf_skill_item.name=Werewolf skill item
-item.sunrise:vampire_craft_book.name=Vampire Craft Guide
-item.sunrise:trans_lob.name=Lob 1
-item.sunrise:trans_lob_blue.name=Lob 2
-item.sunrise:trans_lob_black.name=Lob 3
-item.sunrise:vampire_skill_item=§4Skill item [Vampire]
-item.sunrise:werewolf_skill_item=§4Skill item [Werewolf]
-item.sunrise:teleport_skill.name=teleport_skill
-item.spawn_egg.entity.sunrise:vampire_chicken.name=Spawn Vampire chicken
-entity.sunrise:vampire_chicken.name=Vampire chicken
-item.spawn_egg.entity.sunrise:vampire.name=Spawn Vampire
-entity.sunrise:vampire.name=Vampire
-item.spawn_egg.entity.sunrise:weak_vampire.name=Spawn Weak vampire
-entity.sunrise:weak_vampire.name=Weak vampire
-item.spawn_egg.entity.sunrise:weak_werewolf.name=Spawn Weak werewolf
-entity.sunrise:weak_werewolf.name=Weak werewolf
-item.sunrise:liver.name=Werewolf liver
-item.spawn_egg.entity.sunrise:werewolf.name=Spawn Werewolf
-entity.sunrise:werewolf.name=Werewolf
-item.spawn_egg.entity.sunrise:black_werewolf.name=Spawn Black werewolf
-entity.sunrise:black_werewolf.name=Black werewolf
-item.spawn_egg.entity.sunrise:vampire_witch.name=Spawn Vampire witch
-entity.sunrise:vampire_witch.name=Vampire witch
-item.spawn_egg.entity.sunrise:bullet_queen.name=Spawn Magic
-entity.sunrise:bullet_queen.name=Magic
-item.spawn_egg.entity.sunrise:hunter.name=Spawn Hunter
-entity.sunrise:hunter.name=Hunter
-item.sunrise:syringe.name=Syringe
-tile.sunrise:garlic_syringe.name=Garlic syringe
-item.sunrise:garlic_syringe.name=Garlic syringe
-item.sunrise:hunter_skill_item=§eSkill item [Hunter]
-item.sunrise:garlic.name=Garlic
-tile.sunrise:garlic_block.name=Garlic block
-tile.sunrise:meat_grinder.name=Meat grinder
-tile.sunrise:eclipse_sun_stone_bricks.name=Eclipse stone bricks
-tile.sunrise:cracked_eclipse_sun_stone_bricks.name=Cracked eclipse stone bricks
-item.sunrise:dont_use.name=Don't use it! [Cosmetic item]
-tile.sunrise:caixao_acacia.name=Acacia coffin
-tile.sunrise:caixao_oak.name=Pine coffin
-tile.sunrise:caixao_birch.name=Birch coffin
-tile.sunrise:caixao_crimson.name=Distorted coffin
-tile.sunrise:caixao_warped.name=Crimson coffin
-tile.sunrise:caixao_spruce.name=Oak coffin
-tile.sunrise:caixao_jungle.name=Jungle log coffin
-
-item.sunrise:eclipse_armor_helmet=Capacete de eclipse
-item.sunrise:sun_eclipse_armor_chestplate=Peitoral de eclipse do solar
-item.sunrise:moon_eclipse_armor_chestplate=Peitoral de eclipse da lunar
-item.sunrise:sun_eclipse_armor_leggings=Calças de eclipse da lunar
-item.sunrise:moon_eclipse_armor_leggings=Calças de eclipse da lunar
-item.sunrise:eclipse_armor_boots=Botas de eclipse
-
-potion.vampire_cure=A potion that turns vampires into humans.
-potion.philosopher_water= 
-potion.werewolf_cure=A potion that turns werewolves into humans.
-
-item.sunrise:sun_eclipse_armor_chestplate=Solar eclipse chestplate
-item.sunrise:moon_eclipse_armor_chestplate=Lunar eclipse chestplate
-item.sunrise:sun_eclipse_armor_leggings=Lunar eclipse leggings
-item.sunrise:moon_eclipse_armor_leggings=Lunar eclipse leggings
-
-gui.hunter_skillvelo.select=Train speed
-gui.hunter_skillvital.select=Train vitality
-gui.hunter_skillmana.select=Train mana
-gui.hunter_skillhab.select=Train skill
-gui.hunter_noneskillpoint.text=No skill points available
-gui.hunter_captulo1.select=Basic guide [CAP 1]
-
-item.sunrise:witchcraft_guide.name=Witchcraft guide
-
-entity.sunrise:hunter_treiner.name=Trainer
-
-hunter.dialog.in_levelmax=I'm sorry, there's nothing more I can teach you...
-
-hunter.dialog.five_vamp_tooth.mission=Prove your worth and get §l5 vampire teeth§r
-hunter.dialog.five_vamp_tooth.curent_mission=Get §l5 vampire teeth§r
-
-hunter.dialog.vampire_blood.mission=Get and give me §l5 bottles of vampire blood§r
-hunter.dialog.vampire_blood.curent_mission=Give me §l5 bottles of vampire blood§r
-
-hunter.dialog.pure_vampire_blood.mission=Get and give me §l1 bottle of pure vampire blood§r
-hunter.dialog.pure_vampire_blood.curent_mission=Give me §l1 bottle of pure vampire blood§r
-
-hunter.dialog.philosopher_stone.mission=Get and give me a philosopher's stone§r
-hunter.dialog.philosopher_stone.curent_mission=Give me a philosopher's stone§r
-
-hunter.dialog.have_avaliable_new_skill=Improve your skills before you want to learn new things...
-
-hunter.dialog.mission_completed=Very good...
-hunter.dialog.non_completed_mission=Only return when the mission is complete...
-
-
-gui.hunter_mission_status.text=Mission status
-item.spawn_egg.entity.sunrise:hunter_treiner.name=Hunter Terin Summoning Egg
-item.spawn_egg.entity.sunrise:chicken_vampire.name=Vampire Chicken Summoning Egg
-item.spawn_egg.entity.sunrise:bat_minion.name=Bat Minion Summoning Egg
-hunter.book.mission_completed=Mission Complete: Talk to the Trainer
+## Vampire Craft 5 — generated by tools/gen_lang.py
+entity.sunrise:bat_minion.name=Bat Minion	#
+entity.sunrise:black_werewolf.name=§8Alpha Werewolf	#
+entity.sunrise:bullet_queen.name=Magic Bolt	#
+entity.sunrise:chicken_vampiro.name=Vampire Chicken	#
+entity.sunrise:hunter.name=Hunter	#
+entity.sunrise:hunter_treiner.name=§eHunter Master	#
+entity.sunrise:servantsbat.name=Servant Bat	#
+entity.sunrise:vampire.name=Vampire	#
+entity.sunrise:vampire_witch.name=Vampire Witch	#
+entity.sunrise:weak_vampire.name=Fledgling Vampire	#
+entity.sunrise:weak_werewolf.name=Young Werewolf	#
+entity.sunrise:werewolf.name=Werewolf	#
+item.spawn_egg.entity.sunrise:bat_minion.name=Spawn Bat Minion	#
+item.spawn_egg.entity.sunrise:black_werewolf.name=Spawn §8Alpha Werewolf	#
+item.spawn_egg.entity.sunrise:bullet_queen.name=Spawn Magic Bolt	#
+item.spawn_egg.entity.sunrise:chicken_vampiro.name=Spawn Vampire Chicken	#
+item.spawn_egg.entity.sunrise:hunter.name=Spawn Hunter	#
+item.spawn_egg.entity.sunrise:hunter_treiner.name=Spawn §eHunter Master	#
+item.spawn_egg.entity.sunrise:servantsbat.name=Spawn Servant Bat	#
+item.spawn_egg.entity.sunrise:vampire.name=Spawn Vampire	#
+item.spawn_egg.entity.sunrise:vampire_witch.name=Spawn Vampire Witch	#
+item.spawn_egg.entity.sunrise:weak_vampire.name=Spawn Fledgling Vampire	#
+item.spawn_egg.entity.sunrise:weak_werewolf.name=Spawn Young Werewolf	#
+item.spawn_egg.entity.sunrise:werewolf.name=Spawn Werewolf	#
+item.sunrise:blood_bottle_1.name=Blood Bottle [1/4]	#
+item.sunrise:blood_bottle_2.name=Blood Bottle [2/4]	#
+item.sunrise:blood_bottle_3.name=Blood Bottle [3/4]	#
+item.sunrise:blood_bottle_4.name=§cBlood Bottle [4/4]	#
+item.sunrise:change_stone.name=§eStone of Change	#
+item.sunrise:dont_use.name=§8[Cosmetic item]	#
+item.sunrise:eclipse_armor_boots.name=Eclipse Boots	#
+item.sunrise:eclipse_armor_helmet.name=Eclipse Helmet	#
+item.sunrise:eclipse_ingot.name=§dEclipse Ingot	#
+item.sunrise:garlic.name=Garlic	#
+item.sunrise:garlic_syringe.name=§eGarlic Syringe	#
+item.sunrise:human_heart.name=Human Heart	#
+item.sunrise:hunter_bow.name=§6Hunter's Bow	#
+item.sunrise:hunter_skill_item.name=§eHunter's Insignia	#
+item.sunrise:liver.name=Werewolf Liver	#
+item.sunrise:moon_eclipse_armor_chestplate.name=Lunar Eclipse Chestplate	#
+item.sunrise:moon_eclipse_armor_leggings.name=Lunar Eclipse Leggings	#
+item.sunrise:moon_stone_ingot.name=Moonstone Ingot	#
+item.sunrise:moon_stone_ore.name=Moonstone Shard	#
+item.sunrise:philosopher_stone.name=§bPhilosopher's Stone	#
+item.sunrise:philosopher_water.name=§bPhilosopher's Water	#
+item.sunrise:pure_vampire_blood.name=§ePure Vampire Blood	#
+item.sunrise:sun_eclipse_armor_chestplate.name=Solar Eclipse Chestplate	#
+item.sunrise:sun_eclipse_armor_leggings.name=Solar Eclipse Leggings	#
+item.sunrise:sun_stone_ingot.name=Sunstone Ingot	#
+item.sunrise:sun_stone_ore.name=Sunstone Shard	#
+item.sunrise:syringe.name=Syringe	#
+item.sunrise:vampire_blood.name=Vampire Blood	#
+item.sunrise:vampire_craft_book.name=§4Vampire Craft Codex	#
+item.sunrise:vampire_cure.name=§dVampirism Cure	#
+item.sunrise:vampire_skill_item.name=§4Blood Chalice §7[Skills]	#
+item.sunrise:vampire_sword.name=§dVampiric Sword	#
+item.sunrise:vampire_sword_e.name=§dVampiric Sword §8(drained)	#
+item.sunrise:vampire_sword_m.name=§dVampiric Sword §7(thirsty)	#
+item.sunrise:vampire_tooth.name=Vampire Fang	#
+item.sunrise:weak_human_heart.name=Weak Human Heart	#
+item.sunrise:werewolf_claws.name=§6Werewolf Claws	#
+item.sunrise:werewolf_claws_e.name=§6Werewolf Claws §8(blunt)	#
+item.sunrise:werewolf_claws_m.name=§6Werewolf Claws §7(worn)	#
+item.sunrise:werewolf_cure.name=§dLycanthropy Cure	#
+item.sunrise:werewolf_fang.name=Werewolf Fang	#
+item.sunrise:werewolf_skill_item.name=§6Moon Totem §7[Skills]	#
+item.sunrise:witchcraft_guide.name=Witchcraft Guide	#
+tile.sunrise:blood_altar.name=§4Blood Altar	#
+tile.sunrise:caixao_acacia.name=Acacia Coffin	#
+tile.sunrise:caixao_birch.name=Birch Coffin	#
+tile.sunrise:caixao_crimson.name=Crimson Coffin	#
+tile.sunrise:caixao_jungle.name=Jungle Coffin	#
+tile.sunrise:caixao_oak.name=Oak Coffin	#
+tile.sunrise:caixao_spruce.name=Spruce Coffin	#
+tile.sunrise:caixao_up_collision.name=Coffin	#
+tile.sunrise:caixao_warped.name=Warped Coffin	#
+tile.sunrise:cracked_eclipse_sun_stone_bricks.name=Cracked Eclipse Bricks	#
+tile.sunrise:eclipse_sun_stone_bricks.name=Eclipse Bricks	#
+tile.sunrise:hunter_campfire.name=Hunters' Campfire	#
+tile.sunrise:meat_grinder.name=Meat Grinder	#
+tile.sunrise:moon_stone_ore_block.name=Moonstone Ore	#
+tile.sunrise:recharging_altar.name=§5Recharging Altar	#
+tile.sunrise:sun_stone_ore_block.name=Sunstone Ore	#
+tile.thini:garlic_crop.name=Garlic Crop	#
+vc.admin.ambush=Vampire ambushes at night	#
+vc.admin.bloodmoon=Blood Moon	#
+vc.admin.bloodmoon_chance=Chance a full moon becomes a Blood Moon (%)	#
+vc.admin.book=Give the Codex to new players	#
+vc.admin.done=§7Command §f%s§7 done (%s, level %s).	#
+vc.admin.infection=Bite infection chance (%)	#
+vc.admin.sun=Sun burns vampires	#
+vc.admin.title=World Settings	#
+vc.altar.all_unlocked=§aYou have awakened every power!	#
+vc.altar.body=§7Your level: §f%s§7. Choose a power to awaken. §aGreen§7/§cred§7 amounts show whether you own them.	#
+vc.altar.confirm=§7Required level: §f%s§7. The items will be consumed.	#
+vc.altar.fill=§7The altar holds §c%s/%s§7 blood. Use §cfull blood bottles§7 or §clivers§7 on it.	#
+vc.altar.need_fang=§7The altar is full. Offer a §fWerewolf Fang§7.	#
+vc.altar.need_tooth=§7The altar is full. Offer a §fVampire Fang§7.	#
+vc.altar.not_supernatural=§7The altar ignores you. Only vampires and werewolves can use it.	#
+vc.altar.req_level=§8Requires level %s	#
+vc.altar.title=Blood Altar	#
+vc.become.hunter.sub=§7You swore to hunt the darkness	#
+vc.become.hunter.tip=§eYou are now a hunter. §7Use the §eInsignia§7 to see missions and train. Your garlic blood burns vampires!	#
+vc.become.hunter.title=§eHunter	#
+vc.become.vampire.sub=§7The thirst has begun...	#
+vc.become.vampire.tip=§cYou are now a vampire. §7Sneak and attack a creature to §cbite§7 it. Avoid the sun! Use the §4Blood Chalice§7 for your skills.	#
+vc.become.vampire.title=§4Vampire	#
+vc.become.werewolf.sub=§7The moon calls you now...	#
+vc.become.werewolf.tip=§6You are now a werewolf. §7You transform at night. Hunt to level up and evolve your beast. Use the §6Moon Totem§7.	#
+vc.become.werewolf.title=§6Werewolf	#
+vc.bite.garlic=§cGarlic blood! It burns!	#
+vc.blood.low=§cYour thirst is unbearable... bite someone!	#
+vc.bloodmoon.ambush=§cVampires caught your scent!	#
+vc.bloodmoon.end=§7The Blood Moon has set.	#
+vc.bloodmoon.sub=§cThe creatures of the night grow stronger...	#
+vc.bloodmoon.title=§4BLOOD MOON	#
+vc.bottle.human=§7Ugh... that's blood.	#
+vc.codex.hunter.become.1=Craft a §fSyringe§r (glass + iron) and combine it with §fGarlic§r to make a §eGarlic Syringe§r. Use it to take the oath.	#
+vc.codex.hunter.become.2=Garlic grows on farmland and is found in village and dungeon chests.	#
+vc.codex.hunter.become.title=Becoming a hunter	#
+vc.codex.hunter.bow.1=Shoots fast blessed arrows (uses normal arrows). They burn supernatural creatures.	#
+vc.codex.hunter.bow.2=Only hunters can use it. Tap and hold to shoot.	#
+vc.codex.hunter.bow.title=Hunter's Bow	#
+vc.codex.hunter.intro=§7Humans sworn to cleanse the world of darkness.	#
+vc.codex.hunter.missions.1=Each rank requires a mission: hunt creatures or deliver relics. Hunting missions complete by themselves.	#
+vc.codex.hunter.missions.2=Talk to the §eHunter Master§r or use the Insignia to deliver relics. Every mission gives rewards and 1 training point.	#
+vc.codex.hunter.missions.title=Missions	#
+vc.codex.hunter.skills.1=§fHunter's Sense§r (rank 2) reveals nearby supernaturals. §fDivine Protection§r (rank 5) creates a holy aura.	#
+vc.codex.hunter.skills.2=§fHoly Burst§r (rank 8) burns everything supernatural around you.	#
+vc.codex.hunter.skills.title=Skills	#
+vc.codex.hunter.stats.1=§fVitality§r raises health, §fAgility§r speed and jump, and §fCombat§r damage against vampires and werewolves.	#
+vc.codex.hunter.stats.2=Each attribute goes up to 8. Choose wisely: there are 10 missions in total.	#
+vc.codex.hunter.stats.title=Training	#
+vc.codex.intro=§7Everything you need to know about vampires, werewolves and hunters.	#
+vc.codex.items.altar.1=Fills up with 10 full blood bottles or werewolf livers. When full, it accepts your race's offering.	#
+vc.codex.items.altar.2=Each skill costs human hearts and vampire blood (dropped by hunters and vampires) and requires a minimum level.	#
+vc.codex.items.altar.title=Blood Altar	#
+vc.codex.items.armor.1=Made from Sunstone and Moonstone ingots, ores found underground.	#
+vc.codex.items.armor.2=Vampires wearing a helmet suffer much less from the sun.	#
+vc.codex.items.armor.title=Eclipse Armor	#
+vc.codex.items.coffin.1=Vampires and werewolves can use it as a bed: it sets your respawn point.	#
+vc.codex.items.coffin.2=Used during the day, you sleep until night.	#
+vc.codex.items.coffin.title=Coffin	#
+vc.codex.items.cures.1=§dVampirism Cure§r and §dLycanthropy Cure§r restore your humanity (you lose levels and skills).	#
+vc.codex.items.cures.2=§bPhilosopher's Water§r (Philosopher's Stone + potion in a brewing stand) cures any condition.	#
+vc.codex.items.cures.title=Cures	#
+vc.codex.items.grinder.1=4 identical raw meats + 1 glass bottle = 1 full blood bottle.	#
+vc.codex.items.grinder.2=A peaceful way to feed without hunting.	#
+vc.codex.items.grinder.title=Meat Grinder	#
+vc.codex.items.intro=§7Tools, weapons and blocks.	#
+vc.codex.items.recharge.1=The §dVampiric Sword§r and the §6Claws§r lose power with use (thirsty → drained).	#
+vc.codex.items.recharge.2=Recharge at the §5Recharging Altar§r with 4 full bottles or 4 livers. Enchantments and names are kept.	#
+vc.codex.items.recharge.title=Blood weapons	#
+vc.codex.page.admin=§cAdministration	#
+vc.codex.page.hunter=Hunters	#
+vc.codex.page.items=Items & Blocks	#
+vc.codex.page.settings=Settings	#
+vc.codex.page.status=My Status	#
+vc.codex.page.vampire=Vampires	#
+vc.codex.page.werewolf=Werewolves	#
+vc.codex.page.world=The World	#
+vc.codex.title=§4Vampire Craft Codex	#
+vc.codex.vampire.become.1=Use a §fVampire Fang§r (dropped by vampires) or get bitten by a vampire player.	#
+vc.codex.vampire.become.2=The change takes 5 minutes and brings hunger and weakness. Drink §fmilk§r to cancel.	#
+vc.codex.vampire.become.title=Becoming a vampire	#
+vc.codex.vampire.bite.1=§fSneak and attack§r an animal, villager or human to bite it. A fangs icon appears on the HUD when a target is in range.	#
+vc.codex.vampire.bite.2=Holding a §fglass bottle§r, bites fill bottles instead of drinking. Careful: hunters have garlic in their blood!	#
+vc.codex.vampire.bite.title=Biting	#
+vc.codex.vampire.blood.1=Vampires don't get hungry: they need §cblood§r (drops in the status bar). High blood regenerates you; low blood makes you slow and weak.	#
+vc.codex.vampire.blood.2=With no blood you start dying. Drink §cBlood Bottles§r or bite creatures.	#
+vc.codex.vampire.blood.title=Blood	#
+vc.codex.vampire.intro=§7Immortal creatures of the night, driven by blood.	#
+vc.codex.vampire.level.1=You earn experience by biting. There are 10 levels; each unlocks new powers at the altar and strengthens your body.	#
+vc.codex.vampire.level.2=Level 3: speed. Level 4: strength at night. Level 5: more health. Level 8: strength II at night. Level 9: extra health. Level 10: the sun only sets you on fire, no extra damage.	#
+vc.codex.vampire.level.title=Levels	#
+vc.codex.vampire.skills.1=Awaken powers at the §4Blood Altar§r: fill it with 10 full bottles (or livers) and offer a Vampire Fang.	#
+vc.codex.vampire.skills.2=Use the §4Blood Chalice§r to cast. §fSneak + use§r casts the selected skill instantly — great on mobile.	#
+vc.codex.vampire.skills.title=Skills	#
+vc.codex.vampire.sun.1=Under direct sunlight you burn. Young vampires suffer more; elders resist. A helmet, rain or a roof protects you.	#
+vc.codex.vampire.sun.2=Running water hurts you unless you have §fWaterproof Skin§r. Sleep in a §fcoffin§r to skip the day.	#
+vc.codex.vampire.sun.title=Sun and water	#
+vc.codex.version=§8Version %s	#
+vc.codex.werewolf.become.1=Use a §fWerewolf Fang§r (dropped by werewolves). The change takes 5 minutes — milk cancels it.	#
+vc.codex.werewolf.become.2=As a werewolf you still need food, and the beast form makes you hungrier.	#
+vc.codex.werewolf.become.title=Becoming a werewolf	#
+vc.codex.werewolf.form.1=At dusk you transform. Use §fTransformation§r on the Moon Totem to toggle. Under a §ffull moon§r the beast can't be held back.	#
+vc.codex.werewolf.form.2=In beast form you're fast, jump high, hit hard and see in the dark. At dawn you return to human.	#
+vc.codex.werewolf.form.title=The beast form	#
+vc.codex.werewolf.intro=§7Humans cursed by the moon.	#
+vc.codex.werewolf.level.1=Earn experience by hunting — much more in beast form. Supernatural creatures are worth more.	#
+vc.codex.werewolf.level.2=From level 3 you are faster at night even in human form.	#
+vc.codex.werewolf.level.title=Levels	#
+vc.codex.werewolf.skills.1=Fill the §4Blood Altar§r and offer a Werewolf Fang to awaken powers like Howl, Lunge and Brutal Blow.	#
+vc.codex.werewolf.skills.2=§fSneak + use§r the Moon Totem to cast the selected skill without the menu.	#
+vc.codex.werewolf.skills.title=Skills	#
+vc.codex.werewolf.tiers.1=Your beast has 3 forms (I, II, III), unlocked at levels 1, 4 and 8. Each form changes your look and power.	#
+vc.codex.werewolf.tiers.2=Defeating stronger werewolves may awaken the next form early.	#
+vc.codex.werewolf.tiers.title=Beast evolution	#
+vc.codex.world.bloodmoon.1=Some full moons become §4Blood Moons§r: the sky turns red, monsters get stronger and vampires ambush humans.	#
+vc.codex.world.bloodmoon.2=Vampires and werewolves become much stronger during the event.	#
+vc.codex.world.bloodmoon.title=Blood Moon	#
+vc.codex.world.commands.1=/function sunrise/transvp, /translb, /transhunter — transform. /function sunrise/removevp — cure. /function sunrise/bloodmoon — Blood Moon.	#
+vc.codex.world.commands.2=Advanced: /scriptevent vc:level 10, vc:blood 20, vc:skills all, vc:infect vampire. Give the §fvc_admin§r tag to access Administration.	#
+vc.codex.world.commands.title=Commands	#
+vc.codex.world.intro=§7Events, places and creatures.	#
+vc.codex.world.mobs.1=Vampires burn in the sun and, when wounded, turn into bats to escape. Werewolves hunt at night and vanish at dawn.	#
+vc.codex.world.mobs.2=Undead ignore vampires and werewolves. Iron golems attack them.	#
+vc.codex.world.mobs.title=Creatures	#
+vc.codex.world.structures.1=Look for §fvampire towers§r, §fhunter camps and houses§r and §fgraveyards§r across the world.	#
+vc.codex.world.structures.2=They hold chests with rare relics.	#
+vc.codex.world.structures.title=Structures	#
+vc.coffin.human=§7Lie down in a coffin? Better not...	#
+vc.coffin.slept=§7You slept through the day. Night has come.	#
+vc.coffin.spawn=§7Respawn point set.	#
+vc.cure.nothing=§7Nothing happened... you don't need this cure.	#
+vc.cure.sub=§7You are human again	#
+vc.cure.title=§aCured	#
+vc.eyes.1=Crimson	#
+vc.eyes.2=Golden	#
+vc.eyes.3=Violet	#
+vc.eyes.4=Blood	#
+vc.eyes.body=§7Choose your eye colour.	#
+vc.eyes.none=No glow	#
+vc.eyes.title=Vampire Eyes	#
+vc.faction.human=Human	#
+vc.faction.hunter=Hunter	#
+vc.faction.vampire=Vampire	#
+vc.faction.werewolf=Werewolf	#
+vc.form.helmet_full=§cYour inventory is full — no room for your helmet.	#
+vc.grinder.hint=§7Needs §f4 raw meat§7 of the same kind and §f1 glass bottle§7.	#
+vc.hud.infect.hunter=Oath	#
+vc.hud.infect.vampire=Vampirism	#
+vc.hud.infect.werewolf=Lycanthropy	#
+vc.hud.lvl=Lv.	#
+vc.hud.rank=Rank	#
+vc.hunter.all_done=§6You completed every mission. A living legend!	#
+vc.hunter.delivered=§aDelivery accepted!	#
+vc.hunter.is_kill_mission=§7This is a hunting mission — it completes by itself.	#
+vc.hunter.menu.body=§7Rank: §f%s§7   Points: §a%s	#
+vc.hunter.menu.deliver=Turn in mission	#
+vc.hunter.menu.title=Hunters' Guild	#
+vc.hunter.menu.train=Training	#
+vc.hunter.missing_items=§cYou don't have the mission items yet.	#
+vc.hunter.mission.0=Kill 3 vampires	#
+vc.hunter.mission.2=Kill 3 werewolves	#
+vc.hunter.mission.4=Kill 5 adult vampires	#
+vc.hunter.mission.6=Defeat an Alpha Werewolf	#
+vc.hunter.mission.8=Defeat a Vampire Witch	#
+vc.hunter.mission.9=Eliminate 10 supernatural creatures	#
+vc.hunter.mission.current=§eMission:§f	#
+vc.hunter.mission.deliver=Deliver %s	#
+vc.hunter.mission_done.sub=§7Rank §f%s§7 — +1 training point	#
+vc.hunter.mission_done.title=§eMission complete!	#
+vc.hunter.no_arrows=§cYou have no arrows.	#
+vc.hunter.no_points=§cNo training points. Complete missions!	#
+vc.hunter.only_hunters=§7Only hunters know how to use this bow.	#
+vc.hunter.progress=§eMission: §f%s/%s	#
+vc.hunter.stat.agility=Agility	#
+vc.hunter.stat.agility.desc=More speed and jump	#
+vc.hunter.stat.combat=Combat	#
+vc.hunter.stat.combat.desc=+1 damage against supernaturals	#
+vc.hunter.stat.vital=Vitality	#
+vc.hunter.stat.vital.desc=+2 hearts per point	#
+vc.hunter.stat_max=§7This attribute is already maxed.	#
+vc.hunter.stat_up=§aAttribute improved!	#
+vc.hunter.train.body=§7Available points: §a%s§7. Every completed mission grants 1 point.	#
+vc.infect.already=§cYou are already transforming.	#
+vc.infect.cured_milk=§aThe milk cleansed your blood. The change stopped.	#
+vc.infect.hunter.start=§eGarlic burns in your blood. Your oath will soon be complete.	#
+vc.infect.not_human=§cOnly humans can use this.	#
+vc.infect.vampire.start=§4Something cold runs through your veins... §7(drink §fmilk§7 to stop the change)	#
+vc.infect.werewolf.start=§6You feel the moon inside you... §7(drink §fmilk§7 to stop the change)	#
+vc.item.wrong_faction=§7This item doesn't respond to you.	#
+vc.levelup.max=§6You reached the maximum level!	#
+vc.levelup.new_skills=§d%s new skill(s) available at the Blood Altar!	#
+vc.levelup.sub=§7You are now level §f%s	#
+vc.levelup.title=§bLevel up!	#
+vc.recharge.hint=§7Hold a drained §dVampiric Sword§7 or worn §6Claws§7 and tap the altar.	#
+vc.recharge.need_fuel=§cNeeds 4 full blood bottles or 4 livers.	#
+vc.settings.hud=Show Vampire Craft HUD	#
+vc.settings.saved=§aSettings saved.	#
+vc.settings.title=Settings	#
+vc.skill.already=§7You already have this skill.	#
+vc.skill.cooldown=§7Recharging... §f%ss	#
+vc.skill.fly.on=§7Bat form! §fHold jump§7 to fly. Use again to leave.	#
+vc.skill.hunter.divine.desc=Holy aura that hurts nearby monsters.	#
+vc.skill.hunter.divine.name=Divine Protection	#
+vc.skill.hunter.holy_burst.desc=Burns supernatural creatures around you.	#
+vc.skill.hunter.holy_burst.name=Holy Burst	#
+vc.skill.hunter.hunter_sense.desc=Marks vampires and werewolves within 40 blocks.	#
+vc.skill.hunter.hunter_sense.name=Hunter's Sense	#
+vc.skill.hunter_sense.on=§eYour senses reveal the creatures of the night...	#
+vc.skill.icetouch.on=§bYour hits freeze for 30s.	#
+vc.skill.need_items=§cYou don't have the required items.	#
+vc.skill.need_level=§cYou need to be level §f%s§c.	#
+vc.skill.no_blood=§cNot enough blood!	#
+vc.skill.no_target=§7No target in front of you.	#
+vc.skill.none_selected=§7No skill selected. Use the item without sneaking to pick one.	#
+vc.skill.onehit.on=§6Your next hit will be devastating!	#
+vc.skill.teleport.blocked=§cThere's no room to teleport there.	#
+vc.skill.unknown=§cUnknown skill.	#
+vc.skill.unlocked=§aSkill unlocked!	#
+vc.skill.vampire.absorption.desc=Constant absorption while you have blood.	#
+vc.skill.vampire.absorption.name=Stone Skin	#
+vc.skill.vampire.acrobata.desc=Permanently improved speed and jump.	#
+vc.skill.vampire.acrobata.name=Acrobat	#
+vc.skill.vampire.blood_nova.desc=A blast that hurts everything around and heals you.	#
+vc.skill.vampire.blood_nova.name=Blood Nova	#
+vc.skill.vampire.blooddrinker.desc=Bites yield more blood and fill bottles faster.	#
+vc.skill.vampire.blooddrinker.name=Blood Drinker	#
+vc.skill.vampire.fly.desc=Turn into a bat and fly (hold jump). Drains blood.	#
+vc.skill.vampire.fly.name=Bat Form	#
+vc.skill.vampire.hypnosis.desc=Paralyses and weakens whoever is in front of you.	#
+vc.skill.vampire.hypnosis.name=Hypnosis	#
+vc.skill.vampire.icetouch.desc=For 30s your hits freeze enemies.	#
+vc.skill.vampire.icetouch.name=Frost Touch	#
+vc.skill.vampire.indetectavel.desc=Creepers and golems stop noticing you.	#
+vc.skill.vampire.indetectavel.name=Undetectable	#
+vc.skill.vampire.invisibilidade.desc=Become invisible and faster for 20s.	#
+vc.skill.vampire.invisibilidade.name=Mist Form	#
+vc.skill.vampire.nightvision.desc=See in the dark while you have blood.	#
+vc.skill.vampire.nightvision.name=Night Vision	#
+vc.skill.vampire.poucasede.desc=Your blood drains at half speed.	#
+vc.skill.vampire.poucasede.name=Restrained Thirst	#
+vc.skill.vampire.rage.desc=Strength II and Speed II for 30s.	#
+vc.skill.vampire.rage.name=Blood Rage	#
+vc.skill.vampire.regeneration.desc=Regeneration III for 8s.	#
+vc.skill.vampire.regeneration.name=Regeneration	#
+vc.skill.vampire.servantsbat.desc=Summon bats that attack enemies and bring you blood.	#
+vc.skill.vampire.servantsbat.name=Servant Bats	#
+vc.skill.vampire.sunresistence.desc=The sun no longer burns you, it only weakens you.	#
+vc.skill.vampire.sunresistence.name=Sun Resistance	#
+vc.skill.vampire.teleport.desc=Teleport to where you are looking.	#
+vc.skill.vampire.teleport.name=Shadow Step	#
+vc.skill.vampire.waterproof.desc=Water no longer hurts you.	#
+vc.skill.vampire.waterproof.name=Waterproof Skin	#
+vc.skill.werewolf.absorption.desc=Constant absorption.	#
+vc.skill.werewolf.absorption.name=Thick Hide	#
+vc.skill.werewolf.acrobata.desc=Improved speed and jump.	#
+vc.skill.werewolf.acrobata.name=Agile Hunter	#
+vc.skill.werewolf.defencive.desc=Resistance IV for 8s.	#
+vc.skill.werewolf.defencive.name=Defensive Stance	#
+vc.skill.werewolf.howl.desc=Allies grow stronger, enemies become slow and weak.	#
+vc.skill.werewolf.howl.name=Howl	#
+vc.skill.werewolf.invisibilidade.desc=Total invisibility for 20s.	#
+vc.skill.werewolf.invisibilidade.name=Moon Shadow	#
+vc.skill.werewolf.lunge.desc=Dash forward tearing through enemies.	#
+vc.skill.werewolf.lunge.name=Lunge	#
+vc.skill.werewolf.nightvision.desc=Permanent night vision.	#
+vc.skill.werewolf.nightvision.name=Beast Eyes	#
+vc.skill.werewolf.onehit.desc=Your next hit deals massive damage.	#
+vc.skill.werewolf.onehit.name=Brutal Blow	#
+vc.skill.werewolf.poucafome.desc=The beast form doesn't make you hungry.	#
+vc.skill.werewolf.poucafome.name=Restrained Hunger	#
+vc.skill.werewolf.rage.desc=Strength III and Haste II for 30s.	#
+vc.skill.werewolf.rage.name=Lunar Rage	#
+vc.skill.werewolf.regeneration.desc=Regeneration III for 8s.	#
+vc.skill.werewolf.regeneration.name=Regeneration	#
+vc.skill.werewolf.sangramento.desc=Your hits may make the target bleed.	#
+vc.skill.werewolf.sangramento.name=Bleeding	#
+vc.skill.werewolf.suntransform.desc=You can transform during the day too.	#
+vc.skill.werewolf.suntransform.name=Daywalker Beast	#
+vc.skill.werewolf.transform.desc=Take or leave your beast form (at night).	#
+vc.skill.werewolf.transform.name=Transformation	#
+vc.skill.werewolf.waterproof.desc=Water doesn't slow you.	#
+vc.skill.werewolf.waterproof.name=Dry Fur	#
+vc.skills.body=§7Tap to cast. §fTip:§7 sneak + use the item to cast the selected skill (§a»§7) without opening this menu.	#
+vc.skills.passives=Passives	#
+vc.skills.title=Skills	#
+vc.status.blood=§7Blood:	#
+vc.status.faction=§7Race:	#
+vc.status.level=§7Level:	#
+vc.status.points=§7Training points:	#
+vc.status.skills=§7Skills:	#
+vc.status.tier=§7Form:	#
+vc.status.xp=§7Experience:	#
+vc.trainer.human=§e[Master]§f Want to hunt monsters? Inject a §eGarlic Syringe§f and talk to me again.	#
+vc.trainer.monster=§e[Master]§f Stay back, creature!	#
+vc.ui.back=« Back	#
+vc.ui.close=Close	#
+vc.ui.unlock=§aUnlock	#
+vc.weapon.drained=§7Your weapon is losing power. Recharge it at the §5Recharging Altar§7.	#
+vc.welcome=§7Welcome to §4Vampire Craft 5§7! Read the §4Codex§7 in your inventory.	#
+vc.werewolf.forced=§6The moon awakens the beast!	#
+vc.werewolf.full_moon_lock=§6Under the full moon the beast can't be held back!	#
+vc.werewolf.need_night=§7You can only transform at night.	#
+vc.werewolf.tier_up=§6Your beast evolved! New form unlocked.	#

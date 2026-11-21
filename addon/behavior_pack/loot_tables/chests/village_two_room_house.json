@@ -64,20 +64,6 @@
         },
         {
           "type": "item",
-          "name": "sunrise:garlic",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ],
-          "weight": 5
-        },
-        {
-          "type": "item",
           "name": "minecraft:beetroot",
           "functions": [
             {
@@ -100,6 +86,29 @@
             }
           ],
           "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "sunrise:garlic",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 10
         }
       ]
     }

@@ -1,12 +1,19 @@
 {
-	"format_version": "1.10.0",
-	"minecraft:item": {
-		"description": {
-			"identifier": "sunrise:weak_human_heart"
-		},
-		"components": {
-			"minecraft:max_stack_size": 64,
-			"minecraft:hand_equipped": false
-		}
-	}
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sunrise:weak_human_heart",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": false,
+      "minecraft:icon": "sunrise_weak_human_heart",
+      "minecraft:display_name": {
+        "value": "item.sunrise:weak_human_heart.name"
+      }
+    }
+  }
 }

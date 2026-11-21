@@ -1,43 +1,63 @@
 {
-	"format_version": "1.14.0",
-	"sound_definitions": {
-		"mob.vampire.bite": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/sound_effects/vampire_bite_1",
-				"sounds/sound_effects/vampire_bite_2",
-				"sounds/sound_effects/vampire_bite_3"
-			]
-		},
-		"mob.bullet_queen.flop": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/mob/fish/flop1",
-				"sounds/mob/fish/flop2",
-				"sounds/mob/fish/flop3",
-				"sounds/mob/fish/flop4"
-			]
-		},
-		"mob.bullet_queen.hurt": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/mob/fish/hurt1",
-				"sounds/mob/fish/hurt2",
-				"sounds/mob/fish/hurt3",
-				"sounds/mob/fish/hurt4"
-			]
-		},
-		"mob.bullet_queen.step": {
-			"category": "neutral",
-			"sounds": [
-				"sounds/mob/fish/swim1",
-				"sounds/mob/fish/swim2",
-				"sounds/mob/fish/swim3",
-				"sounds/mob/fish/swim4",
-				"sounds/mob/fish/swim5",
-				"sounds/mob/fish/swim6",
-				"sounds/mob/fish/swim7"
-			]
-		}
-	}
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "mob.vampire.bite": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/sound_effects/vampire_bite_1",
+        "sounds/sound_effects/vampire_bite_2",
+        "sounds/sound_effects/vampire_bite_3"
+      ]
+    },
+    "mob.bullet_queen.flop": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/mob/fish/flop1",
+        "sounds/mob/fish/flop2",
+        "sounds/mob/fish/flop3",
+        "sounds/mob/fish/flop4"
+      ]
+    },
+    "mob.bullet_queen.hurt": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/mob/fish/hurt1",
+        "sounds/mob/fish/hurt2",
+        "sounds/mob/fish/hurt3",
+        "sounds/mob/fish/hurt4"
+      ]
+    },
+    "mob.bullet_queen.step": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/mob/fish/swim1",
+        "sounds/mob/fish/swim2",
+        "sounds/mob/fish/swim3",
+        "sounds/mob/fish/swim4",
+        "sounds/mob/fish/swim5",
+        "sounds/mob/fish/swim6",
+        "sounds/mob/fish/swim7"
+      ]
+    },
+    "vc.wolf.howl": {
+      "category": "hostile",
+      "sounds": [
+        {
+          "name": "sounds/mob/wolf/big/growl1",
+          "pitch": 0.55,
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/mob/wolf/big/growl2",
+          "pitch": 0.5,
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/mob/wolf/big/growl3",
+          "pitch": 0.6,
+          "volume": 1.0
+        }
+      ]
+    }
+  }
 }

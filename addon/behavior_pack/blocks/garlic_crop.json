@@ -1,109 +1,144 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:block": {
-        "description": {
-            "identifier": "thini:garlic_crop",
-            "menu_category": {
-                "category": "none"
-            },
-            "states": {
-                "thini:growth_stage": [0, 1, 2, 3]
-            }
-        },
-        "permutations": [
-            {
-                "condition": "q.block_state('thini:growth_stage') == 0",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "ambient_occlusion": true,
-                            "face_dimming": true,
-                            "render_method": "alpha_test",
-                            "texture": "garlic_stage_0"
-                        }
-                    },
-                    "minecraft:selection_box": {
-                        "origin": [-6, 0, -6],
-                        "size": [12, 3, 12]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('thini:growth_stage') == 1",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "ambient_occlusion": true,
-                            "face_dimming": true,
-                            "render_method": "alpha_test",
-                            "texture": "garlic_stage_1"
-                        }
-                    },
-                    "minecraft:selection_box": {
-                        "origin": [-7, 0, -7],
-                        "size": [14, 5, 14]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('thini:growth_stage') == 2",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "ambient_occlusion": true,
-                            "face_dimming": true,
-                            "render_method": "alpha_test",
-                            "texture": "garlic_stage_2"
-                        }
-                    },
-                    "minecraft:selection_box": {
-                        "origin": [-7, 0, -7],
-                        "size": [14, 10, 14]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('thini:growth_stage') == 3",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "ambient_occlusion": true,
-                            "face_dimming": true,
-                            "render_method": "alpha_test",
-                            "texture": "garlic_stage_3"
-                        }
-                    },
-                    "minecraft:selection_box": {
-                        "origin": [-8, 0, -8],
-                        "size": [16, 12, 16]
-                    },
-                    "minecraft:loot": "loot_tables/garlic_crop.json"
-                }
-            }
-        ],
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "thini:garlic_crop",
+      "menu_category": {
+        "category": "none"
+      },
+      "states": {
+        "thini:growth_stage": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('thini:growth_stage') == 0",
         "components": {
-            "minecraft:display_name": "Garlic",
-            "minecraft:map_color": "#FFFFFF",
-            "minecraft:geometry": {
-                "identifier": "geometry.garlic"
-            },
-            "minecraft:collision_box": false,
-            "minecraft:loot": "loot_tables/garlic_seed.json",
-            "minecraft:placement_filter": {
-                "conditions": [
-                    {
-                        "allowed_faces": [
-                            "up"
-                        ],
-                        "block_filter": [
-                            "minecraft:farmland"
-                        ]
-                    }
-                ]
-            },
-            "minecraft:custom_components": [
-                "thini:crop"
+          "minecraft:material_instances": {
+            "*": {
+              "ambient_occlusion": true,
+              "face_dimming": true,
+              "render_method": "alpha_test",
+              "texture": "garlic_stage_0"
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -6,
+              0,
+              -6
+            ],
+            "size": [
+              12,
+              3,
+              12
             ]
+          }
         }
+      },
+      {
+        "condition": "q.block_state('thini:growth_stage') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "ambient_occlusion": true,
+              "face_dimming": true,
+              "render_method": "alpha_test",
+              "texture": "garlic_stage_1"
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              14,
+              5,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('thini:growth_stage') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "ambient_occlusion": true,
+              "face_dimming": true,
+              "render_method": "alpha_test",
+              "texture": "garlic_stage_2"
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -7,
+              0,
+              -7
+            ],
+            "size": [
+              14,
+              10,
+              14
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('thini:growth_stage') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "ambient_occlusion": true,
+              "face_dimming": true,
+              "render_method": "alpha_test",
+              "texture": "garlic_stage_3"
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              12,
+              16
+            ]
+          },
+          "minecraft:loot": "loot_tables/garlic_crop.json"
+        }
+      }
+    ],
+    "components": {
+      "minecraft:display_name": "Garlic",
+      "minecraft:map_color": "#FFFFFF",
+      "minecraft:geometry": {
+        "identifier": "geometry.garlic"
+      },
+      "minecraft:collision_box": false,
+      "minecraft:loot": "loot_tables/garlic_seed.json",
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:farmland"
+            ]
+          }
+        ]
+      },
+      "thini:crop": {}
     }
+  }
 }

@@ -1,9 +1,18 @@
 {
-	"format_version": "1.10.0",
-	"minecraft:item": {
-		"description": {
-			"identifier": "sunrise:pure_vampire_blood"
-		},
-		"components": {}
-	}
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sunrise:pure_vampire_blood",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "sunrise_pure_vampire_blood",
+      "minecraft:display_name": {
+        "value": "item.sunrise:pure_vampire_blood.name"
+      },
+      "minecraft:max_stack_size": 64
+    }
+  }
 }

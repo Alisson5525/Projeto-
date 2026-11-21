@@ -1,3 +1,2 @@
-tag @s remove timerToVamp
-tag @s remove timerToHunter
-tag @s remove timerToLob
+# Stop an ongoing transformation (infection)
+scriptevent vc:stopinfect
