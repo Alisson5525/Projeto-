@@ -57,6 +57,12 @@ WOLF_HOOKS.toggle = (p) => {
   return enterForm(p);
 };
 
+/** Night vision blinks during its last 10 s: refresh it well before that. */
+function nightVision(p) {
+  const cur = p.getEffect("night_vision");
+  if (!cur || cur.duration < 240) p.addEffect("night_vision", 20 * 30, { amplifier: 0, showParticles: false });
+}
+
 // ---------------------------------------------------------------------------
 // Loop
 // ---------------------------------------------------------------------------
@@ -83,22 +89,19 @@ function tickWerewolf(p, duskEdge, dawnEdge) {
       effect(p, "invisibility", 6, 0); // hides the human body under the wolf model
     }
     effect(p, "speed", 4, tier >= 2 ? 1 : 0);
-    effect(p, "jump_boost", 4, tier);
+    effect(p, "jump_boost", 4, tier - 1);
     effect(p, "strength", 4, tier - 1);
-    effect(p, "night_vision", 15, 0);
+    nightVision(p);
     if (tier >= 2) effect(p, "health_boost", 30, tier - 2 + (lvl >= 9 ? 1 : 0));
     if (tier >= 3) effect(p, "resistance", 4, 0);
     if (!hasSkill(p, "poucafome") && !isCreative(p)) effect(p, "hunger", 4, 0);
   } else {
     if (night && lvl >= 3) effect(p, "speed", 4, 0);
-    if (hasSkill(p, "nightvision")) {
-      const cur = p.getEffect("night_vision");
-      if (!cur || cur.duration < 240) p.addEffect("night_vision", 20 * 30, { amplifier: 0, showParticles: false });
-    }
+    if (hasSkill(p, "nightvision")) nightVision(p);
   }
   if (hasSkill(p, "acrobata")) {
     effect(p, "speed", 4, 1);
-    effect(p, "jump_boost", 4, Math.max(1, inForm(p) ? tier : 1));
+    effect(p, "jump_boost", 4, inForm(p) ? Math.max(1, tier - 1) : 1);
   }
   if (hasSkill(p, "absorption") && !p.getEffect("absorption")) p.addEffect("absorption", 20 * 30, { amplifier: 0, showParticles: false });
   if (p.isInWater && !hasSkill(p, "waterproof")) effect(p, "slowness", 2, 0);

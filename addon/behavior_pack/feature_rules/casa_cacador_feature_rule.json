@@ -21,8 +21,23 @@
                   "test": "has_biome_tag",
                   "operator": "==",
                   "value": "forest"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "birch"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "taiga"
                 }
               ]
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld"
             }
           ]
         }
@@ -30,7 +45,7 @@
     },
     "distribution": {
       "iterations": 1,
-      "scatter_chance": 0.1,
+      "scatter_chance": 0.8,
       "x": {
         "distribution": "uniform",
         "extent": [

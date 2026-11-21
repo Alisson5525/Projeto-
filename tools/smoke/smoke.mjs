@@ -258,6 +258,29 @@ harness.step(3);
 check(skills.hasSkill(old, "fly") && skills.hasSkill(old, "teleport"), "v4 skills migrated");
 check(!old.hasTag("emuso_rage"), "v4 runtime tags cleaned");
 
+// --- 5.1: diagnostics, drops, exploration --------------------------------------------------
+check(old.messages.some((m) => JSON.stringify(m).includes("vc.diag.ok")), "load diagnostic says OK");
+const { registry } = await import("@minecraft/server");
+registry.items.delete("sunrise:blood_altar");
+const p3 = new Player("Diag", overworld);
+world.afterEvents.playerSpawn.fire({ player: p3, initialSpawn: true });
+harness.step(3);
+check(p3.messages.some((m) => JSON.stringify(m).includes("vc.diag.missing")), "diagnostic reports missing altar");
+registry.items.add("sunrise:blood_altar");
+
+log.calls.length = 0;
+factions.become(p3, "vampire");
+const villager = new Entity("minecraft:villager_v2", overworld, { x: 3, y: 64, z: 3 }, ["villager", "mob"]);
+for (let i = 0; i < 20; i++) world.afterEvents.entityDie.fire({ deadEntity: villager, damageSource: { damagingEntity: p3, cause: "entityAttack" } });
+check(log.calls.some((c) => c[0] === "drop" && c[1].includes("heart")), "villager drops hearts for vampires");
+
+overworld.roofY = undefined;
+p3.location = { x: 900, y: 63, z: 900 };
+const before3 = overworld._entities.length;
+harness.setTime(15000);
+harness.step(20 * 60 * 6);
+check(overworld._entities.length > before3 || [...(overworld._blocks?.values() ?? [])].some((b) => b.typeId === "minecraft:chest"), "an exploration encounter happened");
+
 // Run a long stretch of world time with everything active.
 p._inv.setItem(8, new ItemStack("sunrise:vampire_skill_item", 1));
 harness.step(2400);

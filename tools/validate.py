@@ -322,7 +322,40 @@ for p in glob.glob(os.path.join(BP, "functions", "**", "*.mcfunction"), recursiv
         if m not in cmds:
             err(f"{rel(p)}: scriptevent vc:{m} not handled")
 
-# 12. Glyph sheet ------------------------------------------------------------------------------------------------------
+# 12. Structures: files exist, loot tables in chests exist, block ids are known
+try:
+    import nbtlib
+    for p, d in docs.items():
+        st = d.get("minecraft:structure_template_feature") if isinstance(d, dict) else None
+        if st:
+            name = st["structure_name"].split(":", 1)[1]
+            if not os.path.exists(os.path.join(BP, "structures", name + ".mcstructure")):
+                err(f"{rel(p)}: structure file {name}.mcstructure missing")
+    for f in glob.glob(os.path.join(BP, "structures", "*.mcstructure")):
+        n = nbtlib.load(f, byteorder="little")
+        s_ = n["structure"]
+        size = [int(v) for v in n["size"]]
+        if len(s_["block_indices"][0]) != size[0] * size[1] * size[2]:
+            err(f"{rel(f)}: block index count mismatch")
+        pal = s_["palette"]["default"]["block_palette"]
+        for b in pal:
+            bn = str(b["name"])
+            if bn.startswith(("sunrise:", "thini:")) and bn not in blocks:
+                err(f"{rel(f)}: unknown block {bn}")
+        for v in s_["palette"]["default"].get("block_position_data", {}).values():
+            lt = v.get("block_entity_data", {}).get("LootTable")
+            if lt is not None and not os.path.exists(os.path.join(BP, str(lt))):
+                err(f"{rel(f)}: loot table {lt} missing")
+            ent = v.get("block_entity_data", {}).get("EntityIdentifier")
+            if ent is not None and str(ent) not in entities:
+                err(f"{rel(f)}: spawner entity {ent} unknown")
+        for e in s_["entities"]:
+            if str(e["identifier"]) not in entities and not str(e["identifier"]).startswith("minecraft:"):
+                err(f"{rel(f)}: unknown entity {e['identifier']}")
+except ImportError:
+    warn("nbtlib not installed: structures not checked")
+
+# 13. Glyph sheet ------------------------------------------------------------------------------------------------------
 if not os.path.exists(os.path.join(RP, "font", "glyph_E1.png")):
     err("font/glyph_E1.png missing (HUD)")
 

@@ -5,10 +5,11 @@
       "identifier": "sunrise:barraca_cacador_feature"
     },
     "structure_name": "mystructure:hunters_camp",
-    "adjustment_radius": 8,
+    "adjustment_radius": 6,
     "facing_direction": "random",
     "constraints": {
-      "grounded": {}
+      "grounded": {},
+      "unburied": {}
     }
   }
 }

@@ -38,85 +38,6 @@
         "minecraft:mark_variant": {
           "value": 3
         }
-      },
-      "vc:combat": {
-        "minecraft:behavior.melee_box_attack": {
-          "priority": 3,
-          "speed_multiplier": 1.25,
-          "track_target": true
-        },
-        "minecraft:behavior.nearest_attackable_target": {
-          "priority": 2,
-          "must_see": true,
-          "reselect_targets": true,
-          "within_radius": 24,
-          "entity_types": [
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "==",
-                    "value": "player"
-                  },
-                  {
-                    "test": "has_tag",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": "vampiro"
-                  },
-                  {
-                    "test": "has_tag",
-                    "subject": "other",
-                    "operator": "!=",
-                    "value": "vc_undetectable"
-                  }
-                ]
-              },
-              "max_dist": 24
-            },
-            {
-              "filters": {
-                "any_of": [
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "==",
-                    "value": "villager"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "==",
-                    "value": "wandering_trader"
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "==",
-                    "value": "humano"
-                  }
-                ]
-              },
-              "max_dist": 20
-            },
-            {
-              "filters": {
-                "test": "is_family",
-                "subject": "other",
-                "operator": "==",
-                "value": "lobisomem"
-              },
-              "max_dist": 16
-            }
-          ]
-        },
-        "minecraft:behavior.leap_at_target": {
-          "priority": 4,
-          "yd": 0.35,
-          "must_be_on_ground": true
-        }
       }
     },
     "components": {
@@ -202,18 +123,88 @@
       "minecraft:equip_item": {},
       "minecraft:shareables": {
         "items": []
+      },
+      "minecraft:behavior.melee_box_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.25,
+        "track_target": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "==",
+                  "value": "player"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "vampiro"
+                },
+                {
+                  "test": "has_tag",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "vc_undetectable"
+                }
+              ]
+            },
+            "max_dist": 24
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "==",
+                  "value": "villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "==",
+                  "value": "wandering_trader"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "==",
+                  "value": "humano"
+                }
+              ]
+            },
+            "max_dist": 20
+          },
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "==",
+              "value": "lobisomem"
+            },
+            "max_dist": 16
+          }
+        ]
+      },
+      "minecraft:behavior.leap_at_target": {
+        "priority": 4,
+        "yd": 0.35,
+        "must_be_on_ground": true
       }
     },
     "events": {
       "minecraft:entity_spawned": {
         "sequence": [
-          {
-            "add": {
-              "component_groups": [
-                "vc:combat"
-              ]
-            }
-          },
           {
             "randomize": [
               {

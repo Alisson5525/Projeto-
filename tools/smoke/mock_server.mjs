@@ -9,6 +9,10 @@ export const WeatherType = { Clear: "Clear", Rain: "Rain", Thunder: "Thunder" };
 export const MoonPhase = { FullMoon: 0, WaningGibbous: 1, FirstQuarter: 2, WaningCrescent: 3, NewMoon: 4, WaxingCrescent: 5, LastQuarter: 6, WaxingGibbous: 7 };
 
 export const log = { calls: [], errors: [] };
+export const registry = { items: new Set(["sunrise:blood_altar", "sunrise:recharging_altar", "sunrise:meat_grinder", "sunrise:caixao_oak", "sunrise:garlic",
+  "sunrise:blood_bottle_4", "sunrise:vampire_skill_item", "sunrise:werewolf_skill_item", "sunrise:hunter_skill_item", "sunrise:vampire_craft_book",
+  "sunrise:eclipse_ingot", "sunrise:vampire_sword"]) };
+export const ItemTypes = { get: (id) => (registry.items.has(id) ? { id } : undefined) };
 const rec = (what) => log.calls.push(what);
 
 class Signal {
@@ -125,6 +129,10 @@ class Block {
   above() { return new Block(this.dimension, { ...this.location, y: this.location.y + 1 }); }
   below() { return new Block(this.dimension, { ...this.location, y: this.location.y - 1 }, "sunrise:caixao_oak"); }
   getItemStack() { return new ItemStack(this.typeId, 1); }
+  getComponent(id) {
+    if (id === "minecraft:inventory" && this.typeId === "minecraft:chest") { this._inv ??= new Container(27); return { container: this._inv }; }
+    return undefined;
+  }
 }
 
 class Dimension {
@@ -138,6 +146,7 @@ class Dimension {
       && (!q.type || e.typeId === q.type) && (!q.families || q.families.every((f) => e._fam.includes(f))) && (!q.excludeTypes || !q.excludeTypes.includes(e.typeId)));
   }
   getPlayers() { return this._entities.filter((e) => e instanceof Player); }
+  getBlock(loc) { const k = `${loc.x},${loc.y},${loc.z}`; this._blocks ??= new Map(); if (!this._blocks.has(k)) this._blocks.set(k, new Block(this, loc)); return this._blocks.get(k); }
   getTopmostBlock({ x, z }) { return new Block(this, { x, y: this.roofY ?? 62, z }, "minecraft:grass_block"); }
   getBlockFromRay(loc, dir, o) { return { block: new Block(this, { x: Math.floor(loc.x + dir.x * 5), y: 63, z: Math.floor(loc.z + dir.z * 5) }, "minecraft:stone"), face: "Up", faceLocation: { x: 0, y: 1, z: 0 } }; }
   runCommand(c) { rec(["cmd", c]); return { successCount: 1 }; }
@@ -163,6 +172,7 @@ export const world = {
   getMoonPhase: guard(() => moon),
   getDynamicProperty: guard((k) => worldDP.get(k)),
   setDynamicProperty: guard((k, v) => worldDP.set(k, v)),
+  getDefaultSpawnLocation: guard(() => ({ x: 0, y: 64, z: 0 })),
   getEntity: guard((id) => overworld._entities.find((e) => e.id === id)),
   scoreboard: { getObjective: () => undefined },
 };

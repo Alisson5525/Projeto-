@@ -1,5 +1,5 @@
-import { world, system } from "@minecraft/server";
-import { TAG, DP, ITEM, INFECTION_TICKS, VAMPIRE, LOOP_TICKS, MAX_LEVEL } from "../core/config.js";
+import { world, system, ItemTypes } from "@minecraft/server";
+import { TAG, DP, ITEM, INFECTION_TICKS, VAMPIRE, LOOP_TICKS, MAX_LEVEL, VERSION } from "../core/config.js";
 import {
   Faction, getFaction, getNum, setNum, getStr, setStr, setLevel, getLevel, addXp, setBlood, setWolfTier, syncWolfTier,
   setJSON, getSettings,
@@ -214,6 +214,31 @@ export function migrate(player) {
 }
 
 // ---------------------------------------------------------------------------
+// Self-check: report content that failed to load (wrong game version, broken
+// install, conflicting add-on) instead of failing silently.
+// ---------------------------------------------------------------------------
+
+const REQUIRED = [
+  "sunrise:blood_altar", "sunrise:recharging_altar", "sunrise:meat_grinder", "sunrise:caixao_oak", "sunrise:garlic",
+  "sunrise:blood_bottle_4", "sunrise:vampire_skill_item", "sunrise:werewolf_skill_item", "sunrise:hunter_skill_item",
+  "sunrise:vampire_craft_book", "sunrise:eclipse_ingot", "sunrise:vampire_sword",
+];
+
+export function missingContent() {
+  return REQUIRED.filter((id) => !safe(() => ItemTypes.get(id)));
+}
+
+function announce(player) {
+  const missing = missingContent();
+  if (missing.length) {
+    msg(player, "vc.diag.missing", missing.join(", "));
+    msg(player, "vc.diag.missing_help");
+  } else {
+    msg(player, "vc.diag.ok", VERSION);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Lifecycle
 // ---------------------------------------------------------------------------
 
@@ -222,6 +247,7 @@ world.afterEvents.playerSpawn.subscribe(({ player, initialSpawn }) => {
     if (!isValid(player)) return;
     if (initialSpawn) {
       migrate(player);
+      announce(player);
       if (getSettings().starterBook && !player.hasTag(TAG.BOOK_GIVEN)) {
         ensureItem(player, ITEM.BOOK);
         player.addTag(TAG.BOOK_GIVEN);

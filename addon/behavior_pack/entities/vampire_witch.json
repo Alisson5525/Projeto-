@@ -25,20 +25,20 @@
           "attack_radius": 15
         },
         "minecraft:shooter": {
-          "type": "Arrow",
-          "def": "sunrise:bullet_queen",
-          "auxVal": 19
+          "def": "sunrise:bullet_queen"
         },
         "minecraft:environment_sensor": {
-          "on_environment": {
-            "filters": {
-              "test": "is_underwater",
-              "subject": "self",
-              "operator": "==",
-              "value": true
-            },
-            "event": "minecraft:melee_mode"
-          }
+          "triggers": [
+            {
+              "filters": {
+                "test": "is_underwater",
+                "subject": "self",
+                "operator": "==",
+                "value": true
+              },
+              "event": "minecraft:melee_mode"
+            }
+          ]
         }
       },
       "minecraft:melee_attack": {
@@ -54,15 +54,17 @@
           "effect_duration": 10
         },
         "minecraft:environment_sensor": {
-          "on_environment": {
-            "filters": {
-              "test": "in_water",
-              "subject": "self",
-              "operator": "==",
-              "value": false
-            },
-            "event": "minecraft:ranged_mode"
-          }
+          "triggers": [
+            {
+              "filters": {
+                "test": "in_water",
+                "subject": "self",
+                "operator": "==",
+                "value": false
+              },
+              "event": "minecraft:ranged_mode"
+            }
+          ]
         }
       }
     },
@@ -87,20 +89,20 @@
       "minecraft:jump.static": {},
       "minecraft:can_climb": {},
       "minecraft:shooter": {
-        "type": "Shulker Bullet",
-        "def": "sunrise:bullet_queen",
-        "auxVal": 19
+        "def": "sunrise:bullet_queen"
       },
       "minecraft:environment_sensor": {
-        "on_environment": {
-          "filters": {
-            "test": "is_underwater",
-            "subject": "self",
-            "operator": "==",
-            "value": true
-          },
-          "event": "minecraft:melee_mode"
-        }
+        "triggers": [
+          {
+            "filters": {
+              "test": "is_underwater",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "event": "minecraft:melee_mode"
+          }
+        ]
       },
       "minecraft:behavior.ranged_attack": {
         "attack_interval_min": 1,

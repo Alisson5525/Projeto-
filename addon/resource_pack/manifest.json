@@ -1,7 +1,7 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Vampire Craft §4[5.0.1]§r RES",
+    "name": "Vampire Craft §4[5.1.0]§r RES",
     "description": "§cVampire Craft 5 — Reborn§r\nTextures, models, animations and HUD.",
     "min_engine_version": [
       1,
@@ -11,8 +11,8 @@
     "uuid": "f2179d0b-33ed-4e3c-99b5-f818bf86a1ec",
     "version": [
       5,
-      0,
-      1
+      1,
+      0
     ]
   },
   "modules": [
@@ -21,8 +21,8 @@
       "uuid": "f75252c9-e335-4b8e-923d-69ec1fe42510",
       "version": [
         5,
-        0,
-        1
+        1,
+        0
       ]
     }
   ],
@@ -31,8 +31,8 @@
       "uuid": "e1a1f833-e86c-4245-80cb-4c3104d5aa5f",
       "version": [
         5,
-        0,
-        1
+        1,
+        0
       ]
     }
   ],

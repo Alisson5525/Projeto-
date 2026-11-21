@@ -3,13 +3,13 @@
 Reformulação completa do add-on **Vampire Craft v4.7.4** para **Minecraft Bedrock (Android, iOS, Windows, consoles)**.
 Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte poderes e sobreviva à **Lua de Sangue**.
 
-> **Versão:** 5.0.1 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
+> **Versão:** 5.1.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
 
 ---
 
 ## 📦 Instalação (Android)
 
-1. Baixe `dist/Vampire_Craft_v5.0.1.mcaddon`.
+1. Baixe `dist/Vampire_Craft_v5.1.0.mcaddon`.
 2. Toque no arquivo → abrir com **Minecraft**. Os dois pacotes (BEH e RES) são importados juntos.
 3. No mundo: **Configurações → Pacotes de Comportamento → Ativar "Vampire Craft [5.0.0] BEH"** (o de recursos é ativado junto).
 4. **Não é preciso ativar nenhum experimento.**
@@ -17,6 +17,17 @@ Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte podere
 **Atualizando de um mundo da v4.7.4?** Os pacotes usam os mesmos UUIDs, então o mundo atualiza sozinho. Na primeira entrada cada jogador é migrado automaticamente: raça, habilidades desbloqueadas, nível do lobisomem, atributos do caçador e sangue são convertidos para o novo sistema.
 
 ---
+
+## 🆕 Novidades da 5.1.0
+- **Diagnóstico automático**: ao entrar no mundo o add-on confirma que carregou, ou lista exatamente quais blocos/itens não carregaram (ex.: Altar de Sangue) e o que fazer.
+- **Altar de Sangue** agora também é encontrado em criptas, torres e círculos lunares e é derrubado por Bruxas Vampiras e Lobisomens Alfa; o registro do bloco não depende mais do menu.
+- **Minérios consertados**: Pedra do Sol (camadas 0–96) e Pedra da Lua (ardósia) realmente geram agora — antes usavam IDs de pedra removidos e alturas onde só havia ar.
+- **Estruturas ~10x mais comuns** (antes 0,1% por chunk) e **2 estruturas novas**: Cripta Vampírica (subterrânea, com Altar, gerador de vampiros e 2 baús) e Círculo Lunar (taigas).
+- **Baús com loot aleatório** em todas as estruturas (cemitério, acampamento, casa e torre); a torre perdeu itens "presos" salvos por engano.
+- **Mestre Caçador** agora mora no acampamento de caçadores (antes nascia infinitamente como monstro e nunca sumia).
+- **Encontros na natureza** longe do spawn: matilhas, ninhos de vampiros, covens de bruxas, patrulhas de caçadores e túmulos esquecidos com baú.
+- **Drops refeitos** para todos os mobs do add-on (com Saque/Looting e drops raros só quando morto por jogador) + drops extras de aldeões, saqueadores, evocadores, bruxas, lobos e morcegos — sem sobrescrever loot vanilla.
+- Vampiros salvos em estruturas voltaram a atacar; pulo do lobisomem III ajustado; visão noturna não pisca mais; aviso de capacete sem spam; regras de spawn por bioma.
 
 ## ✨ O que mudou
 

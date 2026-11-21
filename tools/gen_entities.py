@@ -127,13 +127,14 @@ def vampire(identifier, health, attack, speed, loot, bat_escape):
         "minecraft:equip_item": {},
         "minecraft:shareables": {"items": []},
     })
+    # Combat lives in the base components so mobs saved inside structures
+    # (with old component-group lists) still fight.
+    comps.update(melee(3, 1.25))
+    comps.update(targets(vampire_targets()))
+    comps["minecraft:behavior.leap_at_target"] = {"priority": 4, "yd": 0.35, "must_be_on_ground": True}
     groups = skins(4, mark=True)
-    groups["vc:combat"] = {}
-    groups["vc:combat"].update(melee(3, 1.25))
-    groups["vc:combat"].update(targets(vampire_targets()))
-    groups["vc:combat"]["minecraft:behavior.leap_at_target"] = {"priority": 4, "yd": 0.35, "must_be_on_ground": True}
     events = {
-        "minecraft:entity_spawned": {"sequence": [{"add": {"component_groups": ["vc:combat"]}}, skin_randomize(4)]},
+        "minecraft:entity_spawned": {"sequence": [skin_randomize(4)]},
     }
     if bat_escape:
         comps["minecraft:environment_sensor"] = {"triggers": [{
@@ -151,16 +152,17 @@ def vampire(identifier, health, attack, speed, loot, bat_escape):
             "minecraft:movement.hover": {},
             "minecraft:physics": {"has_gravity": False},
             "minecraft:behavior.random_hover": {"priority": 4, "xz_dist": 10, "y_dist": 6, "y_offset": -1, "interval": 1, "hover_height": [2, 6]},
+            "minecraft:behavior.melee_box_attack": {"priority": 9, "speed_multiplier": 0.1},
             "minecraft:behavior.avoid_mob_type": {"priority": 1, "entity_types": [{"filters": fam("player"), "max_dist": 16, "walk_speed_multiplier": 1.6, "sprint_speed_multiplier": 1.8}]},
             "minecraft:spell_effects": {"add_effects": [{"effect": "regeneration", "duration": 8, "amplifier": 2, "display_on_screen_animation": False}]},
             "minecraft:timer": {"looping": False, "time": 8, "time_down_event": {"event": "sunrise:from_bat"}},
         }
         events["sunrise:to_bat"] = {"sequence": [
-            {"add": {"component_groups": ["vc:bat"]}, "remove": {"component_groups": ["vc:combat"]}},
+            {"add": {"component_groups": ["vc:bat"]}},
         ]}
         restore = [{"filters": {"test": "is_mark_variant", "value": i}, "add": {"component_groups": [f"minecraft:skin{i + 1}"]}} for i in range(4)]
         events["sunrise:from_bat"] = {"sequence": [
-            {"remove": {"component_groups": ["vc:bat"]}, "add": {"component_groups": ["vc:combat"]}},
+            {"remove": {"component_groups": ["vc:bat"]}},
             *restore,
         ]}
     return entity(identifier, groups, comps, events)
@@ -245,6 +247,16 @@ def patch(name, fn):
 
 
 def witch(e):
+    for g in list(e.get("component_groups", {}).values()) + [e["components"]]:
+        sh = g.get("minecraft:shooter")
+        if sh:
+            sh.pop("type", None)
+            sh.pop("auxVal", None)
+    for g in e.get("component_groups", {}).values():
+        es = g.get("minecraft:environment_sensor")
+        if es and "on_environment" in es:
+            oe = es.pop("on_environment")
+            es["triggers"] = [oe] if isinstance(oe, dict) else oe
     e["components"]["minecraft:type_family"] = {"family": ["vampiro", "vampire", "monster", "undead", "supernatural"]}
     e["components"].pop("minecraft:burns_in_daylight", None)
     e["components"]["minecraft:behavior.nearest_attackable_target"] = {"priority": 2, "must_see": True, "reselect_targets": True,
@@ -261,4 +273,45 @@ def servant_bat(e):
 
 
 patch("vampire_witch", witch)
+patch("bullet_queen", lambda e: e["components"]["minecraft:projectile"].pop("destroyOnHurt", None))
 patch("servantsbat", servant_bat)
+
+
+# ---------------------------------------------------------------------------
+# Spawn rules
+# ---------------------------------------------------------------------------
+def spawn_rule(identifier, population, conditions):
+    path = os.path.join(BP, "spawn_rules", identifier.split(":")[1].replace("treiner", "treiner") + ".json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"format_version": "1.8.0", "minecraft:spawn_rules": {
+            "description": {"identifier": identifier, "population_control": population}, "conditions": conditions}}, f, indent=2)
+    print("spawn rule", identifier)
+
+
+def night_surface(weight, herd, biomes, extra=None):
+    c = {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {"min": 0, "max": 7, "adjust_for_weather": True},
+        "minecraft:difficulty_filter": {"min": "easy", "max": "hard"},
+        "minecraft:weight": {"default": weight},
+        "minecraft:herd": {"min_size": herd[0], "max_size": herd[1]},
+        "minecraft:biome_filter": {"any_of": [{"test": "has_biome_tag", "operator": "==", "value": b} for b in biomes]},
+    }
+    c.update(extra or {})
+    return c
+
+
+OVERWORLD_LAND = ["plains", "forest", "taiga", "savanna", "swamp", "roofed", "birch", "extreme_hills", "mesa", "desert", "jungle"]
+spawn_rule("sunrise:weak_vampire", "monster", [night_surface(14, (1, 2), OVERWORLD_LAND)])
+spawn_rule("sunrise:vampire", "monster", [night_surface(6, (1, 1), ["forest", "roofed", "taiga", "swamp", "birch"])])
+spawn_rule("sunrise:vampire_witch", "monster", [night_surface(1, (1, 1), ["swamp", "roofed"])])
+spawn_rule("sunrise:weak_werewolf", "monster", [night_surface(10, (1, 3), ["forest", "taiga", "birch", "extreme_hills"])])
+spawn_rule("sunrise:werewolf", "monster", [night_surface(5, (1, 2), ["taiga", "forest", "extreme_hills"])])
+spawn_rule("sunrise:black_werewolf", "monster", [night_surface(1, (1, 1), ["taiga", "extreme_hills", "mega"])])
+spawn_rule("sunrise:hunter", "animal", [{
+    "minecraft:spawns_on_surface": {},
+    "minecraft:brightness_filter": {"min": 9, "max": 15, "adjust_for_weather": False},
+    "minecraft:weight": {"default": 3},
+    "minecraft:herd": {"min_size": 1, "max_size": 2},
+    "minecraft:biome_filter": {"any_of": [{"test": "has_biome_tag", "operator": "==", "value": b} for b in ["plains", "forest", "taiga", "savanna"]]},
+}])

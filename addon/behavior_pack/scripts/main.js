@@ -8,5 +8,8 @@ import "./systems/werewolf.js";
 import "./systems/hunter.js";
 import "./systems/world_events.js";
 import "./systems/items.js";
+import "./systems/drops.js";
+import "./systems/exploration.js";
 import "./systems/hud.js";
+import "./ui/menus.js";
 import "./systems/admin.js";

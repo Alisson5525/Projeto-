@@ -16,7 +16,9 @@
       "minecraft:block_placer": {
         "block": "thini:garlic_crop",
         "use_on": [
-          "minecraft:farmland"
+          {
+            "name": "minecraft:farmland"
+          }
         ]
       },
       "minecraft:max_stack_size": 64

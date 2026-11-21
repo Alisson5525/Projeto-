@@ -253,6 +253,8 @@ export function isCosmeticHead(typeId) {
   return COSMETIC_HEADS.has(typeId);
 }
 
+const helmetWarn = new Map();
+
 /** Put a locked cosmetic item on the head. Returns false if a helmet can't be stored. */
 export function putHead(player, typeId) {
   const current = getEquip(player, EquipmentSlot.Head);
@@ -260,7 +262,12 @@ export function putHead(player, typeId) {
   if (current && !isCosmeticHead(current.typeId)) {
     const inv = getInventory(player);
     if (!inv || inv.emptySlotsCount === 0) {
-      msg(player, "vc.form.helmet_full");
+      // Throttled: this is called every loop while a form is active.
+      const last = helmetWarn.get(player.id) ?? -1000;
+      if (system.currentTick - last > 200) {
+        helmetWarn.set(player.id, system.currentTick);
+        msg(player, "vc.form.helmet_full");
+      }
       return false;
     }
     inv.addItem(current);

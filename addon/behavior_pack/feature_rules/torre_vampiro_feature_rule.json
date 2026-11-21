@@ -15,14 +15,29 @@
                 {
                   "test": "has_biome_tag",
                   "operator": "==",
-                  "value": "plains"
+                  "value": "forest"
                 },
                 {
                   "test": "has_biome_tag",
                   "operator": "==",
-                  "value": "forest"
+                  "value": "taiga"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "roofed"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "swamp"
                 }
               ]
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld"
             }
           ]
         }
@@ -30,7 +45,7 @@
     },
     "distribution": {
       "iterations": 1,
-      "scatter_chance": 0.1,
+      "scatter_chance": 0.9,
       "x": {
         "distribution": "uniform",
         "extent": [
@@ -38,7 +53,7 @@
           15
         ]
       },
-      "y": "query.heightmap(variable.worldx, variable.worldz)",
+      "y": "query.heightmap(variable.worldx, variable.worldz) + 0",
       "z": {
         "distribution": "uniform",
         "extent": [

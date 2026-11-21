@@ -5,10 +5,11 @@
       "identifier": "sunrise:casa_cacador_feature"
     },
     "structure_name": "mystructure:casa_cacador",
-    "adjustment_radius": 12,
+    "adjustment_radius": 6,
     "facing_direction": "random",
     "constraints": {
-      "grounded": {}
+      "grounded": {},
+      "unburied": {}
     }
   }
 }

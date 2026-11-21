@@ -24,20 +24,20 @@
                 },
                 {
                   "test": "has_biome_tag",
-                  "operator": "!=",
-                  "value": "beach"
+                  "operator": "==",
+                  "value": "taiga"
                 },
                 {
                   "test": "has_biome_tag",
-                  "operator": "!=",
-                  "value": "desert"
-                },
-                {
-                  "test": "has_biome_tag",
-                  "operator": "!=",
-                  "value": "river"
+                  "operator": "==",
+                  "value": "birch"
                 }
               ]
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld"
             }
           ]
         }
@@ -45,7 +45,7 @@
     },
     "distribution": {
       "iterations": 1,
-      "scatter_chance": 0.1,
+      "scatter_chance": 1.6,
       "x": {
         "distribution": "uniform",
         "extent": [

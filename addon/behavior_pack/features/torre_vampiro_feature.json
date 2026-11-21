@@ -8,7 +8,8 @@
     "adjustment_radius": 7,
     "facing_direction": "random",
     "constraints": {
-      "grounded": {}
+      "grounded": {},
+      "unburied": {}
     }
   }
 }

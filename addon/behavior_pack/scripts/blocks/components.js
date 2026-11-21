@@ -1,7 +1,12 @@
 import { system, world, EquipmentSlot, ItemStack } from "@minecraft/server";
 import { isVampire, isWerewolf, getFaction } from "../core/data.js";
 import { safe, sound, particle, getEquip, setEquip, takeItem, countItem, giveItem, isCreative, msg, later } from "../core/util.js";
-import { openUnlockMenu } from "../ui/menus.js";
+
+/**
+ * UI is late-bound so this module only depends on @minecraft/server: block
+ * components are registered even if something in the UI layer fails to load.
+ */
+export const BLOCK_UI = { openUnlockMenu: undefined };
 
 /** Custom block states are not in the vanilla typings — read/write them as numbers. */
 function getS(block, name) {
@@ -63,7 +68,8 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry: reg }) => {
       later(30, () => setS(block, "sunrise:blood_altar_level", 4));
       later(50, () => {
         setS(block, "sunrise:blood_altar_level", 0);
-        openUnlockMenu(player, faction);
+        if (BLOCK_UI.openUnlockMenu) BLOCK_UI.openUnlockMenu(player, faction);
+        else msg(player, "vc.diag.ui_missing");
       });
     },
   });

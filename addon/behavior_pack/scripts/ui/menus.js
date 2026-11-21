@@ -6,6 +6,7 @@ import {
 } from "../core/data.js";
 import { safe, msg, sound, tr, countItem, isCreative } from "../core/util.js";
 import { SKILLS, getUnlocked, hasSkill, tryUnlock, castSkill, cooldownLeft, setSelected, getSelected, skillIcon } from "../systems/skills.js";
+import { BLOCK_UI } from "../blocks/components.js";
 import { MISSIONS, missionProgress, deliverMission, getStats, spendPoint } from "../systems/hunter.js";
 
 // ---------------------------------------------------------------------------
@@ -77,7 +78,7 @@ const TOPICS = {
   werewolf: ["become", "form", "tiers", "skills", "level"],
   hunter: ["become", "missions", "stats", "bow", "skills"],
   items: ["altar", "recharge", "grinder", "coffin", "cures", "armor"],
-  world: ["bloodmoon", "structures", "mobs", "commands"],
+  world: ["bloodmoon", "explore", "structures", "drops", "mobs", "commands"],
 };
 
 async function openTopic(player, topic) {
@@ -314,12 +315,15 @@ async function openAdmin(player) {
     .toggle(T("vc.admin.bloodmoon"), { defaultValue: s.bloodMoon })
     .slider(T("vc.admin.bloodmoon_chance"), 0, 100, { valueStep: 5, defaultValue: s.bloodMoonChance })
     .toggle(T("vc.admin.ambush"), { defaultValue: s.mobAmbush })
-    .toggle(T("vc.admin.book"), { defaultValue: s.starterBook });
+    .toggle(T("vc.admin.book"), { defaultValue: s.starterBook })
+    .toggle(T("vc.admin.encounters"), { defaultValue: s.encounters !== false });
   const res = await show(form, player);
   if (res.canceled || !res.formValues) return;
-  const [sun, inf, bm, bmc, amb, book] = res.formValues;
-  saveSettings({ sunDamage: !!sun, infectionChance: Number(inf), bloodMoon: !!bm, bloodMoonChance: Number(bmc), mobAmbush: !!amb, starterBook: !!book });
+  const [sun, inf, bm, bmc, amb, book, enc] = res.formValues;
+  saveSettings({ sunDamage: !!sun, infectionChance: Number(inf), bloodMoon: !!bm, bloodMoonChance: Number(bmc), mobAmbush: !!amb, starterBook: !!book, encounters: !!enc });
   msg(player, "vc.settings.saved");
 }
 
 export { MISSIONS };
+
+BLOCK_UI.openUnlockMenu = openUnlockMenu;
