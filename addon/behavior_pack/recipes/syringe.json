@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:syringe"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			" XZ",
+			"X X",
+			"#X "
+		],
+		"key": {
+			"#": {
+				"item": "iron_ingot"
+			},
+			"X": {
+				"item": "glass"
+			},
+			"Z": {
+				"item": "iron_nugget"
+			}
+		},
+		"unlock": [
+			{
+				"item": "iron_ingot"
+			}
+		],
+		"result": {
+			"item": "sunrise:syringe"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:meat_grinder"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"XXX",
+			"XCX",
+			"XXX"
+		],
+		"key": {
+			"X": {
+				"item": "iron_ingot"
+			},
+			"C": {
+				"item": "shears"
+			}
+		},
+		"unlock": [
+			{
+				"item": "iron_ingot"
+			}
+		],
+		"result": {
+			"item": "sunrise:meat_grinder"
+		}
+	}
+}

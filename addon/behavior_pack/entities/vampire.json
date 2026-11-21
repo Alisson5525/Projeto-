@@ -1,0 +1,404 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "sunrise:vampire",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"in_foresta": {
+				"minecraft:behavior.flee_sun": {
+					"priority": 2,
+					"speed_multiplier": 2
+				},
+				"minecraft:burns_in_daylight": {}
+			},
+			"baby": {
+				"minecraft:is_baby": {},
+				"minecraft:scale": {
+					"value": 0.5
+				},
+				"minecraft:ageable": {
+					"duration": 1200,
+					"grow_up": {
+						"event": "minecraft:ageable_grow_up",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.take_flower": {
+					"priority": 7
+				},
+				"minecraft:behavior.play": {
+					"priority": 8,
+					"speed_multiplier": 0.32
+				}
+			},
+			"adult": {},
+			"wild": {
+				"minecraft:attack": {
+					"damage": 8
+				},
+				"minecraft:movement.basic": {},
+				"minecraft:navigation.walk": {
+					"is_amphibious": true,
+					"can_path_over_water": true,
+					"can_pass_doors": true,
+					"can_open_doors": false,
+					"can_walk": true,
+					"avoid_water": true
+				},
+				"minecraft:movement": {
+					"value": 0.5
+				}
+			},
+			"minecraft:skin1": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"minecraft:skin2": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"minecraft:skin3": {
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"minecraft:skin4": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"has_target": {
+				"minecraft:physics": {
+					"has_gravity": true,
+					"has_collision": true
+				},
+				"minecraft:variant": {
+					"value": 3
+				},
+				"minecraft:scale": {
+					"value": 1
+				},
+				"minecraft:movement": {
+					"value": 0.5
+				},
+				"minecraft:navigation.walk": {
+					"is_amphibious": true,
+					"can_path_over_water": true,
+					"can_pass_doors": true,
+					"can_open_doors": false,
+					"can_walk": true,
+					"avoid_water": true
+				},
+				"minecraft:movement.basic": {}
+			},
+			"lua_sangue": {
+				"minecraft:spell_effects": {
+					"add_effects": [
+						{
+							"amplifier": 1,
+							"display_on_screen_animation": false,
+							"duration": 20,
+							"effect": "jump_boost",
+							"visible": true
+						},
+						{
+							"amplifier": 1,
+							"display_on_screen_animation": false,
+							"duration": 20,
+							"effect": "resistance",
+							"visible": true
+						},
+						{
+							"amplifier": 0,
+							"display_on_screen_animation": false,
+							"duration": 20,
+							"effect": "regeneration",
+							"visible": true
+						}
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"within_radius": 25,
+				"must_reach": true,
+				"entity_types": [
+					{
+						"filters": {
+							"other_with_families": [
+								"player",
+								"village",
+								"villager",
+								"hunter",
+								"irongolem",
+								"lobisomem",
+								"snowgolem"
+							],
+							"all_of": [
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"subject": "other",
+									"value": "vampire"
+								},
+								{
+									"test": "has_tag",
+									"operator": "!=",
+									"subject": "other",
+									"value": "vampiro"
+								}
+							]
+						},
+						"max_dist": 20,
+						"must_see": false,
+						"walk_speed_multiplier": 1,
+						"sprint_speed_multiplier": 1,
+						"within_default": 1
+					}
+				]
+			},
+			"minecraft:type_family": {
+				"family": [
+					"undead",
+					"monster",
+					"vampiro"
+				]
+			},
+			"minecraft:breathable": {
+				"totalSupply": 20,
+				"suffocateTime": 0
+			},
+			"minecraft:health": {
+				"value": 70,
+				"max": 70
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.8
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.move_indoors": {
+				"priority": 4,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.restrict_open_door": {
+				"priority": 5
+			},
+			"minecraft:behavior.move_towards_restriction": {
+				"priority": 7,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.share_items": {
+				"priority": 8,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 0.5,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "villager"
+						}
+					}
+				]
+			},
+			"minecraft:behavior.pickup_items": {
+				"priority": 9,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 0.5
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 11,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 12,
+				"look_distance": 8,
+				"probability": 0.02
+			},
+			"minecraft:physics": {},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?20:1"
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 2,
+				"speed_multiplier": 0.7,
+				"random_stop_interval": 100,
+				"track_target": false,
+				"reach_multiplier": 1
+			},
+			"minecraft:behavior.restrict_sun": {
+				"priority": 1
+			},
+			"minecraft:behavior.flee_sun": {
+				"priority": 2,
+				"speed_multiplier": 1
+			  },
+			"minecraft:equip_item": {},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/vampire.json"
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 3
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 95,
+								"add": {
+									"component_groups": [
+										"adult",
+										"wild"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 50,
+								"add": {
+									"component_groups": [
+										"minecraft:skin1"
+									]
+								}
+							},
+							{
+								"weight": 50,
+								"add": {
+									"component_groups": [
+										"minecraft:skin2"
+									]
+								}
+							},
+							{
+								"weight": 50,
+								"add": {
+									"component_groups": [
+										"minecraft:skin3"
+									]
+								}
+							},
+							{
+								"weight": 50,
+								"add": {
+									"component_groups": [
+										"minecraft:skin4"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"minecraft:entity_born": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"baby"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:ageable_grow_up": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"baby"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"adult"
+							]
+						}
+					}
+				]
+			},
+			"on_tame": {
+				"add": {
+					"component_groups": [
+						"tame",
+						"off_gravidade"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wild"
+					]
+				}
+			},
+			"target_on": {
+				"add": {
+					"component_groups": [
+						"has_target"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"off_gravidade"
+					]
+				}
+			},
+			"target_off": {
+				"remove": {
+					"component_groups": [
+						"has_target"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"off_gravidade"
+					]
+				}
+			},
+			"gold": {
+				"add": {
+					"component_groups": [
+						"gold"
+					]
+				}
+			},
+			"lua_sangue": {
+				"sequence": [
+					{
+						"filters": {
+							"value": false,
+							"test": "is_daytime"
+						},
+						"add": {
+							"component_groups": [
+								"minecraft:skin4"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

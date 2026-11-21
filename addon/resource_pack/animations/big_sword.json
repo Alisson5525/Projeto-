@@ -1,0 +1,39 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dfg.first_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						66,
+						60,
+						-60
+					],
+					"position": [
+						6,
+						20,
+						16
+					]
+				}
+			}
+		},
+		"animation.dfg.third_person_hold": {
+			"loop": true,
+			"bones": {
+				"root_item": {
+					"rotation": [
+						90,
+						0,
+						0
+					],
+					"position": [
+						-1,
+						22.5,
+						-0.5
+					]
+				}
+			}
+		}
+	}
+}

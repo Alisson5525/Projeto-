@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:recharging_altar"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			" X ",
+			"SYS",
+			"   "
+		],
+		"key": {
+			"X": {
+				"item": "sunrise:philosopher_stone",
+				"data": 0
+			},
+			"S": {
+				"item": "minecraft:stone",
+				"data": 0
+			},
+			"Y": {
+				"item": "sunrise:blood_altar",
+				"data": 0
+			}
+		},
+		"unlock": [
+			{
+				"item": "sunrise:philosopher_stone"
+			},
+			{
+				"item": "sunrise:blood_altar"
+			}
+		],
+		"result": {
+			"item": "sunrise:recharging_altar",
+			"count": 1
+		}
+	}
+}

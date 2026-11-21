@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:caixao_spruce"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			"XXX",
+			"XX ",
+			"XXX"
+		],
+		"key": {
+			"X": {
+				"item": "minecraft:spruce_planks",
+				"data": 0
+			}
+		},
+		"unlock": [
+			{
+				"item": "minecraft:spruce_planks"
+			}
+		],
+		"result": {
+			"item": "sunrise:caixao_spruce",
+			"count": 1
+		}
+	}
+}

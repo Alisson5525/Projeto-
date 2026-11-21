@@ -1,0 +1,19 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:garlic_syringe",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:hand_equipped": false,
+
+			"minecraft:display_name": {
+				"value": "item.sunrise:garlic_syringe.name"
+			},
+			"minecraft:icon": "sunrise_garlic_syringe"
+		}
+	}
+}

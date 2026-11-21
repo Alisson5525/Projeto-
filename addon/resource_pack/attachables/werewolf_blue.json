@@ -1,0 +1,48 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:attachable": {
+    "description": {
+      "geometry": {
+        "default": "geometry.attchables_werewolf"
+      },
+      "identifier": "sunrise:trans_lob_blue",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/entity/werewolf/skin1",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "scripts": {
+        "pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+				],
+        "animate": [
+          "clook_at_target",
+          "cmove",
+          "cbob",
+          "cattack"
+        ],
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+			"animations": {
+				"look_at_target_default": "animation.attchables_werewolf.look_at_target",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"move": "animation.attchables_werewolf.move",
+				"attack.rotations": "animation.attchables_werewolf.attack.rotations",
+				"bob": "animation.attchables_werewolf.bob",
+				"move_runnig": "animation.attchables_werewolf.quadruped.move",
+				"quadruped": "animation.attchables_werewolf.quadruped",
+        "clook_at_target": "controller.animation.humanoid.look_at_target",
+        "cmove": "controller.animation.attchables_werewolf.move",
+				"cbob": "controller.animation.humanoid.bob",
+				"cattack": "controller.animation.attchables_werewolf.attack"
+			},
+      "render_controllers": [
+        "controller.render.armor"
+      ]
+    }
+  }
+}

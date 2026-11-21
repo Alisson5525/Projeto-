@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:werewolf_claws"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			" X ",
+			"XXX",
+			"X X"
+		],
+		"key": {
+			"X": {
+				"item": "sunrise:eclipse_ingot"
+			}
+		},
+		"unlock": [
+			{
+				"item": "sunrise:eclipse_ingot"
+			}
+		],
+		"result": {
+			"item": "sunrise:werewolf_claws"
+		}
+	}
+}

@@ -1,0 +1,254 @@
+item.sunrise:diente_vampiro.name=Diente_vampiro
+item.sunrise:corazon_humano_débil.name=Corazón humano débil
+item.sunrise:piernas_del_lobo.name=Piernas_del_lobo
+item.sunrise:corazon_humano.name=Corazón humano
+item.sunrise:sangre_vampiro.name=Sangre de vampiro
+item.sunrise:sangre_pura_vampiro.name=Sangre pura de vampiro
+item.sunrise:botella_de_sangre_4.name=Botella de sangre [4/4]
+item.sunrise:blood_bottle_1.name=Botella de sangre [1/4]
+item.sunrise:botella_de_sangre_2.name=Botella de sangre [2/4]
+item.sunrise:blood_bottle_3.name=Botella de sangre [3/4]
+item.sunrise:moon_stone_ore.name=Moneda de piedra lunar
+item.sunrise:sun_stone_ore.name=Mena de piedra solar
+tile.sunrise:moon_stone_ore_block.name=Bloque de mineral de piedra lunar
+tile.sunrise:sun_stone_ore_block.name=Bloque de mineral de piedra solar
+tile.sunrise:recarga_altar.name=Cambiar recarga
+tile.sunrise:blood_altar.name=Cambio de sangre
+item.sunrise:eclipse_ingot.name=Lingote eclipse
+item.sunrise:lingote_de_piedra_solar.name=Lingote de piedra solar
+item.sunrise:lingote_piedra_luna.name=Lingote piedra luna
+item.sunrise:garras_lobo.name=Garras de hombre lobo
+item.sunrise:piedra_filosofal.name=Piedra filosofal
+item.sunrise:agua_filosofal.name=Agua filosofal
+item.sunrise:cura_vampiro.name=Cura vampiro
+item.sunrise:cura_lobo.name=Cura hombre lobo
+item.sunrise:espada_vampiro.name=Espada vampiro
+
+
+gui.button.UnlockSkill_moreDamage1=Más daño LV1 ===> §a20XP
+gui.button.UnlockSkill_moreDamage2=Más daño LV2 ===> §a30XP
+gui.button.UnlockSkill_moreDamage3=Más daño LV3 ===> §a40XP
+gui.button.UnlockSkill_moreLife1=Más vida LV1 ===> §a20XP
+gui.button.UnlockSkill_moreLife2=Más vida LV2 ===> §a30XP
+gui.button.UnlockSkill_moreLife3=Más vida LV3 ===> §a40XP
+gui.button.UnlockSkill_moreSpeed=Más velocidad ===> §a40XP
+gui.button.UnlockSkill_moreJump=Más salto ===> §a40XP
+gui.button.UnlockSkill_breathControl=Control de respiración ===> §a40XP
+gui.button.UnlockSkill_skillPotions=Habilidad con pociones ===> §a40XP
+gui.button.UnlockSkill_undetectable=Indetectable ===> §a40XP
+gui.button.UnlockSkill_GarlicInTheVein=Ajo en la vena ===> §a40XP
+gui.button.UnlockSkill_wolvesTamer=Hombre lobo ===> §a40XP
+gui.button.UnlockSkill_blessedHunter ===> §a40XP
+gui.button UnlockSkill_kingHunter=Cazador del rey ===> §a40XP
+gui.button.UnlockSkill_loneHunter ===> §a40XP
+gui.button.UnlockSkill_saturation=Saturación ===> §a40XP
+
+##buttons##
+gui.button.vp.UnlockSkill_absorption=Absorción ===> 
+gui.button.vp.UnlockSkill_nightvision=Visión nocturna ===> 
+gui.button.vp.UnlockSkill_fly=Volar ===> 
+
+gui.button.vp.UnlockSkill_indetectable=Indetectable ===> 
+gui.button.vp.UnlockSkill_waterproof=Impermeable ===> 
+gui.button.vp.UnlockSkill_fogremoval=Eliminación de niebla ===> 
+
+
+gui.button.vp.UnlockSkill_sunresistence=Resistencia al sol ===> 
+gui.button.vp.UnlockSkill_servantsbat=Batalla de sirvientes ===> 
+gui.button.vp.UnlockSkill_rage=Furia ===> 
+
+gui.button.vp.UnlockSkill_acrobata=Acrobata ===> 
+gui.button.vp.UnlockSkill_poucaSede=Sedezinha ===> 
+gui.button.vp.UnlockSkill_blooddrinker=Bebedor de sangre ===> 
+
+gui.button.vp.UnlockSkill_teleport=Teleporte ===> 
+gui.button.vp.UnlockSkill_defencive=Defensor ===> 
+gui.button.vp.UnlockSkill_sworddex=Espada dex ===> 
+
+gui.button.vp.UnlockSkill_invisibility=Invisibilidad ===> 
+gui.button.vp.UnlockSkill_regeneration=Regeneración ===> 
+gui.button.vp.UnlockSkill_icetouch=Ice Touch ===> 
+
+
+
+gui.button.lb.UnlockSkill_absorption=Absorción ===> 
+gui.button.lb.UnlockSkill_nightvision=Visión nocturna ===> 
+
+gui.button.lb.UnlockSkill_indetectable=Indetectable ===> 
+gui.button.lb.UnlockSkill_waterproof=Impermeable ===> 
+gui.button.lb.UnlockSkill_fogremoval=Eliminar niebla ===> 
+
+gui.button.lb.UnlockSkill_rage=Furia ===> 
+gui.button.lb.UnlockSkill_suntransform=Transformación del sol ===> 
+
+gui.button.lb.UnlockSkill_onehit=Ungolpe ===> 
+gui.button.lb.UnlockSkill_hungry=Hambre ===> 
+gui.button.lb.UnlockSkill_acrobata=Acrobata ===> 
+
+gui.button.lb.UnlockSkill_defencive=Defensivo ===> 
+gui.button.lb.UnlockSkill_esquiva=Esquivar ===> 
+
+gui.button.lb.UnlockSkill_regeneration=Regeneración ===> 
+gui.button.lb.UnlockSkill_invisibility=Invisibilidad ===> 
+gui.button.lb.UnlockSkill_sangramento=Sangramento ===> 
+
+
+gui.button.UseSkill_nightvision=Visión nocturna
+gui.button.UseSkill_fly=Volar
+gui.button.UseSkill_sunresistence=Resistencia al sol
+gui.button.UseSkill_absorption=Absorción
+gui.button.UseSkill_servantsbat=Batalla de sirvientes
+gui.button.UseSkill_rage=Furia
+gui.button.UseSkill_acrobat=Acrobat
+gui.button.UseSkill_littleHeadquarters=Cuartelillo 
+gui.button.UseSkill_blooddrinker=Bebedor de sangre
+gui.button.UseSkill_indetectable=Indetectable
+gui.button.UseSkill_waterproof=Impermeable
+gui.button.UseSkill_fogremoval=Eliminar niebla
+gui.button.UseSkill_teleport=Teleporte
+gui.button.UseSkill_defencive=Defensivo
+gui.button.UseSkill_sworddex=Espada dex
+gui.button.UseSkill_invisibility=Invisibilidad
+gui.button.UseSkill_regeneration=Regeneración
+gui.button.UseSkill_icetouch=Hielo táctil
+gui.button.UseSkill_onehit=Un golpe
+
+gui.button.UseSkill_suntransform=Transformación del sol
+gui.button.UseSkill_bleed=Sangrar
+
+
+
+
+##diálogos##
+text.virar_hunter=¿Quieres ser cazador?
+button.yes=sí
+boton.nao=no
+notice.thirsty=Tienes sed
+msg_transformed=Sientes una tremenda sed de sangre...
+chat.redmoon_Event=La luna roja ilumina el cielo...
+
+##vampire_craft_book##
+gui.button.vampire=Vampiros
+gui.button.werewolf=Ser lobos
+gui.button.HowTurnVampire=Cómo convertirse en vampiro
+gui.button.HowTurnWerewolf=Cómo convertirse en hombre lobo
+gui.button.HowTurnHunter=Cómo convertir cazador
+gui.button.drinkBlood=Beber sangre
+gui.button.unlockSkillVPLB=Desbloquear nueva habilidad
+vampire_craft_book.HowTurnVampire1=Es posible convertirse en vampiro utilizando un diente de vampiro o siendo mordido por uno, aunque las probabilidades son bajas en este último caso. Los vampiros se pueden encontrar en el bosque oscuro, que es el lugar más fácil para convertirse en vampiro. El objeto diente de vampiro tiene un 50% de posibilidades de aparecer cuando derrotas a un vampiro.
+vampire_craft_book.HowTurnVampire2=La transformación dura 5 minutos, y puedes llevar la cuenta del tiempo mediante el efecto de hambre añadido al jugador. Al final del tiempo, recibirás un ítem llamado "Habilidades vampíricas", en el que podrás elegir y usar habilidades vampíricas.
+vampire_craft_book.HowTurnVampire3=Si quieres evitar convertirte en vampiro en 5 minutos, puedes hacerlo calentando un cubo de leche en el horno y bebiendo el cubo de leche caliente.
+
+vampire_craft_book.drinkBlood1=Sólo cuando seas vampiro sentirás un nuevo tipo de hambre, la sed de sangre. Con el indicador de sed situado justo encima del indicador de hambre, puedes controlar el nivel de sed del vampiro.
+vampire_craft_book.drinkBlood2=La sed del vampiro no puede saciarse con comida corriente; necesitas beber sangre para llenar la barra de sed de sangre. Puedes hacerlo de dos formas: bebiendo botellas de sangre, que se obtienen mordiendo a una multitud mientras sostienes una botella de cristal, o encontrándolas en estructuras repartidas por el mundo. El segundo método consiste en beber directamente de la fuente pulsando el botón de la pantalla o el botón de interacción con las manos desnudas.
+vampire_craft_book.drinkBlood3=Si la barra de sed llega a cero, el vampiro se debilitará y ya no podrá utilizar sus habilidades, perdiendo temporalmente todas sus capacidades de resistencia.
+
+vampire_craft_book.HowTurnWerewolf1=Es posible convertirse en hombre lobo utilizando presas de hombre lobo o siendo mordido por uno, aunque las probabilidades son bajas en este último caso. Los hombres lobo se pueden encontrar en el bosque oscuro, que es el lugar más fácil para convertirse en hombre lobo. El objeto colmillo de hombre lobo tiene un 50% de posibilidades de aparecer cuando derrotas a un hombre lobo.
+vampire_craft_book.HowTurnWerewolf2=La transformación dura 5 minutos, y puedes llevar la cuenta del tiempo mediante el efecto de hambre añadido al jugador. Al final del tiempo, recibirás un ítem llamado "Habilidades de hombre lobo", en el que podrás elegir y usar habilidades de hombre lobo.
+vampire_craft_book.HowTurnWerewolf3=Si quieres evitar convertirte en hombre lobo en 5 minutos, puedes hacerlo calentando un cubo de leche en el horno y bebiendo el cubo de leche caliente.
+
+gui.button.niveisLB=Niveles de hombre lobo
+vampire_craft_book.unlockSkillVP1=Después de convertirte en vampiro, puedes desbloquear nuevas habilidades. Para ello, necesitas un altar de sangre y botellas llenas de sangre.
+vampire_craft_book.unlockSkillVP2=Cuando el altar esté lleno, simplemente usa un diente de vampiro en el altar. Aparecerá una pantalla con las habilidades que aún no han sido desbloqueadas; necesitas suficiente XP para desbloquearlas.
+vampire_craft_book.unlockSkillLB1=Después de convertirte en hombre lobo, puedes desbloquear nuevas habilidades. Para ello, necesitas un altar de sangre y usar hígado de hombre lobo.
+vampire_craft_book.unlockSkillLB2=Cuando el altar esté lleno, simplemente usa un colmillo de hombre lobo en el altar. Aparecerá una pantalla con las habilidades aún no desbloqueadas; necesitas suficiente XP para desbloquearlas; también necesitas tener el nivel específico de hombre lobo, dependiendo de la habilidad (ver más sobre esto en el tema de abajo aquí en el libro).
+vampire_craft_book.niveisLB1=Tras convertirte en hombre lobo, recibes el nivel de hombre lobo §mI§r. Puedes subir de nivel matando a hombres lobo de un nivel superior al tuyo. El orden de fuerza es §mI§r - blanco (beta), §mII§r - azulado (omega) y §mIII§r - negro (alfa).
+vampire_craft_book.commands.removeLB=function sunrise/removeLB: Elimina instantáneamente la transformación del jugador en hombre lobo.
+vampire_craft_book.commands.removeVP=function sunrise/removeVP: elimina al instante la transformación del jugador en vampiro
+
+
+gui.button.howUpLevel=Cómo subir de nivel  
+gui.button.hunterAtributes=Tipos de niveles  
+vampire_craft_book.howUpLevel1=A diferencia del vampiro y el hombre lobo, el cazador no desbloquea habilidades.  
+vampire_craft_book.howUpLevel2=El cazador puede subir el nivel de sus atributos completando misiones para algún "Entrenador de cazadores" que se puede encontrar por el mundo.  
+hunter_book.info1= - El nivel de vigor, mejora el físico y la energía del cuerpo.  
+hunter_book.info2= - El nivel de maná, cantidad de energía mágica.  
+hunter_book.info3= - El nivel de maestría, se requiere un nivel mínimo de maestría para usar armas.  
+hunter_book.info4= - El nivel de competencia, mejora el uso de algunas armas, objetos y la creación de herramientas.  
+
+
+line.breaker=-----------------
+line.textsepare=%%%%%%%%%%%%%%%%%
+
+vampire_craft_book.commands.funcVP=function sunrise/transVP: Transforma al jugador instantáneamente en vampiro.
+vampire_craft_book.commands.funcLB=function sunrise/transLB: Transforma al jugador instantáneamente en hombre lobo.
+vampire_craft_book.commands.funcHU=function sunrise/transHU: Transforma instantáneamente al jugador en cazador.
+
+gui.button.new.UnlockSkill_moreDamage1=Más daño ===> §a10XP
+gui.button.new.UnlockSkill_moreDamage2=Más daño ===> §a30XP
+gui.button.new.UnlockSkill_moreDamage3=Más daño ===> §a60XP
+gui.button.new.UnlockSkill_regeneration1=Regeneración ===> §a15XP
+gui.button.new.UnlockSkill_regeneration2=Regeneración ===> §a30XP
+gui.button.UnlockSkill_rage=Furia ===> §a15XP
+gui.button.new.UnlockSkill_son_moon=Hijo de la luna ===> §a60XP
+gui.button.new.UnlockSkill_will=Voluntad del rey ===> §a60XP
+gui.button.new.UnlockSkill_protecao_divina=Protección divina ===> §a60XP
+
+gui.button.hunter=Cazador
+gui.title.choose_type=Elige tu tipo
+gui.button.SelectType_lonehunter=Cazador solitario
+gui.button.SelectType_blessedHunter=Cazador de la iglesia
+gui.button.SelectType_kingHunter=Cazador real del rey
+gui.button.cacador=Cazador
+vampire_craft_book.commands.removeHU=function sunrise/removeHU: Elimina instantáneamente la transformación del jugador en cazador.
+vampire_craft_book.HowTurnHunter1=Puedes convertirte en cazador usando una jeringuilla con ajo en ti mismo, esto tarda 5 minutos, puedes ver el tiempo restante por el efecto de hambre.
+vampire_craft_book.HowTurnHunter2=Entonces puedes elegir un tipo de cazador, mira el botón de abajo.
+vampire_craft_book.huntersSkill1=Las habilidades de cazador mejoran los atributos del cazador y esto sólo se aplica a los cazadores reales y a los cazadores eclesiásticos. Los cazadores solitarios sólo tienen las habilidades de su elección (vampiro u hombre lobo).
+vampire_craft_book.huntersSkill2=El objeto de habilidad se usa para desbloquear habilidades. Se pueden comprar con xp.
+gui.button.huntersTypes=Tipos de cazador
+vampire_craft_book.huntersTypes1=Cazador eclesiástico: Los cazadores eclesiásticos son subordinados de la iglesia, pueden negociar e interactuar con el sacerdote.
+vampire_craft_book.huntersTypes2=Cazador real: Son cazadores reales que están subordinados al rey, actúan según la voluntad de éste y reciben beneficios reales.
+vampire_craft_book.huntersTypes3=Cazador solitario: No aceptan órdenes de nadie ni reciben beneficios de ningún bando. Pueden transformarse en vampiros u hombres lobo y tienen la habilidad especial de mezclarse con los humanos.
+
+vampiro_craft_book.line=-----
+tile.sunrise:vampire_skill_item.name=Artículo de habilidad vampiro
+tile.sunrise:werewolf_skill_item.name=Artículo de habilidad de hombre lobo
+item.sunrise:vampire_craft_book.name=Guía de artesanía vampírica
+item.sunrise:trans_lob.name=Lob 1
+item.sunrise:trans_lob_blue.name=Lob 2
+item.sunrise:trans_lob_black.name=Lob 3
+item.sunrise:vampire_skill_item.name=Habilidad vampiro
+item.sunrise:werewolf_skill_item.name=Habilidad hombre lobo
+item.sunrise:teleport_skill.name=habilidad teletransporte
+item.spawn_egg.entity.sunrise:pollo_vampiro.name=Spawn Pollo vampiro
+entity.sunrise:pollo_vampiro.name=Pollo vampiro
+item.spawn_egg.entity.sunrise:vampire.name=Desaparecer vampiro
+entidad.amanecer:vampiro.name=Vampiro
+item.spawn_egg.entity.sunrise:weak_vampire.name=Desove Vampiro Débil
+entity.sunrise:vampiro_debil.name=Vampiro débil
+item.spawn_egg.entity.sunrise:weak_werewolf.name=Aparecer hombre lobo débil
+entidad.amanecer:hombre_lobo_débil.name=Ser un hombre lobo débil
+item.sunrise:liver.name=Hígado de lobo
+item.spawn_egg.entity.sunrise:hombre_lobo.name=Hombre_lobo spawn
+item.sunrise:hombrelobo.name=Hombrelobo
+item.spawn_egg.entity.sunrise:black_werewolf.name=Desove de hombre lobo negro
+item.spawn_egg.entity.sunrise:black_werewolf.name=Desove de hombre lobo negro
+item.spawn_egg.entity.sunrise:vampiro_bruja.name=Spawn Bruja vampiro
+entity.sunrise:bruja_vampiro.name=Bruja vampiro
+item.spawn_egg.entity.sunrise:bullet_queen.name=Magia del spawn
+entity.sunrise:reina_bala.name=Magia
+item.spawn_egg.entity.sunrise:hunter.name=Spawn Cazador
+entity.sunrise:cazador.name=Cazador
+item.sunrise:jeringa.name=Jeringa
+item.sunrise:jeringa_ajo.name=Jeringa ajo
+item.sunrise:jeringa_ajo.name=Jeringa ajo
+item.sunrise:hunter_skill_item.name=Artículo de habilidad de cazador
+item.sunrise:ajo.name= Ajo
+tile.sunrise:garlic_block.name=Bloque de ajo
+tile.sunrise:picadora_carne.name=Moledora carne
+
+gui.hunter_skillvelo.select=Entrenar velocidad
+gui.hunter_skillvital.select=Entrenar vitalidad
+gui.hunter_skillmana.select=Entrenar maná
+gui.hunter_skillhab.select=Entrenar habilidad
+gui.hunter_noneskillpoint.text=No hay puntos de habilidad disponibles
+gui.hunter_captulo1.select=Guía básica [CAP 1]
+
+item.sunrise:guia_brujeria.name=Guía brujeria
+
+
+gui.hunter_mission_status.text=Estado de la misión
+item.spawn_egg.entity.sunrise:hunter_treiner.name=Huevo de invocación Terin de cazador
+item.spawn_egg.entity.sunrise:chicken_vampire.name=Huevo de invocación pollo vampiro
+item.spawn_egg.entity.sunrise:bat_minion.name=Huevo de invocación súbdito murciélago
+hunter.book.mission_completed=Misión completada: hablar con el entrenador

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_brewing_mix": {
+		"description": {
+			"identifier": "sunrise:werewolf_cure"
+		},
+		"tags": [
+			"brewing_stand"
+		],
+		"input": "sunrise:philosopher_water",
+		"reagent": "sunrise:werewolf_fang",
+		"output": "sunrise:werewolf_cure"
+	}
+}

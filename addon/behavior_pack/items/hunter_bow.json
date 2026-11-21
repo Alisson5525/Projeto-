@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:hunter_bow",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+
+			"minecraft:display_name": {
+				"value": "item.sunrise:hunter_bow.name"
+			},
+			"minecraft:icon": "hunter_bow"
+		}
+	}
+} 

@@ -1,0 +1,87 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.vampire": {
+			"arrays": {
+				"geometries": {
+					"Array.geo": [
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.bat"
+					]
+				},
+				"textures": {
+					"Array.skins": [
+						"Texture.skin1",
+						"Texture.skin2",
+						"Texture.skin3",
+						"Texture.skin4",
+						"Texture.bat"
+					]
+				}
+			},
+			"geometry": "array.geo[query.variant]",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.skins[query.variant]"
+			]
+		},
+		"controller.render.magia": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.magia0",
+						"Texture.magia1",
+						"Texture.magia2"
+					]
+				}
+			},
+			"geometry": "geometry.magia",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.magias[query.mark_variant]"
+			]
+		},
+		"controller.render.vampire_witch": {
+			"arrays": {
+				"geometries": {
+					"Array.geo": [
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.default",
+						"Geometry.default"
+					]
+				},
+				"textures": {
+					"Array.skins": [
+						"Texture.skin1",
+						"Texture.skin2",
+						"Texture.skin3",
+						"Texture.skin4",
+						"Texture.skin5"
+					]
+				}
+			},
+			"geometry": "array.geo[query.skin_id]",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.skins[query.skin_id]"
+			]
+		}
+	}
+}

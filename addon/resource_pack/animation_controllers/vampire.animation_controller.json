@@ -1,0 +1,25 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.vampire.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"attacking" : {
+					"animations" : [ "attackf" ],
+					"transitions" : [
+						{
+							"default" : "v.attack_time!=0.0"
+						}
+					]
+				},
+				"default" : {
+					"transitions" : [
+						{
+							"attacking" : "v.attack_time=0.0"
+						}
+					]
+				}
+			}
+		}
+    }
+}

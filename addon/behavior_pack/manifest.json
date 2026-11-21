@@ -1,0 +1,61 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Vampire Craft §d[4.7.4]§r BEH",
+		"description": "Be the strongest vampire or werewolf of all with the Vampire Craft addon.",
+		"min_engine_version": [
+			1,
+			21,
+			0
+		],
+		"uuid": "e1a1f833-e86c-4245-80cb-4c3104d5aa5f",
+		"version": [
+			4,
+			7,
+			4
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "456963f1-0d09-4244-bfbd-8b59f72a91af",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "8fd4678b-4cf6-44b1-bd90-f88a3c5a8fe1",
+			"version": [
+				0,
+				0,
+				1
+			],
+			"entry": "scripts/o.js"
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "f2179d0b-33ed-4e3c-99b5-f818bf86a1ec",
+			"version": [
+				4,
+				7,
+				4
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.13.0"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.0.0"
+		}
+	],
+	"capabilities": [
+		"pbr"
+	]
+}

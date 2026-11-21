@@ -1,0 +1,27 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"sunrise:bullet_queen": {
+				"volume": 1,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"hurt": "mob.bullet_queen.hurt",
+					"hurt.in.water": "mob.bullet_queen.hurt",
+					"flop": {
+						"sound": "mob.bullet_queen.flop",
+						"volume": 1,
+						"pitch": 1
+					},
+					"step": {
+						"sound": "mob.bullet_queen.step",
+						"volume": 0.15,
+						"pitch": 1
+					}
+				}
+			}
+		}
+	}
+}

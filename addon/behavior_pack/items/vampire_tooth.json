@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:vampire_tooth",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 64,
+
+			"minecraft:display_name": {
+				"value": "item.sunrise:vampire_tooth.name"            
+			},
+			"minecraft:icon": "sunrise_vampire_tooth",
+			"minecraft:hand_equipped": false
+		}
+	}
+}

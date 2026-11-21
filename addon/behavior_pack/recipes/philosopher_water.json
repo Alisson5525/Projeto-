@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_brewing_mix": {
+		"description": {
+			"identifier": "sunrise:philosopher_water"
+		},
+		"tags": [
+			"brewing_stand"
+		],
+		"input": "minecraft:potion",
+		"reagent": "sunrise:philosopher_stone",
+		"output": "sunrise:philosopher_water"
+	}
+}

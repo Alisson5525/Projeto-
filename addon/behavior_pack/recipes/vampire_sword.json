@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:vampire_sword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"pattern": [
+			" XX",
+			"XXX",
+			"#X "
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:stick"
+			},
+			"X": {
+				"item": "sunrise:eclipse_ingot"
+			}
+		},
+		"unlock": [
+			{
+				"item": "sunrise:eclipse_ingot"
+			}
+		],
+		"result": {
+			"item": "sunrise:vampire_sword"
+		}
+	}
+}

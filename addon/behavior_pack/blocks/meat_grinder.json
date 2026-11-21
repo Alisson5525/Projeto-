@@ -1,0 +1,88 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "sunrise:meat_grinder",
+      "menu_category": {
+        "category": "items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              270,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      }
+    ],
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:collision_box": true,
+      "minecraft:light_emission": 0,
+      "minecraft:light_dampening": 0,
+      "minecraft:geometry": "geometry.meat_grinder",
+      "tag:meat_grinder": {},
+      "minecraft:custom_components": [
+          "sunrise:meat_grinder"
+      ],
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "texture": "meat_grinder",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

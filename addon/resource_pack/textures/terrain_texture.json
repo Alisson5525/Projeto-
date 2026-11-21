@@ -1,0 +1,65 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Vampire Craft",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"hunter_campfire": {
+            "textures": "textures/blocks/hunter_campfire"
+        },
+		"garlic_stage_0": {
+            "textures": "textures/blocks/garlic_stage_0"
+        },
+        "garlic_stage_1": {
+            "textures": "textures/blocks/garlic_stage_1"
+        },
+        "garlic_stage_2": {
+            "textures": "textures/blocks/garlic_stage_2"
+        },
+        "garlic_stage_3": {
+            "textures": "textures/blocks/garlic_stage_3"
+        },
+		"sunrise_moon_stone_ore_block": {
+			"textures": "textures/blocks/moon_stone"
+		},
+		"sunrise_sun_stone_ore_block": {
+			"textures": "textures/blocks/sun_ore"
+		},
+		"sunrise_recharging_altar": {
+			"textures": "textures/blocks/recharging_altar"
+		},
+		"sunrise_blood_altar": {
+			"textures": "textures/blocks/altar_sangue"
+		},
+		"sunrise_coffin": {
+			"textures": "textures/blocks/altar_sangue"
+		},
+		"sunrise_garlic_syringe": {
+			"textures": "textures/blocks/injection_garlic"
+		},
+		"sunrise_garlic_block": {
+			"textures": "textures/blocks/add_alho_stage_0"
+		},
+		"sunrise_garlic_block1": {
+			"textures": "textures/blocks/add_alho_stage_1"
+		},
+		"sunrise_garlic_block2": {
+			"textures": "textures/blocks/add_alho_stage_2"
+		},
+		"sunrise_garlic_block3": {
+			"textures": "textures/blocks/add_alho_stage_3"
+		},
+		"meat_grinder": {
+			"textures": "textures/blocks/meat_grinder"
+		},
+		"transparent": {
+			"textures": "textures/blocks/transparent"
+		},
+		"sunrise_eclipse_sun_stone_bricks": {
+			"textures": "textures/blocks/eclipse_sun_stone_bricks"
+		},
+		"sunrise_cracked_eclipse_sun_stone_bricks": {
+			"textures": "textures/blocks/cracked_eclipse_sun_stone_bricks"
+		}
+	}
+}

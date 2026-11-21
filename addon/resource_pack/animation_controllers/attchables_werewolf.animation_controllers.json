@@ -1,0 +1,46 @@
+{
+	"format_version" : "1.17.30",
+	"animation_controllers" : {
+		"controller.animation.attchables_werewolf.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"running" : {
+					"animations" : [ "move_runnig","quadruped" ],
+					"transitions" : [
+						{
+							"default" : "( math.abs(query.position_delta(0)) + math.abs(query.position_delta(2)) ) / 2 <= 0.15 ? 1 : 0"
+						}
+					]
+				},
+				"default" : {
+					"animations" : [ "move" ],
+					"transitions" : [
+						{
+							"running" : "( math.abs(query.position_delta(0)) + math.abs(query.position_delta(2)) ) / 2 >= 0.15 ? 1 : 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.attchables_werewolf.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"running" : {
+					"animations" : [ "attack.rotations" ],
+					"transitions" : [
+						{
+							"default" : "query.anim_time >= 0.1"
+						}
+					]
+				},
+				"default" : {
+					"transitions" : [
+						{
+							"running" : "c.attack_time != 0 ? 1 : 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

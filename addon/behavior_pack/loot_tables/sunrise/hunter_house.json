@@ -1,0 +1,166 @@
+{
+	"pools": [
+		{
+			"rolls": {
+				"min": 8,
+				"max": 10
+			},
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:glass_bottle",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 6
+							}
+						}
+					],
+					"weight": 7
+				},
+                {
+					"type": "item",
+					"name": "sunrise:philosopher_stone",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"weight": 1
+				},
+                {
+					"type": "item",
+					"name": "minecraft:bread",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 6
+							}
+						}
+					],
+					"weight": 10
+				},
+                {
+					"type": "item",
+					"name": "minecraft:stone_hoe",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"weight": 10
+				},
+                {
+					"type": "item",
+					"name": "sunrise:garlic",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 1,
+								"max": 4
+							}
+						}
+					],
+					"weight": 10
+				},
+                {
+					"type": "item",
+					"name": "sunrise:vampire_craft_book",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"weight": 7
+				},
+                {
+					"type": "item",
+					"name": "sunrise:witchcraft_guide",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"weight": 5
+				},
+                {
+					"type": "item",
+					"name": "sunrise:vampire_blood",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						}
+					],
+					"weight": 5
+				},
+                {
+					"type": "item",
+					"name": "sunrise:syringe",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						}
+					],
+					"weight": 5
+				},
+                {
+					"type": "item",
+					"name": "sunrise:sun_stone_ore",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						}
+					],
+					"weight": 2
+				},
+                {
+					"type": "item",
+					"name": "sunrise:moon_stone_ore",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						}
+					],
+					"weight": 2
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:werewolf_fang",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 64,
+
+			"minecraft:display_name": {
+				"value": "item.sunrise:werewolf_fang.name"
+			},
+			"minecraft:icon": "sunrise_werewolf_fang",
+			"minecraft:hand_equipped": false
+		}
+	}
+}

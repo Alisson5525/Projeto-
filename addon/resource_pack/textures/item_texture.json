@@ -1,0 +1,174 @@
+{
+	"resource_pack_name": "Vampire Craft",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"garlic": {
+            "textures": "textures/items/garlic"
+        },
+		"hunter_bow": {
+            "textures": "textures/items/hunter_bow"
+        },
+		"change_stone": {
+            "textures": "textures/items/change_stone"
+        },
+		"sunrise_vampire_tooth": {
+			"textures": "textures/items/vampire_tooth"
+		},
+		"witchcraft_guide": {
+			"textures": "textures/items/witchcraft_guide"
+		},
+		"sunrise_weak_human_heart": {
+			"textures": "textures/items/weak_human_heart"
+		},
+		"sunrise_werewolf_fang": {
+			"textures": "textures/items/werewolf_fang"
+		},
+		"sunrise_human_heart": {
+			"textures": "textures/items/human_heart"
+		},
+		"sunrise_vampire_blood": {
+			"textures": "textures/items/vampire_blood"
+		},
+		"sunrise_pure_vampire_blood": {
+			"textures": "textures/items/pure_vampire_blood"
+		},
+		"sunrise_blood_bottle_4": {
+			"textures": "textures/items/blood_bottle_4"
+		},
+		"sunrise_blood_bottle_1": {
+			"textures": "textures/items/blood_bottle_1"
+		},
+		"sunrise_blood_bottle_2": {
+			"textures": "textures/items/blood_bottle_2"
+		},
+		"sunrise_blood_bottle_3": {
+			"textures": "textures/items/blood_bottle_3"
+		},
+		"sunrise_moon_stone_ore": {
+			"textures": "textures/items/moon_stone_ore"
+		},
+		"sunrise_sun_stone_ore": {
+			"textures": "textures/items/sun_stone_ore"
+		},
+		"sunrise_eclipse_ingot": {
+			"textures": "textures/items/eclipse_ingot"
+		},
+		"sunrise_sun_stone_ingot": {
+			"textures": "textures/items/sun_stone_brick"
+		},
+		"sunrise_moon_stone_ingot": {
+			"textures": "textures/items/standard_moon_stone_brick"
+		},
+		"sunrise_werewolf_claws": {
+			"textures": "textures/items/werewolf_claws"
+		},
+		"sunrise_philosopher_stone": {
+			"textures": "textures/items/philosopher_stone"
+		},
+		"sunrise_philosopher_water": {
+			"textures": "textures/items/philosopher_water"
+		},
+		"sunrise_vampire_cure": {
+			"textures": "textures/items/vampire_cure"
+		},
+		"sunrise_werewolf_cure": {
+			"textures": "textures/items/werewolf_cure"
+		},
+		"sunrise_vampire_sword": {
+			"textures": "textures/items/vampire_sword"
+		},
+		"sunrise_vampire_sword_e": {
+			"textures": "textures/items/vampire_sword_e"
+		},
+		"sunrise_vampire_sword_m": {
+			"textures": "textures/items/vampire_sword_m"
+		},
+		"sunrise_vampire_craft_book": {
+			"textures": "textures/items/vampire_craft_book"
+		},
+		"sunrise_trans_lob": {
+			"textures": "textures/items/trans_lob"
+		},
+		"sunrise_trans_lob_blue": {
+			"textures": "textures/items/trans_lob"
+		},
+		"sunrise_trans_lob_black": {
+			"textures": "textures/items/trans_lob"
+		},
+		"sunrise_vampire_skill_item": {
+			"textures": "textures/items/vampire_skill_item"
+		},
+		"sunrise_werewolf_skill_item": {
+			"textures": "textures/items/vampire_skill_item"
+		},
+		"sunrise_teleport_skill": {
+			"textures": "textures/items/teleport_skill"
+		},
+		"sunrise_trans_bat": {
+			"textures": "textures/items/trans_bat"
+		},
+		"sunrise_liver": {
+			"textures": "textures/items/liver"
+		},
+		"sunrise_syringe": {
+			"textures": "textures/items/injection"
+		},
+		"sunrise_garlic_syringe": {
+			"textures": "textures/items/injection_garlic"
+		},
+		"sunrise_hunter_skill_item": {
+			"textures": "textures/items/hunter_ui_item"
+		},
+		"sunrise_garlic": {
+			"textures": "textures/items/add_alho"
+		},
+		"sunrise_eclipse_armor_helmet": {
+			"textures": "textures/items/eclipse_armor_helmet"
+		},
+		"sunrise_sun_eclipse_armor_chestplate": {
+			"textures": "textures/items/eclipse_armor_chestplate"
+		},
+		"sunrise_sun_eclipse_armor_leggings": {
+			"textures": "textures/items/eclipse_armor_leggings"
+		},
+		"sunrise_moon_eclipse_armor_chestplate": {
+			"textures": "textures/items/moon_eclipse_armor_chestplate"
+		},
+		"sunrise_moon_eclipse_armor_leggings": {
+			"textures": "textures/items/moon_eclipse_armor_leggings"
+		},
+		"sunrise_eclipse_armor_boots": {
+			"textures": "textures/items/eclipse_armor_boots"
+		},
+		"spawn_egg_hunter":{
+			"textures": "textures/items/spawn_egg/vampire_hunter_spawn_egg"
+		},
+		"spawn_egg_hunter_treiner":{
+			"textures": "textures/items/spawn_egg/hunter_treiner_spawn_egg"
+		},
+		"spawn_egg_vampire":{
+			"textures": "textures/items/spawn_egg/vampire_spawn_egg"
+		},
+		"spawn_egg_weak_vampire":{
+			"textures": "textures/items/spawn_egg/weak_vampire_spawn_egg"
+		},
+		"spawn_egg_vampire_witch":{
+			"textures": "textures/items/spawn_egg/vampire_witch_spawn_egg"
+		},
+		"spawn_egg_bat_minion":{
+			"textures": "textures/items/spawn_egg/bat_minion_spawn_egg"
+		},
+		"spawn_egg_vampire_chicken":{
+			"textures": "textures/items/spawn_egg/vampire_chicken_spawn_egg"
+		},
+		"spawn_egg_werewolf_black":{
+			"textures": "textures/items/spawn_egg/werewolf_black_spawn_egg"
+		},
+		"spawn_egg_werewolf":{
+			"textures": "textures/items/spawn_egg/werewolf_spawn_egg"
+		},
+		"spawn_egg_weak_werewolf":{
+			"textures": "textures/items/spawn_egg/weak_werewolf_spawn_egg"
+		}
+	}
+}

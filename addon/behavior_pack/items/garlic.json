@@ -1,0 +1,24 @@
+{
+    "format_version": "1.20.70",
+    "minecraft:item": {
+        "description": {
+            "identifier": "sunrise:garlic",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.seed"
+            }
+        },
+        "components": {
+            "minecraft:icon": "garlic",
+            "minecraft:display_name": {
+                "value": "Garlic"
+            },
+            "minecraft:block_placer":{
+                "block": "thini:garlic_crop",
+                "use_on" : [
+                    "minecraft:farmland"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:attachable": {
+    "description": {
+      "geometry": {
+        "default": "geometry.player.vampire.eye"
+      },
+      "identifier": "sunrise:trans_vamp_player_eye1",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/player_vampire_eye/eye1"
+      },
+      "render_controllers": ["controller.render.armor"]
+    }
+  }
+}

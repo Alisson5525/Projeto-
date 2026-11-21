@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "sunrise:eclipse_sun_stone_bricks"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"X": {"item": "minecraft:stonebrick"},
+			"C": {"item": "sunrise:eclipse_ingot"}
+		},
+		"pattern": [
+			"XXX",
+			"XCX",
+			"XXX"
+		],
+		"result": {
+			"item": "sunrise:eclipse_sun_stone_bricks",
+			"count": 8
+		}
+	}
+}

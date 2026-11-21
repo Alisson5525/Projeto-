@@ -1,0 +1,13 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:vampire_sword",
+			"category": "equipment",
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:icon": "sunrise_vampire_sword"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "sunrise:weak_human_heart",
+			"category": "items",
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:icon": "sunrise_weak_human_heart"
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"format_version" : "1.17.30",
+	"animation_controllers" : {
+		"controller.animation.werewolf.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"running" : {
+					"animations" : [ "move_runnig","quadruped" ],
+					"transitions" : [
+						{
+							"default" : "variable.is_running==0"
+						}
+					]
+				},
+				"default" : {
+					"animations" : [ "move" ],
+					"transitions" : [
+						{
+							"running" : "variable.is_running==1"
+						}
+					]
+				}
+			}
+		}
+	}
+}

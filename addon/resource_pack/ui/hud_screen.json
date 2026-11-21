@@ -1,0 +1,958 @@
+{
+   "namespace": "hud",
+   "root_panel": {
+      "modifications": [
+         {
+            "array_name": "controls",
+            "operation": "insert_front",
+            "value": [
+               {
+                  "bite_fang_display@drink_blood_display.bite_fang_display": {}
+               }
+            ]
+         }
+      ]
+   },
+   "blood_thist": {
+      "type": "panel",
+      "controls": [
+         {
+            "0": {
+               "$update_string": "_display_blood_thist_0",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "1": {
+               "$update_string": "_display_blood_thist_1",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "2": {
+               "$update_string": "_display_blood_thist_2",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "3": {
+               "$update_string": "_display_blood_thist_3",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "4": {
+               "$update_string": "_display_blood_thist_4",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "5": {
+               "$update_string": "_display_blood_thist_5",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "6": {
+               "$update_string": "_display_blood_thist_6",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "7": {
+               "$update_string": "_display_blood_thist_7",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "8": {
+               "$update_string": "_display_blood_thist_8",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "9": {
+               "$update_string": "_display_blood_thist_9",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "10": {
+               "$update_string": "_display_blood_thist_x0",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "11": {
+               "$update_string": "_display_blood_thist_x1",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "12": {
+               "$update_string": "_display_blood_thist_x2",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "13": {
+               "$update_string": "_display_blood_thist_x3",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "14": {
+               "$update_string": "_display_blood_thist_x4",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "15": {
+               "$update_string": "_display_blood_thist_x5",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "16": {
+               "$update_string": "_display_blood_thist_x6",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "17": {
+               "$update_string": "_display_blood_thist_x7",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "18": {
+               "$update_string": "_display_blood_thist_x8",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "19": {
+               "$update_string": "_display_blood_thist_x9",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "20": {
+               "$update_string": "_display_blood_thist_xx0",
+               "type": "label",
+               "layer": 90,
+               "anchor_from": "top_right",
+               "anchor_to": "top_right",
+               "font_scale_factor": 0.38,
+               "text": "",
+               "controls": [
+                  {
+                     "data_control": {
+                        "type": "panel",
+                        "size": [
+                           0,
+                           0
+                        ],
+                        "bindings": [
+                           {
+                              "binding_name": "#hud_title_text_string"
+                           },
+                           {
+                              "binding_name": "#hud_title_text_string",
+                              "binding_name_override": "#preserved_text"
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "bindings": [
+                  {
+                     "binding_type": "view",
+                     "source_control_name": "data_control",
+                     "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+                     "target_property_name": "#visible"
+                  }
+               ]
+            }
+         }
+      ]
+   },
+   "not_blood_thist": {
+      "$update_string": "_not_display_blood_thist",
+      "type": "custom",
+      "size": [
+         1,
+         1
+      ],
+      "renderer": "hunger_renderer",
+      "layer": 1,
+      "controls": [
+         {
+            "data_control": {
+               "type": "panel",
+               "size": [
+                  0,
+                  0
+               ],
+               "bindings": [
+                  {
+                     "binding_name": "#hud_title_text_string"
+                  },
+                  {
+                     "binding_name": "#hud_title_text_string",
+                     "binding_name_override": "#preserved_text"
+                  }
+               ]
+            }
+         }
+      ],
+      "bindings": [
+         {
+            "binding_type": "view",
+            "source_control_name": "data_control",
+            "source_property_name": "(not ((#preserved_text - $update_string) = #hud_title_text_string)))",
+            "target_property_name": "#visible"
+         }
+      ]
+   },
+   "hunger_renderer": {
+      "type": "panel",
+      "layer": 1,
+      "controls": [
+         {
+            "blood_thist@hud.blood_thist": {}
+         },
+         {
+            "not_blood_thist@hud.not_blood_thist": {}
+         }
+      ]
+   },
+   "hud_actionbar_text": {
+      "type": "image",
+      "size": [
+         "100%c + 36px",
+         "100%c + 15px"
+      ],
+      "offset": [
+         "53px",
+         "50%-48px"
+      ],
+      "alpha": "@hud.anim_actionbar_text_background_alpha_out",
+      "controls": [
+         {
+            "actionbar_message": {
+               "ignored": "$pocket_screen",
+               "type": "label",
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "color": "$tool_tip_text",
+               "layer": 1,
+               "offset": [
+                  "-2.5%",
+                  "10%"
+               ],
+               "text": "",
+               "localize": false,
+               "font_scale_factor": 0.33,
+               "visible": "#is_not_creative_mode",
+               "bindings": [
+                  {
+                     "binding_name": "#is_not_creative_mode",
+                     "binding_name_override": "#visible"
+                  }
+               ]
+            }
+         },
+         {
+            "actionbar_message_pocket": {
+               "ignored": "$desktop_screen",
+               "type": "label",
+               "anchor_from": "center",
+               "anchor_to": "center",
+               "offset": [
+                  "-50%",
+                  0
+               ],
+               "color": "$tool_tip_text",
+               "layer": 1,
+               "text": "",
+               "localize": false,
+               "font_scale_factor": 0.33,
+               "visible": "#is_not_creative_mode",
+               "bindings": [
+                  {
+                     "binding_name": "#is_not_creative_mode",
+                     "binding_name_override": "#visible"
+                  }
+               ]
+            }
+         }
+      ],
+      "bindings": [
+         {
+            "binding_name": "#is_not_creative_mode",
+            "binding_name_override": "#visible"
+         }
+      ]
+   }
+}

@@ -1,0 +1,129 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+        "animation.skill.player.rage": {
+			"animation_length": 60.0,
+			"blend_weight": "0.3",
+			"bones": {
+				"Head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, 0],
+						"59.0": [0, 0, 0],
+						"60.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, -1],
+						"59.0": [0, 0, -1],
+						"60.0": [0, 0, 0]
+					}
+				},
+				"Body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [5, 0, 0],
+						"59.0": [5, 0, 0],
+						"60.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, -1],
+						"59.0": [0, 0, -1],
+						"60.0": [0, 0, 0]
+					}
+				},
+				"RightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, 5],
+						"59.0": [0, 0, 5],
+						"60.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, -1],
+						"59.0": [0, 0, -1],
+						"60.0": [0, 0, 0]
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, -5],
+						"59.0": [0, 0, -5],
+						"60.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, 0, -1],
+						"59.0": [0, 0, -1],
+						"60.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.skill.player.servantsbat": {
+			"animation_length": 0.75,
+			"override_previous_animation": true,
+			"blend_weight": "0.2",
+			"bones": {
+				"RightArm": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, -90, 145],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5167": {
+							"post": [0, -90, 145],
+							"lerp_mode": "catmullrom"
+						},
+						"0.75": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, 90, -145],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5167": {
+							"post": [0, 90, -145],
+							"lerp_mode": "catmullrom"
+						},
+						"0.73": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.player.hunter_bow_equipped" : {
+			"loop" : true,
+			"animation_length": 0.75,
+			"bones" : {
+				"leftarm" : {
+					"rotation" : [ "-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "27.5 + query.target_y_rotation", 0.0 ]
+				},
+				"rightarm" : {
+					"rotation" : [ "-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "-5.0 + query.target_y_rotation", 0.0 ]
+				},
+				"rightitem" : {
+					"rotation" : [ 0.0, -10.0, 0.0 ]
+				}
+			}
+		}
+	}
+}
