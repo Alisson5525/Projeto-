@@ -5,6 +5,58 @@
       "entries": [
         {
           "type": "item",
+          "name": "sunrise:werewolf_fang",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "sunrise:liver",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
           "name": "minecraft:leather",
           "weight": 1,
           "functions": [
@@ -78,43 +130,6 @@
       "entries": [
         {
           "type": "item",
-          "name": "sunrise:liver",
-          "weight": 1
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "random_chance_with_looting",
-          "chance": 0.55,
-          "looting_multiplier": 0.08
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "item",
-          "name": "sunrise:werewolf_fang",
-          "weight": 1
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "killed_by_player"
-        },
-        {
-          "condition": "random_chance_with_looting",
-          "chance": 0.35,
-          "looting_multiplier": 0.05
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "item",
           "name": "sunrise:moon_stone_ore",
           "weight": 3,
           "functions": [
@@ -122,11 +137,27 @@
               "function": "set_count",
               "count": {
                 "min": 1,
-                "max": 2
+                "max": 3
               }
             }
           ]
         },
+        {
+          "type": "item",
+          "name": "sunrise:human_heart",
+          "weight": 1
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "random_chance",
+          "chance": 0.4
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
         {
           "type": "item",
           "name": "sunrise:werewolf_claws_e",
@@ -138,8 +169,9 @@
           "condition": "killed_by_player"
         },
         {
-          "condition": "random_chance",
-          "chance": 0.12
+          "condition": "random_chance_with_looting",
+          "chance": 0.1,
+          "looting_multiplier": 0.03
         }
       ]
     }

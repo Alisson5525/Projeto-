@@ -7,18 +7,24 @@
       },
       "identifier": "sunrise:trans_bat",
       "materials": {
-        "default": "bat_v2"
+        "default": "bat_v2",
+        "enchanted": "armor_enchanted"
       },
       "textures": {
-        "default": "textures/entity/bat_v2"
+        "default": "textures/entity/bat_v2",
+        "enchanted": "textures/misc/enchanted_item_glint"
       },
       "animations": {
         "test": "animation.bat.flying"
       },
       "scripts": {
-        "animate": ["test"]
+        "animate": [
+          "test"
+        ]
       },
-      "render_controllers": ["controller.render.armor"]
+      "render_controllers": [
+        "controller.render.armor"
+      ]
     }
   }
 }

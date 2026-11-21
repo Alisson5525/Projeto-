@@ -14,14 +14,33 @@ const COOLDOWN_TICKS = 20 * 60 * 4; // per player
 /** playerId -> tick of the next allowed encounter (session memory). */
 const nextAt = new Map();
 
-function surfaceSpot(p, min, max) {
-  for (let tries = 0; tries < 6; tries++) {
+const CANOPY = ["leaves", "log", "wood", "vine", "mushroom_block", "bamboo"];
+
+/** Highest walkable ground under (x, z): looks through tree canopies. */
+function groundAt(dim, x, z, refY) {
+  let top = safe(() => dim.getTopmostBlock({ x, z }));
+  if (!top) return undefined;
+  let guard = 0;
+  while (top && CANOPY.some((c) => top.typeId.includes(c)) && guard++ < 32) {
+    top = safe(() => top.below(1));
+    while (top && top.isAir && guard++ < 32) top = safe(() => top.below(1));
+  }
+  if (!top || top.isLiquid || top.isAir || CANOPY.some((c) => top.typeId.includes(c))) return undefined;
+  const above = safe(() => top.above(1));
+  const above2 = safe(() => top.above(2));
+  if (!above?.isAir || !above2?.isAir) return undefined;
+  if (Math.abs(top.location.y - refY) > 20) return undefined;
+  return top;
+}
+
+export function surfaceSpot(p, min, max) {
+  for (let tries = 0; tries < 8; tries++) {
     const a = Math.random() * Math.PI * 2;
     const d = randInt(min, max);
     const x = Math.floor(p.location.x + Math.cos(a) * d);
     const z = Math.floor(p.location.z + Math.sin(a) * d);
-    const top = safe(() => p.dimension.getTopmostBlock({ x, z }));
-    if (!top || top.isLiquid || top.typeId.includes("leaves") || Math.abs(top.location.y - p.location.y) > 12) continue;
+    const top = groundAt(p.dimension, x, z, p.location.y);
+    if (!top) continue;
     return { x: x + 0.5, y: top.location.y + 1, z: z + 0.5, top };
   }
   return undefined;

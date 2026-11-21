@@ -3,7 +3,7 @@
 // touching gameplay code.
 
 export const NS = "sunrise";
-export const VERSION = "5.2.0";
+export const VERSION = "5.3.0";
 
 /** Legacy tags kept for compatibility with worlds created on v4.x */
 export const TAG = {

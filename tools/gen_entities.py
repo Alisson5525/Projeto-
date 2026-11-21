@@ -273,7 +273,16 @@ def servant_bat(e):
 
 
 patch("vampire_witch", witch)
-patch("bullet_queen", lambda e: (e["components"]["minecraft:projectile"].pop("destroyOnHurt", None), e["components"]["minecraft:projectile"].update({"anchor": "eye_height"})))
+def bullet(e):
+    pr = e["components"]["minecraft:projectile"]
+    pr.pop("destroyOnHurt", None)
+    pr["anchor"] = "eye_height"
+    bounce = pr.get("on_hit", {}).get("impact_damage", {}).pop("should_bounce", None)
+    if bounce is not None:
+        pr["should_bounce"] = bounce
+
+
+patch("bullet_queen", bullet)
 patch("servantsbat", servant_bat)
 
 

@@ -3,13 +3,13 @@
 Reformulação completa do add-on **Vampire Craft v4.7.4** para **Minecraft Bedrock (Android, iOS, Windows, consoles)**.
 Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte poderes e sobreviva à **Lua de Sangue**.
 
-> **Versão:** 5.2.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
+> **Versão:** 5.3.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
 
 ---
 
 ## 📦 Instalação (Android)
 
-1. Baixe `dist/Vampire_Craft_v5.2.0.mcaddon`.
+1. Baixe `dist/Vampire_Craft_v5.3.0.mcaddon`.
 2. Toque no arquivo → abrir com **Minecraft**. Os dois pacotes (BEH e RES) são importados juntos.
 3. No mundo: **Configurações → Pacotes de Comportamento → Ativar "Vampire Craft [5.0.0] BEH"** (o de recursos é ativado junto).
 4. **Não é preciso ativar nenhum experimento.**
@@ -17,6 +17,13 @@ Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte podere
 **Atualizando de um mundo da v4.7.4?** Os pacotes usam os mesmos UUIDs, então o mundo atualiza sozinho. Na primeira entrada cada jogador é migrado automaticamente: raça, habilidades desbloqueadas, nível do lobisomem, atributos do caçador e sangue são convertidos para o novo sistema.
 
 ---
+
+## 🆕 5.3.0
+- **Drops muito maiores**: todo mob solta sempre o seu item principal (ex.: Lobisomem 100% presa, média 1,5; Alfa 2,5; Vampiro 100% presa). Taxas medidas com `tools/loot_sim.py` (10.000 abates por mob).
+- Drops extras de mobs vanilla aumentados (aldeões, saqueadores, evocadores, bruxas, lobos, morcegos).
+- **Mobs invisíveis corrigidos**: o Mestre Caçador e a Bruxa Vampira pediam texturas que não existiam (o mob podia não aparecer); a forma de morcego e os olhos vampíricos também. O validador agora checa isso em todas as entidades.
+- O spawn equilibrado agora encontra chão debaixo das árvores (antes quase não spawnava em florestas).
+- Vampiro-morcego usa o modelo de morcego atual (antes os ossos não batiam com a animação).
 
 ## 🆕 5.2.0
 - **Spawn igual e maior**: todas as 8 criaturas da noite usam o mesmo peso (25), mesmo grupo e os mesmos 14 biomas; caçadores idem de dia. Um **equilibrador** (ligável no Codex → Administração) completa a área em volta dos jogadores em rodízio estrito, então cada tipo aparece o mesmo número de vezes.

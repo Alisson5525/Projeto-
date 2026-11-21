@@ -12,7 +12,7 @@
               "function": "set_count",
               "count": {
                 "min": 1,
-                "max": 2
+                "max": 3
               }
             },
             {
@@ -32,22 +32,28 @@
         {
           "type": "item",
           "name": "sunrise:philosopher_stone",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
         }
       ],
       "conditions": [
         {
-          "condition": "killed_by_player"
-        },
-        {
           "condition": "random_chance_with_looting",
-          "chance": 0.4,
-          "looting_multiplier": 0.08
+          "chance": 0.8,
+          "looting_multiplier": 0.1
         }
       ]
     },
     {
-      "rolls": 2,
+      "rolls": 3,
       "entries": [
         {
           "type": "item",
@@ -118,6 +124,20 @@
               }
             }
           ]
+        },
+        {
+          "type": "item",
+          "name": "sunrise:vampire_tooth",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
         }
       ]
     },
@@ -132,11 +152,8 @@
       ],
       "conditions": [
         {
-          "condition": "killed_by_player"
-        },
-        {
           "condition": "random_chance",
-          "chance": 0.15
+          "chance": 0.35
         }
       ]
     }

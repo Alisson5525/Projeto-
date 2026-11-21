@@ -147,7 +147,7 @@ class Dimension {
   }
   getPlayers() { return this._entities.filter((e) => e instanceof Player); }
   getBlock(loc) { const k = `${loc.x},${loc.y},${loc.z}`; this._blocks ??= new Map(); if (!this._blocks.has(k)) this._blocks.set(k, new Block(this, loc)); return this._blocks.get(k); }
-  getTopmostBlock({ x, z }) { return new Block(this, { x, y: this.roofY ?? 62, z }, "minecraft:grass_block"); }
+  getTopmostBlock({ x, z }) { return new Block(this, { x, y: this.roofY ?? 62, z }, this.topType ?? "minecraft:grass_block"); }
   getBlockFromRay(loc, dir, o) { return { block: new Block(this, { x: Math.floor(loc.x + dir.x * 5), y: 63, z: Math.floor(loc.z + dir.z * 5) }, "minecraft:stone"), face: "Up", faceLocation: { x: 0, y: 1, z: 0 } }; }
   runCommand(c) { rec(["cmd", c]); return { successCount: 1 }; }
   setWeather() {}

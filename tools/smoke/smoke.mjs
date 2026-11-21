@@ -333,6 +333,12 @@ harness.step(80);
 skills.castSkill(p4, "fly");
 check(p4._equip.Head?.typeId === "minecraft:iron_helmet", "helmet restored after bat form (" + p4._equip.Head?.typeId + ")");
 
+// Forest: the topmost block is a leaf; the spawn finder must look under the canopy.
+overworld.topType = "minecraft:oak_leaves";
+const spot = expl.surfaceSpot(p4, 24, 40);
+check(!!spot && spot.top.typeId !== "minecraft:oak_leaves", "spawn spot found under tree canopy");
+overworld.topType = undefined;
+
 // Run a long stretch of world time with everything active.
 p._inv.setItem(8, new ItemStack("sunrise:vampire_skill_item", 1));
 harness.step(2400);

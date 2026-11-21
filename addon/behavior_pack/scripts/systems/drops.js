@@ -12,17 +12,17 @@ const VAMP_OR_WOLF = (killer) => {
 const ANY = () => true;
 
 const TABLE = {
-  "minecraft:villager_v2": [["sunrise:weak_human_heart", 60, 1, 1, VAMP_OR_WOLF], ["sunrise:human_heart", 15, 1, 1, VAMP_OR_WOLF]],
-  "minecraft:villager": [["sunrise:weak_human_heart", 60, 1, 1, VAMP_OR_WOLF], ["sunrise:human_heart", 15, 1, 1, VAMP_OR_WOLF]],
-  "minecraft:wandering_trader": [["sunrise:weak_human_heart", 70, 1, 1, VAMP_OR_WOLF], ["sunrise:human_heart", 25, 1, 1, VAMP_OR_WOLF]],
-  "minecraft:pillager": [["sunrise:weak_human_heart", 30, 1, 1, ANY], ["sunrise:human_heart", 6, 1, 1, ANY]],
-  "minecraft:vindicator": [["sunrise:weak_human_heart", 35, 1, 1, ANY], ["sunrise:human_heart", 10, 1, 1, ANY]],
-  "minecraft:evocation_illager": [["sunrise:human_heart", 50, 1, 2, ANY], ["sunrise:philosopher_stone", 8, 1, 1, ANY]],
-  "minecraft:witch": [["sunrise:weak_human_heart", 30, 1, 1, ANY], ["sunrise:philosopher_stone", 4, 1, 1, ANY], ["sunrise:garlic", 20, 1, 2, ANY]],
-  "minecraft:zombie_villager_v2": [["sunrise:weak_human_heart", 12, 1, 1, ANY]],
-  "minecraft:wolf": [["sunrise:liver", 10, 1, 1, ANY]],
-  "minecraft:bat": [["sunrise:vampire_blood", 8, 1, 1, ANY]],
-  "minecraft:cow": [["sunrise:blood_bottle_1", 4, 1, 1, (k) => getFaction(k) === Faction.VAMPIRE]],
+  "minecraft:villager_v2": [["sunrise:weak_human_heart", 85, 1, 2, VAMP_OR_WOLF], ["sunrise:human_heart", 35, 1, 1, VAMP_OR_WOLF]],
+  "minecraft:villager": [["sunrise:weak_human_heart", 85, 1, 2, VAMP_OR_WOLF], ["sunrise:human_heart", 35, 1, 1, VAMP_OR_WOLF]],
+  "minecraft:wandering_trader": [["sunrise:weak_human_heart", 90, 1, 2, VAMP_OR_WOLF], ["sunrise:human_heart", 45, 1, 1, VAMP_OR_WOLF]],
+  "minecraft:pillager": [["sunrise:weak_human_heart", 50, 1, 1, ANY], ["sunrise:human_heart", 15, 1, 1, ANY]],
+  "minecraft:vindicator": [["sunrise:weak_human_heart", 55, 1, 1, ANY], ["sunrise:human_heart", 20, 1, 1, ANY]],
+  "minecraft:evocation_illager": [["sunrise:human_heart", 80, 1, 2, ANY], ["sunrise:philosopher_stone", 20, 1, 1, ANY]],
+  "minecraft:witch": [["sunrise:weak_human_heart", 45, 1, 1, ANY], ["sunrise:philosopher_stone", 10, 1, 1, ANY], ["sunrise:garlic", 35, 1, 2, ANY]],
+  "minecraft:zombie_villager_v2": [["sunrise:weak_human_heart", 25, 1, 1, ANY]],
+  "minecraft:wolf": [["sunrise:liver", 25, 1, 1, ANY]],
+  "minecraft:bat": [["sunrise:vampire_blood", 25, 1, 1, ANY]],
+  "minecraft:cow": [["sunrise:blood_bottle_1", 10, 1, 1, (k) => getFaction(k) === Faction.VAMPIRE]],
   "minecraft:player": [["sunrise:human_heart", 100, 1, 1, (k, dead) => getFaction(dead) === Faction.HUMAN && VAMP_OR_WOLF(k)]],
 };
 

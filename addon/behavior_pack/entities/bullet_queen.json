@@ -17,8 +17,7 @@
         "on_hit": {
           "impact_damage": {
             "damage": 4,
-            "knockback": true,
-            "should_bounce": true
+            "knockback": true
           },
           "mob_effect": {
             "effect": "poison",
@@ -45,7 +44,8 @@
           -0.1,
           0
         ],
-        "homing": true
+        "homing": true,
+        "should_bounce": true
       },
       "minecraft:physics": {
         "has_collision": false

@@ -357,7 +357,26 @@ try:
 except ImportError:
     warn("nbtlib not installed: structures not checked")
 
-# 13. Glyph sheet ------------------------------------------------------------------------------------------------------
+# 13. Render controllers: every Texture./Geometry./Material. they use must be defined
+rcs = {}
+for p, d in docs.items():
+    if p.startswith(os.path.join(RP, "render_controllers")):
+        rcs.update(d.get("render_controllers", {}))
+for p, d in docs.items():
+    if not (p.startswith(os.path.join(RP, "entity")) or p.startswith(os.path.join(RP, "attachables"))):
+        continue
+    k = "minecraft:client_entity" if "minecraft:client_entity" in d else "minecraft:attachable"
+    desc = d[k]["description"]
+    have = {kind: {x.lower() for x in desc.get(key, {})} for kind, key in (("texture", "textures"), ("geometry", "geometry"), ("material", "materials"))}
+    for rc in desc.get("render_controllers", []):
+        name = rc if isinstance(rc, str) else list(rc)[0]
+        txt = json.dumps(rcs.get(name, {}))
+        for kind in ("texture", "geometry", "material"):
+            for m in set(re.findall(rf"{kind}\.(\w+)", txt, re.I)):
+                if m.lower() not in have[kind] and not (kind == "geometry" and m.lower() == "geo"):
+                    err(f"{rel(p)}: render controller {name} needs {kind} '{m}' which is not defined (invisible mob)")
+
+# 14. Glyph sheet ------------------------------------------------------------------------------------------------------
 if not os.path.exists(os.path.join(RP, "font", "glyph_E1.png")):
     err("font/glyph_E1.png missing (HUD)")
 
