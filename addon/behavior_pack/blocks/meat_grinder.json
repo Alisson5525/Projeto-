@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.90",
+  "format_version": "1.20.80",
   "minecraft:block": {
     "description": {
       "identifier": "sunrise:meat_grinder",
@@ -73,14 +73,16 @@
       "minecraft:light_dampening": 0,
       "minecraft:geometry": "geometry.meat_grinder",
       "tag:meat_grinder": {},
+      "minecraft:custom_components": [
+          "sunrise:meat_grinder"
+      ],
       "minecraft:material_instances": {
         "*": {
           "ambient_occlusion": true,
           "texture": "meat_grinder",
           "render_method": "alpha_test"
         }
-      },
-      "sunrise:meat_grinder": {}
+      }
     }
   }
 }

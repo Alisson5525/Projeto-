@@ -161,8 +161,8 @@ let time = 6000;
 let moon = 0;
 const worldDP = new Map();
 export const world = {
-  afterEvents: signals(["playerSpawn", "playerLeave", "entityDie", "entityHitEntity", "entityHurt", "itemUse", "itemCompleteUse", "weatherChange", "projectileHitEntity", "playerInteractWithEntity", "dataDrivenEntityTrigger", "entityHitBlock", "itemStartUseOn"]),
-  beforeEvents: signals(["itemUse", "playerInteractWithEntity"]),
+  afterEvents: signals(["playerSpawn", "playerLeave", "entityDie", "entityHitEntity", "entityHurt", "itemUse", "itemCompleteUse", "weatherChange", "projectileHitEntity", "playerInteractWithEntity", "dataDrivenEntityTrigger", "entityHitBlock", "itemStartUseOn", "playerPlaceBlock", "playerBreakBlock"]),
+  beforeEvents: signals(["itemUse", "playerInteractWithEntity", "playerInteractWithBlock"]),
   getAllPlayers: guard(() => overworld.getPlayers().filter((p) => p.isValid)),
   getPlayers: guard((q = {}) => overworld.getPlayers().filter((p) => p.isValid && (!q.tags || q.tags.every((t) => p.hasTag(t))))),
   getDimension: guard(() => overworld),

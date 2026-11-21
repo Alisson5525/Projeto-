@@ -1,7 +1,7 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Vampire Craft §4[5.1.0]§r BEH",
+    "name": "Vampire Craft §4[5.1.1]§r BEH",
     "description": "§cVampire Craft 5 — Reborn§r\nVampires, werewolves and hunters. Levels, skills, blood moon and much more.",
     "min_engine_version": [
       1,
@@ -12,7 +12,7 @@
     "version": [
       5,
       1,
-      0
+      1
     ]
   },
   "modules": [
@@ -22,7 +22,7 @@
       "version": [
         5,
         1,
-        0
+        1
       ]
     },
     {
@@ -32,7 +32,7 @@
       "version": [
         5,
         1,
-        0
+        1
       ],
       "entry": "scripts/main.js"
     }
@@ -43,7 +43,7 @@
       "version": [
         5,
         1,
-        0
+        1
       ]
     },
     {

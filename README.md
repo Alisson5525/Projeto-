@@ -3,13 +3,13 @@
 Reformulação completa do add-on **Vampire Craft v4.7.4** para **Minecraft Bedrock (Android, iOS, Windows, consoles)**.
 Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte poderes e sobreviva à **Lua de Sangue**.
 
-> **Versão:** 5.1.0 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
+> **Versão:** 5.1.1 · **Requer:** Minecraft Bedrock **1.26.50 ou mais recente** · **Script API:** `@minecraft/server 2.0.0` (estável, sem experimentais)
 
 ---
 
 ## 📦 Instalação (Android)
 
-1. Baixe `dist/Vampire_Craft_v5.1.0.mcaddon`.
+1. Baixe `dist/Vampire_Craft_v5.1.1.mcaddon`.
 2. Toque no arquivo → abrir com **Minecraft**. Os dois pacotes (BEH e RES) são importados juntos.
 3. No mundo: **Configurações → Pacotes de Comportamento → Ativar "Vampire Craft [5.0.0] BEH"** (o de recursos é ativado junto).
 4. **Não é preciso ativar nenhum experimento.**
@@ -17,6 +17,10 @@ Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte podere
 **Atualizando de um mundo da v4.7.4?** Os pacotes usam os mesmos UUIDs, então o mundo atualiza sozinho. Na primeira entrada cada jogador é migrado automaticamente: raça, habilidades desbloqueadas, nível do lobisomem, atributos do caçador e sangue são convertidos para o novo sistema.
 
 ---
+
+## 🩹 5.1.1
+- **Altar de Sangue e demais blocos com função** (altar de recarga, moedor, caixões, fogueira, alho) voltaram ao formato de bloco original da v4.7.4, que já funcionava — na 5.0/5.1 eles usavam o formato novo de componentes e não carregavam em alguns aparelhos.
+- A lógica desses blocos agora também roda por eventos do jogador como reserva, então funciona mesmo se o componente do bloco não disparar.
 
 ## 🆕 Novidades da 5.1.0
 - **Diagnóstico automático**: ao entrar no mundo o add-on confirma que carregou, ou lista exatamente quais blocos/itens não carregaram (ex.: Altar de Sangue) e o que fazer.
@@ -41,7 +45,7 @@ Vire **vampiro**, **lobisomem** ou **caçador**, suba de nível, desperte podere
 | Cópias de mobs vanilla de 2020–2023 (zumbi, esqueleto, golem…) | Regeneradas a partir dos arquivos oficiais **1.26.60** |
 | Baús vanilla congelados em versões antigas | Loot vanilla atual + pool extra do add-on |
 | `/ability mayfly` (só Education Edition) | Voo próprio da forma de morcego |
-| Blocos com componentes customizados V1 | Componentes customizados V2 (format 1.21.90) |
+| Blocos com componentes customizados | Mesmo formato original + lógica reserva por eventos do jogador |
 
 ### Bugs graves corrigidos
 - **Caçador com dano infinito**: o bônus de dano reaplicava dano dentro do próprio evento de dano (recursão) e travava em qualquer dano sem atacante.

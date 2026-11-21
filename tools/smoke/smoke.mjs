@@ -182,6 +182,21 @@ harness.step(45);
 check(world.getTimeOfDay() === 13000, "coffin skips the day");
 registered["sunrise:summon_hunters_component"].onRandomTick({ block: coffin, dimension: overworld }, {});
 
+// Fallback: the engine doesn't fire the component → player events do the work, once.
+const altar2 = new Block(overworld, { x: 9, y: 64, z: 9 }, "sunrise:blood_altar", { "sunrise:blood_altar_level": 0 });
+p._inv.setItem(0, new ItemStack("sunrise:blood_bottle_4", 5));
+world.beforeEvents.playerInteractWithBlock.fire({ player: p, block: altar2, isFirstEvent: true, itemStack: p._inv.getItem(0) });
+harness.step(2);
+check(altar2._states["sunrise:blood_altar_level"] === 1, "altar works through the event fallback");
+world.beforeEvents.playerInteractWithBlock.fire({ player: p, block: altar2, isFirstEvent: true, itemStack: p._inv.getItem(0) });
+registered["sunrise:blood_altar_component"].onPlayerInteract({ block: altar2, player: p, dimension: overworld }, {});
+harness.step(2);
+check(altar2._states["sunrise:blood_altar_level"] === 2, "no double handling when the component also fires (" + altar2._states["sunrise:blood_altar_level"] + ")");
+const coffin2 = new Block(overworld, { x: 12, y: 64, z: 5 }, "sunrise:caixao_birch");
+log.calls.length = 0;
+world.afterEvents.playerPlaceBlock.fire({ block: coffin2, player: p, dimension: overworld });
+world.afterEvents.playerBreakBlock.fire({ block: coffin2, player: p, dimension: overworld, brokenBlockPermutation: { type: { id: "sunrise:caixao_birch" } } });
+
 // --- Cure ---------------------------------------------------------------------------------------------
 world.afterEvents.itemCompleteUse.fire({ itemStack: new ItemStack("sunrise:vampire_cure"), source: p });
 check(!data.isVampire(p), "vampire cure works");

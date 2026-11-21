@@ -30,7 +30,30 @@ function useHand(player, typeId) {
   return true;
 }
 
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry: reg }) => {
+// ---------------------------------------------------------------------------
+// Component definitions are collected first, then registered at startup. The
+// same handlers are also driven by player events (see the end of this file),
+// so the blocks keep working even if the engine doesn't fire a component.
+// ---------------------------------------------------------------------------
+
+/** @type {Record<string, any>} */
+export const COMPONENTS = {};
+/** playerId -> tick of the last interaction handled by a real block component */
+const handledAt = new Map();
+const reg = {
+  registerCustomComponent(name, def) {
+    const wrapped = { ...def };
+    if (def.onPlayerInteract) {
+      wrapped.onPlayerInteract = (ev, params) => {
+        if (ev.player) handledAt.set(ev.player.id, system.currentTick);
+        return def.onPlayerInteract(ev, params);
+      };
+    }
+    COMPONENTS[name] = wrapped;
+  },
+};
+
+{
   // -------------------------------------------------------------------------
   // Blood Altar: fill with blood (10 levels), then offer a fang to unlock skills
   // -------------------------------------------------------------------------
@@ -215,4 +238,54 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry: reg }) => {
 
   // Kept for blocks that still declare it.
   reg.registerCustomComponent("sunrise:item_usable_component", { onPlayerInteract: () => {} });
+}
+
+system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
+  for (const [name, def] of Object.entries(COMPONENTS)) {
+    safe(() => blockComponentRegistry.registerCustomComponent(name, def), "register " + name);
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Event-driven fallback
+// ---------------------------------------------------------------------------
+
+/** Which component handles a tap on each block type. */
+export function interactComponentFor(typeId) {
+  if (typeId === "sunrise:blood_altar") return "sunrise:blood_altar_component";
+  if (typeId === "sunrise:recharging_altar") return "sunrise:recharging_altar_component";
+  if (typeId === "sunrise:meat_grinder") return "sunrise:meat_grinder";
+  if (typeId === "thini:garlic_crop") return "thini:crop";
+  if (typeId.startsWith("sunrise:caixao_")) return "sunrise:sleep_coffin";
+  return undefined;
+}
+
+world.beforeEvents.playerInteractWithBlock.subscribe((ev) => {
+  if (!ev.isFirstEvent) return;
+  const name = interactComponentFor(ev.block.typeId);
+  if (!name) return;
+  const { player, block } = ev;
+  const tick = system.currentTick;
+  // Before-events are read-only: act on the next tick, only if no component ran.
+  system.run(() => {
+    if ((handledAt.get(player.id) ?? -1) >= tick) return;
+    safe(() => COMPONENTS[name].onPlayerInteract({ block, player, dimension: block.dimension }, { params: {} }), "fallback " + name);
+  });
+});
+
+world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
+  if (!block.typeId.startsWith("sunrise:caixao_") || block.typeId === "sunrise:caixao_up_collision") return;
+  safe(() => COMPONENTS["sunrise:put_support_coffin_collision_up"].onPlace({ block, dimension: block.dimension }, { params: {} }), "coffinPlace");
+});
+
+world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation, player }) => {
+  const id = brokenBlockPermutation.type.id;
+  if (!id.startsWith("sunrise:caixao_")) return;
+  safe(() => {
+    if (id === "sunrise:caixao_up_collision") {
+      COMPONENTS["sunrise:support_coffin_collision_up"].onPlayerBreak({ block, player, dimension: block.dimension, brokenBlockPermutation }, { params: {} });
+    } else {
+      COMPONENTS["sunrise:break_support_coffin_collision_up"].onPlayerBreak({ block, player, dimension: block.dimension, brokenBlockPermutation }, { params: {} });
+    }
+  }, "coffinBreak");
 });
