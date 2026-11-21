@@ -2,8 +2,8 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "minecraft:barraca_cacador_feature_rule",
-      "places_feature": "minecraft:barraca_cacador_feature"
+      "identifier": "sunrise:barraca_cacador_feature_rule",
+      "places_feature": "sunrise:barraca_cacador_feature"
     },
     "conditions": {
       "placement_pass": "surface_pass",

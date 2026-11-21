@@ -2,8 +2,8 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "minecraft:torre_vampiro_feature_rule",
-      "places_feature": "minecraft:torre_vampiro_feature"
+      "identifier": "sunrise:torre_vampiro_feature_rule",
+      "places_feature": "sunrise:torre_vampiro_feature"
     },
     "conditions": {
       "placement_pass": "surface_pass",

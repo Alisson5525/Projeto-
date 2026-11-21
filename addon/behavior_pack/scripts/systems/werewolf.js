@@ -61,7 +61,8 @@ WOLF_HOOKS.toggle = (p) => {
 // Loop
 // ---------------------------------------------------------------------------
 
-let wasNight = isNight();
+/** Initialised on the first loop: world APIs are unavailable during early execution. */
+let wasNight;
 
 function tickWerewolf(p, duskEdge, dawnEdge) {
   const lvl = getLevel(p);
@@ -105,6 +106,7 @@ function tickWerewolf(p, duskEdge, dawnEdge) {
 
 every(LOOP_TICKS, () => {
   const night = isNight();
+  if (wasNight === undefined) wasNight = night;
   const dusk = night && !wasNight;
   const dawn = !night && wasNight;
   wasNight = night;

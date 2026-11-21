@@ -145,22 +145,25 @@ class Dimension {
 }
 
 const overworld = new Dimension("minecraft:overworld");
+// Early execution: world APIs throw until the world has loaded (like the real 2.x engine).
+export const early = { on: true };
+const guard = (fn) => (...a) => { if (early.on) throw new Error("world API used during early execution"); return fn(...a); };
 let time = 6000;
 let moon = 0;
 const worldDP = new Map();
 export const world = {
   afterEvents: signals(["playerSpawn", "playerLeave", "entityDie", "entityHitEntity", "entityHurt", "itemUse", "itemCompleteUse", "weatherChange", "projectileHitEntity", "playerInteractWithEntity", "dataDrivenEntityTrigger", "entityHitBlock", "itemStartUseOn"]),
   beforeEvents: signals(["itemUse", "playerInteractWithEntity"]),
-  getAllPlayers: () => overworld.getPlayers().filter((p) => p.isValid),
-  getPlayers: (q = {}) => overworld.getPlayers().filter((p) => p.isValid && (!q.tags || q.tags.every((t) => p.hasTag(t)))),
-  getDimension: () => overworld,
-  getTimeOfDay: () => time,
-  setTimeOfDay: (t) => { time = t; },
-  getAbsoluteTime: () => 24000 * 5 + time,
-  getMoonPhase: () => moon,
-  getDynamicProperty: (k) => worldDP.get(k),
-  setDynamicProperty: (k, v) => worldDP.set(k, v),
-  getEntity: (id) => overworld._entities.find((e) => e.id === id),
+  getAllPlayers: guard(() => overworld.getPlayers().filter((p) => p.isValid)),
+  getPlayers: guard((q = {}) => overworld.getPlayers().filter((p) => p.isValid && (!q.tags || q.tags.every((t) => p.hasTag(t))))),
+  getDimension: guard(() => overworld),
+  getTimeOfDay: guard(() => time),
+  setTimeOfDay: guard((t) => { time = t; }),
+  getAbsoluteTime: guard(() => 24000 * 5 + time),
+  getMoonPhase: guard(() => moon),
+  getDynamicProperty: guard((k) => worldDP.get(k)),
+  setDynamicProperty: guard((k, v) => worldDP.set(k, v)),
+  getEntity: guard((id) => overworld._entities.find((e) => e.id === id)),
   scoreboard: { getObjective: () => undefined },
 };
 

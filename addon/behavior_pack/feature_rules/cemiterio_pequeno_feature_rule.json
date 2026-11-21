@@ -2,8 +2,8 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "minecraft:cemiterio_pequeno_feature_rule",
-      "places_feature": "minecraft:cemiterio_pequeno_feature"
+      "identifier": "sunrise:cemiterio_pequeno_feature_rule",
+      "places_feature": "sunrise:cemiterio_pequeno_feature"
     },
     "conditions": {
       "placement_pass": "surface_pass",

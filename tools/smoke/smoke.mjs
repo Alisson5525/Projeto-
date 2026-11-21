@@ -1,6 +1,6 @@
 // End-to-end smoke test: loads the real add-on scripts against the mock engine
 // and plays through every major feature. Run: node --import ./loader.mjs smoke.mjs
-import { world, system, harness, log, ItemStack, GameMode } from "@minecraft/server";
+import { world, system, harness, log, ItemStack, GameMode, early } from "@minecraft/server";
 import { answers, shown } from "@minecraft/server-ui";
 
 const errors = [];
@@ -12,6 +12,9 @@ const BP = "../../addon/behavior_pack/scripts";
 const { DEBUG } = await import(`${BP}/core/util.js`);
 DEBUG.on = true;
 await import(`${BP}/main.js`);
+// Startup + one tick in early execution must not touch the world.
+system.beforeEvents.startup.fire({ blockComponentRegistry: { registerCustomComponent() {} }, itemComponentRegistry: { registerCustomComponent() {} } });
+early.on = false;
 const data = await import(`${BP}/core/data.js`);
 const skills = await import(`${BP}/systems/skills.js`);
 const factions = await import(`${BP}/systems/factions.js`);

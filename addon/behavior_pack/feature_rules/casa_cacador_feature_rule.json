@@ -2,8 +2,8 @@
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "minecraft:casa_cacador_feature_rule",
-      "places_feature": "minecraft:casa_cacador_feature"
+      "identifier": "sunrise:casa_cacador_feature_rule",
+      "places_feature": "sunrise:casa_cacador_feature"
     },
     "conditions": {
       "placement_pass": "surface_pass",

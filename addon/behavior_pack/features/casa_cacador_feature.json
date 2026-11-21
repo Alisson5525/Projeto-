@@ -2,7 +2,7 @@
   "format_version": "1.13.0",
   "minecraft:structure_template_feature": {
     "description": {
-      "identifier": "minecraft:casa_cacador_feature"
+      "identifier": "sunrise:casa_cacador_feature"
     },
     "structure_name": "mystructure:casa_cacador",
     "adjustment_radius": 12,

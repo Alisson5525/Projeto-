@@ -2,7 +2,7 @@
   "format_version": "1.13.0",
   "minecraft:structure_template_feature": {
     "description": {
-      "identifier": "minecraft:torre_vampiro_feature"
+      "identifier": "sunrise:torre_vampiro_feature"
     },
     "structure_name": "mystructure:torre_vampira",
     "adjustment_radius": 7,
