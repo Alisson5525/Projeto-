@@ -27,6 +27,10 @@ export function rankDe(nivel) {
   return r;
 }
 
+export function proximoRank(nivel) {
+  return RANKS.find((r) => r.min > nivel);
+}
+
 export function xpParaProximo(nivel) {
   return Math.floor(60 * Math.pow(nivel, 1.45));
 }
@@ -130,6 +134,7 @@ export function darXP(player, quantidade, motivo) {
       `§8----------------------------------§r\n` +
       `§6§l  NÍVEL ${nivel}!§r  ${rank.cor}${rank.nome}\n` +
       `§7  Recompensa: §e+${tpGanho} TP §7(use no Menu de Status)\n` +
+      (proximoRank(nivel) ? `§7  Próximo rank: ${proximoRank(nivel).cor}${proximoRank(nivel).nome} §7no nível §f${proximoRank(nivel).min} §8(faltam ${proximoRank(nivel).min - nivel})\n` : `§c  Você alcançou o rank máximo!\n`) +
       `§8----------------------------------`);
     if (rank !== rankAntes) {
       for (const p of world.getAllPlayers()) {
@@ -186,7 +191,8 @@ export async function abrirPerfil(player) {
 
   const corpo =
     `§f${player.name}\n` +
-    `${rank.cor}§l${rank.nome}§r\n\n` +
+    `${rank.cor}§l${rank.nome}§r\n` +
+    (proximoRank(nivel) ? `§8Próximo: ${proximoRank(nivel).cor}${proximoRank(nivel).nome}§8 no nível ${proximoRank(nivel).min}\n\n` : "§8Rank máximo alcançado\n\n") +
     `§7Nível: §e${nivel}${nivel >= NIVEL_MAX ? " §6(MAX)" : ""}\n` +
     (nivel < NIVEL_MAX ? `§7XP: ${barra(xp, prox, 20, "§6", "§8")} §f${xp}§7/§f${prox}\n` : "") +
     `§7TP disponível: §e${lerScore(player, "tp")}\n\n` +
