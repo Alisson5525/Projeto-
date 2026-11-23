@@ -112,6 +112,15 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
 { const bj=new S.Entity('tnt:kurama_biju_morte', ow, {x:p1.location.x+0.3,y:p1.location.y,z:p1.location.z},{hp:50}); p1._vel={x:0,y:0,z:0};
   world.afterEvents.itemStartUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(40);
   world.afterEvents.itemStopUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(5); }
+// teste myoboku: bloqueado < nivel 15, viagem, construcao, meditacao e volta
+{ const end=S.dims.the_end; const nivelAntes=p1.getDynamicProperty('ns:nivel'); p1.setDynamicProperty('ns:nivel',3);
+  se('ns:myoboku',p1); steps(20); const bloqueado=p1.dimension===ow;
+  p1.setDynamicProperty('ns:nivel',20); const origem={...p1.location}; se('ns:myoboku',p1); steps(15);
+  const foi=p1.dimension===end; steps(120); const construiu=S.cmds.some(c=>c.c.includes('structure load monte_myoboku'));
+  p1.isSneaking=true; p1.isOnGround=true; steps(60); p1.isSneaking=false;
+  se('ns:myoboku',p1); steps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
+  console.log('teste myoboku: bloqueado',bloqueado,'| foi',foi,'| construiu',construiu,'| voltou',voltou);
+  if(!(bloqueado&&foi&&construiu&&voltou)) S.errors.push({where:'myoboku',msg:'fluxo incorreto',stack:''}); p1.setDynamicProperty('ns:nivel',nivelAntes??1); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

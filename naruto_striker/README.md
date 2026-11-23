@@ -60,6 +60,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - O mundo é dividido em **regiões com nomes ninja** gerados (ex.: *Vale da Névoa*, *Pico dos Corvos*). Cada região nova dá XP com folhas de Konoha caindo.
 - A cada 4 regiões: **Pergaminho Perdido** com TP.
 - **Esconderijos ninja**: ao descobrir uma região (35% de chance) surge um baú por perto, marcado por uma coluna de fumaça dourada por 90 s, com direção e distância no chat. Saque próprio (`loot_tables/ns/esconderijo.json`): comidas do add-on, minérios, pérolas, maçã dourada/diamante raros e chance de roupas/armas ninja.
+- **Monte Myoboku** (estrutura 64×64×64 que vinha no pack sem uso): *Invocação Reversa* pelo Pergaminho Ninja a partir do rank **Chunin** (nível 15). A montanha é construída no vazio do End em (-500, -500) — longe de qualquer construção, como o Kamui original —, você chega com queda lenta e um botão te devolve ao ponto exato de onde saiu. Meditar lá rende **chakra triplo e XP** (treino de energia natural).
 - **Meditação**: o "agachar para carregar chakra" original ganha partículas de chakra convergindo e, parado por 2 s, um bônus de +2% do chakra máximo por segundo.
 
 ## 4.1 Ambiente e eventos do mundo
@@ -146,7 +147,8 @@ Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Nod
 8. Agache parado 2 s → partículas de **meditação** e chakra subindo.
 9. Ande ~200 blocos em linha reta → **nova região** com nome, folhas caindo e às vezes um **esconderijo** com fumaça dourada.
 10. `/summon tnt:kurama_biju` (longe da base) → caudas em **onda**, barra de vida colorida e **fúria** abaixo de 50%.
-11. `/scriptevent ns:config` → painel de configuração do mundo.
+11. Com nível 15+ use o Pergaminho Ninja (ou `/scriptevent ns:myoboku`) → **Monte Myoboku**; agache parado lá para treinar.
+12. `/scriptevent ns:config` → painel de configuração do mundo.
 
 ## Estrutura
 
@@ -176,4 +178,4 @@ Cada jogador também tem seus ajustes visuais no Pergaminho Ninja.
 - O nome dos jogadores **não** é alterado (o sistema VIP original identifica jogadores por `name=`).
 - Esconderijos só são colocados em espaço vazio sobre chão firme (nunca substituem blocos).
 
-Comandos úteis: `/scriptevent ns:perfil` (abre o perfil), `/scriptevent ns:bingo` (abre o Livro Bingo).
+Comandos úteis: `/scriptevent ns:perfil` (abre o perfil), `/scriptevent ns:bingo` (abre o Livro Bingo), `/scriptevent ns:myoboku` (vai/volta do Monte Myoboku).
