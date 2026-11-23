@@ -437,7 +437,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e180.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e180.Tp\"}]}",
 "scoreboard players add @s tp 180"
 
 ],
@@ -445,7 +445,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e350.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e350.Tp\"}]}",
 "scoreboard players add @s tp 350"
 
 ],
@@ -456,37 +456,37 @@
 
 "tnt:kubikiribocho": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:kubikiribocho"
 ],"target": "other"}},
 
 "tnt:kunai_asuma": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:kunai_asuma"
 ],"target": "other"}},
 
 "tnt:hiramekarei": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:hiramekarei"
 ],"target": "other"}},
 
 "tnt:katubowari": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:katubowari"
 ],"target": "other"}},
 
 "tnt:kiba": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:kiba"
 ],"target": "other"}},
 
 "tnt:shibuki": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:shibuki"
 ],"target": "other"}},
 

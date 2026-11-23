@@ -424,7 +424,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e750.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e750.Tp\"}]}",
 "scoreboard players add @s tp 750"
 
 ],
@@ -432,7 +432,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e1100.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e1100.Tp\"}]}",
 "scoreboard players add @s tp 1100"
 
 ],
@@ -440,7 +440,7 @@
 
 {"weight": 20,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e2000.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e2000.Tp\"}]}",
 "scoreboard players add @s tp 2000"
 
 ],
@@ -454,25 +454,25 @@
 
 "tnt:kunai_minato": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:kunai_minato"
 ],"target": "other"}},
 
 "tnt:foice_hidan": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:foice_hidan"
 ],"target": "other"}},
 
 "tnt:samehada": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:samehada"
 ],"target": "other"}},
 
 "tnt:gunbai": {
 "queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
 "give @s tnt:gunbai"
 ],"target": "other"}},
 

@@ -145,13 +145,13 @@
 {"weight": 100,
 "add": {"component_groups": ["tnt:despawn"]},
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §eFalha na Coleta\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §eFalha na Coleta\"}]}"
 ],
 "target": "other"}},
 {"weight": 30,
 "add": {"component_groups": ["tnt:despawn"]},
 "queue_command": {"command": [
-   "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eSharingan Coletado\"}]}",
+   "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eSharingan Coletado\"}]}",
    "give @s tnt:olho_sharingan"
 ],
 "target": "other"}}

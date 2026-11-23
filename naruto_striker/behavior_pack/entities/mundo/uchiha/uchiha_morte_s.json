@@ -143,7 +143,7 @@
       "tnt:coletar": {
         "queue_command": {
           "command": [
-            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eSharingan Coletado\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eSharingan Coletado\"}]}",
             "give @s tnt:olho_sharingan"
           ],
           "target": "other"

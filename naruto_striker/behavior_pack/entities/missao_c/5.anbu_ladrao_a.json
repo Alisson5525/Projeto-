@@ -305,7 +305,7 @@
      "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
           ]
         },
              "add": {
@@ -433,7 +433,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e30.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e30.Tp\"}]}",
 "scoreboard players add @s tp 30"
 
 ],
@@ -441,7 +441,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e50.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e50.Tp\"}]}",
 "scoreboard players add @s tp 50"
 
 ],

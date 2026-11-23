@@ -233,7 +233,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
 "scoreboard players add @s tp 150"
 
 ],
@@ -241,7 +241,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
 "scoreboard players add @s tp 250"
 
 ],

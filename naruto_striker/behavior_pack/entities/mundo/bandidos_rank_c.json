@@ -409,7 +409,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e70.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e70.Tp\"}]}",
 "scoreboard players add @s[tag=missao_5_c] bndidos_c_miss 1",
 "scoreboard players add @s tp 70"
 
@@ -418,7 +418,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e90.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e90.Tp\"}]}",
 "scoreboard players add @s[tag=missao_5_c] bndidos_c_miss 1",
 "scoreboard players add @s tp 90"
 

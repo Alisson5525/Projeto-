@@ -332,19 +332,19 @@
 "randomize": [
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §cFalha em Recuperar Pergaminho.\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cFalha em Recuperar Pergaminho.\"}]}"
 ],
           "target": "other"}},
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §cFalha em Recuperar Pergaminho..\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cFalha em Recuperar Pergaminho..\"}]}"
 ],
           "target": "other"}},
 {"weight": 20,
 "add": {"component_groups": ["tnt:despawn"]},
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e500.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e500.Tp\"}]}",
 "scoreboard players add @s tp 500",
 "tag @s add missao_9_c"
 
@@ -483,7 +483,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e80.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e80.Tp\"}]}",
 "scoreboard players add @s tp 30"
 
 ],
@@ -491,7 +491,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e100.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e100.Tp\"}]}",
 "scoreboard players add @s tp 50"
 
 ],
@@ -504,7 +504,7 @@
       "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §cSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cSua missao nao foi concluida\"}]}"
           ]
         },
              "add": {

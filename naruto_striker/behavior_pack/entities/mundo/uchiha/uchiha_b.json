@@ -467,7 +467,7 @@
 {"weight": 100,
 "add": {"component_groups": ["tnt:morte_v_1"]},
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
 "scoreboard players add @s tp 75"
 ],
 "target": "other"}}
@@ -478,7 +478,7 @@
 {"weight": 100,
 "add": {"component_groups": ["tnt:morte_v_2"]},
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
 "scoreboard players add @s tp 75"
 ],
 "target": "other"}}
@@ -489,7 +489,7 @@
 {"weight": 100,
 "add": {"component_groups": ["tnt:morte_v_3"]},
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e75.Tp\"}]}",
 "scoreboard players add @s tp 75"
 ],
 "target": "other"}}

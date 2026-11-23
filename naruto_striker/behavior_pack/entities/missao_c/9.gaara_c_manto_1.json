@@ -361,7 +361,7 @@
 
 "tnt:morrer": {
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[gaara] §eEm 3 minutos, o Shukaku assume o controle.\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[gaara] §eEm 3 minutos, o Shukaku assume o controle.\"}]}"
 
 ],
 "target": "other"}},

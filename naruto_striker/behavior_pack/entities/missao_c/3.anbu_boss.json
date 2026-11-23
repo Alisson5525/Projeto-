@@ -305,7 +305,7 @@
      "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
           ]
         },
              "add": {
@@ -430,8 +430,8 @@
 
 "tnt:morrer": {
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eMissao Foi Concluida\"}]}",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e200.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eMissao Foi Concluida\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e200.Tp\"}]}",
 "tag @s[tag=!missao_3_c] add missao_3_c",
 "scoreboard players add @s tp 200"
 ],

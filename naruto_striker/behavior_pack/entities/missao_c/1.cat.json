@@ -435,7 +435,7 @@
       "tnt:capturar_miss": {
         "queue_command": {
           "command": [
-            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aGato capturado\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aGato capturado\"}]}",
             "scoreboard players add @s gatos_miss 1"
           ],
           "target": "other"

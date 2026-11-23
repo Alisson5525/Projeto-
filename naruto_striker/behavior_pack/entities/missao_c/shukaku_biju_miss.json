@@ -360,8 +360,8 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e6000.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e6000.Tp\"}]}",
 "tag @s add missao_12_c",
 "scoreboard players add @s tp 6000"
 
@@ -370,8 +370,8 @@
 
 {"weight": 40,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e10000.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e10000.Tp\"}]}",
 "tag @s add missao_12_c",
 "scoreboard players add @s tp 10000"
 

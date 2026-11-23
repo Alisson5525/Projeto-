@@ -355,7 +355,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e500.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e500.Tp\"}]}",
 "scoreboard players add @s tp 500"
 
 ],
@@ -363,7 +363,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e700.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e700.Tp\"}]}",
 "scoreboard players add @s tp 700"
 
 ],
@@ -401,7 +401,7 @@
 
 
       "tnt:despawn": {
-"queue_command": {"command": ["execute as @a[r=20] run tellraw @s{\"rawtext\":[{\"text\":\"§c[Kisame] §eAinda nao e minha vez.. Por ora, esta luta sera sua, §aItachi§a.\"}]}","particle tnt:rasengan_impact_fumaca","camerashake add @a[r=15] 0.2 0.2 rotational"]},
+"queue_command": {"command": ["execute as @a[r=20] run tellraw @s {\"rawtext\":[{\"text\":\"§c[Kisame] §eAinda nao e minha vez.. Por ora, esta luta sera sua, §aItachi§a.\"}]}","particle tnt:rasengan_impact_fumaca","camerashake add @a[r=15] 0.2 0.2 rotational"]},
         "add": {
           "component_groups": [
             "tnt:despawn"

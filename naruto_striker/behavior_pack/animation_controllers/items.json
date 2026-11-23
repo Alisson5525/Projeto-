@@ -17,7 +17,7 @@
 
 "chakra_kurama": {
 "on_entry": [
-"/tellraw @s{\"rawtext\":[{\"text\":\"§c[!]§e Voce Se Tornou Jinchuuriki da Kurama\"}]}", 
+"/tellraw @s {\"rawtext\":[{\"text\":\"§c[!]§e Voce Se Tornou Jinchuuriki da Kurama\"}]}", 
 "/clear @s tnt:chakra_kurama 0 1", 
 "/tag @s remove manto_kurama_1_lock",
 "/tag @s add manto_kurama_1",

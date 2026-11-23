@@ -63,8 +63,8 @@ execute as @s[scores={chakra=..0}] run scoreboard players set @s chakra 0
 
 
 
-execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s{"rawtext":[{"text":"§aMissao Completa"}]}
-execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s{"rawtext":[{"text":"§c[!] §a170.Tp"}]}
+execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s {"rawtext":[{"text":"§aMissao Completa"}]}
+execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s {"rawtext":[{"text":"§c[!] §a170.Tp"}]}
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tag @s add missao_2_c
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run scoreboard players add @s tp 170
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run clear @s tnt:sinos 2
@@ -73,8 +73,8 @@ execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run 
 
 
 
-tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}]{"rawtext":[{"text":"§c[!] §aCapturas Comcluida"}]}
-tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}]{"rawtext":[{"text":"§c[!] §a50.Tp"}]}
+tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}] {"rawtext":[{"text":"§c[!] §aCapturas Comcluida"}]}
+tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}] {"rawtext":[{"text":"§c[!] §a50.Tp"}]}
 execute as @s[tag=!missao_1_c,scores={gatos_miss=15..}] run scoreboard players add @s tp 50
 execute as @s[tag=!missao_1_c,scores={gatos_miss=15..}] run tag @s add pergaminha_ninja_lock
 execute as @s[tag=!missao_1_c,scores={gatos_miss=15..}] run tag @s add missao_1_c

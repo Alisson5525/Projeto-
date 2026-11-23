@@ -241,7 +241,7 @@
         "queue_command": {
           "command": [
             "summon tnt:shukaku_biju_miss",
-            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[shukaku] §eO selo foi quebrado. Agora eu estou livre.\"}]}"
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[shukaku] §eO selo foi quebrado. Agora eu estou livre.\"}]}"
           ]
         }
       },
@@ -378,8 +378,8 @@
       "tnt:morrer": {
         "queue_command": {
           "command": [
-            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
-            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e6000.Tp\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e6000.Tp\"}]}",
             "tag @s add missao_12_c",
             "scoreboard players add @s tp 6000"
           ],

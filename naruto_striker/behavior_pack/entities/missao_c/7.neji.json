@@ -357,8 +357,8 @@
 "tnt:morrer": {
 
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e1500.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e1500.Tp\"}]}",
 "tag @s add missao_10_c",
 "scoreboard players add @s tp 1500"
 

@@ -7,7 +7,7 @@
 "timeline": {
 "119": [
 "/effect @s[tag=all_status_vida_regen] instant_health 1 7 true",
-"/execute as @s[tag=all_status_vida_regen] run tellraw @s{\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"
+"/execute as @s[tag=all_status_vida_regen] run tellraw @s {\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"
 
 ]
 }
@@ -17,7 +17,7 @@
 "animation_length": 180,
 "timeline": {
 "179": ["/effect @s[tag=all_status_vida_regen] instant_health 1 7 true",
-"/execute as @s[tag=all_status_vida_regen] run tellraw @s{\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"]
+"/execute as @s[tag=all_status_vida_regen] run tellraw @s {\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"]
 }
 },
 "animation.modos_6m": {
@@ -25,7 +25,7 @@
 "animation_length": 340,
 "timeline": {
 "339": ["/effect @s[tag=all_status_vida_regen] instant_health 1 7 true",
-"/execute as @s[tag=all_status_vida_regen] run tellraw @s{\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"]
+"/execute as @s[tag=all_status_vida_regen] run tellraw @s {\"rawtext\":[{\"text\":\"§e[Habilidade] §dRegeneração Ativada\"}]}"]
 }
 }
   }

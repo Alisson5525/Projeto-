@@ -364,7 +364,7 @@
 
 "tnt:morrer": {
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[gaara] §eVocês passaram do limite. Agora eu não vou segurar.\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[gaara] §eVocês passaram do limite. Agora eu não vou segurar.\"}]}"
 
 ],
 "target": "other"}},

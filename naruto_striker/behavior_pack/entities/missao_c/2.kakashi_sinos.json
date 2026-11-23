@@ -337,13 +337,13 @@
           "target": "other"}}, 
 {"weight": 80,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §cFalha em Pegar Sinos\"}]}"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cFalha em Pegar Sinos\"}]}"
 ],
           "target": "other"}},
 {"weight": 15,
 "queue_command": {"command": [
 "scoreboard players add @e[type=tnt:kakashi_sinos,r=5] sinos 1",
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aSino Coletado\"}]}","give @s tnt:sinos 1"
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSino Coletado\"}]}","give @s tnt:sinos 1"
 ],
           "target": "other"}}
 ]},
@@ -479,7 +479,7 @@
 
 {"weight": 100,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e120.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e120.Tp\"}]}",
 "scoreboard players add @s tp 120"
 
 ],
@@ -487,7 +487,7 @@
 
 {"weight": 70,
 "queue_command": {"command": [
-"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
 "scoreboard players add @s tp 150"
 
 ],
@@ -500,7 +500,7 @@
       "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
           ]
           
         },

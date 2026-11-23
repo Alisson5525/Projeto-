@@ -17,7 +17,7 @@
             }
           ],
           "on_entry": [ 
-          "/tellraw @s{\"rawtext\":[{\"text\":\"§c[!]§a Seu Treinamento Começou\"}]}",
+          "/tellraw @s {\"rawtext\":[{\"text\":\"§c[!]§a Seu Treinamento Começou\"}]}",
           "/tag @s add treino_pesos"
           ]
         },
@@ -28,7 +28,7 @@
             }
           ],
           "on_entry": [ 
-          "/execute as @s[tag=treino_pesos,scores={pesos_guy=2..12000}] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!]§e Seu Treinamento Foi Resetado\"}]}",
+          "/execute as @s[tag=treino_pesos,scores={pesos_guy=2..12000}] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!]§e Seu Treinamento Foi Resetado\"}]}",
           "/scoreboard players set @s pesos_guy 12000",
           "/tag @s remove treino_pesos"
             

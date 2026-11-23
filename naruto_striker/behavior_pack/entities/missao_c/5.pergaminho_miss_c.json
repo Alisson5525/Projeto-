@@ -106,7 +106,7 @@
 "tnt:coletar": {
 "add": {"component_groups": ["tnt:despawn"]},
 "queue_command": {"command": [
-"execute as @p[r=4] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aPergaminho Coletado\"}]}",
+"execute as @p[r=4] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aPergaminho Coletado\"}]}",
 "tag @p[r=4] add pergminho_miss_5",
 "give @p[r=4] tnt:pergaminho_miss"
 ]}},

@@ -390,7 +390,7 @@
       "tnt:retirar_furia": {
         "queue_command": {
           "command": [
-            "execute as @s[tag=mentor_furia] run tellraw @a[tag=treino_orochimaru]{\"rawtext\":[{\"text\":\"§l§a[Orochimaru] §cFugindo como um covarde…?\"}]}",
+            "execute as @s[tag=mentor_furia] run tellraw @a[tag=treino_orochimaru] {\"rawtext\":[{\"text\":\"§l§a[Orochimaru] §cFugindo como um covarde…?\"}]}",
             "tag @s remove mentor_furia"
           ]
         }
@@ -576,7 +576,7 @@
             "weight": 100,
             "queue_command": {
               "command": [
-                "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
                 "tag @s add orochimaru_complet",
                 "scoreboard players add @s tp 250"
               ],
@@ -587,7 +587,7 @@
             "weight": 50,
             "queue_command": {
               "command": [
-                "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e400.Tp\"}]}",
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e400.Tp\"}]}",
                 "tag @s add orochimaru_complet",
                 "scoreboard players add @s tp 400"
               ],
@@ -599,7 +599,7 @@
       "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
           ]
         },
         "add": {
