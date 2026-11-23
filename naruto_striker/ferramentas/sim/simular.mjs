@@ -126,6 +126,10 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   p1.setDynamicProperty('ns:nivel',95); const antes=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; steps(60);
   const depois=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; console.log('teste aura rank: faiscas', depois-antes);
   if(depois-antes<2) S.errors.push({where:'aura rank',msg:'aura de rank nao apareceu',stack:''}); p1.setDynamicProperty('ns:nivel',nv??1); }
+// teste corte: golpe com espada desenha o arco
+{ p1._inv.container.slots[0]=new S.ItemStack('tnt:samehada'); p1.selectedSlotIndex=0; const alvo=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:60});
+  const a=S.particles.filter(x=>x==='tnt:ns_corte').length; world.afterEvents.entityHitEntity.fire({damagingEntity:p1, hitEntity:alvo}); steps(2);
+  const b=S.particles.filter(x=>x==='tnt:ns_corte').length; console.log('teste corte: pontos do arco', b-a); if(b-a!==11) S.errors.push({where:'corte',msg:'arco nao desenhado',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

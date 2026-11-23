@@ -132,12 +132,38 @@ function aplicarBonusCritico(alvo, player, dano, extra) {
 // Jutsus em area tambem causam dano "entityAttack", entao so isto separa um soco/espadada.
 const golpes = new Map();
 
+const ESPADAS = new Set([
+  "tnt:katubowari", "tnt:kiba", "tnt:kubikiribocho", "tnt:kunai_asuma", "tnt:shibuki", "tnt:hiramekarei",
+  "tnt:foice_hidan", "tnt:gunbai", "tnt:kunai_minato", "tnt:samehada", "tnt:bastao_gudoudama",
+]);
+
+/* Arco de corte brilhante na frente do jogador ao golpear com uma espada ninja. */
+function arcoDeCorte(p) {
+  const v = p.getViewDirection();
+  const h = Math.hypot(v.x, v.z) || 1;
+  const fx = v.x / h, fz = v.z / h;          // frente
+  const lx = -fz, lz = fx;                   // lado
+  const base = p.location;
+  const lado = Math.random() < 0.5 ? 1 : -1; // corte da direita p/ esquerda ou o contrario
+  const cor = [0.75, 0.9, 1.0];
+  for (let i = 0; i <= 10; i++) {
+    const ang = ((i / 10) * 140 - 70) * (Math.PI / 180) * lado;
+    const r = 1.6;
+    const px = base.x + (fx * Math.cos(ang) + lx * Math.sin(ang)) * r;
+    const pz = base.z + (fz * Math.cos(ang) + lz * Math.sin(ang)) * r;
+    const py = base.y + 1.15 + (i / 10 - 0.5) * 0.5 * lado; // leve diagonal
+    particula(p.dimension, "tnt:ns_corte", { x: px, y: py, z: pz }, cor);
+  }
+}
+
 world.afterEvents.entityHitEntity.subscribe((ev) => {
   try {
     const p = ev.damagingEntity;
     const alvo = ev.hitEntity;
     if (!ehJogador(p) || !alvo) return;
     golpes.set(alvo.id, { playerId: p.id, tick: system.currentTick });
+    const item = p.getComponent("equippable")?.getEquipment("Mainhand");
+    if (item && ESPADAS.has(item.typeId) && config(p).rastro) arcoDeCorte(p);
   } catch {}
 });
 

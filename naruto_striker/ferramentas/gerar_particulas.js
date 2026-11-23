@@ -109,3 +109,7 @@ P('ns_vagalume',{mat:'particles_add',emitter:once(1,0.1),shape:['minecraft:emitt
  motion:{linear_acceleration:['math.sin(v.particle_age * 90 + v.particle_random_1 * 360) * 0.6','math.sin(v.particle_age * 70 + v.particle_random_3 * 360) * 0.3','math.cos(v.particle_age * 80 + v.particle_random_2 * 360) * 0.6'],linear_drag_coefficient:1},
  size:['0.06 + math.sin(v.particle_age * 400 + v.particle_random_1 * 360) * 0.02','0.06 + math.sin(v.particle_age * 400 + v.particle_random_1 * 360) * 0.02'],uv:'glow',
  color:{gradient:{'0.0':[0.8,1,0.4,0],'0.2':[0.8,1,0.4,1],'0.8':[0.8,1,0.4,1],'1.0':[0.8,1,0.4,0]},interpolant:'v.particle_age / v.particle_lifetime'}});
+// ---------- rastro de corte das espadas (pontos de um arco calculados no script) ----------
+P('ns_corte',{mat:'particles_add',emitter:once(1,0.05),shape:['minecraft:emitter_shape_point',{}],
+ lifetime:{max_lifetime:0.2},init:{speed:0},motion:{},
+ size:['0.22 * (1 - v.particle_age / v.particle_lifetime) + 0.03','0.22 * (1 - v.particle_age / v.particle_lifetime) + 0.03'],uv:'glow',color:varFade});

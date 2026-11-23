@@ -38,6 +38,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Medidor de DPS** no boneco de treino (`tnt:dummy`): mostra o dano por segundo dos últimos 5 s acima dele; o boneco se regenera abaixo de 30% de vida (treino contínuo, sem virar fazenda de XP).
 - **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) empurram o inimigo para trás com leve elevação, com onda de choque no finalizador.
 - **Números de dano flutuantes** coloridos pela força do golpe, subindo com desaceleração suave.
+- **Arco de corte** brilhante ao golpear com as espadas ninja (Samehada, Kubikiribocho, Kiba, Shibuki, Hiramekarei, Foice do Hidan…), alternando direção a cada golpe (ajuste "Rastro de velocidade").
 - **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
 - **"Puf" de fumaça ninja** quando um ninja é derrotado.
 - **Kawarimi no Jutsu**: ninjas do mundo (Folha, Areia, Uchiha, Espadachins, ANBU) podem se substituir e reaparecer **atrás do jogador** (12% de chance, recarga de 10 s, só em local seguro).
@@ -73,7 +74,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 ## 5. Visuais
 
-- **19 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
+- **20 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
 - **Transformação**: ao ativar um modo (Sharingan, Kurama, Portões…) há uma explosão de chakra na cor do modo, onda de choque, detritos e tremor de câmera; ao terminar, um "puf" de fumaça.
 - **Trilhas de energia** nos projéteis: Bijudama (roxo), Tubarão (azul), Terra, Rasen Shuriken (vento) e o projétil do Shukaku.
 - Impacto final da **Rasen Shuriken** (`rasen_shuriken_inpact_jt_3`) que estava faltando agora existe.
