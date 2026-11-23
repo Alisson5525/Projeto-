@@ -47,7 +47,6 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Nível 1–100 com XP** (abates, exploração, contratos).
 - **Ranks**: Estudante da Academia → Genin (5) → Chunin (15) → Jounin (30) → ANBU (45) → Sannin (60) → Kage (75) → Lenda Shinobi (90). Promoções são anunciadas para todos.
 - Cada nível dá **TP** (a moeda original do add-on, usada no Menu de Status) — integra direto com a evolução existente.
-- Rank e nível aparecem **acima da cabeça** de cada jogador (multijogador).
 - **16 conquistas** com recompensa em TP.
 - **Pergaminho Ninja** (item entregue na primeira entrada): perfil com nível/XP/estatísticas, conquistas, guia e **ajustes visuais** (ligar/desligar números de dano, aura, tremor de câmera e rastro).
 - **Livro Bingo**: 3 contratos de caça ativos (ex.: "derrote 8 Ninjas da Folha #B"), recompensa em TP + XP, novo contrato a cada conclusão, opção de sortear novos por 50 TP.

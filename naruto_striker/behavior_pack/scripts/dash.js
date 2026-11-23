@@ -187,6 +187,7 @@ mc.system.runInterval(() => {
     });
 
     for (const entity of entities) {
+      if (entity.id === player.id) continue; // nunca fere quem usou o jutsu
       try {
         entity.applyDamage(dano, {
           cause: "entityAttack",
