@@ -231,7 +231,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && !player.hasTag("mi
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 240');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:kakashi_sinos ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:kakashi_sinos ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -250,7 +250,7 @@ runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
 
-}} 
+} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -270,7 +270,7 @@ player.runCommand('/scoreboard players set @s cooldown_miss 300');
 
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:zabuza ^^2^2'); }, 30); 
 
-}} 
+} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -315,7 +315,7 @@ player.runCommand('/scoreboard players add @s[tag=pergminho_miss_5] tp 300');
 runTimeoutSeguro(() => { 
 player.runCommand('/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§a[!] §e300.Tp"}]}');
 }, 700); 
-}} 
+} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -331,7 +331,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_7_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 240');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -346,7 +346,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_8_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 340');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:neji_c ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:neji_c ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -365,7 +365,7 @@ player.runCommand('/scoreboard players set @s cooldown_miss 640');
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:itachi_c ^^2^2'); }, 60); 
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:kisame_c ^^2^2'); }, 80); 
 
-}} 
+} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -381,7 +381,7 @@ player.runCommand('/scoreboard players set @s cooldown_miss 800');
 
 runTimeoutSeguro(() => { player.runCommand('/summon tnt:gaara_c ^^2^2'); }, 30); 
 
-}} 
+} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
