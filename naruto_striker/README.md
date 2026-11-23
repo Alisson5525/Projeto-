@@ -39,7 +39,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) dão um *hit-stop* (o inimigo congela por um instante) e o empurram para trás com leve elevação, com onda de choque no finalizador.
 - **Números de dano flutuantes** coloridos pela força do golpe, subindo com desaceleração suave.
 - **Arco de corte** brilhante ao golpear com as espadas ninja (Samehada, Kubikiribocho, Kiba, Shibuki, Hiramekarei, Foice do Hidan…), alternando direção a cada golpe (ajuste "Rastro de velocidade").
-- **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
+- **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados e tremor de câmera quando você leva um golpe forte.
 - **"Puf" de fumaça ninja** quando um ninja é derrotado.
 - **Bomba de Fumaça** (nova ferramenta ninja): some numa nuvem de fumaça com 4 s de invisibilidade e 3 s de velocidade para fugir ou se reposicionar. Receita: 1 pólvora + 2 carvões → 4 bombas; também aparece nos esconderijos.
 - **Pílula de Soldado** (*Hyōrōgan*): comer restaura **50% do chakra máximo** + 5 s de regeneração. Receita: trigo + açúcar + pó de glowstone → 2 pílulas; também nos esconderijos.

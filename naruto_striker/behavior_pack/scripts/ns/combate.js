@@ -196,7 +196,10 @@ world.afterEvents.entityHurt.subscribe((ev) => {
 
     if (!ehJogador(atacante) || atacante.id === alvo.id) {
       // jogador ferido por mob: so a faisca
-      if (alvo.typeId === "minecraft:player") particula(dados.dim, "tnt:ns_impacto", dados.peito);
+      if (alvo.typeId === "minecraft:player") {
+        particula(dados.dim, "tnt:ns_impacto", dados.peito);
+        if (dano >= 6) tremer(alvo, Math.min(0.45, 0.1 + dano * 0.012), 0.2);
+      }
       return;
     }
 
