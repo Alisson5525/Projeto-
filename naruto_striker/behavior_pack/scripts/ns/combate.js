@@ -27,13 +27,13 @@ function removerTexto(ent) {
   }
 }
 
-export function textoFlutuante(dim, loc, texto) {
+export function textoFlutuante(dim, loc, texto, vida = VIDA_TEXTO, subida = 0.11) {
   try {
     while (textos.length >= MAX_TEXTOS) removerTexto(textos.shift().ent);
     const pos = { x: loc.x + aleatorio(-0.35, 0.35), y: loc.y, z: loc.z + aleatorio(-0.35, 0.35) };
     const ent = dim.spawnEntity(TEXTO_ID, pos);
     ent.nameTag = texto;
-    textos.push({ ent, vida: VIDA_TEXTO, vy: 0.11 });
+    textos.push({ ent, vida, vy: subida });
   } catch {}
 }
 

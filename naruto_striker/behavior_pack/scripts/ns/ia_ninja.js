@@ -265,7 +265,7 @@ const sortear = (lista) => lista[Math.floor(Math.random() * lista.length)];
 function falar(ent, texto, cor) {
   try {
     const c = ent.getHeadLocation();
-    textoFlutuante(ent.dimension, { x: c.x, y: c.y + 1.4, z: c.z }, `${cor}§o"${texto}"`);
+    textoFlutuante(ent.dimension, { x: c.x, y: c.y + 1.4, z: c.z }, `${cor}§o"${texto}"`, 55, 0.04);
   } catch {}
 }
 
@@ -299,3 +299,33 @@ system.runInterval(() => {
   const agora = system.currentTick;
   for (const [id, t] of ultimaFala) if (agora - t > 400) ultimaFala.delete(id);
 }, 1200);
+
+/* ------------------------------------------------------------------ */
+/* NPCs da vila falam quando um jogador se aproxima                     */
+/* ------------------------------------------------------------------ */
+const FALAS_NPC = {
+  "tnt:teuchi": ["Ramen fresquinho! Vai um Ichiraku?", "O segredo está no caldo!", "Ninja de barriga vazia não luta bem!"],
+  "tnt:iruka": ["Estudou para o exame, hein?", "Venha falar comigo sobre as missões.", "Nunca desista do seu caminho ninja!"],
+  "tnt:tsunade_hokage": ["Tenho uma missão para você.", "Não me faça perder a paciência.", "Cuide da vila, shinobi."],
+  "tnt:guy_npc_ex": ["O FOGO DA JUVENTUDE ARDE EM VOCÊ!", "Mais 500 voltas na vila!", "Os Portões só se abrem para quem treina duro!"],
+  "tnt:jiraiya_npc_ex": ["Shhh... estou fazendo pesquisa.", "O Sábio dos Sapos tem muito a ensinar!", "Já ouviu falar do Monte Myoboku?"],
+  "tnt:orochimaru_npc": ["Kukuku... que corpo interessante.", "O poder tem um preço...", "Procura força? Eu posso te dar..."],
+};
+const TIPOS_NPC = Object.keys(FALAS_NPC);
+const ultimaFalaNpc = new Map();
+
+system.runInterval(() => {
+  const agora = system.currentTick;
+  for (const player of world.getPlayers()) {
+    try {
+      for (const npc of player.dimension.getEntities({ location: player.location, maxDistance: 7 })) {
+        if (!FALAS_NPC[npc.typeId]) continue;
+        if (agora - (ultimaFalaNpc.get(npc.id) ?? -99999) < 600) continue; // 30s por NPC
+        ultimaFalaNpc.set(npc.id, agora);
+        const c = npc.getHeadLocation();
+        textoFlutuante(npc.dimension, { x: c.x, y: c.y + 1.3, z: c.z }, `§f§o"${sortear(FALAS_NPC[npc.typeId])}"`, 70, 0.03);
+      }
+    } catch {}
+  }
+  for (const [id, t] of ultimaFalaNpc) if (agora - t > 1200) ultimaFalaNpc.delete(id);
+}, 40);
