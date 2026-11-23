@@ -43,6 +43,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **"Puf" de fumaça ninja** quando um ninja é derrotado.
 - **Bomba de Fumaça** (nova ferramenta ninja): some numa nuvem de fumaça com 4 s de invisibilidade e 3 s de velocidade para fugir ou se reposicionar. Receita: 1 pólvora + 2 carvões → 4 bombas; também aparece nos esconderijos.
 - **Pílula de Soldado** (*Hyōrōgan*): comer restaura **50% do chakra máximo** + 5 s de regeneração. Receita: trigo + açúcar + pó de glowstone → 2 pílulas; também nos esconderijos.
+- **Saque de ferramentas**: ninjas derrotados podem soltar Pílulas de Soldado ou Bombas de Fumaça (elites 60%, demais 6%).
 - **Ataque furtivo**: golpe corpo a corpo enquanto invisível (ex.: logo após a Bomba de Fumaça) causa **+100% de dano** (`ASSASSINATO!`) e revela você.
 - **Kawarimi no Jutsu**: ninjas do mundo (Folha, Areia, Uchiha, Espadachins, ANBU) podem se substituir e reaparecer **atrás do jogador** (12% de chance, recarga de 10 s, só em local seguro).
 - **Falas de combate**: cada facção (Folha, Areia, Uchiha, Espadachins, ANBU, Bandidos, Zetsu) tem gritos de batalha ao começar a luta e últimas palavras ao ser derrotada, flutuando acima da cabeça.

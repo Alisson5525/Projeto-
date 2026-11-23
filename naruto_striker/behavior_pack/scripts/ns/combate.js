@@ -1,6 +1,6 @@
 // Sistema de Combate+: golpes criticos, combos, numeros de dano flutuantes,
 // faiscas de impacto, tremor de camera, "puf" de fumaca ninja e XP por abate.
-import { world, system } from "@minecraft/server";
+import { world, system, ItemStack } from "@minecraft/server";
 import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio, ehCriatura, lerJSON, gravarJSON, somarScore, msg } from "./util";
 import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
 import { luaVermelhaAtiva } from "./eventos";
@@ -387,6 +387,14 @@ world.afterEvents.entityDie.subscribe((ev) => {
     somarStat(killer, "ns:kills", 1);
     if (luaVermelhaAtiva()) somarStat(killer, "ns:kills_lua", 1);
     if (vidaMax >= 400 && morto.typeId.startsWith("tnt:")) primeiraVitoria(killer, morto, vidaMax);
+
+    // saque de ferramentas ninja: elites 60%, demais ninjas 6%
+    if (morto.typeId.startsWith("tnt:") && Math.random() < (elite ? 0.6 : 0.06)) {
+      try {
+        const pilula = Math.random() < 0.5;
+        dim.spawnItem(new ItemStack(pilula ? "tnt:ns_pilula_soldado" : "tnt:ns_bomba_fumaca", pilula ? 1 : 2), { x: loc.x, y: loc.y + 0.5, z: loc.z });
+      } catch {}
+    }
     if (vidaMax >= 500) {
       somarStat(killer, "ns:chefes", 1);
       tremer(killer, 0.6, 1.0);

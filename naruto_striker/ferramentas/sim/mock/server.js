@@ -101,6 +101,7 @@ class Dimension { constructor(id){ this.id='minecraft:'+id; this._ents=[]; }
   playSound(id,loc,o){ guardWrite('playSound'); vec(loc); S.sounds.push(id); }
   runCommand(c){ guardWrite('runCommand'); S.cmds.push({src:'dim',c}); checkCmd(c); return {successCount:1}; }
   runCommandAsync(c){ guardWrite('runCommandAsync'); S.cmds.push({src:'dim',c}); checkCmd(c); return Promise.resolve({successCount:1}); }
+  spawnItem(it,loc){ guardWrite('spawnItem'); vec(loc); if(!(it instanceof ItemStack)) throw new TypeError('spawnItem precisa de ItemStack'); if(S.knownItems&&it.typeId.startsWith('tnt:')&&!S.knownItems.has(it.typeId)) S.unknown.push('spawnItem item inexistente '+it.typeId); (S.drops=S.drops||[]).push(it.typeId); return new Entity('minecraft:item',this,loc,{hp:1}); }
   getBlock(l){ vec(l); const solid=l.y<64; const k=l.x+','+l.y+','+l.z; S.blocks=S.blocks||new Map(); const t=S.blocks.get(k)||(solid?'minecraft:stone':'minecraft:air'); return { typeId:t, isAir:t==='minecraft:air', isLiquid:false, permutation:{}, location:l, setType:(nt)=>{ guardWrite('setType'); if(typeof nt!=='string') throw new TypeError('setType'); S.blocks.set(k,nt.includes(':')?nt:'minecraft:'+nt); } }; }
   createExplosion(){ guardWrite('createExplosion'); return true; }
 }
