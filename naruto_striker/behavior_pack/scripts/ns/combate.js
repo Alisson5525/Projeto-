@@ -341,7 +341,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     if (vidaMax < 2) return; // projeteis / entidades de efeito
 
     // "puf" de fumaca ninja ao derrotar os ninjas do add-on
-    if (morto.typeId.startsWith("tnt:")) particula(dim, "tnt:ns_fumaca_ninja", loc);
+    if (morto.typeId.startsWith("tnt:") && ehCriatura(morto)) particula(dim, "tnt:ns_fumaca_ninja", loc);
 
     if (!ehJogador(killer) || morto.typeId === "minecraft:player") return;
     if (!ehCriatura(morto)) return; // sem XP por destruir jutsus/efeitos
