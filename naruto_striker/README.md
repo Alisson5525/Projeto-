@@ -93,6 +93,9 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Konoha podia ser gerada duas vezes com 2 jogadores e deixava *tickingarea* ativa para sempre | Trava + remoção da área; não nasce em copa de árvore |
 | `item_chakra.js` reescrevia o item a cada segundo (item "piscando") | Só atualiza quando muda |
 | `hyuga_critico.js` usava entidades já removidas | Validação |
+| Sem arquivos de idioma: mensagens mostravam `entity.tnt:uchiha_b.name` | `texts/` com nomes de 84 entidades e ovos (pt_BR, pt_PT, en_US) |
+| Funções chamadas mas inexistentes (`remove_jutsu` do Rinnegan, `reset_menu_modos_unlock`) | Criadas |
+| Chidori podia atingir o próprio usuário se o nome mudasse | Exclusão por ID |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 

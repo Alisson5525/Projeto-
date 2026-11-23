@@ -123,10 +123,10 @@ export function darXP(player, quantidade, motivo) {
     som(player, "random.levelup", 1, 1);
     tremer(player, 0.25, 0.4);
     msg(player,
-      `§8§m----------------------------------§r\n` +
+      `§8----------------------------------§r\n` +
       `§6§l  NÍVEL ${nivel}!§r  ${rank.cor}${rank.nome}\n` +
       `§7  Recompensa: §e+${tpGanho} TP §7(use no Menu de Status)\n` +
-      `§8§m----------------------------------`);
+      `§8----------------------------------`);
     if (rank !== rankAntes) {
       for (const p of world.getAllPlayers()) {
         msg(p, `§6§l[PROMOÇÃO]§r §f${player.name} §7agora é ${rank.cor}§l${rank.nome}§r§7!`);
@@ -137,8 +137,6 @@ export function darXP(player, quantidade, motivo) {
       tremer(player, 0.5, 0.8);
     }
     checarConquistas(player);
-  } else if (motivo) {
-    // feedback discreto de XP somente quando relevante
   }
 }
 
