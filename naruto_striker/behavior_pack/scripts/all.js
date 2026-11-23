@@ -43,3 +43,4 @@ import "./ns/combate";
 import "./ns/visuais";
 import "./ns/exploracao";
 import "./ns/ia_ninja";
+import "./ns/missoes";

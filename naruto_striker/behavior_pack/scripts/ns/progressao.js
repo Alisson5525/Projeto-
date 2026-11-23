@@ -48,6 +48,8 @@ export const CONQUISTAS = [
   { id: "crit50", nome: "Ponto Vital", desc: "Acerte 50 golpes críticos.", stat: "ns:criticos", meta: 50, tp: 200 },
   { id: "crit300", nome: "Olhos de Falcão", desc: "Acerte 300 golpes críticos.", stat: "ns:criticos", meta: 300, tp: 700 },
   { id: "explora10", nome: "Viajante", desc: "Descubra 10 regiões.", stat: "ns:regioes_n", meta: 10, tp: 200 },
+  { id: "bingo5", nome: "Caçador do Livro Bingo", desc: "Conclua 5 contratos de caça.", stat: "ns:contratos_ok", meta: 5, tp: 400 },
+  { id: "bingo25", nome: "Lenda do Submundo", desc: "Conclua 25 contratos de caça.", stat: "ns:contratos_ok", meta: 25, tp: 1500 },
   { id: "explora50", nome: "Andarilho das Cinco Nações", desc: "Descubra 50 regiões.", stat: "ns:regioes_n", meta: 50, tp: 900 },
   { id: "genin", nome: "Bandana de Genin", desc: "Alcance o nível 5.", stat: "ns:nivel", meta: 5, tp: 100 },
   { id: "chunin", nome: "Exame Chunin", desc: "Alcance o nível 15.", stat: "ns:nivel", meta: 15, tp: 300 },
@@ -144,6 +146,9 @@ export function darXP(player, quantidade, motivo) {
 /* Menu do Pergaminho Ninja                                           */
 /* ------------------------------------------------------------------ */
 const ITEM_PERFIL = "tnt:pergaminho_ninja";
+
+/* Outros modulos podem adicionar botoes ao menu (ex.: Livro Bingo). */
+export const BOTOES_EXTRAS = [];
 const emUso = new Set();
 
 world.beforeEvents.itemUse.subscribe((ev) => {
@@ -193,8 +198,9 @@ export async function abrirPerfil(player) {
     .body(corpo)
     .button("§lConquistas")
     .button("§lAjustes visuais")
-    .button("§lGuia de Progressão")
-    .button("§cFechar");
+    .button("§lGuia de Progressão");
+  for (const b of BOTOES_EXTRAS) form.button(b.nome);
+  form.button("§cFechar");
 
   let r;
   try {
@@ -206,6 +212,8 @@ export async function abrirPerfil(player) {
   if (r.selection === 0) return abrirConquistas(player);
   if (r.selection === 1) return abrirAjustes(player);
   if (r.selection === 2) return abrirGuia(player);
+  const extra = BOTOES_EXTRAS[r.selection - 3];
+  if (extra) return extra.abrir(player);
 }
 
 async function abrirConquistas(player) {

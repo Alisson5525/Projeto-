@@ -40,7 +40,9 @@ export function somarScore(player, nome, valor) {
     const obj = objetivo(nome);
     if (!obj) return;
     // via comando para funcionar mesmo antes do jogador ter identidade no placar
-    player.runCommandAsync(`scoreboard players add @s ${nome} ${Math.trunc(valor)}`);
+    const v = Math.trunc(valor);
+    if (v === 0) return;
+    player.runCommandAsync(`scoreboard players ${v > 0 ? "add" : "remove"} @s ${nome} ${Math.abs(v)}`);
   } catch {}
 }
 
