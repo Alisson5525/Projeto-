@@ -62,7 +62,7 @@ class Entity {
   _die(ds){ if(this._dead) return; this._dead=true; world.afterEvents.entityDie.fire({deadEntity:this, damageSource:ds}); if(this.typeId!=='minecraft:player') S.queue.push(()=>{this._valid=false;}); else { this._dead=false; this._health.currentValue=this._health.effectiveMax; } }
   kill(){ this._chk(); guardWrite('kill'); this._health.currentValue=0; this._die({cause:'suicide'}); return true; }
   remove(){ this._chk(); guardWrite('remove'); this._valid=false; }
-  triggerEvent(e){ this._chk(); guardWrite('triggerEvent'); if(e==='ns:sumir') this._valid=false; }
+  triggerEvent(e){ this._chk(); guardWrite('triggerEvent'); (S.eventos=S.eventos||[]).push({id:this.id,e}); if(e==='ns:sumir') this._valid=false; }
   teleport(l,o){ this._chk(); guardWrite('teleport'); this.location=vec(l); if(o&&o.dimension) this.dimension=o.dimension; }
   tryTeleport(l,o){ this.teleport(l,o); return true; }
   applyKnockback(a,b,c,d){ this._chk(); guardWrite('applyKnockback'); for(const x of [a,b,c,d]) if(typeof x!=='number'||!Number.isFinite(x)) throw new TypeError('knockback args'); this._vel={x:a*c/10,y:d,z:b*c/10}; }

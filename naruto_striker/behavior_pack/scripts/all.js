@@ -45,3 +45,4 @@ import "./ns/exploracao";
 import "./ns/ia_ninja";
 import "./ns/missoes";
 import "./ns/eventos";
+import "./ns/otimizacoes";

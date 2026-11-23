@@ -40,6 +40,12 @@ steps(100);
 { world.scoreboard.addObjective('isanagi','isanagi'); const o=world.scoreboard.getObjective('isanagi');
   const r=[]; for (const [sc,esp] of [[7,1],[3,5],[0,0],[9,0]]) { o.setScore(p1.scoreboardIdentity, sc); steps(3); r.push(p1.getProperty('tnt:dna_hashirama_isanagi')===esp); }
   console.log('teste isanagi', r); if (r.includes(false)) S.errors.push({where:'isanagi',msg:'mapeamento errado '+r,stack:''}); }
+// teste dano_stats: evento so na mudanca + refresh 1x/s
+{ const o=world.scoreboard.getObjective('dano_stats'); S.eventos=[]; o.setScore(p1.scoreboardIdentity, 7); steps(40);
+  const ev7=S.eventos.filter(x=>x.id===p1.id&&x.e==='tnt:dano.7').length; o.setScore(p1.scoreboardIdentity, 12); steps(2);
+  const ev12=S.eventos.some(x=>x.id===p1.id&&x.e==='tnt:dano.12');
+  console.log('teste dano_stats: eventos dano.7 em 40 ticks =', ev7, '| mudou p/ 12 =', ev12);
+  if (ev7<2 || ev7>4 || !ev12) S.errors.push({where:'dano_stats',msg:'sincronizacao incorreta',stack:''}); }
 // usa todos os itens (beforeEvents.itemUse)
 for(const id of items){ p1._inv.container.slots[0]=new S.ItemStack(id); world.beforeEvents.itemUse.fire({source:p1, itemStack:new S.ItemStack(id)}); steps(2); }
 p1._inv.container.slots[0]=new S.ItemStack('tnt:selo_byakugou');
