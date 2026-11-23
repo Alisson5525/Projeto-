@@ -80,7 +80,7 @@ function checarConquistas(player) {
       mudou = true;
       somarScore(player, "tp", c.tp);
       msg(player, `§6§l[CONQUISTA]§r §e${c.nome} §7- ${c.desc} §a(+${c.tp} TP)`);
-      som(player, "random.toast", 1, 1);
+      som(player, "ns.desbloqueio", 1, 1);
       particula(player.dimension, "tnt:ns_critico", { x: player.location.x, y: player.location.y + 1.2, z: player.location.z });
     }
   }
@@ -133,7 +133,7 @@ export function darXP(player, quantidade, motivo) {
     const loc = player.location;
     particula(player.dimension, "tnt:ns_level_up", loc);
     particula(player.dimension, "tnt:ns_onda", { x: loc.x, y: loc.y + 0.1, z: loc.z });
-    som(player, "random.levelup", 1, 1);
+    som(player, "ns.level_up", 1, 1);
     tremer(player, 0.25, 0.4);
     msg(player,
       `§8----------------------------------§r\n` +

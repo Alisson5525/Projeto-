@@ -36,6 +36,7 @@ function normalize(x, y, z) {
 function dash(player) {
   player.removeTag("dash");
   const view = player.getViewDirection();
+  try { player.dimension.playSound("ns.esquiva", player.location, { volume: 0.6, pitch: 0.9 + Math.random() * 0.2 }); } catch {}
   empurrar(player, view.x, view.z, view.y > 0.7 || view.y < -0.7 ? 2 : 10, view.y * 2);
 }
 

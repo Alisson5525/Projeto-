@@ -75,7 +75,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
       if (k.prog >= alvo.meta) {
         somarScore(player, "tp", alvo.tp);
         msg(player, `§4§l[LIVRO BINGO]§r §fContrato concluído: §e${alvo.nome}§r §a+${alvo.tp} TP §b+${alvo.xp} XP`);
-        som(player, "random.levelup", 0.7, 1.4);
+        som(player, "ns.desbloqueio", 0.8, 1.1);
         particula(player.dimension, "tnt:ns_critico", { x: player.location.x, y: player.location.y + 1.2, z: player.location.z });
         darXP(player, alvo.xp, "contrato");
         somarStat(player, "ns:contratos_ok", 1);

@@ -80,7 +80,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     // fumaca onde estava + tronco "substituto" (folhas/detritos)
     particula(dim, "tnt:ns_fumaca_ninja", origem);
     particula(dim, "tnt:ns_detritos", origem);
-    somArea(dim, "mob.endermen.portal", origem, 0.7, 1.6);
+    somArea(dim, "ns.kawarimi", origem, 0.9, 1.1);
     textoFlutuante(dim, { x: origem.x, y: origem.y + 2.2, z: origem.z }, "§7§oKawarimi!");
 
     system.runTimeout(() => {
@@ -89,7 +89,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
         if ((ninja.getComponent("health")?.currentValue ?? 0) <= 0) return; // morreu nesse meio tempo
         ninja.teleport(destino, { facingLocation: player.location });
         particula(dim, "tnt:ns_fumaca_ninja", destino);
-        somArea(dim, "mob.endermen.portal", destino, 0.7, 1.3);
+        somArea(dim, "ns.kawarimi", destino, 0.9, 0.9);
         tremer(player, 0.1, 0.2);
       } catch {}
     }, 3);
@@ -129,7 +129,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     try { chefe.addEffect("speed", 20 * 40, { amplifier: 0, showParticles: false }); } catch {}
     try { chefe.addEffect("resistance", 20 * 10, { amplifier: 1, showParticles: false }); } catch {}
 
-    somArea(dim, "mob.enderdragon.growl", loc, 1.5, 0.8);
+    somArea(dim, "ns.chefe.fase", loc, 1.2, 1);
     particula(dim, "tnt:ns_onda", { x: loc.x, y: loc.y + 0.1, z: loc.z });
     particula(dim, "tnt:ns_detritos", loc);
     particula(dim, "tnt:ns_aura", loc, [1.0, 0.1, 0.05]);

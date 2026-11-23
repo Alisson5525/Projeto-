@@ -115,6 +115,7 @@ function depois(chefe, ticks, fn) {
 function golpeTelegrafado(chefe, centro, { raio, atraso, dano, cor, particulaImpacto, som, tremor = 0.4, extra }) {
   const dim = chefe.dimension;
   const pulsos = Math.max(1, Math.floor(atraso / 4));
+  somArea(dim, "ns.chefe.aviso", centro, 0.9, 1);
   for (let i = 0; i < pulsos; i++) depois(chefe, i * 4, () => anelAviso(dim, centro, raio, cor));
   depois(chefe, atraso, () => {
     if (particulaImpacto) for (const id of [].concat(particulaImpacto)) particula(dim, id, centro);
@@ -233,16 +234,17 @@ const H = {
       const destino = atras(alvo, 1.8);
       if (!livre(dim, destino)) return 0;
       particula(dim, o.particulaSumir ?? "tnt:ns_fumaca_ninja", chefe.location);
-      somArea(dim, "mob.endermen.portal", chefe.location, 0.8, 1.5);
+      somArea(dim, "ns.kawarimi", chefe.location, 0.9, 1.2);
       if (o.fala) falar(chefe, o.corFala ?? "§7", sortear(o.fala));
       try { chefe.teleport(destino, { facingLocation: alvo.location }); } catch { return 0; }
       particula(dim, o.particulaSumir ?? "tnt:ns_fumaca_ninja", destino);
       // aviso sonoro: o jogador tem ~0,6s para se mover
-      if (ehJogador(alvo)) try { alvo.playSound("random.orb", { volume: 0.8, pitch: 0.5 }); } catch {}
+      if (ehJogador(alvo)) try { alvo.playSound("ns.chefe.aviso", { volume: 0.8, pitch: 1.3 }); } catch {}
       depois(chefe, o.reacao ?? 12, () => {
         if (!valido(alvo)) return;
         if (dist2(chefe.location, alvo.location) > 3.2 * 3.2) {
           textoFlutuante(dim, { x: alvo.location.x, y: alvo.location.y + 2.2, z: alvo.location.z }, "§a§lESQUIVOU!", 22);
+          if (ehJogador(alvo)) try { alvo.playSound("ns.esquiva", { volume: 0.8 }); } catch {}
           return;
         }
         try { alvo.applyDamage(o.dano, { cause: "entityAttack", damagingEntity: chefe }); } catch {}
@@ -649,7 +651,7 @@ function mudarFase(chefe, perfil, s, nova) {
   const romano = ["I", "II", "III", "IV"][nova] ?? String(nova + 1);
   anunciar(chefe, 48, `${perfil.cor}§l${perfil.nome}`, `§7Fase §f${romano}`);
   if (perfil.falasFase?.[nova - 1]) falar(chefe, perfil.cor, perfil.falasFase[nova - 1]);
-  somArea(dim, "mob.enderdragon.growl", loc, 1.4, 0.9);
+  somArea(dim, "ns.chefe.fase", loc, 1.3, 1);
   particula(dim, "tnt:ns_onda", { x: loc.x, y: loc.y + 0.1, z: loc.z });
   particula(dim, "tnt:ns_flash", chefe.getHeadLocation());
   for (let i = 0; i < 12; i++) {
@@ -705,7 +707,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
       const dim = chefe.dimension;
       particula(dim, "tnt:ns_critico_anel", chefe.getHeadLocation());
       particula(dim, "tnt:ns_critico", chefe.getHeadLocation());
-      somArea(dim, "random.anvil_land", chefe.location, 1, 0.5);
+      somArea(dim, "ns.chefe.atordoado", chefe.location, 1, 1);
       textoFlutuante(dim, { x: chefe.location.x, y: chefe.location.y + 2.8, z: chefe.location.z }, "§e§lATORDOADO!", 36);
       tremer(atacante, 0.4, 0.3);
     }

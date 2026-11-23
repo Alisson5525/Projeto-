@@ -1,6 +1,6 @@
 {
-      "bijudama_mk2": {
-     "max_distance": 20,
+  "bijudama_mk2": {
+    "max_distance": 20,
     "min_distance": 1,
     "sounds": [
       {
@@ -9,111 +9,191 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-
-
-
-"byakugan": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/byakugan", "load_on_low_memory": true }]
-},
-"tenseigan": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/tenseigan", "load_on_low_memory": true }]
-},
-"sharingan": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/sharingan", "load_on_low_memory": true }]
-},
-"mgk": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/mgk", "load_on_low_memory": true }]
-},
-"susanoo_2": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/susanoo_2", "load_on_low_memory": true }]
-},
-"rinnegan": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/rinnegan", "load_on_low_memory": true }]
-},
-"marca_2": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/marca_2", "load_on_low_memory": true }]
-},
-"modo_sabio": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/modo_sabio", "load_on_low_memory": true }]
-},
-"manto_chakra_biju": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/manto_chakra_biju", "load_on_low_memory": true }]
-},
-"manto_kurama_4": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/manto_kurama_4", "load_on_low_memory": true }]
-},
-"mk": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/mk", "load_on_low_memory": true }]
-},
-"barion": {
-         "min_distance": 100.0,
-         "sounds": [{"name": "sounds/modo_ativacao/barion", "load_on_low_memory": true }]
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "byakugan": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/byakugan",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "tenseigan": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/tenseigan",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "sharingan": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/sharingan",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "mgk": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/mgk",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "susanoo_2": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/susanoo_2",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "rinnegan": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/rinnegan",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "marca_2": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/marca_2",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "modo_sabio": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/modo_sabio",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "manto_chakra_biju": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/manto_chakra_biju",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "manto_kurama_4": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/manto_kurama_4",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "mk": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/mk",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
+  "barion": {
+    "min_distance": 4.0,
+    "sounds": [
+      {
+        "name": "sounds/modo_ativacao/barion",
+        "load_on_low_memory": true,
+        "volume": 0.85
+      }
+    ],
+    "max_distance": 40.0,
+    "category": "player"
+  },
   "genjutsu": {
-    "min_distance": 100.0,
+    "min_distance": 4.0,
     "sounds": [
       {
         "name": "sounds/genjutsu",
-        "load_on_low_memory": true
+        "load_on_low_memory": true,
+        "volume": 0.85
       }
-    ]
+    ],
+    "max_distance": 40.0,
+    "category": "player"
   },
-    "previsao_sharingan": {
-    "min_distance": 100.0,
+  "previsao_sharingan": {
+    "min_distance": 4.0,
     "sounds": [
       {
         "name": "sounds/previsao_sharingan",
-        "load_on_low_memory": true
+        "load_on_low_memory": true,
+        "volume": 0.85
       }
-    ]
+    ],
+    "max_distance": 40.0,
+    "category": "player"
   },
-      "rasengan_ativo": {
-    "min_distance": 100.0,
+  "rasengan_ativo": {
+    "min_distance": 4.0,
     "sounds": [
       {
         "name": "sounds/rasengan_ativo",
-        "load_on_low_memory": true
+        "load_on_low_memory": true,
+        "volume": 0.85
       }
-    ]
+    ],
+    "max_distance": 40.0,
+    "category": "player"
   },
-
-      "kurama_grito": {
-     "max_distance": 32,
+  "kurama_grito": {
+    "max_distance": 32,
     "min_distance": 1,
     "sounds": [
       {
@@ -122,11 +202,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "hostile"
   },
-
-      "lancar_bijudama": {
-     "max_distance": 32,
+  "lancar_bijudama": {
+    "max_distance": 32,
     "min_distance": 1,
     "sounds": [
       {
@@ -135,11 +215,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "hostile"
   },
-
-      "reload_bijudama": {
-     "max_distance": 32,
+  "reload_bijudama": {
+    "max_distance": 32,
     "min_distance": 1,
     "sounds": [
       {
@@ -148,11 +228,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "hostile"
   },
-
-      "reload_orb_bijudama": {
-     "max_distance": 32,
+  "reload_orb_bijudama": {
+    "max_distance": 32,
     "min_distance": 1,
     "sounds": [
       {
@@ -161,11 +241,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "hostile"
   },
-
-      "terra_sanduiche": {
-     "max_distance": 15,
+  "terra_sanduiche": {
+    "max_distance": 15,
     "min_distance": 1,
     "sounds": [
       {
@@ -174,11 +254,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-
-      "terra_sanduiche_impact": {
-     "max_distance": 15,
+  "terra_sanduiche_impact": {
+    "max_distance": 15,
     "min_distance": 1,
     "sounds": [
       {
@@ -187,11 +267,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-
-      "chidori_nagashi": {
-     "max_distance": 20,
+  "chidori_nagashi": {
+    "max_distance": 20,
     "min_distance": 1,
     "sounds": [
       {
@@ -200,10 +280,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-      "hit_barion": {
-     "max_distance": 7,
+  "hit_barion": {
+    "max_distance": 7,
     "min_distance": 1,
     "sounds": [
       {
@@ -212,10 +293,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-      "bola_fogo": {
-     "max_distance": 15,
+  "bola_fogo": {
+    "max_distance": 15,
     "min_distance": 1,
     "sounds": [
       {
@@ -224,10 +306,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-      "chidori_load": {
-     "max_distance": 10,
+  "chidori_load": {
+    "max_distance": 10,
     "min_distance": 1,
     "sounds": [
       {
@@ -236,10 +319,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-        "chidori_load_atk": {
-     "max_distance": 15,
+  "chidori_load_atk": {
+    "max_distance": 15,
     "min_distance": 1,
     "sounds": [
       {
@@ -248,10 +332,11 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-      "rotacao": {
-     "max_distance": 20,
+  "rotacao": {
+    "max_distance": 20,
     "min_distance": 1,
     "sounds": [
       {
@@ -260,16 +345,160 @@
         "pitch": 1.0,
         "load_on_low_memory": true
       }
-    ]
+    ],
+    "category": "player"
   },
-
-      "jutsu_ativation": {
-     "max_distance": 15,
+  "jutsu_ativation": {
+    "max_distance": 15,
     "min_distance": 1,
     "sounds": [
       {
         "name": "sounds/jutsu_ativation",
         "volume": 0.6,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ],
+    "category": "player"
+  },
+  "ns.ui.clique": {
+    "category": "ui",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/ui_clique",
+        "volume": 0.55,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.ui.abrir": {
+    "category": "ui",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/ui_abrir",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.desbloqueio": {
+    "category": "ui",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/desbloqueio",
+        "volume": 0.85,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.level_up": {
+    "category": "ui",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/level_up",
+        "volume": 0.9,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.chefe.aviso": {
+    "category": "hostile",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/aviso_perigo",
+        "volume": 0.55,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.chefe.fase": {
+    "category": "hostile",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/fase_chefe",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.chefe.atordoado": {
+    "category": "hostile",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/atordoado",
+        "volume": 0.8,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.esquiva": {
+    "category": "player",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/esquiva",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.chakra.carga": {
+    "category": "player",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/chakra_carga",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.impacto": {
+    "category": "player",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/impacto",
+        "volume": 0.75,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+  "ns.kawarimi": {
+    "category": "hostile",
+    "min_distance": 2.0,
+    "max_distance": 32.0,
+    "sounds": [
+      {
+        "name": "sounds/ns/kawarimi",
+        "volume": 0.8,
         "pitch": 1.0,
         "load_on_low_memory": true
       }
