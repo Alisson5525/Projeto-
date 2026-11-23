@@ -31,6 +31,17 @@ export function xpParaProximo(nivel) {
   return Math.floor(60 * Math.pow(nivel, 1.45));
 }
 
+/* Rank e nivel acima da cabeca do jogador (visivel no multijogador). */
+export function atualizarTitulo(player) {
+  try {
+    if (!ehJogador(player)) return;
+    const nivel = nivelDe(player);
+    const r = rankDe(nivel);
+    const t = `${r.cor}${r.nome} §7Nv.${nivel}\n§f${player.name}`;
+    if (player.nameTag !== t) player.nameTag = t;
+  } catch {}
+}
+
 export function nivelDe(player) {
   return Math.max(1, Math.min(NIVEL_MAX, lerNum(player, "ns:nivel", 1)));
 }
@@ -116,6 +127,7 @@ export function darXP(player, quantidade, motivo) {
   if (subiu > 0) {
     definirScore(player, "ns_nivel", nivel);
     somarScore(player, "tp", tpGanho);
+    atualizarTitulo(player);
     const rank = rankDe(nivel);
     const loc = player.location;
     particula(player.dimension, "tnt:ns_level_up", loc);
@@ -282,6 +294,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
   system.runTimeout(() => {
     if (!ehJogador(player)) return;
     definirScore(player, "ns_nivel", nivelDe(player));
+    atualizarTitulo(player);
     if (!player.getDynamicProperty("ns:recebeu_pergaminho")) {
       gravar(player, "ns:recebeu_pergaminho", true);
       try {
