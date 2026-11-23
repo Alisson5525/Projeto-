@@ -40,6 +40,79 @@ function nomeRegiao(x, z, dimId) {
 
 const ultimaRegiao = new Map(); // playerId -> chave
 
+/* ------------------------------------------------------------------ */
+/* Esconderijos ninja: bau com saque perto do jogador, marcado por fumaca */
+/* ------------------------------------------------------------------ */
+const CHANCE_ESCONDERIJO = 0.35;
+const marcadores = []; // { dim, x, y, z, ate }
+
+function ehAr(b) {
+  return !!b && b.isAir;
+}
+
+function ehChaoFirme(b) {
+  if (!b || b.isAir || b.isLiquid) return false;
+  return !/(leaves|log|wood|fence|glass|slab|stairs|torch|flower|grass_path|snow_layer|tallgrass|tall_grass|short_grass|fern|vine|carpet|door|bed|chest|sign)/.test(b.typeId);
+}
+
+function direcao(dx, dz) {
+  const ang = (Math.atan2(-dx, dz) * 180) / Math.PI; // 0 = sul, 90 = oeste (como o jogo)
+  const nomes = ["Sul", "Sudoeste", "Oeste", "Noroeste", "Norte", "Nordeste", "Leste", "Sudeste"];
+  return nomes[(Math.round(((ang % 360) + 360) % 360 / 45)) % 8];
+}
+
+export function criarEsconderijo(player) {
+  const dim = player.dimension;
+  const base = player.location;
+  for (let tentativa = 0; tentativa < 8; tentativa++) {
+    const ang = Math.random() * Math.PI * 2;
+    const dist = 9 + Math.random() * 9;
+    const x = Math.floor(base.x + Math.cos(ang) * dist);
+    const z = Math.floor(base.z + Math.sin(ang) * dist);
+    for (let y = Math.floor(base.y) + 10; y >= Math.floor(base.y) - 12; y--) {
+      let chao, alvo, acima;
+      try {
+        chao = dim.getBlock({ x, y, z });
+        alvo = dim.getBlock({ x, y: y + 1, z });
+        acima = dim.getBlock({ x, y: y + 2, z });
+      } catch {
+        break; // fora do mundo / nao carregado
+      }
+      if (!chao || !alvo || !acima) break;
+      if (!ehChaoFirme(chao) || !ehAr(alvo) || !ehAr(acima)) continue;
+      try {
+        alvo.setType("minecraft:chest");
+      } catch {
+        break;
+      }
+      try {
+        dim.runCommandAsync(`loot insert ${x} ${y + 1} ${z} loot "ns/esconderijo"`);
+      } catch {}
+      marcadores.push({ dim, x: x + 0.5, y: y + 1.5, z: z + 0.5, ate: system.currentTick + 20 * 90 });
+      particula(dim, "tnt:ns_folhas", { x: x + 0.5, y: y + 1, z: z + 0.5 });
+      const d = Math.round(Math.hypot(x - base.x, z - base.z));
+      msg(player, `§6Um §lesconderijo ninja§r§6 foi revelado a §e${direcao(x - base.x, z - base.z)}§6, a ~${d} blocos. §7(siga a fumaça)`);
+      som(player, "random.chestopen", 0.6, 0.8);
+      return true;
+    }
+  }
+  return false;
+}
+
+// coluna de fumaca sobre os esconderijos por 90s
+system.runInterval(() => {
+  const agora = system.currentTick;
+  for (let i = marcadores.length - 1; i >= 0; i--) {
+    const m = marcadores[i];
+    if (agora > m.ate) {
+      marcadores.splice(i, 1);
+      continue;
+    }
+    particula(m.dim, "minecraft:campfire_tall_smoke_particle", { x: m.x, y: m.y + 0.6, z: m.z });
+    particula(m.dim, "tnt:ns_aura", { x: m.x, y: m.y - 0.4, z: m.z }, [1.0, 0.8, 0.3]);
+  }
+}, 10);
+
 world.afterEvents.playerLeave.subscribe((ev) => ultimaRegiao.delete(ev.playerId));
 
 system.runInterval(() => {
@@ -76,6 +149,8 @@ system.runInterval(() => {
       som(player, "note.pling", 0.8, 1.4);
       particula(player.dimension, "tnt:ns_folhas", loc);
       darXP(player, xp, "exploracao");
+
+      if (Math.random() < CHANCE_ESCONDERIJO) criarEsconderijo(player);
 
       if (total % 4 === 0) {
         const tp = 60 + Math.min(240, total * 4);
