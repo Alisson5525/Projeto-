@@ -36,6 +36,10 @@ steps(100);
   const premio=p1.msgs.filter(m=>m.includes('Missão do Dia')).pop();
   console.log('teste diario: mesmo dia premiou?', mesmoDia, '| dia seguinte:', premio);
   if (mesmoDia || !premio || !premio.includes('+150 TP')) S.errors.push({where:'diario',msg:'recompensa diaria incorreta',stack:''}); }
+// teste isanagi: placar -> propriedade (so quando muda)
+{ world.scoreboard.addObjective('isanagi','isanagi'); const o=world.scoreboard.getObjective('isanagi');
+  const r=[]; for (const [sc,esp] of [[7,1],[3,5],[0,0],[9,0]]) { o.setScore(p1.scoreboardIdentity, sc); steps(3); r.push(p1.getProperty('tnt:dna_hashirama_isanagi')===esp); }
+  console.log('teste isanagi', r); if (r.includes(false)) S.errors.push({where:'isanagi',msg:'mapeamento errado '+r,stack:''}); }
 // usa todos os itens (beforeEvents.itemUse)
 for(const id of items){ p1._inv.container.slots[0]=new S.ItemStack(id); world.beforeEvents.itemUse.fire({source:p1, itemStack:new S.ItemStack(id)}); steps(2); }
 p1._inv.container.slots[0]=new S.ItemStack('tnt:selo_byakugou');

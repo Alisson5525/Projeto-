@@ -29,14 +29,6 @@ execute as @s[scores={cooldown_miss=..0}] run scoreboard players set @s cooldown
 
 
 
-execute as @s[scores={isanagi=0..0}] run event entity @s celula:dna_hashirama_isanagi
-execute as @s[scores={isanagi=1..1}] run event entity @s 7:dna_hashirama_isanagi
-execute as @s[scores={isanagi=2..2}] run event entity @s 6:dna_hashirama_isanagi
-execute as @s[scores={isanagi=3..3}] run event entity @s 5:dna_hashirama_isanagi
-execute as @s[scores={isanagi=4..4}] run event entity @s 4:dna_hashirama_isanagi
-execute as @s[scores={isanagi=5..5}] run event entity @s 3:dna_hashirama_isanagi
-execute as @s[scores={isanagi=6..6}] run event entity @s 2:dna_hashirama_isanagi
-execute as @s[scores={isanagi=7..7}] run event entity @s 1:dna_hashirama_isanagi
 execute as @s[scores={isanagi=8..2000}] run scoreboard players set @s isanagi 8
 
 

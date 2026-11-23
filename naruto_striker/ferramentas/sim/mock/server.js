@@ -79,7 +79,7 @@ class Entity {
   matches(){ return true; }
 }
 class Player extends Entity {
-  constructor(name, dim, loc){ super('minecraft:player', dim, loc, {hp:20, props:{'tnt:kurama':0,'tnt:uchiha':0,'tnt:hyuga':0,'tnt:shukaku':0,'tnt:sennin_sapo':0,'tnt:marca_maldicao':0,'tnt:8_portoes':0,'tnt:byakugou':0,'tnt:custon':0,'tnt:suporte_entity':0}}); this.name=name;
+  constructor(name, dim, loc){ super('minecraft:player', dim, loc, {hp:20, props:{'tnt:kurama':0,'tnt:uchiha':0,'tnt:hyuga':0,'tnt:shukaku':0,'tnt:sennin_sapo':0,'tnt:marca_maldicao':0,'tnt:8_portoes':0,'tnt:byakugou':0,'tnt:custon':0,'tnt:suporte_entity':0,'tnt:dna_hashirama_isanagi':0}}); this.name=name;
     this._inv={container:new Container(36), inventorySize:36}; const self=this; this._eq={ getEquipment:(s)=>self._inv.container.slots[self.selectedSlotIndex??0], setEquipment:()=>{} };
     this.selectedSlotIndex=0; this.onScreenDisplay={ setTitle:(t,o)=>{ if(typeof t!=='string') throw new TypeError('title'); if(/NaN|undefined/.test(t)) S.unknown.push('HUD title contains NaN/undefined: '+t.slice(0,80)); this._title=t; }, setActionBar:(t)=>{ if(typeof t!=='string'&&!Array.isArray(t)) throw new TypeError('ab'); if(/NaN|undefined/.test(String(t))) S.unknown.push('actionbar NaN: '+t); }, updateSubtitle(){}, isValid:()=>true }; this.camera={ fade(){}, setCamera(){}, clear(){} }; this.msgs=[]; }
   sendMessage(m){ this._chk(); this.msgs.push(typeof m==='string'?m:JSON.stringify(m)); }

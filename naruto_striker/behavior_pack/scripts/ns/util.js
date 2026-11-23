@@ -217,3 +217,19 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
 system.runTimeout(() => {
   for (const nome of ["dash", "slot_select", "slot_cooldown_1", "stamina", "reset_all", "ns_nivel"]) objetivo(nome);
 }, 1);
+
+/* Propriedade visual do Izanagi (olhos do DNA Hashirama) a partir do placar "isanagi".
+   Antes: infinito.mcfunction disparava um evento de entidade A CADA TICK por jogador
+   reescrevendo o mesmo valor. Agora so altera quando muda (mesmo mapeamento:
+   0 -> 0, 1..7 -> 7..1, 8+ -> mantem). */
+system.runInterval(() => {
+  for (const player of world.getPlayers()) {
+    try {
+      const obj = world.scoreboard.getObjective("isanagi");
+      const s = obj && player.scoreboardIdentity ? obj.getScore(player.scoreboardIdentity) : undefined;
+      if (typeof s !== "number" || s >= 8 || s < 0) continue; // sem placar: original nao fazia nada
+      const alvo = s === 0 ? 0 : 8 - s;
+      if (player.getProperty("tnt:dna_hashirama_isanagi") !== alvo) player.setProperty("tnt:dna_hashirama_isanagi", alvo);
+    } catch {}
+  }
+}, 2);

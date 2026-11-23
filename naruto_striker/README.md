@@ -115,6 +115,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | `hp_boss.js` percorria todas as entidades do overworld a cada segundo e ignorava Nether/End | Busca só pelos tipos com nome, nas 3 dimensões |
 | `_ui_defs.json` listava 185 arquivos que não existem no pack (cópia da lista do vanilla + 3 de outro add-on) | Lista reduzida aos 30 arquivos de UI do add-on |
 | 67 itens usavam o componente antigo `minecraft:foil` (formato 1.21.10 usa `minecraft:glint`); 3 itens com durabilidade 9.999.999 (fora do limite) | Convertidos para `minecraft:glint`; durabilidade 32767 |
+| `infinito.mcfunction` disparava um evento de entidade a cada tick por jogador só para reescrever a mesma propriedade (olhos do Izanagi) | Sincronização em script, só quando o valor muda (mesmo mapeamento) |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
