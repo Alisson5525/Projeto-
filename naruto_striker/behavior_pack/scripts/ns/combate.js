@@ -282,6 +282,7 @@ function processarGolpe(player, d) {
       try { player.removeEffect("invisibility"); } catch {}
       particula(d.dim, "tnt:ns_fumaca_ninja", d.peito);
       som(player, "mob.shulker.close", 0.8, 0.6);
+      somarStat(player, "ns:assassinatos", 1);
     }
   }
 
