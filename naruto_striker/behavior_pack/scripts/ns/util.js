@@ -210,3 +210,10 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   try { world.setDynamicProperty("ns:mundo_cfg", JSON.stringify(o)); } catch {}
   responder(`§6[Naruto Striker+] §f${opcao} §7=> ${valor === "on" ? "§aon" : "§coff"}`);
 });
+
+/* Placares que o add-on original usa mas nunca criava (ex.: "dash" e o tempo de
+   recarga do dash duplo; sem ele a recarga nunca funcionava). Criados ao carregar
+   o mundo, inclusive em mundos antigos. */
+system.runTimeout(() => {
+  for (const nome of ["dash", "slot_select", "slot_cooldown_1", "stamina", "reset_all", "ns_nivel"]) objetivo(nome);
+}, 1);

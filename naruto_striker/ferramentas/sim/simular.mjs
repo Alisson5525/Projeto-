@@ -93,6 +93,7 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   world.afterEvents.itemStopUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(5); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
+console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));
 console.log('ticks',S.tick,'cmds',S.cmds.length,'particles',S.particles.length,'errors',S.errors.length);
 for(const [k,v] of byKey) console.log(`ERR x${v.n} ${k}\n      ${v.stack}`);
 console.log('UNKNOWN refs:'); for(const u of [...new Set(S.unknown)].slice(0,60)) console.log('  ',u);
