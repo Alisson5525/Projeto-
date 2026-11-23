@@ -69,8 +69,8 @@ class Entity {
   applyImpulse(v){ this._chk(); guardWrite('applyImpulse'); vec(v); }
   clearVelocity(){ this._chk(); }
   getVelocity(){ this._chk(); return {...this._vel}; }
-  addEffect(t,d,o){ this._chk(); guardWrite('addEffect'); if(typeof d!=='number') throw new TypeError('dur'); }
-  removeEffect(){ this._chk(); } getEffects(){ return []; } getEffect(){ return undefined; }
+  addEffect(t,d,o){ this._chk(); guardWrite('addEffect'); if(typeof d!=='number') throw new TypeError('dur'); (this._efx=this._efx||{})[String(t).replace('minecraft:','')]=d; }
+  removeEffect(t){ this._chk(); if(this._efx) delete this._efx[String(t).replace('minecraft:','')]; return true; } getEffects(){ return []; } getEffect(t){ const k=String(t).replace('minecraft:',''); return this._efx&&this._efx[k]?{typeId:k,duration:this._efx[k]}:undefined; }
   playAnimation(n,o){ this._chk(); guardWrite('playAnimation'); if(typeof n!=='string') throw new TypeError('anim'); for(const k of Object.keys(o||{})) if(!['blendOutTime','controller','nextState','players','stopExpression'].includes(k)) throw new TypeError('bad PlayAnimationOptions key '+k); S.anims=(S.anims||[]); S.anims.push(n); }
   getViewDirection(){ this._chk(); return {x:0,y:0,z:1}; }
   getHeadLocation(){ this._chk(); return {x:this.location.x,y:this.location.y+1.62,z:this.location.z}; }

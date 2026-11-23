@@ -162,6 +162,12 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   globalThis.__UISEL=[]; const b=mod.BOTOES_EXTRAS.find(x=>x.nome.includes('Ranking')); await b.abrir(p1);
   const f=(globalThis.__UILOG||[]).slice(n0).find(x=>x.title.includes('Ranking')); console.log('teste ranking:', !!f && f.body.includes('Tester'));
   if(!f||!f.body.includes('Tester')) S.errors.push({where:'ranking',msg:'ranking sem o jogador',stack:''}); }
+// teste furtivo: bomba de fumaca + golpe = ASSASSINATO e fica visivel
+{ p1.setDynamicProperty('ns:cfg', undefined);  const alvo=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:300,family:['ninja','mobs']}); p1.addEffect('invisibility',80,{});
+  const n0=ow._ents.filter(e=>e.typeId==='tnt:ns_texto').length; world.afterEvents.entityHitEntity.fire({damagingEntity:p1, hitEntity:alvo}); alvo.applyDamage(10,{cause:'entityAttack',damagingEntity:p1}); await steps(3);
+  const txt=ow._ents.filter(e=>e.typeId==='tnt:ns_texto').slice(n0).map(e=>e.nameTag).find(t=>t.includes('ASSASSINATO'));
+  const visivel=!p1.getEffect('invisibility'); console.log('teste furtivo:', txt, '| visivel de novo', visivel, '| vida alvo', alvo._health.currentValue);
+  if(!txt||!visivel||alvo._health.currentValue>280) S.errors.push({where:'furtivo',msg:'ataque furtivo incorreto',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

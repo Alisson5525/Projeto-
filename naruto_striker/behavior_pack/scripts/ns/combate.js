@@ -264,6 +264,24 @@ function processarGolpe(player, d) {
     if (n >= 3) som(player, "random.orb", 0.25, Math.min(2.0, 0.7 + n * 0.06));
   }
 
+  // ----- ataque furtivo: golpe corpo a corpo enquanto invisivel (ex.: Bomba de Fumaca) -----
+  let furtivo = false;
+  if (corpoACorpo) {
+    let invisivel = false;
+    try { invisivel = !!player.getEffect?.("invisibility"); } catch {}
+    let vivo2 = false;
+    try { vivo2 = valido(d.alvo) && (d.alvo.getComponent("health")?.currentValue ?? 0) > 0; } catch {}
+    if (invisivel && vivo2) {
+      furtivo = true;
+      const extra = Math.max(1, Math.round(d.dano));
+      try { aplicarBonusCritico(d.alvo, player, d.dano, extra); } catch {}
+      total += extra;
+      try { player.removeEffect("invisibility"); } catch {}
+      particula(d.dim, "tnt:ns_fumaca_ninja", d.peito);
+      som(player, "mob.shulker.close", 0.8, 0.6);
+    }
+  }
+
   // ----- jutsus escalam com o nivel ninja: +0,5% por nivel (ate +50%) -----
   let jutsu = false;
   if (!corpoACorpo) {
@@ -328,7 +346,7 @@ function processarGolpe(player, d) {
 
   if (cfg.numeros) {
     const num = Math.round(total * 10) / 10;
-    const txt = critico ? `§6§lCRÍTICO! §e§l${num}` : jutsu ? `§b${num}` : corDano(total, false) + num;
+    const txt = furtivo ? `§8§lASSASSINATO! §f§l${num}` : critico ? `§6§lCRÍTICO! §e§l${num}` : jutsu ? `§b${num}` : corDano(total, false) + num;
     textoFlutuante(d.dim, { x: d.cabeca.x, y: d.cabeca.y + 0.55, z: d.cabeca.z }, txt);
     if (n >= 3 && (n <= 5 || n % 5 === 0)) {
       const corCombo = n >= 25 ? "§c§l" : n >= 10 ? "§6§l" : "§e§l";
