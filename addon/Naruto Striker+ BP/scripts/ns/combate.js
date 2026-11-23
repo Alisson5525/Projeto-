@@ -333,7 +333,7 @@ function processarGolpe(player, d) {
     }
     if (finalizador) {
       particula(d.dim, "tnt:ns_onda", { x: d.loc.x, y: d.loc.y + 0.1, z: d.loc.z });
-      som(player, "random.explode", 0.25, 1.8);
+      som(player, "ns.impacto", 0.9, 0.85);
       tremer(player, 0.2, 0.2);
     }
   }
@@ -342,7 +342,7 @@ function processarGolpe(player, d) {
   particula(d.dim, critico ? "tnt:ns_critico" : "tnt:ns_impacto", d.peito);
   if (critico) {
     particula(d.dim, "tnt:ns_faisca_raio", d.peito);
-    som(player, "random.anvil_land", 0.25, 1.9);
+    som(player, "ns.impacto", 0.6, 1.15);
     tremer(player, 0.18, 0.18);
   } else if (total >= 20 && corpoACorpo) {
     tremer(player, 0.12, 0.15);

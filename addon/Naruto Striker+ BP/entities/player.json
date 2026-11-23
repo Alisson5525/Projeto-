@@ -1,1357 +1,2957 @@
 {
-  "format_version": "1.21.0",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "minecraft:player",
-      "is_spawnable": false,
-      "is_summonable": false,
-      "is_experimental": false,
-      "scripts": {
-        "animate": [
-         "items_addon",
-         "chakra_acumulado",
-         "jutsu_medico",
-         "pesos",
-         
-         "regem_20s",
-         "skill_suigetsu_2",
-         "skill_suigetsu",
-         "menus_troca",
-         "carregar_chakra_regen",
-
-         "mao_terra",
-         "skill_portoes",
-         "walk",
-         "estilo_raio_shiden",
-         "dna_hashirama_isanagi",
-         "chidori",
-         "troca_skill_susanoo_ob2",
-         "skill_susanoo_ob2",
-         "troca_skill_susanoo_2_sasuke",
-         "skill_susanoo_2_sasuke",
-         "skill_susanoo_2_itachi",
-         "troca_skill_susanoo_2_itachi",
-         "susanoo_sk1_combo",
-         "troca_skill_hyuga",
-         "skill_hyuga",
-         "troca_skill_manto_kurama",
-         "skill_manto_kurama",
-         "troca_skill_rinnegan",
-         "skill_rinnegan",
-         "jutsus",
-         "dash",
-         "skill_mgk_obito",
-         "troca_skill_mgk_obito",
-         "skill_mgk_sasuke",
-         "skill_mgk_sasuke",
-         "troca_skill_mgk_sasuke",
-         "skill_mgk_itachi",
-         "troca_skill_mgk_itachi",
-         "troca_skill_sharingan",
-         "skill_sharingan",
-         "inicio"
-]
-      },
-      "animations": {
-        "items_addon": "controller.animation.items_addon",
-        "jutsu_medico": "controller.animation.jutsu_medico",
-        "chakra_acumulado": "controller.animation.chakra_acumulado",
-        "mao_terra": "controller.animation.mao_terra",
-        "pesos": "controller.animation.pesos",
-        "skill_suigetsu_2": "controller.animation.skill_suigetsu_2",
-        "skill_suigetsu": "controller.animation.skill_suigetsu",
-        "correr_liquido_animation": "animation.correr_liquido_animation",
-        "menus_troca": "controller.animation.menus_troca",
-        "skill_portoes": "controller.animation.skill_portoes",
-        "walk": "controller.animation.walk",
-        "estilo_raio_shiden": "controller.animation.estilo_raio_shiden",
-        "dna_hashirama_isanagi": "controller.animation.dna_hashirama_isanagi",
-        "chidori": "controller.animation.chidori",
-        "troca_skill_susanoo_ob2": "controller.animation.troca_skill_susanoo_ob2",
-        "skill_susanoo_ob2": "controller.animation.skill_susanoo_ob2",
-        "troca_skill_susanoo_2_sasuke": "controller.animation.troca_skill_susanoo_2_sasuke",
-        "skill_susanoo_2_sasuke": "controller.animation.skill_susanoo_2_sasuke",
-        "skill_susanoo_2_itachi": "controller.animation.skill_susanoo_2_itachi",
-        "troca_skill_susanoo_2_itachi": "controller.animation.troca_skill_susanoo_2_itachi",
-        "susanoo_sk1_combo": "controller.animation.susanoo_sk1_combo",
-        "troca_skill_hyuga": "controller.animation.troca_skill_hyuga",
-        "skill_hyuga": "controller.animation.skill_hyuga",
-        "troca_skill_manto_kurama": "controller.animation.troca_skill_manto_kurama",
-        "skill_manto_kurama": "controller.animation.skill_manto_kurama",
-        "troca_skill_rinnegan": "controller.animation.troca_skill_rinnegan",
-        "skill_rinnegan": "controller.animation.skill_rinnegan",
-        "jutsus": "controller.animation.jutsus",
-        "dash": "controller.animation.dash",
-        "skill_mgk_obito": "controller.animation.skill_mgk_obito",
-        "troca_skill_mgk_obito": "controller.animation.troca_skill_mgk_obito",
-        "skill_mgk_sasuke": "controller.animation.skill_mgk_sasuke",
-        "troca_skill_mgk_sasuke": "controller.animation.troca_skill_mgk_sasuke",
-        "skill_mgk_itachi": "controller.animation.skill_mgk_itachi",
-        "troca_skill_mgk_itachi": "controller.animation.troca_skill_mgk_itachi",
-        "troca_skill_sharingan": "controller.animation.troca_skill_sharingan",
-        "skill_sharingan": "controller.animation.skill_sharingan",
-        "inicio": "controller.animation.inicio",
-
-
-
-
-
-"jutsu_medico_animaation": "animation.jutsu_medico_animaation",
-"chakra_acumulado_animaation": "animation.chakra_acumulado_animaation",
-
-
-
-
-"bala_agua_suigetsu_animation": "animation.bala_agua_suigetsu_animation",
-"suigetsu_intangivel_animation": "animation.suigetsu_intangivel_animation",
-"suigetsu_forca_animation": "animation.suigetsu_forca_animation",
-
-        
-"carregar_chakra": "animation.carregar_chakra",
-"carregar_chakra_regen": "animation.carregar_chakra_regen",
-
-
-
-"shiden_chao_animations": "animation.shiden_chao_animations",
-
-
-"magatama_susanoo_it2": "animation.magatama_susanoo_it2",
-"susanoo_ob2_skill_1_animtaion": "animation.susanoo_ob2_skill_1_animtaion",
-"espinho_amaterasu_animation": "animation.espinho_amaterasu_animation",
-
-
-"bijudama_mk2_animation": "animation.bijudama_mk2_animation",
-"manto_kurama_1_skill_2_animation": "animation.manto_kurama_1_skill_2_animation",
-"manto_kurama_4_skill_2_animation": "animation.manto_kurama_4_skill_2_animation",
-"bijudama_animation": "animation.bijudama_animation",
-"bijudama_salto_animation": "animation.bijudama_salto_animation",
-
-
-
-
-
-"lotos_frontal_animation": "animation.lotos_frontal_animation",
-
-
-"byakugan_destruidor_leoes_gemeos": "animation.byakugan_destruidor_leoes_gemeos",
-"byakugan_leao_gemeos": "animation.byakugan_leao_gemeos",
-"byakugan_oito_trigrama_128": "animation.byakugan_oito_trigrama_128",
-"byakugan_rotacao_celestial": "animation.byakugan_rotacao_celestial",
-"byakugan_oito_trigrama": "animation.byakugan_oito_trigrama",
-"byakugan_punho_suave": "animation.byakugan_punho_suave",
-
-
-
-"rinnegan_shinra_tensei": "animation.rinnegan_shinra_tensei",
-"rinnegan_absover_chakra": "animation.rinnegan_absover_chakra",
-"rinnegan_chibaku_tensei": "animation.rinnegan_chibaku_tensei",
-
-"tenseigan_skill_1_animation": "animation.tenseigan_skill_1_animation",
-"tenseigan_skill_4_animation": "animation.tenseigan_skill_4_animation",
-"tenseigan_skill_2_animation": "animation.tenseigan_skill_2_animation",
-"rasen_shuriken": "animation.rasen_shuriken",
-"rasengan_atk_ceu": "animation.rasengan_atk_ceu",
-"rasengan_atk": "animation.rasengan_atk",
-"correr_rasengan": "animation.correr_rasengan",
-"kamui": "animation.kamui",
-"kamui_intangivel": "animation.kamui_intangivel",
-"kamui_absover": "animation.kamui_absover",
-"amaterasu_mgk_itachi": "animation.amaterasu_mgk_itachi",
-"corvos_mgk_itachi": "animation.corvos_mgk_itachi",
-"previsao_sharingan": "animation.previsao_sharingan",
-"modos_6m": "animation.modos_6m",
-"modos_3m": "animation.modos_3m",
-"modos_2m": "animation.modos_2m",
-"hud_slot_add_cooldown": "animation.hud_slot_add_cooldown",
-"slot_cooldown_1": "animation.slot_cooldown_1",
-
-
-
-
-
-
-"mao_terra_load_animaation": "animation.mao_terra_load_animaation",
-
-"corte_de_agua_animation": "animation.corte_de_agua_animation",
-
-
-
-
-"chidori_load_animaation": "animation.chidori_load_animaation",
-"chidori_negro_load_animaation": "animation.chidori_negro_load_animaation",
-"raikiri_load_animaation": "animation.raikiri_load_animaation",
-
-"chidori_nagashi_animation": "animation.chidori_nagashi_animation",
-
-"prisao_agua_animation": "animation.prisao_agua_animation",
-"tubarao_triplo_animation": "animation.tubarao_triplo_animation",
-
-"bola_fogo_animation": "animation.bola_fogo_animation",
-"grande_aniquilacao_fogo_animation": "animation.grande_aniquilacao_fogo_animation",
-
-"esconderijo_toupeira_animation": "animation.esconderijo_toupeira_animation",
-"projetil_terra_animation": "animation.projetil_terra_animation",
-
-
-"grande_onda_choque_animation": "animation.grande_onda_choque_animation",
-"saudacao_agua_animation": "animation.saudacao_agua_animation",
-"esfera_vacuo_animation": "animation.esfera_vacuo_animation",
-
-
-
-"pavao_amanhecer_animation": "animation.pavao_amanhecer_animation",
-"regem_20s": "animation.regem_20s",
-
-        "": ""
-        
-
-      },
-       "properties": {
-"tnt:suporte_entity": {"client_sync": true,"type": "int","range":[ 0, 1 ],"default":0},
-
-"tnt:custom_cabelo": {"client_sync": true,"type": "int","range":[ 0, 3 ],"default":0},
-
-"tnt:retirar_pele": {"client_sync": true,"type": "int","range":[ 0, 1 ],"default":0},
-
-"tnt:suigetsu": {"client_sync": true,"type": "int","range":[ 0, 1 ],"default":0},
-"tnt:byakugou": {"client_sync": true,"type": "int","range":[ 0, 2 ],"default":0},
-"tnt:dna_hashirama": {"client_sync": true,"type": "int","range":[ 0, 1 ],"default":0},
-"tnt:dna_hashirama_isanagi": {"client_sync": true,"type": "int","range":[ 0, 7 ],"default":0},
-"tnt:8_portoes": {"client_sync": true,"type": "int","range":[ 0, 8 ],"default":0},
-"tnt:marca_maldicao": {"client_sync": true,"type": "int","range":[ 0, 3 ],"default":0},
-"tnt:sennin_sapo": {"client_sync": true,"type": "int","range":[ 0, 2 ],"default":0},
-"tnt:kurama": {"client_sync": true,"type": "int","range":[ 0, 8 ],"default":0},
-"tnt:shukaku": {"client_sync": true,"type": "int","range":[ 0, 3 ],"default":0},
-"tnt:hyuga": {"client_sync": true,"type": "int","range":[ 0, 4 ],"default":0},
-"tnt:uchiha_slot2": {"client_sync": true,"type": "int","range":[ 0, 1 ],"default":0},
-"tnt:uchiha": {"client_sync": true,"type": "int","range":[ 0, 12 ],"default":0},
-"tnt:custon": {"client_sync": true,"type": "int","range":[ 1, 2 ],"default":1} 
-
-
-
-
-
-	  }
+ "format_version": "1.21.0",
+ "minecraft:entity": {
+  "description": {
+   "identifier": "minecraft:player",
+   "is_spawnable": false,
+   "is_summonable": false,
+   "is_experimental": false,
+   "scripts": {
+    "animate": [
+     "items_addon",
+     "chakra_acumulado",
+     "jutsu_medico",
+     "pesos",
+     "regem_20s",
+     "skill_suigetsu_2",
+     "skill_suigetsu",
+     "menus_troca",
+     "carregar_chakra_regen",
+     "mao_terra",
+     "skill_portoes",
+     "walk",
+     "estilo_raio_shiden",
+     "dna_hashirama_isanagi",
+     "chidori",
+     "troca_skill_susanoo_ob2",
+     "skill_susanoo_ob2",
+     "troca_skill_susanoo_2_sasuke",
+     "skill_susanoo_2_sasuke",
+     "skill_susanoo_2_itachi",
+     "troca_skill_susanoo_2_itachi",
+     "susanoo_sk1_combo",
+     "troca_skill_hyuga",
+     "skill_hyuga",
+     "troca_skill_manto_kurama",
+     "skill_manto_kurama",
+     "troca_skill_rinnegan",
+     "skill_rinnegan",
+     "jutsus",
+     "dash",
+     "skill_mgk_obito",
+     "troca_skill_mgk_obito",
+     "skill_mgk_sasuke",
+     "troca_skill_mgk_sasuke",
+     "skill_mgk_itachi",
+     "troca_skill_mgk_itachi",
+     "troca_skill_sharingan",
+     "skill_sharingan",
+     "inicio"
+    ]
+   },
+   "animations": {
+    "items_addon": "controller.animation.items_addon",
+    "jutsu_medico": "controller.animation.jutsu_medico",
+    "chakra_acumulado": "controller.animation.chakra_acumulado",
+    "mao_terra": "controller.animation.mao_terra",
+    "pesos": "controller.animation.pesos",
+    "skill_suigetsu_2": "controller.animation.skill_suigetsu_2",
+    "skill_suigetsu": "controller.animation.skill_suigetsu",
+    "correr_liquido_animation": "animation.correr_liquido_animation",
+    "menus_troca": "controller.animation.menus_troca",
+    "skill_portoes": "controller.animation.skill_portoes",
+    "walk": "controller.animation.walk",
+    "estilo_raio_shiden": "controller.animation.estilo_raio_shiden",
+    "dna_hashirama_isanagi": "controller.animation.dna_hashirama_isanagi",
+    "chidori": "controller.animation.chidori",
+    "troca_skill_susanoo_ob2": "controller.animation.troca_skill_susanoo_ob2",
+    "skill_susanoo_ob2": "controller.animation.skill_susanoo_ob2",
+    "troca_skill_susanoo_2_sasuke": "controller.animation.troca_skill_susanoo_2_sasuke",
+    "skill_susanoo_2_sasuke": "controller.animation.skill_susanoo_2_sasuke",
+    "skill_susanoo_2_itachi": "controller.animation.skill_susanoo_2_itachi",
+    "troca_skill_susanoo_2_itachi": "controller.animation.troca_skill_susanoo_2_itachi",
+    "susanoo_sk1_combo": "controller.animation.susanoo_sk1_combo",
+    "troca_skill_hyuga": "controller.animation.troca_skill_hyuga",
+    "skill_hyuga": "controller.animation.skill_hyuga",
+    "troca_skill_manto_kurama": "controller.animation.troca_skill_manto_kurama",
+    "skill_manto_kurama": "controller.animation.skill_manto_kurama",
+    "troca_skill_rinnegan": "controller.animation.troca_skill_rinnegan",
+    "skill_rinnegan": "controller.animation.skill_rinnegan",
+    "jutsus": "controller.animation.jutsus",
+    "dash": "controller.animation.dash",
+    "skill_mgk_obito": "controller.animation.skill_mgk_obito",
+    "troca_skill_mgk_obito": "controller.animation.troca_skill_mgk_obito",
+    "skill_mgk_sasuke": "controller.animation.skill_mgk_sasuke",
+    "troca_skill_mgk_sasuke": "controller.animation.troca_skill_mgk_sasuke",
+    "skill_mgk_itachi": "controller.animation.skill_mgk_itachi",
+    "troca_skill_mgk_itachi": "controller.animation.troca_skill_mgk_itachi",
+    "troca_skill_sharingan": "controller.animation.troca_skill_sharingan",
+    "skill_sharingan": "controller.animation.skill_sharingan",
+    "inicio": "controller.animation.inicio",
+    "jutsu_medico_animaation": "animation.jutsu_medico_animaation",
+    "chakra_acumulado_animaation": "animation.chakra_acumulado_animaation",
+    "bala_agua_suigetsu_animation": "animation.bala_agua_suigetsu_animation",
+    "suigetsu_intangivel_animation": "animation.suigetsu_intangivel_animation",
+    "suigetsu_forca_animation": "animation.suigetsu_forca_animation",
+    "carregar_chakra": "animation.carregar_chakra",
+    "carregar_chakra_regen": "animation.carregar_chakra_regen",
+    "shiden_chao_animations": "animation.shiden_chao_animations",
+    "magatama_susanoo_it2": "animation.magatama_susanoo_it2",
+    "susanoo_ob2_skill_1_animtaion": "animation.susanoo_ob2_skill_1_animtaion",
+    "espinho_amaterasu_animation": "animation.espinho_amaterasu_animation",
+    "bijudama_mk2_animation": "animation.bijudama_mk2_animation",
+    "manto_kurama_1_skill_2_animation": "animation.manto_kurama_1_skill_2_animation",
+    "manto_kurama_4_skill_2_animation": "animation.manto_kurama_4_skill_2_animation",
+    "bijudama_animation": "animation.bijudama_animation",
+    "bijudama_salto_animation": "animation.bijudama_salto_animation",
+    "lotos_frontal_animation": "animation.lotos_frontal_animation",
+    "byakugan_destruidor_leoes_gemeos": "animation.byakugan_destruidor_leoes_gemeos",
+    "byakugan_leao_gemeos": "animation.byakugan_leao_gemeos",
+    "byakugan_oito_trigrama_128": "animation.byakugan_oito_trigrama_128",
+    "byakugan_rotacao_celestial": "animation.byakugan_rotacao_celestial",
+    "byakugan_oito_trigrama": "animation.byakugan_oito_trigrama",
+    "byakugan_punho_suave": "animation.byakugan_punho_suave",
+    "rinnegan_shinra_tensei": "animation.rinnegan_shinra_tensei",
+    "rinnegan_absover_chakra": "animation.rinnegan_absover_chakra",
+    "rinnegan_chibaku_tensei": "animation.rinnegan_chibaku_tensei",
+    "tenseigan_skill_1_animation": "animation.tenseigan_skill_1_animation",
+    "tenseigan_skill_4_animation": "animation.tenseigan_skill_4_animation",
+    "tenseigan_skill_2_animation": "animation.tenseigan_skill_2_animation",
+    "rasen_shuriken": "animation.rasen_shuriken",
+    "rasengan_atk_ceu": "animation.rasengan_atk_ceu",
+    "rasengan_atk": "animation.rasengan_atk",
+    "correr_rasengan": "animation.correr_rasengan",
+    "kamui": "animation.kamui",
+    "kamui_intangivel": "animation.kamui_intangivel",
+    "kamui_absover": "animation.kamui_absover",
+    "amaterasu_mgk_itachi": "animation.amaterasu_mgk_itachi",
+    "corvos_mgk_itachi": "animation.corvos_mgk_itachi",
+    "previsao_sharingan": "animation.previsao_sharingan",
+    "modos_6m": "animation.modos_6m",
+    "modos_3m": "animation.modos_3m",
+    "modos_2m": "animation.modos_2m",
+    "hud_slot_add_cooldown": "animation.hud_slot_add_cooldown",
+    "slot_cooldown_1": "animation.slot_cooldown_1",
+    "mao_terra_load_animaation": "animation.mao_terra_load_animaation",
+    "corte_de_agua_animation": "animation.corte_de_agua_animation",
+    "chidori_load_animaation": "animation.chidori_load_animaation",
+    "chidori_negro_load_animaation": "animation.chidori_negro_load_animaation",
+    "raikiri_load_animaation": "animation.raikiri_load_animaation",
+    "chidori_nagashi_animation": "animation.chidori_nagashi_animation",
+    "prisao_agua_animation": "animation.prisao_agua_animation",
+    "tubarao_triplo_animation": "animation.tubarao_triplo_animation",
+    "bola_fogo_animation": "animation.bola_fogo_animation",
+    "grande_aniquilacao_fogo_animation": "animation.grande_aniquilacao_fogo_animation",
+    "esconderijo_toupeira_animation": "animation.esconderijo_toupeira_animation",
+    "projetil_terra_animation": "animation.projetil_terra_animation",
+    "grande_onda_choque_animation": "animation.grande_onda_choque_animation",
+    "saudacao_agua_animation": "animation.saudacao_agua_animation",
+    "esfera_vacuo_animation": "animation.esfera_vacuo_animation",
+    "pavao_amanhecer_animation": "animation.pavao_amanhecer_animation",
+    "regem_20s": "animation.regem_20s",
+    "": ""
+   },
+   "properties": {
+    "tnt:suporte_entity": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      1
+     ],
+     "default": 0
     },
-    "component_groups": {
-
-"tnt:hp": { "minecraft:health":{"value": 999999, "max": 999999}},
-     
-"tnt:dano.1": { "minecraft:attack": { "damage": 2} },
-"tnt:dano.2": { "minecraft:attack": { "damage": 2} },
-"tnt:dano.3": { "minecraft:attack": { "damage": 3} },
-"tnt:dano.4": { "minecraft:attack": { "damage": 4} },
-"tnt:dano.5": { "minecraft:attack": { "damage": 5} },
-"tnt:dano.6": { "minecraft:attack": { "damage": 6} },
-"tnt:dano.7": { "minecraft:attack": { "damage": 7} },
-"tnt:dano.8": { "minecraft:attack": { "damage": 8} },
-"tnt:dano.9": { "minecraft:attack": { "damage": 9} },
-"tnt:dano.10": { "minecraft:attack": { "damage": 10} },
-"tnt:dano.11": { "minecraft:attack": { "damage": 11} },
-"tnt:dano.12": { "minecraft:attack": { "damage": 12} },
-"tnt:dano.13": { "minecraft:attack": { "damage": 13} },
-"tnt:dano.14": { "minecraft:attack": { "damage": 14} },
-"tnt:dano.15": { "minecraft:attack": { "damage": 15} },
-"tnt:dano.16": { "minecraft:attack": { "damage": 16} },
-"tnt:dano.17": { "minecraft:attack": { "damage": 17} },
-"tnt:dano.18": { "minecraft:attack": { "damage": 18} },
-"tnt:dano.19": { "minecraft:attack": { "damage": 19} },
-"tnt:dano.20": { "minecraft:attack": { "damage": 20} },
-"tnt:dano.21": { "minecraft:attack": { "damage": 21} },
-"tnt:dano.22": { "minecraft:attack": { "damage": 22} },
-"tnt:dano.23": { "minecraft:attack": { "damage": 23} },
-"tnt:dano.24": { "minecraft:attack": { "damage": 24} },
-"tnt:dano.25": { "minecraft:attack": { "damage": 25} },
-"tnt:dano.26": { "minecraft:attack": { "damage": 26} },
-"tnt:dano.27": { "minecraft:attack": { "damage": 27} },
-"tnt:dano.28": { "minecraft:attack": { "damage": 28} },
-"tnt:dano.29": { "minecraft:attack": { "damage": 29} },
-"tnt:dano.30": { "minecraft:attack": { "damage": 30} },
-"tnt:dano.31": { "minecraft:attack": { "damage": 31} },
-"tnt:dano.32": { "minecraft:attack": { "damage": 32} },
-"tnt:dano.33": { "minecraft:attack": { "damage": 33} },
-"tnt:dano.34": { "minecraft:attack": { "damage": 34} },
-"tnt:dano.35": { "minecraft:attack": { "damage": 35} },
-"tnt:dano.36": { "minecraft:attack": { "damage": 36} },
-"tnt:dano.37": { "minecraft:attack": { "damage": 37} },
-"tnt:dano.38": { "minecraft:attack": { "damage": 38} },
-"tnt:dano.39": { "minecraft:attack": { "damage": 39} },
-"tnt:dano.40": { "minecraft:attack": { "damage": 40} },
-"tnt:dano.41": { "minecraft:attack": { "damage": 41} },
-"tnt:dano.42": { "minecraft:attack": { "damage": 42} },
-"tnt:dano.43": { "minecraft:attack": { "damage": 43} },
-"tnt:dano.44": { "minecraft:attack": { "damage": 44} },
-"tnt:dano.45": { "minecraft:attack": { "damage": 45} },
-"tnt:dano.46": { "minecraft:attack": { "damage": 46} },
-"tnt:dano.47": { "minecraft:attack": { "damage": 47} },
-"tnt:dano.48": { "minecraft:attack": { "damage": 48} },
-"tnt:dano.49": { "minecraft:attack": { "damage": 49} },
-"tnt:dano.50": { "minecraft:attack": { "damage": 50} },
-"tnt:dano.51": { "minecraft:attack": { "damage": 51} },
-"tnt:dano.52": { "minecraft:attack": { "damage": 52} },
-"tnt:dano.53": { "minecraft:attack": { "damage": 53} },
-"tnt:dano.54": { "minecraft:attack": { "damage": 54} },
-"tnt:dano.55": { "minecraft:attack": { "damage": 55} },
-"tnt:dano.56": { "minecraft:attack": { "damage": 56} },
-"tnt:dano.57": { "minecraft:attack": { "damage": 57} },
-"tnt:dano.58": { "minecraft:attack": { "damage": 58} },
-"tnt:dano.59": { "minecraft:attack": { "damage": 59} },
-"tnt:dano.60": { "minecraft:attack": { "damage": 60} },
-"tnt:dano.61": { "minecraft:attack": { "damage": 61} },
-"tnt:dano.62": { "minecraft:attack": { "damage": 62} },
-"tnt:dano.63": { "minecraft:attack": { "damage": 63} },
-"tnt:dano.64": { "minecraft:attack": { "damage": 64} },
-"tnt:dano.65": { "minecraft:attack": { "damage": 65} },
-"tnt:dano.66": { "minecraft:attack": { "damage": 66} },
-"tnt:dano.67": { "minecraft:attack": { "damage": 67} },
-"tnt:dano.68": { "minecraft:attack": { "damage": 68} },
-"tnt:dano.69": { "minecraft:attack": { "damage": 69} },
-"tnt:dano.70": { "minecraft:attack": { "damage": 70} },
-"tnt:dano.71": { "minecraft:attack": { "damage": 71} },
-"tnt:dano.72": { "minecraft:attack": { "damage": 72} },
-"tnt:dano.73": { "minecraft:attack": { "damage": 73} },
-"tnt:dano.74": { "minecraft:attack": { "damage": 74} },
-"tnt:dano.75": { "minecraft:attack": { "damage": 75} },
-"tnt:dano.76": { "minecraft:attack": { "damage": 76} },
-"tnt:dano.77": { "minecraft:attack": { "damage": 77} },
-"tnt:dano.78": { "minecraft:attack": { "damage": 78} },
-"tnt:dano.79": { "minecraft:attack": { "damage": 79} },
-"tnt:dano.80": { "minecraft:attack": { "damage": 80} },
-"tnt:dano.81": { "minecraft:attack": { "damage": 81} },
-"tnt:dano.82": { "minecraft:attack": { "damage": 82} },
-"tnt:dano.83": { "minecraft:attack": { "damage": 83} },
-"tnt:dano.84": { "minecraft:attack": { "damage": 84} },
-"tnt:dano.85": { "minecraft:attack": { "damage": 85} },
-"tnt:dano.86": { "minecraft:attack": { "damage": 86} },
-"tnt:dano.87": { "minecraft:attack": { "damage": 87} },
-"tnt:dano.88": { "minecraft:attack": { "damage": 88} },
-"tnt:dano.89": { "minecraft:attack": { "damage": 89} },
-"tnt:dano.90": { "minecraft:attack": { "damage": 90} },
-"tnt:dano.91": { "minecraft:attack": { "damage": 91} },
-"tnt:dano.92": { "minecraft:attack": { "damage": 92} },
-"tnt:dano.93": { "minecraft:attack": { "damage": 93} },
-"tnt:dano.94": { "minecraft:attack": { "damage": 94} },
-"tnt:dano.95": { "minecraft:attack": { "damage": 95} },
-"tnt:dano.96": { "minecraft:attack": { "damage": 96} },
-"tnt:dano.97": { "minecraft:attack": { "damage": 97} },
-"tnt:dano.98": { "minecraft:attack": { "damage": 98} },
-"tnt:dano.99": { "minecraft:attack": { "damage": 99} },
-"tnt:dano.100": { "minecraft:attack": { "damage": 100} },
-
-
-
-
-
-
-
-"bola_fogo_projetil": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:bola_fogo_projetil",
-"num_to_spawn": 1}}},
-
-"rasen_shuriken": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:rasen_shuriken_projetil",
-"num_to_spawn": 1}}},
-
-"vacuo_manto_kurama_1": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:vacuo_manto_kurama_1",
-"num_to_spawn": 1}}},
-
-"bijudama_projetil": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:bijudama_projetil",
-"num_to_spawn": 1}}},
-
-"bijudama_projetil_mult": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:bijudama_projetil_mult",
-"num_to_spawn": 1}}},
-
-"palma_ar_oito_trigrama": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:palma_ar_oito_trigrama",
-"num_to_spawn": 1}}},
-
-"teiseigan_chakra_orb": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:teiseigan_chakra_orb",
-"num_to_spawn": 1}}},
-
-"espada_tenseigan_impact": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:espada_tenseigan_impact",
-"num_to_spawn": 1}}},
-
-"magatama_itachi_projetil": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:magatama_itachi_projetil",
-"num_to_spawn": 1}}},
-
-"projetil_terra": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:projetil_terra",
-"num_to_spawn": 1}}},
-
-"esfera_vacuo": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:esfera_vacuo",
-"num_to_spawn": 1}}},
-
-"bijudama_mk2_projetil": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:bijudama_mk2_projetil",
-"num_to_spawn": 1}}},
-
-"saudacao_agua": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:saudacao_agua",
-"num_to_spawn": 2}}},
-
-"pavao_amanhecer": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:pavao_amanhecer",
-"num_to_spawn": 5}}},
-
-"bala_agua_suigetsu": {"minecraft:spawn_entity": {"entities": {"min_wait_time": 0, "max_wait_time": 0, "single_use": true,"spawn_event": "minecraft:entity_spawned",
-"spawn_entity": "tnt:bala_agua_suigetsu",
-"num_to_spawn": 2}}},
-
-
-
-  "no_gravity": {
-        "minecraft:physics": {
-          "has_gravity": false
-        }
-      },
-      "normal_gravity": {
-        "minecraft:physics": {
-          "has_gravity": true
-        }
-      },
-
-
-
-
-      "minecraft:add_bad_omen": {
-        "minecraft:spell_effects": {
-          "add_effects": [
-            {
-              "effect": "bad_omen",
-              "duration": 6000,
-              "display_on_screen_animation": true
-            }
-          ]
-        },
-        "minecraft:timer": {
-          "time": [ 0.0, 0.0 ],
-          "looping": false,
-          "time_down_event": {
-            "event": "minecraft:clear_add_bad_omen",
-            "target": "self"
-          }
-        }
-      },
-      "minecraft:clear_bad_omen_spell_effect": {
-        "minecraft:spell_effects": {
-        }
-      },
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
-        }
-      }
+    "tnt:custom_cabelo": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      3
+     ],
+     "default": 0
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   "components": {
-"minecraft:damage_sensor": {
-  "triggers": [
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "espinho_amaterasu" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        },
-        "event": "espinho_amaterasu"
-      },
-      "deals_damage": true
+    "tnt:retirar_pele": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      1
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "test": "has_damage",
-          "operator": "==",
-          "value": "fall"
-        }
-      },
-      "deals_damage": false
+    "tnt:suigetsu": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      1
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "protecao_gudoudama" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        }
-      },
-      "deals_damage": false
+    "tnt:byakugou": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      2
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "previsao_sharingan" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        },
-        "event": "previsao_sharingan"
-      },
-      "deals_damage": false
+    "tnt:dna_hashirama": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      1
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "kamui_intangivel" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        }
-      },
-      "deals_damage": false
+    "tnt:dna_hashirama_isanagi": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      7
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "amaterasu" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        },
-        "event": "amaterasu"
-      },
-      "deals_damage": true
+    "tnt:8_portoes": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      8
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "suigetsu_in" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        },
-        "event": "suigetsu_in"
-      },
-      "deals_damage": false
+    "tnt:marca_maldicao": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      3
+     ],
+     "default": 0
     },
-
-    {
-      "on_damage": {
-        "filters": {
-          "all_of": [
-            { "test": "has_tag", "subject": "self", "value": "pergminho_miss_5" },
-            { "test": "is_damage_cause", "value": "entity_attack" },
-            {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "mob" },
-                { "test": "is_family", "subject": "other", "value": "player" }
-              ]
-            }
-          ]
-        },
-        "event": "pergminho_miss_5"
-      },
-      "deals_damage": true
+    "tnt:sennin_sapo": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      2
+     ],
+     "default": 0
+    },
+    "tnt:kurama": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      8
+     ],
+     "default": 0
+    },
+    "tnt:shukaku": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      3
+     ],
+     "default": 0
+    },
+    "tnt:hyuga": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      4
+     ],
+     "default": 0
+    },
+    "tnt:uchiha_slot2": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      1
+     ],
+     "default": 0
+    },
+    "tnt:uchiha": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      0,
+      12
+     ],
+     "default": 0
+    },
+    "tnt:custon": {
+     "client_sync": true,
+     "type": "int",
+     "range": [
+      1,
+      2
+     ],
+     "default": 1
     }
-
-  ]
-},
-
-      "minecraft:experience_reward": {
-        "on_death": "Math.Min(query.player_level * 7, 100)"
-      },
-
-      "minecraft:type_family": {
-        "family": [
-          "player"
-        ]
-      },
-      "minecraft:loot": {
-        "table": "loot_tables/entities/player.json"
-      },
-      "minecraft:collision_box": {
-        "width": 0.6,
-        "height": 1.8
-      },
-      
-      "minecraft:can_climb": {},
-      "minecraft:movement": {
-        "value": 0.1
-      },
-     
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "any_of": [
-                {
-                  "test": "is_family",
-                  "subject": "self",
-                  "value": "player"
-                }
-              ]
-            },
-            "event": "pamobile:refresh_player"
-          }
-
-
-
-        ]
-      },
-
-      "minecraft:exhaustion_values": {
-        "heal": 6.0,
-        "jump": 0.05,
-        "sprint_jump": 0.2,
-        "mine": 0.005,
-        "attack": 0.1,
-        "damage": 0.1,
-        "walk": 0.0,
-        "sprint": 0.1,
-        "swim": 0.01,
-        "lunge": 4.0
-      },
-      "minecraft:player.saturation": {
-        "value": 0,
-        "max": 20
-      },
-      "minecraft:player.exhaustion": {
-        "value": 0,
-        "max": 20
-      },
-      "minecraft:player.level": {
-        "value": 0,
-        "max": 24791
-      },
-      "minecraft:player.experience": {
-        "value": 0,
-        "max": 1
-      },
-      "minecraft:breathable": {
-        "totalSupply": 15,
-        "suffocateTime": -1,
-        "inhaleTime": 3.75,
-        "generatesBubbles": false
-      },
-      "minecraft:nameable": {
-        "alwaysShow": true,
-        "allowNameTagRenaming": false
-      },
-      "minecraft:physics": {
-        "push_towards_closest_space": true
-      },
-        "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:insomnia": {
-        "days_until_insomnia": 3
-      
-      },
-      "minecraft:rideable": {
-        "seat_count": 2,
-        "family_types": [
-          "parrot_tame"
-        ],
-        "pull_in_entities": true,
-        "seats": [
-          {
-            "position": [
-              0.4,
-              -0.15,
-              0.04
-            ],
-            "min_rider_count": 0,
-            "max_rider_count": 0,
-            "lock_rider_rotation": 0
-          },
-          {
-            "position": [
-              -0.4,
-              -0.15,
-              0.04
-            ],
-            "min_rider_count": 1,
-            "max_rider_count": 2,
-            "lock_rider_rotation": 0
-            
-          }
-        ]
+   }
+  },
+  "component_groups": {
+   "tnt:hp": {
+    "minecraft:health": {
+     "value": 999999,
+     "max": 999999
+    }
+   },
+   "tnt:dano.1": {
+    "minecraft:attack": {
+     "damage": 2
+    }
+   },
+   "tnt:dano.2": {
+    "minecraft:attack": {
+     "damage": 2
+    }
+   },
+   "tnt:dano.3": {
+    "minecraft:attack": {
+     "damage": 3
+    }
+   },
+   "tnt:dano.4": {
+    "minecraft:attack": {
+     "damage": 4
+    }
+   },
+   "tnt:dano.5": {
+    "minecraft:attack": {
+     "damage": 5
+    }
+   },
+   "tnt:dano.6": {
+    "minecraft:attack": {
+     "damage": 6
+    }
+   },
+   "tnt:dano.7": {
+    "minecraft:attack": {
+     "damage": 7
+    }
+   },
+   "tnt:dano.8": {
+    "minecraft:attack": {
+     "damage": 8
+    }
+   },
+   "tnt:dano.9": {
+    "minecraft:attack": {
+     "damage": 9
+    }
+   },
+   "tnt:dano.10": {
+    "minecraft:attack": {
+     "damage": 10
+    }
+   },
+   "tnt:dano.11": {
+    "minecraft:attack": {
+     "damage": 11
+    }
+   },
+   "tnt:dano.12": {
+    "minecraft:attack": {
+     "damage": 12
+    }
+   },
+   "tnt:dano.13": {
+    "minecraft:attack": {
+     "damage": 13
+    }
+   },
+   "tnt:dano.14": {
+    "minecraft:attack": {
+     "damage": 14
+    }
+   },
+   "tnt:dano.15": {
+    "minecraft:attack": {
+     "damage": 15
+    }
+   },
+   "tnt:dano.16": {
+    "minecraft:attack": {
+     "damage": 16
+    }
+   },
+   "tnt:dano.17": {
+    "minecraft:attack": {
+     "damage": 17
+    }
+   },
+   "tnt:dano.18": {
+    "minecraft:attack": {
+     "damage": 18
+    }
+   },
+   "tnt:dano.19": {
+    "minecraft:attack": {
+     "damage": 19
+    }
+   },
+   "tnt:dano.20": {
+    "minecraft:attack": {
+     "damage": 20
+    }
+   },
+   "tnt:dano.21": {
+    "minecraft:attack": {
+     "damage": 21
+    }
+   },
+   "tnt:dano.22": {
+    "minecraft:attack": {
+     "damage": 22
+    }
+   },
+   "tnt:dano.23": {
+    "minecraft:attack": {
+     "damage": 23
+    }
+   },
+   "tnt:dano.24": {
+    "minecraft:attack": {
+     "damage": 24
+    }
+   },
+   "tnt:dano.25": {
+    "minecraft:attack": {
+     "damage": 25
+    }
+   },
+   "tnt:dano.26": {
+    "minecraft:attack": {
+     "damage": 26
+    }
+   },
+   "tnt:dano.27": {
+    "minecraft:attack": {
+     "damage": 27
+    }
+   },
+   "tnt:dano.28": {
+    "minecraft:attack": {
+     "damage": 28
+    }
+   },
+   "tnt:dano.29": {
+    "minecraft:attack": {
+     "damage": 29
+    }
+   },
+   "tnt:dano.30": {
+    "minecraft:attack": {
+     "damage": 30
+    }
+   },
+   "tnt:dano.31": {
+    "minecraft:attack": {
+     "damage": 31
+    }
+   },
+   "tnt:dano.32": {
+    "minecraft:attack": {
+     "damage": 32
+    }
+   },
+   "tnt:dano.33": {
+    "minecraft:attack": {
+     "damage": 33
+    }
+   },
+   "tnt:dano.34": {
+    "minecraft:attack": {
+     "damage": 34
+    }
+   },
+   "tnt:dano.35": {
+    "minecraft:attack": {
+     "damage": 35
+    }
+   },
+   "tnt:dano.36": {
+    "minecraft:attack": {
+     "damage": 36
+    }
+   },
+   "tnt:dano.37": {
+    "minecraft:attack": {
+     "damage": 37
+    }
+   },
+   "tnt:dano.38": {
+    "minecraft:attack": {
+     "damage": 38
+    }
+   },
+   "tnt:dano.39": {
+    "minecraft:attack": {
+     "damage": 39
+    }
+   },
+   "tnt:dano.40": {
+    "minecraft:attack": {
+     "damage": 40
+    }
+   },
+   "tnt:dano.41": {
+    "minecraft:attack": {
+     "damage": 41
+    }
+   },
+   "tnt:dano.42": {
+    "minecraft:attack": {
+     "damage": 42
+    }
+   },
+   "tnt:dano.43": {
+    "minecraft:attack": {
+     "damage": 43
+    }
+   },
+   "tnt:dano.44": {
+    "minecraft:attack": {
+     "damage": 44
+    }
+   },
+   "tnt:dano.45": {
+    "minecraft:attack": {
+     "damage": 45
+    }
+   },
+   "tnt:dano.46": {
+    "minecraft:attack": {
+     "damage": 46
+    }
+   },
+   "tnt:dano.47": {
+    "minecraft:attack": {
+     "damage": 47
+    }
+   },
+   "tnt:dano.48": {
+    "minecraft:attack": {
+     "damage": 48
+    }
+   },
+   "tnt:dano.49": {
+    "minecraft:attack": {
+     "damage": 49
+    }
+   },
+   "tnt:dano.50": {
+    "minecraft:attack": {
+     "damage": 50
+    }
+   },
+   "tnt:dano.51": {
+    "minecraft:attack": {
+     "damage": 51
+    }
+   },
+   "tnt:dano.52": {
+    "minecraft:attack": {
+     "damage": 52
+    }
+   },
+   "tnt:dano.53": {
+    "minecraft:attack": {
+     "damage": 53
+    }
+   },
+   "tnt:dano.54": {
+    "minecraft:attack": {
+     "damage": 54
+    }
+   },
+   "tnt:dano.55": {
+    "minecraft:attack": {
+     "damage": 55
+    }
+   },
+   "tnt:dano.56": {
+    "minecraft:attack": {
+     "damage": 56
+    }
+   },
+   "tnt:dano.57": {
+    "minecraft:attack": {
+     "damage": 57
+    }
+   },
+   "tnt:dano.58": {
+    "minecraft:attack": {
+     "damage": 58
+    }
+   },
+   "tnt:dano.59": {
+    "minecraft:attack": {
+     "damage": 59
+    }
+   },
+   "tnt:dano.60": {
+    "minecraft:attack": {
+     "damage": 60
+    }
+   },
+   "tnt:dano.61": {
+    "minecraft:attack": {
+     "damage": 61
+    }
+   },
+   "tnt:dano.62": {
+    "minecraft:attack": {
+     "damage": 62
+    }
+   },
+   "tnt:dano.63": {
+    "minecraft:attack": {
+     "damage": 63
+    }
+   },
+   "tnt:dano.64": {
+    "minecraft:attack": {
+     "damage": 64
+    }
+   },
+   "tnt:dano.65": {
+    "minecraft:attack": {
+     "damage": 65
+    }
+   },
+   "tnt:dano.66": {
+    "minecraft:attack": {
+     "damage": 66
+    }
+   },
+   "tnt:dano.67": {
+    "minecraft:attack": {
+     "damage": 67
+    }
+   },
+   "tnt:dano.68": {
+    "minecraft:attack": {
+     "damage": 68
+    }
+   },
+   "tnt:dano.69": {
+    "minecraft:attack": {
+     "damage": 69
+    }
+   },
+   "tnt:dano.70": {
+    "minecraft:attack": {
+     "damage": 70
+    }
+   },
+   "tnt:dano.71": {
+    "minecraft:attack": {
+     "damage": 71
+    }
+   },
+   "tnt:dano.72": {
+    "minecraft:attack": {
+     "damage": 72
+    }
+   },
+   "tnt:dano.73": {
+    "minecraft:attack": {
+     "damage": 73
+    }
+   },
+   "tnt:dano.74": {
+    "minecraft:attack": {
+     "damage": 74
+    }
+   },
+   "tnt:dano.75": {
+    "minecraft:attack": {
+     "damage": 75
+    }
+   },
+   "tnt:dano.76": {
+    "minecraft:attack": {
+     "damage": 76
+    }
+   },
+   "tnt:dano.77": {
+    "minecraft:attack": {
+     "damage": 77
+    }
+   },
+   "tnt:dano.78": {
+    "minecraft:attack": {
+     "damage": 78
+    }
+   },
+   "tnt:dano.79": {
+    "minecraft:attack": {
+     "damage": 79
+    }
+   },
+   "tnt:dano.80": {
+    "minecraft:attack": {
+     "damage": 80
+    }
+   },
+   "tnt:dano.81": {
+    "minecraft:attack": {
+     "damage": 81
+    }
+   },
+   "tnt:dano.82": {
+    "minecraft:attack": {
+     "damage": 82
+    }
+   },
+   "tnt:dano.83": {
+    "minecraft:attack": {
+     "damage": 83
+    }
+   },
+   "tnt:dano.84": {
+    "minecraft:attack": {
+     "damage": 84
+    }
+   },
+   "tnt:dano.85": {
+    "minecraft:attack": {
+     "damage": 85
+    }
+   },
+   "tnt:dano.86": {
+    "minecraft:attack": {
+     "damage": 86
+    }
+   },
+   "tnt:dano.87": {
+    "minecraft:attack": {
+     "damage": 87
+    }
+   },
+   "tnt:dano.88": {
+    "minecraft:attack": {
+     "damage": 88
+    }
+   },
+   "tnt:dano.89": {
+    "minecraft:attack": {
+     "damage": 89
+    }
+   },
+   "tnt:dano.90": {
+    "minecraft:attack": {
+     "damage": 90
+    }
+   },
+   "tnt:dano.91": {
+    "minecraft:attack": {
+     "damage": 91
+    }
+   },
+   "tnt:dano.92": {
+    "minecraft:attack": {
+     "damage": 92
+    }
+   },
+   "tnt:dano.93": {
+    "minecraft:attack": {
+     "damage": 93
+    }
+   },
+   "tnt:dano.94": {
+    "minecraft:attack": {
+     "damage": 94
+    }
+   },
+   "tnt:dano.95": {
+    "minecraft:attack": {
+     "damage": 95
+    }
+   },
+   "tnt:dano.96": {
+    "minecraft:attack": {
+     "damage": 96
+    }
+   },
+   "tnt:dano.97": {
+    "minecraft:attack": {
+     "damage": 97
+    }
+   },
+   "tnt:dano.98": {
+    "minecraft:attack": {
+     "damage": 98
+    }
+   },
+   "tnt:dano.99": {
+    "minecraft:attack": {
+     "damage": 99
+    }
+   },
+   "tnt:dano.100": {
+    "minecraft:attack": {
+     "damage": 100
+    }
+   },
+   "bola_fogo_projetil": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:bola_fogo_projetil",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "rasen_shuriken": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:rasen_shuriken_projetil",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "vacuo_manto_kurama_1": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:vacuo_manto_kurama_1",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "bijudama_projetil": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:bijudama_projetil",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "bijudama_projetil_mult": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:bijudama_projetil_mult",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "palma_ar_oito_trigrama": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:palma_ar_oito_trigrama",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "teiseigan_chakra_orb": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:teiseigan_chakra_orb",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "espada_tenseigan_impact": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:espada_tenseigan_impact",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "magatama_itachi_projetil": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:magatama_itachi_projetil",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "projetil_terra": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:projetil_terra",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "esfera_vacuo": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:esfera_vacuo",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "bijudama_mk2_projetil": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:bijudama_mk2_projetil",
+      "num_to_spawn": 1
+     }
+    }
+   },
+   "saudacao_agua": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:saudacao_agua",
+      "num_to_spawn": 2
+     }
+    }
+   },
+   "pavao_amanhecer": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:pavao_amanhecer",
+      "num_to_spawn": 5
+     }
+    }
+   },
+   "bala_agua_suigetsu": {
+    "minecraft:spawn_entity": {
+     "entities": {
+      "min_wait_time": 0,
+      "max_wait_time": 0,
+      "single_use": true,
+      "spawn_event": "minecraft:entity_spawned",
+      "spawn_entity": "tnt:bala_agua_suigetsu",
+      "num_to_spawn": 2
+     }
+    }
+   },
+   "no_gravity": {
+    "minecraft:physics": {
+     "has_gravity": false
+    }
+   },
+   "normal_gravity": {
+    "minecraft:physics": {
+     "has_gravity": true
+    }
+   },
+   "minecraft:add_bad_omen": {
+    "minecraft:spell_effects": {
+     "add_effects": [
+      {
+       "effect": "bad_omen",
+       "duration": 6000,
+       "display_on_screen_animation": true
       }
+     ]
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    "events": {
- "desativar_slot_1": {"queue_command": {"command": [
-"function tag/tags_cooldown_slot_1"
-
- ]},"set_property": {"tnt:uchiha": 0, "tnt:hyuga": 0,"tnt:kurama": 0, "tnt:shukaku": 0, "tnt:retirar_pele": 0}},
-
- "desativar_slot_2": {"queue_command": {"command": [
-"function tag/tags_cooldown_slot_2"
-
-
- ]},"set_property": {"tnt:sennin_sapo": 0, "tnt:marca_maldicao": 0, "tnt:suporte_entity": 0,  "tnt:uchiha_slot2": 0,  "tnt:8_portoes": 0, "tnt:retirar_pele": 0, "tnt:suigetsu": 0}},
-
- "desativar_slot_3": {"set_property": {"tnt:dna_hashirama": 0, "tnt:byakugou": 0}},
-
-
-
-
-
- "suporte:desativar": {"set_property": {"tnt:suporte_entity": 0}},
-
- "suporte:sapos_eremitas": {"set_property": {"tnt:suporte_entity": 1}},
-
-
-
-
-
-
-
-
-
-
-
-
- "hyuga:desativar": {"set_property": {"tnt:hyuga": 0, "tnt:retirar_pele": 0}},
- "hyuga:byakugan": {"queue_command": {"command": ["scriptevent ativar:byakugan"]},"set_property": {"tnt:hyuga": 1}},
- "hyuga:byakugan_evoluido": {"queue_command": {"command": ["scriptevent ativar:byakugan_evolucao"]},"set_property": {"tnt:hyuga": 2}},
- "hyuga:tenseigan": {"queue_command": {"command": ["scriptevent ativar:tenseigan"]},"set_property": {"tnt:hyuga": 3}},
- "hyuga:tenseigan_manto": {"queue_command": {"command": ["scriptevent ativar:manto_tenseigan"]},"set_property": {"tnt:hyuga": 4, "tnt:retirar_pele": 1}},
-
-
-
-
-
-
-
-
-
-
-
-
- "uchiha:desativar": {"set_property": {"tnt:uchiha": 0}},
- "uchiha:sharingan": {"queue_command": {"command": ["scriptevent ativar:sharingan"]},"set_property": {"tnt:uchiha": 1}},
- "uchiha:mgk_itachi": {"queue_command": {"command": ["scriptevent ativar:mgk_itachi"]},"set_property": {"tnt:uchiha": 2}},
- "uchiha:mgk_obito": {"queue_command": {"command": ["scriptevent ativar:mgk_obito"]},"set_property": {"tnt:uchiha": 3}},
- "uchiha:mgk_sasuke": {"queue_command": {"command": ["scriptevent ativar:mgk_sasuke"]},"set_property": {"tnt:uchiha": 4}},
-
- "uchiha:susano_sasuke_f1": {"queue_command": {"command": ["scriptevent ativar:susanoo_1_sasuke"]},"set_property": {"tnt:uchiha": 5}},
- "uchiha:susano_sasuke_f2": {"queue_command": {"command": ["scriptevent ativar:susanoo_2_sasuke"]},"set_property": {"tnt:uchiha": 6}},
-
- "uchiha:susano_itachi_f1": {"queue_command": {"command": ["scriptevent ativar:susanoo_1_itachi"]},"set_property": {"tnt:uchiha": 7}},
- "uchiha:susano_itachi_f2": {"queue_command": {"command": ["scriptevent ativar:susanoo_2_itachi"]},"set_property": {"tnt:uchiha": 8}},
-
- "uchiha:susano_obito_f1": {"queue_command": {"command": ["scriptevent ativar:susanoo_1_obito"]},"set_property": {"tnt:uchiha": 9}},
- "uchiha:susano_obito_f2": {"queue_command": {"command": ["scriptevent ativar:susanoo_2_obito"]},"set_property": {"tnt:uchiha": 10}},
- "uchiha:rinnegan": {"queue_command": {"command": ["scriptevent ativar:rinnegan"]},"set_property": {"tnt:uchiha": 11}},
-
-
-
-
-
-
-
-
-
- 
-
- "marca:desativar": {"set_property": {"tnt:marca_maldicao": 0}},
- "marca:maldicao": {"queue_command": {"command": ["scriptevent ativar:marca_v1"]},"set_property": {"tnt:marca_maldicao": 1}},
- "marca:maldicao_v1": {"queue_command": {"command": ["scriptevent ativar:marca_v2"]},"set_property": {"tnt:marca_maldicao": 2}},
- "marca:maldicao_v2": {"queue_command": {"command": ["scriptevent ativar:marca_v3"]},"set_property": {"tnt:marca_maldicao": 3}},
-
-
-
-
- "sennin:desativar": {"set_property": {"tnt:sennin_sapo": 0}},
- "sennin:modo_sennin_incompleto": {"queue_command": {"command": ["scriptevent ativar:modo_sennin_incompleto"]},"set_property": {"tnt:sennin_sapo": 1}},
- "sennin:modo_sennin_perfeito": {"queue_command": {"command": ["scriptevent ativar:modo_sennin_perfeito"]},"set_property": {"tnt:sennin_sapo": 2}},
-
-
-
-
- "portoes:desativar": {"set_property": {"tnt:8_portoes": 0, "tnt:retirar_pele": 0}},
- "portoes:primeiro_portao": {"queue_command": {"command": ["scriptevent ativar:portao_1"]},"set_property": {"tnt:8_portoes": 1}},
- "portoes:segundo_portao": {"queue_command": {"command": ["scriptevent ativar:portao_2"]},"set_property": {"tnt:8_portoes": 2}},
- "portoes:terceiro_portao": {"queue_command": {"command": ["scriptevent ativar:portao_3"]},"set_property": {"tnt:8_portoes": 3, "tnt:retirar_pele": 1}},
- "portoes:quarto_portao": {"queue_command": {"command": ["scriptevent ativar:portao_4"]},"set_property": {"tnt:8_portoes": 4, "tnt:retirar_pele": 1}},
- "portoes:quinto_portao": {"queue_command": {"command": ["scriptevent ativar:portao_5"]},"set_property": {"tnt:8_portoes": 5, "tnt:retirar_pele": 1}},
- "portoes:sexto_portao": {"queue_command": {"command": ["scriptevent ativar:portao_6"]},"set_property": {"tnt:8_portoes": 6, "tnt:retirar_pele": 1}},
- "portoes:setimo_portao": {"queue_command": {"command": ["scriptevent ativar:portao_7"]},"set_property": {"tnt:8_portoes": 7, "tnt:retirar_pele": 1}},
- "portoes:oitavo_portao": {"queue_command": {"command": ["scriptevent ativar:portao_8"]},"set_property": {"tnt:8_portoes": 8, "tnt:retirar_pele": 1}},
-
-
-
-
- "byakugou:desativar": {"set_property": {"tnt:byakugou": 0}},
- "byakugou:marca": {"set_property": {"tnt:byakugou": 1}},
- "byakugou:ativado": {"queue_command": {"command": ["scriptevent ativar:byakugou_ativado"]},"set_property": {"tnt:byakugou": 2}},
-
-
-
- "suigetsu:desativar": {"set_property": {"tnt:suigetsu": 0}},
- "suigetsu:ativado": {"queue_command": {"command": ["scriptevent ativar:suigetsu"]},"set_property": {"tnt:suigetsu": 1}},
-
-
-
- "uchiha:rinnegan_esquerdo": {"queue_command": {"command": ["scriptevent ativar:rinnegan_esquerdo"]},"set_property": {"tnt:uchiha_slot2": 1}},
-
-
-
-
-
-
-
-
-
- "shukaku:desativar_manto": {"set_property": {"tnt:shukaku": 0, "tnt:retirar_pele": 0}},
- "shukaku:manto_1": {"queue_command": {"command": ["scriptevent ativar:"]},"set_property": {"tnt:shukaku": 1}},
- "shukaku:manto_2": {"queue_command": {"command": ["scriptevent ativar:"]},"set_property": {"tnt:shukaku": 2}},
-
-
- "kurama:desativar_manto": {"set_property": {"tnt:kurama": 0, "tnt:retirar_pele": 0}},
- "kurama:manto_chakra_1": {"queue_command": {"command": ["scriptevent ativar:manto_kurama_1"]},"set_property": {"tnt:kurama": 1}},
- "kurama:manto_chakra_3": {"queue_command": {"command": ["scriptevent ativar:manto_kurama_3"]},"set_property": {"tnt:kurama": 2}},
- "kurama:manto_chakra_4": {"queue_command": {"command": ["scriptevent ativar:manto_kurama_4"]},"set_property": {"tnt:kurama": 3, "tnt:retirar_pele": 1}},
- "kurama:manto_chakra_6": {"queue_command": {"command": ["scriptevent ativar:manto_kurama_6"]},"set_property": {"tnt:kurama": 6, "tnt:retirar_pele": 1}},
- "kurama:manto_kurama_1": {"queue_command": {"command": ["scriptevent ativar:mk_1"]},"set_property": {"tnt:kurama": 4, "tnt:retirar_pele": 1}},
- "kurama:manto_kurama_2": {"queue_command": {"command": ["scriptevent ativar:mk_2"]},"set_property": {"tnt:kurama": 5, "tnt:retirar_pele": 1}},
- "kurama:barion_kurama": {"queue_command": {"command": ["scriptevent ativar:barion_kurama"]},"set_property": {"tnt:kurama": 7}},
- "kurama:rikudou": {"queue_command": {"command": ["scriptevent ativar:rikudou_kurama"]},"set_property": {"tnt:kurama": 8}},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- "dna:desativar": {"set_property": {"tnt:dna_hashirama": 0}},
- "celula:dna_hashirama": {"set_property": {"tnt:dna_hashirama": 1}},
-
-
-
-
- "celula:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 0}},
- "1:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 1}},
- "2:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 2}},
- "3:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 3}},
- "4:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 4}},
- "5:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 5}},
- "6:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 6}},
- "7:dna_hashirama_isanagi": {"set_property": {"tnt:dna_hashirama_isanagi": 7}},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- "cabelo:sasuke": {"set_property": {"tnt:custom_cabelo": 1}},
- "cabelo:naruto": {"set_property": {"tnt:custom_cabelo": 2}},
- "cabelo:madara": {"set_property": {"tnt:custom_cabelo": 3}},
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- "jutsu:bola_fogo_projetil": {"add": {"component_groups": ["bola_fogo_projetil"]}},
- 
- "jutsu:pavao_amanhecer": {"add": {"component_groups": ["pavao_amanhecer"]}},
-
- "jutsu:bala_agua_suigetsu": {"add": {"component_groups": ["bala_agua_suigetsu"]}},
-
- "jutsu:saudacao_agua": {"add": {"component_groups": ["saudacao_agua"]}},
-
- "jutsu:projetil_terra": {"add": {"component_groups": ["projetil_terra"]}},
-
- "jutsu:esfera_vacuo": {"add": {"component_groups": ["esfera_vacuo"]}},
- "jutsu:rasen_shuriken": {"add": {"component_groups": ["rasen_shuriken"]}},
- 
- "jutsu:bijudama_mk2_projetil": {"add": {"component_groups": ["bijudama_mk2_projetil"]}},
- "jutsu:vacuo_manto_kurama_1": {"add": {"component_groups": ["vacuo_manto_kurama_1"]}},
- "jutsu:bijudama_projetil": {"add": {"component_groups": ["bijudama_projetil"]}},
- "jutsu:bijudama_projetil_mult": {"add": {"component_groups": ["bijudama_projetil_mult"]}},
-
- "jutsu:palma_ar_oito_trigrama": {"add": {"component_groups": ["palma_ar_oito_trigrama"]}},
- "jutsu:teiseigan_chakra_orb": {"add": {"component_groups": ["teiseigan_chakra_orb"]}},
- "jutsu:espada_tenseigan_impact": {"add": {"component_groups": ["espada_tenseigan_impact"]}},
-
- 
- "jutsu:magatama_itachi_projetil": {"add": {"component_groups": ["magatama_itachi_projetil"]}},
-
-
-
+    "minecraft:timer": {
+     "time": [
+      0.0,
+      0.0
+     ],
+     "looping": false,
+     "time_down_event": {
+      "event": "minecraft:clear_add_bad_omen",
+      "target": "self"
+     }
+    }
+   },
+   "minecraft:clear_bad_omen_spell_effect": {
+    "minecraft:spell_effects": {}
+   },
+   "minecraft:raid_trigger": {
+    "minecraft:raid_trigger": {
+     "triggered_event": {
+      "event": "minecraft:remove_raid_trigger",
+      "target": "self"
+     }
+    },
+    "minecraft:spell_effects": {
+     "remove_effects": "bad_omen"
+    }
+   }
+  },
+  "components": {
+   "minecraft:damage_sensor": {
+    "triggers": [
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "espinho_amaterasu"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       },
+       "event": "espinho_amaterasu"
+      },
+      "deals_damage": true
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "test": "has_damage",
+        "operator": "==",
+        "value": "fall"
+       }
+      },
+      "deals_damage": false
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "protecao_gudoudama"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "deals_damage": false
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "previsao_sharingan"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       },
+       "event": "previsao_sharingan"
+      },
+      "deals_damage": false
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "kamui_intangivel"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "deals_damage": false
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "amaterasu"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       },
+       "event": "amaterasu"
+      },
+      "deals_damage": true
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "suigetsu_in"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       },
+       "event": "suigetsu_in"
+      },
+      "deals_damage": false
+     },
+     {
+      "on_damage": {
+       "filters": {
+        "all_of": [
+         {
+          "test": "has_tag",
+          "subject": "self",
+          "value": "pergminho_miss_5"
+         },
+         {
+          "test": "is_damage_cause",
+          "value": "entity_attack"
+         },
+         {
+          "any_of": [
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "mob"
+           },
+           {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+           }
+          ]
+         }
+        ]
+       },
+       "event": "pergminho_miss_5"
+      },
+      "deals_damage": true
+     }
+    ]
+   },
+   "minecraft:experience_reward": {
+    "on_death": "Math.Min(query.player_level * 7, 100)"
+   },
+   "minecraft:type_family": {
+    "family": [
+     "player"
+    ]
+   },
+   "minecraft:loot": {
+    "table": "loot_tables/entities/player.json"
+   },
+   "minecraft:collision_box": {
+    "width": 0.6,
+    "height": 1.8
+   },
+   "minecraft:can_climb": {},
+   "minecraft:movement": {
+    "value": 0.1
+   },
+   "minecraft:environment_sensor": {
+    "triggers": [
+     {
+      "filters": {
+       "any_of": [
+        {
+         "test": "is_family",
+         "subject": "self",
+         "value": "player"
+        }
+       ]
+      },
+      "event": "pamobile:refresh_player"
+     }
+    ]
+   },
+   "minecraft:exhaustion_values": {
+    "heal": 6.0,
+    "jump": 0.05,
+    "sprint_jump": 0.2,
+    "mine": 0.005,
+    "attack": 0.1,
+    "damage": 0.1,
+    "walk": 0.0,
+    "sprint": 0.1,
+    "swim": 0.01,
+    "lunge": 4.0
+   },
+   "minecraft:player.saturation": {
+    "value": 0,
+    "max": 20
+   },
+   "minecraft:player.exhaustion": {
+    "value": 0,
+    "max": 20
+   },
+   "minecraft:player.level": {
+    "value": 0,
+    "max": 24791
+   },
+   "minecraft:player.experience": {
+    "value": 0,
+    "max": 1
+   },
+   "minecraft:breathable": {
+    "totalSupply": 15,
+    "suffocateTime": -1,
+    "inhaleTime": 3.75,
+    "generatesBubbles": false
+   },
+   "minecraft:nameable": {
+    "alwaysShow": true,
+    "allowNameTagRenaming": false
+   },
+   "minecraft:physics": {
+    "push_towards_closest_space": true
+   },
+   "minecraft:pushable": {
+    "is_pushable": false,
+    "is_pushable_by_piston": true
+   },
+   "minecraft:insomnia": {
+    "days_until_insomnia": 3
+   },
+   "minecraft:rideable": {
+    "seat_count": 2,
+    "family_types": [
+     "parrot_tame"
+    ],
+    "pull_in_entities": true,
+    "seats": [
+     {
+      "position": [
+       0.4,
+       -0.15,
+       0.04
+      ],
+      "min_rider_count": 0,
+      "max_rider_count": 0,
+      "lock_rider_rotation": 0
+     },
+     {
+      "position": [
+       -0.4,
+       -0.15,
+       0.04
+      ],
+      "min_rider_count": 1,
+      "max_rider_count": 2,
+      "lock_rider_rotation": 0
+     }
+    ]
+   }
+  },
+  "events": {
+   "desativar_slot_1": {
+    "queue_command": {
+     "command": [
+      "function tag/tags_cooldown_slot_1"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 0,
+     "tnt:hyuga": 0,
+     "tnt:kurama": 0,
+     "tnt:shukaku": 0,
+     "tnt:retirar_pele": 0
+    }
+   },
+   "desativar_slot_2": {
+    "queue_command": {
+     "command": [
+      "function tag/tags_cooldown_slot_2"
+     ]
+    },
+    "set_property": {
+     "tnt:sennin_sapo": 0,
+     "tnt:marca_maldicao": 0,
+     "tnt:suporte_entity": 0,
+     "tnt:uchiha_slot2": 0,
+     "tnt:8_portoes": 0,
+     "tnt:retirar_pele": 0,
+     "tnt:suigetsu": 0
+    }
+   },
+   "desativar_slot_3": {
+    "set_property": {
+     "tnt:dna_hashirama": 0,
+     "tnt:byakugou": 0
+    }
+   },
+   "suporte:desativar": {
+    "set_property": {
+     "tnt:suporte_entity": 0
+    }
+   },
+   "suporte:sapos_eremitas": {
+    "set_property": {
+     "tnt:suporte_entity": 1
+    }
+   },
+   "hyuga:desativar": {
+    "set_property": {
+     "tnt:hyuga": 0,
+     "tnt:retirar_pele": 0
+    }
+   },
+   "hyuga:byakugan": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:byakugan"
+     ]
+    },
+    "set_property": {
+     "tnt:hyuga": 1
+    }
+   },
+   "hyuga:byakugan_evoluido": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:byakugan_evolucao"
+     ]
+    },
+    "set_property": {
+     "tnt:hyuga": 2
+    }
+   },
+   "hyuga:tenseigan": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:tenseigan"
+     ]
+    },
+    "set_property": {
+     "tnt:hyuga": 3
+    }
+   },
+   "hyuga:tenseigan_manto": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:manto_tenseigan"
+     ]
+    },
+    "set_property": {
+     "tnt:hyuga": 4,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "uchiha:desativar": {
+    "set_property": {
+     "tnt:uchiha": 0
+    }
+   },
+   "uchiha:sharingan": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:sharingan"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 1
+    }
+   },
+   "uchiha:mgk_itachi": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:mgk_itachi"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 2
+    }
+   },
+   "uchiha:mgk_obito": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:mgk_obito"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 3
+    }
+   },
+   "uchiha:mgk_sasuke": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:mgk_sasuke"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 4
+    }
+   },
+   "uchiha:susano_sasuke_f1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_1_sasuke"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 5
+    }
+   },
+   "uchiha:susano_sasuke_f2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_2_sasuke"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 6
+    }
+   },
+   "uchiha:susano_itachi_f1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_1_itachi"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 7
+    }
+   },
+   "uchiha:susano_itachi_f2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_2_itachi"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 8
+    }
+   },
+   "uchiha:susano_obito_f1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_1_obito"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 9
+    }
+   },
+   "uchiha:susano_obito_f2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:susanoo_2_obito"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 10
+    }
+   },
+   "uchiha:rinnegan": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:rinnegan"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha": 11
+    }
+   },
+   "marca:desativar": {
+    "set_property": {
+     "tnt:marca_maldicao": 0
+    }
+   },
+   "marca:maldicao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:marca_v1"
+     ]
+    },
+    "set_property": {
+     "tnt:marca_maldicao": 1
+    }
+   },
+   "marca:maldicao_v1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:marca_v2"
+     ]
+    },
+    "set_property": {
+     "tnt:marca_maldicao": 2
+    }
+   },
+   "marca:maldicao_v2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:marca_v3"
+     ]
+    },
+    "set_property": {
+     "tnt:marca_maldicao": 3
+    }
+   },
+   "sennin:desativar": {
+    "set_property": {
+     "tnt:sennin_sapo": 0
+    }
+   },
+   "sennin:modo_sennin_incompleto": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:modo_sennin_incompleto"
+     ]
+    },
+    "set_property": {
+     "tnt:sennin_sapo": 1
+    }
+   },
+   "sennin:modo_sennin_perfeito": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:modo_sennin_perfeito"
+     ]
+    },
+    "set_property": {
+     "tnt:sennin_sapo": 2
+    }
+   },
+   "portoes:desativar": {
+    "set_property": {
+     "tnt:8_portoes": 0,
+     "tnt:retirar_pele": 0
+    }
+   },
+   "portoes:primeiro_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_1"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 1
+    }
+   },
+   "portoes:segundo_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_2"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 2
+    }
+   },
+   "portoes:terceiro_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_3"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 3,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "portoes:quarto_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_4"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 4,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "portoes:quinto_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_5"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 5,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "portoes:sexto_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_6"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 6,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "portoes:setimo_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_7"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 7,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "portoes:oitavo_portao": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:portao_8"
+     ]
+    },
+    "set_property": {
+     "tnt:8_portoes": 8,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "byakugou:desativar": {
+    "set_property": {
+     "tnt:byakugou": 0
+    }
+   },
+   "byakugou:marca": {
+    "set_property": {
+     "tnt:byakugou": 1
+    }
+   },
+   "byakugou:ativado": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:byakugou_ativado"
+     ]
+    },
+    "set_property": {
+     "tnt:byakugou": 2
+    }
+   },
+   "suigetsu:desativar": {
+    "set_property": {
+     "tnt:suigetsu": 0
+    }
+   },
+   "suigetsu:ativado": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:suigetsu"
+     ]
+    },
+    "set_property": {
+     "tnt:suigetsu": 1
+    }
+   },
+   "uchiha:rinnegan_esquerdo": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:rinnegan_esquerdo"
+     ]
+    },
+    "set_property": {
+     "tnt:uchiha_slot2": 1
+    }
+   },
+   "shukaku:desativar_manto": {
+    "set_property": {
+     "tnt:shukaku": 0,
+     "tnt:retirar_pele": 0
+    }
+   },
+   "shukaku:manto_1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:"
+     ]
+    },
+    "set_property": {
+     "tnt:shukaku": 1
+    }
+   },
+   "shukaku:manto_2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:"
+     ]
+    },
+    "set_property": {
+     "tnt:shukaku": 2
+    }
+   },
+   "kurama:desativar_manto": {
+    "set_property": {
+     "tnt:kurama": 0,
+     "tnt:retirar_pele": 0
+    }
+   },
+   "kurama:manto_chakra_1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:manto_kurama_1"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 1
+    }
+   },
+   "kurama:manto_chakra_3": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:manto_kurama_3"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 2
+    }
+   },
+   "kurama:manto_chakra_4": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:manto_kurama_4"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 3,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "kurama:manto_chakra_6": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:manto_kurama_6"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 6,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "kurama:manto_kurama_1": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:mk_1"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 4,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "kurama:manto_kurama_2": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:mk_2"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 5,
+     "tnt:retirar_pele": 1
+    }
+   },
+   "kurama:barion_kurama": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:barion_kurama"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 7
+    }
+   },
+   "kurama:rikudou": {
+    "queue_command": {
+     "command": [
+      "scriptevent ativar:rikudou_kurama"
+     ]
+    },
+    "set_property": {
+     "tnt:kurama": 8
+    }
+   },
+   "dna:desativar": {
+    "set_property": {
+     "tnt:dna_hashirama": 0
+    }
+   },
+   "celula:dna_hashirama": {
+    "set_property": {
+     "tnt:dna_hashirama": 1
+    }
+   },
+   "celula:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 0
+    }
+   },
+   "1:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 1
+    }
+   },
+   "2:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 2
+    }
+   },
+   "3:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 3
+    }
+   },
+   "4:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 4
+    }
+   },
+   "5:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 5
+    }
+   },
+   "6:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 6
+    }
+   },
+   "7:dna_hashirama_isanagi": {
+    "set_property": {
+     "tnt:dna_hashirama_isanagi": 7
+    }
+   },
+   "cabelo:sasuke": {
+    "set_property": {
+     "tnt:custom_cabelo": 1
+    }
+   },
+   "cabelo:naruto": {
+    "set_property": {
+     "tnt:custom_cabelo": 2
+    }
+   },
+   "cabelo:madara": {
+    "set_property": {
+     "tnt:custom_cabelo": 3
+    }
+   },
+   "jutsu:bola_fogo_projetil": {
+    "add": {
+     "component_groups": [
+      "bola_fogo_projetil"
+     ]
+    }
+   },
+   "jutsu:pavao_amanhecer": {
+    "add": {
+     "component_groups": [
+      "pavao_amanhecer"
+     ]
+    }
+   },
+   "jutsu:bala_agua_suigetsu": {
+    "add": {
+     "component_groups": [
+      "bala_agua_suigetsu"
+     ]
+    }
+   },
+   "jutsu:saudacao_agua": {
+    "add": {
+     "component_groups": [
+      "saudacao_agua"
+     ]
+    }
+   },
+   "jutsu:projetil_terra": {
+    "add": {
+     "component_groups": [
+      "projetil_terra"
+     ]
+    }
+   },
+   "jutsu:esfera_vacuo": {
+    "add": {
+     "component_groups": [
+      "esfera_vacuo"
+     ]
+    }
+   },
+   "jutsu:rasen_shuriken": {
+    "add": {
+     "component_groups": [
+      "rasen_shuriken"
+     ]
+    }
+   },
+   "jutsu:bijudama_mk2_projetil": {
+    "add": {
+     "component_groups": [
+      "bijudama_mk2_projetil"
+     ]
+    }
+   },
+   "jutsu:vacuo_manto_kurama_1": {
+    "add": {
+     "component_groups": [
+      "vacuo_manto_kurama_1"
+     ]
+    }
+   },
+   "jutsu:bijudama_projetil": {
+    "add": {
+     "component_groups": [
+      "bijudama_projetil"
+     ]
+    }
+   },
+   "jutsu:bijudama_projetil_mult": {
+    "add": {
+     "component_groups": [
+      "bijudama_projetil_mult"
+     ]
+    }
+   },
+   "jutsu:palma_ar_oito_trigrama": {
+    "add": {
+     "component_groups": [
+      "palma_ar_oito_trigrama"
+     ]
+    }
+   },
+   "jutsu:teiseigan_chakra_orb": {
+    "add": {
+     "component_groups": [
+      "teiseigan_chakra_orb"
+     ]
+    }
+   },
+   "jutsu:espada_tenseigan_impact": {
+    "add": {
+     "component_groups": [
+      "espada_tenseigan_impact"
+     ]
+    }
+   },
+   "jutsu:magatama_itachi_projetil": {
+    "add": {
+     "component_groups": [
+      "magatama_itachi_projetil"
+     ]
+    }
+   },
    "tnt:no_gravity": {
-        "add": {
-          "component_groups": ["no_gravity"]
-        },
-        "remove": {
-          "component_groups": ["normal_gravity"]
-        },
-        "queue_command": {
-          "command": [
-            "inputpermission set @s movement disabled"
-          ]
-        }
-      },
-
-      "tnt:restore_gravity": {
-        "add": {
-          "component_groups": ["normal_gravity"]
-        },
-        "remove": {
-          "component_groups": ["no_gravity"]
-        },
-        "queue_command": {
-          "command": [
-            "inputpermission set @s movement enabled"
-          ]
-        }
-      },
-      
-
-"espinho_amaterasu": {
-       "queue_command": {
-          "command": [
-            "tag @s add amaterasu"
-          ],"target": "other"
-        }},
-
-"suigetsu_in": {
-       "queue_command": {
-          "command": [
-            "particle tnt:suigetsu_hit"
-          ]
-        }},
-
-
- 
-"pergminho_miss_5": {
-"randomize": [
-
-{"weight": 70,
-"queue_command": {"command": []}},
-{"weight": 60,
-"queue_command": {"command": [
-         "clear @s tnt:pergaminho_miss 0 1",
-            "tag @s remove pergminho_miss_5",
-            "summon tnt:pergaminho_miss_c"
-]}}
-]},
-
-
-
-
-  
-"previsao_sharingan": {
-"randomize": [
-{"weight": 70,
-"queue_command": {"command": [
-     "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^1.5^1^-1.5 facing @s"
-]}},
-{"weight": 70,
-"queue_command": {"command": [
-     "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^-1.5^1^-1.5 facing @s"
-]}},
-{"weight": 70,
-"queue_command": {"command": [
-     "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^^1^-1.5 facing @s"
-]}}
-]},
-
-
-
-"amaterasu": {
-"randomize": [
- 
-{"weight": 100,
-"queue_command": {"command": [
-     "playsound mob.player.hurt_on_fire @a[r=5]"
-]}},
-{"weight": 100,
-"queue_command": {"command": [
-]}},
-{"weight": 100,
-"queue_command": {"command": [
-]}}
-]},
-
-
-
-
-
-
-
-"custon:masculino_claro": {"set_property": {"tnt:custon": 1}},
-"custon:masculino_escuro": {"set_property": {"tnt:custon": 2}},
-
-
-
-
-
-
-"tnt:hp": { "add": { "component_groups": [ "tnt:hp" ] } },
-
-
-
-        "tnt:dano.1": { "add": { "component_groups": [ "tnt:dano.1" ] } },
-        "tnt:dano.2": { "add": { "component_groups": [ "tnt:dano.2" ] } },
-        "tnt:dano.3": { "add": { "component_groups": [ "tnt:dano.3" ] } },
-        "tnt:dano.4": { "add": { "component_groups": [ "tnt:dano.4" ] } },
-        "tnt:dano.5": { "add": { "component_groups": [ "tnt:dano.5" ] } },
-        "tnt:dano.6": { "add": { "component_groups": [ "tnt:dano.6" ] } },
-        "tnt:dano.7": { "add": { "component_groups": [ "tnt:dano.7" ] } },
-        "tnt:dano.8": { "add": { "component_groups": [ "tnt:dano.8" ] } },
-        "tnt:dano.9": { "add": { "component_groups": [ "tnt:dano.9" ] } },
-        "tnt:dano.10": { "add": { "component_groups": [ "tnt:dano.10" ] } },
-        "tnt:dano.11": { "add": { "component_groups": [ "tnt:dano.11" ] } },
-        "tnt:dano.12": { "add": { "component_groups": [ "tnt:dano.12" ] } },
-        "tnt:dano.13": { "add": { "component_groups": [ "tnt:dano.13" ] } },
-        "tnt:dano.14": { "add": { "component_groups": [ "tnt:dano.14" ] } },
-        "tnt:dano.15": { "add": { "component_groups": [ "tnt:dano.15" ] } },
-        "tnt:dano.16": { "add": { "component_groups": [ "tnt:dano.16" ] } },
-        "tnt:dano.17": { "add": { "component_groups": [ "tnt:dano.17" ] } },
-        "tnt:dano.18": { "add": { "component_groups": [ "tnt:dano.18" ] } },
-        "tnt:dano.19": { "add": { "component_groups": [ "tnt:dano.19" ] } },
-        "tnt:dano.20": { "add": { "component_groups": [ "tnt:dano.20" ] } },
-        "tnt:dano.21": { "add": { "component_groups": [ "tnt:dano.21" ] } },
-        "tnt:dano.22": { "add": { "component_groups": [ "tnt:dano.22" ] } },
-        "tnt:dano.23": { "add": { "component_groups": [ "tnt:dano.23" ] } },
-        "tnt:dano.24": { "add": { "component_groups": [ "tnt:dano.24" ] } },
-        "tnt:dano.25": { "add": { "component_groups": [ "tnt:dano.25" ] } },
-        "tnt:dano.26": { "add": { "component_groups": [ "tnt:dano.26" ] } },
-        "tnt:dano.27": { "add": { "component_groups": [ "tnt:dano.27" ] } },
-        "tnt:dano.28": { "add": { "component_groups": [ "tnt:dano.28" ] } },
-        "tnt:dano.29": { "add": { "component_groups": [ "tnt:dano.29" ] } },
-        "tnt:dano.30": { "add": { "component_groups": [ "tnt:dano.30" ] } },
-        "tnt:dano.31": { "add": { "component_groups": [ "tnt:dano.31" ] } },
-        "tnt:dano.32": { "add": { "component_groups": [ "tnt:dano.32" ] } },
-        "tnt:dano.33": { "add": { "component_groups": [ "tnt:dano.33" ] } },
-        "tnt:dano.34": { "add": { "component_groups": [ "tnt:dano.34" ] } },
-        "tnt:dano.35": { "add": { "component_groups": [ "tnt:dano.35" ] } },
-        "tnt:dano.36": { "add": { "component_groups": [ "tnt:dano.36" ] } },
-        "tnt:dano.37": { "add": { "component_groups": [ "tnt:dano.37" ] } },
-        "tnt:dano.38": { "add": { "component_groups": [ "tnt:dano.38" ] } },
-        "tnt:dano.39": { "add": { "component_groups": [ "tnt:dano.39" ] } },
-        "tnt:dano.40": { "add": { "component_groups": [ "tnt:dano.40" ] } },
-        "tnt:dano.41": { "add": { "component_groups": [ "tnt:dano.41" ] } },
-        "tnt:dano.42": { "add": { "component_groups": [ "tnt:dano.42" ] } },
-        "tnt:dano.43": { "add": { "component_groups": [ "tnt:dano.43" ] } },
-        "tnt:dano.44": { "add": { "component_groups": [ "tnt:dano.44" ] } },
-        "tnt:dano.45": { "add": { "component_groups": [ "tnt:dano.45" ] } },
-        "tnt:dano.46": { "add": { "component_groups": [ "tnt:dano.46" ] } },
-        "tnt:dano.47": { "add": { "component_groups": [ "tnt:dano.47" ] } },
-        "tnt:dano.48": { "add": { "component_groups": [ "tnt:dano.48" ] } },
-        "tnt:dano.49": { "add": { "component_groups": [ "tnt:dano.49" ] } },
-        "tnt:dano.50": { "add": { "component_groups": [ "tnt:dano.50" ] } },
-        "tnt:dano.51": { "add": { "component_groups": [ "tnt:dano.51" ] } },
-        "tnt:dano.52": { "add": { "component_groups": [ "tnt:dano.52" ] } },
-        "tnt:dano.53": { "add": { "component_groups": [ "tnt:dano.53" ] } },
-        "tnt:dano.54": { "add": { "component_groups": [ "tnt:dano.54" ] } },
-        "tnt:dano.55": { "add": { "component_groups": [ "tnt:dano.55" ] } },
-        "tnt:dano.56": { "add": { "component_groups": [ "tnt:dano.56" ] } },
-        "tnt:dano.57": { "add": { "component_groups": [ "tnt:dano.57" ] } },
-        "tnt:dano.58": { "add": { "component_groups": [ "tnt:dano.58" ] } },
-        "tnt:dano.59": { "add": { "component_groups": [ "tnt:dano.59" ] } },
-        "tnt:dano.60": { "add": { "component_groups": [ "tnt:dano.60" ] } },
-        "tnt:dano.61": { "add": { "component_groups": [ "tnt:dano.61" ] } },
-        "tnt:dano.62": { "add": { "component_groups": [ "tnt:dano.62" ] } },
-        "tnt:dano.63": { "add": { "component_groups": [ "tnt:dano.63" ] } },
-        "tnt:dano.64": { "add": { "component_groups": [ "tnt:dano.64" ] } },
-        "tnt:dano.65": { "add": { "component_groups": [ "tnt:dano.65" ] } },
-        "tnt:dano.66": { "add": { "component_groups": [ "tnt:dano.66" ] } },
-        "tnt:dano.67": { "add": { "component_groups": [ "tnt:dano.67" ] } },
-        "tnt:dano.68": { "add": { "component_groups": [ "tnt:dano.68" ] } },
-        "tnt:dano.69": { "add": { "component_groups": [ "tnt:dano.69" ] } },
-        "tnt:dano.70": { "add": { "component_groups": [ "tnt:dano.70" ] } },
-        "tnt:dano.71": { "add": { "component_groups": [ "tnt:dano.71" ] } },
-        "tnt:dano.72": { "add": { "component_groups": [ "tnt:dano.72" ] } },
-        "tnt:dano.73": { "add": { "component_groups": [ "tnt:dano.73" ] } },
-        "tnt:dano.74": { "add": { "component_groups": [ "tnt:dano.74" ] } },
-        "tnt:dano.75": { "add": { "component_groups": [ "tnt:dano.75" ] } },
-        "tnt:dano.76": { "add": { "component_groups": [ "tnt:dano.76" ] } },
-        "tnt:dano.77": { "add": { "component_groups": [ "tnt:dano.77" ] } },
-        "tnt:dano.78": { "add": { "component_groups": [ "tnt:dano.78" ] } },
-        "tnt:dano.79": { "add": { "component_groups": [ "tnt:dano.79" ] } },
-        "tnt:dano.80": { "add": { "component_groups": [ "tnt:dano.80" ] } },
-        "tnt:dano.81": { "add": { "component_groups": [ "tnt:dano.81" ] } },
-        "tnt:dano.82": { "add": { "component_groups": [ "tnt:dano.82" ] } },
-        "tnt:dano.83": { "add": { "component_groups": [ "tnt:dano.83" ] } },
-        "tnt:dano.84": { "add": { "component_groups": [ "tnt:dano.84" ] } },
-        "tnt:dano.85": { "add": { "component_groups": [ "tnt:dano.85" ] } },
-        "tnt:dano.86": { "add": { "component_groups": [ "tnt:dano.86" ] } },
-        "tnt:dano.87": { "add": { "component_groups": [ "tnt:dano.87" ] } },
-        "tnt:dano.88": { "add": { "component_groups": [ "tnt:dano.88" ] } },
-        "tnt:dano.89": { "add": { "component_groups": [ "tnt:dano.89" ] } },
-        "tnt:dano.90": { "add": { "component_groups": [ "tnt:dano.90" ] } },
-        "tnt:dano.91": { "add": { "component_groups": [ "tnt:dano.91" ] } },
-        "tnt:dano.92": { "add": { "component_groups": [ "tnt:dano.92" ] } },
-        "tnt:dano.93": { "add": { "component_groups": [ "tnt:dano.93" ] } },
-        "tnt:dano.94": { "add": { "component_groups": [ "tnt:dano.94" ] } },
-        "tnt:dano.95": { "add": { "component_groups": [ "tnt:dano.95" ] } },
-        "tnt:dano.96": { "add": { "component_groups": [ "tnt:dano.96" ] } },
-        "tnt:dano.97": { "add": { "component_groups": [ "tnt:dano.97" ] } },
-        "tnt:dano.98": { "add": { "component_groups": [ "tnt:dano.98" ] } },
-        "tnt:dano.99": { "add": { "component_groups": [ "tnt:dano.99" ] } },
-        "tnt:dano.100": { "add": { "component_groups": [ "tnt:dano.100" ] } },
-
-      "minecraft:gain_bad_omen": {
-        "add": {
-          "component_groups": [
-            "minecraft:add_bad_omen"
-          ]
-        }
-      },
-      "minecraft:clear_add_bad_omen": {
-        "remove": {
-          "component_groups": [
-            "minecraft:add_bad_omen"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:clear_bad_omen_spell_effect"
-          ]
-        }
-      },
-      "minecraft:trigger_raid": {
-        "add": {
-          "component_groups": [ "minecraft:raid_trigger" ]
-        }
-      },
-      "minecraft:remove_raid_trigger": {
-        "remove": {
-          "component_groups": [ "minecraft:raid_trigger" ]
-        }
-      }
+    "add": {
+     "component_groups": [
+      "no_gravity"
+     ]
+    },
+    "remove": {
+     "component_groups": [
+      "normal_gravity"
+     ]
+    },
+    "queue_command": {
+     "command": [
+      "inputpermission set @s movement disabled"
+     ]
     }
+   },
+   "tnt:restore_gravity": {
+    "add": {
+     "component_groups": [
+      "normal_gravity"
+     ]
+    },
+    "remove": {
+     "component_groups": [
+      "no_gravity"
+     ]
+    },
+    "queue_command": {
+     "command": [
+      "inputpermission set @s movement enabled"
+     ]
+    }
+   },
+   "espinho_amaterasu": {
+    "queue_command": {
+     "command": [
+      "tag @s add amaterasu"
+     ],
+     "target": "other"
+    }
+   },
+   "suigetsu_in": {
+    "queue_command": {
+     "command": [
+      "particle tnt:suigetsu_hit"
+     ]
+    }
+   },
+   "pergminho_miss_5": {
+    "randomize": [
+     {
+      "weight": 70,
+      "queue_command": {
+       "command": []
+      }
+     },
+     {
+      "weight": 60,
+      "queue_command": {
+       "command": [
+        "clear @s tnt:pergaminho_miss 0 1",
+        "tag @s remove pergminho_miss_5",
+        "summon tnt:pergaminho_miss_c"
+       ]
+      }
+     }
+    ]
+   },
+   "previsao_sharingan": {
+    "randomize": [
+     {
+      "weight": 70,
+      "queue_command": {
+       "command": [
+        "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^1.5^1^-1.5 facing @s"
+       ]
+      }
+     },
+     {
+      "weight": 70,
+      "queue_command": {
+       "command": [
+        "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^-1.5^1^-1.5 facing @s"
+       ]
+      }
+     },
+     {
+      "weight": 70,
+      "queue_command": {
+       "command": [
+        "execute at @e[rm=0.5,r=5,c=1,type=!item] run tp @s ^^1^-1.5 facing @s"
+       ]
+      }
+     }
+    ]
+   },
+   "amaterasu": {
+    "randomize": [
+     {
+      "weight": 100,
+      "queue_command": {
+       "command": [
+        "playsound mob.player.hurt_on_fire @a[r=5]"
+       ]
+      }
+     },
+     {
+      "weight": 100,
+      "queue_command": {
+       "command": []
+      }
+     },
+     {
+      "weight": 100,
+      "queue_command": {
+       "command": []
+      }
+     }
+    ]
+   },
+   "custon:masculino_claro": {
+    "set_property": {
+     "tnt:custon": 1
+    }
+   },
+   "custon:masculino_escuro": {
+    "set_property": {
+     "tnt:custon": 2
+    }
+   },
+   "tnt:hp": {
+    "add": {
+     "component_groups": [
+      "tnt:hp"
+     ]
+    }
+   },
+   "tnt:dano.1": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.1"
+     ]
+    }
+   },
+   "tnt:dano.2": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.2"
+     ]
+    }
+   },
+   "tnt:dano.3": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.3"
+     ]
+    }
+   },
+   "tnt:dano.4": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.4"
+     ]
+    }
+   },
+   "tnt:dano.5": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.5"
+     ]
+    }
+   },
+   "tnt:dano.6": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.6"
+     ]
+    }
+   },
+   "tnt:dano.7": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.7"
+     ]
+    }
+   },
+   "tnt:dano.8": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.8"
+     ]
+    }
+   },
+   "tnt:dano.9": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.9"
+     ]
+    }
+   },
+   "tnt:dano.10": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.10"
+     ]
+    }
+   },
+   "tnt:dano.11": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.11"
+     ]
+    }
+   },
+   "tnt:dano.12": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.12"
+     ]
+    }
+   },
+   "tnt:dano.13": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.13"
+     ]
+    }
+   },
+   "tnt:dano.14": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.14"
+     ]
+    }
+   },
+   "tnt:dano.15": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.15"
+     ]
+    }
+   },
+   "tnt:dano.16": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.16"
+     ]
+    }
+   },
+   "tnt:dano.17": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.17"
+     ]
+    }
+   },
+   "tnt:dano.18": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.18"
+     ]
+    }
+   },
+   "tnt:dano.19": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.19"
+     ]
+    }
+   },
+   "tnt:dano.20": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.20"
+     ]
+    }
+   },
+   "tnt:dano.21": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.21"
+     ]
+    }
+   },
+   "tnt:dano.22": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.22"
+     ]
+    }
+   },
+   "tnt:dano.23": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.23"
+     ]
+    }
+   },
+   "tnt:dano.24": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.24"
+     ]
+    }
+   },
+   "tnt:dano.25": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.25"
+     ]
+    }
+   },
+   "tnt:dano.26": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.26"
+     ]
+    }
+   },
+   "tnt:dano.27": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.27"
+     ]
+    }
+   },
+   "tnt:dano.28": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.28"
+     ]
+    }
+   },
+   "tnt:dano.29": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.29"
+     ]
+    }
+   },
+   "tnt:dano.30": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.30"
+     ]
+    }
+   },
+   "tnt:dano.31": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.31"
+     ]
+    }
+   },
+   "tnt:dano.32": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.32"
+     ]
+    }
+   },
+   "tnt:dano.33": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.33"
+     ]
+    }
+   },
+   "tnt:dano.34": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.34"
+     ]
+    }
+   },
+   "tnt:dano.35": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.35"
+     ]
+    }
+   },
+   "tnt:dano.36": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.36"
+     ]
+    }
+   },
+   "tnt:dano.37": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.37"
+     ]
+    }
+   },
+   "tnt:dano.38": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.38"
+     ]
+    }
+   },
+   "tnt:dano.39": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.39"
+     ]
+    }
+   },
+   "tnt:dano.40": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.40"
+     ]
+    }
+   },
+   "tnt:dano.41": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.41"
+     ]
+    }
+   },
+   "tnt:dano.42": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.42"
+     ]
+    }
+   },
+   "tnt:dano.43": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.43"
+     ]
+    }
+   },
+   "tnt:dano.44": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.44"
+     ]
+    }
+   },
+   "tnt:dano.45": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.45"
+     ]
+    }
+   },
+   "tnt:dano.46": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.46"
+     ]
+    }
+   },
+   "tnt:dano.47": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.47"
+     ]
+    }
+   },
+   "tnt:dano.48": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.48"
+     ]
+    }
+   },
+   "tnt:dano.49": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.49"
+     ]
+    }
+   },
+   "tnt:dano.50": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.50"
+     ]
+    }
+   },
+   "tnt:dano.51": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.51"
+     ]
+    }
+   },
+   "tnt:dano.52": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.52"
+     ]
+    }
+   },
+   "tnt:dano.53": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.53"
+     ]
+    }
+   },
+   "tnt:dano.54": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.54"
+     ]
+    }
+   },
+   "tnt:dano.55": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.55"
+     ]
+    }
+   },
+   "tnt:dano.56": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.56"
+     ]
+    }
+   },
+   "tnt:dano.57": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.57"
+     ]
+    }
+   },
+   "tnt:dano.58": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.58"
+     ]
+    }
+   },
+   "tnt:dano.59": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.59"
+     ]
+    }
+   },
+   "tnt:dano.60": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.60"
+     ]
+    }
+   },
+   "tnt:dano.61": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.61"
+     ]
+    }
+   },
+   "tnt:dano.62": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.62"
+     ]
+    }
+   },
+   "tnt:dano.63": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.63"
+     ]
+    }
+   },
+   "tnt:dano.64": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.64"
+     ]
+    }
+   },
+   "tnt:dano.65": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.65"
+     ]
+    }
+   },
+   "tnt:dano.66": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.66"
+     ]
+    }
+   },
+   "tnt:dano.67": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.67"
+     ]
+    }
+   },
+   "tnt:dano.68": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.68"
+     ]
+    }
+   },
+   "tnt:dano.69": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.69"
+     ]
+    }
+   },
+   "tnt:dano.70": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.70"
+     ]
+    }
+   },
+   "tnt:dano.71": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.71"
+     ]
+    }
+   },
+   "tnt:dano.72": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.72"
+     ]
+    }
+   },
+   "tnt:dano.73": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.73"
+     ]
+    }
+   },
+   "tnt:dano.74": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.74"
+     ]
+    }
+   },
+   "tnt:dano.75": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.75"
+     ]
+    }
+   },
+   "tnt:dano.76": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.76"
+     ]
+    }
+   },
+   "tnt:dano.77": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.77"
+     ]
+    }
+   },
+   "tnt:dano.78": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.78"
+     ]
+    }
+   },
+   "tnt:dano.79": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.79"
+     ]
+    }
+   },
+   "tnt:dano.80": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.80"
+     ]
+    }
+   },
+   "tnt:dano.81": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.81"
+     ]
+    }
+   },
+   "tnt:dano.82": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.82"
+     ]
+    }
+   },
+   "tnt:dano.83": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.83"
+     ]
+    }
+   },
+   "tnt:dano.84": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.84"
+     ]
+    }
+   },
+   "tnt:dano.85": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.85"
+     ]
+    }
+   },
+   "tnt:dano.86": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.86"
+     ]
+    }
+   },
+   "tnt:dano.87": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.87"
+     ]
+    }
+   },
+   "tnt:dano.88": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.88"
+     ]
+    }
+   },
+   "tnt:dano.89": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.89"
+     ]
+    }
+   },
+   "tnt:dano.90": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.90"
+     ]
+    }
+   },
+   "tnt:dano.91": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.91"
+     ]
+    }
+   },
+   "tnt:dano.92": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.92"
+     ]
+    }
+   },
+   "tnt:dano.93": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.93"
+     ]
+    }
+   },
+   "tnt:dano.94": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.94"
+     ]
+    }
+   },
+   "tnt:dano.95": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.95"
+     ]
+    }
+   },
+   "tnt:dano.96": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.96"
+     ]
+    }
+   },
+   "tnt:dano.97": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.97"
+     ]
+    }
+   },
+   "tnt:dano.98": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.98"
+     ]
+    }
+   },
+   "tnt:dano.99": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.99"
+     ]
+    }
+   },
+   "tnt:dano.100": {
+    "add": {
+     "component_groups": [
+      "tnt:dano.100"
+     ]
+    }
+   },
+   "minecraft:gain_bad_omen": {
+    "add": {
+     "component_groups": [
+      "minecraft:add_bad_omen"
+     ]
+    }
+   },
+   "minecraft:clear_add_bad_omen": {
+    "remove": {
+     "component_groups": [
+      "minecraft:add_bad_omen"
+     ]
+    },
+    "add": {
+     "component_groups": [
+      "minecraft:clear_bad_omen_spell_effect"
+     ]
+    }
+   },
+   "minecraft:trigger_raid": {
+    "add": {
+     "component_groups": [
+      "minecraft:raid_trigger"
+     ]
+    }
+   },
+   "minecraft:remove_raid_trigger": {
+    "remove": {
+     "component_groups": [
+      "minecraft:raid_trigger"
+     ]
+    }
+   }
   }
+ }
 }
-
-
-
-

@@ -88,14 +88,14 @@ susanoo_1_itachi: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "effect @s resistance 360 0 true",
           "scoreboard players add @s health_stats2 40",
-          "scoreboard players add @s dano_stats 3",
+          "scoreboard players add @s dano_stats 6",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
           "scoreboard players remove @s health_stats2 40",
-          "scoreboard players remove @s dano_stats 3",
+          "scoreboard players remove @s dano_stats 6",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
           "tag @s remove susanoo_cooldown"
@@ -108,15 +108,15 @@ susanoo_1_obito: {
           "playsound mgk @a[r=15] ^^^2",
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "effect @s resistance 360 0 true",
-          "scoreboard players add @s health_stats2 45",
-          "scoreboard players add @s dano_stats 4",
+          "scoreboard players add @s health_stats2 50",
+          "scoreboard players add @s dano_stats 5",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
-          "scoreboard players remove @s health_stats2 45",
-          "scoreboard players remove @s dano_stats 4",
+          "scoreboard players remove @s health_stats2 50",
+          "scoreboard players remove @s dano_stats 5",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
           "tag @s remove susanoo_cooldown"
@@ -129,15 +129,15 @@ susanoo_1_sasuke: {
           "playsound mgk @a[r=15] ^^^2",
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "effect @s resistance 360 0 true",
-          "scoreboard players add @s health_stats2 45",
-          "scoreboard players add @s dano_stats 4",
+          "scoreboard players add @s health_stats2 35",
+          "scoreboard players add @s dano_stats 7",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
-          "scoreboard players remove @s health_stats2 45",
-          "scoreboard players remove @s dano_stats 4",
+          "scoreboard players remove @s health_stats2 35",
+          "scoreboard players remove @s dano_stats 7",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
           "tag @s remove susanoo_cooldown"
@@ -151,15 +151,15 @@ susanoo_2_itachi: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:susanoo_it2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 999 0 true",
-          "scoreboard players add @s health_stats2 70",
-          "scoreboard players add @s dano_stats 15",
+          "scoreboard players add @s health_stats2 75",
+          "scoreboard players add @s dano_stats 13",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
-          "scoreboard players remove @s health_stats2 70",
-          "scoreboard players remove @s dano_stats 15",
+          "scoreboard players remove @s health_stats2 75",
+          "scoreboard players remove @s dano_stats 13",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
           "tag @s remove susanoo_cooldown"
@@ -173,15 +173,15 @@ susanoo_2_obito: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:susanoo_ob2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 999 0 true",
-          "scoreboard players add @s health_stats2 80",
-          "scoreboard players add @s dano_stats 5",
+          "scoreboard players add @s health_stats2 90",
+          "scoreboard players add @s dano_stats 11",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
-          "scoreboard players remove @s health_stats2 80",
-          "scoreboard players remove @s dano_stats 5",
+          "scoreboard players remove @s health_stats2 90",
+          "scoreboard players remove @s dano_stats 11",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
           "tag @s remove susanoo_cooldown"
@@ -195,14 +195,14 @@ susanoo_2_sasuke: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aSusanoo §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:susanoo_sk2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 999 0 true",
-          "scoreboard players add @s health_stats2 80",
+          "scoreboard players add @s health_stats2 65",
           "scoreboard players add @s dano_stats 15",
           "tag @s add modo_ativado",
           "tag @s add susanoo_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "effect @s resistance 0 0 true",
-          "scoreboard players remove @s health_stats2 80",
+          "scoreboard players remove @s health_stats2 65",
           "scoreboard players remove @s dano_stats 15",
           "tag @s remove modo_ativado",
           "event entity @s uchiha:desativar",
@@ -564,6 +564,8 @@ portao_7: {
                   "tag @s add modo_ativado_2",
                   "tag @s add portoes_cooldown"
           ],cmdFinish: [
+          "effect @s slowness 10 1 true",
+          "effect @s weakness 10 0 true",
                   "scoreboard players remove @s health_stats3 400",
                   "scoreboard players remove @s dano_stats 14",
                   "effect @s speed 0 0 true",            
@@ -576,17 +578,22 @@ portao_7: {
 
 portao_8: {
           scoreTime: "tempo_doujutsu_slot_2",
-          tempo: 360,
+          tempo: 120,
           cmdStart: [
                   "playsound rinnegan @a[r=15] ^^^2",
                   "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aOitavo Portao §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 800",
                   "scoreboard players add @s dano_stats 30",
-                  "effect @s speed 180 3 true",            
-                  "effect @s resistance 180 2 true",
+                  "effect @s speed 120 3 true",            
+                  "effect @s resistance 120 2 true",
                   "tag @s add modo_ativado_2",
                   "tag @s add portoes_cooldown"
           ],cmdFinish: [
+          "effect @s slowness 30 2 true",
+          "effect @s weakness 30 1 true",
+          "effect @s mining_fatigue 30 2 true",
+          "scoreboard players set @s chakra 0",
+          "tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §7O Portão da Morte cobrou seu preço: corpo exausto e chakra esgotado.\"}]}",
                   "scoreboard players remove @s health_stats3 800",
                   "scoreboard players remove @s dano_stats 30",
                   "effect @s speed 0 0 true",            
@@ -776,7 +783,7 @@ mk_1: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aManto De Chakra Kurama §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:manto_kurama_4_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "scoreboard players add @s health_stats2 200",
-          "scoreboard players add @s dano_stats 7",
+          "scoreboard players add @s dano_stats 10",
           "effect @s instant_health 1 10 true",
           "effect @s speed 180 3 true",            
           "effect @s resistance 180 1 true",
@@ -785,7 +792,7 @@ mk_1: {
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "scoreboard players remove @s health_stats2 200",
-          "scoreboard players remove @s dano_stats 7",
+          "scoreboard players remove @s dano_stats 10",
           "tag @s remove modo_ativado",
           "effect @s speed 0 0 true",            
           "effect @s resistance 0 0 true",
@@ -801,7 +808,7 @@ mk_2: {
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aManto De Chakra Kurama §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:mk2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "scoreboard players add @s health_stats2 350",
-          "scoreboard players add @s dano_stats 9",
+          "scoreboard players add @s dano_stats 14",
           "effect @s instant_health 1 10 true",
           "effect @s speed 120 3 true",          
           "effect @s resistance 120 1 true",
@@ -810,7 +817,7 @@ mk_2: {
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
           "scoreboard players remove @s health_stats2 350",
-          "scoreboard players remove @s dano_stats 9",
+          "scoreboard players remove @s dano_stats 14",
           "tag @s remove modo_ativado",
           "effect @s speed 0 0 true",            
           "effect @s resistance 0 0 true",
@@ -820,22 +827,22 @@ mk_2: {
 
 rikudou_kurama: {
           scoreTime: "tempo_doujutsu",
-          tempo: 10,
+          tempo: 150,
           cmdStart: [
           "playsound mk @a[r=15] ^^^2",
           "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.1]§f: §aModo Rikudou Kurama §eAtivado\"}]}",
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
-          "scoreboard players add @s health_stats2 4000",
-          "scoreboard players add @s dano_stats 30",
+          "scoreboard players add @s health_stats2 1200",
+          "scoreboard players add @s dano_stats 22",
           "effect @s instant_health 1 10 true",
-          "effect @s speed 360 3 true",          
-          "effect @s resistance 360 1 true",
+          "effect @s speed 150 3 true",          
+          "effect @s resistance 150 2 true",
           "tag @s add modo_ativado",
           "tag @s add kurama_cooldown"
           ],cmdFinish: [
           "replaceitem entity @s slot.hotbar 0 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
-          "scoreboard players remove @s health_stats2 4000",
-          "scoreboard players remove @s dano_stats 30",
+          "scoreboard players remove @s health_stats2 1200",
+          "scoreboard players remove @s dano_stats 22",
           "tag @s remove modo_ativado",
           "effect @s speed 0 0 true",            
           "effect @s resistance 0 0 true",
