@@ -19,6 +19,7 @@ const ALVOS = [
   { tipo: "tnt:zetsu_branco", nome: "Zetsu Branco", meta: 15, tp: 300, xp: 200 },
   { tipo: "tnt:anbu", nome: "ANBU §eRank A", meta: 3, tp: 500, xp: 300 },
   { tipo: "*", nome: "Qualquer inimigo", meta: 30, tp: 300, xp: 200 },
+  { tipo: "elite", nome: "Ninjas §6[ELITE]", meta: 3, tp: 600, xp: 400 },
 ];
 const POR_TIPO = new Map(ALVOS.map((a) => [a.tipo, a]));
 const CHAVE = "ns:contratos";
@@ -60,11 +61,14 @@ world.afterEvents.entityDie.subscribe((ev) => {
       try { inimigo = !!ev.deadEntity.getComponent("type_family")?.hasTypeFamily("monster"); } catch {}
     }
 
+    let eliteMorto = false;
+    try { eliteMorto = ev.deadEntity.hasTag("ns_elite"); } catch {}
+
     const c = contratos(player);
     let mudou = false;
     for (let i = 0; i < c.length; i++) {
       const k = c[i];
-      if (k.tipo !== tipo && !(k.tipo === "*" && inimigo)) continue;
+      if (k.tipo !== tipo && !(k.tipo === "*" && inimigo) && !(k.tipo === "elite" && eliteMorto)) continue;
       const alvo = POR_TIPO.get(k.tipo);
       k.prog++;
       mudou = true;

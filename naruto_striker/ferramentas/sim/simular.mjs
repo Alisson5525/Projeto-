@@ -168,6 +168,10 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   const txt=ow._ents.filter(e=>e.typeId==='tnt:ns_texto').slice(n0).map(e=>e.nameTag).find(t=>t.includes('ASSASSINATO'));
   const visivel=!p1.getEffect('invisibility'); console.log('teste furtivo:', txt, '| visivel de novo', visivel, '| vida alvo', alvo._health.currentValue);
   if(!txt||!visivel||alvo._health.currentValue>280) S.errors.push({where:'furtivo',msg:'ataque furtivo incorreto',stack:''}); }
+// teste contrato elite: 3 elites concluem o contrato
+{ p1.setDynamicProperty('ns:contratos', JSON.stringify([{tipo:'elite',prog:0},{tipo:'*',prog:0},{tipo:'tnt:uchiha_s',prog:0}]));
+  for (let i=0;i<3;i++){ const e=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:50,family:['ninja','mobs']}); e._tags.add('ns_elite'); e.applyDamage(999,{cause:'entityAttack',damagingEntity:p1}); await steps(2); }
+  const ok=p1.msgs.some(x=>x.includes('Contrato concluído') && x.includes('ELITE')); console.log('teste contrato elite:', ok); if(!ok) S.errors.push({where:'bingo elite',msg:'contrato elite nao concluiu',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));
