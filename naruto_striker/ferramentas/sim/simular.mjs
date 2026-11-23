@@ -25,6 +25,7 @@ const p1=new S.Player('Tester', ow, {x:5,y:64,z:5}); const p2=new S.Player('Amig
 const setS=(p,o,v)=>world.scoreboard.getObjective(o).setScore(p.scoreboardIdentity,v);
 for(const p of [p1,p2]){ setS(p,'chakra',50); setS(p,'chakra_max',100); setS(p,'charge_bijuu_max',0); setS(p,'tp',0); }
 const steps=(n)=>{ for(let i=0;i<n;i++) S.step(); };
+const asteps=async(n)=>{ for(let i=0;i<n;i++){ S.step(); await new Promise(r=>setTimeout(r,0)); } };
 world.afterEvents.playerSpawn.fire({player:p1, initialSpawn:true}); world.afterEvents.playerSpawn.fire({player:p2, initialSpawn:true});
 steps(100);
 // teste diario: mesma data (sem premio) e dia seguinte (premio com sequencia)
@@ -114,46 +115,46 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   world.afterEvents.itemStopUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(5); }
 // teste myoboku: bloqueado < nivel 15, viagem, construcao, meditacao e volta
 { const end=S.dims.the_end; const nivelAntes=p1.getDynamicProperty('ns:nivel'); p1.setDynamicProperty('ns:nivel',3);
-  se('ns:myoboku',p1); steps(20); const bloqueado=p1.dimension===ow;
-  p1.setDynamicProperty('ns:nivel',20); const origem={...p1.location}; se('ns:myoboku',p1); steps(15);
-  const foi=p1.dimension===end; steps(120); const construiu=S.cmds.some(c=>c.c.includes('structure load monte_myoboku'));
-  p1.isSneaking=true; p1.isOnGround=true; steps(60); p1.isSneaking=false;
-  se('ns:myoboku',p1); steps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
+  se('ns:myoboku',p1); await asteps(20); const bloqueado=p1.dimension===ow;
+  p1.setDynamicProperty('ns:nivel',20); const origem={...p1.location}; se('ns:myoboku',p1); await asteps(15);
+  const foi=p1.dimension===end; await asteps(120); const construiu=S.cmds.some(c=>c.c.includes('structure load monte_myoboku'));
+  p1.isSneaking=true; p1.isOnGround=true; await asteps(60); p1.isSneaking=false;
+  se('ns:myoboku',p1); await asteps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
   console.log('teste myoboku: bloqueado',bloqueado,'| foi',foi,'| construiu',construiu,'| voltou',voltou);
-  const cargas1=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; se('ns:myoboku',p1); steps(120); se('ns:myoboku',p1); steps(15);
+  const cargas1=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; se('ns:myoboku',p1); await asteps(120); se('ns:myoboku',p1); await asteps(15);
   const cargas2=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; console.log('teste myoboku: cargas na 2a viagem', cargas2-cargas1);
   if(cargas2!==cargas1) S.errors.push({where:'myoboku',msg:'estrutura recarregada',stack:''});
   if(!(bloqueado&&foi&&construiu&&voltou)) S.errors.push({where:'myoboku',msg:'fluxo incorreto',stack:''}); p1.setDynamicProperty('ns:nivel',nivelAntes??1); }
 // teste aura rank: nivel 95 sem modo -> aura + faiscas
 { const nv=p1.getDynamicProperty('ns:nivel'); const tags=p1.getTags(); for(const t of tags) if(t.startsWith('modo_ativado')) p1.removeTag(t);
-  p1.setDynamicProperty('ns:nivel',95); const antes=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; steps(60);
+  p1.setDynamicProperty('ns:nivel',95); const antes=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; await asteps(60);
   const depois=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; console.log('teste aura rank: faiscas', depois-antes);
   if(depois-antes<2) S.errors.push({where:'aura rank',msg:'aura de rank nao apareceu',stack:''}); p1.setDynamicProperty('ns:nivel',nv??1); }
 // teste corte: golpe com espada desenha o arco
 { p1._inv.container.slots[0]=new S.ItemStack('tnt:samehada'); p1.selectedSlotIndex=0; const alvo=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:60});
-  const a=S.particles.filter(x=>x==='tnt:ns_corte').length; world.afterEvents.entityHitEntity.fire({damagingEntity:p1, hitEntity:alvo}); steps(2);
+  const a=S.particles.filter(x=>x==='tnt:ns_corte').length; world.afterEvents.entityHitEntity.fire({damagingEntity:p1, hitEntity:alvo}); await asteps(2);
   const b=S.particles.filter(x=>x==='tnt:ns_corte').length; console.log('teste corte: pontos do arco', b-a); if(b-a!==11) S.errors.push({where:'corte',msg:'arco nao desenhado',stack:''}); }
 // teste jutsu sem xp: destruir uma prisao de terra (familia jutsu) nao da XP
 { const xpA=p1.getDynamicProperty('ns:xp'), nvA=p1.getDynamicProperty('ns:nivel'); const pr=new S.Entity('tnt:prisao_terra', ow, {x:p1.location.x+2,y:p1.location.y,z:p1.location.z},{hp:5000, family:['jutsu']});
-  pr.applyDamage(99999,{cause:'entityAttack',damagingEntity:p1}); steps(5);
+  pr.applyDamage(99999,{cause:'entityAttack',damagingEntity:p1}); await asteps(5);
   const ok = p1.getDynamicProperty('ns:xp')===xpA && p1.getDynamicProperty('ns:nivel')===nvA; console.log('teste jutsu sem xp:', ok); if(!ok) S.errors.push({where:'jutsu xp',msg:'jutsu deu XP',stack:''}); }
 // teste konoha: viagem, recarga e nova viagem apos 5 min
-{ p1.setDynamicProperty('ns:viagem_pronta', 0); p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const longe=Math.abs(p1.location.x)<100;
-  p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const bloqueou=p1.location.x===3000;
-  steps(20*60*5); se('ns:konoha',p1); steps(5); const denovo=Math.abs(p1.location.x)<100;
+{ p1.setDynamicProperty('ns:viagem_pronta', 0); p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); await asteps(5); const longe=Math.abs(p1.location.x)<100;
+  p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); await asteps(5); const bloqueou=p1.location.x===3000;
+  await asteps(20*60*5); se('ns:konoha',p1); await asteps(5); const denovo=Math.abs(p1.location.x)<100;
   console.log('teste konoha: foi',longe,'| recarga bloqueou',bloqueou,'| apos 5min',denovo); if(!(longe&&bloqueou&&denovo)) S.errors.push({where:'konoha',msg:'viagem incorreta',stack:''}); }
 // teste queda myoboku: cair abaixo da base no End -> resgate ao topo
-{ p1.teleport({x:-490,y:40,z:-505},{dimension:S.dims.the_end}); steps(6);
+{ p1.teleport({x:-490,y:40,z:-505},{dimension:S.dims.the_end}); await asteps(6);
   const ok=p1.location.y>150; console.log('teste queda myoboku: resgatado', ok); if(!ok) S.errors.push({where:'myoboku queda',msg:'nao resgatou',stack:''});
-  p1.teleport({x:5,y:70,z:5},{dimension:ow}); steps(2); }
+  p1.teleport({x:5,y:70,z:5},{dimension:ow}); await asteps(2); }
 // teste pilula: chakra 50/100 -> +50
 { const o=world.scoreboard.getObjective('chakra'); o.setScore(p1.scoreboardIdentity,50); world.scoreboard.getObjective('chakra_max').setScore(p1.scoreboardIdentity,100);
-  world.afterEvents.itemCompleteUse.fire({source:p1,itemStack:new S.ItemStack('tnt:ns_pilula_soldado'),useDuration:0}); steps(2);
+  world.afterEvents.itemCompleteUse.fire({source:p1,itemStack:new S.ItemStack('tnt:ns_pilula_soldado'),useDuration:0}); await asteps(2);
   const m=p1.msgs.filter(x=>x.includes('Pílula de Soldado')).pop(); const cmd=S.cmds.some(c=>c.c==='scoreboard players add @s chakra 50');
   console.log('teste pilula:', m, cmd); if(!m||!m.includes('+50')||!cmd) S.errors.push({where:'pilula',msg:'pilula incorreta',stack:''}); }
 // teste emboscada: invoca o grupo perto do jogador
 { const antes=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
-  const mod=await import(pathToFileURL(path.join(dst,'ns','exploracao.js')).href); p1.teleport({x:50,y:64,z:50},{dimension:ow}); mod.emboscada(p1); steps(2);
+  const mod=await import(pathToFileURL(path.join(dst,'ns','exploracao.js')).href); p1.teleport({x:50,y:64,z:50},{dimension:ow}); mod.emboscada(p1); await asteps(2);
   const depois=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
   console.log('teste emboscada: invocados', depois-antes); if(depois-antes<1) S.errors.push({where:'emboscada',msg:'ninguem invocado',stack:''}); }
 // teste ranking: abre o menu e lista o jogador
