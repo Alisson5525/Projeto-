@@ -1,5 +1,6 @@
 import * as mc from "@minecraft/server";
 import { MODES } from "./config";
+import { nivelDe } from "./ns/progressao";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(ev => {
   const player = ev.sourceEntity;
@@ -37,10 +38,15 @@ function ativarModo(player, modeId) {
   }
   
   player.setDynamicProperty(activeKey, true);
-  setScore(player, score, mode.tempo);
+  // modos duram mais conforme o nivel ninja: +0,5% por nivel (ate +50%)
+  let tempo = mode.tempo;
+  try { tempo = Math.round(mode.tempo * (1 + Math.min(0.5, nivelDe(player) * 0.005))); } catch {}
+  setScore(player, score, tempo);
 
   for (const cmd of mode.cmdStart) {
-    try { player.runCommandAsync(cmd); } catch (e) {}
+    // efeitos com a mesma duracao do modo acompanham o tempo estendido
+    const ajustado = cmd.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
+    try { player.runCommandAsync(ajustado); } catch (e) {}
   }
 }
 

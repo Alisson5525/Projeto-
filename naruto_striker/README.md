@@ -33,6 +33,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 - **Golpes críticos** (só corpo a corpo de verdade): +60% de dano, faíscas douradas, raio, anel de impacto e tremor de câmera. Chance de 8% que sobe com o nível (até 22%).
 - **Jutsus escalam com o nível ninja**: +0,5% de dano por nível (até +50% no nível 100), com números em ciano — a progressão fortalece os poderes do add-on original.
+- **Modos duram mais com o nível**: +0,5% de duração por nível (até +50%); efeitos do modo acompanham a duração.
 - **Combos**: golpes seguidos (janela de 2 s) mostram `3 HITS!`, `10 HITS!`… e aumentam o XP do abate.
 - **Medidor de DPS** no boneco de treino (`tnt:dummy`): mostra o dano por segundo dos últimos 5 s acima dele.
 - **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) empurram o inimigo para trás com leve elevação, com onda de choque no finalizador.
