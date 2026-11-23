@@ -12,7 +12,6 @@
       }
     ]
   },
- 
   "tnt_contents": {
     "type": "panel",
     "controls": [
@@ -24,7 +23,7 @@
           }
         }
       },
-          {
+      {
         "server_form_factory": {
           "type": "factory",
           "control_ids": {
@@ -32,7 +31,7 @@
           }
         }
       },
-             {
+      {
         "server_form_factory": {
           "type": "factory",
           "control_ids": {
@@ -40,7 +39,7 @@
           }
         }
       },
-          {
+      {
         "server_form_factory": {
           "type": "factory",
           "control_ids": {
@@ -88,7 +87,7 @@
           }
         }
       },
-        {
+      {
         "server_form_factory": {
           "type": "factory",
           "control_ids": {
@@ -183,17 +182,42 @@
             "long_form": "@npc_jiraiya.input"
           }
         }
+      },
+      {
+        "ns_formulario_padrao": {
+          "type": "panel",
+          "controls": [
+            {
+              "server_form_factory": {
+                "type": "factory",
+                "control_ids": {
+                  "long_form": "@server_form.long_form",
+                  "custom_form": "@server_form.custom_form"
+                }
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#title_text - 'ui.') = #title_text)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
       }
     ]
   },
-
-
   "tnt_menu_inicial@common_dialogs.main_panel_no_buttons": {
     "$custom_background": "server_form.tnt_menu_inicial_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
   },
-    "tnt_menu_inicial_pg2@common_dialogs.main_panel_no_buttons": {
+  "tnt_menu_inicial_pg2@common_dialogs.main_panel_no_buttons": {
     "$custom_background": "server_form.tnt_menu_inicial_bk2",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -208,17 +232,15 @@
     "texture": "$background_texture",
     "$background_texture|default": ""
   },
-
-
-
   "tnt_menu_custon@common_dialogs.main_panel_no_buttons": {
-    "size": 
-    [800, 800],
-    "offset": 
-    [
-    -140, 
-    0
-  ],
+    "size": [
+      800,
+      800
+    ],
+    "offset": [
+      -140,
+      0
+    ],
     "$custom_background": "server_form.tnt_menu_custon_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -228,17 +250,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_custon"
   },
-
-
-
   "tnt_menu_clan@common_dialogs.main_panel_no_buttons": {
-    "size": 
-    [450, 320],
-    "offset": 
-    [
-    0, 
-    0
-  ],
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      0
+    ],
     "$custom_background": "server_form.tnt_menu_clan_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -248,16 +268,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_clan/fundo_pergaminho_clan"
   },
-
-
   "menu_modo_uchiha@common_dialogs.main_panel_no_buttons": {
-    "size": 
-    ["162px", "128px"],
-    "offset": 
-    [
-    0, 
-    18
-  ],
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      18
+    ],
     "$custom_background": "server_form.menu_modo_uchiha_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -267,17 +286,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_modo/hud_modos"
   },
-
-
-
   "uchiha_modos_unlock@common_dialogs.main_panel_no_buttons": {
-    "size": 
-      [450, 320],
-    "offset": 
-    [
-    0, 
-    0
-  ],
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      0
+    ],
     "$custom_background": "server_form.uchiha_modos_unlock_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -287,21 +304,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_modo/fundo_pergaminho_uchiha"
   },
-
-
-
-
-
-
-
   "menu_modo_hyuga@common_dialogs.main_panel_no_buttons": {
-    "size": 
-    ["162px", "128px"],
-    "offset": 
-    [
-    0, 
-    18
-  ],
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      18
+    ],
     "$custom_background": "server_form.menu_modo_hyuga_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -311,16 +322,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_modo/hud_modos_hyuga"
   },
-
-
   "hyuga_modos_unlock@common_dialogs.main_panel_no_buttons": {
-    "size": 
-      [450, 320],
-    "offset": 
-    [
-    0, 
-    0
-  ],
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      0
+    ],
     "$custom_background": "server_form.hyuga_modos_unlock_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -330,126 +340,135 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_modo/fundo_pergaminho_hyuga"
   },
-
-
-
-
- "all_modos_unlock@common_dialogs.main_panel_no_buttons": {
-  "size": [450, 320],
-  "offset": [0, 60],
-  "$custom_background": "server_form.all_modos_unlock_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"all_modos_unlock_bk": {
-  "type": "image",
-  "texture": "textures/ui/menu_modo/menu_all_modos",
-  "size": ["100%","100%"],     
-  "anchor_from": "center",      
-  "anchor_to": "center",       
-  "layer": -1                  
-},
- "all_modos@common_dialogs.main_panel_no_buttons": {
-  "size": [450, 320],
-  "offset": [0, 60],
-  "$custom_background": "server_form.all_modos_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"all_modos_bk": {
-  "type": "image",
-  "texture": "textures/ui/menu_modo/menu_all_modos",
-  "size": ["100%","100%"],     
-  "anchor_from": "center",      
-  "anchor_to": "center",       
-  "layer": -1                  
-},
-
-
- "bijus_modos_unlock@common_dialogs.main_panel_no_buttons": {
-  "size": [430, 300],
-  "offset": [0, 10],
-  "$custom_background": "server_form.bijus_modos_unlock_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"bijus_modos_unlock_bk": {
-  "type": "image",
-  "texture": "textures/ui/menu_modo/menu_bijus_modos",
-  "size": ["100%","100%"],     
-  "anchor_from": "center",      
-  "anchor_to": "center",       
-  "layer": -1                  
-},
-
-
-
-
-
-
-
- "menu_status@common_dialogs.main_panel_no_buttons": {
-  "size": [650, 650],
-  "offset": [90, 0],
-  "$custom_background": "server_form.menu_status_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"menu_status_bk": {
-  "type": "image",
-  "texture": "textures/ui/fundo_pergaminho_status",
-  "size": ["100%","100%"],     
-  "anchor_from": "center",      
-  "anchor_to": "center",       
-  "layer": -1                  
-},
-
-
-
-
-
- "menu_jutsus@common_dialogs.main_panel_no_buttons": {
-  "size": [1070, 1070],
-  "offset": [6, 40],
-  "$custom_background": "server_form.menu_jutsus_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 50
-},
-
-"menu_jutsus_bk": {
-  "type": "image",
-  "texture": "textures/ui/menu_jutsus/hud_jutsu",
-  "size": ["100%","100%"],     
-  "anchor_from": "center",      
-  "anchor_to": "center",       
-  "layer": -1                  
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "all_modos_unlock@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      60
+    ],
+    "$custom_background": "server_form.all_modos_unlock_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "all_modos_unlock_bk": {
+    "type": "image",
+    "texture": "textures/ui/menu_modo/menu_all_modos",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -1
+  },
+  "all_modos@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      60
+    ],
+    "$custom_background": "server_form.all_modos_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "all_modos_bk": {
+    "type": "image",
+    "texture": "textures/ui/menu_modo/menu_all_modos",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -1
+  },
+  "bijus_modos_unlock@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      430,
+      300
+    ],
+    "offset": [
+      0,
+      10
+    ],
+    "$custom_background": "server_form.bijus_modos_unlock_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "bijus_modos_unlock_bk": {
+    "type": "image",
+    "texture": "textures/ui/menu_modo/menu_bijus_modos",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -1
+  },
+  "menu_status@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      650,
+      650
+    ],
+    "offset": [
+      90,
+      0
+    ],
+    "$custom_background": "server_form.menu_status_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "menu_status_bk": {
+    "type": "image",
+    "texture": "textures/ui/fundo_pergaminho_status",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -1
+  },
+  "menu_jutsus@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      1070,
+      1070
+    ],
+    "offset": [
+      6,
+      40
+    ],
+    "$custom_background": "server_form.menu_jutsus_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 50
+  },
+  "menu_jutsus_bk": {
+    "type": "image",
+    "texture": "textures/ui/menu_jutsus/hud_jutsu",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": -1
+  },
   "modo_historia@common_dialogs.main_panel_no_buttons": {
-    "size": 
-    [450, 320],
-    "offset": 
-    [
-    0, 
-    0
-  ],
+    "size": [
+      450,
+      320
+    ],
+    "offset": [
+      0,
+      0
+    ],
     "$custom_background": "server_form.modo_historia_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -459,21 +478,15 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_miss/fundo_menu_miss"
   },
-
-
-
-
-
-
-
-
-
-
-
   "modo_historia_c@common_dialogs.main_panel_no_buttons": {
-  "size": [650, 650],
-  "offset": [100, 0],
-  
+    "size": [
+      650,
+      650
+    ],
+    "offset": [
+      100,
+      0
+    ],
     "$custom_background": "server_form.modo_historia_c_bk",
     "$child_control": "server_form.tnt_view_content",
     "layer": 2
@@ -483,126 +496,123 @@
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/menu_miss/fundo_miss_classico"
   },
-
-
-
-
- "npc_orochimaru@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_orochimaru_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_orochimaru_bk": {
-  "type": "image",
+  "npc_orochimaru@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_orochimaru_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_orochimaru_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
- "npc_orochimaru_pg2@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_orochimaru_pg2_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_orochimaru_pg2_bk": {
-  "type": "image",
+  },
+  "npc_orochimaru_pg2@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_orochimaru_pg2_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_orochimaru_pg2_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
- "npc_iruka@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_iruka_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_iruka_bk": {
-  "type": "image",
+  },
+  "npc_iruka@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_iruka_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_iruka_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
-
- "npc_tsunade_hokage@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_tsunade_hokage_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_tsunade_hokage_bk": {
-  "type": "image",
+  },
+  "npc_tsunade_hokage@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_tsunade_hokage_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_tsunade_hokage_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
-
-
- "npc_guy@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_guy_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_guy_bk": {
-  "type": "image",
+  },
+  "npc_guy@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_guy_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_guy_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
-
-
- "npc_jiraiya@common_dialogs.main_panel_no_buttons": {
-  "size": ["162px", "128px"],
-  "offset": [0, 40],
-  "$custom_background": "server_form.npc_jiraiya_bk",
-  "$child_control": "server_form.tnt_view_content",
-  "layer": 2
-},
-
-"npc_jiraiya_bk": {
-  "type": "image",
+  },
+  "npc_jiraiya@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "162px",
+      "128px"
+    ],
+    "offset": [
+      0,
+      40
+    ],
+    "$custom_background": "server_form.npc_jiraiya_bk",
+    "$child_control": "server_form.tnt_view_content",
+    "layer": 2
+  },
+  "npc_jiraiya_bk": {
+    "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/in"
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  },
   "tnt_form_button@common_buttons.light_text_button": {
     "$pressed_button_name": "button.form_button_click",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": "$button_size",
-    "$button_size|default": ["fill", 32],
+    "$button_size|default": [
+      "fill",
+      32
+    ],
     "$border_visible": false,
     "$button_text_binding_type": "collection",
     "$button_text_grid_collection_name": "form_buttons",
@@ -614,7 +624,6 @@
       }
     ]
   },
-
   "tnt_view_content": {
     "type": "panel",
     "layer": 1,
@@ -624,7 +633,6 @@
       }
     ]
   },
-
   "tnt_button_label": {
     "type": "label",
     "anchor_from": "$button_label_from",
@@ -636,7 +644,10 @@
     "max_size": "$button_text_max_size",
     "$font_scale_factor|default": 1,
     "$color|default": "$light_button_default_text_color",
-    "$button_text_max_size|default": ["110%", 20],
+    "$button_text_max_size|default": [
+      "110%",
+      20
+    ],
     "$button_label_from|default": "left",
     "$button_label_to|default": "left",
     "bindings": [

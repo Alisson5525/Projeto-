@@ -5,7 +5,7 @@
       "loop": false,
       "animation_length": 3.1,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama"],
+				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama default 0.2"],
 				 "0.2": ["/playsound mob.piglin_brute.step @a[r=5] ~~~ 0.5 1"],
 				 "0.4": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1"],
 				 "1.5": ["/playsound mob.elderguardian.hit @a[r=10] ~~~ 1 1"],
@@ -17,7 +17,7 @@
       "loop": false,
       "animation_length": 2.3,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama_salto"],
+				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama_salto default 0.2"],
          "0.1": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1","/event entity @s tnt:no_gravity","/tp @s ~~6~"],
 				 "0.3": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
 				 "0.4": ["/event entity @s jutsu:bijudama_projetil_mult"],

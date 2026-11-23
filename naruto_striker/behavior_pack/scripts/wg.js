@@ -3,7 +3,7 @@ import { MODES } from "./config";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(ev => {
   const player = ev.sourceEntity;
-  if (!player || player.typeId !== "minecraft:player") return;
+  if (!player || player.typeId !== "minecraft:player" || !player.isValid()) return;
 
   const id = ev.id;
 
@@ -40,7 +40,7 @@ function ativarModo(player, modeId) {
   setScore(player, score, mode.tempo);
 
   for (const cmd of mode.cmdStart) {
-    player.runCommandAsync(cmd);
+    try { player.runCommandAsync(cmd); } catch (e) {}
   }
 }
 
@@ -57,12 +57,13 @@ function desativarModo(player, modeId) {
   setScore(player, score, 0);
 
   for (const cmd of mode.cmdFinish) {
-    player.runCommandAsync(cmd);
+    try { player.runCommandAsync(cmd); } catch (e) {}
   }
 }
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    if (!player.isValid()) continue;
     for (const modeId in MODES) {
       const mode = MODES[modeId];
       const activeKey = `mode:${modeId}_active`;
@@ -90,13 +91,8 @@ mc.world.afterEvents.entityDie.subscribe(ev => {
   }
 });
 
-mc.world.afterEvents.playerLeave.subscribe(ev => {
-  const player = ev.player;
-
-  for (const id in MODES) {
-    desativarModo(player, id);
-  }
-});
+// (removido: playerLeave nao fornece ev.player, gerava erro a cada saida de jogador.
+//  Os modos ficam salvos em dynamic properties e o temporizador continua ao reentrar.)
 
 
 function getScore(player, objective) {

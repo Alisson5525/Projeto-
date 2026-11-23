@@ -115,7 +115,7 @@
           "command": [
             "playsound block.stonecutter.use @a[r=8]",
             "camerashake add @a[r=20] 0.1 1 rotational",
-            "playanimation @s animation.pergaminho_biju"
+            "playanimation @s animation.pergaminho_biju default 0.2"
 
           ]
         },

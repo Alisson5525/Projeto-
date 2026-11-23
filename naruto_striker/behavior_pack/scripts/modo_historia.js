@@ -169,7 +169,7 @@ break;
 
 export function modo_historia_c(player) {
   const form = new ActionFormData();
-  form.title("ui.modo_historia_c.title." + Math.floor(getScore(player,"missao_classico") * 10 / 10));
+  form.title("ui.modo_historia_c.title." + Math.max(0, Math.min(10, Math.floor(getScore(player,"missao_classico")))));
 
 
   const textos = [

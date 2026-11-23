@@ -1,9 +1,10 @@
 import * as mc from "@minecraft/server";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(event => {
-  const tnt = event.id.split("tnt:")[1];
+  if (!event.id.startsWith("tnt:")) return;
+  const tnt = event.id.slice(4);
   const source = event.sourceEntity;
-  const view = source.getViewDirection();
+  if (!source || !source.isValid()) return;
 
   if (tnt === "skill_2_kurama_1") {
     hitInFront(source, {length: 4, radius: 2, damage: 15, particle: true});

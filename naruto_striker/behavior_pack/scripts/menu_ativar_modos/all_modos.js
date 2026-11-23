@@ -444,7 +444,7 @@ player.runCommand('/event entity @s desativar_slot_1');
 player.runCommand('/camerashake add @a[r=15] 0.4 0.1 rotational');
 player.runCommand('/playsound mob.wither.shoot @a[r=15]');
 system.runTimeout(() => { 
-player.runCommand('/playanimation @s animation.barion_transf');
+player.runCommand('/playanimation @s animation.barion_transf default 0.2');
 player.runCommand('/camera @s fov_set 1 0.3 in_back');
 player.runCommand('/particle tnt:barion_k');
 }, 0);

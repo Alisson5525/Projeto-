@@ -11,17 +11,21 @@ system.runInterval(() => {
 
         const score = scoreboard.getScore(player) ?? 0;
 
-        const inventory = player.getComponent("minecraft:inventory").container;
+        const inventory = player.getComponent("minecraft:inventory")?.container;
+        if (!inventory) continue;
 
         for (let i = 0; i < inventory.size; i++) {
             const item = inventory.getItem(i);
             if (!item) continue;
 
             if (item.typeId === ITEM_ID) {
-                item.setLore([
-                    `§bChakra Acumulado: §e${score}§f/§e3000`
-                ]);
-                inventory.setItem(i, item);
+                const lore = `§bChakra Acumulado: §e${score}§f/§e3000`;
+                const atual = item.getLore();
+                // so reescreve quando muda (evita "piscar" o item a cada segundo)
+                if (atual.length !== 1 || atual[0] !== lore) {
+                    item.setLore([lore]);
+                    inventory.setItem(i, item);
+                }
             }
         }
     }

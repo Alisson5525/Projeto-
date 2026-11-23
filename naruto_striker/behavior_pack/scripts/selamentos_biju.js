@@ -101,7 +101,7 @@ world.afterEvents.itemStartUse.subscribe(ev => {
 
   if (!player || !isValidItem(item)) return;
 
-  player.runCommand("playanimation @s animation.ceifeiro");
+  player.runCommand("playanimation @s animation.ceifeiro default 0.2");
   charging.add(player.id);
 });
 
@@ -119,7 +119,7 @@ world.afterEvents.itemStopUse.subscribe(ev => {
   charging.delete(player.id);
 
   player.runCommand("particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
-  player.runCommand("playanimation @s animation.ceifeiro_stop");
+  player.runCommand("playanimation @s animation.ceifeiro_stop default 0.2");
 
   setScore(player, "charge_bijuu", 0);
 });
@@ -133,7 +133,7 @@ system.runInterval(() => {
     //
     if (isMoving(player)) {
       player.runCommand("particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
-      player.runCommand("playanimation @s animation.ceifeiro_stop");
+      player.runCommand("playanimation @s animation.ceifeiro_stop default 0.2");
 
       charging.delete(player.id);
       setScore(player, "charge_bijuu", 0);

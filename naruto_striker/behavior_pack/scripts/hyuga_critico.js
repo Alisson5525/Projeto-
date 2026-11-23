@@ -18,10 +18,10 @@ world.afterEvents.entityHurt.subscribe((ev) => {
   if (src.cause !== EntityDamageCause.entityAttack) return;
 
   const attacker = src.damagingEntity;
-  if (!attacker) return;
+  if (!attacker || !attacker.isValid()) return;
 
   const target = ev.hurtEntity;
-  if (!target) return;
+  if (!target || !target.isValid()) return;
 
   // ================= HYUGA =================
   if (attacker.hasTag("skill_hyuga")) {

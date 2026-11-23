@@ -5,7 +5,7 @@
 "animation_length": 4.1,
 "timeline": {
 
-"0.0": [ "/playanimation @s animation.corte_de_agua"],
+"0.0": [ "/playanimation @s animation.corte_de_agua default 0.2"],
 "0.1": ["/scriptevent tnt:corte_de_agua"],
 "0.3": ["/scriptevent tnt:corte_de_agua"],
 "0.5": ["/scriptevent tnt:corte_de_agua"],

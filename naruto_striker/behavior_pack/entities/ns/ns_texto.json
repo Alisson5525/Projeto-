@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:ns_texto",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "ns:sumir": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": { "family": ["ns_texto", "inanimate"] },
+      "minecraft:collision_box": { "width": 0.01, "height": 0.01 },
+      "minecraft:health": { "value": 1, "max": 1 },
+      "minecraft:damage_sensor": { "triggers": [{ "cause": "all", "deals_damage": false }] },
+      "minecraft:physics": { "has_gravity": false, "has_collision": false },
+      "minecraft:pushable": { "is_pushable": false, "is_pushable_by_piston": false },
+      "minecraft:knockback_resistance": { "value": 1 },
+      "minecraft:fire_immune": true,
+      "minecraft:nameable": { "always_show": true, "allow_name_tag_renaming": false },
+      "minecraft:timer": {
+        "looping": false,
+        "time": 2,
+        "randomInterval": false,
+        "time_down_event": { "event": "ns:sumir", "target": "self" }
+      }
+    },
+    "events": {
+      "ns:sumir": { "add": { "component_groups": ["ns:sumir"] } }
+    }
+  }
+}

@@ -1,0 +1,262 @@
+// Sistema de Combate+: golpes criticos, combos, numeros de dano flutuantes,
+// faiscas de impacto, tremor de camera, "puf" de fumaca ninja e XP por abate.
+import { world, system } from "@minecraft/server";
+import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio } from "./util";
+import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
+
+const TEXTO_ID = "tnt:ns_texto";
+const MAX_TEXTOS = 24;
+const VIDA_TEXTO = 18; // ticks
+
+const IGNORAR = new Set([
+  TEXTO_ID, "minecraft:item", "minecraft:xp_orb", "minecraft:arrow", "minecraft:armor_stand",
+  "tnt:despawn", "tnt:correr",
+]);
+
+/* ---------------- Numeros flutuantes ---------------- */
+const textos = []; // { ent, vida, vy }
+
+function removerTexto(ent) {
+  try {
+    if (!valido(ent)) return;
+    if (typeof ent.remove === "function") ent.remove();
+    else ent.triggerEvent("ns:sumir");
+  } catch {
+    try { ent.triggerEvent("ns:sumir"); } catch {}
+  }
+}
+
+export function textoFlutuante(dim, loc, texto) {
+  try {
+    while (textos.length >= MAX_TEXTOS) removerTexto(textos.shift().ent);
+    const pos = { x: loc.x + aleatorio(-0.35, 0.35), y: loc.y, z: loc.z + aleatorio(-0.35, 0.35) };
+    const ent = dim.spawnEntity(TEXTO_ID, pos);
+    ent.nameTag = texto;
+    textos.push({ ent, vida: VIDA_TEXTO, vy: 0.11 });
+  } catch {}
+}
+
+system.runInterval(() => {
+  for (let i = textos.length - 1; i >= 0; i--) {
+    const t = textos[i];
+    t.vida--;
+    if (t.vida <= 0 || !valido(t.ent)) {
+      removerTexto(t.ent);
+      textos.splice(i, 1);
+      continue;
+    }
+    try {
+      const l = t.ent.location;
+      t.vy *= 0.84; // desacelera suavemente (ease-out)
+      t.ent.teleport({ x: l.x, y: l.y + t.vy, z: l.z });
+    } catch {}
+  }
+}, 1);
+
+// limpa textos que sobraram de uma sessao anterior (mundo fechado no meio da animacao)
+system.runTimeout(() => {
+  for (const d of ["overworld", "nether", "the_end"]) {
+    try {
+      for (const e of world.getDimension(d).getEntities({ type: TEXTO_ID })) removerTexto(e);
+    } catch {}
+  }
+}, 40);
+
+/* ---------------- Combos ---------------- */
+const combos = new Map(); // playerId -> { n, ultimo }
+const JANELA_COMBO = 40; // 2s
+
+function registrarCombo(player) {
+  const agora = system.currentTick;
+  const c = combos.get(player.id) ?? { n: 0, ultimo: 0 };
+  c.n = agora - c.ultimo <= JANELA_COMBO ? c.n + 1 : 1;
+  c.ultimo = agora;
+  combos.set(player.id, c);
+  return c.n;
+}
+
+system.runInterval(() => {
+  const agora = system.currentTick;
+  for (const [id, c] of combos) {
+    if (agora - c.ultimo > JANELA_COMBO) combos.delete(id);
+  }
+  for (const [id, t] of finalizacoes) {
+    if (agora - t > 20) finalizacoes.delete(id);
+  }
+  for (const [id, g] of golpes) {
+    if (agora - g.tick > 20) golpes.delete(id);
+  }
+}, 100);
+
+function corDano(d, crit) {
+  if (crit) return "§6§l";
+  if (d >= 40) return "§c§l";
+  if (d >= 15) return "§c";
+  if (d >= 6) return "§e";
+  return "§f";
+}
+
+/* ---------------- Dano ---------------- */
+// alvo.id -> tick do golpe critico que finalizou com dano "override" (nao reprocessar)
+const finalizacoes = new Map();
+
+function aplicarBonusCritico(alvo, player, dano, extra) {
+  const vida = alvo.getComponent("health");
+  if (!vida) return;
+  const atual = vida.currentValue;
+  if (atual - extra > 0.5) {
+    // tira a vida direto: ignora o tempo de invulnerabilidade apos o golpe
+    vida.setCurrentValue(atual - extra);
+  } else {
+    // golpe final: dano maior que o anterior atravessa a invulnerabilidade e da credito do abate
+    finalizacoes.set(alvo.id, system.currentTick);
+    alvo.applyDamage(dano + extra + atual + 1, { cause: "override", damagingEntity: player });
+  }
+}
+
+// alvo.id -> { playerId, tick } do ultimo golpe corpo a corpo REAL (entityHitEntity).
+// Jutsus em area tambem causam dano "entityAttack", entao so isto separa um soco/espadada.
+const golpes = new Map();
+
+world.afterEvents.entityHitEntity.subscribe((ev) => {
+  try {
+    const p = ev.damagingEntity;
+    const alvo = ev.hitEntity;
+    if (!ehJogador(p) || !alvo) return;
+    golpes.set(alvo.id, { playerId: p.id, tick: system.currentTick });
+  } catch {}
+});
+
+world.afterEvents.entityHurt.subscribe((ev) => {
+  try {
+    const alvo = ev.hurtEntity;
+    if (!valido(alvo) || IGNORAR.has(alvo.typeId)) return;
+    const atacante = ev.damageSource?.damagingEntity;
+    const dano = ev.damage;
+    if (!(dano > 0)) return;
+
+    // golpe final do critico chega aqui de novo: ja foi mostrado
+    const fin = finalizacoes.get(alvo.id);
+    if (fin !== undefined && ev.damageSource?.cause === "override" && system.currentTick - fin <= 3) {
+      finalizacoes.delete(alvo.id);
+      return;
+    }
+
+    const loc = alvo.location;
+    let cabeca;
+    try { cabeca = alvo.getHeadLocation(); } catch { cabeca = { x: loc.x, y: loc.y + 1.6, z: loc.z }; }
+    const dados = {
+      alvo, dano, dim: alvo.dimension,
+      loc: { x: loc.x, y: loc.y, z: loc.z },
+      cabeca: { x: cabeca.x, y: cabeca.y, z: cabeca.z },
+      peito: { x: loc.x, y: (loc.y + cabeca.y) / 2 + 0.2, z: loc.z },
+      tick: system.currentTick,
+    };
+
+    if (!ehJogador(atacante) || atacante.id === alvo.id) {
+      // jogador ferido por mob: so a faisca
+      if (alvo.typeId === "minecraft:player") particula(dados.dim, "tnt:ns_impacto", dados.peito);
+      return;
+    }
+
+    // processa no tick seguinte: ai o evento entityHitEntity do mesmo golpe ja chegou
+    system.run(() => {
+      try { processarGolpe(atacante, dados); } catch {}
+    });
+  } catch {}
+});
+
+function processarGolpe(player, d) {
+  if (!ehJogador(player)) return;
+  const cfg = config(player);
+  const g = golpes.get(d.alvo.id);
+  const corpoACorpo = !!g && g.playerId === player.id && Math.abs(g.tick - d.tick) <= 1;
+
+  let critico = false;
+  let total = d.dano;
+  let n = 0;
+  if (corpoACorpo) {
+    golpes.delete(d.alvo.id);
+    // ----- critico -----
+    const chance = 0.08 + Math.min(0.14, nivelDe(player) * 0.0014);
+    if (valido(d.alvo) && Math.random() < chance) {
+      critico = true;
+      const extra = Math.max(1, Math.round(d.dano * 0.6));
+      total += extra;
+      try { aplicarBonusCritico(d.alvo, player, d.dano, extra); } catch {}
+      somarStat(player, "ns:criticos", 1);
+    }
+    // ----- combo -----
+    n = registrarCombo(player);
+    maxStat(player, "ns:combo_max", n);
+  }
+
+  // ----- visual -----
+  particula(d.dim, critico ? "tnt:ns_critico" : "tnt:ns_impacto", d.peito);
+  if (critico) {
+    particula(d.dim, "tnt:ns_faisca_raio", d.peito);
+    som(player, "random.anvil_land", 0.25, 1.9);
+    tremer(player, 0.18, 0.18);
+  } else if (total >= 20 && corpoACorpo) {
+    tremer(player, 0.12, 0.15);
+  }
+  if (total >= 25) particula(d.dim, "tnt:ns_onda", { x: d.loc.x, y: d.loc.y + 0.1, z: d.loc.z });
+
+  if (cfg.numeros) {
+    const num = Math.round(total * 10) / 10;
+    const txt = critico ? `§6§lCRITICO! §e§l${num}` : corDano(total, false) + num;
+    textoFlutuante(d.dim, { x: d.cabeca.x, y: d.cabeca.y + 0.55, z: d.cabeca.z }, txt);
+    if (n >= 3 && (n <= 5 || n % 5 === 0)) {
+      const corCombo = n >= 25 ? "§c§l" : n >= 10 ? "§6§l" : "§e§l";
+      textoFlutuante(d.dim, { x: d.cabeca.x, y: d.cabeca.y + 1.05, z: d.cabeca.z }, `${corCombo}${n} HITS!`);
+    }
+  }
+}
+
+/* ---------------- Abates ---------------- */
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    const morto = ev.deadEntity;
+    if (!morto || IGNORAR.has(morto.typeId)) return;
+    const killer = ev.damageSource?.damagingEntity;
+
+    let loc;
+    try { loc = morto.location; } catch { return; }
+    const dim = morto.dimension;
+
+    let vidaMax = 0;
+    try { vidaMax = morto.getComponent("health")?.effectiveMax ?? 0; } catch {}
+    if (vidaMax < 2) return; // projeteis / entidades de efeito
+
+    // "puf" de fumaca ninja ao derrotar os ninjas do add-on
+    if (morto.typeId.startsWith("tnt:")) particula(dim, "tnt:ns_fumaca_ninja", loc);
+
+    if (!ehJogador(killer) || morto.typeId === "minecraft:player") return;
+
+    const combo = combos.get(killer.id)?.n ?? 1;
+    const bonusCombo = 1 + Math.min(1, (combo - 1) * 0.05);
+    const ehNinja = morto.typeId.startsWith("tnt:");
+    let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo;
+    xp = Math.min(1500, Math.round(xp));
+
+    somarStat(killer, "ns:kills", 1);
+    if (vidaMax >= 500) {
+      somarStat(killer, "ns:chefes", 1);
+      tremer(killer, 0.6, 1.0);
+      particula(dim, "tnt:ns_level_up", loc);
+      somArea(dim, "random.totem", loc, 0.6, 1.2);
+    }
+
+    if (config(killer).numeros) {
+      textoFlutuante(dim, { x: loc.x, y: loc.y + 1.2, z: loc.z }, `§b+${xp} XP`);
+    }
+    darXP(killer, xp, "abate");
+  } catch {}
+});
+
+/* Jogador morreu: zera o combo dele */
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    if (ev.deadEntity?.typeId === "minecraft:player") combos.delete(ev.deadEntity.id);
+  } catch {}
+});

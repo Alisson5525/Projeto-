@@ -7,7 +7,7 @@
         "default": "egg"
       },
       "textures": {
-        "default": " "
+        "default": "textures/tudo/transparente"
       },
       "geometry": {
         "default": "geometry.amaterasu"

@@ -79,7 +79,7 @@ function criarTexto(tag, nome, info, texto_2, texto_3, custo, itemname2) {
 
 export function menu_status(player) {
   const form = new ActionFormData();
-  form.title("ui.menu_status.title." + Math.floor(getScore(player,"reset_all") * 10 / 10));
+  form.title("ui.menu_status.title." + Math.max(0, Math.min(10, Math.floor(getScore(player,"reset_all")))));
 
   const textos = [
 

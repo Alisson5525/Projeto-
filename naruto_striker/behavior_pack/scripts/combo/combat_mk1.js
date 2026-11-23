@@ -6,7 +6,7 @@ mc.system.runInterval(() => {
 
     // ================= COMBO 1 =================
     if (player.hasTag("attack") && !player.hasTag("combo1") && !player.hasTag("delay")) {
-      player.playAnimation("animation.mk1_combo_1");
+      player.playAnimation("animation.mk1_combo_1", { blendOutTime: 0.2 });
       player.addTag("combo1");
       player.addTag("delay");
 
@@ -29,7 +29,7 @@ mc.system.runInterval(() => {
 
     // ================= COMBO 2 =================
     if (player.hasTag("attack") && player.hasTag("combo1") && !player.hasTag("combo2") && !player.hasTag("delay")) {
-      player.playAnimation("animation.mk1_combo_2");
+      player.playAnimation("animation.mk1_combo_2", { blendOutTime: 0.2 });
       player.addTag("combo2");
       player.addTag("delay");
 
@@ -53,7 +53,7 @@ mc.system.runInterval(() => {
 
     // ================= COMBO 3 =================
     if (player.hasTag("attack") && player.hasTag("combo2") && !player.hasTag("combo3") && !player.hasTag("delay")) {
-      player.playAnimation("animation.mk1_combo_3");
+      player.playAnimation("animation.mk1_combo_3", { blendOutTime: 0.2 });
       player.addTag("combo3");
       player.addTag("delay");
 
@@ -83,11 +83,11 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
   const player = event.damagingEntity;
   const target = event.hitEntity;
 
+  if (!player || !target || player.typeId !== "minecraft:player") return;
   if (player.getProperty("tnt:kurama") != 4) return;
-  if (!player || !target) return;
 
   if (player.hasTag("attack") && player.hasTag("combo3") && !player.hasTag("combo4") && !player.hasTag("delay")) {
-    player.playAnimation("animation.mk1_special");
+    player.playAnimation("animation.mk1_special", { blendOutTime: 0.2 });
     player.addTag("combo4");
     player.addTag("delay");
 

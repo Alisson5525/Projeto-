@@ -5,7 +5,7 @@
       "loop": false,
       "animation_length": 1,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.manto_kurama_1_skill_2"],
+				 "0.0": ["/playanimation @s animation.manto_kurama_1_skill_2 default 0.2"],
 				 "0.5": ["/scriptevent tnt:skill_2_kurama_1"]
       }
     }

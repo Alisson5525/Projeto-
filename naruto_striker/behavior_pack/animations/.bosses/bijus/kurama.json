@@ -6,7 +6,7 @@
       "animation_length": 10.1,
 			"timeline": {
 				 "0.0": ["/event entity @s no_moviment"],
-				 "0.1": ["/playanimation @s animation.kurama_biju_grito","/summon tnt:empurrao_kurama_biju","/tag @s add grito_biju"],
+				 "0.1": ["/playanimation @s animation.kurama_biju_grito default 0.2","/summon tnt:empurrao_kurama_biju","/tag @s add grito_biju"],
 				 "0.4": ["/camerashake add  @a[r=20] 0.5 1 positional","/summon tnt:empurrao_kurama_biju"],
 				 "0.5": ["/effect @e[type=!tnt:kurama_biju,r=10] slowness 5 2 true"],
 				 "0.8": ["/summon tnt:empurrao_kurama_biju"],
@@ -25,7 +25,7 @@
       "animation_length": 8.1,
 			"timeline": {
 				 "0.0": ["/event entity @s no_moviment"],
-				 "0.1": ["/playanimation @s animation.kurama_biju_bijudama_simples"],
+				 "0.1": ["/playanimation @s animation.kurama_biju_bijudama_simples default 0.2"],
 				 "4.7": ["/event entity @s bijudama_projetil_simples"],
 
 				 "5.2": ["/event entity @s yes_moviment"]
@@ -37,7 +37,7 @@
       "animation_length": 10.1,
 			"timeline": {
 				 "0.0": ["/event entity @s no_moviment"],
-				 "0.1": ["/playanimation @s animation.kurama_biju_bijudama_mortal"],
+				 "0.1": ["/playanimation @s animation.kurama_biju_bijudama_mortal default 0.2"],
 				 "5.4": ["/event entity @s bijudama_projetil_mortal"],
 				 "6.0": ["/event entity @s yes_moviment"]
 

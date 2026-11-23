@@ -79,7 +79,7 @@ function dashEntity(entity) {
       const newX = entity.location.x + dir.x * (strength * 2);
       const newY = entity.location.y + upFactor;
       const newZ = entity.location.z + dir.z * (strength * 2);
-      entity.teleport(new mc.Vector(newX, newY, newZ), entity.dimension, 0, 0);
+      entity.teleport({ x: newX, y: newY, z: newZ }, { dimension: entity.dimension });
     } catch (err) {}
   }
 }
@@ -87,7 +87,7 @@ function mao_terra(player) {
   const view = player.getViewDirection();
   const daash = "animation.mao_terra_skill_1_atk";
   player.applyKnockback(view.x, view.z, 5, 0);
-  player.playAnimation(daash, { controller: "daash_controller" });
+  player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("mao_terra");
   player.setDynamicProperty("chidori_damage_ticks", MAO_TERRA_TICKS);
   player.setDynamicProperty("chidori_damage", MAO_TERRA_DAMAGE);
@@ -98,7 +98,7 @@ function raikiri(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_atk";
   player.applyKnockback(view.x, view.z, 30, 0);
-  player.playAnimation(daash, { controller: "daash_controller" });
+  player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("raikiri");
   player.setDynamicProperty("chidori_damage_ticks", RAIKIRI_TICKS);
   player.setDynamicProperty("chidori_damage", RAIKIRI_DAMAGE);
@@ -109,7 +109,7 @@ function chidori_negro(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_negro_atk";
   player.applyKnockback(view.x, view.z, 20, 0);
-  player.playAnimation(daash, { controller: "daash_controller" });
+  player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("chidori_negro");
   player.setDynamicProperty("chidori_damage_ticks", CHIDORI_NEGRO_TICKS);
   player.setDynamicProperty("chidori_damage", CHIDORI_NEGRO_DAMAGE);
@@ -120,7 +120,7 @@ function shiden_negro(player) {
   const view = player.getViewDirection();
   const daash = "animation.shiden_skill_salto";
   player.applyKnockback(view.x, view.z, 7, 0);
-  player.playAnimation(daash, { controller: "daash_controller" });
+  player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("shiden_negro");
   player.setDynamicProperty("chidori_damage_ticks", SHIDEN_TICKS);
   player.setDynamicProperty("chidori_damage", SHIDEN_DAMAGE);
@@ -131,7 +131,7 @@ function chidori(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_atk";
   player.applyKnockback(view.x, view.z, 20, 0);
-  player.playAnimation(daash, { controller: "daash_controller" });
+  player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("chidori");
   player.setDynamicProperty("chidori_damage_ticks", CHIDORI_TICKS);
   player.setDynamicProperty("chidori_damage", CHIDORI_DAMAGE);
@@ -157,7 +157,8 @@ mc.system.runInterval(() => {
     if (!dim) continue;
     let entities = [];
     try {
-      entities = dim.getEntities();
+      // so entidades marcadas (antes varria TODAS as entidades do mundo a cada tick)
+      entities = dim.getEntities({ tags: ["dash_mob"] });
     } catch (e) {
       entities = [];
     }
@@ -181,7 +182,8 @@ mc.system.runInterval(() => {
     const entities = player.dimension.getEntities({
       location: player.location,
       maxDistance: raio,
-      excludeNames: [player.name]
+      excludeNames: [player.name],
+      excludeTypes: ["minecraft:item", "minecraft:xp_orb", "minecraft:arrow"]
     });
 
     for (const entity of entities) {

@@ -6,7 +6,7 @@ mc.system.runInterval(() => {
 
     // COMBO 1
     if (player.hasTag("attack") && !player.hasTag("combo1") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_1");
+      player.playAnimation("animation.barion_atk_1", { blendOutTime: 0.2 });
       player.addTag("combo1");
       player.addTag("delay");
 
@@ -25,7 +25,7 @@ mc.system.runInterval(() => {
 
     // COMBO 2
     if (player.hasTag("attack") && player.hasTag("combo1") && !player.hasTag("combo2") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_2");
+      player.playAnimation("animation.barion_atk_2", { blendOutTime: 0.2 });
       player.addTag("combo2");
       player.addTag("delay");
 
@@ -47,7 +47,7 @@ mc.system.runInterval(() => {
 
     // COMBO 3
     if (player.hasTag("attack") && player.hasTag("combo2") && !player.hasTag("combo3") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_3");
+      player.playAnimation("animation.barion_atk_3", { blendOutTime: 0.2 });
       player.addTag("combo3");
       player.addTag("delay");
 
@@ -70,7 +70,7 @@ mc.system.runInterval(() => {
 
     // COMBO 4
     if (player.hasTag("attack") && player.hasTag("combo3") && !player.hasTag("combo4") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_2");
+      player.playAnimation("animation.barion_atk_2", { blendOutTime: 0.2 });
       player.addTag("combo4");
       player.addTag("delay");
 
@@ -95,7 +95,7 @@ mc.system.runInterval(() => {
 
     // COMBO 5
     if (player.hasTag("attack") && player.hasTag("combo4") && !player.hasTag("combo5") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_3");
+      player.playAnimation("animation.barion_atk_3", { blendOutTime: 0.2 });
       player.addTag("combo5");
       player.addTag("delay");
 
@@ -121,7 +121,7 @@ mc.system.runInterval(() => {
 
     // COMBO 6
     if (player.hasTag("attack") && player.hasTag("combo5") && !player.hasTag("combo6") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_2");
+      player.playAnimation("animation.barion_atk_2", { blendOutTime: 0.2 });
       player.addTag("combo6");
       player.addTag("delay");
 
@@ -148,7 +148,7 @@ mc.system.runInterval(() => {
 
     // COMBO 7
     if (player.hasTag("attack") && player.hasTag("combo6") && !player.hasTag("combo7") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_3");
+      player.playAnimation("animation.barion_atk_3", { blendOutTime: 0.2 });
       player.addTag("combo7");
       player.addTag("delay");
 
@@ -176,7 +176,7 @@ mc.system.runInterval(() => {
 
     // COMBO 8
     if (player.hasTag("attack") && player.hasTag("combo7") && !player.hasTag("combo8") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_2");
+      player.playAnimation("animation.barion_atk_2", { blendOutTime: 0.2 });
       player.addTag("combo8");
       player.addTag("delay");
 
@@ -205,7 +205,7 @@ mc.system.runInterval(() => {
 
     // COMBO 9
     if (player.hasTag("attack") && player.hasTag("combo8") && !player.hasTag("combo9") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_3");
+      player.playAnimation("animation.barion_atk_3", { blendOutTime: 0.2 });
       player.addTag("combo9");
       player.addTag("delay");
 
@@ -242,7 +242,7 @@ mc.system.runInterval(() => {
 
     // COMBO 4
     if (player.hasTag("attack") && player.hasTag("combo9") && !player.hasTag("combo10") && !player.hasTag("delay")) {
-      player.playAnimation("animation.barion_atk_2");
+      player.playAnimation("animation.barion_atk_2", { blendOutTime: 0.2 });
       player.addTag("combo10");
       player.addTag("delay");
 

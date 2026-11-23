@@ -9,7 +9,7 @@ export function getScore(objective, player) {
   try { 
     return mc.world.scoreboard
       .getObjective(objective)
-      .getScore(player.scoreboardIdentity); 
+      .getScore(player.scoreboardIdentity) ?? 0; 
   } catch { 
     return 0; 
   } 
@@ -153,13 +153,23 @@ const Itens = {
 
 };
 
+/* Itens exibidos quando as skills estao seladas (antes esta tabela nao existia
+   e gerava ReferenceError a cada tick). Mostra o mesmo texto do item. */
+const ItensCooldown = Itens;
+
+function ratio(value, max, steps) {
+  if (!max || max <= 0 || !Number.isFinite(value)) return 0;
+  return Math.max(0, Math.min(steps, Math.round(value * steps / max)));
+}
+
 /* =======================================================
    HUD
 ======================================================= */
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
 
-    const heldItem = player.getComponent("equippable").getEquipment("Mainhand");
+    if (!player.isValid()) continue;
+    const heldItem = player.getComponent("equippable")?.getEquipment("Mainhand");
     let itemName = "";
 
     if (heldItem) {
@@ -179,10 +189,10 @@ mc.system.runInterval(() => {
       getScore("health_dna", player);
 
     player.onScreenDisplay.setTitle(
-      `[charge_bijuu${Math.round(getScore("charge_bijuu", player) * 11 / getScore("charge_bijuu_max", player))}]` +
+      `[charge_bijuu${ratio(getScore("charge_bijuu", player), getScore("charge_bijuu_max", player), 11)}]` +
       `[clans${getScore("clans", player)}]` +
-      `[hp${Math.round(currentHealth * 20 / maxHealth)}]` +
-      `[chakra${Math.round(getScore("chakra", player) * 20 / getScore("chakra_max", player))}]` +
+      `[hp${ratio(currentHealth, maxHealth, 20)}]` +
+      `[chakra${ratio(getScore("chakra", player), getScore("chakra_max", player), 20)}]` +
       `[${itemName}]`
     );
 
@@ -200,7 +210,9 @@ mc.system.runInterval(() => {
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
 
+    if (!player.isValid()) continue;
     const healthComp = player.getComponent("health");
+    if (!healthComp) continue;
     const vidaReal = healthComp.currentValue;
     const currentHealth = getScore("current_health", player);
 

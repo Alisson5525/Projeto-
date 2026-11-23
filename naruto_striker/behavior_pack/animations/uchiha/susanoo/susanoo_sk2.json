@@ -5,7 +5,7 @@
 			"animation_length": 7.2,
 			"timeline": {
 
-"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_sk2_skill_1","/tag @s add espinho_amaterasu"],
+"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_sk2_skill_1 default 0.2","/tag @s add espinho_amaterasu"],
 "7.0": ["/tag @s remove espinho_amaterasu"]
 			
 			}

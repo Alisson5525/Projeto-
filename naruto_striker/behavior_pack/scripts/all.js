@@ -36,3 +36,9 @@ import "./npc/jiraiya";
 import "./config";
 import "./item_chakra";
 import "./wg";
+
+// ===== Naruto Striker+ (novos sistemas) =====
+import "./ns/progressao";
+import "./ns/combate";
+import "./ns/visuais";
+import "./ns/exploracao";

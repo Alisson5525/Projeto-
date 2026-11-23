@@ -6,14 +6,14 @@
       "animation_length": 0.8,
       "timeline": {
         "0.0": [
-          "/playanimation @s animation.chidori_load","/playsound chidori_load @a",
+          "/playanimation @s animation.chidori_load default 0.2","/playsound chidori_load @a",
           "/particle tnt:chidori_chao"
         ],
         "0.4": [
           "/damage @e[rm=1,r=4] 2"
         ],
         "0.7": [   
-          "/playanimation @s animation.chidori_load",
+          "/playanimation @s animation.chidori_load default 0.2",
           "/particle tnt:chidori_chao"
           
         ]
@@ -24,10 +24,10 @@
       "animation_length": 0.8,
       "timeline": {
         "0.0": [
-          "/playsound chidori_load @a[r=15] ^^^1 1 1","/playanimation @s animation.chidori_load"
+          "/playsound chidori_load @a[r=15] ^^^1 1 1","/playanimation @s animation.chidori_load default 0.2"
         ],
         "0.7": [   
-          "/playanimation @s animation.chidori_load"
+          "/playanimation @s animation.chidori_load default 0.2"
           
         ]
       }
@@ -37,10 +37,10 @@
       "animation_length": 0.8,
       "timeline": {
         "0.0": [
-          "/playsound chidori_load @a[r=15] ^^^1 1 1","/playanimation @s animation.chidori_negro_load"
+          "/playsound chidori_load @a[r=15] ^^^1 1 1","/playanimation @s animation.chidori_negro_load default 0.2"
         ],
         "0.7": [   
-          "/playanimation @s animation.chidori_negro_load"
+          "/playanimation @s animation.chidori_negro_load default 0.2"
           
         ]
       }

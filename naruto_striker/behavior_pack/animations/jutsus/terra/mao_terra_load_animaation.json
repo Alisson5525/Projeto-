@@ -6,7 +6,7 @@
       "animation_length": 0.8,
       "timeline": {
         "0.0": [
-          "/playanimation @s animation.mao_terra_skill_1"
+          "/playanimation @s animation.mao_terra_skill_1 default 0.2"
         ],
         "0.5": [
           "/playsound dig.deepslate_bricks @a[r=15]"

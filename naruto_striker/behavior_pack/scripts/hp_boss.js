@@ -44,6 +44,28 @@ const STATIC_NAMES = {
   "tnt:teuchi": "§aVendedor: §eTeuchi"
 };
 
+// barra de vida colorida (verde -> amarelo -> vermelho)
+function nomeComVida(baseName, hp, hpMax) {
+  const r = hpMax > 0 ? Math.max(0, Math.min(1, hp / hpMax)) : 0;
+  const cor = r > 0.6 ? "§a" : r > 0.3 ? "§e" : "§c";
+  const n = Math.round(r * 20);
+  return `${baseName}\n${cor}${"|".repeat(n)}§8${"|".repeat(20 - n)} §f${hp}§7/§f${hpMax}§r`;
+}
+
+// atualiza a barra na hora em que a entidade toma dano (antes so a cada 1s)
+mc.world.afterEvents.entityHurt.subscribe((ev) => {
+  try {
+    const entity = ev.hurtEntity;
+    if (!entity || !entity.isValid()) return;
+    const baseName = ENTITY_NAMES[entity.typeId];
+    if (!baseName) return;
+    const health = entity.getComponent("health");
+    if (!health) return;
+    const tag = nomeComVida(baseName, Math.max(0, Math.floor(health.currentValue)), Math.floor(health.effectiveMax));
+    if (entity.nameTag !== tag) entity.nameTag = tag;
+  } catch (e) {}
+});
+
 // 🔄 Atualiza entidades
 mc.system.runInterval(() => {
 
@@ -76,7 +98,7 @@ mc.system.runInterval(() => {
     const hp = Math.floor(health.currentValue);
     const hpMax = Math.floor(health.effectiveMax);
 
-    const newTag = `${baseName}\n§fHp: §c${hp}/${hpMax}§r`;
+    const newTag = nomeComVida(baseName, hp, hpMax);
 
     // ✅ só atualiza se mudou
     if (entity.nameTag !== newTag) {

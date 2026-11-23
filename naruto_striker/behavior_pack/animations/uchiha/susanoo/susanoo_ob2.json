@@ -5,7 +5,7 @@
 			"animation_length": 1.2,
 			"timeline": {
 
-"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_ob2_skill_1","/tag @s add susanoo_ob1_corte"],
+"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_ob2_skill_1 default 0.2","/tag @s add susanoo_ob1_corte"],
 "0.4": [
 "/playsound random.explode @a[r=20] ~ ~ ~ 1 1",
 "/summon tnt:susanoo_ob1_corte ^^^ ~0 ~10000",

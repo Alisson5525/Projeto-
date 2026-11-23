@@ -52,14 +52,8 @@
          "modo_sharingan",
          "skill_jutsu_slots",
          "hud_jutsu",
-         "inicio",
-
-
-
-
-
-         ""
-        ]
+         "inicio"
+]
       },
       "animations": {
         "items_addon": "controller.animation.items_addon",

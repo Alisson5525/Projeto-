@@ -5,7 +5,7 @@
 "animation_length": 5.1,
 "timeline": {
 
-"0.0": [ "/playanimation @s animation.bola_fogo","/playsound bola_fogo @a[x=~,y=~,z=~,r=20]"],
+"0.0": [ "/playanimation @s animation.bola_fogo default 0.2","/playsound bola_fogo @a[x=~,y=~,z=~,r=20]"],
 "0.1": ["/scriptevent tnt:bola_fogo"],
 "0.3": ["/scriptevent tnt:bola_fogo"],
 "0.5": ["/scriptevent tnt:bola_fogo"],

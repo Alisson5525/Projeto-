@@ -1,128 +1,197 @@
 {
-	"format_version": "1.8.0",
-	"animations": {
-		"animation.chidori_nagashi": {
-			"animation_length": 3,
-			"bones": {
-				"chidori_nagashi": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"3.0": [0, 1720, 0]
-					},
-					"position": {
-						"0.0": [-23, 0, 0],
-						"0.5": [31, 0, 0],
-						"1.0": [6, 0, -27],
-						"1.4583": [-16, 0, 25],
-						"2.0": [7, 0, -5],
-						"2.5": [-27, 0, -5],
-						"3.0": [-12, 0, -22]
-					},
-					"scale": {
-						"0.0": [1, 1, 1],
-						"1.5": [1, 1, 1],
-						"3.0": [3, 3, 3]
-					}
-				}
-			},
-			"particle_effects": {
-				"0.0833": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi"
-				},
-				"0.2083": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi2"
-				},
-				"0.3333": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi3"
-				},
-				"0.4583": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi4"
-				},
-				"0.5833": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi5"
-				},
-				"0.7083": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi"
-				},
-				"0.8333": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi2"
-				},
-				"0.9583": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi3"
-				},
-				"1.0833": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi4"
-				},
-				"1.2083": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi5"
-				},
-				"1.3333": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi"
-				},
-				"1.4583": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi2"
-				},
-				"1.5833": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi3"
-				},
-				"1.7083": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi4"
-				},
-				"1.8333": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi5"
-				},
-				"1.9583": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi"
-				},
-				"2.0833": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi2"
-				},
-				"2.2083": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi3"
-				},
-				"2.3333": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi4"
-				},
-				"2.4583": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi5"
-				},
-				"2.5833": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi"
-				},
-				"2.7083": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi2"
-				},
-				"2.8333": {
-					"effect": "chidori_nagashi_r1",
-					"locator": "chidori_nagashi3"
-				},
-				"2.9583": {
-					"effect": "chidori_nagashi_r2",
-					"locator": "chidori_nagashi4"
-				}
-			}
-		}
-	}
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.chidori_nagashi": {
+      "animation_length": 3,
+      "bones": {
+        "chidori_nagashi": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "3.0": [
+              0,
+              1720,
+              0
+            ]
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                -23,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.5": {
+              "post": [
+                31,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                6,
+                0,
+                -27
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.4583": {
+              "post": [
+                -16,
+                0,
+                25
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.0": {
+              "post": [
+                7,
+                0,
+                -5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.5": {
+              "post": [
+                -27,
+                0,
+                -5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "3.0": {
+              "post": [
+                -12,
+                0,
+                -22
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "1.5": [
+              1,
+              1,
+              1
+            ],
+            "3.0": [
+              3,
+              3,
+              3
+            ]
+          }
+        }
+      },
+      "particle_effects": {
+        "0.0833": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi"
+        },
+        "0.2083": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi2"
+        },
+        "0.3333": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi3"
+        },
+        "0.4583": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi4"
+        },
+        "0.5833": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi5"
+        },
+        "0.7083": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi"
+        },
+        "0.8333": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi2"
+        },
+        "0.9583": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi3"
+        },
+        "1.0833": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi4"
+        },
+        "1.2083": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi5"
+        },
+        "1.3333": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi"
+        },
+        "1.4583": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi2"
+        },
+        "1.5833": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi3"
+        },
+        "1.7083": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi4"
+        },
+        "1.8333": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi5"
+        },
+        "1.9583": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi"
+        },
+        "2.0833": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi2"
+        },
+        "2.2083": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi3"
+        },
+        "2.3333": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi4"
+        },
+        "2.4583": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi5"
+        },
+        "2.5833": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi"
+        },
+        "2.7083": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi2"
+        },
+        "2.8333": {
+          "effect": "chidori_nagashi_r1",
+          "locator": "chidori_nagashi3"
+        },
+        "2.9583": {
+          "effect": "chidori_nagashi_r2",
+          "locator": "chidori_nagashi4"
+        }
+      }
+    }
+  }
 }

@@ -5,7 +5,7 @@
       "loop": false,
       "animation_length": 9.1,
 			"timeline": {
-				 "0.0": ["/playsound jutsu_ativation @a[r=15]","/tag @s add skill_hyuga","/playanimation @s animation.punho_suave"],
+				 "0.0": ["/playsound jutsu_ativation @a[r=15]","/tag @s add skill_hyuga","/playanimation @s animation.punho_suave default 0.2"],
 				 "3.0": ["/tag @s remove skill_hyuga"]
       }
     },
@@ -13,7 +13,7 @@
       "loop": false,
       "animation_length": 20.1,
 			"timeline": {
-				 "0.0": ["/tag @s add skill_hyuga","/playsound block.end_portal.spawn @a[r=15] ^ ^ ^1 1 1.3","/effect @s darkness 2 255 true","/playanimation @s animation.oito_trigramas"],
+				 "0.0": ["/tag @s add skill_hyuga","/playsound block.end_portal.spawn @a[r=15] ^ ^ ^1 1 1.3","/effect @s darkness 2 255 true","/playanimation @s animation.oito_trigramas default 0.2"],
 				 "10.0": ["/tag @s remove skill_hyuga"]
       }
     },
@@ -21,7 +21,7 @@
       "loop": false,
       "animation_length": 10.1,
 			"timeline": {
-				 "0.0": ["/effect @s slowness 10 10 true","/playanimation @s animation.rotacao_celestial"],
+				 "0.0": ["/effect @s slowness 10 10 true","/playanimation @s animation.rotacao_celestial default 0.2"],
          "0.2": ["/damage @e[rm=1,r=4] 6","/damage @e[rm=1,r=2] 15"],
          "0.4": ["/damage @e[rm=1,r=4] 6","/damage @e[rm=1,r=2] 15"],
          "0.6": ["/damage @e[rm=1,r=4] 6","/damage @e[rm=1,r=2] 15"],

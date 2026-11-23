@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:pergaminho_ninja",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": { "textures": { "default": "pergaminho_ninja" } },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1.0,
+        "use_duration": 99999
+      },
+      "minecraft:cooldown": {
+        "category": "pergaminho_ninja",
+        "duration": 0.5
+      },
+      "minecraft:display_name": {
+        "value": "§6Pergaminho Ninja §7(Perfil, Conquistas e Ajustes)"
+      }
+    }
+  }
+}

@@ -40,7 +40,7 @@
             "/playsound genjutsu @a[r=10] ^^^1 1 1",
             "/scoreboard players remove @s chakra 70",
             "/camerashake add @s 3 0.1 positional ",
-            "/execute positioned ^^^6 run playanimation @e[r=5,tag=!genjutsu,c=2] animation.genjutsu",
+            "/execute positioned ^^^6 run playanimation @e[r=5,tag=!genjutsu,c=2] animation.genjutsu default 0.2",
             "/execute positioned ^^^6 run tag @e[r=5,tag=!genjutsu,c=2] add genjutsu"
             ]},
 

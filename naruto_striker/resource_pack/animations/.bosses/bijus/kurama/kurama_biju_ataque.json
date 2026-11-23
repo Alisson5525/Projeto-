@@ -1,25 +1,67 @@
 {
-	"format_version": "1.8.0",
-	"animations": {
-		"animation.kurama_biju_ataque": {
-			"animation_length": 0.25,
-			"override_previous_animation": true,
-			"bones": {
-				"peitoral": {
-					"position": {
-						"0.0": [0, 6, 0],
-						"0.0833": [0, 6, -1],
-						"0.1667": [0, 6, 0]
-					}
-				},
-				"boca": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.0833": [35, 0, 0],
-						"0.1667": [0, 0, 0]
-					}
-				}
-			}
-		}
-	}
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kurama_biju_ataque": {
+      "animation_length": 0.25,
+      "override_previous_animation": true,
+      "bones": {
+        "peitoral": {
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                6,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                0,
+                6,
+                -1
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                0,
+                6,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "boca": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                35,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      }
+    }
+  }
 }

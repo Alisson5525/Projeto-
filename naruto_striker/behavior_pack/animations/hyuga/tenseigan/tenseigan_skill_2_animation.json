@@ -5,7 +5,7 @@
      "loop": false,
       "animation_length": 3.3,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.tenseigan_gudoudama_defesa"],
+				 "0.0": ["/playanimation @s animation.tenseigan_gudoudama_defesa default 0.2"],
                 "0.1": ["/playsound beacon.deactivate @a[r=20] ~~~ 1 1","/tag @s add protecao_gudoudama","/inputpermission set @s movement disabled"],
          
 
@@ -17,7 +17,7 @@
      "loop": false,
       "animation_length": 3.3,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.tenseigan_salto"],
+				 "0.0": ["/playanimation @s animation.tenseigan_salto default 0.2"],
          "0.1": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1","/event entity @s tnt:no_gravity","/tp @s ~~6~"],
 				 "0.2": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/scriptevent tnt:tenseigan_orb"],
 				 "0.4": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/scriptevent tnt:tenseigan_orb"],
@@ -44,7 +44,7 @@
      "loop": false,
       "animation_length": 7.3,
 			"timeline": {
-"0.0": ["/playanimation @s animation.tenseigan_skill_espada"],
+"0.0": ["/playanimation @s animation.tenseigan_skill_espada default 0.2"],
 "1.0": ["/event entity @s jutsu:espada_tenseigan_impact"],
 "1.1": ["/event entity @s jutsu:espada_tenseigan_impact"],
 "1.2": ["/event entity @s jutsu:espada_tenseigan_impact"],

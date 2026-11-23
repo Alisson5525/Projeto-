@@ -6,7 +6,7 @@
 "animation_length": 0.2,
       "timeline": {
         "0.0": [
-         "/playanimation @s animation.correr_liquido_suigetsu","/effect @s speed 1 5 true"
+         "/playanimation @s animation.correr_liquido_suigetsu default 0.2","/effect @s speed 1 5 true"
         ]
       }
 
@@ -21,7 +21,7 @@
 "animation_length": 5.1,
       "timeline": {
         "0.0": [
-         "/playanimation @s animation.suigetsu_forca",
+         "/playanimation @s animation.suigetsu_forca default 0.2",
          "/scoreboard players add @s dano_stats 8"
         ],
         "5.0": [

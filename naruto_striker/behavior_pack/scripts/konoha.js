@@ -5,12 +5,21 @@ import {
 
 const STRUCTURE_NAME = "konoha";
 const PROPERTY_NAME = "estrutura_spawnada";
+// evita carregar a vila duas vezes quando varios jogadores entram juntos
+let carregando = false;
+
+// blocos que nao contam como "chao" (copas de arvore, plantas, agua)
+function ehChaoValido(typeId) {
+    return !/(air|leaves|log|wood|tallgrass|tall_grass|short_grass|fern|flower|snow_layer|vine|water|lava|mushroom|bush|kelp|seagrass)/.test(typeId);
+}
 
 world.afterEvents.playerSpawn.subscribe((ev) => {
 
     if (!ev.initialSpawn) return;
 
     if (world.getDynamicProperty(PROPERTY_NAME)) return;
+    if (carregando) return;
+    carregando = true;
 
     const player = ev.player;
 
@@ -18,6 +27,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
         try {
 
+            if (!player.isValid()) { carregando = false; return; }
             const loc = player.location;
 
             const x = Math.floor(loc.x);
@@ -34,7 +44,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
                     z
                 });
 
-                if (block && block.typeId !== "minecraft:air") {
+                if (block && ehChaoValido(block.typeId)) {
                     y = i + 1;
                     break;
                 }
@@ -80,11 +90,17 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
             world.setDynamicProperty(PROPERTY_NAME, true);
 
+            // libera a area de carregamento forcado (antes ficava ativa para sempre)
+            system.runTimeout(() => {
+                try { player.dimension.runCommandAsync("tickingarea remove estrutura_spawn"); } catch (e) {}
+            }, 100);
+
             player.sendMessage("§aEstrutura carregada!");
 
         } catch (e) {
             console.warn(e);
         }
+        carregando = false;
 
     }, 80);
 });

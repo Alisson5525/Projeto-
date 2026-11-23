@@ -5,7 +5,7 @@
       "loop": false,
       "animation_length": 1.5,
 			"timeline": {
-				 "0.0": ["/playanimation @s animation.manto_kurama_4_skill_2"],
+				 "0.0": ["/playanimation @s animation.manto_kurama_4_skill_2 default 0.2"],
 				 "0.2": ["/playsound item.trident.riptide_1 @a[r=7] ^^^1","/scriptevent tnt:skill_2_kurama_4"],
 				 "0.5": ["/scriptevent tnt:skill_2_kurama_4"],
 				 "0.7": ["/scriptevent tnt:skill_2_kurama_4"],

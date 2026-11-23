@@ -2,122 +2,207 @@
   "resource_pack_name": "vanilla",
   "texture_name": "atlas.items",
   "texture_data": {
-
-    "pergaminho_ceifeiro": {"textures": "textures/items/pergaminho_ceifeiro"},
-    
-    "olho_sharingan": {"textures": "textures/items/olho_sharingan"},
-    
-    "selo_byakugou": {"textures": "textures/items/selo_byakugou"},
-    "hud_jutsu": {"textures": "textures/items/hud/hud_jutsu"},
-    "uchiha": {"textures": "textures/items/uchiha"},
-
-    "pergaminho_miss": {"textures": "textures/items/pergaminho_miss"},
-    "jutsu_medico": {"textures": "textures/items/jutsu_medico"},
-
-
-    "ramen": {"textures": "textures/items/comida/ramen"},
-    "picole": {"textures": "textures/items/comida/picole"},
-    "espetinho": {"textures": "textures/items/comida/espetinho"},
-    "peixe": {"textures": "textures/items/comida/peixe"},
-    "bolinho_arroz": {"textures": "textures/items/comida/bolinho_arroz"},
-
-
-
-
-
-    "fragrimento_zetsu": {"textures": "textures/items/fragrimento_zetsu"},
-    "rikudou_kurama": {"textures": "textures/items/rikudou_kurama"},
-    "balao": {"textures": "textures/items/balao"},
-    "pesos": {"textures": "textures/items/pesos"},
-    "sinos": {"textures": "textures/items/sinos"},
-    "suigetsu": {"textures": "textures/items/suigetsu"},
-    
-    "escolha_clan": {"textures": "textures/items/escolha_clan"},
-
-    "roupa_obito_g": {"textures": "textures/items/roupa_obito_g"},
-    "roupa_anbu": {"textures": "textures/items/roupa_anbu"},
-    "roupa_shisui": {"textures": "textures/items/roupa_shisui"},
-    "roupa_gaara_c": {"textures": "textures/items/roupa_gaara_c"},
-    "manto_rkg_minato": {"textures": "textures/items/manto_rkg_minato"},
-    "roupa_zabuza": {"textures": "textures/items/roupa_zabuza"},
-
-    "armadura_madara": {"textures": "textures/items/armadura_madara"},
-    "roupa_sasuke": {"textures": "textures/items/roupa_sasuke"},
-    "roupa_naruto": {"textures": "textures/items/roupa_naruto"},
-    "jaqueta_jonin": {"textures": "textures/items/jaqueta_jonin"},
-    "manto_akatsuki": {"textures": "textures/items/manto_akatsuki"},
-
-
-
-
-    "chakra_kurama": {"textures": "textures/items/chakra_kurama"},
-
-    "hud_modo_up": {"textures": "textures/items/hud_modo_up"},
-    "hud_modo": {"textures": "textures/items/hud_modo"},
-
-    "rasen_shuriken": {"textures": "textures/items/rasen_shuriken"},
-    "rasengan": {"textures": "textures/items/rasengan"},
-
-    "mk_kurama": {"textures": "textures/items/mk_kurama"},
-    "skill_kurama_manto_4": {"textures": "textures/items/skill_kurama_manto_4"},
-    "skill_kurama_manto": {"textures": "textures/items/skill_kurama_manto"},
-    
-    "susanoo_ob2_skill": {"textures": "textures/items/susanoo_ob2_skill"},
-    "susanoo_it2_skill": {"textures": "textures/items/susanoo_it2_skill"},
-    "susanoo_sk2_skill": {"textures": "textures/items/susanoo_sk2_skill"},
-    
-    "rinnegan": {"textures": "textures/items/rinnegan"},
-    "item_lock": {"textures": "textures/items/item_lock"},
-
-    "tenseigan": {"textures": "textures/items/tenseigan"},
-    "byakugan": {"textures": "textures/items/byakugan"},
-    
-    "hiramekarei": {"textures": "textures/items/hiramekarei"},
-    "shibuki": {"textures": "textures/items/shibuki"},
-    "kunai_minato": {"textures": "textures/items/kunai_minato"},
-    "kiba": {"textures": "textures/items/kiba"},
-    "katubowari": {"textures": "textures/items/katubowari"},
-
-    "foice_hidan": {"textures": "textures/items/foice_hidan"},
-    "kunai_asuma": {"textures": "textures/items/kunai_asuma"},
-    "samehada": {"textures": "textures/items/samehada"},
-    "kubikiribocho": {"textures": "textures/items/kubikiribocho"},
-    "gunbai": {"textures": "textures/items/gunbai"},
-    
-    
-    "fogo": {"textures": "textures/items/fogo"},
-    "terra": {"textures": "textures/items/terra"},
-    "agua": {"textures": "textures/items/agua"},
-    "vento": {"textures": "textures/items/vento"},
-    "raio": {"textures": "textures/items/raio"},
-
-
-    "portao_verde": {"textures": "textures/items/portao_verde"},
-    "portao_azul": {"textures": "textures/items/portao_azul"},
-    "portao_vermelho": {"textures": "textures/items/portao_vermelho"},
-
-
-
-
-
-    "sharingan": {"textures": "textures/items/sharingan"},
-    "mgk_itachi": {"textures": "textures/items/mgk_itachi"},
-    "mgk_obito": {"textures": "textures/items/mgk_obito"},
-    "mgk_sasuke": {"textures": "textures/items/mgk_sasuke"},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "pergaminho_ceifeiro": {
+      "textures": "textures/items/pergaminho_ceifeiro"
+    },
+    "olho_sharingan": {
+      "textures": "textures/items/olho_sharingan"
+    },
+    "selo_byakugou": {
+      "textures": "textures/items/selo_byakugou"
+    },
+    "hud_jutsu": {
+      "textures": "textures/items/hud/hud_jutsu"
+    },
+    "uchiha": {
+      "textures": "textures/items/uchiha"
+    },
+    "pergaminho_miss": {
+      "textures": "textures/items/pergaminho_miss"
+    },
+    "jutsu_medico": {
+      "textures": "textures/items/jutsu_medico"
+    },
+    "ramen": {
+      "textures": "textures/items/comida/ramen"
+    },
+    "picole": {
+      "textures": "textures/items/comida/picole"
+    },
+    "espetinho": {
+      "textures": "textures/items/comida/espetinho"
+    },
+    "peixe": {
+      "textures": "textures/items/comida/peixe"
+    },
+    "bolinho_arroz": {
+      "textures": "textures/items/comida/bolinho_arroz"
+    },
+    "fragrimento_zetsu": {
+      "textures": "textures/items/fragrimento_zetsu"
+    },
+    "rikudou_kurama": {
+      "textures": "textures/items/rikudou_kurama"
+    },
+    "balao": {
+      "textures": "textures/items/balao"
+    },
+    "pesos": {
+      "textures": "textures/items/pesos"
+    },
+    "sinos": {
+      "textures": "textures/items/sinos"
+    },
+    "suigetsu": {
+      "textures": "textures/items/suigetsu"
+    },
+    "escolha_clan": {
+      "textures": "textures/items/escolha_clan"
+    },
+    "roupa_obito_g": {
+      "textures": "textures/items/roupa_obito_g"
+    },
+    "roupa_anbu": {
+      "textures": "textures/items/roupa_anbu"
+    },
+    "roupa_shisui": {
+      "textures": "textures/items/roupa_shisui"
+    },
+    "roupa_gaara_c": {
+      "textures": "textures/items/roupa_gaara_c"
+    },
+    "manto_rkg_minato": {
+      "textures": "textures/items/manto_rkg_minato"
+    },
+    "roupa_zabuza": {
+      "textures": "textures/items/roupa_zabuza"
+    },
+    "armadura_madara": {
+      "textures": "textures/items/armadura_madara"
+    },
+    "roupa_sasuke": {
+      "textures": "textures/items/roupa_sasuke"
+    },
+    "roupa_naruto": {
+      "textures": "textures/items/roupa_naruto"
+    },
+    "jaqueta_jonin": {
+      "textures": "textures/items/jaqueta_jonin"
+    },
+    "manto_akatsuki": {
+      "textures": "textures/items/manto_akatsuki"
+    },
+    "chakra_kurama": {
+      "textures": "textures/items/chakra_kurama"
+    },
+    "hud_modo_up": {
+      "textures": "textures/items/hud_modo_up"
+    },
+    "hud_modo": {
+      "textures": "textures/items/hud_modo"
+    },
+    "rasen_shuriken": {
+      "textures": "textures/items/rasen_shuriken"
+    },
+    "rasengan": {
+      "textures": "textures/items/rasengan"
+    },
+    "mk_kurama": {
+      "textures": "textures/items/mk_kurama"
+    },
+    "skill_kurama_manto_4": {
+      "textures": "textures/items/skill_kurama_manto_4"
+    },
+    "skill_kurama_manto": {
+      "textures": "textures/items/skill_kurama_manto"
+    },
+    "susanoo_ob2_skill": {
+      "textures": "textures/items/susanoo_ob2_skill"
+    },
+    "susanoo_it2_skill": {
+      "textures": "textures/items/susanoo_it2_skill"
+    },
+    "susanoo_sk2_skill": {
+      "textures": "textures/items/susanoo_sk2_skill"
+    },
+    "rinnegan": {
+      "textures": "textures/items/rinnegan"
+    },
+    "item_lock": {
+      "textures": "textures/items/item_lock"
+    },
+    "tenseigan": {
+      "textures": "textures/items/tenseigan"
+    },
+    "byakugan": {
+      "textures": "textures/items/byakugan"
+    },
+    "hiramekarei": {
+      "textures": "textures/items/hiramekarei"
+    },
+    "shibuki": {
+      "textures": "textures/items/shibuki"
+    },
+    "kunai_minato": {
+      "textures": "textures/items/kunai_minato"
+    },
+    "kiba": {
+      "textures": "textures/items/kiba"
+    },
+    "katubowari": {
+      "textures": "textures/items/katubowari"
+    },
+    "foice_hidan": {
+      "textures": "textures/items/foice_hidan"
+    },
+    "kunai_asuma": {
+      "textures": "textures/items/kunai_asuma"
+    },
+    "samehada": {
+      "textures": "textures/items/samehada"
+    },
+    "kubikiribocho": {
+      "textures": "textures/items/kubikiribocho"
+    },
+    "gunbai": {
+      "textures": "textures/items/gunbai"
+    },
+    "fogo": {
+      "textures": "textures/items/fogo"
+    },
+    "terra": {
+      "textures": "textures/items/terra"
+    },
+    "agua": {
+      "textures": "textures/items/agua"
+    },
+    "vento": {
+      "textures": "textures/items/vento"
+    },
+    "raio": {
+      "textures": "textures/items/raio"
+    },
+    "portao_verde": {
+      "textures": "textures/items/portao_verde"
+    },
+    "portao_azul": {
+      "textures": "textures/items/portao_azul"
+    },
+    "portao_vermelho": {
+      "textures": "textures/items/portao_vermelho"
+    },
+    "sharingan": {
+      "textures": "textures/items/sharingan"
+    },
+    "mgk_itachi": {
+      "textures": "textures/items/mgk_itachi"
+    },
+    "mgk_obito": {
+      "textures": "textures/items/mgk_obito"
+    },
+    "mgk_sasuke": {
+      "textures": "textures/items/mgk_sasuke"
+    },
     "ceifeiro": {
       "textures": "textures/items/acesorios/ceifeiro"
     },
@@ -136,18 +221,23 @@
     "chad": {
       "textures": "textures/items/chad"
     },
-    
-    "ichigo": {"textures": "textures/items/ichigo"},
-
-    "skill_medio": {"textures": "textures/items/skill_medio"},
-    "skill_evoluir": {"textures": "textures/items/skill_evoluir"},
-    "skill_especial": {"textures": "textures/items/skill_especial"},
-
-
-
-
+    "ichigo": {
+      "textures": "textures/items/ichigo"
+    },
+    "skill_medio": {
+      "textures": "textures/items/skill_medio"
+    },
+    "skill_evoluir": {
+      "textures": "textures/items/skill_evoluir"
+    },
+    "skill_especial": {
+      "textures": "textures/items/skill_especial"
+    },
     "katana": {
       "textures": "textures/items/katana"
+    },
+    "pergaminho_ninja": {
+      "textures": "textures/items/ns/pergaminho_ninja"
     }
   }
 }

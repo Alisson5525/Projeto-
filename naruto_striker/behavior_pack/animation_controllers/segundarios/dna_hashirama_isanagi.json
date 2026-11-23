@@ -17,7 +17,7 @@
             }
           ],
           "on_entry": [
-            "/playanimation @s animation.izanagi_p",
+            "/playanimation @s animation.izanagi_p default 0.2",
             "/playsound conduit.deactivate @a[r=8] ~ ~ ~ 0.5 1.4",
             "/particle minecraft:totem_particle ~ ~2 ~",
             "/scoreboard  players add @s isanagi 1",

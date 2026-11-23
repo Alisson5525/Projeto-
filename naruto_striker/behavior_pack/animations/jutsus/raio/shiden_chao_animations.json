@@ -5,7 +5,7 @@
 "animation_length": 3.1,
 "timeline": {
 
-"0.0": ["/effect @s slowness 3 2 true","/playsound chidori_nagashi @a[x=~,y=~,z=~,r=20]","/playsound jutsu_ativation @a[r=7] ^^^1 1 1","/playanimation @s animation.shiden_skill_chao","/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
+"0.0": ["/effect @s slowness 3 2 true","/playsound chidori_nagashi @a[x=~,y=~,z=~,r=20]","/playsound jutsu_ativation @a[r=7] ^^^1 1 1","/playanimation @s animation.shiden_skill_chao default 0.2","/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
 "0.2": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
 "0.4": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
 "0.6": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],

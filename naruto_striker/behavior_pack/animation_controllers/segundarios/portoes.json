@@ -30,7 +30,7 @@
       "/particle tnt:lotos_frontal_impact_chao",
       "/particle tnt:impact_chao",
       "/playsound random.explode @a[r=30] ~ ~ ~ 1 1",
-      "/playanimation @s animation.rasengan_atk_chao"
+      "/playanimation @s animation.rasengan_atk_chao default 0.2"
 
     ]
   },

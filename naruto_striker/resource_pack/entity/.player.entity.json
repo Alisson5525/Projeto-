@@ -172,7 +172,7 @@
 
                       "susanoo_it1_borda": "textures/tudo/uchiha/susanoo/susanoo_it1_borda",
                       "susanoo_it1": "textures/tudo/uchiha/susanoo/susanoo_it1",
-                      "susanoo_it1_f1": "textures/tudo/uchiha/susanoo/susanoo_it1_f1",
+                      "susanoo_it1_f1": "textures/tudo/uchiha/susanoo/susanoo_it1",
                       "susanoo_it1_f2": "textures/tudo/uchiha/susanoo/susanoo_it1_f2",
                       "susanoo_it1_f3": "textures/tudo/uchiha/susanoo/susanoo_it1_f3",
                       "susanoo_it1_f4": "textures/tudo/uchiha/susanoo/susanoo_it1_f4",
@@ -466,6 +466,7 @@
 
 
 "animate": [
+"tnt_player_reacao",
 {"remover_roupas": "query.property('tnt:kurama') == 6"},
 {"remover_roupas": "query.property('tnt:kurama') == 8"},
 {"remover_roupas": "query.property('tnt:kurama') == 7"},
@@ -555,6 +556,8 @@
 
 
 "animations": {
+        "tnt_player_reacao": "controller.animation.tnt_player.reacao",
+        "tnt_player_dano": "animation.tnt_player.dano",
         "bastao_gudoudama_retirar": "animation.bastao_gudoudama_retirar",
         "remover_fran": "animation.remover_fran",
 
