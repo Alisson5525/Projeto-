@@ -63,6 +63,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - Impacto final da **Rasen Shuriken** (`rasen_shuriken_inpact_jt_3`) que estava faltando agora existe.
 - **Sharingan brilhante**: os Uchiha do mundo têm os olhos vermelhos emissivos (brilham no escuro), alinhados pixel a pixel com cada variação de skin.
 - **Skins**: passe de volume (luz de cima, sombra em mãos/pés, oclusão nas quinas) em 35 skins de mobs e NPCs.
+- **Sombreamento guiado pela geometria** (lê a UV de cada face do modelo): Kurama, Shukaku, cabelos (Naruto/Sasuke/Madara), corpo do jogador, manto ANBU, máscaras e as 10 armas (Samehada, Kubikiribocho, Kiba, Shibuki…).
 - Novo ícone do Pergaminho Ninja.
 
 ## 6. Correções de bugs
