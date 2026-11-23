@@ -126,3 +126,27 @@ system.runInterval(() => {
     } catch {}
   }
 }, 20);
+
+/* Rede de seguranca: o monte fica no vazio do End. Quem cair abaixo da base e
+   resgatado pelos sapos de volta ao topo (nunca morre no vazio). */
+system.runInterval(() => {
+  for (const player of world.getPlayers()) {
+    try {
+      if (player.dimension.id !== "minecraft:the_end") continue;
+      const l = player.location;
+      // Monte Myoboku (-500, -500): base em y=90
+      if (Math.abs(l.x - CENTRO.x) <= 80 && Math.abs(l.z - CENTRO.z) <= 80 && l.y < ORIGEM_ESTRUTURA.y - 6) {
+        player.addEffect("slow_falling", 20 * 10, { amplifier: 0, showParticles: false });
+        player.teleport(CHEGADA, { dimension: player.dimension });
+        particula(player.dimension, "tnt:ns_fumaca_ninja", CHEGADA);
+        msg(player, "§2Os sapos do Monte Myoboku te resgataram da queda!");
+      }
+      // Kamui original (500, 500): estrutura carregada a partir de y=94
+      else if (Math.abs(l.x - 500) <= 80 && Math.abs(l.z - 500) <= 80 && l.y < 88) {
+        player.addEffect("slow_falling", 20 * 10, { amplifier: 0, showParticles: false });
+        player.teleport({ x: 500.5, y: 101, z: 500.5 }, { dimension: player.dimension });
+        msg(player, "§5A dimensão Kamui te puxou de volta.");
+      }
+    } catch {}
+  }
+}, 4);

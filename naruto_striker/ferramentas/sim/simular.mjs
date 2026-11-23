@@ -139,6 +139,10 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const bloqueou=p1.location.x===3000;
   steps(20*60*5); se('ns:konoha',p1); steps(5); const denovo=Math.abs(p1.location.x)<100;
   console.log('teste konoha: foi',longe,'| recarga bloqueou',bloqueou,'| apos 5min',denovo); if(!(longe&&bloqueou&&denovo)) S.errors.push({where:'konoha',msg:'viagem incorreta',stack:''}); }
+// teste queda myoboku: cair abaixo da base no End -> resgate ao topo
+{ p1.teleport({x:-490,y:40,z:-505},{dimension:S.dims.the_end}); steps(6);
+  const ok=p1.location.y>150; console.log('teste queda myoboku: resgatado', ok); if(!ok) S.errors.push({where:'myoboku queda',msg:'nao resgatou',stack:''});
+  p1.teleport({x:5,y:70,z:5},{dimension:ow}); steps(2); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));
