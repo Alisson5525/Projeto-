@@ -24,3 +24,19 @@ system.runInterval(() => {
     } catch {}
   }
 }, 1);
+
+/* execute_jutsus.mcfunction usa seletores globais (@e[tag=amaterasu], @e[tag=genjutsu]...).
+   Antes era chamado por CADA jogador a cada tick: com N jogadores, particulas e efeitos
+   eram aplicados N vezes por tick. Agora roda uma vez por tick em cada dimensao com jogadores. */
+system.runInterval(() => {
+  const dims = new Set();
+  for (const p of world.getPlayers()) {
+    try { dims.add(p.dimension.id); } catch {}
+  }
+  for (const id of dims) {
+    const dim = world.getDimension(id);
+    try { dim.runCommand("function execute_jutsus"); } catch {
+      try { dim.runCommandAsync("function execute_jutsus"); } catch {}
+    }
+  }
+}, 1);
