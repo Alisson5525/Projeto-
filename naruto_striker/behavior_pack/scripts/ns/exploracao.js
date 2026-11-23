@@ -32,7 +32,11 @@ function hash(x, z, d) {
 
 function nomeRegiao(x, z, dimId) {
   if (dimId.includes("nether")) return "Dimensão do Fogo Infernal";
-  if (dimId.includes("end")) return "Dimensão Kamui";
+  if (dimId.includes("end")) {
+    // regioes de 192 blocos: (-500,-500) cai na regiao (-3,-3)
+    if (x === -3 && z === -3) return "Monte Myoboku";
+    return "Dimensão Kamui";
+  }
   if (x === 0 && z === 0) return "Arredores da Vila Oculta";
   const h = hash(x, z, dimId);
   return `${LUGAR[h % LUGAR.length]} ${COMPLEMENTO[(h >>> 8) % COMPLEMENTO.length]}`;
