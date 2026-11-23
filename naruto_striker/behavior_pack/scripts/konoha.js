@@ -97,6 +97,8 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             */
 
             world.setDynamicProperty(PROPERTY_NAME, true);
+            // ponto de chegada da vila (usado pela Viagem Rapida do Pergaminho Ninja)
+            try { world.setDynamicProperty("ns:konoha_pos", JSON.stringify({ x: x + 6.5, y: y + 2, z: z + 31.5 })); } catch (e) {}
 
             // libera a area de carregamento forcado (antes ficava ativa para sempre)
             runTimeoutSeguro(() => {

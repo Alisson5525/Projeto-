@@ -47,3 +47,4 @@ import "./ns/missoes";
 import "./ns/eventos";
 import "./ns/otimizacoes";
 import "./ns/myoboku";
+import "./ns/viagem";
