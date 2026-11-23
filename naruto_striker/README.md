@@ -67,6 +67,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 ## 5. Visuais
 
 - **19 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
+- **Transformação**: ao ativar um modo (Sharingan, Kurama, Portões…) há uma explosão de chakra na cor do modo, onda de choque, detritos e tremor de câmera; ao terminar, um "puf" de fumaça.
 - **Trilhas de energia** nos projéteis: Bijudama (roxo), Tubarão (azul), Terra, Rasen Shuriken (vento) e o projétil do Shukaku.
 - Impacto final da **Rasen Shuriken** (`rasen_shuriken_inpact_jt_3`) que estava faltando agora existe.
 - **Sharingan brilhante**: os Uchiha do mundo têm os olhos vermelhos emissivos (brilham no escuro), alinhados pixel a pixel com cada variação de skin.

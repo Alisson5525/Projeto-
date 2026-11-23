@@ -8,7 +8,7 @@ const estado = new Map(); // playerId -> { vyAnterior, parado, ultimoBatimento }
 function st(player) {
   let s = estado.get(player.id);
   if (!s) {
-    s = { vyAnterior: 0, parado: 0, ultimoBatimento: 0, ultimaPos: null };
+    s = { vyAnterior: 0, parado: 0, ultimoBatimento: 0, ultimaPos: null, modoAntes: null };
     estado.set(player.id, s);
   }
   return s;
@@ -66,8 +66,24 @@ system.runInterval(() => {
       const cfg = config(player);
       const loc = player.location;
 
+      // explosao de chakra ao ativar um modo / fumaca ao desativar
+      const modoAgora = emModo(player);
+      if (s.modoAntes !== null && modoAgora !== s.modoAntes) {
+        if (modoAgora) {
+          const cor = corDoChakra(player);
+          particula(player.dimension, "tnt:ns_onda", { x: loc.x, y: loc.y + 0.1, z: loc.z });
+          particula(player.dimension, "tnt:ns_flash", { x: loc.x, y: loc.y + 1, z: loc.z });
+          for (let i = 0; i < 4; i++) particula(player.dimension, "tnt:ns_aura", loc, cor);
+          particula(player.dimension, "tnt:ns_detritos", loc);
+          tremer(player, 0.35, 0.5);
+        } else {
+          particula(player.dimension, "tnt:ns_fumaca_ninja", loc);
+        }
+      }
+      s.modoAntes = modoAgora;
+
       // aura de chakra enquanto algum modo esta ativo
-      if (cfg.aura && emModo(player)) {
+      if (cfg.aura && modoAgora) {
         particula(player.dimension, "tnt:ns_aura", loc, corDoChakra(player));
       }
 
