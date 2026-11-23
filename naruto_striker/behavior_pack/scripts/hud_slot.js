@@ -165,6 +165,9 @@ function ratio(value, max, steps) {
 /* =======================================================
    HUD
 ======================================================= */
+const hudEnviado = new Map(); // playerId -> ultimo titulo/barra enviados
+mc.world.afterEvents.playerLeave.subscribe((ev) => hudEnviado.delete(ev.playerId));
+
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     try {
@@ -189,19 +192,25 @@ mc.system.runInterval(() => {
       getScore("health_stats3", player) +
       getScore("health_dna", player);
 
-    player.onScreenDisplay.setTitle(
+    const titulo = (
       `[charge_bijuu${ratio(getScore("charge_bijuu", player), getScore("charge_bijuu_max", player), 11)}]` +
       `[clans${getScore("clans", player)}]` +
       `[hp${ratio(currentHealth, maxHealth, 20)}]` +
       `[chakra${ratio(getScore("chakra", player), getScore("chakra_max", player), 20)}]` +
       `[${itemName}]`
     );
-
-    player.onScreenDisplay.setActionBar(
+    const barra = (
       `${Math.round(currentHealth)}/${Math.round(maxHealth)}` +
       `                       ` +
       `${Math.round(getScore("chakra", player))}/${Math.round(getScore("chakra_max", player))}`
     );
+
+    // so reenvia quando muda (ou a cada 10 ticks para nao expirar): antes eram 40 pacotes/s por jogador
+    const ult = hudEnviado.get(player.id);
+    const renovar = mc.system.currentTick % 10 === 0;
+    if (renovar || !ult || ult.t !== titulo) player.onScreenDisplay.setTitle(titulo);
+    if (renovar || !ult || ult.a !== barra) player.onScreenDisplay.setActionBar(barra);
+    hudEnviado.set(player.id, { t: titulo, a: barra });
   
     } catch (e) {}
   }
