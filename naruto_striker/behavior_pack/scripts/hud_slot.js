@@ -243,7 +243,7 @@ mc.system.runInterval(() => {
     if (currentHealth !== Math.floor(vidaReal)) {
       player.runCommandAsync(
         `scoreboard players set @s current_health ${Math.floor(vidaReal)}`
-      );
+      )?.catch?.(() => {});
     }
   
     } catch (e) {}

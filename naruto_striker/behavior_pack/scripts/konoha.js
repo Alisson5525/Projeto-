@@ -64,9 +64,10 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             =======================================================
             */
 
+            // se falhar (ex.: limite de areas de ticking), segue para carregar a estrutura mesmo assim
             await player.runCommandAsync(
                 `tickingarea add circle ${x} ${y} ${z} 4 estrutura_spawn`
-            );
+            ).catch(() => {});
 
             /*
             =======================================================

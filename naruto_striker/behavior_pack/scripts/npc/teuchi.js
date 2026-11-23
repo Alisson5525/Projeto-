@@ -178,12 +178,12 @@ ${ITEMS.map(item =>
       // give
       player.runCommandAsync(
         `give @s ${item.item} ${amount}`
-      );
+      )?.catch?.(() => {});
 
       // remove tp
       player.runCommandAsync(
         `scoreboard players remove @s tp ${totalPrice}`
-      );
+      )?.catch?.(() => {});
 
       // reopen
       runTimeoutSeguro(() => {

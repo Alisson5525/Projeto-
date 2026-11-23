@@ -107,24 +107,24 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
     }, 0);
 
 
-    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.1 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.3 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});}, 0.1 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});}, 0.3 * 36);
 
     runTimeoutSeguro(() => {
       player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});
       damage(player, 4, 3, 3);
     }, 0.13 * 36);
 
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
 
 
     runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 36);
