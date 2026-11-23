@@ -2,12 +2,16 @@ import fs from 'node:fs'; import path from 'node:path';
 const ROOT = process.argv[2]; const BP=path.join(ROOT,'behavior_pack'), RP=path.join(ROOT,'resource_pack');
 const S = globalThis.__SIM = {};
 if (process.env.LUCKY) { Math.random = () => 0.01; }
+process.on('unhandledRejection', (e) => { (globalThis.__SIM.errors ||= []).push({ where: 'promise', msg: String(e && e.message || e), stack: (e && e.stack || '').split('\n').slice(1,4).join(' | ') }); });
 function walk(d,a=[]){ for(const f of fs.readdirSync(d)){ const p=path.join(d,f); if(fs.statSync(p).isDirectory()) walk(p,a); else a.push(p);} return a; }
 function strip(s){return s.replace(/^﻿/,'').replace(/\/\/[^\n"]*$/gm,'');}
 S.knownParticles=new Set(); for(const f of walk(path.join(RP,'particles'))) { try{ S.knownParticles.add(JSON.parse(strip(fs.readFileSync(f,'utf8'))).particle_effect.description.identifier);}catch{} }
 S.knownEntities=new Set(); for(const f of walk(path.join(BP,'entities'))) { const m=fs.readFileSync(f,'utf8').match(/"identifier"\s*:\s*"([^"]+)"/); if(m) S.knownEntities.add(m[1]); }
 S.knownFunctions=new Set(walk(path.join(BP,'functions')).filter(f=>f.endsWith('.mcfunction')).map(f=>path.relative(path.join(BP,'functions'),f).replace(/\.mcfunction$/,'')));
 const items=[]; for(const f of walk(path.join(BP,'items'))){ const m=fs.readFileSync(f,'utf8').match(/"identifier"\s*:\s*"([^"]+)"/); if(m) items.push(m[1]); }
+S.knownItems=new Set(items);
+S.knownStructures=new Set(walk(path.join(BP,'structures')).map(f=>path.basename(f,'.mcstructure')));
+try { const sd=JSON.parse(fs.readFileSync(path.join(RP,'sounds','sound_definitions.json'),'utf8')); S.knownSounds=new Set(Object.keys(sd.sound_definitions||sd)); } catch { S.knownSounds=new Set(); }
 // copia scripts
 const dst=path.join(path.dirname(new URL(import.meta.url).pathname),'.scripts_copia'); fs.rmSync(dst,{recursive:true,force:true}); fs.cpSync(path.join(BP,'scripts'),dst,{recursive:true});
 const mc = await import('@minecraft/server');
@@ -60,6 +64,22 @@ p1._health.currentValue=1; p1.applyDamage(50,{cause:'entityAttack',damagingEntit
 world.afterEvents.playerLeave.fire({playerId:p2.id, playerName:p2.name}); p2._valid=false; steps(200);
 // navegar no menu do perfil: abrir -> conquistas -> voltar -> ajustes -> toggle -> voltar
 globalThis.__UISEL=[0,0,1,0,4,3, 3,0,1]; se('ns:perfil',p1); for(let i=0;i<6;i++){ await new Promise(r=>setTimeout(r,0)); steps(1); } se('ns:perfil',p1); for(let i=0;i<10;i++){ await new Promise(r=>setTimeout(r,0)); steps(1); }
+// clica em cada botao de cada menu (0..12) para exercitar as respostas dos formularios
+if (process.env.MENUS) {
+  const menus = items.filter(id => /menu|pergaminho|escolha_clan|selo|clan/.test(id));
+  for (const id of menus) {
+    for (let sel = 0; sel < 13; sel++) {
+      globalThis.__UISEL = [sel, 0, 0];
+      p1._inv.container.slots[0] = new S.ItemStack(id);
+      world.beforeEvents.itemUse.fire({ source: p1, itemStack: new S.ItemStack(id) });
+      for (let i = 0; i < 6; i++) { await new Promise(r => setTimeout(r, 0)); steps(1); }
+    }
+  }
+  for (const npc of ['npc:teuchi','npc:jiraiya','npc:guy','npc:iruka','npc:tsunade_hokage','npc:orochimaru','ns:perfil','ns:bingo']) {
+    for (let sel = 0; sel < 13; sel++) { globalThis.__UISEL = [sel, 0, 0]; se(npc, p1); for (let i = 0; i < 6; i++) { await new Promise(r => setTimeout(r, 0)); steps(1); } }
+  }
+  steps(100);
+}
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('ticks',S.tick,'cmds',S.cmds.length,'particles',S.particles.length,'errors',S.errors.length);

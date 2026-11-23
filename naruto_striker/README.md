@@ -91,7 +91,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 ## Como foi testado
 
 - Validação de **todos os JSON** (0 inválidos) e de referências cruzadas (texturas, modelos, animações, controladores, partículas, sons, funções, entidades, eventos).
-- **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 137 itens, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, morte, saída de jogador e navegação completa dos menus → **0 erros**.
+- **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 136 itens, clique em cada botão de cada menu, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, morte, saída de jogador e navegação completa dos menus → **0 erros**.
 
 Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Node.js 20+).
 

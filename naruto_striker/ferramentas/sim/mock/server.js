@@ -107,6 +107,9 @@ class Dimension { constructor(id){ this.id='minecraft:'+id; this._ents=[]; }
 function checkCmd(c){ if(typeof c!=='string') throw new TypeError('command must be string'); const s=c.replace(/^\//,'').trim();
   let m=s.match(/^function\s+(\S+)/); if(m && !S.knownFunctions.has(m[1])) S.unknown.push('function missing: '+m[1]);
   m=s.match(/(?:^|run )particle\s+(\S+)/); if(m && !S.knownParticles.has(m[1]) && !m[1].startsWith('minecraft:')) S.unknown.push('particle missing: '+m[1]);
+  m=s.match(/(?:^|run )(?:give|replaceitem\s+entity\s+\S+\s+\S+\s+\d+|clear)\s+\S*\s*(tnt:[a-z0-9_]+)/); if(m && S.knownItems && !S.knownItems.has(m[1])) S.unknown.push('item missing: '+m[1]+' <- '+s.slice(0,80));
+  m=s.match(/(?:^|run )playsound\s+([a-zA-Z0-9_.]+)/); if(m && S.knownSounds && S.knownSounds.size && !S.knownSounds.has(m[1]) && !/^(random|mob|note|ambient|block|dig|step|game|use|fire|liquid|item|armor|damage|portal|beacon|bucket|conduit|elytra|break|bottle|crossbow|firework|hit|jump|land|tile|camera|cauldron|minecart|music|raid|record|ui|trident|chime|respawn_anchor|bubble|leashknot|place|attack|bell|apply_effect|smithing_table|vr)/.test(m[1])) S.unknown.push('sound missing: '+m[1]);
+  m=s.match(/(?:^|run )structure\s+load\s+(\S+)/); if(m && S.knownStructures && !S.knownStructures.has(m[1].replace(/"/g,''))) S.unknown.push('structure missing: '+m[1]);
   m=s.match(/(?:^|run )summon\s+(\S+)/); if(m && !S.knownEntities.has(m[1]) && !m[1].startsWith('minecraft:') && m[1].includes(':')) S.unknown.push('summon missing: '+m[1]);
 }
 const dims={ overworld:new Dimension('overworld'), nether:new Dimension('nether'), the_end:new Dimension('the_end') };

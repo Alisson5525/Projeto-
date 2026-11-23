@@ -11,4 +11,5 @@ echo "== 3/4 Entidades e eventos"; node ferramentas/entidades.js behavior_pack |
 echo "== 4/4 Simulacao dos scripts"
 (cd ferramentas/sim && node --import ./registrar.mjs simular.mjs "$(cd ../.. && pwd)" | grep -E "^ticks|^ERR|^      |UNKNOWN|^   [a-z]|RESULTADO") || falhou=1
 (cd ferramentas/sim && LUCKY=1 node --import ./registrar.mjs simular.mjs "$(cd ../.. && pwd)" | grep -E "RESULTADO") || falhou=1
+(cd ferramentas/sim && MENUS=1 node --import ./registrar.mjs simular.mjs "$(cd ../.. && pwd)" | grep -E "^ERR|^      |RESULTADO") || falhou=1
 exit $falhou
