@@ -190,6 +190,56 @@ for p in list(walk(f'{RP}/entity')) + list(walk(f'{RP}/attachables')):
             if k not in mapas[tipo] and not (tipo == 'Material' and k == 'default'):
                 problemas.append(f'render controller {rid} usa {tipo}.{k} ausente em {p}')
 
+# ---------- propriedades de entidade ----------
+props = {}
+for p in walk(f'{BP}/entities'):
+    if not p.endswith('.json'):
+        continue
+    e = rj(p).get('minecraft:entity')
+    if not e:
+        continue
+    decl = e['description'].get('properties', {})
+    props[e['description']['identifier']] = set(decl)
+    def _visita(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if k == 'set_property' and isinstance(v, dict):
+                    for nome, val in v.items():
+                        if nome not in decl:
+                            problemas.append(f'set_property de propriedade nao declarada: {nome} ({p})')
+                        elif not isinstance(val, str) and 'range' in decl[nome] and not (decl[nome]['range'][0] <= val <= decl[nome]['range'][1]):
+                            problemas.append(f'set_property fora do intervalo: {nome}={val} ({p})')
+                _visita(v)
+        elif isinstance(o, list):
+            for v in o:
+                _visita(v)
+    _visita(e.get('events', {}))
+_acs, _anims, _rcs = {}, {}, {}
+for p in walk(f'{RP}/animation_controllers'):
+    if p.endswith('.json'):
+        _acs.update(rj(p).get('animation_controllers', {}))
+for p in walk(f'{RP}/animations'):
+    if p.endswith('.json'):
+        _anims.update(rj(p).get('animations', {}))
+for p in walk(f'{RP}/render_controllers'):
+    if p.endswith('.json'):
+        _rcs.update(rj(p).get('render_controllers', {}))
+for p in walk(f'{RP}/entity'):
+    if not p.endswith('.json'):
+        continue
+    d = rj(p)['minecraft:client_entity']['description']
+    i = d['identifier']
+    if i not in props:
+        continue
+    txt = json.dumps(d)
+    for v in d.get('animations', {}).values():
+        txt += json.dumps(_acs.get(v, {})) + json.dumps(_anims.get(v, {}))
+    for r in d.get('render_controllers', []):
+        txt += json.dumps(_rcs.get(r if isinstance(r, str) else next(iter(r)), {}))
+    for q in set(re.findall(r"q(?:uery)?\.property\(\s*'([^']+)'", txt)):
+        if q not in props[i]:
+            problemas.append(f'{i}: query.property({q}) sem declaracao no BP')
+
 for pr in sorted(set(problemas)):
     print(pr)
 print(f'auditorias: {len(set(problemas))} problema(s)')
