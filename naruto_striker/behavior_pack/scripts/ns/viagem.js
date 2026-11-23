@@ -40,6 +40,11 @@ function viajarKonoha(player) {
       if (!valido(player)) return;
       particula(player.dimension, "tnt:ns_fumaca_ninja", player.location);
       particula(player.dimension, "tnt:ns_folhas", player.location);
+      // chuva de petalas de sakura dando as boas-vindas a vila
+      const l = player.location;
+      for (let i = 0; i < 6; i++) {
+        particula(player.dimension, "tnt:ns_petala", { x: l.x + (Math.random() - 0.5) * 6, y: l.y + 3 + Math.random() * 2, z: l.z + (Math.random() - 0.5) * 6 });
+      }
       som(player, "mob.endermen.portal", 1, 1.1);
       msg(player, "§2Você chegou à §lVila da Folha§r§2. §7(próxima viagem em 5 minutos)");
     }, 2);
