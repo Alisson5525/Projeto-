@@ -13,7 +13,7 @@
         "movement_modifier": 0.35,
         "use_duration": 99999
       },
-      "minecraft:foil": true,
+      "minecraft:glint": true,
 
       "minecraft:durability":{
         "max_durability": 10000
