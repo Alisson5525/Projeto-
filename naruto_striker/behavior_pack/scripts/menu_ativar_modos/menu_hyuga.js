@@ -80,7 +80,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:byakugan');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 1:
@@ -90,7 +90,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:byakugan_evoluido');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 2:
@@ -100,7 +100,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:tenseigan');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 3:
@@ -110,7 +110,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:tenseigan_manto');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -131,4 +131,15 @@ break;
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }
+}
+
+
+// Aviso quando o botao de modo nao pode ativar (antes: nada acontecia)
+function avisoModo(player) {
+  try {
+    const ativo = player.hasTag("modo_ativado") || player.hasTag("modo_ativado_2");
+    player.sendMessage(ativo
+      ? "§c[!] §7Já existe um modo ativo. Espere ele terminar para ativar outro."
+      : "§c[!] §7Modo bloqueado ou em recarga. Desbloqueie-o na Árvore de Modos.");
+  } catch (e) {}
 }

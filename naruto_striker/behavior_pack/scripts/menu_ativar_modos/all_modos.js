@@ -125,7 +125,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 3:
@@ -135,7 +135,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao_v1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 4:
@@ -145,7 +145,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao_v2');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 5:
@@ -155,7 +155,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s sennin:modo_sennin_incompleto');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 6:
@@ -165,7 +165,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s sennin:modo_sennin_perfeito');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -176,7 +176,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:primeiro_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 8:
@@ -186,7 +186,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:segundo_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 9:
@@ -196,7 +196,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:terceiro_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 10:
@@ -206,7 +206,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:quarto_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 11:
@@ -216,7 +216,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:quinto_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 12:
@@ -226,7 +226,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:sexto_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 13:
@@ -236,7 +236,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:setimo_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 14:
@@ -246,7 +246,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:oitavo_portao');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 15:
@@ -260,7 +260,7 @@ player.runCommand('execute as @s[hasitem=[{item=tnt:olho_sharingan,location=slot
 player.runCommand('execute as @s[hasitem=[{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run clear @s tnt:olho_sharingan 0 7 ');
 
 }, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 16:
@@ -270,7 +270,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s byakugou:ativado');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -282,7 +282,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:rinnegan_esquerdo');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -294,7 +294,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s suigetsu:ativado');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -381,7 +381,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -393,7 +393,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_3');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -405,7 +405,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_4');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -417,7 +417,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_6');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -429,7 +429,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_kurama_1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -441,7 +441,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_kurama_2');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -464,7 +464,7 @@ player.runCommand('/camera @s fov_clear');
 }, 5);
 
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 6);
-}
+} else { avisoModo(player); }
 break;
 
 
@@ -492,4 +492,15 @@ break;
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }
+}
+
+
+// Aviso quando o botao de modo nao pode ativar (antes: nada acontecia)
+function avisoModo(player) {
+  try {
+    const ativo = player.hasTag("modo_ativado") || player.hasTag("modo_ativado_2");
+    player.sendMessage(ativo
+      ? "§c[!] §7Já existe um modo ativo. Espere ele terminar para ativar outro."
+      : "§c[!] §7Modo bloqueado ou em recarga. Desbloqueie-o na Árvore de Modos.");
+  } catch (e) {}
 }

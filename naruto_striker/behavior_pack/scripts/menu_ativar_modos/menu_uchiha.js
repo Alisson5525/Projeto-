@@ -88,7 +88,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:sharingan');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 1:
@@ -98,7 +98,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_itachi');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break;
 
 case 2:
@@ -108,7 +108,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_sasuke');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 case 3:
@@ -118,7 +118,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_obito');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 //susanoo itachi
@@ -129,7 +129,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_itachi_f1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 case 5:
@@ -139,7 +139,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_itachi_f2');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 //susanoo sasuke
@@ -150,7 +150,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_sasuke_f1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 case 7:
@@ -160,7 +160,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_sasuke_f2');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 //susanoo sasuke
@@ -171,7 +171,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_obito_f1');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 case 9:
@@ -181,7 +181,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_obito_f2');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 case 10:
@@ -191,7 +191,7 @@ runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:rinnegan');
 }, 3);
 runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
-}
+} else { avisoModo(player); }
 break; 
 
 
@@ -214,4 +214,15 @@ break;
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }
+}
+
+
+// Aviso quando o botao de modo nao pode ativar (antes: nada acontecia)
+function avisoModo(player) {
+  try {
+    const ativo = player.hasTag("modo_ativado") || player.hasTag("modo_ativado_2");
+    player.sendMessage(ativo
+      ? "§c[!] §7Já existe um modo ativo. Espere ele terminar para ativar outro."
+      : "§c[!] §7Modo bloqueado ou em recarga. Desbloqueie-o na Árvore de Modos.");
+  } catch (e) {}
 }

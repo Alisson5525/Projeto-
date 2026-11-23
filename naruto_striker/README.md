@@ -134,6 +134,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | (sistemas novos) Entidades de jutsu com vida (Prisão de Terra 5000 HP, espinhos, Amaterasu…) dariam até 1500 XP, números de dano e até "fúria" | XP, feedback, fúria e contratos só para criaturas reais (famílias ninja/mobs/bijus/boss/monster) |
 | Kamui fica no vazio do End: cair da estrutura matava o jogador (perdendo os itens) | Rede de segurança: quem cai abaixo da base volta ao ponto de chegada (Kamui e Monte Myoboku) |
 | Modo história: clicar numa missão bloqueada ou já concluída não fazia nada (sem explicação) | Mensagem "Missão indisponível: já concluída ou bloqueada" |
+| Menus de ativar modos: clicar num modo bloqueado ou com outro modo ativo não fazia nada | Aviso explicando o motivo (39 botões; botões vazios e "desativar" inalterados) |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
