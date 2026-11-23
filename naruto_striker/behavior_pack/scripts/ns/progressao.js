@@ -204,6 +204,7 @@ export async function abrirPerfil(player) {
     `§7Chefes derrotados: §f${lerNum(player, "ns:chefes", 0)}\n` +
     `§7Chefes diferentes vencidos: §f${(() => { const l = lerJSON(player, "ns:primeiras", []); return Array.isArray(l) ? l.length : 0; })()}\n` +
     `§7Golpes críticos: §f${lerNum(player, "ns:criticos", 0)}\n` +
+    `§7Ataques furtivos: §f${lerNum(player, "ns:assassinatos", 0)}§7 · Emboscadas repelidas: §f${lerNum(player, "ns:emboscadas_ok", 0)}\n` +
     `§7Maior combo: §f${lerNum(player, "ns:combo_max", 0)} golpes\n` +
     `§7Regiões descobertas: §f${lerNum(player, "ns:regioes_n", 0)}\n` +
     `§7Conquistas: §f${feitas.length}§7/§f${CONQUISTAS.length}\n` +
