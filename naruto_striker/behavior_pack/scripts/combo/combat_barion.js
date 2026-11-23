@@ -1,5 +1,12 @@
 import * as mc from "@minecraft/server";
 
+// Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return mc.system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     if (player.getProperty("tnt:kurama") != 7) continue;
@@ -10,15 +17,15 @@ mc.system.runInterval(() => {
       player.addTag("combo1");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage(player, 35, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) player.removeTag("combo1");
       }, 0.4 * 20);
     }
@@ -29,15 +36,15 @@ mc.system.runInterval(() => {
       player.addTag("combo2");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage(player, 35, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -51,15 +58,15 @@ mc.system.runInterval(() => {
       player.addTag("combo3");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage(player, 35, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -74,15 +81,15 @@ mc.system.runInterval(() => {
       player.addTag("combo4");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage(player, 35, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -99,15 +106,15 @@ mc.system.runInterval(() => {
       player.addTag("combo5");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage2(player, 45, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -125,15 +132,15 @@ mc.system.runInterval(() => {
       player.addTag("combo6");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage2(player, 45, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -152,15 +159,15 @@ mc.system.runInterval(() => {
       player.addTag("combo7");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage2(player, 45, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -180,15 +187,15 @@ mc.system.runInterval(() => {
       player.addTag("combo8");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage2(player, 45, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -209,15 +216,15 @@ mc.system.runInterval(() => {
       player.addTag("combo9");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
-      mc.system.runTimeout(() => damage2(player, 45, 2, 3), 0.13 * 20);
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -246,23 +253,23 @@ mc.system.runInterval(() => {
       player.addTag("combo10");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("camerashake add @s 0.1 0.2 rotational");
         player.runCommandAsync("execute as @e[rm=0.5,r=5,c=1,type=!item,type=!xp_orb] at @s run tp @a[c=1] ^ ^1 ^-1.5 facing @s");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("tp @s ~~6~");
         damage2(player, 4, 3, 3);
       }, 0.1 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         // olha para baixo
         player.runCommandAsync("tp @s ~ ~ ~ ~ 100");
         damage2(player, 4, 3, 3);
       }, 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         // ativa dash + marca impacto
         player.runCommandAsync("tag @s add dash");
         player.runCommandAsync("tag @s add impacto");
@@ -270,9 +277,9 @@ mc.system.runInterval(() => {
         damage2(player, 4, 3, 3);
       }, 0.4 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.2 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.2 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -296,7 +303,7 @@ mc.system.runInterval(() => {
       player.runCommandAsync("particle tnt:impact_chao");
       player.runCommandAsync("playsound random.explode @a[r=35] ~ ~ ~ 1 1");
       player.removeTag("impacto");
-      mc.system.runTimeout(() => player.removeTag("dano_barion"), 0.1 * 20);
+      runTimeoutSeguro(() => player.removeTag("dano_barion"), 0.1 * 20);
 
     }
   }

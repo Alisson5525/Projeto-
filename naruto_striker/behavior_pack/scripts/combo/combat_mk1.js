@@ -1,5 +1,12 @@
 import * as mc from "@minecraft/server";
 
+// Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return mc.system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     if (player.getProperty("tnt:kurama") != 4) continue;
@@ -10,17 +17,17 @@ mc.system.runInterval(() => {
       player.addTag("combo1");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 12, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
         }
@@ -33,17 +40,17 @@ mc.system.runInterval(() => {
       player.addTag("combo2");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 12, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -57,17 +64,17 @@ mc.system.runInterval(() => {
       player.addTag("combo3");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 12, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -92,34 +99,34 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
     player.addTag("delay");
 
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
     }, 0);
 
 
-    mc.system.runTimeout(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.1 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.3 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.1 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.3 * 36);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");
       damage(player, 4, 3, 3);
     }, 0.13 * 36);
 
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
-    mc.system.runTimeout(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
+    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
 
 
-    mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 36);
+    runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 36);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       if (!player.hasTag("delay")) {
         player.removeTag("combo1");
         player.removeTag("combo2");

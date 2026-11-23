@@ -1,5 +1,12 @@
 import * as mc from "@minecraft/server";
 
+// Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return mc.system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     if (player.getProperty("tnt:uchiha") != 7) continue;
@@ -10,17 +17,17 @@ mc.system.runInterval(() => {
       player.addTag("combo1");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 11, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
         }
@@ -33,17 +40,17 @@ mc.system.runInterval(() => {
       player.addTag("combo2");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 11, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -57,17 +64,17 @@ mc.system.runInterval(() => {
       player.addTag("combo3");
       player.addTag("delay");
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         damage(player, 11, 2, 3);
       }, 0.13 * 20);
 
-      mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+      runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-      mc.system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         if (!player.hasTag("delay")) {
           player.removeTag("combo1");
           player.removeTag("combo2");
@@ -91,26 +98,26 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
     player.addTag("combo4");
     player.addTag("delay");
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       player.runCommandAsync("tag @s add susanoo_it1_corte");
     }, 0 * 20);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       player.runCommandAsync(`summon tnt:susanoo_it1_corte ~ ~ ~ ~ ~100`);
     }, 0.1);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       player.runCommandAsync("tag @s remove susanoo_it1_corte");
     }, 0.4 * 20);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       damage(player, 11, 2, 3);
     }, 0.13 * 20);
 
-    mc.system.runTimeout(() => player.removeTag("delay"), 0.5 * 20);
+    runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 20);
 
-    mc.system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       if (!player.hasTag("delay")) {
         player.removeTag("combo1");
         player.removeTag("combo2");

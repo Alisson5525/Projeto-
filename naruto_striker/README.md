@@ -100,6 +100,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Meteoro do Rinnegan alterava blocos dentro de `beforeEvents` (somente leitura): a casca da cratera, a fumaça e o som nunca aconteciam; e apagava 10.000 blocos por tick | Alterações adiadas para o tick seguinte, lotes de 2.500, dimensão correta e blocos especiais protegidos |
 | Kamui (Obito): o intervalo que segura o jogador no ar podia rodar para sempre (erro a cada tick se o jogador saísse); `tp "nome"` quebrava com nomes especiais | Limite de 15 s + validação; `tp @s` |
 | Selamento de bijuu: divisão 0/0 (posição inválida) com o bijuu a menos de 1 bloco interrompia o laço para todos; estado de carga não era limpo ao sair | Mínimo de 1 passo, erro isolado por jogador, limpeza na saída |
+| Combos (Barion, Manto Kurama, Susanoos) geravam erros se o jogador saísse no meio do combo; `items_tags.js` lia o inventário 20× por segundo por jogador | Agendamentos protegidos; leitura única do inventário |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 

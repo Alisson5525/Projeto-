@@ -133,18 +133,16 @@ system.runInterval(() => {
 
     const state = playerState.get(player.id);
 
-    // 🔍 loop em todos os itens
+    // 🔍 le o inventario UMA vez (antes: 1 varredura completa por item configurado)
+    const presentes = new Set();
+    for (let i = 0; i < inv.size; i++) {
+      const item = inv.getItem(i);
+      if (item) presentes.add(item.typeId);
+    }
+
     for (const itemConfig of ITEMS) {
 
-      let hasItem = false;
-
-      for (let i = 0; i < inv.size; i++) {
-        const item = inv.getItem(i);
-        if (item && item.typeId === itemConfig.id) {
-          hasItem = true;
-          break;
-        }
-      }
+      const hasItem = presentes.has(itemConfig.id);
 
       const lastState = state[itemConfig.id];
 
