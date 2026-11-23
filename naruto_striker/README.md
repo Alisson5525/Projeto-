@@ -165,7 +165,8 @@ Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Nod
 9. Ande ~200 blocos em linha reta → **nova região** com nome, folhas caindo e às vezes um **esconderijo** com fumaça dourada.
 10. `/summon tnt:kurama_biju` (longe da base) → caudas em **onda**, barra de vida colorida e **fúria** abaixo de 50%.
 11. Com nível 15+ use o Pergaminho Ninja (ou `/scriptevent ns:myoboku`) → **Monte Myoboku**; agache parado lá para treinar.
-12. `/scriptevent ns:config` → painel de configuração do mundo.
+12. `/give @s tnt:ns_bomba_fumaca 4` → use a bomba e golpeie um inimigo invisível (**ASSASSINATO!**); `/give @s tnt:ns_pilula_soldado` → +50% de chakra.
+13. `/scriptevent ns:config` → painel de configuração do mundo.
 
 ## Estrutura
 

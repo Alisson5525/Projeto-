@@ -284,7 +284,7 @@ async function abrirGuia(player) {
     "§7- Ninjas do mundo podem usar §fKawarimi§7 e reaparecer\n  atrás de você. §6[ELITE]§7 valem 3x XP.\n" +
     "§7- Chefes abaixo de 50% de vida ficam §cenfurecidos§7.\n\n" +
     "§eFerramentas ninja (bancada):\n" +
-    "§7- §fBomba de Fumaça§7: 1 pólvora + 2 carvões (fuga invisível).\n" +
+    "§7- §fBomba de Fumaça§7: 1 pólvora + 2 carvões (fuga invisível;\n  golpear invisível = §8ASSASSINATO§7, +100% de dano).\n" +
     "§7- §6Pílula de Soldado§7: trigo + açúcar + glowstone (+50% chakra).\n" +
     "§7- §6Pergaminho Ninja§7: 3 papéis + corante vermelho.\n\n" +
     "§eMundo:\n" +
