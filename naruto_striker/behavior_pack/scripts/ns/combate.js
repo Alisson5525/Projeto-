@@ -295,11 +295,17 @@ function processarGolpe(player, d) {
     if (empurravel && d.alvo.typeId !== "minecraft:player") {
       try { d.alvo.addEffect("slowness", finalizador ? 6 : 4, { amplifier: 6, showParticles: false }); } catch {}
     }
-    if (empurravel) try {
+    if (empurravel) {
       const v = player.getViewDirection();
       const h = Math.hypot(v.x, v.z) || 1;
-      d.alvo.applyKnockback(v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
-    } catch {}
+      const alvo = d.alvo;
+      // o empurrao vem depois da pausa, para o hit-stop ser sentido
+      system.runTimeout(() => {
+        try {
+          if (valido(alvo)) alvo.applyKnockback(v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
+        } catch {}
+      }, finalizador ? 5 : 3);
+    }
     if (finalizador) {
       particula(d.dim, "tnt:ns_onda", { x: d.loc.x, y: d.loc.y + 0.1, z: d.loc.z });
       som(player, "random.explode", 0.25, 1.8);
