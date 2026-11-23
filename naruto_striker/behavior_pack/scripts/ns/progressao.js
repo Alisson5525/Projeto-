@@ -200,6 +200,7 @@ export async function abrirPerfil(player) {
     `§7TP disponível: §e${lerScore(player, "tp")}\n\n` +
     `§7Inimigos derrotados: §f${lerNum(player, "ns:kills", 0)}\n` +
     `§7Chefes derrotados: §f${lerNum(player, "ns:chefes", 0)}\n` +
+    `§7Chefes diferentes vencidos: §f${(() => { const l = lerJSON(player, "ns:primeiras", []); return Array.isArray(l) ? l.length : 0; })()}\n` +
     `§7Golpes críticos: §f${lerNum(player, "ns:criticos", 0)}\n` +
     `§7Maior combo: §f${lerNum(player, "ns:combo_max", 0)} golpes\n` +
     `§7Regiões descobertas: §f${lerNum(player, "ns:regioes_n", 0)}\n` +
