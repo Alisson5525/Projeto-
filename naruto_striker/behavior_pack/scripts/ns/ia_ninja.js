@@ -85,6 +85,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     system.runTimeout(() => {
       try {
         if (!valido(ninja) || !valido(player)) return;
+        if ((ninja.getComponent("health")?.currentValue ?? 0) <= 0) return; // morreu nesse meio tempo
         ninja.teleport(destino, { facingLocation: player.location });
         particula(dim, "tnt:ns_fumaca_ninja", destino);
         somArea(dim, "mob.endermen.portal", destino, 0.7, 1.3);

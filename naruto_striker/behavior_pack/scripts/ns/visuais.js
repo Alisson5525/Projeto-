@@ -83,7 +83,7 @@ system.runInterval(() => {
             const chakra = lerScore(player, "chakra");
             const max = lerScore(player, "chakra_max");
             if (max > 0 && chakra < max) {
-              const ganho = Math.min(max - chakra, Math.max(2, Math.round(max * 0.03)));
+              const ganho = Math.min(max - chakra, Math.max(1, Math.round(max * 0.02)));
               somarScore(player, "chakra", ganho);
               if (s.parado === 40) som(player, "beacon.ambient", 0.5, 1.6);
             }

@@ -57,7 +57,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - O mundo é dividido em **regiões com nomes ninja** gerados (ex.: *Vale da Névoa*, *Pico dos Corvos*). Cada região nova dá XP com folhas de Konoha caindo.
 - A cada 4 regiões: **Pergaminho Perdido** com TP.
 - **Esconderijos ninja**: ao descobrir uma região (35% de chance) surge um baú por perto, marcado por uma coluna de fumaça dourada por 90 s, com direção e distância no chat. Saque próprio (`loot_tables/ns/esconderijo.json`): comidas do add-on, minérios, pérolas, maçã dourada/diamante raros e chance de roupas/armas ninja.
-- **Meditação**: agachado e parado por 2 s recupera chakra com partículas de chakra convergindo.
+- **Meditação**: o "agachar para carregar chakra" original ganha partículas de chakra convergindo e, parado por 2 s, um bônus de +2% do chakra máximo por segundo.
 
 ## 4.1 Ambiente e eventos do mundo
 

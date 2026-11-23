@@ -221,7 +221,9 @@ function processarGolpe(player, d) {
     golpes.delete(d.alvo.id);
     // ----- critico -----
     const chance = 0.08 + Math.min(0.14, nivelDe(player) * 0.0014);
-    if (valido(d.alvo) && Math.random() < chance) {
+    let vivo = false;
+    try { vivo = valido(d.alvo) && (d.alvo.getComponent("health")?.currentValue ?? 0) > 0; } catch {}
+    if (vivo && Math.random() < chance) {
       critico = true;
       const extra = Math.max(1, Math.round(d.dano * 0.6));
       total += extra;
