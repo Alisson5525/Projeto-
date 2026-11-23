@@ -467,6 +467,7 @@
 
 "animate": [
 "tnt_player_reacao",
+"tnt_player_corrida",
 {"remover_roupas": "query.property('tnt:kurama') == 6"},
 {"remover_roupas": "query.property('tnt:kurama') == 8"},
 {"remover_roupas": "query.property('tnt:kurama') == 7"},
@@ -557,6 +558,8 @@
 
 "animations": {
         "tnt_player_reacao": "controller.animation.tnt_player.reacao",
+        "tnt_player_corrida": "controller.animation.tnt_player.corrida",
+        "tnt_player_corrida_ninja": "animation.tnt_player.corrida_ninja",
         "tnt_player_dano": "animation.tnt_player.dano",
         "bastao_gudoudama_retirar": "animation.bastao_gudoudama_retirar",
         "remover_fran": "animation.remover_fran",

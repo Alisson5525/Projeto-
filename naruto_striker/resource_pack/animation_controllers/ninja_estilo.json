@@ -1,83 +1,147 @@
 {
-	"format_version": "1.10.0",
-	"animation_controllers": {
-		"controller.animation.tnt_ninja.estilo": {
-			"initial_state": "parado",
-			"states": {
-				"parado": {
-					"animations": ["tnt_ninja_respirar"],
-					"transitions": [
-						{"ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"},
-						{"correndo": "q.modified_move_speed > 0.12 && q.has_target"},
-						{"andando": "q.modified_move_speed > 0.05"}
-					],
-					"blend_transition": 0.25,
-					"blend_via_shortest_path": true
-				},
-				"andando": {
-					"transitions": [
-						{"ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"},
-						{"correndo": "q.modified_move_speed > 0.12 && q.has_target"},
-						{"parado": "q.modified_move_speed <= 0.05"}
-					],
-					"blend_transition": 0.25,
-					"blend_via_shortest_path": true
-				},
-				"correndo": {
-					"animations": ["tnt_ninja_corrida"],
-					"transitions": [
-						{"ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"},
-						{"andando": "q.modified_move_speed > 0.05 && (q.modified_move_speed <= 0.12 || !q.has_target)"},
-						{"parado": "q.modified_move_speed <= 0.05"}
-					],
-					"blend_transition": 0.3,
-					"blend_via_shortest_path": true
-				},
-				"ar": {
-					"animations": ["tnt_ninja_salto"],
-					"transitions": [
-						{"parado": "q.is_on_ground || q.is_in_water || q.is_riding"}
-					],
-					"blend_transition": 0.2,
-					"blend_via_shortest_path": true
-				}
-			}
-		},
-		"controller.animation.tnt_ninja.reacao": {
-			"initial_state": "normal",
-			"states": {
-				"normal": {
-					"transitions": [
-						{"dano": "q.hurt_time > 0"}
-					],
-					"blend_transition": 0.1
-				},
-				"dano": {
-					"animations": ["tnt_ninja_dano"],
-					"transitions": [
-						{"normal": "q.all_animations_finished && q.hurt_time <= 0"}
-					],
-					"blend_transition": 0.15
-				}
-			}
-		},
-		"controller.animation.tnt_player.reacao": {
-			"initial_state": "normal",
-			"states": {
-				"normal": {
-					"transitions": [
-						{"dano": "q.hurt_time > 0 && !v.is_first_person"}
-					],
-					"blend_transition": 0.1
-				},
-				"dano": {
-					"animations": ["tnt_player_dano"],
-					"transitions": [
-						{"normal": "q.all_animations_finished && q.hurt_time <= 0"}
-					],
-					"blend_transition": 0.15
-				}
-			}
-		}
-	}
+ "format_version": "1.10.0",
+ "animation_controllers": {
+  "controller.animation.tnt_ninja.estilo": {
+   "initial_state": "parado",
+   "states": {
+    "parado": {
+     "animations": [
+      "tnt_ninja_respirar"
+     ],
+     "transitions": [
+      {
+       "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
+      },
+      {
+       "correndo": "q.modified_move_speed > 0.12 && q.has_target"
+      },
+      {
+       "andando": "q.modified_move_speed > 0.05"
+      }
+     ],
+     "blend_transition": 0.25,
+     "blend_via_shortest_path": true
+    },
+    "andando": {
+     "transitions": [
+      {
+       "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
+      },
+      {
+       "correndo": "q.modified_move_speed > 0.12 && q.has_target"
+      },
+      {
+       "parado": "q.modified_move_speed <= 0.05"
+      }
+     ],
+     "blend_transition": 0.25,
+     "blend_via_shortest_path": true
+    },
+    "correndo": {
+     "animations": [
+      "tnt_ninja_corrida"
+     ],
+     "transitions": [
+      {
+       "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
+      },
+      {
+       "andando": "q.modified_move_speed > 0.05 && (q.modified_move_speed <= 0.12 || !q.has_target)"
+      },
+      {
+       "parado": "q.modified_move_speed <= 0.05"
+      }
+     ],
+     "blend_transition": 0.3,
+     "blend_via_shortest_path": true
+    },
+    "ar": {
+     "animations": [
+      "tnt_ninja_salto"
+     ],
+     "transitions": [
+      {
+       "parado": "q.is_on_ground || q.is_in_water || q.is_riding"
+      }
+     ],
+     "blend_transition": 0.2,
+     "blend_via_shortest_path": true
+    }
+   }
+  },
+  "controller.animation.tnt_ninja.reacao": {
+   "initial_state": "normal",
+   "states": {
+    "normal": {
+     "transitions": [
+      {
+       "dano": "q.hurt_time > 0"
+      }
+     ],
+     "blend_transition": 0.1
+    },
+    "dano": {
+     "animations": [
+      "tnt_ninja_dano"
+     ],
+     "transitions": [
+      {
+       "normal": "q.all_animations_finished && q.hurt_time <= 0"
+      }
+     ],
+     "blend_transition": 0.15
+    }
+   }
+  },
+  "controller.animation.tnt_player.reacao": {
+   "initial_state": "normal",
+   "states": {
+    "normal": {
+     "transitions": [
+      {
+       "dano": "q.hurt_time > 0 && !v.is_first_person"
+      }
+     ],
+     "blend_transition": 0.1
+    },
+    "dano": {
+     "animations": [
+      "tnt_player_dano"
+     ],
+     "transitions": [
+      {
+       "normal": "q.all_animations_finished && q.hurt_time <= 0"
+      }
+     ],
+     "blend_transition": 0.15
+    }
+   }
+  },
+  "controller.animation.tnt_player.corrida": {
+   "initial_state": "normal",
+   "states": {
+    "normal": {
+     "transitions": [
+      {
+       "correndo": "q.is_sprinting && q.is_on_ground && !q.is_riding && !q.is_swimming && !q.is_gliding && !q.is_using_item && !v.is_first_person && query.property('tnt:kurama') == 0 && query.property('tnt:uchiha') == 0 && query.property('tnt:hyuga') == 0 && query.property('tnt:shukaku') == 0 && query.property('tnt:8_portoes') == 0 && (q.get_equipped_item_name == '' || q.get_equipped_item_name == 'item_lock' || q.get_equipped_item_name == 'menu_custon' || q.get_equipped_item_name == 'menu_all_modos' || q.get_equipped_item_name == 'menu_all_modos_evoluir' || q.get_equipped_item_name == 'pergaminho_ninja' || q.get_equipped_item_name == 'menu_missao')"
+      }
+     ],
+     "blend_transition": 0.25,
+     "blend_via_shortest_path": true
+    },
+    "correndo": {
+     "animations": [
+      "tnt_player_corrida_ninja"
+     ],
+     "transitions": [
+      {
+       "normal": "!(q.is_sprinting && q.is_on_ground && !q.is_riding && !q.is_swimming && !q.is_gliding && !q.is_using_item && !v.is_first_person && query.property('tnt:kurama') == 0 && query.property('tnt:uchiha') == 0 && query.property('tnt:hyuga') == 0 && query.property('tnt:shukaku') == 0 && query.property('tnt:8_portoes') == 0 && (q.get_equipped_item_name == '' || q.get_equipped_item_name == 'item_lock' || q.get_equipped_item_name == 'menu_custon' || q.get_equipped_item_name == 'menu_all_modos' || q.get_equipped_item_name == 'menu_all_modos_evoluir' || q.get_equipped_item_name == 'pergaminho_ninja' || q.get_equipped_item_name == 'menu_missao'))"
+      }
+     ],
+     "blend_transition": 0.25,
+     "blend_via_shortest_path": true
+    }
+   }
+  }
+ }
 }

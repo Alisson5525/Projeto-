@@ -15,7 +15,7 @@
       "geometry": {
         "default_1": "geometry.corpo_masculino",
         "default_2": "geometry.manto_preto_anbu",
-        "default_3": "geometry.mascara_anbu",
+        "default_3": "geometry.mascara_anbu_mob",
         "default_4": "geometry.locais"
       },
       "scripts": {
