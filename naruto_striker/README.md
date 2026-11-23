@@ -58,6 +58,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Auras de rank**: a partir de **Kage** (nível 75) o jogador emana um brilho dourado; como **Lenda Shinobi** (90+), rubro-dourado com faíscas (ajuste "Aura de chakra").
 - **19 conquistas** com recompensa em TP.
 - **Pergaminho Ninja** (item entregue na primeira entrada; se perder, receita: 3 papéis + 1 corante vermelho): perfil com nível/XP/estatísticas, conquistas, guia e **ajustes visuais** (ligar/desligar números de dano, aura, tremor de câmera e rastro).
+- **Ranking Ninja** (multijogador): top 10 do mundo por nível e abates, inclusive jogadores offline.
 - **Missão do Dia**: na primeira entrada de cada dia, TP de recompensa (75 a 225 TP conforme a sequência de dias seguidos, até 7).
 - **Livro Bingo**: 3 contratos de caça ativos (ex.: "derrote 8 Ninjas da Folha #B"), recompensa em TP + XP, novo contrato a cada conclusão, opção de sortear novos por 50 TP.
 

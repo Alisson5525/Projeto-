@@ -153,6 +153,11 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   const mod=await import(pathToFileURL(path.join(dst,'ns','exploracao.js')).href); p1.teleport({x:50,y:64,z:50},{dimension:ow}); mod.emboscada(p1); steps(2);
   const depois=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
   console.log('teste emboscada: invocados', depois-antes); if(depois-antes<1) S.errors.push({where:'emboscada',msg:'ninguem invocado',stack:''}); }
+// teste ranking: abre o menu e lista o jogador
+{ const n0=(globalThis.__UILOG||[]).length; const mod=await import(pathToFileURL(path.join(dst,'ns','progressao.js')).href); mod.atualizarRanking(p1);
+  globalThis.__UISEL=[]; const b=mod.BOTOES_EXTRAS.find(x=>x.nome.includes('Ranking')); await b.abrir(p1);
+  const f=(globalThis.__UILOG||[]).slice(n0).find(x=>x.title.includes('Ranking')); console.log('teste ranking:', !!f && f.body.includes('Tester'));
+  if(!f||!f.body.includes('Tester')) S.errors.push({where:'ranking',msg:'ranking sem o jogador',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

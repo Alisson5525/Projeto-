@@ -119,6 +119,7 @@ export function darXP(player, quantidade, motivo) {
   if (subiu > 0) {
     definirScore(player, "ns_nivel", nivel);
     somarScore(player, "tp", tpGanho);
+    atualizarRanking(player);
     const rank = rankDe(nivel);
     const loc = player.location;
     particula(player.dimension, "tnt:ns_level_up", loc);
@@ -300,6 +301,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
     if (!ehJogador(player)) return;
     definirScore(player, "ns_nivel", nivelDe(player));
     recompensaDiaria(player);
+    atualizarRanking(player);
     if (!player.getDynamicProperty("ns:recebeu_pergaminho")) {
       gravar(player, "ns:recebeu_pergaminho", true);
       try {
@@ -329,3 +331,41 @@ function recompensaDiaria(player) {
     som(player, "random.orb", 0.8, 1.2);
   } catch {}
 }
+
+/* ------------------------------------------------------------------ */
+/* Ranking Ninja (multijogador): guarda nivel/abates por nome no mundo  */
+/* ------------------------------------------------------------------ */
+export function atualizarRanking(player) {
+  try {
+    if (!ehJogador(player)) return;
+    let r = {};
+    try { r = JSON.parse(world.getDynamicProperty("ns:ranking") ?? "{}") || {}; } catch { r = {}; }
+    r[player.name] = { n: nivelDe(player), k: lerNum(player, "ns:kills", 0) };
+    const nomes = Object.keys(r);
+    if (nomes.length > 60) {
+      nomes.sort((a, b) => (r[a].n - r[b].n) || (r[a].k - r[b].k));
+      for (const nome of nomes.slice(0, nomes.length - 60)) delete r[nome];
+    }
+    world.setDynamicProperty("ns:ranking", JSON.stringify(r));
+  } catch {}
+}
+
+async function abrirRanking(player) {
+  let r = {};
+  try { r = JSON.parse(world.getDynamicProperty("ns:ranking") ?? "{}") || {}; } catch {}
+  const lista = Object.entries(r).sort((a, b) => (b[1].n - a[1].n) || (b[1].k - a[1].k)).slice(0, 10);
+  let txt = "§7Os shinobis mais fortes deste mundo:\n\n";
+  lista.forEach(([nome, v], i) => {
+    const rank = rankDe(v.n);
+    const medalha = i === 0 ? "§6" : i === 1 ? "§f" : i === 2 ? "§c" : "§7";
+    txt += `${medalha}${i + 1}. §f${nome} §8- ${rank.cor}${rank.nome} §7Nv.§e${v.n} §8| §7${v.k} abates\n`;
+  });
+  if (!lista.length) txt += "§8(ninguém ainda)";
+  const form = new ActionFormData().title("§6§lRanking Ninja").body(txt).button("§lVoltar");
+  try {
+    const res = await form.show(player);
+    if (!res.canceled) return abrirPerfil(player);
+  } catch {}
+}
+
+BOTOES_EXTRAS.push({ nome: "§6§lRanking Ninja", abrir: (p) => abrirRanking(p) });
