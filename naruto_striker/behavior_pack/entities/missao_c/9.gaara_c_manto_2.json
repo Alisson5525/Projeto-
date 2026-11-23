@@ -48,7 +48,8 @@
       "quebrar_berserk": {},
       "tnt:despawn": {
         "minecraft:instant_despawn": {}
-      }
+      },
+      "modo_berserk": {}
     },
     "components": {
       "minecraft:timer": {

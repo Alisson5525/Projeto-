@@ -93,6 +93,8 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - Validação de **todos os JSON** (0 inválidos) e de referências cruzadas (texturas, modelos, animações, controladores, partículas, sons, funções, entidades, eventos).
 - **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 137 itens, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, morte, saída de jogador e navegação completa dos menus → **0 erros**.
 
+Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Node.js 20+).
+
 > Observação honesta: o simulador não substitui testar dentro do jogo — ele garante que
 > os scripts não quebram e que as referências existem, mas a aparência final das
 > animações/partículas deve ser conferida no Minecraft.
