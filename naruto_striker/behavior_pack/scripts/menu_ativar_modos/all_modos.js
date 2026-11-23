@@ -320,7 +320,7 @@ break;
 
 
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }
@@ -488,7 +488,7 @@ break;
 
 
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }

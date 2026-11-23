@@ -169,7 +169,7 @@ modo_historia_c(player);
 break; 
         
     }
-  });
+  }).catch(() => {});
 }
 
 
@@ -387,7 +387,7 @@ else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ai
 break;
 
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }

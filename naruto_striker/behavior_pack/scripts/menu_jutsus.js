@@ -260,7 +260,7 @@ player.runCommandAsync('/execute as @s[scores={tp=1200..}] run scoreboard player
 
 
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }

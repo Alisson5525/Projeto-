@@ -51,5 +51,5 @@ player.runCommand('/clear @s tnt:escolha_clan');
         break; 
         
     }
-  });
+  }).catch(() => {});
 }

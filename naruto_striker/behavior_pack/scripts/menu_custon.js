@@ -84,7 +84,7 @@ player.runCommand('camera @s fov_clear');
 player.runCommand('camera @s clear');
         break; 
     }
-  });
+  }).catch(() => {});
 }
 
 export function menu_custon_cabelo_2(player) {
@@ -147,7 +147,7 @@ player.runCommand('camera @s fov_clear');
 player.runCommand('camera @s clear');
         break; 
     }
-  });
+  }).catch(() => {});
 }
 
 export function menu_custon_cabelo_3(player) {
@@ -210,5 +210,5 @@ player.runCommand('camera @s fov_clear');
 player.runCommand('camera @s clear');
         break; 
     }
-  });
+  }).catch(() => {});
 }

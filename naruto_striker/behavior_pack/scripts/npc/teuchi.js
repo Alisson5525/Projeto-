@@ -208,5 +208,5 @@ ${ITEMS.map(item =>
 
       return;
     }
-  });
+  }).catch(() => {});
 }

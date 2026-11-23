@@ -406,7 +406,7 @@ player.runCommand('/execute as @s[scores={tp=16000..}] run scoreboard players re
 }
 break;
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }

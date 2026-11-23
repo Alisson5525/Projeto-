@@ -39,7 +39,7 @@ menu_inicial_pg2(player);
         break; 
 
     }
-  });
+  }).catch(() => {});
 }
 
 export function menu_inicial_pg2(player) {
@@ -62,5 +62,5 @@ player.runCommand('clear @s tnt:pergaminho_inicial');
 break; 
 
     }
-  });
+  }).catch(() => {});
 }

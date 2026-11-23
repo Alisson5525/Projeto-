@@ -233,7 +233,7 @@ break;
 
 
       }
-    });
+    }).catch(() => {});
   } catch (e) {
     console.warn(`Erro ao exibir menu: ${e}`);
   }
