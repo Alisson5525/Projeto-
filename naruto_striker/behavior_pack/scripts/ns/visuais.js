@@ -2,7 +2,7 @@
 // impacto de pouso, meditacao para recuperar chakra e alerta de vida baixa.
 import { world, system } from "@minecraft/server";
 import { ehJogador, lerScore, somarScore, particula, som, tremer, config, corDoChakra } from "./util";
-import { somarStat } from "./progressao";
+import { somarStat, nivelDe } from "./progressao";
 
 const estado = new Map(); // playerId -> { vyAnterior, parado, ultimoBatimento }
 
@@ -87,6 +87,17 @@ system.runInterval(() => {
       // aura de chakra enquanto algum modo esta ativo
       if (cfg.aura && modoAgora) {
         particula(player.dimension, "tnt:ns_aura", loc, corDoChakra(player));
+      }
+
+      // aura de rank (recompensa visual): Kage 75+ dourada, Lenda 90+ rubro-dourada
+      s.ciclo = (s.ciclo ?? 0) + 1;
+      if (cfg.aura && !modoAgora && s.ciclo % 4 === 0) {
+        const nv = nivelDe(player);
+        if (nv >= 75) {
+          const cor = nv >= 90 ? [1.0, 0.35, 0.15] : [1.0, 0.82, 0.3];
+          particula(player.dimension, "tnt:ns_aura", { x: loc.x, y: loc.y, z: loc.z }, cor);
+          if (nv >= 90) particula(player.dimension, "tnt:ns_faisca_raio", { x: loc.x, y: loc.y + 1, z: loc.z });
+        }
       }
 
       // meditacao: agachado e parado por 2s -> chakra flui de volta

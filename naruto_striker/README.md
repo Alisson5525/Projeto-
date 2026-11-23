@@ -52,6 +52,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Nível 1–100 com XP** (abates, exploração, contratos).
 - **Ranks**: Estudante da Academia → Genin (5) → Chunin (15) → Jounin (30) → ANBU (45) → Sannin (60) → Kage (75) → Lenda Shinobi (90). Promoções são anunciadas para todos.
 - Cada nível dá **TP** (a moeda original do add-on, usada no Menu de Status) — integra direto com a evolução existente.
+- **Auras de rank**: a partir de **Kage** (nível 75) o jogador emana um brilho dourado; como **Lenda Shinobi** (90+), rubro-dourado com faíscas (ajuste "Aura de chakra").
 - **19 conquistas** com recompensa em TP.
 - **Pergaminho Ninja** (item entregue na primeira entrada; se perder, receita: 3 papéis + 1 corante vermelho): perfil com nível/XP/estatísticas, conquistas, guia e **ajustes visuais** (ligar/desligar números de dano, aura, tremor de câmera e rastro).
 - **Missão do Dia**: na primeira entrada de cada dia, TP de recompensa (75 a 225 TP conforme a sequência de dias seguidos, até 7).
