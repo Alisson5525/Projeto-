@@ -173,6 +173,13 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
 { p1.setDynamicProperty('ns:contratos', JSON.stringify([{tipo:'elite',prog:0},{tipo:'*',prog:0},{tipo:'tnt:uchiha_s',prog:0}]));
   for (let i=0;i<3;i++){ const e=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:50,family:['ninja','mobs']}); e._tags.add('ns_elite'); e.applyDamage(999,{cause:'entityAttack',damagingEntity:p1}); await steps(2); }
   const ok=p1.msgs.some(x=>x.includes('Contrato concluído') && x.includes('ELITE')); console.log('teste contrato elite:', ok); if(!ok) S.errors.push({where:'bingo elite',msg:'contrato elite nao concluiu',stack:''}); }
+// teste saldo da Lua Vermelha: inimigos derrotados durante o evento rendem TP ao amanhecer
+{ if (world.getDynamicProperty('ns:lua_vermelha')) { se('ns:lua_vermelha',p1); await steps(2); }
+  se('ns:lua_vermelha',p1); await steps(2);
+  for (let i=0;i<4;i++){ const e=new S.Entity('tnt:bandidos_rank_c', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:20,family:['ninja','mobs']}); e.applyDamage(999,{cause:'entityAttack',damagingEntity:p1}); await steps(2); }
+  const nCmd=S.cmds.length; se('ns:lua_vermelha',p1); await steps(2);
+  const ok=p1.msgs.some(x=>x.includes('inimigo(s) esta noite')) && S.cmds.slice(nCmd).some(c=>c.c.includes('scoreboard players add @s tp 60'));
+  console.log('teste saldo lua vermelha:', ok); if(!ok) S.errors.push({where:'lua saldo',msg:'saldo incorreto',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

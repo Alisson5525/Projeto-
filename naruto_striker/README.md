@@ -79,7 +79,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 - **Folhas caindo** sob as copas das árvores e **vagalumes** à noite perto dos jogadores.
 - **Pétalas de sakura** flutuando ao redor da Vila da Folha.
-- **Noite da Lua Vermelha** (12% das noites): névoa vermelha, partículas carmesim no ar, **XP em dobro** e **3× mais ninjas de elite** até o amanhecer. Admin: `/scriptevent ns:lua_vermelha` liga/desliga.
+- **Noite da Lua Vermelha** (12% das noites): névoa vermelha, partículas carmesim no ar, **XP em dobro** e **3× mais ninjas de elite** até o amanhecer. Ao amanhecer chega o **saldo da noite**: +15 TP por inimigo derrotado durante o evento (máx. 600). Admin: `/scriptevent ns:lua_vermelha` liga/desliga.
 
 ## 5. Visuais
 
@@ -145,7 +145,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 - Validação de **todos os JSON** (0 inválidos, 100% JSON estrito) e de referências cruzadas (texturas, modelos, animações, controladores, partículas, sons, funções, entidades, eventos).
 - **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 136 itens, clique em cada botão de cada menu, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, esconderijos, Lua Vermelha, configurações de admin, meteoro do Rinnegan, Kamui, selamento de bijuu, morte, saída de jogador e navegação completa dos menus → **0 erros**.
-- Testes automáticos específicos: Missão do Dia, mapeamento do Izanagi, sincronização do dano base, viagem/recarga/retorno do Monte Myoboku (e que a montanha não é recarregada), bênção da Energia Natural, contrato de elite, resgate de queda no vazio, aura de rank, arco de corte das espadas, jutsus sem XP, Viagem Rápida com recarga, Pílula de Soldado, emboscada, Ranking, ataque furtivo, saque de ferramentas, meteoro, Kamui e selamento de bijuu. As Promises resolvem entre os ticks, como no jogo.
+- Testes automáticos específicos: Missão do Dia, mapeamento do Izanagi, sincronização do dano base, viagem/recarga/retorno do Monte Myoboku (e que a montanha não é recarregada), bênção da Energia Natural, contrato de elite, saldo da Lua Vermelha, resgate de queda no vazio, aura de rank, arco de corte das espadas, jutsus sem XP, Viagem Rápida com recarga, Pílula de Soldado, emboscada, Ranking, ataque furtivo, saque de ferramentas, meteoro, Kamui e selamento de bijuu. As Promises resolvem entre os ticks, como no jogo.
 - Auditorias adicionais: placares usados × criados, tags verificadas × adicionadas, funções chamadas × existentes, render controllers × chaves das entidades, estados de controladores, tabelas de saque, ícones, sintaxe de `execute`.
 
 Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Node.js 20+).

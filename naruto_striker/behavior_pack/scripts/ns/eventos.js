@@ -3,7 +3,7 @@
 //  - "Noite da Lua Vermelha": evento noturno raro com névoa vermelha,
 //    XP em dobro e mais ninjas de elite.
 import { world, system } from "@minecraft/server";
-import { ehJogador, particula, som, msg, tremer, aleatorio, mundoCfg } from "./util";
+import { ehJogador, particula, som, msg, tremer, aleatorio, mundoCfg, lerNum, gravar, somarScore } from "./util";
 
 /* ------------------------------------------------------------------ */
 /* Ambiente                                                            */
@@ -100,6 +100,7 @@ function comecar() {
   for (const p of world.getAllPlayers()) {
     aplicarNevoa(p, false); // evita empilhar
     aplicarNevoa(p, true);
+    gravar(p, "ns:lua_inicio", lerNum(p, "ns:kills_lua", 0)); // base para o saldo da noite
     msg(p, "§4§l[!] A NOITE DA LUA VERMELHA COMEÇOU!§r\n§cNinjas de elite surgem com mais frequência. §6XP em dobro até o amanhecer.");
     som(p, "mob.wither.spawn", 0.4, 0.6);
     tremer(p, 0.3, 1.5);
@@ -111,6 +112,20 @@ function terminar() {
   for (const p of world.getAllPlayers()) {
     aplicarNevoa(p, false);
     msg(p, "§6O sol nasce... §7A Noite da Lua Vermelha terminou.");
+    // saldo da noite: TP pelos inimigos derrotados durante o evento
+    try {
+      const inicio = lerNum(p, "ns:lua_inicio", -1);
+      if (inicio >= 0) {
+        const n = lerNum(p, "ns:kills_lua", 0) - inicio;
+        if (n > 0) {
+          const tp = Math.min(600, n * 15);
+          somarScore(p, "tp", tp);
+          msg(p, `§4[Lua Vermelha] §fVocê derrotou §c${n}§f inimigo(s) esta noite. §6+${tp} TP`);
+          som(p, "random.orb", 0.8, 0.9);
+        }
+      }
+      gravar(p, "ns:lua_inicio", -1);
+    } catch {}
   }
 }
 
