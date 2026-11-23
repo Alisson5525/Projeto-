@@ -1,7 +1,7 @@
 // Sistema de Combate+: golpes criticos, combos, numeros de dano flutuantes,
 // faiscas de impacto, tremor de camera, "puf" de fumaca ninja e XP por abate.
 import { world, system } from "@minecraft/server";
-import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio, ehCriatura } from "./util";
+import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio, ehCriatura, lerJSON, gravarJSON, somarScore, msg } from "./util";
 import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
 import { luaVermelhaAtiva } from "./eventos";
 
@@ -368,6 +368,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
 
     somarStat(killer, "ns:kills", 1);
     if (luaVermelhaAtiva()) somarStat(killer, "ns:kills_lua", 1);
+    if (vidaMax >= 400 && morto.typeId.startsWith("tnt:")) primeiraVitoria(killer, morto, vidaMax);
     if (vidaMax >= 500) {
       somarStat(killer, "ns:chefes", 1);
       tremer(killer, 0.6, 1.0);
@@ -388,3 +389,21 @@ world.afterEvents.entityDie.subscribe((ev) => {
     if (ev.deadEntity?.typeId === "minecraft:player") combos.delete(ev.deadEntity.id);
   } catch {}
 });
+
+/* Primeira vitoria contra cada chefe/ninja forte: bonus unico de TP anunciado ao servidor. */
+function primeiraVitoria(player, morto, vidaMax) {
+  try {
+    const lista = lerJSON(player, "ns:primeiras", []);
+    if (!Array.isArray(lista) || lista.includes(morto.typeId)) return;
+    lista.push(morto.typeId);
+    gravarJSON(player, "ns:primeiras", lista);
+    const tp = Math.min(1500, Math.round(vidaMax / 4 / 50) * 50 + 100);
+    somarScore(player, "tp", tp);
+    const NOMES = { "tnt:kurama_biju": "Kurama, a Raposa de Nove Caudas", "tnt:shukaku_biju": "Shukaku, o Uma Cauda", "tnt:shukaku_biju_miss": "Shukaku, o Uma Cauda" };
+    let nome = NOMES[morto.typeId] ?? morto.typeId.replace("tnt:", "").replace(/_/g, " ");
+    try { const n = morto.nameTag; if (n) nome = n.split("\n")[0]; } catch {}
+    for (const p of world.getAllPlayers()) {
+      msg(p, `§6§l[PRIMEIRA VITÓRIA]§r §f${player.name} §7derrotou §f${nome}§7 pela primeira vez! §e+${tp} TP`);
+    }
+  } catch {}
+}

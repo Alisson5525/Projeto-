@@ -56,7 +56,7 @@ const se=(id,src,msg='')=>system.afterEvents.scriptEventReceive.fire({id, messag
 for(const id of ['ativar:sharingan','ativar:byakugan','desativar:sharingan','tnt:bola_fogo','tnt:aniquilacao_fogo','tnt:corte_de_agua','tnt:skill_2_kurama_1','tnt:tenseigan_orb','ns:perfil','npc:teuchi','npc:jiraiya','npc:guy','npc:iruka','npc:tsunade_hokage','npc:orochimaru','tnt:qualquer']) { se(id,p1); se(id,undefined); }
 await steps(30);
 // mobs
-const mobs=[...S.knownEntities].filter(e=>/ninja|uchiha|espadachin|bandidos|zetsu|anbu|kakashi|zabuza|gaara|neji|itachi|kisame|orochimaru|kurama_biju$|shukaku_biju$|dummy/.test(e));
+const mobs=[...S.knownEntities].filter(e=>!e.includes('empur')&&/ninja|uchiha|espadachin|bandidos|zetsu|anbu|kakashi|zabuza|gaara|neji|itachi|kisame|orochimaru|kurama_biju$|shukaku_biju$|dummy/.test(e));
 const spawned=mobs.map((id,i)=>new S.Entity(id, ow, {x:6+(i%5)*0.3,y:64,z:7+(i%3)*0.3}, {hp: id.includes('biju')?800:60, family:['mob']}));
 for(const m of spawned) world.afterEvents.entitySpawn.fire({entity:m, cause:'Spawned'}); await steps(3);
 await steps(25); console.log('nametag amostra:', JSON.stringify(spawned.filter(m=>m._valid&&m.nameTag).slice(0,3).map(m=>m.nameTag)));
