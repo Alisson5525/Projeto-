@@ -649,6 +649,7 @@ function mudarFase(chefe, perfil, s, nova) {
   const dim = chefe.dimension;
   const loc = chefe.location;
   const romano = ["I", "II", "III", "IV"][nova] ?? String(nova + 1);
+  try { chefe.playAnimation("animation.ns.chefe_fase", { controller: "ns_fase", blendOutTime: 0.3 }); } catch {}
   anunciar(chefe, 48, `${perfil.cor}§l${perfil.nome}`, `§7Fase §f${romano}`);
   if (perfil.falasFase?.[nova - 1]) falar(chefe, perfil.cor, perfil.falasFase[nova - 1]);
   somArea(dim, "ns.chefe.fase", loc, 1.3, 1);

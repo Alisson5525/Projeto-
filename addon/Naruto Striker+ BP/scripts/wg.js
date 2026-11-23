@@ -2,6 +2,7 @@ import * as mc from "@minecraft/server";
 import { cmd } from "./lib/cmd.js";
 import { MODES } from "./config";
 import { nivelDe } from "./ns/progressao";
+import { particula, corDoChakra, tremer } from "./ns/util";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(ev => {
   const player = ev.sourceEntity;
@@ -44,6 +45,8 @@ function ativarModo(player, modeId) {
   try { tempo = Math.round(mode.tempo * (1 + Math.min(0.5, nivelDe(player) * 0.005))); } catch {}
   setScore(player, score, tempo);
 
+  apresentarTransformacao(player);
+
   for (const cmd of mode.cmdStart) {
     // efeitos com a mesma duracao do modo acompanham o tempo estendido
     const ajustado = cmd.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
@@ -62,6 +65,9 @@ function desativarModo(player, modeId) {
 
   player.setDynamicProperty(activeKey, false);
   setScore(player, score, 0);
+  try {
+    if (player.isValid) player.playAnimation("animation.ns.destransformar", { controller: "ns_transformacao", blendOutTime: 0.3 });
+  } catch {}
 
   for (const cmd of mode.cmdFinish) {
     try { cmd(player, cmd); } catch (e) {}
@@ -125,4 +131,26 @@ function setScore(player, objective, value) {
     obj = mc.world.scoreboard.addObjective(objective, objective);
   }
   obj.setScore(player, value);
+}
+
+/* Apresentacao da transformacao: pose de explosao de chakra (antecipacao -> liberacao),
+   onda no chao, coluna de aura na cor do modo e tremor leve. A cor e lida 2 ticks depois,
+   quando a propriedade visual do modo ja foi aplicada pelo evento da entidade. */
+function apresentarTransformacao(player) {
+  try { player.playAnimation("animation.ns.transformacao", { controller: "ns_transformacao", blendOutTime: 0.3 }); } catch {}
+  mc.system.runTimeout(() => {
+    try {
+      if (!player.isValid) return;
+      const dim = player.dimension;
+      const l = player.location;
+      const cor = corDoChakra(player);
+      particula(dim, "tnt:ns_onda", { x: l.x, y: l.y + 0.1, z: l.z });
+      particula(dim, "tnt:ns_flash", { x: l.x, y: l.y + 1.2, z: l.z });
+      for (let i = 0; i < 10; i++) {
+        const a = (i / 10) * Math.PI * 2;
+        particula(dim, "tnt:ns_aura", { x: l.x + Math.cos(a) * 0.9, y: l.y + 0.2, z: l.z + Math.sin(a) * 0.9 }, cor);
+      }
+      tremer(player, 0.25, 0.35);
+    } catch {}
+  }, 6);
 }
