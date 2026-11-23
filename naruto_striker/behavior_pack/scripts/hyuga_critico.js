@@ -11,6 +11,12 @@ const CHANCE_LEOES = 0.80;
 const CHANCE_LEOES_DESTUIDOR = 0.90;
 const DURATION = 2 * TicksPerSecond;
 
+// alguns alvos (suportes, entidades de efeito) nao aceitam efeitos: nao deixa o erro
+// interromper as particulas e sons do golpe
+function efeitoSeguro(alvo, tipo, duracao, opcoes) {
+  try { alvo.addEffect(tipo, duracao, opcoes); } catch (e) {}
+}
+
 world.afterEvents.entityHurt.subscribe((ev) => {
   const src = ev.damageSource;
   if (!src) return;
@@ -35,7 +41,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
       }
 
       try {
-        target.addEffect("minecraft:slowness", DURATION, {
+        efeitoSeguro(target, "minecraft:slowness", DURATION, {
         amplifier: 2,
         showParticles: false,
         });
@@ -64,7 +70,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
       } catch {}
 
       try {
-        target.addEffect("minecraft:slowness", DURATION, {
+        efeitoSeguro(target, "minecraft:slowness", DURATION, {
         amplifier: 2,
         showParticles: false,
         });
@@ -93,7 +99,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
       } catch {}
 
       try {
-        target.addEffect("minecraft:slowness", DURATION, {
+        efeitoSeguro(target, "minecraft:slowness", DURATION, {
         amplifier: 3,
         showParticles: false,
         });
