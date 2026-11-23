@@ -191,6 +191,21 @@ function processarGolpe(player, d) {
     maxStat(player, "ns:combo_max", n);
   }
 
+  // ----- impacto fisico: critico e cada 5o golpe do combo empurram o alvo -----
+  const finalizador = corpoACorpo && n >= 5 && n % 5 === 0;
+  if ((critico || finalizador) && valido(d.alvo)) {
+    try {
+      const v = player.getViewDirection();
+      const h = Math.hypot(v.x, v.z) || 1;
+      d.alvo.applyKnockback(v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
+    } catch {}
+    if (finalizador) {
+      particula(d.dim, "tnt:ns_onda", { x: d.loc.x, y: d.loc.y + 0.1, z: d.loc.z });
+      som(player, "random.explode", 0.25, 1.8);
+      tremer(player, 0.2, 0.2);
+    }
+  }
+
   // ----- visual -----
   particula(d.dim, critico ? "tnt:ns_critico" : "tnt:ns_impacto", d.peito);
   if (critico) {
