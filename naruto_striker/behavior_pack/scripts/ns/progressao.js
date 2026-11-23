@@ -264,6 +264,7 @@ async function abrirGuia(player) {
     "§eCombate:\n" +
     "§7- Golpes seguidos formam combos (bônus de XP).\n" +
     "§7- Críticos causam +60% de dano; a chance cresce com o nível.\n" +
+    "§7- Jutsus ficam mais fortes com o nível: +0,5% de dano\n  por nível (até +50% no nível 100). Números em §bciano§7.\n" +
     "§7- Meditar (agachado e parado) recupera chakra.\n\n" +
     "§eRanks:\n" + ranks;
   const form = new ActionFormData().title("§6§lGuia de Progressão").body(txt).button("§lVoltar");

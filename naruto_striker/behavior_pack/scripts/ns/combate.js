@@ -235,6 +235,19 @@ function processarGolpe(player, d) {
     maxStat(player, "ns:combo_max", n);
   }
 
+  // ----- jutsus escalam com o nivel ninja: +0,5% por nivel (ate +50%) -----
+  let jutsu = false;
+  if (!corpoACorpo) {
+    jutsu = true;
+    const extra = Math.round(d.dano * Math.min(0.5, nivelDe(player) * 0.005));
+    let vivo = false;
+    try { vivo = valido(d.alvo) && (d.alvo.getComponent("health")?.currentValue ?? 0) > 0; } catch {}
+    if (extra >= 1 && vivo) {
+      try { aplicarBonusCritico(d.alvo, player, d.dano, extra); } catch {}
+      total += extra;
+    }
+  }
+
   if (d.alvo.typeId === DUMMY) registrarDps(d.alvo, total);
 
   // ----- impacto fisico: critico e cada 5o golpe do combo empurram o alvo -----
@@ -266,7 +279,7 @@ function processarGolpe(player, d) {
 
   if (cfg.numeros) {
     const num = Math.round(total * 10) / 10;
-    const txt = critico ? `§6§lCRITICO! §e§l${num}` : corDano(total, false) + num;
+    const txt = critico ? `§6§lCRÍTICO! §e§l${num}` : jutsu ? `§b${num}` : corDano(total, false) + num;
     textoFlutuante(d.dim, { x: d.cabeca.x, y: d.cabeca.y + 0.55, z: d.cabeca.z }, txt);
     if (n >= 3 && (n <= 5 || n % 5 === 0)) {
       const corCombo = n >= 25 ? "§c§l" : n >= 10 ? "§6§l" : "§e§l";
