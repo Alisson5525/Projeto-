@@ -166,6 +166,34 @@ world.afterEvents.entityHurt.subscribe((ev) => {
   } catch {}
 });
 
+/* ---------------- Medidor de DPS no boneco de treino ---------------- */
+const DUMMY = "tnt:dummy";
+const dps = new Map(); // dummyId -> { ent, golpes: [{ t, dano }] }
+
+function registrarDps(alvo, dano) {
+  const r = dps.get(alvo.id) ?? { ent: alvo, golpes: [] };
+  r.ent = alvo;
+  r.golpes.push({ t: system.currentTick, dano });
+  dps.set(alvo.id, r);
+}
+
+system.runInterval(() => {
+  const agora = system.currentTick;
+  for (const [id, r] of dps) {
+    r.golpes = r.golpes.filter((g) => agora - g.t <= 100);
+    if (!r.golpes.length || !valido(r.ent)) {
+      dps.delete(id);
+      continue;
+    }
+    const total = r.golpes.reduce((a, g) => a + g.dano, 0);
+    const janela = Math.max(20, Math.min(100, agora - r.golpes[0].t + 1)) / 20;
+    try {
+      const l = r.ent.location;
+      textoFlutuante(r.ent.dimension, { x: l.x, y: l.y + 2.6, z: l.z }, `§bDPS: §f${(total / janela).toFixed(1)} §7(${Math.round(total)} em ${janela.toFixed(1)}s)`);
+    } catch {}
+  }
+}, 20);
+
 function processarGolpe(player, d) {
   if (!ehJogador(player)) return;
   const cfg = config(player);
@@ -190,6 +218,8 @@ function processarGolpe(player, d) {
     n = registrarCombo(player);
     maxStat(player, "ns:combo_max", n);
   }
+
+  if (d.alvo.typeId === DUMMY) registrarDps(d.alvo, total);
 
   // ----- impacto fisico: critico e cada 5o golpe do combo empurram o alvo -----
   const finalizador = corpoACorpo && n >= 5 && n % 5 === 0;

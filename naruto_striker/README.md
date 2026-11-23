@@ -32,6 +32,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 - **Golpes críticos** (só corpo a corpo de verdade): +60% de dano, faíscas douradas, raio, anel de impacto e tremor de câmera. Chance de 8% que sobe com o nível (até 22%).
 - **Combos**: golpes seguidos (janela de 2 s) mostram `3 HITS!`, `10 HITS!`… e aumentam o XP do abate.
+- **Medidor de DPS** no boneco de treino (`tnt:dummy`): mostra o dano por segundo dos últimos 5 s acima dele.
 - **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) empurram o inimigo para trás com leve elevação, com onda de choque no finalizador.
 - **Números de dano flutuantes** coloridos pela força do golpe, subindo com desaceleração suave.
 - **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
