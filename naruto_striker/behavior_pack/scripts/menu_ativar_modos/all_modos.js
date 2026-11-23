@@ -280,7 +280,7 @@ break;
 
 
 case 18:
-if (!player.hasTag("modo_ativado_2") && !player.hasTag("modo_suigetsu_cooldown") && player.hasTag("modo_suigetsu")) {
+if (!player.hasTag("modo_ativado_2") && !player.hasTag("suigetsu_cooldown") && player.hasTag("modo_suigetsu")) {
 player.runCommand('/event entity @s desativar_slot_2');
 system.runTimeout(() => {
 player.runCommand('/event entity @s suigetsu:ativado');
