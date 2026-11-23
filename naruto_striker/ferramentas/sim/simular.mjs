@@ -87,6 +87,10 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
 // meteoro do Rinnegan: explosao cancelada e cratera cavada fora do beforeEvent
 { const met=new S.Entity('tnt:meteorio_rine', ow, {x:300,y:70,z:300},{hp:1}); const ev={source:met, cancel:false}; world.beforeEvents.explosion.fire(ev); steps(30);
   const ar=[...(S.blocks||new Map()).entries()].filter(([k,v])=>v==='minecraft:air').length; console.log('meteoro cancel',ev.cancel,'blocos removidos',ar); if(!ev.cancel||ar<1000) S.errors.push({where:'meteoro',msg:'cratera nao foi cavada ('+ar+')',stack:''}); }
+// selamento de bijuu com o bijuu colado no jogador (antes: NaN -> erro)
+{ const bj=new S.Entity('tnt:kurama_biju_morte', ow, {x:p1.location.x+0.3,y:p1.location.y,z:p1.location.z},{hp:50}); p1._vel={x:0,y:0,z:0};
+  world.afterEvents.itemStartUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(40);
+  world.afterEvents.itemStopUse.fire({source:p1,itemStack:new S.ItemStack('tnt:pergaminho_ceifeiro')}); steps(5); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('ticks',S.tick,'cmds',S.cmds.length,'particles',S.particles.length,'errors',S.errors.length);

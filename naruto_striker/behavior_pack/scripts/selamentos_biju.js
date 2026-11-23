@@ -79,7 +79,8 @@ function drawLine(dimension, from, to) {
   const dz = to.z - from.z;
   const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-  const steps = Math.floor(dist / config.particleStep);
+  // pelo menos 1 passo (antes: 0/0 = NaN quando o bijuu estava a menos de 1 bloco)
+  const steps = Math.max(1, Math.floor(dist / config.particleStep));
 
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
@@ -124,9 +125,14 @@ world.afterEvents.itemStopUse.subscribe(ev => {
   setScore(player, "charge_bijuu", 0);
 });
 
+world.afterEvents.playerLeave.subscribe((ev) => {
+  charging.delete(ev.playerId);
+});
+
 system.runInterval(() => {
   for (const player of world.getPlayers()) {
     if (!charging.has(player.id)) continue;
+    try {
 
     //
     // SE ANDAR CANCELA
@@ -176,6 +182,10 @@ system.runInterval(() => {
           bijuu.runCommand(cmd);
         }
       }
+    }
+    } catch (e) {
+      // um erro com um jogador nao interrompe os demais
+      charging.delete(player.id);
     }
   }
 }, config.loopTick);
