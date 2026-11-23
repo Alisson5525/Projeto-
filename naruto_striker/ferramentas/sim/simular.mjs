@@ -130,6 +130,10 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
 { p1._inv.container.slots[0]=new S.ItemStack('tnt:samehada'); p1.selectedSlotIndex=0; const alvo=new S.Entity('tnt:ninja_folha_b', ow, {x:p1.location.x+1,y:p1.location.y,z:p1.location.z},{hp:60});
   const a=S.particles.filter(x=>x==='tnt:ns_corte').length; world.afterEvents.entityHitEntity.fire({damagingEntity:p1, hitEntity:alvo}); steps(2);
   const b=S.particles.filter(x=>x==='tnt:ns_corte').length; console.log('teste corte: pontos do arco', b-a); if(b-a!==11) S.errors.push({where:'corte',msg:'arco nao desenhado',stack:''}); }
+// teste jutsu sem xp: destruir uma prisao de terra (familia jutsu) nao da XP
+{ const xpA=p1.getDynamicProperty('ns:xp'), nvA=p1.getDynamicProperty('ns:nivel'); const pr=new S.Entity('tnt:prisao_terra', ow, {x:p1.location.x+2,y:p1.location.y,z:p1.location.z},{hp:5000, family:['jutsu']});
+  pr.applyDamage(99999,{cause:'entityAttack',damagingEntity:p1}); steps(5);
+  const ok = p1.getDynamicProperty('ns:xp')===xpA && p1.getDynamicProperty('ns:nivel')===nvA; console.log('teste jutsu sem xp:', ok); if(!ok) S.errors.push({where:'jutsu xp',msg:'jutsu deu XP',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

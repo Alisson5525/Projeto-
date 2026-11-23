@@ -1,7 +1,7 @@
 // Sistema de Combate+: golpes criticos, combos, numeros de dano flutuantes,
 // faiscas de impacto, tremor de camera, "puf" de fumaca ninja e XP por abate.
 import { world, system } from "@minecraft/server";
-import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio } from "./util";
+import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio, ehCriatura } from "./util";
 import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
 import { luaVermelhaAtiva } from "./eventos";
 
@@ -171,6 +171,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const alvo = ev.hurtEntity;
     if (!valido(alvo) || IGNORAR.has(alvo.typeId)) return;
+    if (!ehCriatura(alvo) && alvo.typeId !== "tnt:dummy") return; // jutsus/efeitos com vida
     const atacante = ev.damageSource?.damagingEntity;
     const dano = ev.damage;
     if (!(dano > 0)) return;
@@ -343,6 +344,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     if (morto.typeId.startsWith("tnt:")) particula(dim, "tnt:ns_fumaca_ninja", loc);
 
     if (!ehJogador(killer) || morto.typeId === "minecraft:player") return;
+    if (!ehCriatura(morto)) return; // sem XP por destruir jutsus/efeitos
 
     const combo = combos.get(killer.id)?.n ?? 1;
     const bonusCombo = 1 + Math.min(1, (combo - 1) * 0.05);

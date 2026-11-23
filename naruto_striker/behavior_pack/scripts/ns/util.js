@@ -233,3 +233,18 @@ system.runInterval(() => {
     } catch {}
   }
 }, 2);
+
+/* Criatura de verdade (mob vanilla ou ninja/chefe do add-on). Exclui entidades de
+   jutsu/efeito que tem vida (prisao de terra, espinhos, amaterasu...) e NPCs. */
+const FAMILIAS_CRIATURA = ["ninja", "mobs", "mob", "bijus", "boss", "monster"];
+export function ehCriatura(e) {
+  try {
+    if (!e) return false;
+    if (e.typeId === PLAYER) return true;
+    if (e.typeId.startsWith("minecraft:")) return !["minecraft:item", "minecraft:xp_orb", "minecraft:armor_stand", "minecraft:arrow"].includes(e.typeId);
+    const tf = e.getComponent("type_family");
+    return !!tf && FAMILIAS_CRIATURA.some((f) => tf.hasTypeFamily(f));
+  } catch {
+    return false;
+  }
+}

@@ -1,7 +1,7 @@
 // IA ninja: Kawarimi no Jutsu (substituicao) para os ninjas do mundo e
 // fase de furia para chefes (vida maxima >= 500) ao cair abaixo de 50% de vida.
 import { world, system } from "@minecraft/server";
-import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio, mundoCfg } from "./util";
+import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio, mundoCfg, ehCriatura } from "./util";
 import { textoFlutuante } from "./combate";
 import { luaVermelhaAtiva } from "./eventos";
 
@@ -111,7 +111,7 @@ function nomeChefe(ent) {
 world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const chefe = ev.hurtEntity;
-    if (!valido(chefe) || chefe.typeId === "minecraft:player") return;
+    if (!valido(chefe) || chefe.typeId === "minecraft:player" || !ehCriatura(chefe)) return;
     if (!mundoCfg("furia")) return;
     const vida = chefe.getComponent("health");
     if (!vida || vida.effectiveMax < 500) return;

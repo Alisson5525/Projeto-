@@ -125,6 +125,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | `execute_jutsus` (seletores globais de Amaterasu/Genjutsu/Rasengan) rodava 1x por jogador por tick: em multijogador, efeitos e partículas aplicados N vezes | 1x por tick por dimensão com jogadores |
 | `tick.mcfunction` (roda por jogador) usava `@a` para diminuir a recarga do dash: com N jogadores a recarga caía N vezes mais rápido | `@s` (cada jogador cuida da própria recarga) |
 | HUD reenviava título e actionbar a cada tick (40 pacotes/s por jogador), o que também apagava a mensagem de distância do instrutor no tick seguinte | Envio só quando muda + renovação a cada 0,5 s |
+| (sistemas novos) Entidades de jutsu com vida (Prisão de Terra 5000 HP, espinhos, Amaterasu…) dariam até 1500 XP, números de dano e até "fúria" | XP, feedback, fúria e contratos só para criaturas reais (famílias ninja/mobs/bijus/boss/monster) |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 

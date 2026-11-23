@@ -51,7 +51,7 @@ class Entity {
   setDynamicProperty(k,v){ this._chk(); guardWrite('setDynamicProperty'); if(v===undefined){ this._dp.delete(k); return; } if(!['string','number','boolean'].includes(typeof v) && !(v&&typeof v.x==='number')) throw new TypeError('bad dyn prop type for '+k); if(typeof v==='number'&&!Number.isFinite(v)) throw new TypeError('NaN dyn prop '+k); if(typeof v==='string'&&v.length>32767) throw new Error('string too long'); this._dp.set(k,v); }
   getProperty(n){ this._chk(); if(!this._props.has(n)) throw new Error(`Property '${n}' is not defined for entity ${this.typeId}`); return this._props.get(n); }
   setProperty(n,v){ this._chk(); guardWrite('setProperty'); if(!this._props.has(n)) throw new Error('prop'); this._props.set(n,v); }
-  getComponent(n){ this._chk(); n=n.replace('minecraft:',''); if(n==='health') return this._health; if(n==='inventory') return this._inv; if(n==='equippable') return this._eq; return undefined; }
+  getComponent(n){ this._chk(); n=n.replace('minecraft:',''); if(n==='health') return this._health; if(n==='inventory') return this._inv; if(n==='equippable') return this._eq; if(n==='type_family') return { hasTypeFamily:(f)=>this._family.includes(f), getTypeFamilies:()=>[...this._family] }; return undefined; }
   hasComponent(n){ return !!this.getComponent(n); }
   runCommand(c){ this._chk(); guardWrite('runCommand'); S.cmds.push({src:this.typeId,c}); checkCmd(c); return {successCount:1}; }
   runCommandAsync(c){ this._chk(); guardWrite('runCommandAsync'); S.cmds.push({src:this.typeId,c}); checkCmd(c); return Promise.resolve({successCount:1}); }

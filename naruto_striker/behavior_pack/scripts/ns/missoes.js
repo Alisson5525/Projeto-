@@ -2,7 +2,7 @@
 // um, recebe TP + XP e um novo contrato é sorteado no lugar.
 import { world, system } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
-import { ehJogador, lerJSON, gravarJSON, somarScore, lerScore, particula, som, msg, barra } from "./util";
+import { ehJogador, lerJSON, gravarJSON, somarScore, lerScore, particula, som, msg, barra, ehCriatura } from "./util";
 import { darXP, somarStat, BOTOES_EXTRAS, abrirPerfil } from "./progressao";
 
 const ALVOS = [
@@ -54,6 +54,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     if (vidaMax < 2) return;
 
     // "Qualquer inimigo": ninjas do add-on ou mobs hostis (nao conta animais)
+    if (!ehCriatura(ev.deadEntity)) return;
     let inimigo = tipo.startsWith("tnt:");
     if (!inimigo) {
       try { inimigo = !!ev.deadEntity.getComponent("type_family")?.hasTypeFamily("monster"); } catch {}
