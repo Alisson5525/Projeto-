@@ -2,6 +2,7 @@
 // impacto de pouso, meditacao para recuperar chakra e alerta de vida baixa.
 import { world, system } from "@minecraft/server";
 import { ehJogador, lerScore, somarScore, particula, som, tremer, config, corDoChakra } from "./util";
+import { somarStat } from "./progressao";
 
 const estado = new Map(); // playerId -> { vyAnterior, parado, ultimoBatimento }
 
@@ -76,6 +77,7 @@ system.runInterval(() => {
           for (let i = 0; i < 4; i++) particula(player.dimension, "tnt:ns_aura", loc, cor);
           particula(player.dimension, "tnt:ns_detritos", loc);
           tremer(player, 0.35, 0.5);
+          somarStat(player, "ns:transformacoes", 1);
         } else {
           particula(player.dimension, "tnt:ns_fumaca_ninja", loc);
         }

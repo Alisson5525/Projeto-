@@ -304,6 +304,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     xp = Math.min(1500, Math.round(xp));
 
     somarStat(killer, "ns:kills", 1);
+    if (luaVermelhaAtiva()) somarStat(killer, "ns:kills_lua", 1);
     if (vidaMax >= 500) {
       somarStat(killer, "ns:chefes", 1);
       tremer(killer, 0.6, 1.0);
