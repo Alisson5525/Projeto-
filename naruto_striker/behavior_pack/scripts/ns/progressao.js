@@ -270,8 +270,13 @@ async function abrirGuia(player) {
     "§7- Meditar (agachado e parado) recupera chakra.\n" +
     "§7- Ninjas do mundo podem usar §fKawarimi§7 e reaparecer\n  atrás de você. §6[ELITE]§7 valem 3x XP.\n" +
     "§7- Chefes abaixo de 50% de vida ficam §cenfurecidos§7.\n\n" +
+    "§eFerramentas ninja (bancada):\n" +
+    "§7- §fBomba de Fumaça§7: 1 pólvora + 2 carvões (fuga invisível).\n" +
+    "§7- §6Pílula de Soldado§7: trigo + açúcar + glowstone (+50% chakra).\n" +
+    "§7- §6Pergaminho Ninja§7: 3 papéis + corante vermelho.\n\n" +
     "§eMundo:\n" +
     "§7- Rank §2Chunin§7: Invocação Reversa ao §2Monte Myoboku§7\n  (meditar lá rende chakra e XP).\n" +
+    "§7- §aViagem Rápida§7 de volta a Konoha (recarga de 5 min).\n" +
     "§7- Em algumas noites surge a §4Lua Vermelha§7: XP em dobro\n  e mais elites até o amanhecer.\n\n" +
     "§eRanks:\n" + ranks;
   const form = new ActionFormData().title("§6§lGuia de Progressão").body(txt).button("§lVoltar");
