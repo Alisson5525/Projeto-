@@ -36,7 +36,7 @@ system.runInterval(() => {
   for (const id of dims) {
     const dim = world.getDimension(id);
     try { dim.runCommand("function execute_jutsus"); } catch {
-      try { dim.runCommandAsync("function execute_jutsus"); } catch {}
+      try { dim.runCommandAsync("function execute_jutsus")?.catch?.(() => {}); } catch {}
     }
   }
 }, 1);

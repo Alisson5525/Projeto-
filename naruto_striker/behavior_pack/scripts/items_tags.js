@@ -153,9 +153,9 @@ system.runInterval(() => {
 
         try {
           if (hasItem) {
-            player.runCommandAsync(itemConfig.hasCmd);
+            player.runCommandAsync(itemConfig.hasCmd)?.catch?.(() => {});
           } else {
-            player.runCommandAsync(itemConfig.noCmd);
+            player.runCommandAsync(itemConfig.noCmd)?.catch?.(() => {});
           }
         } catch (e) {
           console.warn(`Erro comando (${itemConfig.id}):`, e);

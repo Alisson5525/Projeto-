@@ -98,9 +98,9 @@ torne-se um §eninja de Konoha!
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer: §a700. Tp"}]}');
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run give @s tnt:rasengan');
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run scoreboard players remove @s tp 700');
+player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer: §a700. Tp"}]}')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run give @s tnt:rasengan')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run scoreboard players remove @s tp 700')?.catch?.(() => {});
 break;
 
 case 1:

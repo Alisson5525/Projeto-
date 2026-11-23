@@ -95,7 +95,7 @@ export function criarEsconderijo(player) {
         break;
       }
       try {
-        dim.runCommandAsync(`loot insert ${x} ${y + 1} ${z} loot "ns/esconderijo"`);
+        dim.runCommandAsync(`loot insert ${x} ${y + 1} ${z} loot "ns/esconderijo"`)?.catch?.(() => {});
       } catch {}
       marcadores.push({ dim, x: x + 0.5, y: y + 1.5, z: z + 0.5, ate: system.currentTick + 20 * 90 });
       particula(dim, "tnt:ns_folhas", { x: x + 0.5, y: y + 1, z: z + 0.5 });

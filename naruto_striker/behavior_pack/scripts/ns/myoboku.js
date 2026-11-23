@@ -27,7 +27,7 @@ function construir(player, tentativa = 1) {
   try {
     const r = player.runCommandAsync(`execute in the_end run structure load monte_myoboku ${ORIGEM_ESTRUTURA.x} ${ORIGEM_ESTRUTURA.y} ${ORIGEM_ESTRUTURA.z}`);
     // o proprio resultado do comando confirma a construcao
-    r?.then?.((res) => { try { if (res && res.successCount > 0) world.setDynamicProperty(CHAVE_CRIADO, true); } catch {} });
+    r?.then?.((res) => { try { if (res && res.successCount > 0) world.setDynamicProperty(CHAVE_CRIADO, true); } catch {} })?.catch?.(() => {});
   } catch {}
   // confere se a montanha apareceu; se o chunk ainda nao tinha carregado, tenta de novo
   system.runTimeout(() => {

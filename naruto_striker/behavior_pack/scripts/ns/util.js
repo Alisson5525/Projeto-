@@ -42,7 +42,7 @@ export function somarScore(player, nome, valor) {
     // via comando para funcionar mesmo antes do jogador ter identidade no placar
     const v = Math.trunc(valor);
     if (v === 0) return;
-    player.runCommandAsync(`scoreboard players ${v > 0 ? "add" : "remove"} @s ${nome} ${Math.abs(v)}`);
+    player.runCommandAsync(`scoreboard players ${v > 0 ? "add" : "remove"} @s ${nome} ${Math.abs(v)}`)?.catch?.(() => {});
   } catch {}
 }
 
@@ -50,7 +50,7 @@ export function definirScore(player, nome, valor) {
   try {
     const obj = objetivo(nome);
     if (!obj) return;
-    player.runCommandAsync(`scoreboard players set @s ${nome} ${Math.trunc(valor)}`);
+    player.runCommandAsync(`scoreboard players set @s ${nome} ${Math.trunc(valor)}`)?.catch?.(() => {});
   } catch {}
 }
 
@@ -132,7 +132,7 @@ export function tremer(player, intensidade, segundos) {
     if (!config(player).tremor) return;
     const i = Math.min(4, Math.max(0.01, intensidade)).toFixed(2);
     const s = Math.min(3, Math.max(0.05, segundos)).toFixed(2);
-    player.runCommandAsync(`camerashake add @s ${i} ${s} positional`);
+    player.runCommandAsync(`camerashake add @s ${i} ${s} positional`)?.catch?.(() => {});
   } catch {}
 }
 

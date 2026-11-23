@@ -46,7 +46,7 @@ function ativarModo(player, modeId) {
   for (const cmd of mode.cmdStart) {
     // efeitos com a mesma duracao do modo acompanham o tempo estendido
     const ajustado = cmd.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
-    try { player.runCommandAsync(ajustado); } catch (e) {}
+    try { player.runCommandAsync(ajustado)?.catch?.(() => {}); } catch (e) {}
   }
 }
 
@@ -63,7 +63,7 @@ function desativarModo(player, modeId) {
   setScore(player, score, 0);
 
   for (const cmd of mode.cmdFinish) {
-    try { player.runCommandAsync(cmd); } catch (e) {}
+    try { player.runCommandAsync(cmd)?.catch?.(() => {}); } catch (e) {}
   }
 }
 

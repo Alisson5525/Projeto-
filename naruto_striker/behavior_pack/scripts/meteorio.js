@@ -80,7 +80,7 @@ function cavarCratera(dim, center, R, outerLayer, inner) {
 
   // 3) Efeitos visuais/sonoros extras
   try {
-    dim.runCommandAsync(`particle tnt:meteorio_fumasa_impact ${center.x} ${center.y} ${center.z}`);
-    dim.runCommandAsync(`playsound random.explode @a[r=${R+56}] ${center.x} ${center.y} ${center.z} 1 1`);
+    dim.runCommandAsync(`particle tnt:meteorio_fumasa_impact ${center.x} ${center.y} ${center.z}`)?.catch?.(() => {});
+    dim.runCommandAsync(`playsound random.explode @a[r=${R+56}] ${center.x} ${center.y} ${center.z} 1 1`)?.catch?.(() => {});
   } catch {}
 }

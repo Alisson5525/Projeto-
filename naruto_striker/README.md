@@ -136,6 +136,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | HUD reenviava título e actionbar a cada tick (40 pacotes/s por jogador), o que também apagava a mensagem de distância do instrutor no tick seguinte | Envio só quando muda + renovação a cada 0,5 s |
 | (sistemas novos) Entidades de jutsu com vida (Prisão de Terra 5000 HP, espinhos, Amaterasu…) dariam até 1500 XP, números de dano e até "fúria" | XP, feedback, fúria e contratos só para criaturas reais (famílias ninja/mobs/bijus/boss/monster) |
 | Kamui fica no vazio do End: cair da estrutura matava o jogador (perdendo os itens) | Rede de segurança: quem cai abaixo da base volta ao ponto de chegada (Kamui e Monte Myoboku) |
+| 168 comandos assíncronos sem tratamento de falha: um comando que falhava (ex.: `fog remove` sem névoa ativa, a cada entrada no mundo; `clear`/`give` sem alvo) gerava "Unhandled promise rejection" no log de conteúdo | Todas as chamadas `runCommandAsync` agora tratam a falha (`?.catch`) |
 | Modo história: clicar numa missão bloqueada ou já concluída não fazia nada (sem explicação) | Mensagem "Missão indisponível: já concluída ou bloqueada" |
 | Menus de ativar modos: clicar num modo bloqueado ou com outro modo ativo não fazia nada | Aviso explicando o motivo (39 botões; botões vazios e "desativar" inalterados) |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |

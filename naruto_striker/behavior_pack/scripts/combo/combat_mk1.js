@@ -19,7 +19,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
+        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -42,7 +42,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
+        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -66,7 +66,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
+        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -103,7 +103,7 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
 
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
+      player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
     }, 0);
 
 
@@ -111,7 +111,7 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
     runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.3 * 36);
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3");
+      player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});
       damage(player, 4, 3, 3);
     }, 0.13 * 36);
 
@@ -165,7 +165,7 @@ function damage(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound attack.hit @s`);
+      player.runCommandAsync(`playsound attack.hit @s`)?.catch?.(() => {});
 
       // Partícula no inimigo atingido
       try {
@@ -206,7 +206,7 @@ function damage_rasen_bj(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2`);
+      player.runCommandAsync(`playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2`)?.catch?.(() => {});
 
       // Partícula no inimigo atingido
       try {

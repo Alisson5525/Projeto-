@@ -146,8 +146,8 @@ export function darXP(player, quantidade, motivo) {
       }
       somarScore(player, "tp", 300);
       try {
-        player.runCommandAsync("give @s tnt:ns_bomba_fumaca 4");
-        player.runCommandAsync("give @s tnt:ns_pilula_soldado 2");
+        player.runCommandAsync("give @s tnt:ns_bomba_fumaca 4")?.catch?.(() => {});
+        player.runCommandAsync("give @s tnt:ns_pilula_soldado 2")?.catch?.(() => {});
       } catch {}
       msg(player, `§6Bônus de promoção: §e+300 TP§6, §74 Bombas de Fumaça §6e §62 Pílulas de Soldado`);
       particula(player.dimension, "tnt:ns_folhas", loc);
@@ -318,7 +318,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
     if (!player.getDynamicProperty("ns:recebeu_pergaminho")) {
       gravar(player, "ns:recebeu_pergaminho", true);
       try {
-        player.runCommandAsync(`give @s ${ITEM_PERFIL} 1`);
+        player.runCommandAsync(`give @s ${ITEM_PERFIL} 1`)?.catch?.(() => {});
       } catch {}
       msg(player, "§6[Naruto Striker+] §7Você recebeu o §6Pergaminho Ninja§7: veja seu nível, conquistas e ajustes.");
     }

@@ -91,7 +91,7 @@ export function luaVermelhaAtiva() {
 
 function aplicarNevoa(player, ligar) {
   try {
-    player.runCommandAsync(ligar ? `fog @s push ${NEVOA} ${ID_NEVOA}` : `fog @s remove ${ID_NEVOA}`);
+    player.runCommandAsync(ligar ? `fog @s push ${NEVOA} ${ID_NEVOA}` : `fog @s remove ${ID_NEVOA}`)?.catch?.(() => {});
   } catch {}
 }
 

@@ -36,7 +36,7 @@ function usarBomba(player) {
   } catch {}
   // consome 1 (modo criativo nao gasta)
   try {
-    if (player.getGameMode?.() !== "creative") player.runCommandAsync(`clear @s ${BOMBA} 0 1`);
+    if (player.getGameMode?.() !== "creative") player.runCommandAsync(`clear @s ${BOMBA} 0 1`)?.catch?.(() => {});
   } catch {}
   msg(player, "§7§o*puf* ...você desaparece na fumaça.");
   somarStat(player, "ns:bombas", 1);

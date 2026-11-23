@@ -102,7 +102,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
             // libera a area de carregamento forcado (antes ficava ativa para sempre)
             runTimeoutSeguro(() => {
-                try { player.dimension.runCommandAsync("tickingarea remove estrutura_spawn"); } catch (e) {}
+                try { player.dimension.runCommandAsync("tickingarea remove estrutura_spawn")?.catch?.(() => {}); } catch (e) {}
             }, 100);
 
             player.sendMessage("§aEstrutura carregada!");

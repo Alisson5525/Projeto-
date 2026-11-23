@@ -123,22 +123,22 @@ export function npc_orochimaru_pg2(player) {
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('function npc/orochimaru_dna_v1');
+player.runCommandAsync('function npc/orochimaru_dna_v1')?.catch?.(() => {});
 break;
 
 
 case 1:
-player.runCommandAsync('function npc/orochimaru_dna_v2');
+player.runCommandAsync('function npc/orochimaru_dna_v2')?.catch?.(() => {});
 break;
 
 case 2:
-player.runCommandAsync('execute as @s[hasitem=[{item=tnt:fragrimento_zetsu,location=slot.hotbar,quantity=128..},{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run function npc/orochimaru_dna_braco_danzo');
+player.runCommandAsync('execute as @s[hasitem=[{item=tnt:fragrimento_zetsu,location=slot.hotbar,quantity=128..},{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run function npc/orochimaru_dna_braco_danzo')?.catch?.(() => {});
 break;
 
 case 3:
-player.runCommandAsync('execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}');
-player.runCommandAsync('execute as @s[scores={tp=6000..}] run give @s tnt:pergaminho_ceifeiro');
-player.runCommandAsync('execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000');
+player.runCommandAsync('execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=6000..}] run give @s tnt:pergaminho_ceifeiro')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000')?.catch?.(() => {});
 break;
 
 case 4:

@@ -165,22 +165,22 @@ export function npc_tsunade_hokage_pg2(player) {
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a500. Tp"}]}');
-player.runCommandAsync('execute as @s[scores={tp=500..}] run give @s tnt:jutsu_medico');
-player.runCommandAsync('execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
+player.runCommandAsync('execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a500. Tp"}]}')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=500..}] run give @s tnt:jutsu_medico')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500')?.catch?.(() => {});
 break;
 
 
 case 1:
-player.runCommandAsync('execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2000. Tp"}]}');
-player.runCommandAsync('execute as @s[scores={tp=2000..}] run give @s tnt:jutsu_medico_avancado');
-player.runCommandAsync('execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000');
+player.runCommandAsync('execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2000. Tp"}]}')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=2000..}] run give @s tnt:jutsu_medico_avancado')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000')?.catch?.(() => {});
 break;
 
 case 2:
-player.runCommandAsync('execute as @s[scores={tp=0..749}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a750. Tp"}]}');
-player.runCommandAsync('execute as @s[scores={tp=750..}] run give @s tnt:selo_byakugou');
-player.runCommandAsync('execute as @s[scores={tp=750..}] run scoreboard players remove @s tp 750');
+player.runCommandAsync('execute as @s[scores={tp=0..749}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a750. Tp"}]}')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=750..}] run give @s tnt:selo_byakugou')?.catch?.(() => {});
+player.runCommandAsync('execute as @s[scores={tp=750..}] run scoreboard players remove @s tp 750')?.catch?.(() => {});
 break;
 
 case 3:
