@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { empurrar } from "./lib/fisica.js";
 
 const MAO_TERRA_DAMAGE = 7;
 const MAO_TERRA_TICKS = 5;
@@ -35,7 +36,7 @@ function normalize(x, y, z) {
 function dash(player) {
   player.removeTag("dash");
   const view = player.getViewDirection();
-  player.applyKnockback(view.x, view.z, view.y > 0.7 || view.y < -0.7 ? 2 : 10, view.y * 2);
+  empurrar(player, view.x, view.z, view.y > 0.7 || view.y < -0.7 ? 2 : 10, view.y * 2);
 }
 
 function dashEntity(entity) {
@@ -72,7 +73,7 @@ function dashEntity(entity) {
   }
 
   try {
-    entity.applyKnockback(dir.x * strength, dir.z * strength, 7, dir.y * verticalMultiplier);
+    if (!empurrar(entity, dir.x * strength, dir.z * strength, 7, dir.y * verticalMultiplier)) throw new Error("knockback");
   } catch (e) {
     try {
       const upFactor = nearest.dy > MOB_VERTICAL_THRESHOLD ? Math.min(nearest.dy, 4) : 0.5;
@@ -86,7 +87,7 @@ function dashEntity(entity) {
 function mao_terra(player) {
   const view = player.getViewDirection();
   const daash = "animation.mao_terra_skill_1_atk";
-  player.applyKnockback(view.x, view.z, 5, 0);
+  empurrar(player, view.x, view.z, 5, 0);
   player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("mao_terra");
   player.setDynamicProperty("chidori_damage_ticks", MAO_TERRA_TICKS);
@@ -97,7 +98,7 @@ function mao_terra(player) {
 function raikiri(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_atk";
-  player.applyKnockback(view.x, view.z, 30, 0);
+  empurrar(player, view.x, view.z, 30, 0);
   player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("raikiri");
   player.setDynamicProperty("chidori_damage_ticks", RAIKIRI_TICKS);
@@ -108,7 +109,7 @@ function raikiri(player) {
 function chidori_negro(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_negro_atk";
-  player.applyKnockback(view.x, view.z, 20, 0);
+  empurrar(player, view.x, view.z, 20, 0);
   player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("chidori_negro");
   player.setDynamicProperty("chidori_damage_ticks", CHIDORI_NEGRO_TICKS);
@@ -119,7 +120,7 @@ function chidori_negro(player) {
 function shiden_negro(player) {
   const view = player.getViewDirection();
   const daash = "animation.shiden_skill_salto";
-  player.applyKnockback(view.x, view.z, 7, 0);
+  empurrar(player, view.x, view.z, 7, 0);
   player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("shiden_negro");
   player.setDynamicProperty("chidori_damage_ticks", SHIDEN_TICKS);
@@ -130,7 +131,7 @@ function shiden_negro(player) {
 function chidori(player) {
   const view = player.getViewDirection();
   const daash = "animation.chidori_atk";
-  player.applyKnockback(view.x, view.z, 20, 0);
+  empurrar(player, view.x, view.z, 20, 0);
   player.playAnimation(daash, { controller: "daash_controller", blendOutTime: 0.25 });
   player.removeTag("chidori");
   player.setDynamicProperty("chidori_damage_ticks", CHIDORI_TICKS);
@@ -177,11 +178,12 @@ mc.system.runInterval(() => {
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     try {
-    let ticks = player.getDynamicProperty("chidori_damage_ticks");
-    if (ticks === undefined) continue;
+    const ticksProp = player.getDynamicProperty("chidori_damage_ticks");
+    if (typeof ticksProp !== "number") continue;
+    let ticks = ticksProp;
 
-    let dano = player.getDynamicProperty("chidori_damage") ?? 0;
-    let raio = player.getDynamicProperty("chidori_radius") ?? 4;
+    const dano = Number(player.getDynamicProperty("chidori_damage") ?? 0) || 0;
+    const raio = Number(player.getDynamicProperty("chidori_radius") ?? 4) || 4;
 
     const entities = player.dimension.getEntities({
       location: player.location,
@@ -194,7 +196,7 @@ mc.system.runInterval(() => {
       if (entity.id === player.id) continue; // nunca fere quem usou o jutsu
       try {
         entity.applyDamage(dano, {
-          cause: "entityAttack",
+          cause: mc.EntityDamageCause.entityAttack,
           damagingEntity: player
         });
       } catch (e) {}

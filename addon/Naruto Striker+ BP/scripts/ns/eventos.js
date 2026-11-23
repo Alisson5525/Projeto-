@@ -3,6 +3,7 @@
 //  - "Noite da Lua Vermelha": evento noturno raro com névoa vermelha,
 //    XP em dobro e mais ninjas de elite.
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 import { ehJogador, particula, som, msg, tremer, aleatorio, mundoCfg, lerNum, gravar, somarScore } from "./util";
 
 /* ------------------------------------------------------------------ */
@@ -91,7 +92,7 @@ export function luaVermelhaAtiva() {
 
 function aplicarNevoa(player, ligar) {
   try {
-    player.runCommandAsync(ligar ? `fog @s push ${NEVOA} ${ID_NEVOA}` : `fog @s remove ${ID_NEVOA}`)?.catch?.(() => {});
+    cmd(player, ligar ? `fog @s push ${NEVOA} ${ID_NEVOA}` : `fog @s remove ${ID_NEVOA}`);
   } catch {}
 }
 

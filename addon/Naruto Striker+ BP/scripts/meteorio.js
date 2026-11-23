@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 const TNT_ID = "tnt:meteorio_rine";  // seu identifier da TNT
 const RADIUS = 20;              // raio total da explosão
@@ -13,8 +14,7 @@ mc.world.beforeEvents.explosion.subscribe((ev) => {
   if (!src || src.typeId !== TNT_ID) return;
 
   // cancela explosão vanilla
-  if (typeof ev.setCanceled === "function") ev.setCanceled(true);
-  else ev.cancel = true;
+  ev.cancel = true;
 
   // beforeEvents e somente leitura: guarda os dados e faz as alteracoes no proximo tick
   const center = { x: src.location.x, y: src.location.y, z: src.location.z };
@@ -80,7 +80,7 @@ function cavarCratera(dim, center, R, outerLayer, inner) {
 
   // 3) Efeitos visuais/sonoros extras
   try {
-    dim.runCommandAsync(`particle tnt:meteorio_fumasa_impact ${center.x} ${center.y} ${center.z}`)?.catch?.(() => {});
-    dim.runCommandAsync(`playsound random.explode @a[r=${R+56}] ${center.x} ${center.y} ${center.z} 1 1`)?.catch?.(() => {});
+    cmd(dim, `particle tnt:meteorio_fumasa_impact ${center.x} ${center.y} ${center.z}`);
+    cmd(dim, `playsound random.explode @a[r=${R+56}] ${center.x} ${center.y} ${center.z} 1 1`);
   } catch {}
 }

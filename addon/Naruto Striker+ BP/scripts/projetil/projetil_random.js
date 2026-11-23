@@ -2,7 +2,8 @@ import * as mc from "@minecraft/server";
 
 // /scriptevent tnt:tenseigan_orb [velocidade opcional]
 mc.system.afterEvents.scriptEventReceive.subscribe(ev => {
-  const id = ev.id.split("tnt:")[1];
+  if (!ev.id.startsWith("tnt:")) return;
+  const id = ev.id.slice(4);
   const src = ev.sourceEntity;
   if (!src || src.typeId !== "minecraft:player") return;
 
@@ -38,16 +39,19 @@ function fireFromSides(player, speed) {
     z: base.z + side.z * sideFactor * sideDist,
   };
 
-  const proj = player.dimension.spawnEntity("tnt:teiseigan_chakra_orb", spawnPos);
+  let proj;
+  try { proj = player.dimension.spawnEntity("tnt:teiseigan_chakra_orb", spawnPos); } catch { return; }
 
   mc.system.runTimeout(() => {
-    if (!proj?.isValid()) return;
+    if (!proj?.isValid) return;
     const v = { x: dir.x * speed, y: dir.y * speed, z: dir.z * speed };
-    if (typeof proj.setVelocity === "function") {
-      proj.setVelocity(v);
-    } else {
-      proj.applyImpulse({ x: v.x * 0.4, y: v.y * 0.4, z: v.z * 0.4 });
-    }
+    // componente de projetil: velocidade exata e o jogador como dono (credito do abate,
+    // sem acertar o proprio usuario). Sem o componente, cai no impulso fisico.
+    const comp = proj.getComponent("minecraft:projectile");
+    try {
+      if (comp) { comp.owner = player; comp.shoot(v); return; }
+    } catch {}
+    try { proj.applyImpulse({ x: v.x * 0.4, y: v.y * 0.4, z: v.z * 0.4 }); } catch {}
   }, 1);
 }
 

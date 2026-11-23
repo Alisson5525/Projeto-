@@ -81,6 +81,9 @@
         "minecraft:movement": {
           "value": 0.3
         }
+      },
+      "despawning": {
+        "minecraft:instant_despawn": {}
       }
     },
     "components": {

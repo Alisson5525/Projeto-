@@ -1,5 +1,6 @@
 // Ferramentas ninja: Bomba de Fumaca (fuga com invisibilidade e velocidade).
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 import { ehJogador, particula, somArea, msg, lerScore, somarScore, corDoChakra, som } from "./util";
 import { somarStat } from "./progressao";
 
@@ -36,7 +37,7 @@ function usarBomba(player) {
   } catch {}
   // consome 1 (modo criativo nao gasta)
   try {
-    if (player.getGameMode?.() !== "creative") player.runCommandAsync(`clear @s ${BOMBA} 0 1`)?.catch?.(() => {});
+    if (player.getGameMode?.() !== "creative") cmd(player, `clear @s ${BOMBA} 0 1`);
   } catch {}
   msg(player, "§7§o*puf* ...você desaparece na fumaça.");
   somarStat(player, "ns:bombas", 1);

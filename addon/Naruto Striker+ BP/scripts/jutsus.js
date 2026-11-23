@@ -4,7 +4,7 @@ mc.system.afterEvents.scriptEventReceive.subscribe(event => {
   if (!event.id.startsWith("tnt:")) return;
   const tnt = event.id.slice(4);
   const source = event.sourceEntity;
-  if (!source || !source.isValid()) return;
+  if (!source || !source.isValid) return;
 
   if (tnt === "skill_2_kurama_1") {
     hitInFront(source, {length: 4, radius: 2, damage: 15, particle: true});
@@ -47,7 +47,7 @@ export function hitInFront(player, cfg = {}) {
   let hits = 0;
 
   for (const e of candidates) {
-    if (!e?.isValid()) continue;
+    if (!e?.isValid) continue;
     if (e.id === player.id) continue;
     if (typeof e.applyDamage !== "function") continue;
     

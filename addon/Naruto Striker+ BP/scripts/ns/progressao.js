@@ -2,6 +2,7 @@
 // conquistas e o menu "Pergaminho Ninja" (perfil / conquistas / ajustes).
 // Integra com a economia original do add-on: recompensas sao dadas em TP (placar "tp").
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 import { ActionFormData } from "@minecraft/server-ui";
 import {
   ehJogador, valido, lerNum, gravar, lerJSON, gravarJSON, somarScore, definirScore, lerScore,
@@ -146,8 +147,8 @@ export function darXP(player, quantidade, motivo) {
       }
       somarScore(player, "tp", 300);
       try {
-        player.runCommandAsync("give @s tnt:ns_bomba_fumaca 4")?.catch?.(() => {});
-        player.runCommandAsync("give @s tnt:ns_pilula_soldado 2")?.catch?.(() => {});
+        cmd(player, "give @s tnt:ns_bomba_fumaca 4");
+        cmd(player, "give @s tnt:ns_pilula_soldado 2");
       } catch {}
       msg(player, `§6Bônus de promoção: §e+300 TP§6, §74 Bombas de Fumaça §6e §62 Pílulas de Soldado`);
       particula(player.dimension, "tnt:ns_folhas", loc);
@@ -318,7 +319,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
     if (!player.getDynamicProperty("ns:recebeu_pergaminho")) {
       gravar(player, "ns:recebeu_pergaminho", true);
       try {
-        player.runCommandAsync(`give @s ${ITEM_PERFIL} 1`)?.catch?.(() => {});
+        cmd(player, `give @s ${ITEM_PERFIL} 1`);
       } catch {}
       msg(player, "§6[Naruto Striker+] §7Você recebeu o §6Pergaminho Ninja§7: veja seu nível, conquistas e ajustes.");
     }
@@ -352,7 +353,7 @@ export function atualizarRanking(player) {
   try {
     if (!ehJogador(player)) return;
     let r = {};
-    try { r = JSON.parse(world.getDynamicProperty("ns:ranking") ?? "{}") || {}; } catch { r = {}; }
+    try { r = JSON.parse(String(world.getDynamicProperty("ns:ranking") ?? "{}")) || {}; } catch { r = {}; }
     r[player.name] = { n: nivelDe(player), k: lerNum(player, "ns:kills", 0) };
     const nomes = Object.keys(r);
     if (nomes.length > 60) {
@@ -365,7 +366,7 @@ export function atualizarRanking(player) {
 
 async function abrirRanking(player) {
   let r = {};
-  try { r = JSON.parse(world.getDynamicProperty("ns:ranking") ?? "{}") || {}; } catch {}
+  try { r = JSON.parse(String(world.getDynamicProperty("ns:ranking") ?? "{}")) || {}; } catch {}
   const lista = Object.entries(r).sort((a, b) => (b[1].n - a[1].n) || (b[1].k - a[1].k)).slice(0, 10);
   let txt = "§7Os shinobis mais fortes deste mundo:\n\n";
   lista.forEach(([nome, v], i) => {

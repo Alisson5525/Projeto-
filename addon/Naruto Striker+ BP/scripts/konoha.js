@@ -1,3 +1,4 @@
+import { cmd } from "./lib/cmd.js";
 import {
     world,
     system
@@ -35,7 +36,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
         try {
 
-            if (!player.isValid()) { carregando = false; return; }
+            if (!player.isValid) { carregando = false; return; }
             const loc = player.location;
 
             const x = Math.floor(loc.x);
@@ -65,9 +66,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             */
 
             // se falhar (ex.: limite de areas de ticking), segue para carregar a estrutura mesmo assim
-            await player.runCommandAsync(
-                `tickingarea add circle ${x} ${y} ${z} 4 estrutura_spawn`
-            ).catch(() => {});
+            await cmd(player, `tickingarea add circle ${x} ${y} ${z} 4 estrutura_spawn`);
 
             /*
             =======================================================
@@ -75,9 +74,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             =======================================================
             */
 
-            await player.runCommandAsync(
-                `structure load ${STRUCTURE_NAME} ${x} ${y} ${z}`
-            );
+            await cmd(player, `structure load ${STRUCTURE_NAME} ${x} ${y} ${z}`);
 
             /*
             =======================================================
@@ -103,7 +100,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
             // libera a area de carregamento forcado (antes ficava ativa para sempre)
             runTimeoutSeguro(() => {
-                try { player.dimension.runCommandAsync("tickingarea remove estrutura_spawn")?.catch?.(() => {}); } catch (e) {}
+                try { cmd(player.dimension, "tickingarea remove estrutura_spawn"); } catch (e) {}
             }, 100);
 
             player.sendMessage("§aEstrutura carregada!");

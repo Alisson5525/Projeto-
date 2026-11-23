@@ -1,6 +1,7 @@
 // Sistema de Combate+: golpes criticos, combos, numeros de dano flutuantes,
 // faiscas de impacto, tremor de camera, "puf" de fumaca ninja e XP por abate.
-import { world, system, ItemStack } from "@minecraft/server";
+import { world, system, ItemStack, EquipmentSlot } from "@minecraft/server";
+import { empurrar } from "../lib/fisica.js";
 import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio, ehCriatura, lerJSON, gravarJSON, somarScore, msg } from "./util";
 import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
 import { luaVermelhaAtiva } from "./eventos";
@@ -162,7 +163,7 @@ world.afterEvents.entityHitEntity.subscribe((ev) => {
     const alvo = ev.hitEntity;
     if (!ehJogador(p) || !alvo) return;
     golpes.set(alvo.id, { playerId: p.id, tick: system.currentTick });
-    const item = p.getComponent("equippable")?.getEquipment("Mainhand");
+    const item = p.getComponent("equippable")?.getEquipment(EquipmentSlot.Mainhand);
     if (item && ESPADAS.has(item.typeId) && config(p).rastro) arcoDeCorte(p);
   } catch {}
 });
@@ -326,7 +327,7 @@ function processarGolpe(player, d) {
       // o empurrao vem depois da pausa, para o hit-stop ser sentido
       system.runTimeout(() => {
         try {
-          if (valido(alvo)) alvo.applyKnockback(v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
+          if (valido(alvo)) empurrar(alvo, v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
         } catch {}
       }, finalizador ? 5 : 3);
     }

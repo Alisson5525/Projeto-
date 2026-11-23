@@ -1,12 +1,13 @@
 // Utilitarios compartilhados dos sistemas "Naruto Striker+" (pasta ns/).
 // Tudo aqui e defensivo: nenhuma funcao lanca erro para quem chama.
 import { world, system, MolangVariableMap } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 export const PLAYER = "minecraft:player";
 
 export function valido(e) {
   try {
-    return !!e && e.isValid();
+    return !!e && e.isValid;
   } catch {
     return false;
   }
@@ -42,7 +43,7 @@ export function somarScore(player, nome, valor) {
     // via comando para funcionar mesmo antes do jogador ter identidade no placar
     const v = Math.trunc(valor);
     if (v === 0) return;
-    player.runCommandAsync(`scoreboard players ${v > 0 ? "add" : "remove"} @s ${nome} ${Math.abs(v)}`)?.catch?.(() => {});
+    cmd(player, `scoreboard players ${v > 0 ? "add" : "remove"} @s ${nome} ${Math.abs(v)}`);
   } catch {}
 }
 
@@ -50,7 +51,7 @@ export function definirScore(player, nome, valor) {
   try {
     const obj = objetivo(nome);
     if (!obj) return;
-    player.runCommandAsync(`scoreboard players set @s ${nome} ${Math.trunc(valor)}`)?.catch?.(() => {});
+    cmd(player, `scoreboard players set @s ${nome} ${Math.trunc(valor)}`);
   } catch {}
 }
 
@@ -122,8 +123,7 @@ export function som(player, id, volume = 1, pitch = 1) {
 
 export function somArea(dim, id, loc, volume = 1, pitch = 1) {
   try {
-    if (typeof dim.playSound === "function") dim.playSound(id, loc, { volume, pitch });
-    else world.playSound(id, loc, { volume, pitch });
+    dim.playSound(id, loc, { volume, pitch });
   } catch {}
 }
 
@@ -132,7 +132,7 @@ export function tremer(player, intensidade, segundos) {
     if (!config(player).tremor) return;
     const i = Math.min(4, Math.max(0.01, intensidade)).toFixed(2);
     const s = Math.min(3, Math.max(0.05, segundos)).toFixed(2);
-    player.runCommandAsync(`camerashake add @s ${i} ${s} positional`)?.catch?.(() => {});
+    cmd(player, `camerashake add @s ${i} ${s} positional`);
   } catch {}
 }
 
@@ -193,7 +193,7 @@ export function mundoCfg(chave) {
 system.afterEvents.scriptEventReceive.subscribe((ev) => {
   if (ev.id !== "ns:config") return;
   const quem = ev.sourceEntity;
-  const responder = (t) => { try { if (quem && quem.typeId === PLAYER) quem.sendMessage(t); else console.warn(t); } catch {} };
+  const responder = (t) => { try { if (ehJogador(quem)) /** @type {any} */ (quem).sendMessage(t); else console.warn(t); } catch {} };
   const [opcao, valor] = (ev.message || "").trim().split(/\s+/);
   let o = {};
   try { const v = world.getDynamicProperty("ns:mundo_cfg"); o = typeof v === "string" ? JSON.parse(v) : {}; } catch {}

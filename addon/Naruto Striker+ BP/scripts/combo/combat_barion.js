@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -19,8 +20,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
@@ -38,8 +39,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
@@ -60,8 +61,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
@@ -83,8 +84,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage(player, 35, 2, 3), 0.13 * 20);
@@ -108,8 +109,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
@@ -134,8 +135,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
@@ -161,8 +162,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
@@ -189,8 +190,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
@@ -218,8 +219,8 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "tp @e[rm=0.7,c=1,r=3] ^^0.2 ^1");
       }, 0);
 
       runTimeoutSeguro(() => damage2(player, 45, 2, 3), 0.13 * 20);
@@ -255,26 +256,26 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("camerashake add @s 0.1 0.2 rotational")?.catch?.(() => {});
-        player.runCommandAsync("execute as @e[rm=0.5,r=5,c=1,type=!item,type=!xp_orb] at @s run tp @a[c=1] ^ ^1 ^-1.5 facing @s")?.catch?.(() => {});
+        cmd(player, "camerashake add @s 0.1 0.2 rotational");
+        cmd(player, "execute as @e[rm=0.5,r=5,c=1,type=!item,type=!xp_orb] at @s run tp @a[c=1] ^ ^1 ^-1.5 facing @s");
       }, 0);
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("tp @s ~~6~")?.catch?.(() => {});
+        cmd(player, "tp @s ~~6~");
         damage2(player, 4, 3, 3);
       }, 0.1 * 20);
 
       runTimeoutSeguro(() => {
         // olha para baixo
-        player.runCommandAsync("tp @s ~ ~ ~ ~ 100")?.catch?.(() => {});
+        cmd(player, "tp @s ~ ~ ~ ~ 100");
         damage2(player, 4, 3, 3);
       }, 0.2 * 20);
 
       runTimeoutSeguro(() => {
         // ativa dash + marca impacto
-        player.runCommandAsync("tag @s add dash")?.catch?.(() => {});
-        player.runCommandAsync("tag @s add impacto")?.catch?.(() => {});
-        player.runCommandAsync("tag @s add dano_barion")?.catch?.(() => {});
+        cmd(player, "tag @s add dash");
+        cmd(player, "tag @s add impacto");
+        cmd(player, "tag @s add dano_barion");
         damage2(player, 4, 3, 3);
       }, 0.4 * 20);
 
@@ -298,11 +299,11 @@ mc.system.runInterval(() => {
 
     // DETECTA IMPACTO NO CHÃO
     if (player.hasTag("impacto") && player.isOnGround) {
-      player.runCommandAsync("damage @e[tag=!dano_barion,r=5,type=!item,family=!jutsu] 40")?.catch?.(() => {});
-      player.runCommandAsync("particle tnt:barion_atk_chao")?.catch?.(() => {});
-      player.runCommandAsync("particle tnt:barion_atk_chao_2")?.catch?.(() => {});
-      player.runCommandAsync("particle tnt:impact_chao")?.catch?.(() => {});
-      player.runCommandAsync("playsound random.explode @a[r=35] ~ ~ ~ 1 1")?.catch?.(() => {});
+      cmd(player, "damage @e[tag=!dano_barion,r=5,type=!item,family=!jutsu] 40");
+      cmd(player, "particle tnt:barion_atk_chao");
+      cmd(player, "particle tnt:barion_atk_chao_2");
+      cmd(player, "particle tnt:impact_chao");
+      cmd(player, "playsound random.explode @a[r=35] ~ ~ ~ 1 1");
       player.removeTag("impacto");
       runTimeoutSeguro(() => player.removeTag("dano_barion"), 0.1 * 20);
 
@@ -337,7 +338,7 @@ function damage2(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound attack.hit @s`)?.catch?.(() => {});
+      cmd(player, `playsound attack.hit @s`);
       try {
         const molang = new mc.MolangVariableMap();
         e.dimension.spawnParticle("tnt:hit_2", {
@@ -379,7 +380,7 @@ function damage(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound attack.hit @s`)?.catch?.(() => {});
+      cmd(player, `playsound attack.hit @s`);
       try {
         const molang = new mc.MolangVariableMap();
         e.dimension.spawnParticle("tnt:hit", {

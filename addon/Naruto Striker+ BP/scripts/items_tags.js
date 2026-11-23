@@ -1,4 +1,5 @@
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // 📦 CONFIG DOS ITENS
 const ITEMS = [
@@ -153,9 +154,9 @@ system.runInterval(() => {
 
         try {
           if (hasItem) {
-            player.runCommandAsync(itemConfig.hasCmd)?.catch?.(() => {});
+            cmd(player, itemConfig.hasCmd);
           } else {
-            player.runCommandAsync(itemConfig.noCmd)?.catch?.(() => {});
+            cmd(player, itemConfig.noCmd);
           }
         } catch (e) {
           console.warn(`Erro comando (${itemConfig.id}):`, e);

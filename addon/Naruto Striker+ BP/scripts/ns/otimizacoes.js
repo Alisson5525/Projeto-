@@ -1,5 +1,6 @@
 // Otimizacoes de desempenho que substituem linhas executadas a cada tick por jogador.
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 /* Dano base do jogador (placar "dano_stats" -> grupo "tnt:dano.N" com minecraft:attack).
    Antes: 100 linhas de comando por tick por jogador (2000 avaliacoes/s), re-adicionando o
@@ -36,7 +37,7 @@ system.runInterval(() => {
   for (const id of dims) {
     const dim = world.getDimension(id);
     try { dim.runCommand("function execute_jutsus"); } catch {
-      try { dim.runCommandAsync("function execute_jutsus")?.catch?.(() => {}); } catch {}
+      try { cmd(dim, "function execute_jutsus"); } catch {}
     }
   }
 }, 1);

@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -19,7 +20,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
+        cmd(player, "playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -42,7 +43,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
+        cmd(player, "playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -66,7 +67,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ")?.catch?.(() => {});
+        cmd(player, "playsound item.trident.riptide_1 @a[r=7] ^^^1 1 1 ");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -103,28 +104,28 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
 
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
+      cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
     }, 0);
 
 
-    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});}, 0.1 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});}, 0.3 * 36);
+    runTimeoutSeguro(() => { cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.1 * 36);
+    runTimeoutSeguro(() => { cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");}, 0.3 * 36);
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});
+      cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");
       damage(player, 4, 3, 3);
     }, 0.13 * 36);
 
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
-    runTimeoutSeguro(() => { player.runCommandAsync("tp @e[rm=1,c=1,r=5] ^^1^3")?.catch?.(() => {});  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.16 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.18 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.20 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.22 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.24 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.26 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 4, 3, 3); }, 0.28 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 8, 3, 3); }, 0.30 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 9, 3, 3); }, 0.32 * 36);
+    runTimeoutSeguro(() => { cmd(player, "tp @e[rm=1,c=1,r=5] ^^1^3");  damage_rasen_bj(player, 10, 3, 3); }, 0.34 * 36);
 
 
     runTimeoutSeguro(() => player.removeTag("delay"), 0.5 * 36);
@@ -165,7 +166,7 @@ function damage(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound attack.hit @s`)?.catch?.(() => {});
+      cmd(player, `playsound attack.hit @s`);
 
       // Partícula no inimigo atingido
       try {
@@ -206,7 +207,7 @@ function damage_rasen_bj(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2`)?.catch?.(() => {});
+      cmd(player, `playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2`);
 
       // Partícula no inimigo atingido
       try {

@@ -1,6 +1,7 @@
 // Exploracao: o mundo e dividido em regioes nomeadas (estilo mundo ninja).
 // Descobrir uma regiao nova da XP; a cada 4 regioes um "Pergaminho Perdido" da TP.
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 import { ehJogador, lerNum, lerJSON, gravarJSON, somarScore, particula, som, msg, mundoCfg } from "./util";
 import { darXP, somarStat, nivelDe } from "./progressao";
 
@@ -95,7 +96,7 @@ export function criarEsconderijo(player) {
         break;
       }
       try {
-        dim.runCommandAsync(`loot insert ${x} ${y + 1} ${z} loot "ns/esconderijo"`)?.catch?.(() => {});
+        cmd(dim, `loot insert ${x} ${y + 1} ${z} loot "ns/esconderijo"`);
       } catch {}
       marcadores.push({ dim, x: x + 0.5, y: y + 1.5, z: z + 0.5, ate: system.currentTick + 20 * 90 });
       particula(dim, "tnt:ns_folhas", { x: x + 0.5, y: y + 1, z: z + 0.5 });

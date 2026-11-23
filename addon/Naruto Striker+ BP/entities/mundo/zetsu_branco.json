@@ -6,22 +6,22 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-
-]},
-
-
-    "animations":{
-
-},
-       "properties": {
-"skin:variacao": {"client_sync": true,"type": "int","range":[ 1, 2 ],"default":1}
-
- }
-
-},
-
+      "scripts": {
+        "animate": []
+      },
+      "animations": {},
+      "properties": {
+        "skin:variacao": {
+          "client_sync": true,
+          "type": "int",
+          "range": [
+            1,
+            2
+          ],
+          "default": 1
+        }
+      }
+    },
     "component_groups": {
       "tnt:despawn": {
         "minecraft:transformation": {
@@ -29,84 +29,52 @@
           "delay": 0.0
         }
       },
-
-
-
-"no_moviment": {
-"minecraft:movement": {"value": 0}
-},
-"yes_moviment": {
-"minecraft:movement": {"value": 0.4}
-}
-
-
-
-
-
-
+      "no_moviment": {
+        "minecraft:movement": {
+          "value": 0
+        }
+      },
+      "yes_moviment": {
+        "minecraft:movement": {
+          "value": 0.4
+        }
+      },
+      "despawning": {
+        "minecraft:instant_despawn": {}
+      }
     },
     "components": {
-
-
-
-
       "minecraft:environment_sensor": {
         "triggers": [
-                    {
+          {
             "filters": {},
             "event": "tnt:tick"
           }
         ]
       },
-
-
-
-
       "minecraft:preferred_path": {
         "max_fall_blocks": 10
       },
-
-
-
-
-
-
-
-
-
-
-    "minecraft:damage_sensor": {
-"triggers": [
-
-
-    {
-      "on_damage": {
-        "filters": {
-          "test": "has_damage", "value": "fatal"
-        },
-        "event": "tnt:morrer"
-      }
-    }
-
-
-
-
-
-
-
-
-]},
-
-
-
-
-    
-
-
-      "minecraft:type_family": {
-        "family": [ "monster","zetsu","mobs" ]
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_damage",
+                "value": "fatal"
+              },
+              "event": "tnt:morrer"
+            }
+          }
+        ]
       },
-     
+      "minecraft:type_family": {
+        "family": [
+          "monster",
+          "zetsu",
+          "mobs"
+        ]
+      },
       "minecraft:loot": {
         "table": "loot_tables/zetsu_branco.json"
       },
@@ -115,19 +83,18 @@
         "height": 1.8
       },
       "minecraft:scale": {
-      	 "value": 1.0
+        "value": 1.0
       },
-	"minecraft:health": {
-	   "value": 300,
-	   "max": 300
-	},
-          "minecraft:behavior.melee_attack": {
+      "minecraft:health": {
+        "value": 300,
+        "max": 300
+      },
+      "minecraft:behavior.melee_attack": {
         "priority": 3,
         "speed_multiplier": 1,
         "track_target": true
       },
-      "minecraft:can_climb": {
-      },
+      "minecraft:can_climb": {},
       "minecraft:movement": {
         "value": 0.4
       },
@@ -143,10 +110,7 @@
       "minecraft:knockback_resistance": {
         "value": 0
       },
-
-      "minecraft:movement.basic": {
-    
-      },
+      "minecraft:movement.basic": {},
       "minecraft:jump.static": {
         "value": 1.0
       },
@@ -163,9 +127,7 @@
         "inhaleTime": 3.75,
         "generatesBubbles": false
       },
-      "minecraft:nameable": {
-      },
-
+      "minecraft:nameable": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 1
@@ -181,101 +143,120 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
- "minecraft:behavior.nearest_attackable_target": {
-  "priority": 2,
-  "within_radius": 25.0,
-  "must_see": true,
-  "reselect_targets": true,
-  "must_see_forget_duration": 17.0,
-  "entity_types": [
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 25.0,
+        "must_see": true,
+        "reselect_targets": true,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
           {
-            "filters": { 
-                "all_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "ninja"},
-                  { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                  { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "creeper"}
-                ] 
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "ninja"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "creeper"
+                }
+              ]
             },
             "within_default": 20
           },
-    {
-      "filters": {
-        "any_of": [
-          { "test": "is_family", "subject": "other", "value": "" }
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": ""
+                }
+              ]
+            },
+            "max_dist": 35
+          }
         ]
       },
-      "max_dist": 35
-    }
-  ]
-},
-
-      "minecraft:physics": {
-      }
+      "minecraft:physics": {}
     },
-
     "events": {
-
-
-
-"no_moviment": { "add": { "component_groups": [ "no_moviment" ] }},
-"yes_moviment": { "add": { "component_groups": [ "yes_moviment" ] }, "remove": { "component_groups": [ "no_moviment" ] }},
-
-
-"tnt:tick": {
-"queue_command": {"command": [
-"function mobs/elemento_random"
-
-]}},
- 
-
-"tnt:morrer": {
-"randomize": [
-
-{"weight": 100,
-"queue_command": {"command": [
-"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
-"scoreboard players add @s tp 150"
-
-],
-"target": "other"}},
-
-{"weight": 70,
-"queue_command": {"command": [
-"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
-"scoreboard players add @s tp 250"
-
-],
-"target": "other"}}
-]},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"minecraft:entity_spawned": {
-"randomize": [
-
-{"weight": 100, "set_property": {"skin:variacao": 1}},
-{"weight": 100, "set_property": {"skin:variacao": 2}}
-
-
-]},
-
-"minecraft:entity_transformation": {},
-
-
-
+      "no_moviment": {
+        "add": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "yes_moviment": {
+        "add": {
+          "component_groups": [
+            "yes_moviment"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "function mobs/elemento_random"
+          ]
+        }
+      },
+      "tnt:morrer": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e150.Tp\"}]}",
+                "scoreboard players add @s tp 150"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "weight": 70,
+            "queue_command": {
+              "command": [
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e250.Tp\"}]}",
+                "scoreboard players add @s tp 250"
+              ],
+              "target": "other"
+            }
+          }
+        ]
+      },
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100,
+            "set_property": {
+              "skin:variacao": 1
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "skin:variacao": 2
+            }
+          }
+        ]
+      },
+      "minecraft:entity_transformation": {},
       "tnt:despawn": {
         "add": {
           "component_groups": [
@@ -289,7 +270,7 @@
             "despawning"
           ]
         }
-    }
+      }
     }
   }
 }

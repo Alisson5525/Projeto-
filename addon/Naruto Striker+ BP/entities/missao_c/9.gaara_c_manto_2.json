@@ -52,7 +52,10 @@
       "tnt:despawn": {
         "minecraft:instant_despawn": {}
       },
-      "modo_berserk": {}
+      "modo_berserk": {},
+      "despawning": {
+        "minecraft:instant_despawn": {}
+      }
     },
     "components": {
       "minecraft:timer": {

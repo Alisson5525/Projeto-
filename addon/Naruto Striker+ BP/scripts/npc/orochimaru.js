@@ -1,5 +1,6 @@
 // import
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -16,28 +17,9 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   if (ev.id !== "npc:orochimaru") return;
 
   const player = ev.sourceEntity;
-  if (!player) return;
-
-  if (player.isPlayer && player.isPlayer()) {
-    try {
-      player.sendMessage("§a[scriptevent] Recebido: hyuga:orochimaru");
-    } catch (e) {
-      console.warn("Não foi possível enviar mensagem de debug ao player.");
-    }
-  }
+  if (!player || player.typeId !== "minecraft:player") return;
 
   npc_orochimaru(player);
-});
-
-world.beforeEvents.itemUse.subscribe((data) => {
-  const player = data.source;
-  switch (data.itemStack.typeId) {
-    case "":
-      runTimeoutSeguro(() => {
-        npc_orochimaru(player);
-      }, 0);
-      break;
-  }
 });
 
 export function npc_orochimaru(player) {
@@ -123,22 +105,22 @@ export function npc_orochimaru_pg2(player) {
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('function npc/orochimaru_dna_v1')?.catch?.(() => {});
+cmd(player, 'function npc/orochimaru_dna_v1');
 break;
 
 
 case 1:
-player.runCommandAsync('function npc/orochimaru_dna_v2')?.catch?.(() => {});
+cmd(player, 'function npc/orochimaru_dna_v2');
 break;
 
 case 2:
-player.runCommandAsync('execute as @s[hasitem=[{item=tnt:fragrimento_zetsu,location=slot.hotbar,quantity=128..},{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run function npc/orochimaru_dna_braco_danzo')?.catch?.(() => {});
+cmd(player, 'execute as @s[hasitem=[{item=tnt:fragrimento_zetsu,location=slot.hotbar,quantity=128..},{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run function npc/orochimaru_dna_braco_danzo');
 break;
 
 case 3:
-player.runCommandAsync('execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=6000..}] run give @s tnt:pergaminho_ceifeiro')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000')?.catch?.(() => {});
+cmd(player, 'execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}');
+cmd(player, 'execute as @s[scores={tp=6000..}] run give @s tnt:pergaminho_ceifeiro');
+cmd(player, 'execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000');
 break;
 
 case 4:

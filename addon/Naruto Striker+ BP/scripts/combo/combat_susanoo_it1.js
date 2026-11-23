@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair/morrer no meio do combo, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -19,7 +20,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
+        cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -42,7 +43,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
+        cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -66,7 +67,7 @@ mc.system.runInterval(() => {
       player.addTag("delay");
 
       runTimeoutSeguro(() => {
-        player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
+        cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
       }, 0);
 
       runTimeoutSeguro(() => {
@@ -102,16 +103,16 @@ mc.world.afterEvents.entityHitEntity.subscribe((event) => {
     player.addTag("delay");
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("tag @s add susanoo_it1_corte")?.catch?.(() => {});
+      cmd(player, "tag @s add susanoo_it1_corte");
     }, 0 * 20);
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2")?.catch?.(() => {});
-      player.runCommandAsync(`summon tnt:susanoo_it1_corte ~ ~ ~ ~ ~100`)?.catch?.(() => {});
+      cmd(player, "playsound mob.evocation_illager.cast_spell @a[r=7] ~ ~ ~ 1 1.2");
+      cmd(player, `summon tnt:susanoo_it1_corte ~ ~ ~ ~ ~100`);
     }, 0.1);
 
     runTimeoutSeguro(() => {
-      player.runCommandAsync("tag @s remove susanoo_it1_corte")?.catch?.(() => {});
+      cmd(player, "tag @s remove susanoo_it1_corte");
     }, 0.4 * 20);
 
     runTimeoutSeguro(() => {
@@ -156,7 +157,7 @@ function damage(player, damage, distancia, raio) {
 
     if (dist <= raio) {
       e.applyDamage(damage ?? 1, { damagingEntity: player, cause: "entityAttack" });
-      player.runCommandAsync(`playsound attack.hit @s`)?.catch?.(() => {});
+      cmd(player, `playsound attack.hit @s`);
 
       // Partícula no inimigo atingido
       try {

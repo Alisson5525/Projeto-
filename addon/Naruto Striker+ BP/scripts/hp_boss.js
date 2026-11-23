@@ -1,7 +1,5 @@
 import * as mc from "@minecraft/server";
 
-const dimension = mc.world.getDimension("overworld");
-
 // 📦 CONFIG DAS ENTIDADES
 const ENTITY_NAMES = {
   "tnt:espadachin_s": "§6#S. §f> Espadachin",
@@ -56,7 +54,7 @@ function nomeComVida(baseName, hp, hpMax) {
 mc.world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const entity = ev.hurtEntity;
-    if (!entity || !entity.isValid()) return;
+    if (!entity || !entity.isValid) return;
     const baseName = ENTITY_NAMES[entity.typeId] ? (entity.hasTag("ns_elite") ? "§6§l[ELITE]§r " : "") + ENTITY_NAMES[entity.typeId] : undefined;
     if (!baseName) return;
     const health = entity.getComponent("health");
@@ -118,41 +116,5 @@ mc.system.runInterval(() => {
 
 }, 20); // 1 segundo
 
-// 🎯 Actionbar dos instrutores
-mc.system.runInterval(() => {
-
-  for (const player of mc.world.getPlayers()) {
-
-    if (!player.hasTag("mission.guilda")) continue;
-    if (player.hasTag("instrutor.guilda")) continue;
-
-    const instrutor = dimension.getEntities({
-      type: "tnt:npc_instrutor",
-      location: player.location,
-      closest: 1,
-      maxDistance: 30
-    });
-
-    for (const instr of instrutor) {
-
-      const distance = Math.floor(getDistance(
-        player.location,
-        instr.location
-      ));
-
-      player.onScreenDisplay.setActionBar(
-        `§cInstrutor §f- §a${distance}m`
-      );
-    }
-  }
-
-}, 10);
-
-// 📏 distância
-function getDistance(pos1, pos2) {
-  const dx = pos1.x - pos2.x;
-  const dy = pos1.y - pos2.y;
-  const dz = pos1.z - pos2.z;
-
-  return Math.sqrt(dx * dx + dy * dy + dz * dz);
-}
+// (removido: "actionbar dos instrutores" procurava a entidade inexistente "tnt:npc_instrutor"
+//  para jogadores com a tag "mission.guilda", que nenhum sistema do add-on define.)

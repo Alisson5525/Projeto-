@@ -15,6 +15,9 @@
       "attack": {},
       "tnt:despawn": {
         "minecraft:instant_despawn": {}
+      },
+      "despawning": {
+        "minecraft:instant_despawn": {}
       }
     },
     "components": {

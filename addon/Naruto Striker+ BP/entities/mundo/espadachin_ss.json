@@ -6,215 +6,320 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-
-"skill_anbu"
-]},
-
-
-    "animations":{
-
-"skill_anbu": "controller.animation.skill_anbu",
-"skill_1": "animation.skill_esquiva_mob",
-"skill_2_agua": "animation.tubarao_triplo_animation",
-"skill_2_fogo": "animation.bola_fogo_animation",
-"skill_2_raio": "animation.chidori_nagashi_animation"
-
-
-
-
-
-
-
-
-
-},
-       "properties": {
-"skills:ninjas": {"client_sync": true,"type": "int","range":[ 0, 4 ],"default":0},
-"skin:variacao": {"client_sync": true,"type": "int","range":[ 1, 3 ],"default":1},
-"espada:variacao": {"client_sync": true,"type": "int","range":[ 1, 4 ],"default":1}
-
- }
-
-},
-
+      "scripts": {
+        "animate": [
+          "skill_anbu"
+        ]
+      },
+      "animations": {
+        "skill_anbu": "controller.animation.skill_anbu",
+        "skill_1": "animation.skill_esquiva_mob",
+        "skill_2_agua": "animation.tubarao_triplo_animation",
+        "skill_2_fogo": "animation.bola_fogo_animation",
+        "skill_2_raio": "animation.chidori_nagashi_animation"
+      },
+      "properties": {
+        "skills:ninjas": {
+          "client_sync": true,
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0
+        },
+        "skin:variacao": {
+          "client_sync": true,
+          "type": "int",
+          "range": [
+            1,
+            3
+          ],
+          "default": 1
+        },
+        "espada:variacao": {
+          "client_sync": true,
+          "type": "int",
+          "range": [
+            1,
+            4
+          ],
+          "default": 1
+        }
+      }
+    },
     "component_groups": {
-
       "tnt:despawn": {
         "minecraft:transformation": {
           "into": "tnt:despawn",
           "delay": 0.0
         }
       },
-
-
-"modo_berserk": {
-"minecraft:mark_variant": {"value": 1},
-"minecraft:knockback_resistance": {"value": 1}, 
-"minecraft:attack": {"damage": 40}
-},
-"quebrar_berserk": {
-"minecraft:mark_variant": {"value": 0},
-"minecraft:knockback_resistance": {"value": 0.4}, 
-"minecraft:attack": {"damage": 20}
-},
-"no_moviment": {
-"minecraft:movement": {"value": 0}
-},
-"yes_moviment": {
-"minecraft:movement": {"value": 0.4}
-}
-
-
-
-
-
-
+      "modo_berserk": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1
+        },
+        "minecraft:attack": {
+          "damage": 40
+        }
+      },
+      "quebrar_berserk": {
+        "minecraft:mark_variant": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.4
+        },
+        "minecraft:attack": {
+          "damage": 20
+        }
+      },
+      "no_moviment": {
+        "minecraft:movement": {
+          "value": 0
+        }
+      },
+      "yes_moviment": {
+        "minecraft:movement": {
+          "value": 0.4
+        }
+      },
+      "despawning": {
+        "minecraft:instant_despawn": {}
+      }
     },
     "components": {
-
-
-
-
       "minecraft:environment_sensor": {
         "triggers": [
-                    {
+          {
             "filters": {},
             "event": "tnt:tick"
           }
         ]
       },
-
-
-
-
       "minecraft:preferred_path": {
         "max_fall_blocks": 10
       },
-
-
-
-
-
-
-
-
-
-
-    "minecraft:damage_sensor": {
-"triggers": [
-
-
-{"on_damage": {"filters": {"all_of":[
-{"test": "has_tag", "subject": "self", "value": "espada_1" },
-{"test": "has_damage", "value": "fatal"},{"any_of": [ {"test":"is_family", "subject": "other", "value": "player"}]}]},
-"event": "tnt:kunai_minato" }},
-
-{"on_damage": {"filters": {"all_of":[
-{"test": "has_tag", "subject": "self", "value": "espada_2" },
-{"test": "has_damage", "value": "fatal"},{"any_of": [ {"test":"is_family", "subject": "other", "value": "player"}]}]},
-"event": "tnt:foice_hidan" }},
-
-{"on_damage": {"filters": {"all_of":[
-{"test": "has_tag", "subject": "self", "value": "espada_3" },
-{"test": "has_damage", "value": "fatal"},{"any_of": [ {"test":"is_family", "subject": "other", "value": "player"}]}]},
-"event": "tnt:samehada" }},
-
-{"on_damage": {"filters": {"all_of":[
-{"test": "has_tag", "subject": "self", "value": "espada_4" },
-{"test": "has_damage", "value": "fatal"},{"any_of": [ {"test":"is_family", "subject": "other", "value": "player"}]}]},
-"event": "tnt:gunbai" }},
-
-
-
-
-
-
-
-
-{
-"on_damage": {
-"filters": {
-"all_of":[
-{"test": "has_tag", "subject": "self", "value": "elemento_agua" },
-{"test":"has_damage","value":"attack"},
-
-
-{"any_of": [ 
-
-{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
-
-]}
-
-]},
-"event": "skills_ataques_agua"
-},
-"deals_damage": true
-},
-
-
-{
-"on_damage": {
-"filters": {
-"all_of":[
-{"test": "has_tag", "subject": "self", "value": "elemento_fogo" },
-{"test":"has_damage","value":"attack"},
-
-
-{"any_of": [ 
-
-{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
-
-]}
-
-]},
-"event": "skills_ataques_fogo"
-},
-"deals_damage": true
-},
-
-
-{
-"on_damage": {
-"filters": {
-"all_of":[
-{"test": "has_tag", "subject": "self", "value": "elemento_raio" },
-{"test":"has_damage","value":"attack"},
-
-
-{"any_of": [ 
-
-{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
-
-]}
-
-]},
-"event": "skills_ataques_raio"
-},
-"deals_damage": true
-}
-
-
-
-
-
-
-
-
-
-]},
-
-
-
-
-    
-
-
-      "minecraft:type_family": {
-        "family": [ "ninja","mobs" ]
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "espada_1"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "fatal"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "tnt:kunai_minato"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "espada_2"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "fatal"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "tnt:foice_hidan"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "espada_3"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "fatal"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "tnt:samehada"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "espada_4"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "fatal"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "tnt:gunbai"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "elemento_agua"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "skills_ataques_agua"
+            },
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "elemento_fogo"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "skills_ataques_fogo"
+            },
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "elemento_raio"
+                  },
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "skills_ataques_raio"
+            },
+            "deals_damage": true
+          }
+        ]
       },
-     
+      "minecraft:type_family": {
+        "family": [
+          "ninja",
+          "mobs"
+        ]
+      },
       "minecraft:loot": {
         "table": "loot_tables/empty.json"
       },
@@ -223,14 +328,13 @@
         "height": 1.8
       },
       "minecraft:scale": {
-      	 "value": 1.0
+        "value": 1.0
       },
-	"minecraft:health": {
-	   "value": 1500,
-	   "max": 1500
-	},
-      "minecraft:can_climb": {
+      "minecraft:health": {
+        "value": 1500,
+        "max": 1500
       },
+      "minecraft:can_climb": {},
       "minecraft:movement": {
         "value": 0.4
       },
@@ -245,10 +349,7 @@
       "minecraft:knockback_resistance": {
         "value": 0.2
       },
-
-      "minecraft:movement.basic": {
-    
-      },
+      "minecraft:movement.basic": {},
       "minecraft:jump.static": {
         "value": 1.0
       },
@@ -256,7 +357,7 @@
         "value": 60,
         "max": 60
       },
-        "minecraft:behavior.melee_attack": {
+      "minecraft:behavior.melee_attack": {
         "priority": 3,
         "speed_multiplier": 1,
         "track_target": true
@@ -270,10 +371,7 @@
         "inhaleTime": 3.75,
         "generatesBubbles": false
       },
-      "minecraft:nameable": {
-      },
-     
-
+      "minecraft:nameable": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 1
@@ -289,224 +387,365 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
- "minecraft:behavior.nearest_attackable_target": {
-  "priority": 2,
-  "within_radius": 20,         
-  "reselect_targets": true,
-  "entity_types": [
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 20,
+        "reselect_targets": true,
+        "entity_types": [
           {
-            "filters": { 
-                "all_of": [
-                  { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
-                  { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "creeper"}
-                ] 
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "creeper"
+                }
+              ]
             },
             "within_default": 20
           }
-  ],
-  "must_see": true
-},
-      "minecraft:physics": {
-      }
+        ],
+        "must_see": true
+      },
+      "minecraft:physics": {}
     },
     "events": {
-
-"modo_berserk": { "add": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s resistance infinite 2 true" ]}},
-"quebrar_berserk": { "add": { "component_groups": [ "quebrar_berserk" ] }, "remove": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s clear" ]}},
-
-"no_moviment": { "add": { "component_groups": [ "no_moviment" ] }},
-"yes_moviment": { "add": { "component_groups": [ "yes_moviment" ] }, "remove": { "component_groups": [ "no_moviment" ] }},
-
-
-"tnt:tick": {
-"queue_command": {"command": [
-"function mobs/elemento_random"
-
-]}},
-
-
-
-"skills_ataques_agua": {
-"randomize": [
-
-{"weight": 100,"queue_command": {"command": []}},
-
-
-{"weight": 100,
-"queue_command": {"command": [
-"event entity @s skill:esquiva"
-
-]}},
-{"weight": 30,
-"queue_command": {"command": [
-"event entity @s skill:agua_tubarao"
-
-]}}
-]},
-
-
-
-
-
-"skills_ataques_fogo": {
-"randomize": [
-
-{"weight": 100,"queue_command": {"command": []}},
-
-
-{"weight": 100,
-"queue_command": {"command": [
-"event entity @s skill:esquiva"
-
-]}},
-{"weight": 80,
-"queue_command": {"command": [
-"event entity @s skill:bola_fogo"
-
-]}}
-]},
-
-
-
-
-
-"skills_ataques_raio": {
-"randomize": [
-
-{"weight": 100,"queue_command": {"command": []}},
-{"weight": 100,"queue_command": {"command": []}},
-
-
-{"weight": 100,
-"queue_command": {"command": [
-"event entity @s skill:esquiva"
-
-]}},
-{"weight": 40,
-"queue_command": {"command": [
-"event entity @s skill:chidori_nagashi"
-
-]}}
-]},
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
- "skill:sem": {"set_property": {"skills:ninjas": 0}},
-
- "skill:esquiva": {"set_property": {"skills:ninjas": 1}},
- "skill:agua_tubarao": {"set_property": {"skills:ninjas": 2}},
- "skill:bola_fogo": {"set_property": {"skills:ninjas": 3}},
- "skill:chidori_nagashi": {"set_property": {"skills:ninjas": 4}},
-
-
-
-
-
-
-
-
-
-
-"tnt:morrer": {
-"randomize": [
-
-{"weight": 100,
-"queue_command": {"command": [
-"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e750.Tp\"}]}",
-"scoreboard players add @s tp 750"
-
-],
-"target": "other"}},
-
-{"weight": 70,
-"queue_command": {"command": [
-"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e1100.Tp\"}]}",
-"scoreboard players add @s tp 1100"
-
-],
-"target": "other"}},
-
-{"weight": 20,
-"queue_command": {"command": [
-"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e2000.Tp\"}]}",
-"scoreboard players add @s tp 2000"
-
-],
-"target": "other"}}
-]},
-
-
-
-
-
-
-"tnt:kunai_minato": {
-"queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
-"give @s tnt:kunai_minato"
-],"target": "other"}},
-
-"tnt:foice_hidan": {
-"queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
-"give @s tnt:foice_hidan"
-],"target": "other"}},
-
-"tnt:samehada": {
-"queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
-"give @s tnt:samehada"
-],"target": "other"}},
-
-"tnt:gunbai": {
-"queue_command": {"command": [
-"event entity @s tnt:morrer", "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
-"give @s tnt:gunbai"
-],"target": "other"}},
-
-
-
-
-
- 
-
-
-"minecraft:entity_spawned": {
-"randomize": [
-
-{"weight": 100, "set_property": {"skin:variacao": 1}, "queue_command": {"command": ["event entity @s random:espadas"]}},
-{"weight": 100, "set_property": {"skin:variacao": 2}, "queue_command": {"command": ["event entity @s random:espadas"]}},
-{"weight": 100, "set_property": {"skin:variacao": 3}, "queue_command": {"command": ["event entity @s random:espadas"]}}
-
-]},
-
-"random:espadas": {
-"randomize": [
-
-{"weight": 100, "set_property": {"espada:variacao": 1}, "queue_command": {"command": ["tag @s add espada_1"]}},
-{"weight": 100, "set_property": {"espada:variacao": 2}, "queue_command": {"command": ["tag @s add espada_2"]}},
-{"weight": 100, "set_property": {"espada:variacao": 3}, "queue_command": {"command": ["tag @s add espada_3"]}},
-{"weight": 100, "set_property": {"espada:variacao": 4}, "queue_command": {"command": ["tag @s add espada_4"]}}
-
-]},
-"minecraft:entity_transformation": {},
-
-
-
+      "modo_berserk": {
+        "add": {
+          "component_groups": [
+            "modo_berserk"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s resistance infinite 2 true"
+          ]
+        }
+      },
+      "quebrar_berserk": {
+        "add": {
+          "component_groups": [
+            "quebrar_berserk"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "modo_berserk"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s clear"
+          ]
+        }
+      },
+      "no_moviment": {
+        "add": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "yes_moviment": {
+        "add": {
+          "component_groups": [
+            "yes_moviment"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "function mobs/elemento_random"
+          ]
+        }
+      },
+      "skills_ataques_agua": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:esquiva"
+              ]
+            }
+          },
+          {
+            "weight": 30,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:agua_tubarao"
+              ]
+            }
+          }
+        ]
+      },
+      "skills_ataques_fogo": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:esquiva"
+              ]
+            }
+          },
+          {
+            "weight": 80,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:bola_fogo"
+              ]
+            }
+          }
+        ]
+      },
+      "skills_ataques_raio": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:esquiva"
+              ]
+            }
+          },
+          {
+            "weight": 40,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:chidori_nagashi"
+              ]
+            }
+          }
+        ]
+      },
+      "skill:sem": {
+        "set_property": {
+          "skills:ninjas": 0
+        }
+      },
+      "skill:esquiva": {
+        "set_property": {
+          "skills:ninjas": 1
+        }
+      },
+      "skill:agua_tubarao": {
+        "set_property": {
+          "skills:ninjas": 2
+        }
+      },
+      "skill:bola_fogo": {
+        "set_property": {
+          "skills:ninjas": 3
+        }
+      },
+      "skill:chidori_nagashi": {
+        "set_property": {
+          "skills:ninjas": 4
+        }
+      },
+      "tnt:morrer": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e750.Tp\"}]}",
+                "scoreboard players add @s tp 750"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "weight": 70,
+            "queue_command": {
+              "command": [
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e1100.Tp\"}]}",
+                "scoreboard players add @s tp 1100"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "weight": 20,
+            "queue_command": {
+              "command": [
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e2000.Tp\"}]}",
+                "scoreboard players add @s tp 2000"
+              ],
+              "target": "other"
+            }
+          }
+        ]
+      },
+      "tnt:kunai_minato": {
+        "queue_command": {
+          "command": [
+            "event entity @s tnt:morrer",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+            "give @s tnt:kunai_minato"
+          ],
+          "target": "other"
+        }
+      },
+      "tnt:foice_hidan": {
+        "queue_command": {
+          "command": [
+            "event entity @s tnt:morrer",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+            "give @s tnt:foice_hidan"
+          ],
+          "target": "other"
+        }
+      },
+      "tnt:samehada": {
+        "queue_command": {
+          "command": [
+            "event entity @s tnt:morrer",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+            "give @s tnt:samehada"
+          ],
+          "target": "other"
+        }
+      },
+      "tnt:gunbai": {
+        "queue_command": {
+          "command": [
+            "event entity @s tnt:morrer",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §eEspada Coletada\"}]}",
+            "give @s tnt:gunbai"
+          ],
+          "target": "other"
+        }
+      },
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 100,
+            "set_property": {
+              "skin:variacao": 1
+            },
+            "queue_command": {
+              "command": [
+                "event entity @s random:espadas"
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "skin:variacao": 2
+            },
+            "queue_command": {
+              "command": [
+                "event entity @s random:espadas"
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "skin:variacao": 3
+            },
+            "queue_command": {
+              "command": [
+                "event entity @s random:espadas"
+              ]
+            }
+          }
+        ]
+      },
+      "random:espadas": {
+        "randomize": [
+          {
+            "weight": 100,
+            "set_property": {
+              "espada:variacao": 1
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add espada_1"
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "espada:variacao": 2
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add espada_2"
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "espada:variacao": 3
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add espada_3"
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "set_property": {
+              "espada:variacao": 4
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add espada_4"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:entity_transformation": {},
       "tnt:despawn": {
-        "add": {"component_groups": ["tnt:despawn"]}
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
       },
       "minecraft:start_despawn": {
         "add": {
@@ -514,7 +753,7 @@
             "despawning"
           ]
         }
-    }
+      }
     }
   }
 }

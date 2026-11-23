@@ -6,48 +6,36 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-
-"boss_skill_kurama"
-]},
-
-
-    "animations":{
-
-"boss_skill_kurama": "controller.animation.boss_skill_kurama",
-"skill_1": "animation.boss_kurama_skill_grito",
-"skill_2": "animation.boss_kurama_skill_bijudama_simples",
-"skill_3": "animation.boss_kurama_skill_bijudama_mortal" 
-
-
-
-
-
-
-
-
-
-},
-       "properties": {
-"skill:kurama_biju": {"client_sync": true,"type": "int","range":[ 0, 4 ],"default":0}
-
-
-
-
-
-	  }
-
-},
-
-    "component_groups": {
-          "attack": {
-        "minecraft:behavior.melee_attack": {
-        "priority": 3,
-        "speed_multiplier": 1,
-        "track_target": true
+      "scripts": {
+        "animate": [
+          "boss_skill_kurama"
+        ]
+      },
+      "animations": {
+        "boss_skill_kurama": "controller.animation.boss_skill_kurama",
+        "skill_1": "animation.boss_kurama_skill_grito",
+        "skill_2": "animation.boss_kurama_skill_bijudama_simples",
+        "skill_3": "animation.boss_kurama_skill_bijudama_mortal"
+      },
+      "properties": {
+        "skill:kurama_biju": {
+          "client_sync": true,
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0
+        }
       }
-        
+    },
+    "component_groups": {
+      "attack": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 3,
+          "speed_multiplier": 1,
+          "track_target": true
+        }
       },
       "tnt:despawn": {
         "minecraft:transformation": {
@@ -55,147 +43,145 @@
           "delay": 0.0
         }
       },
-
-
-"modo_berserk": {
-"minecraft:mark_variant": {"value": 1},
-"minecraft:knockback_resistance": {"value": 1}, 
-"minecraft:attack": {"damage": 40}
-},
-"quebrar_berserk": {
-"minecraft:mark_variant": {"value": 0},
-"minecraft:knockback_resistance": {"value": 0}, 
-"minecraft:attack": {"damage": 20}
-},
-"no_moviment": {
-"minecraft:movement": {"value": 0}
-},
-"yes_moviment": {
-"minecraft:movement": {"value": 0.4}
-},
-
-"tnt:bijudama_projetil_simples": {
-"minecraft:shooter": {
-"def": "tnt:kurama_biju_bijudama_projetil"
-},
-"minecraft:behavior.ranged_attack": {
-  "priority": 2,
-  "attack_interval": 0.2,     
-  "burst_shots": 1,    
-  "burst_interval": 3,     
-  "charge_charged_trigger": 0.0,  
-  "charge_shoot_trigger": 0.0,
-  "attack_radius": 128.0
-},
-
-"minecraft:timer": {
-  "time": 0.3,
-  "looping": false,
-  "time_down_event": {
-    "event": "bijudama_projetil_simples_remove"
-  }
-}
-},
-"tnt:bijudama_projetil_mortal": {
-"minecraft:shooter": {
-"def": "tnt:kurama_biju_bijudama_mortal_projetil"
-},
-"minecraft:behavior.ranged_attack": {
-  "priority": 2,
-  "attack_interval": 0.2,     
-  "burst_shots": 1,    
-  "burst_interval": 3,     
-  "charge_charged_trigger": 0.0,  
-  "charge_shoot_trigger": 0.0,
-  "attack_radius": 128.0
-},
-
-"minecraft:timer": {
-  "time": 0.4,
-  "looping": false,
-  "time_down_event": {
-    "event": "bijudama_projetil_mortal_remove"
-  }
-}
-
-}
-
-
-
-
-
-
+      "modo_berserk": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1
+        },
+        "minecraft:attack": {
+          "damage": 40
+        }
+      },
+      "quebrar_berserk": {
+        "minecraft:mark_variant": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0
+        },
+        "minecraft:attack": {
+          "damage": 20
+        }
+      },
+      "no_moviment": {
+        "minecraft:movement": {
+          "value": 0
+        }
+      },
+      "yes_moviment": {
+        "minecraft:movement": {
+          "value": 0.4
+        }
+      },
+      "tnt:bijudama_projetil_simples": {
+        "minecraft:shooter": {
+          "def": "tnt:kurama_biju_bijudama_projetil"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval": 0.2,
+          "burst_shots": 1,
+          "burst_interval": 3,
+          "charge_charged_trigger": 0.0,
+          "charge_shoot_trigger": 0.0,
+          "attack_radius": 128.0
+        },
+        "minecraft:timer": {
+          "time": 0.3,
+          "looping": false,
+          "time_down_event": {
+            "event": "bijudama_projetil_simples_remove"
+          }
+        }
+      },
+      "tnt:bijudama_projetil_mortal": {
+        "minecraft:shooter": {
+          "def": "tnt:kurama_biju_bijudama_mortal_projetil"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval": 0.2,
+          "burst_shots": 1,
+          "burst_interval": 3,
+          "charge_charged_trigger": 0.0,
+          "charge_shoot_trigger": 0.0,
+          "attack_radius": 128.0
+        },
+        "minecraft:timer": {
+          "time": 0.4,
+          "looping": false,
+          "time_down_event": {
+            "event": "bijudama_projetil_mortal_remove"
+          }
+        }
+      },
+      "despawning": {
+        "minecraft:instant_despawn": {}
+      }
     },
     "components": {
       "minecraft:environment_sensor": {
         "triggers": [
-                    {
+          {
             "filters": {},
             "event": "tnt:tick"
           }
         ]
       },
-
-
-
-
       "minecraft:preferred_path": {
         "max_fall_blocks": 10
       },
-
-
-
-
-
-
-
-
-
-
-    "minecraft:damage_sensor": {
-"triggers": [
-            {
-"on_damage": {
-"filters": {
-"test": "has_damage",
-"subject": "self",
-"operator": "==",
-"value": "fall"
-                }
-              },
-"deals_damage": false
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_damage",
+                "subject": "self",
+                "operator": "==",
+                "value": "fall"
+              }
             },
-
-
-            {
-"on_damage": {
-"filters": {
-"all_of":[
-{"test":"has_damage","value":"attack"},
-
-
-{"any_of": [ 
-
-{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
-
-]}
-
-]},
-"event": "skills_ataques"
-},
-"deals_damage": true
-}]},
-
-
-
-
-    
-
-
-      "minecraft:type_family": {
-        "family": [ "bijus","boss" ]
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "skills_ataques"
+            },
+            "deals_damage": true
+          }
+        ]
       },
-     
+      "minecraft:type_family": {
+        "family": [
+          "bijus",
+          "boss"
+        ]
+      },
       "minecraft:loot": {
         "table": "loot_tables/empty.json"
       },
@@ -204,19 +190,18 @@
         "height": 2.8
       },
       "minecraft:scale": {
-      	 "value": 6.0
+        "value": 6.0
       },
-  			"minecraft:boss": {
-				"should_darken_sky": false,
-				"hud_range": 60,
-				"name": "§r§r§rkurama"
-			},
-	"minecraft:health": {
-	   "value": 5000,
-	   "max": 5000
-	},
-      "minecraft:can_climb": {
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 60,
+        "name": "§r§r§rkurama"
       },
+      "minecraft:health": {
+        "value": 5000,
+        "max": 5000
+      },
+      "minecraft:can_climb": {},
       "minecraft:movement": {
         "value": 0.4
       },
@@ -234,9 +219,7 @@
       "minecraft:navigation.climb": {
         "can_float": true
       },
-      "minecraft:movement.basic": {
-    
-      },
+      "minecraft:movement.basic": {},
       "minecraft:jump.static": {
         "value": 1.0
       },
@@ -253,10 +236,7 @@
         "inhaleTime": 3.75,
         "generatesBubbles": false
       },
-      "minecraft:nameable": {
-      },
-     
-
+      "minecraft:nameable": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 1
@@ -272,168 +252,217 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
- "minecraft:behavior.nearest_attackable_target": {
-  "priority": 2,
-  "within_radius": 20,         
-  "reselect_targets": true,
-  "entity_types": [
-    {
-      "filters": {
-        "any_of": [
-          { "test": "is_family", "subject": "other", "value": "player" }
-        ]
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 20,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              ]
+            },
+            "max_dist": 20
+          }
+        ],
+        "must_see": true
       },
-      "max_dist": 20
-    }
-  ],
-  "must_see": true
-},
-      "minecraft:physics": {
-      }
+      "minecraft:physics": {}
     },
     "events": {
-
-"modo_berserk": { "add": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s resistance infinite 2 true" ]}},
-"quebrar_berserk": { "add": { "component_groups": [ "quebrar_berserk" ] }, "remove": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s clear" ]}},
-
-"no_moviment": { "add": { "component_groups": [ "no_moviment" ] }},
-"yes_moviment": { "add": { "component_groups": [ "yes_moviment" ] }, "remove": { "component_groups": [ "no_moviment" ] }},
-
-
-
-
- "skill:sem": {"set_property": {"skill:kurama_biju": 0}},
-
- "skill:grito_naacer": {"set_property": {"skill:kurama_biju": 4}},
-
- "skill:grito": {"set_property": {"skill:kurama_biju": 1}},
- "skill:bijudama_simples": {"set_property": {"skill:kurama_biju": 2}},
- "skill:bijudama_mortal": {"set_property": {"skill:kurama_biju": 3}},
-
-
-      "tnt:tick": {
+      "modo_berserk": {
+        "add": {
+          "component_groups": [
+            "modo_berserk"
+          ]
+        },
         "queue_command": {
           "command": [
-         "event entity @s[tag=!grito_biju] skill:grito_naacer"
-          
+            "effect @s resistance infinite 2 true"
           ]
         }
       },
-
-
-
-
-
-
-"skills_ataques": {
-"randomize": [
-
-{"weight": 100,"queue_command": {"command": []}},
-{"weight": 100,"queue_command": {"command": []}},
-{"weight": 100,"queue_command": {"command": []}},
-
-
-{"weight": 60,
-"queue_command": {"command": [
-"event entity @s skill:grito"
-
-]}},
-
-{"weight": 25,
-"queue_command": {"command": [
-"event entity @s skill:bijudama_simples"
-
-]}},
-
-{"weight": 8,
-"queue_command": {"command": [
-"event entity @s skill:bijudama_mortal"
-
-]}}
-]},
-
-"minecraft:entity_spawned": {
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-"minecraft:entity_transformation": {
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-
-
-
-"bijudama_projetil_simples": {
-"add": {
-"component_groups": [
-"tnt:bijudama_projetil_simples"
-]},
-"remove": {
-"component_groups": [
-"attack"
-]}
-},
-
-"bijudama_projetil_mortal": {
-"add": {
-"component_groups": [
-"tnt:bijudama_projetil_mortal"
-]},
-"remove": {
-"component_groups": [
-"attack"
-]}},
-
-"bijudama_projetil_mortal_remove": {
-"remove": {
-"component_groups": [
-"tnt:bijudama_projetil_mortal"
-]},
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-
-
-"bijudama_projetil_simples_remove": {
-"remove": {
-"component_groups": [
-"tnt:bijudama_projetil_simples"
-]},
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      "quebrar_berserk": {
+        "add": {
+          "component_groups": [
+            "quebrar_berserk"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "modo_berserk"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s clear"
+          ]
+        }
+      },
+      "no_moviment": {
+        "add": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "yes_moviment": {
+        "add": {
+          "component_groups": [
+            "yes_moviment"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "no_moviment"
+          ]
+        }
+      },
+      "skill:sem": {
+        "set_property": {
+          "skill:kurama_biju": 0
+        }
+      },
+      "skill:grito_naacer": {
+        "set_property": {
+          "skill:kurama_biju": 4
+        }
+      },
+      "skill:grito": {
+        "set_property": {
+          "skill:kurama_biju": 1
+        }
+      },
+      "skill:bijudama_simples": {
+        "set_property": {
+          "skill:kurama_biju": 2
+        }
+      },
+      "skill:bijudama_mortal": {
+        "set_property": {
+          "skill:kurama_biju": 3
+        }
+      },
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "event entity @s[tag=!grito_biju] skill:grito_naacer"
+          ]
+        }
+      },
+      "skills_ataques": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": []
+            }
+          },
+          {
+            "weight": 60,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:grito"
+              ]
+            }
+          },
+          {
+            "weight": 25,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:bijudama_simples"
+              ]
+            }
+          },
+          {
+            "weight": 8,
+            "queue_command": {
+              "command": [
+                "event entity @s skill:bijudama_mortal"
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "minecraft:entity_transformation": {
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "bijudama_projetil_simples": {
+        "add": {
+          "component_groups": [
+            "tnt:bijudama_projetil_simples"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "bijudama_projetil_mortal": {
+        "add": {
+          "component_groups": [
+            "tnt:bijudama_projetil_mortal"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "bijudama_projetil_mortal_remove": {
+        "remove": {
+          "component_groups": [
+            "tnt:bijudama_projetil_mortal"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "bijudama_projetil_simples_remove": {
+        "remove": {
+          "component_groups": [
+            "tnt:bijudama_projetil_simples"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
       "tnt:despawn": {
         "add": {
           "component_groups": [
@@ -447,7 +476,7 @@
             "despawning"
           ]
         }
-    }
+      }
     }
   }
 }

@@ -16,31 +16,9 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   if (ev.id !== "npc:guy") return;
 
   const player = ev.sourceEntity;
-  if (!player) return;
-
-  if (player.isPlayer && player.isPlayer()) {
-    try {
-      player.sendMessage("§a[scriptevent] Recebido: tnt:guy");
-    } catch (e) {
-      console.warn("Não foi possível enviar mensagem de debug ao player.");
-    }
-  }
+  if (!player || player.typeId !== "minecraft:player") return;
 
   npc_guy(player);
-});
-
-
-
-
-world.beforeEvents.itemUse.subscribe((data) => {
-  const player = data.source;
-  switch (data.itemStack.typeId) {
-    case "":
-      runTimeoutSeguro(() => {
-        npc_guy(player);
-      }, 0);
-      break;
-  }
 });
  function getScore(player, objetivo) {
   try {

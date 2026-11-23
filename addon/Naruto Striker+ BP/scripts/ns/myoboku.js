@@ -3,6 +3,7 @@
 // (requer rank Chunin, nivel 15). Fica no vazio do End em (-500, -500), longe de
 // construcoes, como o Kamui original faz em (500, 500).
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 import { ehJogador, valido, lerJSON, gravarJSON, particula, som, msg, tremer, lerScore, somarScore } from "./util";
 import { BOTOES_EXTRAS, nivelDe, darXP, somarStat } from "./progressao";
 
@@ -25,7 +26,7 @@ function noMyoboku(player) {
 
 function construir(player, tentativa = 1) {
   try {
-    const r = player.runCommandAsync(`execute in the_end run structure load monte_myoboku ${ORIGEM_ESTRUTURA.x} ${ORIGEM_ESTRUTURA.y} ${ORIGEM_ESTRUTURA.z}`);
+    const r = cmd(player, `execute in the_end run structure load monte_myoboku ${ORIGEM_ESTRUTURA.x} ${ORIGEM_ESTRUTURA.y} ${ORIGEM_ESTRUTURA.z}`);
     // o proprio resultado do comando confirma a construcao
     r?.then?.((res) => { try { if (res && res.successCount > 0) world.setDynamicProperty(CHAVE_CRIADO, true); } catch {} })?.catch?.(() => {});
   } catch {}

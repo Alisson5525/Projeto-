@@ -1,5 +1,6 @@
 // import
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -16,31 +17,9 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   if (ev.id !== "npc:jiraiya") return;
 
   const player = ev.sourceEntity;
-  if (!player) return;
-
-  if (player.isPlayer && player.isPlayer()) {
-    try {
-      player.sendMessage("§a[scriptevent] Recebido: tnt:jiraiya");
-    } catch (e) {
-      console.warn("Não foi possível enviar mensagem de debug ao player.");
-    }
-  }
+  if (!player || player.typeId !== "minecraft:player") return;
 
   npc_jiraiya(player);
-});
-
-
-
-
-world.beforeEvents.itemUse.subscribe((data) => {
-  const player = data.source;
-  switch (data.itemStack.typeId) {
-    case "":
-      runTimeoutSeguro(() => {
-        npc_jiraiya(player);
-      }, 0);
-      break;
-  }
 });
  function getScore(player, objetivo) {
   try {
@@ -98,9 +77,9 @@ torne-se um §eninja de Konoha!
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer: §a700. Tp"}]}')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run give @s tnt:rasengan')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[tag=ninja_konoha,scores={tp=700..}] run scoreboard players remove @s tp 700')?.catch?.(() => {});
+cmd(player, 'execute as @s[tag=ninja_konoha,scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer: §a700. Tp"}]}');
+cmd(player, 'execute as @s[tag=ninja_konoha,scores={tp=700..}] run give @s tnt:rasengan');
+cmd(player, 'execute as @s[tag=ninja_konoha,scores={tp=700..}] run scoreboard players remove @s tp 700');
 break;
 
 case 1:

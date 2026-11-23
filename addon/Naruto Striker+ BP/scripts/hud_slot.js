@@ -1,6 +1,7 @@
 
 
 import * as mc from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 /* =======================================================
    FUNÇÃO SCORE
@@ -172,8 +173,8 @@ mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     try {
 
-    if (!player.isValid()) continue;
-    const heldItem = player.getComponent("equippable")?.getEquipment("Mainhand");
+    if (!player.isValid) continue;
+    const heldItem = player.getComponent("equippable")?.getEquipment(mc.EquipmentSlot.Mainhand);
     let itemName = "";
 
     if (heldItem) {
@@ -223,7 +224,7 @@ mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     try {
 
-    if (!player.isValid()) continue;
+    if (!player.isValid) continue;
     const healthComp = player.getComponent("health");
     if (!healthComp) continue;
     const vidaReal = healthComp.currentValue;
@@ -241,9 +242,7 @@ mc.system.runInterval(() => {
     }
 
     if (currentHealth !== Math.floor(vidaReal)) {
-      player.runCommandAsync(
-        `scoreboard players set @s current_health ${Math.floor(vidaReal)}`
-      )?.catch?.(() => {});
+      cmd(player, `scoreboard players set @s current_health ${Math.floor(vidaReal)}`);
     }
   
     } catch (e) {}

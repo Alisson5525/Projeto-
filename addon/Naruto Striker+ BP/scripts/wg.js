@@ -1,10 +1,11 @@
 import * as mc from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 import { MODES } from "./config";
 import { nivelDe } from "./ns/progressao";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(ev => {
   const player = ev.sourceEntity;
-  if (!player || player.typeId !== "minecraft:player" || !player.isValid()) return;
+  if (!player || player.typeId !== "minecraft:player" || !player.isValid) return;
 
   const id = ev.id;
 
@@ -46,7 +47,7 @@ function ativarModo(player, modeId) {
   for (const cmd of mode.cmdStart) {
     // efeitos com a mesma duracao do modo acompanham o tempo estendido
     const ajustado = cmd.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
-    try { player.runCommandAsync(ajustado)?.catch?.(() => {}); } catch (e) {}
+    try { cmd(player, ajustado); } catch (e) {}
   }
 }
 
@@ -63,14 +64,14 @@ function desativarModo(player, modeId) {
   setScore(player, score, 0);
 
   for (const cmd of mode.cmdFinish) {
-    try { player.runCommandAsync(cmd)?.catch?.(() => {}); } catch (e) {}
+    try { cmd(player, cmd); } catch (e) {}
   }
 }
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
     try {
-    if (!player.isValid()) continue;
+    if (!player.isValid) continue;
     for (const modeId in MODES) {
       const mode = MODES[modeId];
       const activeKey = `mode:${modeId}_active`;
@@ -91,13 +92,17 @@ mc.system.runInterval(() => {
   }
 }, 20);
 
+/** Encerra todos os modos ativos (desfaz bonus de vida/dano e devolve o slot). */
+export function desativarTodos(player) {
+  for (const id in MODES) {
+    try { desativarModo(player, id); } catch {}
+  }
+}
+
 mc.world.afterEvents.entityDie.subscribe(ev => {
   const player = ev.deadEntity;
   if (player?.typeId !== "minecraft:player") return;
-
-  for (const id in MODES) {
-    desativarModo(player, id);
-  }
+  desativarTodos(player);
 });
 
 // (removido: playerLeave nao fornece ev.player, gerava erro a cada saida de jogador.

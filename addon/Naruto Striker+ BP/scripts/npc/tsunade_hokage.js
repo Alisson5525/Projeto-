@@ -1,5 +1,6 @@
 // import
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -16,31 +17,9 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   if (ev.id !== "npc:tsunade_hokage") return;
 
   const player = ev.sourceEntity;
-  if (!player) return;
-
-  if (player.isPlayer && player.isPlayer()) {
-    try {
-      player.sendMessage("§a[scriptevent] Recebido: tnt:tsunade_hokage");
-    } catch (e) {
-      console.warn("Não foi possível enviar mensagem de debug ao player.");
-    }
-  }
+  if (!player || player.typeId !== "minecraft:player") return;
 
   npc_tsunade_hokage(player);
-});
-
-
-
-
-world.beforeEvents.itemUse.subscribe((data) => {
-  const player = data.source;
-  switch (data.itemStack.typeId) {
-    case "":
-      runTimeoutSeguro(() => {
-        npc_tsunade_hokage(player);
-      }, 0);
-      break;
-  }
 });
 
 export function npc_tsunade_hokage(player) {
@@ -165,22 +144,22 @@ export function npc_tsunade_hokage_pg2(player) {
     switch (response.selection) {
 
 case 0:
-player.runCommandAsync('execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a500. Tp"}]}')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=500..}] run give @s tnt:jutsu_medico')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500')?.catch?.(() => {});
+cmd(player, 'execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a500. Tp"}]}');
+cmd(player, 'execute as @s[scores={tp=500..}] run give @s tnt:jutsu_medico');
+cmd(player, 'execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
 break;
 
 
 case 1:
-player.runCommandAsync('execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2000. Tp"}]}')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=2000..}] run give @s tnt:jutsu_medico_avancado')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000')?.catch?.(() => {});
+cmd(player, 'execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2000. Tp"}]}');
+cmd(player, 'execute as @s[scores={tp=2000..}] run give @s tnt:jutsu_medico_avancado');
+cmd(player, 'execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000');
 break;
 
 case 2:
-player.runCommandAsync('execute as @s[scores={tp=0..749}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a750. Tp"}]}')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=750..}] run give @s tnt:selo_byakugou')?.catch?.(() => {});
-player.runCommandAsync('execute as @s[scores={tp=750..}] run scoreboard players remove @s tp 750')?.catch?.(() => {});
+cmd(player, 'execute as @s[scores={tp=0..749}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a750. Tp"}]}');
+cmd(player, 'execute as @s[scores={tp=750..}] run give @s tnt:selo_byakugou');
+cmd(player, 'execute as @s[scores={tp=750..}] run scoreboard players remove @s tp 750');
 break;
 
 case 3:

@@ -1,5 +1,6 @@
 // import
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -176,14 +177,10 @@ ${ITEMS.map(item =>
       }
 
       // give
-      player.runCommandAsync(
-        `give @s ${item.item} ${amount}`
-      )?.catch?.(() => {});
+      cmd(player, `give @s ${item.item} ${amount}`);
 
       // remove tp
-      player.runCommandAsync(
-        `scoreboard players remove @s tp ${totalPrice}`
-      )?.catch?.(() => {});
+      cmd(player, `scoreboard players remove @s tp ${totalPrice}`);
 
       // reopen
       runTimeoutSeguro(() => {
