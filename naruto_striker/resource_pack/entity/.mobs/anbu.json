@@ -59,7 +59,8 @@
         "tnt_ninja_corrida": "animation.tnt_ninja.corrida",
         "tnt_ninja_salto": "animation.tnt_ninja.salto",
         "tnt_ninja_dano": "animation.tnt_ninja.dano",
-        "tnt_ninja_golpe": "animation.tnt_ninja.golpe"
+        "tnt_ninja_golpe": "animation.tnt_ninja.golpe",
+        "tnt_ninja_morte": "animation.tnt_ninja.morte"
       },
       "spawn_egg": {
         "texture": "spawn_egg",

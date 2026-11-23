@@ -24,6 +24,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Transições com blend | Todos os estados dos controladores de animação agora fazem *blend* (0,2–0,3 s). |
 | Fim das animações de jutsu | 61 comandos `playanimation` e todas as `playAnimation()` dos scripts ganharam *blend out* suave. |
 | Estilo ninja dos mobs (26 mobs) | Respiração em idle, **corrida ninja** inclinada com braços para trás quando perseguem um alvo, pose de salto, giro do tronco no golpe e reação ao levar dano. |
+| Morte e chegada | Mobs ninja desabam (joelhos cedem, tronco tomba) ao morrer; ninjas do mundo chegam numa nuvem de fumaça (*shunshin*). |
 | NPCs | Respiração e olhar leve (Guy, Iruka, Jiraiya, Teuchi, Tsunade). |
 | Jogador | Corrida ninja ao correr (3ª pessoa, sem modo ativo, mão vazia/menus) e reação de cabeça ao levar dano. |
 | Kurama / Shukaku | Caudas com **onda propagada** (cada segmento atrasa em relação ao anterior → movimento de chicote, cada cauda em fase diferente). |

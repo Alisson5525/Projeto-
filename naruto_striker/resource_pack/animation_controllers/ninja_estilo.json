@@ -10,6 +10,9 @@
      ],
      "transitions": [
       {
+       "morto": "!q.is_alive"
+      },
+      {
        "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
       },
       {
@@ -24,6 +27,9 @@
     },
     "andando": {
      "transitions": [
+      {
+       "morto": "!q.is_alive"
+      },
       {
        "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
       },
@@ -43,6 +49,9 @@
      ],
      "transitions": [
       {
+       "morto": "!q.is_alive"
+      },
+      {
        "ar": "!q.is_on_ground && !q.is_in_water && !q.is_riding && q.vertical_speed > 0.35"
       },
       {
@@ -61,10 +70,25 @@
      ],
      "transitions": [
       {
+       "morto": "!q.is_alive"
+      },
+      {
        "parado": "q.is_on_ground || q.is_in_water || q.is_riding"
       }
      ],
      "blend_transition": 0.2,
+     "blend_via_shortest_path": true
+    },
+    "morto": {
+     "animations": [
+      "tnt_ninja_morte"
+     ],
+     "transitions": [
+      {
+       "parado": "q.is_alive"
+      }
+     ],
+     "blend_transition": 0.15,
      "blend_via_shortest_path": true
     }
    }

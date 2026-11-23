@@ -217,3 +217,15 @@ system.runInterval(() => {
     } catch {}
   }
 }, 200);
+
+/* ------------------------------------------------------------------ */
+/* Shunshin: ninjas chegam numa nuvem de fumaca                         */
+/* ------------------------------------------------------------------ */
+world.afterEvents.entitySpawn.subscribe((ev) => {
+  try {
+    const e = ev.entity;
+    if (!valido(e) || !NINJAS.has(e.typeId)) return;
+    if (ev.cause !== undefined && ev.cause !== "Spawned" && ev.cause !== "Event") return;
+    particula(e.dimension, "tnt:ns_fumaca_ninja", e.location);
+  } catch {}
+});
