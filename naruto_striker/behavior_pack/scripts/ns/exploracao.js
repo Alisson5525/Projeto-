@@ -8,15 +8,15 @@ const TAM_REGIAO = 192;
 const MAX_SALVAS = 1500;
 
 const LUGAR = [
-  "Floresta", "Vale", "Desfiladeiro", "Planicie", "Bosque", "Montanha", "Lago", "Ruinas",
-  "Pantano", "Colinas", "Cachoeira", "Penhasco", "Campos", "Templo", "Ponte", "Caverna",
+  "Floresta", "Vale", "Desfiladeiro", "Planície", "Bosque", "Montanha", "Lago", "Ruínas",
+  "Pântano", "Colinas", "Cachoeira", "Penhasco", "Campos", "Templo", "Ponte", "Caverna",
   "Estepe", "Mata", "Pico", "Vilarejo Abandonado",
 ];
 const COMPLEMENTO = [
-  "da Nevoa", "do Trovao", "dos Sapos", "das Serpentes", "das Lesmas", "dos Corvos",
+  "da Névoa", "do Trovão", "dos Sapos", "das Serpentes", "das Lesmas", "dos Corvos",
   "da Lua Vermelha", "do Vento Cortante", "das Mil Folhas", "do Sol Nascente",
-  "Esquecida", "Sombria", "dos Herois", "do Chakra Antigo", "das Sombras",
-  "do Dragao de Agua", "da Areia Dourada", "das Cinzas", "do Eremita", "dos Sete Espadachins",
+  "Esquecida", "Sombria", "dos Heróis", "do Chakra Antigo", "das Sombras",
+  "do Dragão de Água", "da Areia Dourada", "das Cinzas", "do Eremita", "dos Sete Espadachins",
 ];
 
 function hash(x, z, d) {
@@ -31,8 +31,8 @@ function hash(x, z, d) {
 }
 
 function nomeRegiao(x, z, dimId) {
-  if (dimId.includes("nether")) return "Dimensao do Fogo Infernal";
-  if (dimId.includes("end")) return "Dimensao Kamui";
+  if (dimId.includes("nether")) return "Dimensão do Fogo Infernal";
+  if (dimId.includes("end")) return "Dimensão Kamui";
   if (x === 0 && z === 0) return "Arredores da Vila Oculta";
   const h = hash(x, z, dimId);
   return `${LUGAR[h % LUGAR.length]} ${COMPLEMENTO[(h >>> 8) % COMPLEMENTO.length]}`;
@@ -69,10 +69,10 @@ system.runInterval(() => {
       const xp = 25 + Math.min(75, total * 2);
       // a regiao de nascimento nao conta como "descoberta" barulhenta
       if (total === 1) {
-        msg(player, `§2Voce esta em: §a${nome}`);
+        msg(player, `§2Você está em: §a${nome}`);
         continue;
       }
-      msg(player, `§2Nova regiao descoberta: §a§l${nome}§r §7(+${xp} XP)`);
+      msg(player, `§2Nova região descoberta: §a§l${nome}§r §7(+${xp} XP)`);
       som(player, "note.pling", 0.8, 1.4);
       particula(player.dimension, "tnt:ns_folhas", loc);
       darXP(player, xp, "exploracao");
@@ -80,7 +80,7 @@ system.runInterval(() => {
       if (total % 4 === 0) {
         const tp = 60 + Math.min(240, total * 4);
         somarScore(player, "tp", tp);
-        msg(player, `§6Voce encontrou um §lPergaminho Perdido§r§6 escondido na regiao! §e+${tp} TP`);
+        msg(player, `§6Você encontrou um §lPergaminho Perdido§r§6 escondido na região! §e+${tp} TP`);
         som(player, "random.orb", 1, 0.7);
         particula(player.dimension, "tnt:ns_fumaca_ninja", { x: loc.x, y: loc.y, z: loc.z });
         particula(player.dimension, "tnt:ns_level_up", loc);
