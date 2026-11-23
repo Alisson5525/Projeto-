@@ -106,7 +106,7 @@ const finalizacoes = new Map();
 const FINALIZAVEIS = new Set([
   "tnt:ninja_folha_b", "tnt:ninja_folha_s", "tnt:ninja_areia_b", "tnt:ninja_areia_s",
   "tnt:uchiha_b", "tnt:uchiha_s", "tnt:espadachin_s", "tnt:espadachin_ss", "tnt:anbu",
-  "tnt:bandidos_rank_a", "tnt:bandidos_rank_c", "tnt:zetsu_branco", "tnt:dummy",
+  "tnt:bandidos_rank_a", "tnt:bandidos_rank_c", "tnt:zetsu_branco",
 ]);
 
 function aplicarBonusCritico(alvo, player, dano, extra) {
@@ -248,7 +248,17 @@ function processarGolpe(player, d) {
     }
   }
 
-  if (d.alvo.typeId === DUMMY) registrarDps(d.alvo, total);
+  if (d.alvo.typeId === DUMMY) {
+    registrarDps(d.alvo, total);
+    // boneco de treino se regenera: da para medir DPS sem parar (e nao vira fazenda de XP)
+    try {
+      const vida = d.alvo.getComponent("health");
+      if (vida && vida.currentValue > 0 && vida.currentValue < vida.effectiveMax * 0.3) {
+        vida.resetToMaxValue();
+        particula(d.dim, "tnt:ns_level_up_anel", d.loc);
+      }
+    } catch {}
+  }
 
   // ----- impacto fisico: critico e cada 5o golpe do combo empurram o alvo -----
   const finalizador = corpoACorpo && n >= 5 && n % 5 === 0;
