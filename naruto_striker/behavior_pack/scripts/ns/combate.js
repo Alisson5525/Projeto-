@@ -260,6 +260,8 @@ function processarGolpe(player, d) {
     // ----- combo -----
     n = registrarCombo(player);
     maxStat(player, "ns:combo_max", n);
+    // tom ascendente a cada golpe do combo
+    if (n >= 3) som(player, "random.orb", 0.25, Math.min(2.0, 0.7 + n * 0.06));
   }
 
   // ----- jutsus escalam com o nivel ninja: +0,5% por nivel (ate +50%) -----
