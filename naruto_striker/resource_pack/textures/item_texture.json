@@ -203,41 +203,20 @@
     "mgk_sasuke": {
       "textures": "textures/items/mgk_sasuke"
     },
-    "ceifeiro": {
-      "textures": "textures/items/acesorios/ceifeiro"
-    },
-    "hollow": {
-      "textures": "textures/items/acesorios/hollow"
-    },
-    "quincy": {
-      "textures": "textures/items/acesorios/quincy"
-    },
-    "espada": {
-      "textures": "textures/items/acesorios/espada"
-    },
-    "acesorio_conjunto": {
-      "textures": "textures/items/acesorios/acesorio_conjunto"
-    },
-    "chad": {
-      "textures": "textures/items/chad"
-    },
-    "ichigo": {
-      "textures": "textures/items/ichigo"
-    },
-    "skill_medio": {
-      "textures": "textures/items/skill_medio"
-    },
-    "skill_evoluir": {
-      "textures": "textures/items/skill_evoluir"
-    },
-    "skill_especial": {
-      "textures": "textures/items/skill_especial"
-    },
-    "katana": {
-      "textures": "textures/items/katana"
-    },
     "pergaminho_ninja": {
       "textures": "textures/items/ns/pergaminho_ninja"
+    },
+    "ns_icone_mascara_anbu": {
+      "textures": "textures/items/ns/mascara_anbu"
+    },
+    "ns_icone_mascara_haku": {
+      "textures": "textures/items/ns/mascara_haku"
+    },
+    "ns_icone_mascara_obito_g": {
+      "textures": "textures/items/ns/mascara_obito_g"
+    },
+    "ns_icone_mascara_obito_s": {
+      "textures": "textures/items/ns/mascara_obito_s"
     }
   }
 }

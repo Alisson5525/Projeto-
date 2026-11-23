@@ -11,7 +11,7 @@
     "components": {
       "minecraft:icon": {
         "textures": {
-          "default": "diamond"
+          "default": "ns_icone_mascara_obito_s"
         }
       },
       "minecraft:display_name": {
