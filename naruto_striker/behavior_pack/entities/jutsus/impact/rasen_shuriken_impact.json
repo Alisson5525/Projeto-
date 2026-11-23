@@ -31,7 +31,7 @@
         "family": [ "jutsu_supremo" ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/.json"
+        "table": "loot_tables/empty.json"
       },
   
       "minecraft:health": {

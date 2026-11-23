@@ -42,7 +42,7 @@
         "family": [ "jutsu" ]
     },
       "minecraft:loot": {
-        "table": "loot_tables/entities/ferreiros.json"
+        "table": "loot_tables/empty.json"
       },
       "minecraft:damage_sensor": {
         "triggers": [
