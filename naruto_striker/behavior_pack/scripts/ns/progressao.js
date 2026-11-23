@@ -288,6 +288,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
   system.runTimeout(() => {
     if (!ehJogador(player)) return;
     definirScore(player, "ns_nivel", nivelDe(player));
+    recompensaDiaria(player);
     if (!player.getDynamicProperty("ns:recebeu_pergaminho")) {
       gravar(player, "ns:recebeu_pergaminho", true);
       try {
@@ -297,3 +298,23 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
     }
   }, 60);
 });
+
+/* ------------------------------------------------------------------ */
+/* Recompensa diaria (primeira entrada de cada dia, com sequencia)      */
+/* ------------------------------------------------------------------ */
+function recompensaDiaria(player) {
+  try {
+    const hoje = Math.floor(Date.now() / 86400000);
+    if (!Number.isFinite(hoje)) return;
+    const ultimo = lerNum(player, "ns:dia_ultimo", -1);
+    if (ultimo === hoje) return;
+    let seq = ultimo === hoje - 1 ? lerNum(player, "ns:dia_seq", 0) + 1 : 1;
+    gravar(player, "ns:dia_ultimo", hoje);
+    gravar(player, "ns:dia_seq", seq);
+    if (ultimo < 0) return; // primeira vez no add-on: sem recompensa (ja ganha o pergaminho)
+    const tp = 50 + Math.min(7, seq) * 25;
+    somarScore(player, "tp", tp);
+    msg(player, `§6§l[Missão do Dia]§r §7O Hokage reconhece sua dedicação: §e+${tp} TP §7(sequência de §f${seq}§7 dia${seq > 1 ? "s" : ""})`);
+    som(player, "random.orb", 0.8, 1.2);
+  } catch {}
+}

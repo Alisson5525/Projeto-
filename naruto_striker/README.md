@@ -52,6 +52,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - Cada nível dá **TP** (a moeda original do add-on, usada no Menu de Status) — integra direto com a evolução existente.
 - **18 conquistas** com recompensa em TP.
 - **Pergaminho Ninja** (item entregue na primeira entrada; se perder, receita: 3 papéis + 1 corante vermelho): perfil com nível/XP/estatísticas, conquistas, guia e **ajustes visuais** (ligar/desligar números de dano, aura, tremor de câmera e rastro).
+- **Missão do Dia**: na primeira entrada de cada dia, TP de recompensa (75 a 225 TP conforme a sequência de dias seguidos, até 7).
 - **Livro Bingo**: 3 contratos de caça ativos (ex.: "derrote 8 Ninjas da Folha #B"), recompensa em TP + XP, novo contrato a cada conclusão, opção de sortear novos por 50 TP.
 
 ## 4. Exploração

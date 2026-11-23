@@ -27,6 +27,15 @@ for(const p of [p1,p2]){ setS(p,'chakra',50); setS(p,'chakra_max',100); setS(p,'
 const steps=(n)=>{ for(let i=0;i<n;i++) S.step(); };
 world.afterEvents.playerSpawn.fire({player:p1, initialSpawn:true}); world.afterEvents.playerSpawn.fire({player:p2, initialSpawn:true});
 steps(100);
+// teste diario: mesma data (sem premio) e dia seguinte (premio com sequencia)
+{ const hoje=Math.floor(Date.now()/86400000); const antes=p1.msgs.length;
+  world.afterEvents.playerSpawn.fire({player:p1, initialSpawn:true}); steps(70);
+  const mesmoDia=p1.msgs.slice(antes).some(m=>m.includes('Missão do Dia'));
+  p1.setDynamicProperty('ns:dia_ultimo', hoje-1); p1.setDynamicProperty('ns:dia_seq', 3);
+  world.afterEvents.playerSpawn.fire({player:p1, initialSpawn:true}); steps(70);
+  const premio=p1.msgs.filter(m=>m.includes('Missão do Dia')).pop();
+  console.log('teste diario: mesmo dia premiou?', mesmoDia, '| dia seguinte:', premio);
+  if (mesmoDia || !premio || !premio.includes('+150 TP')) S.errors.push({where:'diario',msg:'recompensa diaria incorreta',stack:''}); }
 // usa todos os itens (beforeEvents.itemUse)
 for(const id of items){ p1._inv.container.slots[0]=new S.ItemStack(id); world.beforeEvents.itemUse.fire({source:p1, itemStack:new S.ItemStack(id)}); steps(2); }
 p1._inv.container.slots[0]=new S.ItemStack('tnt:selo_byakugou');
