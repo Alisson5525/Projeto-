@@ -258,14 +258,19 @@ async function abrirGuia(player) {
   const txt =
     "§eComo evoluir:\n" +
     "§7- Derrote inimigos para ganhar XP (mais vida = mais XP).\n" +
-    "§7- Explore o mundo: cada região nova dá XP e pode revelar\n  pergaminhos perdidos com TP.\n" +
+    "§7- Explore o mundo: cada região nova dá XP e pode revelar\n  pergaminhos perdidos com TP e esconderijos com baús\n  (siga a fumaça dourada).\n" +
     "§7- Cada nível dá TP para gastar no Menu de Status.\n" +
-    "§7- Conquistas dão TP extra.\n\n" +
+    "§7- Conquistas e contratos do §4Livro Bingo§7 dão TP extra.\n\n" +
     "§eCombate:\n" +
     "§7- Golpes seguidos formam combos (bônus de XP).\n" +
     "§7- Críticos causam +60% de dano; a chance cresce com o nível.\n" +
     "§7- Jutsus ficam mais fortes com o nível: +0,5% de dano\n  por nível (até +50% no nível 100). Números em §bciano§7.\n" +
-    "§7- Meditar (agachado e parado) recupera chakra.\n\n" +
+    "§7- Modos duram mais com o nível (até +50%).\n" +
+    "§7- Meditar (agachado e parado) recupera chakra.\n" +
+    "§7- Ninjas do mundo podem usar §fKawarimi§7 e reaparecer\n  atrás de você. §6[ELITE]§7 valem 3x XP.\n" +
+    "§7- Chefes abaixo de 50% de vida ficam §cenfurecidos§7.\n\n" +
+    "§eMundo:\n" +
+    "§7- Em algumas noites surge a §4Lua Vermelha§7: XP em dobro\n  e mais elites até o amanhecer.\n\n" +
     "§eRanks:\n" + ranks;
   const form = new ActionFormData().title("§6§lGuia de Progressão").body(txt).button("§lVoltar");
   try {
