@@ -13,11 +13,14 @@
           "into": "tnt:despawn",
           "delay": 0.0
         }
-      }
+      },
+      "impulse": {}
     },
     "components": {
       "minecraft:type_family": {
-        "family": ["bust"]
+        "family": [
+          "bust"
+        ]
       },
       "minecraft:knockback_resistance": {
         "value": 1.0

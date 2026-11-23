@@ -2,7 +2,7 @@
   "format_version": "1.16.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "tnt:rasengan_impact",
+      "identifier": "tnt:barion_impact",
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false
@@ -13,11 +13,14 @@
           "into": "tnt:despawn",
           "delay": 0.0
         }
-      }
+      },
+      "impulse": {}
     },
     "components": {
       "minecraft:type_family": {
-        "family": ["bust"]
+        "family": [
+          "bust"
+        ]
       },
       "minecraft:knockback_resistance": {
         "value": 1.0

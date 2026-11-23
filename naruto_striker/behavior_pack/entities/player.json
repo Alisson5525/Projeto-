@@ -49,9 +49,6 @@
          "troca_skill_mgk_itachi",
          "troca_skill_sharingan",
          "skill_sharingan",
-         "modo_sharingan",
-         "skill_jutsu_slots",
-         "hud_jutsu",
          "inicio"
 ]
       },
@@ -93,9 +90,6 @@
         "troca_skill_mgk_itachi": "controller.animation.troca_skill_mgk_itachi",
         "troca_skill_sharingan": "controller.animation.troca_skill_sharingan",
         "skill_sharingan": "controller.animation.skill_sharingan",
-        "modo_sharingan": "controller.animation.modo_sharingan",
-        "skill_jutsu_slots": "controller.animation.skill_jutsu_slots",
-        "hud_jutsu": "controller.animation.hud_jutsu",
         "inicio": "controller.animation.inicio",
 
 
@@ -149,9 +143,7 @@
 
 
 "rinnegan_shinra_tensei": "animation.rinnegan_shinra_tensei",
-"rinnegan_bansho_ten_in": "animation.rinnegan_bansho_ten_in",
 "rinnegan_absover_chakra": "animation.rinnegan_absover_chakra",
-"rinnegan_meteoro": "animation.rinnegan_meteoro",
 "rinnegan_chibaku_tensei": "animation.rinnegan_chibaku_tensei",
 
 "tenseigan_skill_1_animation": "animation.tenseigan_skill_1_animation",

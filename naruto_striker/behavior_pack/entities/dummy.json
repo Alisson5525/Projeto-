@@ -6,24 +6,23 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-
-]},
-    "animations":{}
-
-},
-
+      "scripts": {
+        "animate": []
+      },
+      "animations": {}
+    },
     "component_groups": {
-
+      "attack": {},
+      "tnt:despawn": {
+        "minecraft:instant_despawn": {}
+      }
     },
     "components": {
-
-
       "minecraft:type_family": {
-        "family": [ "dummy" ]
+        "family": [
+          "dummy"
+        ]
       },
-     
       "minecraft:loot": {
         "table": "loot_tables/.json"
       },
@@ -32,15 +31,13 @@
         "height": 1.6
       },
       "minecraft:scale": {
-      	 "value": 1.0
+        "value": 1.0
       },
-
-	"minecraft:health": {
-	   "value": 100,
-	   "max": 100
-	},
-      "minecraft:can_climb": {
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
       },
+      "minecraft:can_climb": {},
       "minecraft:movement": {
         "value": 0
       },
@@ -55,13 +52,10 @@
       "minecraft:navigation.climb": {
         "can_float": true
       },
-      "minecraft:movement.basic": {
-    
-      },
+      "minecraft:movement.basic": {},
       "minecraft:jump.static": {
         "value": 1.0
       },
- 
       "minecraft:behavior.float": {
         "priority": 0
       },
@@ -71,10 +65,7 @@
         "inhaleTime": 3.75,
         "generatesBubbles": false
       },
-      "minecraft:nameable": {
-      },
-     
-
+      "minecraft:nameable": {},
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 1
@@ -90,29 +81,23 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
- 
-      "minecraft:physics": {
-      }
+      "minecraft:physics": {}
     },
     "events": {
-
-"minecraft:entity_spawned": {
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-"minecraft:entity_transformation": {
-"add": {
-"component_groups": [
-"attack"
-]}},
-
-
-
-
-
-
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
+      "minecraft:entity_transformation": {
+        "add": {
+          "component_groups": [
+            "attack"
+          ]
+        }
+      },
       "tnt:despawn": {
         "add": {
           "component_groups": [
@@ -126,7 +111,7 @@
             "despawning"
           ]
         }
-    }
+      }
     }
   }
 }
