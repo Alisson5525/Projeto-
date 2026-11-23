@@ -4,17 +4,21 @@
     "description": {
       "identifier": "tnt:uchiha_b",
       "materials": {
-        "default": "zombie"
+        "default": "zombie",
+        "ns_olhos": "enderman"
       },
       "textures": {
         "skin_1": "textures/bosses/mundo/uchiha_1",
         "skin_2": "textures/bosses/mundo/uchiha_2",
         "skin_3": "textures/bosses/mundo/uchiha_3",
-        "default_4": ""
+        "default_4": "",
+        "ns_olhos": "textures/tudo/uchiha/ns_olho_sharingan_brilho"
       },
       "geometry": {
         "default": "geometry.entidades_camadas",
-        "default_4": "geometry.locais"
+        "default_4": "geometry.locais",
+        "ns_olhos_r13": "geometry.ns_olhos_uchiha_r13",
+        "ns_olhos_r14": "geometry.ns_olhos_uchiha_r14"
       },
       "scripts": {
         "pre_animation": [
@@ -118,7 +122,13 @@
         {
           "controller.render.skin_3": "query.property('skin:variacao') == 3"
         },
-        "controller.render.default_4"
+        "controller.render.default_4",
+        {
+          "controller.render.ns_olhos_r13": "query.property('skin:variacao') == 1 || query.property('skin:variacao') == 3"
+        },
+        {
+          "controller.render.ns_olhos_r14": "query.property('skin:variacao') == 2"
+        }
       ],
       "enable_attachables": true
     }
