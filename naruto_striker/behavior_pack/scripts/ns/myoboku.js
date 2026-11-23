@@ -4,7 +4,7 @@
 // construcoes, como o Kamui original faz em (500, 500).
 import { world, system } from "@minecraft/server";
 import { ehJogador, valido, lerJSON, gravarJSON, particula, som, msg, tremer, lerScore, somarScore } from "./util";
-import { BOTOES_EXTRAS, nivelDe, darXP } from "./progressao";
+import { BOTOES_EXTRAS, nivelDe, darXP, somarStat } from "./progressao";
 
 const CENTRO = { x: -500, y: 100, z: -500 };
 const ORIGEM_ESTRUTURA = { x: CENTRO.x - 32, y: 90, z: CENTRO.z - 32 }; // estrutura 64x64x64
@@ -117,6 +117,7 @@ system.runInterval(() => {
           const max = lerScore(player, "chakra_max");
           if (max > 0 && chakra < max) somarScore(player, "chakra", Math.min(max - chakra, Math.max(2, Math.round(max * 0.06))));
           darXP(player, 4, "myoboku");
+          somarStat(player, "ns:myoboku_med", 1);
         }
         if (t === 20) msg(player, "§6Você sente a energia natural fluindo... §7(meditar aqui rende chakra e XP)");
       } else {
