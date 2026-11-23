@@ -123,7 +123,7 @@ export const world = {
   getAllPlayers:()=>Object.values(dims).flatMap(d=>d.getPlayers()),
   getEntity:(id)=>Object.values(dims).flatMap(d=>d._ents).find(e=>e.id===id&&e._valid),
   _dp:new Map(), getDynamicProperty(k){ return this._dp.get(k); }, setDynamicProperty(k,v){ guardWrite('world.setDynamicProperty'); this._dp.set(k,v); },
-  playSound(id,loc){ vec(loc); S.sounds.push(id); }, sendMessage(m){ S.cmds.push({src:'world.msg',c:String(m)}); }, getDefaultSpawnLocation(){ return {x:0,y:64,z:0}; },
+  playSound(id,loc){ vec(loc); S.sounds.push(id); }, sendMessage(m){ S.cmds.push({src:'world.msg',c:String(m)}); }, getDefaultSpawnLocation(){ return {x:0,y:64,z:0}; }, getTimeOfDay(){ return Math.floor(S.tick*20)%24000; }, getDay(){ return Math.floor(S.tick*20/24000); },
 };
 let RUN_ID=1; const runs=new Map();
 export const system = {

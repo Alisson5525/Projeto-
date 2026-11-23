@@ -3,6 +3,7 @@
 import { world, system } from "@minecraft/server";
 import { ehJogador, valido, lerNum, particula, som, somArea, tremer, config, aleatorio } from "./util";
 import { darXP, somarStat, maxStat, nivelDe } from "./progressao";
+import { luaVermelhaAtiva } from "./eventos";
 
 const TEXTO_ID = "tnt:ns_texto";
 const MAX_TEXTOS = 24;
@@ -283,7 +284,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     const ehNinja = morto.typeId.startsWith("tnt:");
     let elite = false;
     try { elite = morto.hasTag("ns_elite"); } catch {}
-    let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo * (elite ? 3 : 1);
+    let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo * (elite ? 3 : 1) * (luaVermelhaAtiva() ? 2 : 1);
     xp = Math.min(1500, Math.round(xp));
 
     somarStat(killer, "ns:kills", 1);

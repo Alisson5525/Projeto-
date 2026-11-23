@@ -59,9 +59,14 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Esconderijos ninja**: ao descobrir uma região (35% de chance) surge um baú por perto, marcado por uma coluna de fumaça dourada por 90 s, com direção e distância no chat. Saque próprio (`loot_tables/ns/esconderijo.json`): comidas do add-on, minérios, pérolas, maçã dourada/diamante raros e chance de roupas/armas ninja.
 - **Meditação**: agachado e parado por 2 s recupera chakra com partículas de chakra convergindo.
 
+## 4.1 Ambiente e eventos do mundo
+
+- **Folhas caindo** sob as copas das árvores e **vagalumes** à noite perto dos jogadores.
+- **Noite da Lua Vermelha** (12% das noites): névoa vermelha, partículas carmesim no ar, **XP em dobro** e **3× mais ninjas de elite** até o amanhecer. Admin: `/scriptevent ns:lua_vermelha` liga/desliga.
+
 ## 5. Visuais
 
-- **17 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
+- **19 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
 - **Trilhas de energia** nos projéteis: Bijudama (roxo), Tubarão (azul), Terra, Rasen Shuriken (vento) e o projétil do Shukaku.
 - Impacto final da **Rasen Shuriken** (`rasen_shuriken_inpact_jt_3`) que estava faltando agora existe.
 - **Sharingan brilhante**: os Uchiha do mundo têm os olhos vermelhos emissivos (brilham no escuro), alinhados pixel a pixel com cada variação de skin.

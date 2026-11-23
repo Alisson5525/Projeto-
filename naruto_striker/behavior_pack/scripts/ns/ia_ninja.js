@@ -3,6 +3,7 @@
 import { world, system } from "@minecraft/server";
 import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio } from "./util";
 import { textoFlutuante } from "./combate";
+import { luaVermelhaAtiva } from "./eventos";
 
 /* ------------------------------------------------------------------ */
 /* Kawarimi no Jutsu                                                   */
@@ -187,7 +188,7 @@ world.afterEvents.entitySpawn.subscribe((ev) => {
     if (!valido(e) || !NINJAS.has(e.typeId)) return;
     if (e.hasTag("ns_elite") || e.getDynamicProperty("ns:sorteado")) return;
     gravar(e, "ns:sorteado", true);
-    if (Math.random() < CHANCE_ELITE) system.run(() => { if (valido(e)) tornarElite(e); });
+    if (Math.random() < CHANCE_ELITE * (luaVermelhaAtiva() ? 3 : 1)) system.run(() => { if (valido(e)) tornarElite(e); });
   } catch {}
 });
 
