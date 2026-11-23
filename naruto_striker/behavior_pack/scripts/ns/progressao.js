@@ -290,9 +290,10 @@ async function abrirGuia(player) {
     "§7- §6Pílula de Soldado§7: trigo + açúcar + glowstone (+50% chakra).\n" +
     "§7- §6Pergaminho Ninja§7: 3 papéis + corante vermelho.\n\n" +
     "§eMundo:\n" +
-    "§7- Rank §2Chunin§7: Invocação Reversa ao §2Monte Myoboku§7\n  (meditar lá rende chakra e XP).\n" +
+    "§7- Rank §2Chunin§7: Invocação Reversa ao §2Monte Myoboku§7\n  (meditar lá rende chakra e XP; a cada 60 s,\n  bênção da §6Energia Natural§7: Força + Velocidade).\n" +
     "§7- §aViagem Rápida§7 de volta a Konoha (recarga de 5 min).\n" +
-    "§7- Em algumas noites surge a §4Lua Vermelha§7: XP em dobro\n  e mais elites até o amanhecer.\n\n" +
+    "§7- Em algumas noites surge a §4Lua Vermelha§7: XP em dobro\n  e mais elites até o amanhecer (+15 TP por inimigo\n  derrotado no saldo da noite).\n" +
+    "§7- Regiões novas podem esconder baús ou §cemboscadas§7:\n  derrote o esquadrão inteiro para ganhar um bônus.\n\n" +
     "§eRanks:\n" + ranks;
   const form = new ActionFormData().title("§6§lGuia de Progressão").body(txt).button("§lVoltar");
   try {
