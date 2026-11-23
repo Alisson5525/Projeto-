@@ -101,10 +101,23 @@ function corDano(d, crit) {
 // alvo.id -> tick do golpe critico que finalizou com dano "override" (nao reprocessar)
 const finalizacoes = new Map();
 
+// Entidades do add-on que podem ser finalizadas pelo critico. As demais (missoes,
+// chefes, NPCs) ficam com no minimo 1 de vida para nao pular eventos roteirizados.
+const FINALIZAVEIS = new Set([
+  "tnt:ninja_folha_b", "tnt:ninja_folha_s", "tnt:ninja_areia_b", "tnt:ninja_areia_s",
+  "tnt:uchiha_b", "tnt:uchiha_s", "tnt:espadachin_s", "tnt:espadachin_ss", "tnt:anbu",
+  "tnt:bandidos_rank_a", "tnt:bandidos_rank_c", "tnt:zetsu_branco", "tnt:dummy",
+]);
+
 function aplicarBonusCritico(alvo, player, dano, extra) {
   const vida = alvo.getComponent("health");
   if (!vida) return;
   const atual = vida.currentValue;
+  const podeFinalizar = alvo.typeId.startsWith("minecraft:") || FINALIZAVEIS.has(alvo.typeId);
+  if (!podeFinalizar) {
+    if (atual > 1) vida.setCurrentValue(Math.max(1, atual - extra));
+    return;
+  }
   if (atual - extra > 0.5) {
     // tira a vida direto: ignora o tempo de invulnerabilidade apos o golpe
     vida.setCurrentValue(atual - extra);
