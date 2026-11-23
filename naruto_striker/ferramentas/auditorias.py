@@ -240,6 +240,43 @@ for p in walk(f'{RP}/entity'):
         if q not in props[i]:
             problemas.append(f'{i}: query.property({q}) sem declaracao no BP')
 
+# ---------- efeitos de animacao (nomes curtos e locators) ----------
+_locs = {}
+for p in walk(f'{RP}/models'):
+    if not p.endswith('.json'):
+        continue
+    try:
+        for g in rj(p).get('minecraft:geometry', []):
+            l = set()
+            for b in g.get('bones', []):
+                l |= set((b.get('locators') or {}).keys())
+            _locs[g['description']['identifier']] = l
+    except Exception:
+        pass
+for p in list(walk(f'{RP}/entity')) + list(walk(f'{RP}/attachables')):
+    if not p.endswith('.json'):
+        continue
+    j = rj(p)
+    d = (j.get('minecraft:client_entity') or j.get('minecraft:attachable') or {}).get('description')
+    if not d:
+        continue
+    pe, se = set(d.get('particle_effects', {})), set(d.get('sound_effects', {}))
+    L = set()
+    for g in d.get('geometry', {}).values():
+        L |= _locs.get(g, set())
+    for v in d.get('animations', {}).values():
+        a = _anims.get(v, {})
+        for es in (a.get('particle_effects') or {}).values():
+            for e in (es if isinstance(es, list) else [es]):
+                if e.get('effect') and e['effect'] not in pe:
+                    problemas.append(f"{d['identifier']}: particula '{e['effect']}' de {v} nao declarada")
+                if e.get('locator') and e['locator'] not in L:
+                    problemas.append(f"{d['identifier']}: locator '{e['locator']}' de {v} inexistente")
+        for es in (a.get('sound_effects') or {}).values():
+            for e in (es if isinstance(es, list) else [es]):
+                if e.get('effect') and e['effect'] not in se:
+                    problemas.append(f"{d['identifier']}: som '{e['effect']}' de {v} nao declarado")
+
 for pr in sorted(set(problemas)):
     print(pr)
 print(f'auditorias: {len(set(problemas))} problema(s)')
