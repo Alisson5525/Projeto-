@@ -110,6 +110,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Missões, NPCs e menus agendavam comandos com o jogador; se ele saísse durante a espera (até 35 s nas missões) gerava erros | Agendamentos protegidos em 20 scripts |
 | Nos laços por jogador (HUD, dash, modos, combos), um erro com um jogador interrompia o processamento de todos | Erros isolados por jogador (`ferramentas/isolar_lacos.py`) |
 | `hp_boss.js` percorria todas as entidades do overworld a cada segundo e ignorava Nether/End | Busca só pelos tipos com nome, nas 3 dimensões |
+| `_ui_defs.json` listava 185 arquivos que não existem no pack (cópia da lista do vanilla + 3 de outro add-on) | Lista reduzida aos 30 arquivos de UI do add-on |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
