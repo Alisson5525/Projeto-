@@ -7,7 +7,7 @@
 			"timeline": {
 				 "0.0": ["/event entity @s no_moviment"],
 				 "0.1": ["/playanimation @s animation.shukaku_grito default 0.2","/summon tnt:empurrao_shukaku_biju","/tag @s add grito_biju"],
-				 "0.4": ["/camerashake add  @a[r=20] 0.5 1 positional","/summon tnt:empurrao_shukaku_biju"],
+				 "0.4": ["/camerashake add @a[r=20] 0.5 1 positional","/summon tnt:empurrao_shukaku_biju"],
 				 "0.5": ["/effect @e[type=!tnt:shukaku_biju,r=10] slowness 5 2 true"],
 				 "0.8": ["/summon tnt:empurrao_shukaku_biju"],
 				 "1.1": ["/summon tnt:empurrao_shukaku_biju"],

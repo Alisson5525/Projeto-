@@ -5,7 +5,7 @@
 			"animation_length": 12.1,
 			"timeline": {
 
-"0.0": ["/scoreboard objectives add sinos dummy","/scoreboard players set @s sinos 0","/playanimation  @s animation.kakashi_sino_cansado","/event entity @s skill:kakashi_sinos_cansado","/event entity @s no_moviment","/effect @s resistance 10 100 true","/effect @s instant_health 1 10 true"],
+"0.0": ["/scoreboard objectives add sinos dummy","/scoreboard players set @s sinos 0","/playanimation @s animation.kakashi_sino_cansado","/event entity @s skill:kakashi_sinos_cansado","/event entity @s no_moviment","/effect @s resistance 10 100 true","/effect @s instant_health 1 10 true"],
 "3.0": ["/event entity @s[scores={sinos=2..}] tnt:despawn"],
 "6.0": ["/event entity @s[scores={sinos=2..}] tnt:despawn"],
 "9.0": ["/event entity @s[scores={sinos=2..}] tnt:despawn"],
