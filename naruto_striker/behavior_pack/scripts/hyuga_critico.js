@@ -34,10 +34,12 @@ world.afterEvents.entityHurt.subscribe((ev) => {
         console.warn("Erro ao spawnar porco:", e);
       }
 
-      target.addEffect("minecraft:slowness", DURATION, {
+      try {
+        target.addEffect("minecraft:slowness", DURATION, {
         amplifier: 2,
         showParticles: false,
-      });
+        });
+      } catch {}
 
       try {
         const molang = new MolangVariableMap();
@@ -61,10 +63,12 @@ world.afterEvents.entityHurt.subscribe((ev) => {
         target.runCommand("scoreboard players remove @s chakra 7");
       } catch {}
 
-      target.addEffect("minecraft:slowness", DURATION, {
+      try {
+        target.addEffect("minecraft:slowness", DURATION, {
         amplifier: 2,
         showParticles: false,
-      });
+        });
+      } catch {}
 
       try {
         const molang = new MolangVariableMap();
@@ -88,10 +92,12 @@ world.afterEvents.entityHurt.subscribe((ev) => {
         target.runCommand("scoreboard players remove @s chakra 15");
       } catch {}
 
-      target.addEffect("minecraft:slowness", DURATION, {
+      try {
+        target.addEffect("minecraft:slowness", DURATION, {
         amplifier: 3,
         showParticles: false,
-      });
+        });
+      } catch {}
 
       try {
         const molang = new MolangVariableMap();
