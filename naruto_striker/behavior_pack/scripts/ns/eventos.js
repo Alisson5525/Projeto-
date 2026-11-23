@@ -163,6 +163,8 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
   system.runTimeout(() => {
     if (!ehJogador(ev.player)) return;
     aplicarNevoa(ev.player, false);
+    // base do saldo da noite: so conta o que for derrotado a partir de agora
+    gravar(ev.player, "ns:lua_inicio", luaVermelhaAtiva() ? lerNum(ev.player, "ns:kills_lua", 0) : -1);
     if (luaVermelhaAtiva()) {
       aplicarNevoa(ev.player, true);
       msg(ev.player, "§4A Noite da Lua Vermelha está acontecendo! §6XP em dobro.");
