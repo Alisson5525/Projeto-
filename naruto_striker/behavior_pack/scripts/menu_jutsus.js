@@ -1,4 +1,12 @@
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 const cooldownSet = new Set();
@@ -9,7 +17,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
     if (cooldownSet.has(player.name)) return;
 
     cooldownSet.add(player.name);
-    system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       menu_jutsus(player);
       cooldownSet.delete(player.name);
     }, 1);

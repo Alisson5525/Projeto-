@@ -1,4 +1,12 @@
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 const cooldownSet = new Set();
@@ -9,7 +17,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
     if (cooldownSet.has(player.name)) return;
 
     cooldownSet.add(player.name);
-    system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       menu_all_modos_ativar(player);
       cooldownSet.delete(player.name);
     }, 1);
@@ -113,50 +121,50 @@ break;
 case 2:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("marca_cooldown") && player.hasTag("marca_v1")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 3:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("marca_cooldown") && player.hasTag("marca_v2")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao_v1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 4:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("marca_cooldown") && player.hasTag("marca_v3")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s marca:maldicao_v2');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 5:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("sennin_sapo_cooldown") && player.hasTag("sennin_sapo_v1")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s sennin:modo_sennin_incompleto');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 6:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("sennin_sapo_cooldown") && player.hasTag("sennin_sapo_v2")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s sennin:modo_sennin_perfeito');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -164,90 +172,90 @@ break;
 case 7:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_1")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:primeiro_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 8:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_2")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:segundo_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 9:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_3")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:terceiro_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 10:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_4")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:quarto_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 11:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_5")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:quinto_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 12:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_6")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:sexto_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 13:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_7")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:setimo_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 14:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("portoes_cooldown") && player.hasTag("portao_8")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s portoes:oitavo_portao');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 15:
 if (player.hasTag("dna_hashirama_sh")) {
 player.runCommand('execute as @s[hasitem=[{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run scoreboard players set @s isanagi 0');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('');
 }, 3);
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('execute as @s[hasitem=[{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run effect @s instant_health 1 7 true'); 
 player.runCommand('execute as @s[hasitem=[{item=tnt:olho_sharingan,location=slot.hotbar,quantity=7..}]] run clear @s tnt:olho_sharingan 0 7 ');
 
@@ -258,10 +266,10 @@ break;
 case 16:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("byakugou_cooldown") && player.hasTag("byakugou_marca")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s byakugou:ativado');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -270,10 +278,10 @@ break;
 case 17:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("rinnegan_cooldown") && player.hasTag("rinnegan_2")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:rinnegan_esquerdo');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -282,10 +290,10 @@ break;
 case 18:
 if (!player.hasTag("modo_ativado_2") && !player.hasTag("suigetsu_cooldown") && player.hasTag("modo_suigetsu")) {
 player.runCommand('/event entity @s desativar_slot_2');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s suigetsu:ativado');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -369,10 +377,10 @@ break;
 case 2:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("manto_kurama_1")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -381,10 +389,10 @@ break;
 case 3:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("manto_kurama_3")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_3');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -393,10 +401,10 @@ break;
 case 4:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("manto_kurama_4")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_4');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -405,10 +413,10 @@ break;
 case 5:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("manto_kurama_6")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_chakra_6');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -417,10 +425,10 @@ break;
 case 6:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("mk1")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_kurama_1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -429,10 +437,10 @@ break;
 case 7:
 if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && player.hasTag("mk2")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s kurama:manto_kurama_2');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
@@ -443,19 +451,19 @@ if (!player.hasTag("modo_ativado") && !player.hasTag("kurama_cooldown") && playe
 player.runCommand('/event entity @s desativar_slot_1');
 player.runCommand('/camerashake add @a[r=15] 0.4 0.1 rotational');
 player.runCommand('/playsound mob.wither.shoot @a[r=15]');
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/playanimation @s animation.barion_transf default 0.2');
 player.runCommand('/camera @s fov_set 1 0.3 in_back');
 player.runCommand('/particle tnt:barion_k');
 }, 0);
-system.runTimeout(() => { player.runCommand('/camera @s fade time 0.3 0.2 0.2 color 250 30 60');}, 0.2);
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { player.runCommand('/camera @s fade time 0.3 0.2 0.2 color 250 30 60');}, 0.2);
+runTimeoutSeguro(() => { 
 player.runCommand('/event entity @s[tag=vip_storm] kurama:barion_kurama');
 player.runCommand('/camera @s fov_clear');
 
 }, 5);
 
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 6);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 6);
 }
 break;
 

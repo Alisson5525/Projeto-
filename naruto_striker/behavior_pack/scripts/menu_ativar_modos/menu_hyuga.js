@@ -1,5 +1,13 @@
 // importações
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 // cooldown para evitar abrir o menu várias vezes rapidamente
@@ -12,7 +20,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
     if (cooldownSet.has(player.name)) return;
 
     cooldownSet.add(player.name);
-    system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       menu(player);
       cooldownSet.delete(player.name);
     }, 1);
@@ -68,40 +76,40 @@ export function menu(player) {
 case 0:
 if (!player.hasTag("modo_ativado") && !player.hasTag("byakugan_cooldown") && player.hasTag("byakugan")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:byakugan');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 1:
 if (!player.hasTag("modo_ativado") && !player.hasTag("byakugan_cooldown") && player.hasTag("byakugan_evoluido")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:byakugan_evoluido');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 2:
 if (!player.hasTag("modo_ativado") && !player.hasTag("tenseigan_cooldown") && player.hasTag("tenseigan")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:tenseigan');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 3:
 if (!player.hasTag("modo_ativado") && !player.hasTag("tenseigan_cooldown") && player.hasTag("tenseigan_manto")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s hyuga:tenseigan_manto');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 

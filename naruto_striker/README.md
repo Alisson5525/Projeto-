@@ -106,6 +106,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Máscaras (ANBU, Haku, Obito ×2) usavam o ícone de diamante; 11 ícones órfãos de outro add-on apontavam para texturas inexistentes | Ícones renderizados a partir do próprio modelo 3D de cada máscara; órfãos removidos |
 | Gaara reutilizava o controlador do Neji: 3 de 4 habilidades apontavam para golpes Hyuga não declarados (Gaara só esquivava) | Gaara ganhou técnicas de areia próprias: Lanças, Caixão e Onda de Areia |
 | Seletores com espaço antes dos colchetes (`@e [tag=...]`) na função executada a cada tick — risco de a função inteira não carregar | Normalizados para `@e[...]` (válido em qualquer caso) |
+| Missões, NPCs e menus agendavam comandos com o jogador; se ele saísse durante a espera (até 35 s nas missões) gerava erros | Agendamentos protegidos em 20 scripts |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 

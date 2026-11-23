@@ -1,5 +1,13 @@
 // importações
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 // cooldown para evitar abrir o menu várias vezes rapidamente
@@ -12,7 +20,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
     if (cooldownSet.has(player.name)) return;
 
     cooldownSet.add(player.name);
-    system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       menu(player);
       cooldownSet.delete(player.name);
     }, 1);

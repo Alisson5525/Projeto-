@@ -1,5 +1,13 @@
 // import
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 system.afterEvents.scriptEventReceive.subscribe((ev) => {
@@ -28,7 +36,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
   const player = data.source;
   switch (data.itemStack.typeId) {
     case "":
-      system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         npc_tsunade_hokage(player);
       }, 0);
       break;

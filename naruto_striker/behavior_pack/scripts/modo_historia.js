@@ -1,5 +1,13 @@
 //import
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 //itemUse
@@ -7,7 +15,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
   const player = data.source;
   switch (data.itemStack.typeId) {
         case "tnt:menu_missao":
-          system.runTimeout(() => {
+          runTimeoutSeguro(() => {
             modo_historia_c(player);
           }, 0);
           break;
@@ -223,7 +231,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && !player.hasTag("mi
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 240');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:kakashi_sinos ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:kakashi_sinos ^^2^2'); }, 30); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -237,10 +245,10 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 300');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_boss ^^2^2'); }, 30); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_boss ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
 
 }} 
         
@@ -260,7 +268,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 300');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:zabuza ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:zabuza ^^2^2'); }, 30); 
 
 }} 
         
@@ -279,32 +287,32 @@ player.runCommand('/scoreboard players set @s cooldown_miss 500');
 player.runCommand('/tag @s add pergminho_miss_5');
 player.runCommand('/give @s tnt:pergaminho_miss');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 100); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 200); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 300); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 400); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 500); 
-system.runTimeout(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 600); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 100); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 200); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 300); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 400); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 500); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 600); 
 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §aMissao Completa"}]}');
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/tellraw @s[tag=!pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §cMissao Fracassada"}]}');
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/tag @s[tag=pergminho_miss_5] add missao_8_c'); 
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/clear @s[tag=pergminho_miss_5] tnt:pergaminho_miss'); 
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/event entity @e[r=50,family=miss_5_c] tnt:despawn'); 
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/scoreboard players add @s[tag=pergminho_miss_5] tp 300'); 
 }, 700); 
-system.runTimeout(() => { 
+runTimeoutSeguro(() => { 
 player.runCommand('/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§a[!] §e300.Tp"}]}');
 }, 700); 
 }} 
@@ -323,7 +331,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_7_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 240');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -338,7 +346,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_8_c") && player.hasTag("mis
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 340');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:neji_c ^^2^2'); }, 30); }} 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:neji_c ^^2^2'); }, 30); }} 
         
 else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
@@ -354,8 +362,8 @@ player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §cNinjas Da Akat
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 6 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 640');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:itachi_c ^^2^2'); }, 60); 
-system.runTimeout(() => { player.runCommand('/summon tnt:kisame_c ^^2^2'); }, 80); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:itachi_c ^^2^2'); }, 60); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:kisame_c ^^2^2'); }, 80); 
 
 }} 
         
@@ -371,7 +379,7 @@ if (cooldown_miss === 0) { if (player.hasTag("missao_10_c") && player.hasTag("mi
 player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missao ira começar em 3 segundos"}]}');
 player.runCommand('/scoreboard players set @s cooldown_miss 800');
 
-system.runTimeout(() => { player.runCommand('/summon tnt:gaara_c ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { player.runCommand('/summon tnt:gaara_c ^^2^2'); }, 30); 
 
 }} 
         

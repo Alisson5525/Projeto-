@@ -3,6 +3,14 @@ import {
     system
 } from "@minecraft/server";
 
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
+
 const STRUCTURE_NAME = "konoha";
 const PROPERTY_NAME = "estrutura_spawnada";
 // evita carregar a vila duas vezes quando varios jogadores entram juntos
@@ -23,7 +31,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
 
     const player = ev.player;
 
-    system.runTimeout(async () => {
+    runTimeoutSeguro(async () => {
 
         try {
 
@@ -91,7 +99,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
             world.setDynamicProperty(PROPERTY_NAME, true);
 
             // libera a area de carregamento forcado (antes ficava ativa para sempre)
-            system.runTimeout(() => {
+            runTimeoutSeguro(() => {
                 try { player.dimension.runCommandAsync("tickingarea remove estrutura_spawn"); } catch (e) {}
             }, 100);
 

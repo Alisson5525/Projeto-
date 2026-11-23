@@ -1,5 +1,13 @@
 // importações
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 // cooldown para evitar abrir o menu várias vezes rapidamente
@@ -12,7 +20,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
     if (cooldownSet.has(player.name)) return;
 
     cooldownSet.add(player.name);
-    system.runTimeout(() => {
+    runTimeoutSeguro(() => {
       menu(player);
       cooldownSet.delete(player.name);
     }, 1);
@@ -76,40 +84,40 @@ export function menu(player) {
 case 0:
 if (!player.hasTag("modo_ativado") && !player.hasTag("sh_cooldown") && player.hasTag("sharingan")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:sharingan');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 1:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_itachi")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_itachi');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break;
 
 case 2:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_sasuke")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_sasuke');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
 case 3:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_obito")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:mgk_obito');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
@@ -117,20 +125,20 @@ break;
 case 4:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_it_1")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_itachi_f1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
 case 5:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_it_2")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_itachi_f2');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
@@ -138,20 +146,20 @@ break;
 case 6:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_sk_1")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_sasuke_f1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
 case 7:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_sk_2")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_sasuke_f2');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
@@ -159,30 +167,30 @@ break;
 case 8:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_ob_1")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_obito_f1');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
 case 9:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_ob_2")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:susano_obito_f2');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 
 case 10:
 if (!player.hasTag("modo_ativado") && !player.hasTag("rinnegan_cooldown") && player.hasTag("rinnegan")) {
 player.runCommand('/event entity @s desativar_slot_1');
-system.runTimeout(() => {
+runTimeoutSeguro(() => {
 player.runCommand('/event entity @s uchiha:rinnegan');
 }, 3);
-system.runTimeout(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
 }
 break; 
 

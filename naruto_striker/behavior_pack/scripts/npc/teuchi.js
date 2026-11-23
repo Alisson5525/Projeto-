@@ -1,5 +1,13 @@
 // import
 import { world, system } from "@minecraft/server";
+
+// Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
+function runTimeoutSeguro(fn, ticks) {
+  return system.runTimeout(() => {
+    try { fn(); } catch (e) {}
+  }, ticks);
+}
+
 import { ActionFormData } from "@minecraft/server-ui";
 
 // ================= CONFIG =================
@@ -67,7 +75,7 @@ world.beforeEvents.itemUse.subscribe((data) => {
 
     case "":
 
-      system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         npc_teuchi(player);
       }, 1);
 
@@ -178,7 +186,7 @@ ${ITEMS.map(item =>
       );
 
       // reopen
-      system.runTimeout(() => {
+      runTimeoutSeguro(() => {
         npc_teuchi(player, amount);
       }, 1);
 
@@ -189,7 +197,7 @@ ${ITEMS.map(item =>
 
     if (hasTag && selection === ITEMS.length) {
 
-      system.runTimeout(() => {
+      runTimeoutSeguro(() => {
 
         npc_teuchi(
           player,
