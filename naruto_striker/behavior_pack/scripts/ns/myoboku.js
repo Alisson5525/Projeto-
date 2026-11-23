@@ -127,6 +127,14 @@ system.runInterval(() => {
           somarStat(player, "ns:myoboku_med", 1);
         }
         if (t === 20) msg(player, "§6Você sente a energia natural fluindo... §7(meditar aqui rende chakra e XP)");
+        // a cada 60s de meditacao: bencao da energia natural (forca + velocidade por 90s)
+        if (t % 60 === 0) {
+          player.addEffect("strength", 20 * 90, { amplifier: 0, showParticles: false });
+          player.addEffect("speed", 20 * 90, { amplifier: 0, showParticles: false });
+          particula(player.dimension, "tnt:ns_level_up", l);
+          som(player, "random.levelup", 0.6, 0.6);
+          msg(player, "§6§l[Energia Natural]§r §eVocê absorveu a energia natural! §7(Força e Velocidade por 90s)");
+        }
       } else {
         tempoParado.set(player.id, 0);
       }

@@ -118,7 +118,8 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   se('ns:myoboku',p1); await steps(20); const bloqueado=p1.dimension===ow;
   p1.setDynamicProperty('ns:nivel',20); const origem={...p1.location}; se('ns:myoboku',p1); await steps(15);
   const foi=p1.dimension===end; await steps(120); const construiu=S.cmds.some(c=>c.c.includes('structure load monte_myoboku'));
-  p1.isSneaking=true; p1.isOnGround=true; await steps(60); p1.isSneaking=false;
+  p1.isSneaking=true; p1.isOnGround=true; if(p1._efx) delete p1._efx.strength; await steps(1220); p1.isSneaking=false;
+  const bencao=!!(p1._efx&&p1._efx.strength) && p1.msgs.some(x=>x.includes('Energia Natural')); console.log('teste myoboku: bencao energia natural', bencao); if(!bencao) S.errors.push({where:'myoboku',msg:'sem bencao',stack:''});
   se('ns:myoboku',p1); await steps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
   console.log('teste myoboku: bloqueado',bloqueado,'| foi',foi,'| construiu',construiu,'| voltou',voltou);
   const cargas1=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; se('ns:myoboku',p1); await steps(120); se('ns:myoboku',p1); await steps(15);
