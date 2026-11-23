@@ -61,6 +61,7 @@ p1._vel={x:0,y:0,z:0}; p1.isSneaking=true; steps(80); p1.isSneaking=false; p1._h
 for(let i=0;i<10;i++){ p1.teleport({x:200*i+5,y:70,z:-150*i}); steps(41); }
 // morte do jogador e saida
 p1._health.currentValue=1; p1.applyDamage(50,{cause:'entityAttack',damagingEntity:spawned.find(m=>m._valid)}); steps(5);
+world.afterEvents.itemStopUse.fire({source:p2, itemStack:new S.ItemStack('tnt:mgk_obito_skill_4')}); p2.teleport({x:500,y:200,z:500}); steps(15);
 world.afterEvents.playerLeave.fire({playerId:p2.id, playerName:p2.name}); p2._valid=false; steps(200);
 // navegar no menu do perfil: abrir -> conquistas -> voltar -> ajustes -> toggle -> voltar
 globalThis.__UISEL=[0,0,1,0,4,3, 3,0,1]; se('ns:perfil',p1); for(let i=0;i<6;i++){ await new Promise(r=>setTimeout(r,0)); steps(1); } se('ns:perfil',p1); for(let i=0;i<10;i++){ await new Promise(r=>setTimeout(r,0)); steps(1); }

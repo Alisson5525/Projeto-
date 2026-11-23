@@ -43,37 +43,40 @@ mc.world.afterEvents.itemStopUse.subscribe(event => {
   const player_position_str = player.getDynamicProperty("player_position");
 
   if (!lastPos) {
-    console.warn("Criar e Ir");
     player.addTag("in_kamui");
     world.setDynamicProperty(POS_KEY, 1);
     player.setDynamicProperty("player_position", JSON.stringify(player.location));
 
-    player.runCommandAsync(`execute in the_end run tp "${player.name}" ${THE_END_POS.x} ${THE_END_POS.y + 1} ${THE_END_POS.z}`);
+    player.runCommandAsync(`execute in the_end run tp @s ${THE_END_POS.x} ${THE_END_POS.y + 1} ${THE_END_POS.z}`);
     mc.system.runTimeout(() => spawnStructureOnce(world), 60);
     
     mc.system.runTimeout(() => {
+      // segura o jogador no ar ate a estrutura carregar (no maximo 15s; antes podia rodar para sempre)
+      let ticks = 0;
       const checkInterval = mc.system.runInterval(() => {
-        if (isOnSolidGround(player)) {
-          console.warn("Foi — bloco detectado abaixo!");
-          mc.system.clearRun(checkInterval);
-        } else {
+        ticks++;
+        try {
+          if (!player.isValid() || ticks > 300 || isOnSolidGround(player)) {
+            mc.system.clearRun(checkInterval);
+            return;
+          }
           player.runCommandAsync("tp @s ~~~");
+        } catch {
+          mc.system.clearRun(checkInterval);
         }
       });
     }, 10);
 
   } else if (player.hasTag("in_kamui")) {
-    console.warn("Voltar");
     player.removeTag("in_kamui");
 
     if (player_position_str) {
       const pos = JSON.parse(player_position_str);
-      player.runCommandAsync(`execute in overworld run tp "${player.name}" ${pos.x} ${pos.y} ${pos.z}`);
+      player.runCommandAsync(`execute in overworld run tp @s ${pos.x} ${pos.y} ${pos.z}`);
     }
   } else {
-    console.warn("So Ir");
     player.addTag("in_kamui");
-    player.runCommandAsync(`execute in the_end run tp "${player.name}" ${THE_END_POS.x} ${THE_END_POS.y + 1} ${THE_END_POS.z}`);
+    player.runCommandAsync(`execute in the_end run tp @s ${THE_END_POS.x} ${THE_END_POS.y + 1} ${THE_END_POS.z}`);
     player.setDynamicProperty("player_position", JSON.stringify(player.location));
   }
 });
