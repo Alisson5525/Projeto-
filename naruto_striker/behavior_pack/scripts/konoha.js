@@ -10,7 +10,7 @@ let carregando = false;
 
 // blocos que nao contam como "chao" (copas de arvore, plantas, agua)
 function ehChaoValido(typeId) {
-    return !/(air|leaves|log|wood|tallgrass|tall_grass|short_grass|fern|flower|snow_layer|vine|water|lava|mushroom|bush|kelp|seagrass)/.test(typeId);
+    return !/(air|leaves|log|wood|tallgrass|tall_grass|short_grass|fern|flower|snow_layer|vine|mushroom|bush)/.test(typeId);
 }
 
 world.afterEvents.playerSpawn.subscribe((ev) => {
