@@ -135,7 +135,7 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   pr.applyDamage(99999,{cause:'entityAttack',damagingEntity:p1}); steps(5);
   const ok = p1.getDynamicProperty('ns:xp')===xpA && p1.getDynamicProperty('ns:nivel')===nvA; console.log('teste jutsu sem xp:', ok); if(!ok) S.errors.push({where:'jutsu xp',msg:'jutsu deu XP',stack:''}); }
 // teste konoha: viagem, recarga e nova viagem apos 5 min
-{ p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const longe=Math.abs(p1.location.x)<100;
+{ p1.setDynamicProperty('ns:viagem_pronta', 0); p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const longe=Math.abs(p1.location.x)<100;
   p1.teleport({x:3000,y:80,z:3000}); se('ns:konoha',p1); steps(5); const bloqueou=p1.location.x===3000;
   steps(20*60*5); se('ns:konoha',p1); steps(5); const denovo=Math.abs(p1.location.x)<100;
   console.log('teste konoha: foi',longe,'| recarga bloqueou',bloqueou,'| apos 5min',denovo); if(!(longe&&bloqueou&&denovo)) S.errors.push({where:'konoha',msg:'viagem incorreta',stack:''}); }
