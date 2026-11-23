@@ -48,7 +48,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Kawarimi no Jutsu**: ninjas do mundo (Folha, Areia, Uchiha, Espadachins, ANBU) podem se substituir e reaparecer **atrás do jogador** (12% de chance, recarga de 10 s, só em local seguro).
 - **Falas de combate**: cada facção (Folha, Areia, Uchiha, Espadachins, ANBU, Bandidos, Zetsu) tem gritos de batalha ao começar a luta e últimas palavras ao ser derrotada, flutuando acima da cabeça.
 - **NPCs da vila falam** quando você se aproxima (Teuchi, Iruka, Tsunade, Guy, Jiraiya, Orochimaru), com recarga de 30 s por NPC.
-- **Ninjas de elite**: 8% dos ninjas do mundo nascem como `[ELITE]` (nome dourado, aura dourada, +20 de vida, força e resistência) e valem **3× XP**.
+- **Ninjas de elite**: 8% dos ninjas do mundo nascem como `[ELITE]` (nome dourado, aura dourada, +20 de vida, força e resistência) e valem **3× XP**; ao cair, explodem num anel dourado de chakra (com som de totem e leve tremor de câmera).
 - **Fúria dos chefes**: inimigos com 500+ de vida ficam **ENFURECIDOS** abaixo de 50%: rugido, onda de choque, aura vermelha pulsante, força/velocidade/resistência temporárias.
 - Barras de vida dos inimigos agora são **barras coloridas** (verde → amarelo → vermelho) e atualizam na hora do dano.
 

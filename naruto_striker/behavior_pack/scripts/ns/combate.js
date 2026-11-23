@@ -387,6 +387,18 @@ world.afterEvents.entityDie.subscribe((ev) => {
     let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo * (elite ? 3 : 1) * (luaVermelhaAtiva() ? 2 : 1);
     xp = Math.min(1500, Math.round(xp));
 
+    // queda de um ninja de elite: explosao dourada de chakra
+    if (elite) {
+      particula(dim, "tnt:ns_level_up_anel", loc);
+      particula(dim, "tnt:ns_critico", { x: loc.x, y: loc.y + 1, z: loc.z });
+      for (let i = 0; i < 10; i++) {
+        const a = (i / 10) * Math.PI * 2;
+        particula(dim, "tnt:ns_aura", { x: loc.x + Math.cos(a) * 1.4, y: loc.y + 0.4, z: loc.z + Math.sin(a) * 1.4 }, [1.0, 0.78, 0.2]);
+      }
+      somArea(dim, "random.totem", loc, 0.5, 1.4);
+      tremer(killer, 0.15, 0.25);
+    }
+
     somarStat(killer, "ns:kills", 1);
     if (luaVermelhaAtiva()) somarStat(killer, "ns:kills_lua", 1);
     if (vidaMax >= 400 && morto.typeId.startsWith("tnt:")) primeiraVitoria(killer, morto, vidaMax);
