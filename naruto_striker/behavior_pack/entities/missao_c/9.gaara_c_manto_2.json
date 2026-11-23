@@ -13,7 +13,10 @@
       },
       "animations": {
         "skill_neji_c": "controller.animation.skill_neji_c",
-        "skill_1": "animation.skill_esquiva_mob"
+        "skill_1": "animation.skill_esquiva_mob",
+        "skill_2": "animation.ns_gaara_lancas_areia",
+        "skill_3": "animation.ns_gaara_caixao_areia",
+        "skill_4": "animation.ns_gaara_onda_areia"
       },
       "properties": {
         "skills:ninjas": {

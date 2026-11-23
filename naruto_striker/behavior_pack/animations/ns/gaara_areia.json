@@ -1,0 +1,59 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.ns_gaara_lancas_areia": {
+      "animation_length": 6.0,
+      "timeline": {
+        "0.0": [
+          "/playsound dig.sand @a[r=20] ~ ~ ~ 1 0.6",
+          "/particle tnt:shukaku_skill_espinho_2 ~ ~ ~"
+        ],
+        "0.5": [
+          "/execute at @p[r=16] run particle tnt:shukaku_skill_espinho_2 ~ ~ ~",
+          "/execute at @p[r=16] run playsound dig.sand @a[r=20] ~ ~ ~ 1 0.8"
+        ],
+        "1.0": [
+          "/execute at @p[r=16] run summon tnt:shukaku_skill_espinhos ~ ~ ~",
+          "/camerashake add @a[r=16] 0.3 0.4 positional"
+        ]
+      }
+    },
+    "animation.ns_gaara_caixao_areia": {
+      "animation_length": 9.0,
+      "timeline": {
+        "0.0": [
+          "/playsound dig.sand @a[r=20] ~ ~ ~ 1 0.5",
+          "/tellraw @a[r=24] {\"rawtext\":[{\"text\":\"§6[Gaara] §eCaixão de Areia!\"}]}"
+        ],
+        "0.3": [
+          "/execute at @p[r=14] run particle tnt:shukaku_skill_espinho_2 ~ ~ ~",
+          "/effect @p[r=14] slowness 3 3 true"
+        ],
+        "1.0": [
+          "/execute at @p[r=14] run particle tnt:shukaku_skill_espinho ~ ~ ~"
+        ],
+        "1.8": [
+          "/execute at @p[r=14] run particle tnt:shukaku_skill_espinho_2 ~ ~1 ~",
+          "/damage @p[r=14] 7",
+          "/camerashake add @a[r=14] 0.4 0.5 positional",
+          "/playsound dig.gravel @a[r=20] ~ ~ ~ 1 0.6"
+        ]
+      }
+    },
+    "animation.ns_gaara_onda_areia": {
+      "animation_length": 7.0,
+      "timeline": {
+        "0.0": [
+          "/particle tnt:shukaku_skill_espinho ~ ~ ~",
+          "/playsound dig.sand @a[r=20] ~ ~ ~ 1 0.4"
+        ],
+        "0.4": [
+          "/particle tnt:shukaku_skill_espinho_2 ~ ~ ~",
+          "/effect @a[r=6] slowness 2 2 true",
+          "/damage @a[r=6] 5",
+          "/camerashake add @a[r=12] 0.5 0.5 positional"
+        ]
+      }
+    }
+  }
+}
