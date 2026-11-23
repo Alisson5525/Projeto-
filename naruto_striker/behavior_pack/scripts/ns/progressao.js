@@ -135,7 +135,11 @@ export function darXP(player, quantidade, motivo) {
         msg(p, `§6§l[PROMOÇÃO]§r §f${player.name} §7agora é ${rank.cor}§l${rank.nome}§r§7!`);
       }
       somarScore(player, "tp", 300);
-      msg(player, `§6Bônus de promoção: §e+300 TP`);
+      try {
+        player.runCommandAsync("give @s tnt:ns_bomba_fumaca 4");
+        player.runCommandAsync("give @s tnt:ns_pilula_soldado 2");
+      } catch {}
+      msg(player, `§6Bônus de promoção: §e+300 TP§6, §74 Bombas de Fumaça §6e §62 Pílulas de Soldado`);
       particula(player.dimension, "tnt:ns_folhas", loc);
       tremer(player, 0.5, 0.8);
     }
