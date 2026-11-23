@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:menu_status_evoluir",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "hud_modo_up"
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": false,
+      "minecraft:foil": false,
+      "minecraft:cooldown": {
+        "category": "sharingan_skill",
+        "duration": 1.1
+      },
+      "minecraft:display_name": {
+        "value": "§cMenu Status ativar\n\n§7informaçao.\n§6menu #2"
+      }
+    }
+  }
+}

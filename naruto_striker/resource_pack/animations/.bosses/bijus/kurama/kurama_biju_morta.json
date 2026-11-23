@@ -1,0 +1,217 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kurama_biju_morta": {
+			"loop": true,
+			"animation_length": 2,
+			"override_previous_animation": true,
+			"bones": {
+				"peitoral": {
+					"position": [0, -9, 0],
+					"scale": {
+						"0.0": [1, 1, 1],
+						"1.0": [1.01, 1.01, 1.01],
+						"2.0": [1, 1, 1]
+					}
+				},
+				"cabeca": {
+					"rotation": [5.37889, -1.91134, -22.42287]
+				},
+				"braco_d": {
+					"rotation": [-78.19132, -31.94715, -6.31274]
+				},
+				"braco_d_2": {
+					"rotation": [0, 0, 42.5]
+				},
+				"braco_d2": {
+					"rotation": [-84.14531, 37.94241, -3.87643]
+				},
+				"braco_d_4": {
+					"rotation": [0.98448, -7.43547, -50.06397]
+				},
+				"braco_d_5": {
+					"rotation": [0, 0, -35]
+				},
+				"calda": {
+					"rotation": [0, 62.5, 0]
+				},
+				"bone5": {
+					"rotation": [0, 37.5, 0]
+				},
+				"bone6": {
+					"rotation": [0, 42.5, 0]
+				},
+				"bone7": {
+					"rotation": [-10, -17.5, 0]
+				},
+				"bone8": {
+					"rotation": [-17.5, -27.5, 0]
+				},
+				"bone9": {
+					"rotation": [17.5, -25, 0]
+				},
+				"calda2": {
+					"rotation": [0, -75, 0]
+				},
+				"bone2": {
+					"rotation": [-5, -15, 0]
+				},
+				"bone3": {
+					"rotation": [0, -17.5, 0]
+				},
+				"bone4": {
+					"rotation": [0, -32.5, 0]
+				},
+				"bone10": {
+					"rotation": [-15, -32.5, 0]
+				},
+				"bone11": {
+					"rotation": [0, -30, 0]
+				},
+				"calda3": {
+					"rotation": [22.5, -32.5, 0]
+				},
+				"bone12": {
+					"rotation": [-15.34721, -12.06754, 3.28396]
+				},
+				"bone13": {
+					"rotation": [-10, 0, 0]
+				},
+				"bone14": {
+					"rotation": [-10, -12.5, 0]
+				},
+				"bone15": {
+					"rotation": [-20, 0, 0]
+				},
+				"bone16": {
+					"rotation": [23.21088, -13.83447, -5.85463]
+				},
+				"calda4": {
+					"rotation": [7.5, 35, 0]
+				},
+				"bone17": {
+					"rotation": [-5, 0, 0]
+				},
+				"bone18": {
+					"rotation": [-5.07673, 9.96156, -0.88045]
+				},
+				"bone19": {
+					"rotation": [-12.5, 0, 0]
+				},
+				"bone20": {
+					"rotation": [14.03271, -26.79524, -6.42848]
+				},
+				"bone21": {
+					"rotation": [0, -37.5, 0]
+				},
+				"calda5": {
+					"rotation": [2.5, 67.5, 0]
+				},
+				"bone23": {
+					"rotation": [-10.47479, 17.22575, -3.13388]
+				},
+				"bone24": {
+					"rotation": [-5, 17.5, 0]
+				},
+				"bone25": {
+					"rotation": [0, 17.5, 0]
+				},
+				"bone26": {
+					"rotation": [0, 30, 0]
+				},
+				"calda6": {
+					"rotation": [15.91527, -19.291, -5.38152]
+				},
+				"bone27": {
+					"rotation": [12.5, 0, 0]
+				},
+				"bone28": {
+					"rotation": [-15, 0, 0]
+				},
+				"bone29": {
+					"rotation": [-20, 0, 0]
+				},
+				"bone30": {
+					"rotation": [-30, 0, 0]
+				},
+				"calda7": {
+					"rotation": [0, -12.5, 0]
+				},
+				"bone32": {
+					"rotation": [0, 5, 0]
+				},
+				"bone33": {
+					"rotation": [0, 12.5, 0]
+				},
+				"bone34": {
+					"rotation": [-12.5, 17.5, 0]
+				},
+				"bone35": {
+					"rotation": [0, 27.5, 0]
+				},
+				"bone36": {
+					"rotation": [0, -30, 0]
+				},
+				"calda8": {
+					"rotation": [-128.24658, 73.05512, -153.63162]
+				},
+				"bone37": {
+					"rotation": [5, 55, 0]
+				},
+				"bone38": {
+					"rotation": [-44.85339, 49.7548, -45.38199]
+				},
+				"bone39": {
+					"rotation": [-10, 45, 0]
+				},
+				"bone40": {
+					"rotation": [0, -12.5, 0]
+				},
+				"bone41": {
+					"rotation": [0, -15, 0]
+				},
+				"calda9": {
+					"rotation": [20, 0, 0]
+				},
+				"bone42": {
+					"rotation": [0, 12.5, 0]
+				},
+				"bone43": {
+					"rotation": [-16.2933, 23.6229, -19.31053]
+				},
+				"bone44": {
+					"rotation": [-20.16653, 42.95197, -11.82007]
+				},
+				"bone45": {
+					"rotation": [-42.5, 0, 0]
+				},
+				"bone46": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"perna_d2": {
+					"rotation": [-70.50007, 5.32473, 34.58383],
+					"position": [0, -8, 0]
+				},
+				"perna_d_4": {
+					"rotation": [97.5, 0, 0]
+				},
+				"perna_d_5": {
+					"rotation": [-111.30934, 3.37562, -42.39121]
+				},
+				"perna_d": {
+					"rotation": [-94.37876, -31.80795, 63.30451],
+					"position": [0, -9, 0]
+				},
+				"perna_d_2": {
+					"rotation": [68.49762, -21.07593, 28.0634]
+				},
+				"perna_d_3": {
+					"rotation": [-102.90714, 84.57152, -109.81376]
+				},
+				"olho": {
+					"scale": [1.1, 1, 1]
+				}
+			}
+		}
+	}
+}

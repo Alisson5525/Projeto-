@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:peixe",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:use_animation": "eat",
+"minecraft:use_modifiers": {
+    "movement_modifier": 0.5,
+    "use_duration": 2.0
+},
+"minecraft:food": {
+    "can_always_eat": false,
+    "nutrition": 18,
+    "saturation_modifier": 12
+},
+      
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": {
+        "textures": {
+          "default":"peixe"
+        }
+},
+"minecraft:cooldown": { "duration": 0,
+"category": "comida"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§eespetinho de peixe\n§7+9 Nutrition\n§7use duration: 2.0"
+	  }
+    }
+  }
+}
+

@@ -1,0 +1,32 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:tubarao_triplo_projetil",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "textures/jutsus/agua/tubarao_triplo_projetil" 
+      },
+      "geometry": {
+        "default": "geometry.tubarao_triplo_projetil"
+      },
+       "particle_effects": {
+        "tubarao_triplo_rastro_agua": "tnt:tubarao_triplo_rastro_agua"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"],
+      "animations": {
+        "tubara_triplo_projetil": "animation.tubara_triplo_projetil"
+        
+      },
+      "scripts": {
+        "animate": [
+          "tubara_triplo_projetil"
+        ]
+      }
+    }
+  }
+} 

@@ -1,0 +1,148 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.menus_troca": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "all_modos_custo_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_all_modos_evoluir' && query.is_sneaking" },
+            { "menu_uchiha_custo_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_modos_uchiha_evoluir' && query.is_sneaking" },
+            { "menu_status_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_status_evoluir' && query.is_sneaking" },
+            { "menu_jutsus_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_jutsus_evoluir' && query.is_sneaking" },
+         
+            { "all_modos_custo_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_all_modos_evoluir' && query.is_sneaking" },    
+            { "menu_hyuga_custo_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_modos_hyuga_evoluir' && query.is_sneaking" },
+            { "menu_status_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_status_evoluir' && query.is_sneaking" },
+            { "menu_jutsus_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_jutsus_evoluir' && query.is_sneaking" },
+            
+
+            { "reset_custo": "query.get_equipped_item_name == 'menu_modos_hyuga_evoluir' && query.is_sneaking" },
+            { "reset_custo": "query.get_equipped_item_name == 'menu_modos_uchiha_evoluir' && query.is_sneaking" },
+
+
+
+
+            { "all_modos_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_all_modos' && query.is_sneaking" },
+            { "menu_uchiha_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_modos_uchiha' && query.is_sneaking" },
+            { "menu_missao_uchiha": "q.scoreboard('clans') == 0 && query.get_equipped_item_name == 'menu_missao' && query.is_sneaking" },
+
+         
+            { "all_modos_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_all_modos' && query.is_sneaking" },    
+            { "menu_hyuga_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_modos_hyuga' && query.is_sneaking" },
+            { "menu_missao_hyuga": "q.scoreboard('clans') == 1 && query.get_equipped_item_name == 'menu_missao' && query.is_sneaking" }
+
+           ]
+        },
+        "reset_custo": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_all_modos_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+
+        "all_modos_custo_uchiha": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_modos_uchiha_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_uchiha_custo_uchiha": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_status_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_status_uchiha": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_jutsus_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_jutsus_uchiha": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_all_modos_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+            
+
+        "all_modos_custo_hyuga": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_modos_hyuga_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_hyuga_custo_hyuga": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_status_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_status_hyuga": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_jutsus_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_jutsus_hyuga": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_all_modos_evoluir 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+
+
+
+
+        "all_modos_uchiha": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_modos_uchiha 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_uchiha_uchiha": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_missao 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_missao_uchiha": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_all_modos 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+        "all_modos_hyuga": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_modos_hyuga 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_hyuga_hyuga": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_missao 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "menu_missao_hyuga": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:menu_all_modos 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+
+
+
+
+
+
+
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

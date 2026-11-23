@@ -1,0 +1,95 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:kurama_biju_morte",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "transformation_": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      }
+
+
+
+        },
+    "components": {
+      "minecraft:timer": {
+        "time": 120,
+        "looping": false,
+        "time_down_event": {
+          "event": "transformation"
+        }
+      },
+
+
+
+
+      "minecraft:type_family": {
+        "family": [ "biju_morta" ]
+    },
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+          "cause": "all",
+            "deals_damage": false
+          }
+        ]
+        },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:health": {
+        "value": 99999,
+		"max": 99999
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:can_climb": {
+      },
+        "minecraft:scale": {
+          "value": 3.5
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 0,
+          "track_target": false
+        },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10.5
+      },
+      
+       "minecraft:annotation.break_door": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+"transformation": { "add": { "component_groups": [ "transformation_" ] }}
+    }
+  }
+}

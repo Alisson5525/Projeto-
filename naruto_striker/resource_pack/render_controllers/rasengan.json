@@ -1,0 +1,45 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.rasengan_1": {
+      "geometry": "Geometry.rasengan_1",
+      "materials": [ { "rasengan_1": "Material.default" },{ "rasengan_2": "Material.outline" },{ "rasengan_3": "Material.outline" } ],
+      "textures": [ "Texture.rasengan" ], 
+       "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+
+        
+        "a": 0
+      },
+
+
+
+      "light_color_multiplier": 1.75,
+      "ignore_lighting" : true 
+
+    },
+
+
+        "controller.render.rasen_shuriken": {
+      "geometry": "Geometry.rasen_shuriken",
+      "materials": [ { "shuriken": "Material.breeze_wind" },{ "rasengan_1": "Material.breeze_wind" },{ "borda": "Material.outline" } ],
+      "textures": [ "Texture.rasen_shuriken" ], 
+       "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+
+        
+        "a": 0
+      },
+
+
+
+      "light_color_multiplier": 1.75,
+      "ignore_lighting" : true 
+
+    }
+  }
+}

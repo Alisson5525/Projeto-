@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+        "controller.render.marca_byakugou": {
+      "geometry": "Geometry.rosto_camada",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.marca_byakugou" ]
+    },
+        "controller.render.byakugou_ativado": {
+      "geometry": "Geometry.rosto_camada",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.byakugou_ativado" ]
+    }
+
+
+
+
+
+
+
+
+
+
+
+  }
+}

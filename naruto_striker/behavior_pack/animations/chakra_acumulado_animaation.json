@@ -1,0 +1,16 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+     "animation.chakra_acumulado_animaation": {
+      "loop": true,
+      "animation_length": 0.1,
+      "timeline": {
+        "0.0": [
+          "/execute as @s[scores={chakra=10..}] run scoreboard players add @s chakra_acumulado 1",
+          "/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5"
+        ]
+      }
+    }
+
+  }
+}

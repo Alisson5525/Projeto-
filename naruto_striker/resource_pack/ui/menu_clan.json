@@ -1,0 +1,96 @@
+{
+  "namespace": "menu_clan",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.tnt_menu_clan": {
+          "$view_content": "@menu_clan.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.menu_clan.title')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 10],
+          "offset": [0, 0],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+      
+      {
+        "buttons": {
+          "type": "panel",
+          "controls": [
+     
+ {
+              "button_0": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/menu_clan/botoes/text_uchiha",
+                "$hover_button_texture": "textures/ui/menu_clan/botoes/text_uchiha_select",
+                "$pressed_button_texture": "textures/ui/menu_clan/botoes/text_uchiha_select",
+                "offset": [-136, -73],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [25, 120],
+                      "collection_index": 0
+                    }
+                  }
+                ]
+              }
+            },
+             {
+              "button_1": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/menu_clan/botoes/text_hyuga",
+                "$hover_button_texture": "textures/ui/menu_clan/botoes/text_hyuga_select",
+                "$pressed_button_texture": "textures/ui/menu_clan/botoes/text_hyuga_select",
+                "offset": [-90, -73],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [25, 120],
+                      "collection_index": 1
+                    }
+                  }
+                ]
+              }
+            }
+
+                      
+          ]
+        }
+      }
+    ]
+  }
+}

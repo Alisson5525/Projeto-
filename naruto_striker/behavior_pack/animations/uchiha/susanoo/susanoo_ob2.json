@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.susanoo_ob2_skill_1_animtaion": {
+			"animation_length": 1.2,
+			"timeline": {
+
+"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_ob2_skill_1","/tag @s add susanoo_ob1_corte"],
+"0.4": [
+"/playsound random.explode @a[r=20] ~ ~ ~ 1 1",
+"/summon tnt:susanoo_ob1_corte ^^^ ~0 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~50 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~-50 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~100 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~-100 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~150 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~-150 ~10000",
+"/summon tnt:susanoo_ob1_corte ^^^ ~200 ~10000"
+
+],
+"1.0": ["/tag @s remove susanoo_ob1_corte"]
+			
+			}
+		}
+	}
+}

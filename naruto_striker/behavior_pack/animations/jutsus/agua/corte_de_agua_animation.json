@@ -1,0 +1,34 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.corte_de_agua_animation": {
+"animation_length": 4.1,
+"timeline": {
+
+"0.0": [ "/playanimation @s animation.corte_de_agua"],
+"0.1": ["/scriptevent tnt:corte_de_agua"],
+"0.3": ["/scriptevent tnt:corte_de_agua"],
+"0.5": ["/scriptevent tnt:corte_de_agua"],
+"0.7": ["/scriptevent tnt:corte_de_agua"],
+"0.9": ["/scriptevent tnt:corte_de_agua"],
+"1.1": ["/scriptevent tnt:corte_de_agua"],
+"1.3": ["/scriptevent tnt:corte_de_agua"],
+"1.5": ["/scriptevent tnt:corte_de_agua"],
+"1.7": ["/scriptevent tnt:corte_de_agua"],
+"1.9": ["/scriptevent tnt:corte_de_agua"],
+"2.1": ["/scriptevent tnt:corte_de_agua"],
+"2.3": ["/scriptevent tnt:corte_de_agua"],
+"2.5": ["/scriptevent tnt:corte_de_agua"],
+"2.7": ["/scriptevent tnt:corte_de_agua"],
+"2.9": ["/scriptevent tnt:corte_de_agua"],
+"3.1": ["/scriptevent tnt:corte_de_agua"],
+"3.3": ["/scriptevent tnt:corte_de_agua"],
+"3.5": ["/scriptevent tnt:corte_de_agua"],
+"3.7": ["/scriptevent tnt:corte_de_agua"],
+"3.9": ["/scriptevent tnt:corte_de_agua"]
+ 
+			
+}
+} 
+}
+}

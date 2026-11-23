@@ -1,0 +1,196 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.rasen_shuriken_projetil",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"rasen_shuriken": [0, 0, 0]
+					}
+				},
+				{
+					"name": "rasengan_1",
+					"parent": "body",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-3, -2.75, -3],
+							"size": [6, 6, 6],
+							"uv": {
+								"north": {"uv": [4, 4], "uv_size": [4, 4]},
+								"east": {"uv": [0, 4], "uv_size": [4, 4]},
+								"south": {"uv": [12, 4], "uv_size": [4, 4]},
+								"west": {"uv": [8, 4], "uv_size": [4, 4]},
+								"up": {"uv": [4, 0], "uv_size": [4, 4]},
+								"down": {"uv": [8, 4], "uv_size": [4, -4]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_2",
+					"parent": "rasengan_1",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-4, -2, -4],
+							"size": [8, 4.5, 8],
+							"uv": {
+								"north": {"uv": [14, 8], "uv_size": [6, 2.5]},
+								"east": {"uv": [14, 11], "uv_size": [6, 2.5]},
+								"south": {"uv": [14, 14], "uv_size": [6, 2.5]},
+								"west": {"uv": [15, 0], "uv_size": [6, 2.5]},
+								"up": {"uv": [8, 8], "uv_size": [6, 6]},
+								"down": {"uv": [8, 20], "uv_size": [6, -6]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_6",
+					"parent": "rasengan_1",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-4, -2, -4],
+							"size": [8, 4.5, 8],
+							"uv": {
+								"north": {"uv": [16, 3], "uv_size": [6, 2.5]},
+								"east": {"uv": [6, 20], "uv_size": [6, 2.5]},
+								"south": {"uv": [20, 6], "uv_size": [6, 2.5]},
+								"west": {"uv": [20, 9], "uv_size": [6, 2.5]},
+								"up": {"uv": [0, 16], "uv_size": [6, 6]},
+								"down": {"uv": [14, 23], "uv_size": [6, -6]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_7",
+					"parent": "rasengan_1",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-4, -2, -4],
+							"size": [8, 4.5, 8],
+							"uv": {
+								"north": {"uv": [21, 0], "uv_size": [6, 2.5]},
+								"east": {"uv": [0, 22], "uv_size": [6, 2.5]},
+								"south": {"uv": [22, 3], "uv_size": [6, 2.5]},
+								"west": {"uv": [6, 23], "uv_size": [6, 2.5]},
+								"up": {"uv": [20, 12], "uv_size": [6, 6]},
+								"down": {"uv": [20, 24], "uv_size": [6, -6]}
+							}
+						}
+					]
+				},
+				{
+					"name": "borda",
+					"parent": "rasengan_1",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-3, -2.75, -3],
+							"size": [6, 6, 6],
+							"inflate": 0.1,
+							"uv": {
+								"north": {"uv": [52, 4], "uv_size": [4, 4]},
+								"east": {"uv": [48, 4], "uv_size": [4, 4]},
+								"south": {"uv": [60, 4], "uv_size": [4, 4]},
+								"west": {"uv": [56, 4], "uv_size": [4, 4]},
+								"up": {"uv": [52, 0], "uv_size": [4, 4]},
+								"down": {"uv": [56, 4], "uv_size": [4, -4]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_3",
+					"parent": "body",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-2.25, -2, -2.25],
+							"size": [4.5, 4.5, 4.5],
+							"uv": {
+								"north": {"uv": [0, 8], "uv_size": [8, 8]},
+								"east": {"uv": [0, 8], "uv_size": [8, 8]},
+								"south": {"uv": [0, 8], "uv_size": [8, 8]},
+								"west": {"uv": [0, 8], "uv_size": [8, 8]},
+								"up": {"uv": [8, 16], "uv_size": [-8, -8]},
+								"down": {"uv": [8, 16], "uv_size": [-8, -8]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_5",
+					"parent": "rasengan_3",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-0.05, -2.25, -2.75],
+							"size": [0.1, 5, 5.5],
+							"uv": {
+								"north": {"uv": [0, 8], "uv_size": [8, 8]},
+								"east": {"uv": [0, 8], "uv_size": [8, 8]},
+								"south": {"uv": [0, 8], "uv_size": [8, 8]},
+								"west": {"uv": [0, 8], "uv_size": [8, 8]},
+								"up": {"uv": [8, 16], "uv_size": [-8, -8]},
+								"down": {"uv": [8, 16], "uv_size": [-8, -8]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rasengan_4",
+					"parent": "rasengan_3",
+					"pivot": [0, 0.25, 0],
+					"cubes": [
+						{
+							"origin": [-0.05, -2.5, -2.5],
+							"size": [0.1, 5.5, 5],
+							"uv": {
+								"north": {"uv": [0, 8], "uv_size": [8, 8]},
+								"east": {"uv": [0, 8], "uv_size": [8, 8]},
+								"south": {"uv": [0, 8], "uv_size": [8, 8]},
+								"west": {"uv": [0, 8], "uv_size": [8, 8]},
+								"up": {"uv": [8, 16], "uv_size": [-8, -8]},
+								"down": {"uv": [8, 16], "uv_size": [-8, -8]}
+							}
+						}
+					]
+				},
+				{
+					"name": "shuriken",
+					"parent": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-17, 0, -17],
+							"size": [34, 0, 34],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [20, 0]},
+								"east": {"uv": [0, 0], "uv_size": [20, 0]},
+								"south": {"uv": [0, 0], "uv_size": [20, 0]},
+								"west": {"uv": [0, 0], "uv_size": [20, 0]},
+								"up": {"uv": [12, 24], "uv_size": [20, 20]},
+								"down": {"uv": [12, 44], "uv_size": [20, -20]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

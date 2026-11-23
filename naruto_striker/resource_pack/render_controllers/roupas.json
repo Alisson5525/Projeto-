@@ -1,0 +1,459 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+            "controller.render.roupa_obito_g": {
+      "geometry": "Geometry.roupa_obito_g",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_obito_g" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+            "controller.render.roupa_obito_g_tenseigan": {
+      "geometry": "Geometry.roupa_obito_g",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_obito_g_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+            "controller.render.roupa_obito_g_mk_kurama": {
+      "geometry": "Geometry.roupa_obito_g",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_obito_g_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.roupa_zabuza": {
+      "geometry": "Geometry.roupa_zabuza",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_zabuza" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_zabuza_tenseigan": {
+      "geometry": "Geometry.roupa_zabuza",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_zabuza_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_zabuza_mk_kurama": {
+      "geometry": "Geometry.roupa_zabuza",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_zabuza_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.roupa_anbu": {
+      "geometry": "Geometry.roupa_anbu",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_anbu" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_anbu_tenseigan": {
+      "geometry": "Geometry.roupa_anbu",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_anbu_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_anbu_mk_kurama": {
+      "geometry": "Geometry.roupa_anbu",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_anbu_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.roupa_gaara_c": {
+      "geometry": "Geometry.roupa_gaara_c",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_gaara_c" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_gaara_c_tenseigan": {
+      "geometry": "Geometry.roupa_gaara_c",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_gaara_c_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_gaara_c_mk_kurama": {
+      "geometry": "Geometry.roupa_gaara_c",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_gaara_c_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        "controller.render.manto_rkg_minato": {
+      "geometry": "Geometry.manto_rkg_minato",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_rkg_minato" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.manto_rkg_minato_tenseigan": {
+      "geometry": "Geometry.manto_rkg_minato",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_rkg_minato_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+         "controller.render.manto_rkg_minato_mk_kurama": {
+      "geometry": "Geometry.manto_rkg_minato",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_rkg_minato_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.roupa_shisui": {
+      "geometry": "Geometry.roupa_shisui",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_shisui" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_shisui_tenseigan": {
+      "geometry": "Geometry.roupa_shisui",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_shisui_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_shisui_mk_kurama": {
+      "geometry": "Geometry.roupa_shisui",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_shisui_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+        "controller.render.armadura_madara": {
+      "geometry": "Geometry.armadura_madara",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.armadura_madara" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.armadura_madara_tenseigan": {
+      "geometry": "Geometry.armadura_madara",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.armadura_madara_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.armadura_madara_mk_kurama": {
+      "geometry": "Geometry.armadura_madara",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.armadura_madara_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.roupa_naruto": {
+      "geometry": "Geometry.roupa_naruto",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_naruto" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_naruto_tenseigan": {
+      "geometry": "Geometry.roupa_naruto",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_naruto_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_naruto_mk_kurama": {
+      "geometry": "Geometry.roupa_naruto",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_naruto_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        "controller.render.manto_akatsuki": {
+      "geometry": "Geometry.manto_akatsuki",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_akatsuki" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.manto_akatsuki_tenseigan": {
+      "geometry": "Geometry.manto_akatsuki",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_akatsuki_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.manto_akatsuki_mk_kurama": {
+      "geometry": "Geometry.manto_akatsuki",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_akatsuki_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.jaqueta_jonin": {
+      "geometry": "Geometry.jaqueta_jonin",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.jaqueta_jonin" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.jaqueta_jonin_tenseigan": {
+      "geometry": "Geometry.jaqueta_jonin",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.jaqueta_jonin_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.jaqueta_jonin_mk_kurama": {
+      "geometry": "Geometry.jaqueta_jonin",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.jaqueta_jonin_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        "controller.render.roupa_sasuke": {
+      "geometry": "Geometry.roupa_sasuke",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_sasuke" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_sasuke_tenseigan": {
+      "geometry": "Geometry.roupa_sasuke",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_sasuke_tenseigan" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.roupa_sasuke_mk_kurama": {
+      "geometry": "Geometry.roupa_sasuke",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.roupa_sasuke_mk_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "roupa_cd_b_d": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    }
+
+
+
+
+
+
+
+
+
+  }
+}

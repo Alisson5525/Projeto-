@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+        "controller.render.mascara_obito_s": {
+      "geometry": "Geometry.mascara_obito_s",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mascara_obito_s" ]
+    },
+        "controller.render.mascara_obito_g": {
+      "geometry": "Geometry.mascara_obito_g",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mascara_obito_g" ]
+    },
+        "controller.render.mascara_anbu": {
+      "geometry": "Geometry.mascara_anbu",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mascara_anbu" ]
+    },
+        "controller.render.mascara_haku": {
+      "geometry": "Geometry.mascara_haku",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mascara_haku" ]
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}

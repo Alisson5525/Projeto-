@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.trajes": {
+      "geometry": "Geometry.default",
+
+      "materials": [
+        { "*": "Material.default" }
+      ],
+
+      "textures": [
+        "query.property('tnt:kurama') == 4 ? Texture.kurama : query.property('tnt:hyuga') == 4 ? Texture.tenseigan : Texture.normal"
+      ]
+    }
+
+  }
+}

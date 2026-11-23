@@ -1,0 +1,273 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.jutsus": {
+      "states": {
+        "default": {
+          "transitions": [
+
+{"rasengan": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='rasengan' && query.is_on_ground && query.is_using_item"
+},
+{"rasengan_salto": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='rasengan' && !query.is_on_ground && query.is_using_item"
+},
+{"rasengan_marcado": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='rasengan' && query.is_jumping"
+},
+{"rasen_shuriken": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name=='rasen_shuriken' && query.is_using_item"
+},
+{"esfera_vacuo": "q.scoreboard('chakra') >= 50 && query.get_equipped_item_name=='esfera_vacuo_' && query.is_using_item"
+},
+
+
+
+
+
+
+{"tubarao_triplo": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='tubarao_triplo' && query.is_using_item"
+},
+{"corte_de_agua": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='corte_de_agua' && query.is_using_item"
+},
+{"saudacao_agua": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='saudacao_agua_' && query.is_using_item"
+},
+{"grande_onda_choque": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='grande_onda_choque_' && query.is_using_item"
+},
+{"prisao_agua_animation": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name=='prisao_agua_' && query.is_using_item"
+},
+
+
+
+{"bola_fogo": "q.scoreboard('chakra') >= 90 && query.get_equipped_item_name=='bola_fogo' && query.is_using_item"
+},
+{"bola_fogo_projetil": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='bola_fogo_projetil_' && query.is_using_item"
+},
+{"grande_aniquilacao_fogo": "q.scoreboard('chakra') >= 200 && query.get_equipped_item_name=='grande_aniquilacao_fogo' && query.is_using_item"
+},
+
+
+
+{"esconderijo_toupeira": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='esconderijo_toupeira' && query.is_using_item"
+},
+{"terra_sanduiche": "q.scoreboard('chakra') >= 200 && query.get_equipped_item_name=='terra_sanduiche_' && query.is_using_item"
+},
+{"prisao_terra": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name=='prisao_terra_' && query.is_using_item"
+},
+{"projetil_terra": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='disparos_terra' && query.is_using_item"
+}
+
+
+
+
+
+            
+           ]
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"prisao_terra": {
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}
+    ],
+    "on_entry": [
+      "/scoreboard players remove @s chakra 125",
+      "/execute at @e[type=!tnt:prisao_terra,type=!item,rm=1,r=30,c=1] run summon tnt:prisao_terra  ^^^ ~ ~10000"
+    ]
+  },
+
+"terra_sanduiche": {
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}
+    ],
+    "on_entry": [
+      "/scoreboard players remove @s chakra 200",
+      "/execute at @e[type=!tnt:terra_sanduiche,type=!item,rm=1,r=20,c=3] run summon tnt:terra_sanduiche  ^^^ ~ ~10000"
+    ]
+  },
+"esconderijo_toupeira": {
+"on_entry": ["/scoreboard players remove @s chakra 60"],
+"animations": ["esconderijo_toupeira_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"projetil_terra": {
+"on_entry": ["/scoreboard players remove @s chakra 60"],
+"animations": ["projetil_terra_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+
+
+
+
+
+
+
+
+"tubarao_triplo": {
+"on_entry": ["/scoreboard players remove @s chakra 70"],
+"animations": ["tubarao_triplo_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"corte_de_agua": {
+"on_entry": ["/scoreboard players remove @s chakra 70"],
+"animations": ["corte_de_agua_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"saudacao_agua": {
+"on_entry": ["/scoreboard players remove @s chakra 70"],
+"animations": ["saudacao_agua_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"grande_onda_choque": {
+"on_entry": ["/scoreboard players remove @s chakra 60"],
+"animations": ["grande_onda_choque_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"prisao_agua_animation": {
+"on_entry": ["/scoreboard players remove @s chakra 125"],
+"animations": ["prisao_agua_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+
+
+
+
+
+"bola_fogo_projetil": {
+"on_entry": ["/scoreboard players remove @s chakra 50","/event entity @s jutsu:bola_fogo_projetil"],
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"bola_fogo": {
+"on_entry": ["/scoreboard players remove @s chakra 90"],
+"animations": ["bola_fogo_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"grande_aniquilacao_fogo": {
+"on_entry": ["/scoreboard players remove @s chakra 200"],
+"animations": ["grande_aniquilacao_fogo_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+
+"esfera_vacuo": {
+"on_entry": ["/scoreboard players remove @s chakra 50"],
+           "animations": ["esfera_vacuo_animation"],
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"rasen_shuriken": {
+"on_entry": ["/scoreboard players remove @s chakra 125"],
+           "animations": ["rasen_shuriken"],
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+
+"rasengan": {
+"on_entry": ["/scoreboard players remove @s chakra 60"],
+           "animations": ["correr_rasengan"],
+          "transitions": [{ "default": "query.get_equipped_item_name!='rasengan' || !query.is_using_item && !query.all_animations_finished || !query.is_alive" }, { "rasengan_atk": "!query.is_using_item" }]},
+          
+"rasengan_atk": {
+           "animations": ["rasengan_atk"],
+           "transitions": [{ "default": "query.all_animations_finished && !query.is_using_item || !query.is_alive" }]},
+    
+           
+"rasengan_salto": {
+"on_entry": ["/scoreboard players remove @s chakra 70"],
+           "animations": ["rasengan_atk_ceu"],
+            "transitions": [{"rasengan_salto_2": "query.is_on_ground"}]},
+ 
+
+"rasengan_salto_2": {
+            "transitions": [{"default": "query.is_on_ground"}
+    ],
+    "on_entry": [
+      "/damage @e[rm=0.2,r=5,type=!item,family=!jutsu] 25",
+      "/particle tnt:rasengan_atk_chao",
+      "/particle tnt:impact_chao",
+			"/playsound random.explode @a[r=10] ~ ~ ~ 1 1",
+      "/playanimation @s animation.rasengan_atk_chao"
+
+    ]
+  },
+
+"rasengan_marcado": {
+      "transitions": [{"default": "(1.0) && !query.is_jumping"}],
+      "on_entry": [
+      "/playsound step.amethyst_cluster @s","/particle tnt:marcado ^^^4" 
+]}
+
+
+
+      }
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.animation.meteorio": {
+      "states": {
+        "default": {
+          "transitions": [
+
+{"meteorio": "query.is_on_ground"
+}
+            
+           ]
+        },
+"meteorio": {
+      "transitions": [{"default": "!query.is_on_ground"}],
+      "on_entry": [
+      "/camerashake add @a[r=50] 3 0.5",
+      "/damage @e[rm=1,r=40,type=!item,type=player,family=!jutsu] 5000",
+      "/damage @e[rm=1,r=40,type=!item,type=!player,family=!jutsu] 1000",
+      "/event entity @s meteorio_chao" 
+]}
+
+
+
+      }
+    },
+        "controller.animation.meteorio_destruido": {
+      "states": {
+        "default": {
+          "transitions": [ { "health": "q.health < 25" } ],
+          "on_entry": [ "" ]
+        },
+        "health": {
+          "transitions": [ { "default": "q.health > 25" } ],
+          "on_entry": [ "/event entity @s tnt:despawn" ]
+        }
+      }
+    }
+  }
+}

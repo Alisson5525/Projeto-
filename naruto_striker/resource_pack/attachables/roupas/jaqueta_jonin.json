@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "tnt:jaqueta_jonin",
+
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "armor_enchanted"
+      },
+
+      "textures": {
+        "normal": "textures/roupas/jaqueta_jonin",
+        "kurama": "textures/roupas/mk1/jaqueta_jonin_mk_kurama",
+        "tenseigan": "textures/roupas/tenseigan/jaqueta_jonin_tenseigan",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+
+      "geometry": {
+        "default": "geometry.jaqueta_jonin"
+      },
+
+      "render_controllers": [
+        "controller.render.trajes"
+      ]
+    }
+  }
+}

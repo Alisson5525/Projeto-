@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.susanoo_sk1_combo": {
+      "states": {
+        "default": {
+          "transitions": [ { "walk": "variable.attack_time" } ],
+          "on_entry": [ 
+            "/tag @s remove attack"
+            
+          ]
+        },
+        "walk": {
+          "transitions": [ { "default": "v.time = (v.time ?? 0);v.time = v.time < 5 ? v.time + 1:0;return v.time == 0;" } ],
+          "on_entry": [
+            "/tag @s add attack"
+            
+          
+          
+          ]
+        }
+      }
+    }
+
+  }
+}
+  

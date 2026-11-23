@@ -1,0 +1,104 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:tsunade_hokage",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+        },
+    "components": {
+                    "minecraft:interact": {
+        "interactions": [
+        {
+          "on_interact": {
+                       "filters": {
+              "test": "has_target",
+              "subject": "self",
+              "value": false
+            },
+
+            "event": "tnt:interact",
+            "target": "self"
+          },     
+           
+          "hurt_item": 1,
+          "swing": true,
+          "play_sounds": "ignite",
+          "interact_text": "Conversar"
+        }
+      ]
+      },
+      "minecraft:type_family": {
+        "family": [ "npcs" ]
+    },
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+          "cause": "all",
+            "deals_damage": false
+          }
+        ]
+        },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.0
+      },
+      "minecraft:health": {
+        "value": 99999,
+		"max": 99999
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:can_climb": {
+      },
+        "minecraft:scale": {
+          "value": 1.0
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 0,
+          "track_target": false
+        },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10.5
+      },
+      
+       "minecraft:annotation.break_door": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+
+      "tnt:interact": {
+        "queue_command": {
+          "command": [
+            "scriptevent npc:tsunade_hokage"
+          ],
+          "target": "other"
+        }
+      }
+    }
+  }
+}

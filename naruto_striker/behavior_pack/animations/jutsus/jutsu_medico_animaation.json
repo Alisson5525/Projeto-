@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+     "animation.jutsu_medico_animaation": {
+      "loop": true,
+      "animation_length": 1,
+      "timeline": {
+        "0.0": [
+          "/execute as @s[scores={chakra=30..}] run effect @s instant_health 1 0 true",
+          "/execute as @s[tag=chakra_status_5,scores={chakra=10..}] run scoreboard players remove @s chakra 10",
+          "/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5",
+          "/execute as @s[scores={chakra=30..}] run particle minecraft:heart_particle ~ ~2 ~",
+          "/execute as @s[scores={chakra=30..}] run particle minecraft:crop_growth_emitter ~ ~1 ~",
+          "/execute as @s[scores={chakra=30..}] run playsound place.amethyst_cluster @a[r=15]"
+        ],
+        "0.2": ["/execute as @s[tag=chakra_status_5,scores={chakra=10..}] run scoreboard players remove @s chakra 10","/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5"],
+        "0.4": ["/execute as @s[tag=chakra_status_5,scores={chakra=10..}] run scoreboard players remove @s chakra 10","/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5"],
+        "0.6": ["/execute as @s[tag=chakra_status_5,scores={chakra=10..}] run scoreboard players remove @s chakra 10","/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5"],
+        "0.8": ["/execute as @s[tag=chakra_status_5,scores={chakra=10..}] run scoreboard players remove @s chakra 10","/execute as @s[scores={chakra=10..}] run scoreboard players remove @s chakra 5"]
+
+      }
+    }
+
+  }
+}

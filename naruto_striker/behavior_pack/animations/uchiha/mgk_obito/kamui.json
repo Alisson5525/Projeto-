@@ -1,0 +1,37 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kamui": {
+			"animation_length": 10.1,
+			"timeline": {
+
+"0.0": ["/playanimation  @s animation.kamui"],
+"1.2": ["/gamemode spectator"],
+"9.5": ["/playanimation  @s animation.kamui"],
+"10.0": ["/gamemode s"]
+			
+			}
+		},
+    		"animation.kamui_absover": {
+			"animation_length": 5.1,
+			"timeline": {
+
+"0.0": ["/playanimation  @s animation.kamui","/tag @s add jutsu_absover"],
+"0.5": ["/kill @e[family=jutsu,r=6]"],
+"1.1": ["/tag @s remove amaterasu"],
+"2.0": ["/kill @e[family=jutsu,r=6]"],
+"5.0": ["/tag @s remove jutsu_absover"]
+			
+			}
+		},
+	"animation.kamui_intangivel": {
+			"animation_length": 5.1,
+			"timeline": {
+
+"0.0": ["/playsound previsao_sharingan @a[r=10] ^^^1","/tag @s add kamui_intangivel"],
+"5.0": ["/tag @s remove kamui_intangivel"]
+			
+			}
+		}
+	}
+}

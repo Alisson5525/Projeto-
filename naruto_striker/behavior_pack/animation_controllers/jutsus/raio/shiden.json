@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.estilo_raio_shiden": {
+      "states": {
+        "default": {
+          "transitions": [
+
+{"shiden_chao": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name=='shiden' && query.is_on_ground && query.is_using_item"
+},
+{"shiden_salto": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name=='shiden' && !query.is_on_ground && query.is_using_item"
+}
+
+
+            
+           ]
+        },
+
+
+"shiden_chao": {
+            "animations": ["shiden_chao_animations"],
+            "on_entry": ["/scoreboard players remove @s chakra 80"],
+            "transitions": [{ "default": "query.get_equipped_item_name!='shiden' || !query.is_using_item && query.all_animations_finished || !query.is_alive" }]},
+
+
+"shiden_salto": {
+"on_exit": [
+"/scoreboard players remove @s chakra 80",
+"/playsound chidori_load_atk @a[r=15] ^^^3 ",
+"/tag @s add shiden_negro",
+"/damage @e[rm=1,r=4] 20"     
+
+],"transitions": [{ "default": "!query.is_using_item" }]}
+
+
+      }
+    }
+  }
+}

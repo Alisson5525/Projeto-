@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "tnt:roupa_anbu",
+
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "armor_enchanted"
+      },
+
+      "textures": {
+        "normal": "textures/roupas/roupa_anbu",
+        "kurama": "textures/roupas/mk1/roupa_anbu_mk_kurama",
+        "tenseigan": "textures/roupas/tenseigan/roupa_anbu_tenseigan",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+
+      "geometry": {
+        "default": "geometry.roupa_anbu"
+      },
+
+      "render_controllers": [
+        "controller.render.trajes"
+      ]
+    }
+  }
+}

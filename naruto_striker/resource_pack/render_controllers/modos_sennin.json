@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.modo_sennin_sapo_i": {
+      "geometry": "Geometry.olhos_pupila_anticamada",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.modo_sennin_sapo_i" ]
+    },
+    "controller.render.modo_sennin_sapo_p": {
+      "geometry": "Geometry.olhos_pupila_anticamada",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.modo_sennin_sapo_p" ]
+    },
+
+
+    "controller.render.modo_sennin_sapo_i_mancha": {
+      "geometry": "Geometry.rosto_camada",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.modo_sennin_sapo_i_mancha" ]
+    },
+    "controller.render.modo_sennin_sapo_p_mancha": {
+      "geometry": "Geometry.rosto_camada",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.modo_sennin_sapo_p_mancha" ]
+    },
+
+
+
+
+        "controller.render.sapos_eremitas": {
+      "geometry": "Geometry.sapos_eremitas",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.sapos_eremitas" ]
+    }
+
+
+
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.troca_skill_hyuga": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "punho_suave": "query.get_equipped_item_name == 'byakugan_skill_1' && query.is_sneaking" },
+            { "oito_trigrama": "query.get_equipped_item_name == 'byakugan_skill_2' && query.is_sneaking" },
+            { "rotacao_celestial": "query.get_equipped_item_name == 'byakugan_skill_3' && query.is_sneaking" },
+
+
+            { "byakugan_evoluido_skill_1": "query.get_equipped_item_name == 'byakugan_skill_evoluido_1' && query.is_sneaking" },
+            { "byakugan_evoluido_skill_2": "query.get_equipped_item_name == 'byakugan_skill_evoluido_2' && query.is_sneaking" },
+            { "byakugan_evoluido_skill_3": "query.get_equipped_item_name == 'byakugan_skill_evoluido_3' && query.is_sneaking" },
+            { "byakugan_evoluido_skill_4": "query.get_equipped_item_name == 'byakugan_skill_evoluido_4' && query.is_sneaking" },
+            { "byakugan_evoluido_skill_5": "query.get_equipped_item_name == 'byakugan_skill_evoluido_5' && query.is_sneaking" },
+
+
+
+            { "tenseigan_olho_skill_1": "query.get_equipped_item_name == 'tenseigan_olho_skill_1' && query.is_sneaking" },
+            { "tenseigan_olho_skill_2": "query.get_equipped_item_name == 'tenseigan_olho_skill_2' && query.is_sneaking" },
+            { "tenseigan_olho_skill_3": "query.get_equipped_item_name == 'tenseigan_olho_skill_3' && query.is_sneaking" },
+            { "tenseigan_olho_skill_4": "query.get_equipped_item_name == 'tenseigan_olho_skill_4' && query.is_sneaking" },
+
+
+
+
+            { "tenseigan_skill_1": "query.get_equipped_item_name == 'tenseigan_skill_1' && query.is_sneaking" },
+            { "tenseigan_skill_2": "query.get_equipped_item_name == 'tenseigan_skill_2' && query.is_sneaking" },
+            { "tenseigan_skill_3": "query.get_equipped_item_name == 'tenseigan_skill_3' && query.is_sneaking" },
+            { "tenseigan_skill_4": "query.get_equipped_item_name == 'tenseigan_skill_4' && query.is_sneaking" },
+            { "tenseigan_skill_5": "query.get_equipped_item_name == 'tenseigan_skill_5' && query.is_sneaking" },
+            { "tenseigan_skill_6": "query.get_equipped_item_name == 'tenseigan_skill_6' && query.is_sneaking" }
+
+           ]
+        },
+        "punho_suave": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "oito_trigrama": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "rotacao_celestial": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+        "byakugan_evoluido_skill_1": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_evoluido_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "byakugan_evoluido_skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_evoluido_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "byakugan_evoluido_skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_evoluido_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "byakugan_evoluido_skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_evoluido_5 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "byakugan_evoluido_skill_5": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:byakugan_skill_evoluido_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+
+
+        "tenseigan_olho_skill_1": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_olho_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_olho_skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_olho_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_olho_skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_olho_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_olho_skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_olho_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+
+
+
+        "tenseigan_skill_1": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_5 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_skill_5": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_6 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "tenseigan_skill_6": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:tenseigan_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+
+
+
+
+
+      }
+    },
+    "controller.animation.skill_hyuga": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"punho_suave": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'byakugan_skill_1' && q.is_using_item"},
+            {"oito_trigrama": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name == 'byakugan_skill_2' && q.is_using_item"},
+            {"rotacao_celestial": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'byakugan_skill_3' && q.is_using_item"},
+
+
+
+
+
+            {"byakugan_evoluido_skill_1": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'byakugan_skill_evoluido_1' && q.is_using_item"},
+            {"byakugan_evoluido_skill_2": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'byakugan_skill_evoluido_2' && q.is_using_item"},
+            {"byakugan_evoluido_skill_3": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'byakugan_skill_evoluido_3' && q.is_using_item"},
+            {"byakugan_evoluido_skill_4": "q.scoreboard('chakra') >= 90 && query.get_equipped_item_name == 'byakugan_skill_evoluido_4' && q.is_using_item"},
+            {"byakugan_evoluido_skill_5": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'byakugan_skill_evoluido_5' && q.is_using_item"},
+
+
+
+            { "tenseigan_olho_skill_1": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'tenseigan_olho_skill_1' && query.is_using_item" },
+            { "tenseigan_olho_skill_2": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'tenseigan_olho_skill_2' && query.is_using_item" },
+            { "tenseigan_olho_skill_3": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name == 'tenseigan_olho_skill_3' && query.is_using_item" },
+            { "tenseigan_olho_skill_4": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'tenseigan_olho_skill_4' && query.is_using_item" },
+
+
+
+
+            { "tenseigan_skill_1": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'tenseigan_skill_1' && query.is_using_item" },
+            { "tenseigan_skill_2": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'tenseigan_skill_2' && query.is_using_item" },
+            { "tenseigan_skill_3": "q.scoreboard('chakra') >= 200 && query.get_equipped_item_name == 'tenseigan_skill_3' && query.is_using_item" },
+            { "tenseigan_skill_4": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'tenseigan_skill_4' && query.is_using_item" },
+            { "tenseigan_skill_5": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'tenseigan_skill_5' && query.is_using_item" },
+            { "tenseigan_skill_6": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'tenseigan_skill_6' && query.is_using_item" }            
+         
+            
+           ]
+        },
+
+       "punho_suave": {
+       "on_entry": ["/scoreboard players remove @s chakra 40"],
+       "animations": ["byakugan_punho_suave"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "oito_trigrama": {
+       "on_entry": ["/scoreboard players remove @s chakra 60"],
+       "animations": ["byakugan_oito_trigrama"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "rotacao_celestial": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["byakugan_rotacao_celestial"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+
+
+       "byakugan_evoluido_skill_1": {
+       "on_entry": ["/playsound item.trident.riptide_1 @a[r=8] ^^^1 0.7 1","/scoreboard players remove @s chakra 40","/event entity @s jutsu:palma_ar_oito_trigrama" ],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "byakugan_evoluido_skill_2": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["byakugan_oito_trigrama_128"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "byakugan_evoluido_skill_3": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["byakugan_rotacao_celestial"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "byakugan_evoluido_skill_4": {
+       "on_entry": ["/scoreboard players remove @s chakra 90"],
+       "animations": ["byakugan_leao_gemeos"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "byakugan_evoluido_skill_5": {
+       "on_entry": ["/scoreboard players remove @s chakra 125"],
+       "animations": ["byakugan_destruidor_leoes_gemeos"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+
+
+
+
+       "tenseigan_olho_skill_1": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["rinnegan_shinra_tensei"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_olho_skill_2": {
+       "on_entry": ["/tp @e[rm=2,r=10] ~ ~ ~ ","/scoreboard players remove @s chakra 80","/particle tnt:shinra_tensei_2 ~~1~" ],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_olho_skill_3": {
+       "on_entry": ["/playsound item.trident.riptide_1 @a[r=8] ^^^1 0.7 1","/scoreboard players remove @s chakra 60","/event entity @s jutsu:palma_ar_oito_trigrama" ],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_olho_skill_4": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["byakugan_rotacao_celestial"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+
+
+
+
+       "tenseigan_skill_1": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["tenseigan_skill_1_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_skill_2": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["tenseigan_skill_2_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_skill_3": {
+       "on_entry": ["/scoreboard players remove @s chakra 200","/summon tnt:meteorio_rine ~ ~80 ~ "],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_skill_4": {
+       "on_entry": ["/scoreboard players remove @s chakra 125"],
+       "animations": ["tenseigan_skill_4_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_skill_5": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["rinnegan_shinra_tensei"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "tenseigan_skill_6": {
+       "on_entry": ["/scoreboard players remove @s chakra 80","/tp @e[rm=2,r=10] ~ ~ ~ ","/particle tnt:shinra_tensei_2 ~~1~" ],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

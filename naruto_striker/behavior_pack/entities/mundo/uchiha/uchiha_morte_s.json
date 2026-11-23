@@ -1,0 +1,175 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:uchiha_morte_s",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+
+]},
+
+
+    "animations":{
+
+
+
+
+
+
+
+
+},
+       "properties": {
+
+"skin:variacao": {"client_sync": true,"type": "int","range":[ 1, 3 ],"default":1}
+
+ }
+
+},
+
+    "component_groups": {
+            "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      }
+    },
+    "components": {
+"minecraft:interact": {
+        "interactions": [
+        {
+          "on_interact": {
+                       "filters": {
+              "test": "has_target",
+              "subject": "self",
+              "value": false
+            },
+
+            "event": "tnt:coletar",
+            "target": "self"
+          },     
+           
+          "hurt_item": 1,
+          "swing": true,
+          "play_sounds": "ignite",
+          "interact_text": ""
+        }
+      ]
+      },
+      "minecraft:timer": {
+        "time": 120,
+        "looping": false,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+    
+   "minecraft:type_family": {
+        "family": [ "npcs" ]
+    },
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+          "cause": "all",
+            "deals_damage": false
+          }
+        ]
+        },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.5
+      },
+      "minecraft:health": {
+        "value": 99999,
+		"max": 99999
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:can_climb": {
+      },
+        "minecraft:scale": {
+          "value": 1.0
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 0,
+          "track_target": false
+        },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10.5
+      },
+      
+       "minecraft:annotation.break_door": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+      }
+    },
+
+    "events": {
+
+
+
+ "tnt:variante_1": {"set_property": {"skin:variacao": 1}},
+ "tnt:variante_2": {"set_property": {"skin:variacao": 2}},
+ "tnt:variante_3": {"set_property": {"skin:variacao": 3}},
+
+
+
+"minecraft:entity_transformation": {},
+      "tnt:coletar": {
+        "queue_command": {
+          "command": [
+            "execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §eSharingan Coletado\"}]}",
+            "give @s tnt:olho_sharingan"
+          ],
+          "target": "other"
+        },
+             "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+
+
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+    }
+    }
+  }
+}

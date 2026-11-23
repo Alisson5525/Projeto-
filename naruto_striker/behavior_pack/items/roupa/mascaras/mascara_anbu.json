@@ -1,0 +1,41 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:mascara_anbu",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "diamond"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§fmascara\n§7[Arco: ]"
+      },
+      "minecraft:max_stack_size": 1,
+      
+      "minecraft:wearable": {
+        "protection": 2,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             

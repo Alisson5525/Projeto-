@@ -1,0 +1,24 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+         "controller.animation.chakra_acumulado": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "chakra_acumulado": "q.scoreboard('chakra') >= 10 && query.get_equipped_item_name=='selo_byakugou' && query.is_using_item"}
+          ]
+        },
+        
+        "chakra_acumulado": {
+          "animations": ["chakra_acumulado_animaation"],
+          "on_exit": [
+            "/execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§o§c[!] §eChakra Acumulado\"}]}"
+          ],
+          "transitions": [
+            { "default": "!query.is_using_item" }
+          ]
+        }
+      }
+    }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+     "animation.regem_20s": {
+      "loop": true,
+      "animation_length": 21,
+      "timeline": {
+         "20.0": [
+          "/execute as @s[tag=all_regeneracao_v2] run effect @s instant_health 1 0 true"
+        ]
+      }
+    }
+
+  }
+}

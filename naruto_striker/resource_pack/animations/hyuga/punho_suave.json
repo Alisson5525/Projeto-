@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.punho_suave": {
+			"animation_length": 3,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "chakra_hyuga_mao",
+						"locator": "local_mao_d"
+					},
+					{
+						"effect": "chakra_hyuga_mao",
+						"locator": "local_mao_e"
+					}
+				]
+			}
+		}
+	}
+}

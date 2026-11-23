@@ -1,0 +1,41 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:jaqueta_jonin",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "jaqueta_jonin"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§fjaqueta jonin\n§7[Arco: Classico]"
+      },
+      "minecraft:max_stack_size": 1,
+      
+      "minecraft:wearable": {
+        "protection": 2,
+        "slot": "slot.armor.chest"
+      }
+    }
+  }
+}
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             

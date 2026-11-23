@@ -1,0 +1,80 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.boss_shukaku_skill_grito": {
+      "loop": false,
+      "animation_length": 10.1,
+			"timeline": {
+				 "0.0": ["/event entity @s no_moviment"],
+				 "0.1": ["/playanimation @s animation.shukaku_grito","/summon tnt:empurrao_shukaku_biju","/tag @s add grito_biju"],
+				 "0.4": ["/camerashake add  @a[r=20] 0.5 1 positional","/summon tnt:empurrao_shukaku_biju"],
+				 "0.5": ["/effect @e[type=!tnt:shukaku_biju,r=10] slowness 5 2 true"],
+				 "0.8": ["/summon tnt:empurrao_shukaku_biju"],
+				 "1.1": ["/summon tnt:empurrao_shukaku_biju"],
+				 "1.4": ["/summon tnt:empurrao_shukaku_biju"],
+				 "1.7": ["/summon tnt:empurrao_shukaku_biju"],
+				 "2.0": ["/summon tnt:empurrao_shukaku_biju"],
+				 "2.3": ["/summon tnt:empurrao_shukaku_biju"],
+				 "2.6": ["/summon tnt:empurrao_shukaku_biju"],
+				 "2.9": ["/summon tnt:empurrao_shukaku_biju"],
+				 "3.0": ["/event entity @s yes_moviment"]
+      }
+    },
+    "animation.boss_shukaku_skill_1": {
+      "loop": false,
+      "animation_length": 8.1,
+			"timeline": {
+				 "0.0": ["/event entity @s no_moviment"],
+				 "0.1": ["/playanimation @s animation.shukaku_skill_1"],
+				 "0.4": ["/execute at @e[type=!tnt:shukaku_skill_espinhos,type=!tnt:shukaku_biju_miss,r=20,c=1] run summon tnt:shukaku_skill_espinhos  ^^^ ~ ~10000"],
+				 "0.8": ["/execute at @e[type=!tnt:shukaku_skill_espinhos,type=!tnt:shukaku_biju_miss,r=20,c=1] run summon tnt:shukaku_skill_espinhos  ^^^ ~ ~10000"],
+				 "1.2": ["/execute at @e[type=!tnt:shukaku_skill_espinhos,type=!tnt:shukaku_biju_miss,r=20,c=1] run summon tnt:shukaku_skill_espinhos  ^^^ ~ ~10000"],
+				 "1.6": ["/execute at @e[type=!tnt:shukaku_skill_espinhos,type=!tnt:shukaku_biju_miss,r=30,c=1] run summon tnt:shukaku_skill_espinhos  ^^^ ~ ~10000"],
+				 "1.9": ["/execute at @e[type=!tnt:shukaku_skill_espinhos,type=!tnt:shukaku_biju_miss,r=30,c=1] run summon tnt:shukaku_skill_espinhos  ^^^ ~ ~10000"],
+
+				 "5.2": ["/event entity @s yes_moviment"]
+
+      }
+    },
+    "animation.boss_shukaku_skill_2": {
+      "loop": false,
+      "animation_length": 10.1,
+			"timeline": {
+				 "0.0": ["/event entity @s no_moviment"],
+				 "0.1": ["/playanimation @s animation.shukaku_skill_2"],
+				 "0.38":["/summon tnt:empurrao_shukaku_biju","/playsound ambient.weather.lightning.impact @a[r=35]"],
+				 "6.0": ["/event entity @s yes_moviment"]
+
+      }	
+	},
+
+"animation.shukaku_skill_espinhos_animation": {
+"animation_length": 0.7,
+"timeline": {
+
+"0.0": ["/damage @e[r=3,type=!tnt:shukaku_skill_espinhos] 8","/particle tnt:shukaku_skill_espinho","/particle tnt:shukaku_skill_espinho_2"]
+ 
+			
+}
+},
+
+
+    "animation.boss_shukaku_skill_3": {
+      "loop": false,
+      "animation_length": 8.1,
+			"timeline": {
+				 "0.0": ["/event entity @s no_moviment"],
+				 "0.1": ["/playanimation @s animation.shukaku_skill_3"],
+				 "0.3": ["/event entity @s bijudama_projetil_mortal"],
+
+				 "5.2": ["/event entity @s yes_moviment"]
+
+      }
+    }
+
+
+
+
+
+  }
+}

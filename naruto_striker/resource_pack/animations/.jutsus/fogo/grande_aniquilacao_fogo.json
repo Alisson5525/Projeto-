@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.grande_aniquilacao_fogo": {
+			"animation_length": 5,
+			"particle_effects": {
+				"0.0": {
+					"effect": "grande_aniquilacao_fogo",
+					"locator": "boca"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bastao_gudoudama_retirar": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"gudoudama2": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

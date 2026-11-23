@@ -1,0 +1,110 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.armadura_madara",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "waist",
+					"parent": "root",
+					"pivot": [0, 12, 0]
+				},
+				{
+					"name": "leftLeg",
+					"parent": "waist",
+					"pivot": [1.9, 12, 0]
+				},
+				{
+					"name": "roupa_cd_p_e",
+					"parent": "leftLeg",
+					"pivot": [1.9, 12, 0],
+					"cubes": [
+						{"origin": [0.025, 0, -2], "size": [4, 12, 4], "inflate": 0.2, "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "rightLeg",
+					"parent": "waist",
+					"pivot": [-1.9, 12, 0]
+				},
+				{
+					"name": "roupa_cd_p_d",
+					"parent": "rightLeg",
+					"pivot": [-1.9, 12, 0],
+					"cubes": [
+						{"origin": [3.925, 0, -2], "size": [4, 12, 4], "inflate": 0.2, "pivot": [2.025, 6, 0], "rotation": [0, -180, 0], "uv": [0, 32], "mirror": true}
+					]
+				},
+				{
+					"name": "body",
+					"parent": "waist",
+					"pivot": [0, 12, 0]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0]
+				},
+				{
+					"name": "roupa_cd_b_e",
+					"parent": "leftArm",
+					"pivot": [5, 22, 0],
+					"cubes": [
+						{"origin": [4.025, 12, -2], "size": [4, 12, 4], "inflate": 0.2, "uv": [16, 32], "mirror": true},
+						{"origin": [3.75, 23.25, -3], "size": [5, 1, 6], "uv": [32, 32], "mirror": true}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "roupa_cd_b_d",
+					"parent": "rightArm",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8.025, 12, -2], "size": [4, 12, 4], "inflate": 0.2, "uv": [24, 16], "mirror": true},
+						{"origin": [-8.75, 23.25, -3], "size": [5, 1, 6], "uv": [32, 39], "mirror": true}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "roupa_cd_r",
+					"parent": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.2, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "roupa_cd_p",
+					"parent": "body",
+					"pivot": [0, 12, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "inflate": 0.2, "uv": [0, 16]},
+						{"origin": [-5, 3.25, -2], "size": [0, 8.5, 4], "pivot": [-3, 5.25, 0], "rotation": [0, 0, 7.5], "uv": [40, 46]},
+						{"origin": [5, 3.25, -2], "size": [0, 8.5, 4], "pivot": [3, 5.25, 0], "rotation": [0, 0, -7.5], "uv": [32, 46]},
+						{"origin": [-4, 3.25, 3.125], "size": [8, 8.5, 0], "pivot": [0, 5.25, 1.125], "rotation": [7.5, 0, 0], "uv": [40, 24]},
+						{"origin": [-4, 3.5, -3.125], "size": [8, 8.5, 0], "pivot": [0, 5.5, -1.125], "rotation": [-7.5, 0, 0], "uv": [40, 16]}
+					]
+				}
+			]
+		}
+	]
+}

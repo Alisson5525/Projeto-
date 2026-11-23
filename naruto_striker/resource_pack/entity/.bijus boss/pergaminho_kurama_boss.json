@@ -1,0 +1,42 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:pergaminho_kurama_boss",
+      "materials": {
+        "default": "enderman" 
+      },
+      "textures": {
+        "default": "textures/bosses/biju/pergaminho_biju" 
+       
+      },
+      "geometry": {
+        "default": "geometry.pergaminho_biju" 
+      },
+
+
+       "particle_effects": {
+        "particle_1_pergaminho_boju": "tnt:particle_1_pergaminho_boju",
+        "particle_2_pergaminho_boju": "tnt:particle_2_pergaminho_boju",
+        "particle_3_pergaminho_boju": "tnt:particle_3_pergaminho_boju"
+      },     
+   
+      
+
+
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ]
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 7
+      },
+      "render_controllers": [
+        "controller.render.true_zombie"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

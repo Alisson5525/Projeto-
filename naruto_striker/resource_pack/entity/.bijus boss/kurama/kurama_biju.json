@@ -1,0 +1,70 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:kurama_biju",
+      "materials": {
+        "default": "enderman" 
+      },
+      "textures": {
+        "default": "textures/bosses/biju/kurama_biju" 
+       
+      },
+      "geometry": {
+        "default": "geometry.kurama_biju" 
+      },
+
+
+       "particle_effects": {
+        "kurama_biju_grito": "tnt:kurama_biju_grito",
+        "bijudama_orb_vermelho": "tnt:bijudama_orb_vermelho",
+        "bijudama_orb_azul": "tnt:bijudama_orb_azul"
+      },     
+        "sound_effects": {
+        "kurama_grito": "kurama_grito",
+        "reload_orb_bijudama": "reload_orb_bijudama",
+        "reload_bijudama": "reload_bijudama",
+        "lancar_bijudama": "lancar_bijudama"
+      },
+      
+
+
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "kurama_biju_caldas",
+          "mob_controller",
+          "ataque_boss"
+        ]
+      },
+      "animations": {
+        "kurama_biju_caldas": "animation.kurama_biju_caldas",
+        "ataque_boss": "controller.animation.ataque_boss",
+        "ataque_1": "animation.kurama_biju_ataque",
+        "ataque_2": "animation.kurama_biju_ataque",
+        "ataque_3": "animation.kurama_biju_ataque",
+        
+
+
+
+
+
+
+        "parado": "animation.kurama_biju_parado",
+        "andando": "animation.kurama_biju_moviment",
+        "correndo": "animation.kurama_biju_correr",
+        "mob_controller": "controller.animation.mob_controller"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 7
+      },
+      "render_controllers": [
+        "controller.render.true_zombie"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

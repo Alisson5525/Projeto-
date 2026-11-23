@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:bolinho_arroz",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:use_animation": "eat",
+"minecraft:use_modifiers": {
+    "movement_modifier": 0.5,
+    "use_duration": 0.5
+},
+"minecraft:food": {
+    "can_always_eat": false,
+    "nutrition": 14,
+    "saturation_modifier": 12
+},
+      
+      "minecraft:max_stack_size": 32,
+      "minecraft:icon": {
+        "textures": {
+          "default":"bolinho_arroz"
+        }
+},
+"minecraft:cooldown": { "duration": 0,
+"category": "comida"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§ebolinho de arroz\n§7+7 Nutrition\n§7use duration: 0.5"
+	  }
+    }
+  }
+}
+

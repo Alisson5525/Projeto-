@@ -1,0 +1,110 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "tnt:vacuo_manto_kurama_1",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "runtime_identifier": "minecraft:snowball"
+      },
+      "component_groups": {
+     "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+      },
+      "components": {
+"minecraft:type_family": {"family": ["jutsu_comum"]},
+
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          },
+                    {
+            "filters": {
+          "test": "has_tag",
+          "operator": "==",
+          "value": "impact_skill"
+
+            },
+            "event": "tnt:impact_rasen"
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 5,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+        
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+         "on_hit": {
+          
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "on:hit",
+            "target": "self"
+      }
+     },
+      "impact_damage": {
+              "damage": 15
+            }
+    },
+          "power": 1.5,
+          "gravity": 0.0,
+        "offset": [ 0, 0, 1 ]
+        },
+        "minecraft:physics": {}
+      },
+      "events": {
+        
+"tnt:tick": {
+"queue_command":{
+"command":[
+"tag @e[family=jutsu_comum,rm=2,r=5] add impact_skill"
+]}},  
+    
+"tnt:impact_rasen": {
+"queue_command":{
+"command":[
+"damage @e[r=5] 8",
+"particle tnt:vacuo_manto_impact"
+]},  
+"add": {"component_groups": ["tnt:despawn"]}},
+
+"tnt:despawn": {
+"add": {"component_groups": ["tnt:despawn"]}
+        },
+
+        "on:hit": {
+           "queue_command": {
+                "command": [
+                "particle tnt:vacuo_manto_impact",
+                "damage @e[r=3] 5",
+                "kill @s"
+
+                ]
+              }
+        }
+      }
+    }
+  }

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.marca_s_n1": {
+      "geometry": "Geometry.marca_s",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.marca_s_n1" ]
+    },
+    "controller.render.marca_olho": {
+      "geometry": "Geometry.olhos_pulpila_cmd_2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.marca_olho" ]
+    },
+        "controller.render.marca_s_n2": {
+      "geometry": "Geometry.marca_s",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.marca_s_n2" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+        "controller.render.marca_s_n3": {
+      "geometry": "Geometry.marca_s_n3",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.marca_s_n3" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    }
+
+
+
+
+  }
+}

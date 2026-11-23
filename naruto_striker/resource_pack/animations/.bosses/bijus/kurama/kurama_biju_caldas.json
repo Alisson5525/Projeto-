@@ -1,0 +1,180 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kurama_biju_caldas": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"calda": {
+					"rotation": ["32.5+math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 10"]
+				},
+				"bone5": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone6": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone7": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone8": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone9": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"boca": {
+					"rotation": ["math.sin(query.life_time * 40) * 2", 0, 0]
+				},
+				"calda2": {
+					"rotation": ["37.0661+math.sin(query.life_time * 30) * 5", "26.9461+math.sin(query.life_time * 30) * 5", "18.8961+math.sin(query.life_time * 4) * 10"]
+				},
+				"bone2": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone3": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone4": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone10": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone11": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"calda3": {
+					"rotation": [
+						"42.3751-math.sin(query.life_time * 30) * 5",
+						"-18.9802-math.sin(query.life_time * -30) * 5",
+						"-24.4048+math.sin(query.life_time * -4) * 10"
+					]
+				},
+				"bone12": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone13": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone14": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone15": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone16": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", 0]
+				},
+				"calda4": {
+					"rotation": ["68.935+math.sin(query.life_time * 30) * 5", "8.8599+math.sin(query.life_time * 30) * 5", "14.3762+math.sin(query.life_time * 4) * 10"]
+				},
+				"bone17": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone18": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone19": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone20": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone21": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 15", 0]
+				},
+				"calda5": {
+					"rotation": ["68.3556+math.sin(query.life_time * 30) * 5", "-7.2601+math.sin(query.life_time * -30) * 5", "-25.0838+math.sin(query.life_time * 4) * 10"]
+				},
+				"bone22": {
+					"rotation": ["math.sin(query.life_time * 35) * 5", "math.sin(query.life_time * 35) * 10", 0]
+				},
+				"bone23": {
+					"rotation": ["math.sin(query.life_time * 35) * 5", "math.sin(query.life_time * 35) * 10", 0]
+				},
+				"bone24": {
+					"rotation": ["math.sin(query.life_time * 35) * 5", "math.sin(query.life_time * 35) * 10", 0]
+				},
+				"bone25": {
+					"rotation": ["math.sin(query.life_time * 35) * 5", "math.sin(query.life_time * 35) * 10", 0]
+				},
+				"bone26": {
+					"rotation": ["math.sin(query.life_time * 35) * 5", "math.sin(query.life_time * 35) * 10", 0]
+				},
+				"calda6": {
+					"rotation": ["62.9493+math.sin(query.life_time * 30) * 5", "4.8422+math.sin(query.life_time * 30) * 5", "68.6362+math.sin(query.life_time * 4) * 10"]
+				},
+				"bone27": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone28": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone29": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone30": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone31": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"calda7": {
+					"rotation": ["64.4057+math.sin(query.life_time * 30) * 5", "-26.6565+math.sin(query.life_time * 30) * 5", "-55.9382+math.sin(query.life_time * 4) * 10"]
+				},
+				"bone32": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone33": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone34": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone35": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone36": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"calda8": {
+					"rotation": ["60+math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 10"]
+				},
+				"bone37": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone38": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone39": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone40": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"bone41": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", 0]
+				},
+				"calda9": {
+					"rotation": ["95.0589+math.sin(query.life_time * 30) * 5", "64.9256+math.sin(query.life_time * 30) * 5", "51.6652-math.sin(query.life_time * 4) * 10"]
+				},
+				"bone42": {
+					"rotation": ["-math.sin(query.life_time * 20) * 5", "-math.sin(query.life_time * 30) * 15", 57.5]
+				},
+				"bone43": {
+					"rotation": ["-math.sin(query.life_time * 20) * 5", "-math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone44": {
+					"rotation": ["-math.sin(query.life_time * 20) * 5", "-math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone45": {
+					"rotation": ["-math.sin(query.life_time * 20) * 5", "-math.sin(query.life_time * 30) * 15", 0]
+				},
+				"bone46": {
+					"rotation": ["-math.sin(query.life_time * 20) * 5", "-math.sin(query.life_time * 30) * 15", 0]
+				}
+			}
+		}
+	}
+}

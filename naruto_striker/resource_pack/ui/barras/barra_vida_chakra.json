@@ -1,0 +1,63 @@
+{
+  "namespace":"barra_vida_chakra",
+  "barra_vida_chakra_panel":{
+    "type":"panel",
+    "controls":[
+      {
+        "kill0":{
+          "type": "image",
+          "texture":"textures/ui/bar_vida_chakra/barra_vida_chakra",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 5,
+          "size": [190, 190],
+          "offset": [0, 80]
+        }
+      },
+            {
+        "uchiha":{
+          "type": "image",
+          "texture":"textures/ui/bar_vida_chakra/uchiha",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[clans0]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+            {
+        "hyuga":{
+          "type": "image",
+          "texture":"textures/ui/bar_vida_chakra/hyuga",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[clans1]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

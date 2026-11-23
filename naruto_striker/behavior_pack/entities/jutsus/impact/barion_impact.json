@@ -1,0 +1,84 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:rasengan_impact",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["bust"]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 0.2,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+      "minecraft:behavior.knockback_roar": {
+        "priority": 1,
+        "duration": 0.1,
+        "attack_time": 0.1,
+        "knockback_damage": 0,
+        "knockback_strength": 16,
+        "knockback_horizontal_strength": 17,
+        "knockback_vertical_strength": 0,
+        "knockback_range": 3,
+        "knockback_filters": {
+          "test": "has_tag",
+          "subject": "other",
+          "operator": "!=",
+          "value": "rasengan_atk"
+        },
+        "damage_filters": {
+          "test": "has_tag",
+          "subject": "other",
+          "operator": "==",
+          "value": "sla"
+        },
+        "on_roar_end": {
+          "event": "tnt:"
+        },
+        "cooldown_time": 0.1
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "impulse"
+          ]
+        }
+      },
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

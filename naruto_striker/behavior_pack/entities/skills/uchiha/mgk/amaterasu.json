@@ -1,0 +1,124 @@
+
+
+
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:amaterasu",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+          "runtime_identifier": "minecraft:egg",
+      "scripts": {
+        "animate": [
+         "amaterasu_tag"
+        ]
+      },
+      "animations": {
+        "amaterasu_tag": "animation.amaterasu_tag"
+      }
+      
+
+    },
+
+    "component_groups": {
+      
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "jutsu"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": 1.6,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+      "minecraft:scale": {
+        "value": 1.0
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:balloonable": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:on_target_acquired": {},
+      "minecraft:navigation.walk": {
+        "is_amphibious": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+        "has_gravity": false
+      }
+    },
+    "events": {
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+           "tnt:tick": {
+        "queue_command":{
+          "command":[
+              "execute unless block ~~~ air run particle tnt:amaterasu_chao",
+              "execute unless block ~~~ air run kill @s"
+
+              ]
+          }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+      }
+    }
+  }
+}

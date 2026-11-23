@@ -1,0 +1,35 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:prisao_agua",
+      "materials": {
+        "default": "slime_outer",
+        "outline": "outline" 
+      },
+      "textures": {
+        "default": "textures/jutsus/agua/prisao_agua",
+        "outline_3": "textures/jutsus/agua/prisao_agua_borda" 
+      },
+      "geometry": {
+        "default": "geometry.prisao_agua",
+        "outline_3": "geometry.prisao_agua_borda"
+      },
+       "particle_effects": {
+        "tubarao_triplo_rastro_agua": "tnt:tubarao_triplo_rastro_agua"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite","controller.render.outline_3"],
+      "animations": {
+        "prisao_agua": "animation.prisao_agua"
+        
+      },
+      "scripts": {
+        "animate": [
+          "prisao_agua"
+        ]
+      }
+    }
+  }
+} 

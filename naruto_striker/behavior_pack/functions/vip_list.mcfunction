@@ -1,0 +1,64 @@
+tag @s[name=Pandinha019226] add vip_storm_1
+tag @s[name=CROMM0X] add vip_storm_1
+tag @s[name=Carnificina2712] add vip_storm_1
+tag @s[name=Silypuma167061] add vip_storm_1
+tag @s[name=ElDelemo] add vip_storm_1
+tag @s[name="gamer br103"] add vip_storm_1
+tag @s[name=Yudd777] add vip_storm_1
+tag @s[name="All liu0"] add vip_storm_1
+tag @s[name=NahuDoGrau82] add vip_storm_1
+tag @s[name=Vinnix0202] add vip_storm_1
+tag @s[name=AKUmaBR23] add vip_storm_1
+tag @s[name="Gold Xis4168"] add vip_storm_1
+tag @s[name=Vinsmoke775345] add vip_storm_1
+tag @s[name=LordOfPain4197] add vip_storm_1
+tag @s[name="LU4N BLACK"] add vip_storm_1
+tag @s[name=Kayrorick] add vip_storm_1
+tag @s[name=GodElliot5690] add vip_storm_1
+tag @s[name=Gabrieljegue156] add vip_storm_1
+tag @s[name=Talkozin] add vip_storm_1
+tag @s[name=HiroGalaxy122] add vip_storm_1
+tag @s[name=Gabriel399k] add vip_storm_1
+tag @s[name=JoaoMoon012931] add vip_storm_1
+tag @s[name="Luke Llk00"] add vip_storm_1
+tag @s[name=EsmoPhelipe856] add vip_storm_1
+tag @s[name=rz047] add vip_storm_1
+tag @s[name=EduGTR2788] add vip_storm_1
+tag @s[name=Andersora698] add vip_storm_1
+tag @s[name=ZitsdoVasco] add vip_storm_1
+tag @s[name=Davidbell1991] add vip_storm_1
+tag @s[name=MikeyZinjqb] add vip_storm_1
+tag @s[name=kallel8343] add vip_storm_1
+tag @s[name=Tubaina5229] add vip_storm_1
+tag @s[name=Robloxiano2608] add vip_storm_1
+tag @s[name=CaioManeir0] add vip_storm_1
+tag @s[name=RUSDEFAL99] add vip_storm_1
+tag @s[name=Hiroshi2070] add vip_storm_1
+tag @s[name=hnriqx01] add vip_storm_1
+tag @s[name=PilotSpark25178] add vip_storm_1
+tag @s[name=sasulebr12345] add vip_storm_1
+tag @s[name=Tsuk16819] add vip_storm_1
+tag @s[name=Duduboy234] add vip_storm_1
+tag @s[name=Davi9667] add vip_storm_1
+tag @s[name=darkzintotos] add vip_storm_1
+tag @s[name=Vekx1609] add vip_storm_1
+tag @s[name=BUNG4Z] add vip_storm_1
+tag @s[name=Danoni1230] add vip_storm_1
+tag @s[name=RenatoASO] add vip_storm_1
+tag @s[name=AtaideJuan011] add vip_storm_1
+tag @s[name=soldadotnt5966] add vip_storm_1
+tag @s[name=lucasmiranda404] add vip_storm_1
+tag @s[name=ArcaneBoar68972] add vip_storm_1
+tag @s[name=Linbolucky90] add vip_storm_1
+tag @s[name=Pilot5park25178] add vip_storm_1
+tag @s[name=Gvmbpl1] add vip_storm_1
+tag @s[name=GoldFriend29204] add vip_storm_1
+tag @s[name=LGmxb510] add vip_storm_1
+tag @s[name="The Runner8005"] add vip_storm_1
+tag @s[name=zGabirula] add vip_storm_1
+tag @s[name=KauanrX3586] add vip_storm_1
+
+
+
+function vip_cheq
+tag @s add start_vip

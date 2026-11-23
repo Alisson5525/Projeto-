@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:katubowari",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "sword"
+      },
+      "minecraft:durability":{
+        "max_durability": 2500
+      },
+      "minecraft:damage": 16,
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:icon": {
+        "textures": {
+          "default": "katubowari"
+        }
+      },
+	  "minecraft:display_name": {
+	    "value":"§f§oKatubowari\n§7Categoria: §drara"
+	  }
+    }
+  }
+}

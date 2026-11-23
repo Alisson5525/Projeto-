@@ -1,0 +1,324 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.troca_skill_sharingan": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "troca_genjutsu": "query.get_equipped_item_name == 'sharingan_skill_1' && query.is_sneaking" },
+        
+            { "traca_previsao_atk": "query.get_equipped_item_name == 'sharingan_skill_2' && query.is_sneaking" }
+         
+            
+           ]
+        },
+        "troca_genjutsu": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:sharingan_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "traca_previsao_atk": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:sharingan_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+
+
+      }
+    },
+    "controller.animation.skill_sharingan": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "genjutsu": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'sharingan_skill_1' && q.is_using_item" },
+            { "previsao_sharingan": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'sharingan_skill_2' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+        "genjutsu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/playsound genjutsu @a[r=10] ^^^1 1 1",
+            "/scoreboard players remove @s chakra 70",
+            "/camerashake add @s 3 0.1 positional ",
+            "/execute positioned ^^^6 run playanimation @e[r=5,tag=!genjutsu,c=2] animation.genjutsu",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=!genjutsu,c=2] add genjutsu"
+            ]},
+
+       "previsao_sharingan": {
+       "on_entry": ["/scoreboard players remove @s chakra 40"],
+       "animations": ["previsao_sharingan"],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+      }
+    },
+
+
+
+
+
+
+
+
+
+
+     "controller.animation.troca_skill_mgk_itachi": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'mgk_itachi_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'mgk_itachi_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'mgk_itachi_skill_3' && query.is_sneaking" },
+
+            { "skill_4": "query.get_equipped_item_name == 'mgk_itachi_skill_4' && query.is_sneaking" }
+         
+            
+           ]
+        },
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_itachi_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_itachi_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_itachi_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_itachi_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+    "controller.animation.skill_mgk_itachi": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "amaterasu": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'mgk_itachi_skill_1' && q.is_using_item" },
+            { "corvos": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'mgk_itachi_skill_2' && q.is_using_item" },
+            { "amaterasu_teleguiado": "q.scoreboard('chakra') >= 100 && query.get_equipped_item_name == 'mgk_itachi_skill_3' && q.is_using_item" },
+            { "amaterasu_retirar": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'mgk_itachi_skill_4' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+        "amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 125",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/execute positioned ^^^6 run tag @e[tag=!jutsu_absover,r=5,tag=!amaterasu,c=1] add amaterasu"
+            ]},
+
+
+       "corvos": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["corvos_mgk_itachi"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+       "amaterasu_teleguiado": {
+       "on_entry": ["/scoreboard players remove @s chakra 100"],
+       "animations": ["amaterasu_mgk_itachi"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+        "amaterasu_retirar": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 40",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/tag @s remove amaterasu",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=amaterasu,c=1] remove amaterasu"
+            ]}  
+}},
+
+
+
+
+
+
+
+
+
+     "controller.animation.troca_skill_mgk_sasuke": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'mgk_sasuke_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'mgk_sasuke_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'mgk_sasuke_skill_3' && query.is_sneaking" }
+                
+           ]},
+
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_sasuke_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_sasuke_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_sasuke_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+    "controller.animation.skill_mgk_sasuke": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "amaterasu": "q.scoreboard('chakra') >= 100 && query.get_equipped_item_name == 'mgk_sasuke_skill_1' && q.is_using_item" },
+            { "amaterasu_onda": "q.scoreboard('chakra') >= 150 && query.get_equipped_item_name == 'mgk_sasuke_skill_2' && q.is_using_item" },
+            { "retira_amaterasu": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'mgk_sasuke_skill_3' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+        "amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 100",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=!amaterasu,c=1] add amaterasu"
+            ]},
+
+          "amaterasu_onda": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 150",
+          "/tag @s add amaterasu_onda",
+           "/summon tnt:amaterasu_onda ^^^ ~0 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~50 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-50 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~100 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-100 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~150 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-150 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~200 ~10000"
+
+            ]},
+
+        "retira_amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 40",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/tag @s remove amaterasu",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=amaterasu,c=3] remove amaterasu"
+            ]}  
+}},
+
+
+
+
+
+
+
+
+
+
+     "controller.animation.troca_skill_mgk_obito": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'mgk_obito_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'mgk_obito_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'mgk_obito_skill_3' && query.is_sneaking" },
+
+            { "skill_4": "query.get_equipped_item_name == 'mgk_obito_skill_4' && query.is_sneaking" }
+                
+           ]},
+
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_obito_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_obito_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_obito_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:mgk_obito_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+
+    "controller.animation.skill_mgk_obito": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kamui": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'mgk_obito_skill_1' && q.is_using_item" },
+            { "intangivel": "q.scoreboard('chakra') >= 100 && query.get_equipped_item_name == 'mgk_obito_skill_2' && q.is_using_item" },
+            { "kamui_absover": "q.scoreboard('chakra') >= 90 && query.get_equipped_item_name == 'mgk_obito_skill_3' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+             "kamui": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["kamui"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+             "intangivel": {
+       "on_entry": ["/scoreboard players remove @s chakra 100"],
+       "animations": ["kamui_intangivel"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+             "kamui_absover": {
+       "on_entry": ["/scoreboard players remove @s chakra 90"],
+       "animations": ["kamui_absover"],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+
+
+
+
+
+
+
+
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

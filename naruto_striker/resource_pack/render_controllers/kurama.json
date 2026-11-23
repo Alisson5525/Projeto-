@@ -1,0 +1,359 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.manto_kurama_1": {
+      "arrays": {
+        "textures": {
+          "Array.frame": [
+            "Texture.manto_kurama_1_f1",
+            "Texture.manto_kurama_1_f2",
+            "Texture.manto_kurama_1_f3"
+          ]
+        }
+      },
+      "geometry":"Geometry.manto_kurama_1",
+      "materials":[{"*":"Material.trasparente"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 3)]" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+  "controller.render.manto_kurama_1_borda": {
+      "geometry": "Geometry.manto_kurama_1_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.manto_kurama_1_borda" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ], 
+       "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0
+      },
+      
+      "light_color_multiplier": 0.70,
+      "ignore_lighting" : true 
+
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            "controller.render.olho_kurama": {
+      "geometry": "Geometry.olhos_pulpila_cmd_2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.olho_kurama" ]
+    },
+            "controller.render.olho_mk1": {
+      "geometry": "Geometry.olhos_pulpila_cmd_2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.olho_mk1" ]
+    },
+            "controller.render.olho_mk2": {
+      "geometry": "Geometry.olhos_pulpila_cmd_2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.olho_mk2" ]
+    },
+            "controller.render.barion_olho": {
+      "geometry": "Geometry.barion_olho",
+      "materials": [ { "*": "Material.trasparente" } ],
+      "textures": [ "Texture.barion_olho" ]
+    },
+            "controller.render.rikudou_olho": {
+      "geometry": "Geometry.barion_olho",
+      "materials": [ { "*": "Material.trasparente" } ],
+      "textures": [ "Texture.rikudou_olho" ]
+    },
+            "controller.render.gudoudama": {
+      "geometry": "Geometry.gudoudama",
+      "materials": [ { "*": "Material.trasparente" } ],
+      "textures": [ "Texture.gudoudama" ]
+    },
+      "controller.render.gudoudama_borda": {
+      "geometry": "Geometry.gudoudama_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.gudoudama_borda" ],
+       "overlay_color": {
+        "r": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "g": 0.0,
+        "b": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "a": 0.4
+      },
+      "light_color_multiplier": 1.70,
+      
+      "ignore_lighting" : true 
+
+    },
+
+
+
+
+
+
+
+
+
+
+            "controller.render.manto_kurama_1_braco": {
+      "geometry": "Geometry.braco_kurama",
+      "materials": [ { "*": "Material.trasparente" } ],
+      "textures": [ "Texture.manto_kurama_1_braco" ]
+    },
+
+
+       "controller.render.cabeca_chakra_kurama": {
+      "geometry": "Geometry.cabeca_chakra_kurama",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.cabeca_chakra_kurama" ]
+    },
+
+
+
+
+        "controller.render.manto_kurama_3": {
+      "arrays": {
+        "textures": {
+          "Array.frame": [
+            "Texture.manto_kurama_1_f1",
+            "Texture.manto_kurama_1_f2",
+            "Texture.manto_kurama_1_f3"
+          ]
+        }
+      },
+      "geometry":"Geometry.manto_kurama_3",
+      "materials":[{"*":"Material.trasparente"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 3)]" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+    "controller.render.manto_kurama_3_borda": {
+      "geometry": "Geometry.manto_kurama_3_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.manto_kurama_1_borda" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ], 
+       "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0
+      },
+      
+      "light_color_multiplier": 0.70,
+      "ignore_lighting" : true 
+
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "controller.render.manto_kurama_4": {
+      "geometry": "Geometry.manto_kurama_4",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_kurama_4" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.manto_kurama_4_borda": {
+      "geometry": "Geometry.manto_kurama_4_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.manto_kurama_4_borda" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ],
+       "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0
+      },
+      
+      "light_color_multiplier": 1.70,
+      "ignore_lighting" : true 
+
+    },
+
+      "controller.render.manto_kurama_6": {
+      "geometry": "Geometry.manto_kurama_6",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_kurama_6" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+
+
+
+        "controller.render.mk1": {
+      "geometry": "Geometry.mk1",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mk1" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.mk2": {
+      "geometry": "Geometry.mk2",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.mk2" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+      "controller.render.barion_kurama": {
+      "geometry": "Geometry.barion_kurama",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.barion_kurama" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ], 
+       "overlay_color": {
+        "r": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "g": 0.0,
+        "b": 0.0,  
+        "a": 0.2
+      },
+      
+      "ignore_lighting" : true 
+
+    },
+
+
+      "controller.render.barion_kurama_borda": {
+      "geometry": "Geometry.barion_kurama_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.barion_kurama_borda" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ], 
+       "overlay_color": {
+        "r": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "g": 0.0,
+        "b": 0.0,  
+        "a": 0.4
+      },
+      "light_color_multiplier": 1.70,
+      
+      "ignore_lighting" : true 
+
+    },
+
+
+
+
+
+
+
+        "controller.render.kurama_rikudou": {
+      "geometry": "Geometry.kurama_rikudou",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.kurama_rikudou" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+            "controller.render.bastao_gudoudama": {
+      "geometry": "Geometry.bastao_gudoudama",
+      "materials": [ { "*": "Material.trasparente" },{ "bastao_outline": "Material.outline" } ],
+      "textures": [ "Texture.bastao_gudoudama" ],
+      "light_color_multiplier": 1.70,
+      
+      "ignore_lighting" : true 
+    },
+
+
+     
+
+
+
+
+
+
+
+
+
+
+    "controller.render.bijudama": {
+      "geometry": "Geometry.bijudama",
+      "materials": [ { "*": "Material.brilhar" },{ "bijudama_outline": "Material.outline" } ],
+      "textures": [ "Texture.bijudama" ],
+      "light_color_multiplier": 1.70,
+      
+      "ignore_lighting" : true 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}

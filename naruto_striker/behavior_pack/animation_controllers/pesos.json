@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+	"animation_controllers": {
+    "controller.animation.pesos": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "1": "query.is_item_name_any('slot.armor.feet','tnt:pesos')"
+            }
+          ]
+        },
+        "1": {
+          "transitions": [
+            {
+               "2": "!query.is_item_name_any('slot.armor.feet','tnt:pesos')"
+            }
+          ],
+          "on_entry": [ 
+          "/tellraw @s{\"rawtext\":[{\"text\":\"§c[!]§a Seu Treinamento Começou\"}]}",
+          "/tag @s add treino_pesos"
+          ]
+        },
+        "2": {
+          "transitions": [
+            {
+              "default": "(1.0)"
+            }
+          ],
+          "on_entry": [ 
+          "/execute as @s[tag=treino_pesos,scores={pesos_guy=2..12000}] run tellraw @s{\"rawtext\":[{\"text\":\"§c[!]§e Seu Treinamento Foi Resetado\"}]}",
+          "/scoreboard players set @s pesos_guy 12000",
+          "/tag @s remove treino_pesos"
+            
+           
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kurama_biju_parado": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"peitoral": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"cabeca": {
+					"rotation": ["query.target_x_rotation", "query.target_y_rotation", 0]
+				},
+				"perna_d": {
+					"rotation": [-42.20412, -28.02432, -11.17023]
+				},
+				"braco_d": {
+					"rotation": [16.10693, -12.45167, -12.62076]
+				},
+				"braco_d_2": {
+					"rotation": [-25, 0, 0]
+				},
+				"braco_d_3": {
+					"rotation": [-45, 0, 0]
+				},
+				"braco_d2": {
+					"rotation": [12.5, 12.5, 12.5]
+				},
+				"braco_d_4": {
+					"rotation": [-24.81197, -3.1622, -6.80423]
+				},
+				"braco_d_5": {
+					"rotation": [-40, 0, 0]
+				},
+				"perna_d_2": {
+					"rotation": [78.07779, 14.2906, 4.60659]
+				},
+				"perna_d_3": {
+					"rotation": [-121.63272, 5.07855, 19.37006]
+				},
+				"perna_d2": {
+					"rotation": [-42.5, 32.5, 10]
+				},
+				"perna_d_4": {
+					"rotation": [75.97603, -16.1299, -6.88003]
+				},
+				"perna_d_5": {
+					"rotation": [-116.69458, -6.86379, -13.36965]
+				},
+				"boca": {
+					"rotation": ["math.sin(query.life_time * 40) * 2", 0, 0]
+				}
+			}
+		}
+	}
+}

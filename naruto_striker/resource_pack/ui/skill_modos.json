@@ -1,0 +1,968 @@
+{
+  "namespace":"skill_modos",
+  "skill_modos_panel":{
+    "type":"panel",
+    "controls":[
+
+{"slot_select_1":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_1",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_1]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_2":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_2",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_2]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_3":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_3",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_3]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_4":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_4",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_4]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_5":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_5",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_5]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_6":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_6",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_6]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_7":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/select_7",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_7]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+
+
+
+
+
+
+
+{"slot_select_1_salto":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/select/slot_select_1_salto",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_1_salto]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"skill_selados":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_skill/skill_selados",
+"anchor_from": "center","anchor_to": "center","layer": 26,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[skill_selados]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"texto_skill_selados": {   "type": "label",
+"offset": [0, 60],
+"text": "Poder Oculto Selado temporariamente",
+"$value":"[texto_skill_selados]",
+"font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+]}},
+
+
+
+
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [190, -30],
+          "text": "§f\n> all modos\n       §7clans\n      status\n      jutsus",
+          "$value":"[troca_menu_evoluir_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [196, -30],
+          "text": "§7\nall modos\n   §f> clans\n    §7status\n    jutsus",
+          "$value":"[troca_menu_evoluir_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [195, -30],
+          "text": "§7\nall modos\n     clans\n  §f> status\n    §7jutsus",
+          "$value":"[troca_menu_evoluir_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [195, -30],
+          "text": "§7\nall modos\n     clans\n    status\n  §f> jutsus",
+          "$value":"[troca_menu_evoluir_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [193, -30],
+          "text": "§f\n> all modos\n       §7clans\n     missoes",
+          "$value":"[troca_menu_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [196, -30],
+          "text": "§7\nall modos\n   §f> clans\n   §7missoes",
+          "$value":"[troca_menu_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          {"AllModos_uchiha": {   "type": "label",
+          "offset": [196, -30],
+          "text": "§7\n  all modos\n       §7clans\n  §f> missoes",
+          "$value":"[troca_menu_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+          
+
+
+
+
+          {"hud_skill_sharingan":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_sharingan",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_sharingan]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 70 \n\n 40 \n\n    \n\n    \n\n    \n\n    ",
+          "$value":"[custo_sharingan]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"texto_sharingan_Genjutsu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Genjutsu",
+          "$value":"[texto_sharingan_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_sharingan_Genjutsu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Previsão de Ataque",
+          "$value":"[texto_sharingan_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+      
+          {"hud_skill_mgk_itachi":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_mgk_itachi",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mgk_itachi]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": "125 \n\n 70 \n\n100 \n\n 40 \n\n    \n\n    ",
+          "$value":"[custo_mgk_itachi]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          
+{"texto_mgk_itachi_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu",
+          "$value":"[texto_mgk_itachi_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_itachi_Corvos_Dispersos": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Corvos Dispersos",
+          "$value":"[texto_mgk_itachi_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_itachi_Genjutsu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu Perseguidora",
+          "$value":"[texto_mgk_itachi_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_itachi_remove_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Retirar Amaterasu",
+          "$value":"[texto_mgk_itachi_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+          {"hud_skill_mgk_sasuke":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_mgk_sasuke",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mgk_sasuke]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": "100 \n\n150 \n\n 40 \n\n    \n\n    \n\n    ",
+          "$value":"[custo_mgk_sasuke]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+                    
+{"texto_mgk_sasuke_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu",
+          "$value":"[texto_mgk_sasuke_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},          
+{"texto_mgk_sasuke_amaterasu_onda": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu Inferno Negro",
+          "$value":"[texto_mgk_sasuke_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},            
+{"texto_mgk_sasuke_amaterasu_retira": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Retirar Amaterasu",
+          "$value":"[texto_mgk_sasuke_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_mgk_obito":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_mgk_obito",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mgk_obito]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 90 \n\n 50 \n\n 70 \n\n 0 \n\n    \n\n    ",
+          "$value":"[custo_mgk_obito]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+             
+{"texto_mgk_obito_kamui": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Kamui",
+          "$value":"[texto_mgk_obito_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},     
+{"texto_mgk_obito_intangivel": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Kamui intangivel",
+          "$value":"[texto_mgk_obito_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},    
+{"texto_mgk_obito_kamui_jutsu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Kamui  absorver",
+          "$value":"[texto_mgk_obito_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_obito_kamui_jutsu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Dimensao Kamui",
+          "$value":"[texto_mgk_obito_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_rinnegan":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_rinnegan",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_rinnegan]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 80 \n\n 70 \n\n 30 \n\n250 \n\n200 \n\n    ",
+          "$value":"[custo_rinnegan]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+                    
+{"texto_Shinra_Tensei": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Shinra Tensei",
+          "$value":"[texto_rinnegan_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_Bansho_TeNin": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Bansho Ten’in",
+          "$value":"[texto_rinnegan_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_Absover_chakra": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Absover Chakra",
+          "$value":"[texto_rinnegan_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_Meteoro": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Meteoro da Aniquilação",
+          "$value":"[texto_rinnegan_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_ChibakuTensei": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Chibaku Tensei",
+          "$value":"[texto_rinnegan_skill_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_mt_kurama_1_3":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_mt_kurama_1_3",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mt_kurama_1_3]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 40 \n\n 60 \n\n    \n\n    \n\n    \n\n    ",
+          "$value":"[custo_kurama_1_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"texto_ChibakuTensei": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Rajada de Vacuo",
+          "$value":"[texto_mt_kurama_1_3_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_ChibakuTensei": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Golpe Alongado",
+          "$value":"[texto_mt_kurama_1_3_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+          {"hud_skill_mt_kurama_4":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_mt_kurama_4",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mt_kurama_4]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 80 \n\n 60 \n\n    \n\n    \n\n    \n\n    ",
+          "$value":"[custo_kurama_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"texto_skill1_mt_kurama_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "bijudama + bijudama Rajada",
+          "$value":"[texto_mt_kurama_4_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_skill2_mt_kurama_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Golpes Alongado",
+          "$value":"[texto_mt_kurama_4_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_byakugan":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_byakugan",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_byakugan]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 40 \n\n 60 \n\n 80 \n\n    \n\n    \n\n    ",
+          "$value":"[custo_byakugan]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"texto_byakugan_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "punho suave",
+          "$value":"[texto_byakugan_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "oito trigrama",
+          "$value":"[texto_byakugan_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_skill_3": {   "type": "label",
+          "offset": [0, 60],
+          "text": "rotacao celestial",
+          "$value":"[texto_byakugan_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          
+          
+
+
+
+
+
+
+
+
+
+          {"hud_skill_byakugan_evoluido":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_byakugan_evoluido",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_byakugan_evoluido]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 40 \n\n 70 \n\n 80 \n\n 90 \n\n125 \n\n    ",
+          "$value":"[custo_byakugan_evoluido]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"texto_byakugan_evoluido_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Palma de Ar",
+          "$value":"[texto_byakugan_evoluido_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_evoluido_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "oito trigrama 128 Palmas",
+          "$value":"[texto_byakugan_evoluido_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_evoluido_skill_3": {   "type": "label",
+          "offset": [0, 60],
+          "text": "rotacao celestial",
+          "$value":"[texto_byakugan_evoluido_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_evoluido_skill_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Punhos dos Leões Gêmeos",
+          "$value":"[texto_byakugan_evoluido_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_byakugan_evoluido_skill_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Destruidor dos Leões Gêmeos",
+          "$value":"[texto_byakugan_evoluido_skill_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+          
+          
+
+
+
+
+
+
+
+
+
+          {"hud_skill_tenseigan_olho":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_tenseigan_olho",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_tenseigan_olho]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 70 \n\n 80 \n\n 60 \n\n 80 \n\n    \n\n    ",
+          "$value":"[custo_tenseigan]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"texto_tenseigan_olho_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Shinra Tensei",
+          "$value":"[texto_tenseigan_skill_olho_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_tenseigan_olho_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Bansho Ten’in",
+          "$value":"[texto_tenseigan_skill_olho_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_tenseigan_olho_skill_3": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Palma de Ar",
+          "$value":"[texto_tenseigan_skill_olho_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+{"texto_tenseigan_olho_skill_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "rotacao celestial",
+          "$value":"[texto_tenseigan_skill_olho_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_tenseigan":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_tenseigan",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_tenseigan]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": " 80 \n\n 70 \n\n200 \n\n125 \n\n 70 \n\n 80 ",
+          "$value":"[custo_manto_tenseigan]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"texto_tenseigan_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "proteçao celestial",
+          "$value":"[texto_tenseigan_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_tenseigan_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "disparos Tenseigan Chakra Orbs",
+          "$value":"[texto_tenseigan_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_tenseigan_skill_3": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Escudo Chakra",
+          "$value":"[texto_tenseigan_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_tenseigan_skill_4": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Corte Celestial do Tenseigan",
+          "$value":"[texto_tenseigan_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_tenseigan_skill_5": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Shinra Tensei",
+          "$value":"[texto_tenseigan_skill_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_tenseigan_skill_6": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Bansho Ten’in",
+          "$value":"[texto_tenseigan_skill_6]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+    
+
+
+
+
+
+
+
+
+          {"hud_skill_mgk_susanoo_it2":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_susanoo_it2",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_mgk_susanoo_it2]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+        
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": "125 \n\n 90 \n\n 20 \n\n 60 \n\n    \n\n    ",
+          "$value":"[custo_susanoo_it2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+         
+{"texto_mgk_itachi_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu",
+          "$value":"[texto_susanoo_it2_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_itachi_amaterasu_p": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu Perseguidora",
+          "$value":"[texto_susanoo_it2_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_mgk_itachi_remove_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Retirar Amaterasu",
+          "$value":"[texto_susanoo_it2_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+{"texto_magatama_itachi": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Yasaka Magatama",
+          "$value":"[texto_susanoo_it2_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_susanoo_sk2":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_susanoo_sk2",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_susanoo_sk2]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+         
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+          "text": "100 \n\n125 \n\n 30 \n\n125 \n\n    \n\n    ",
+          "$value":"[custo_susanoo_sk2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+                  
+{"texto_susanoo_sk2_amaterasu": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu",
+          "$value":"[texto_susanoo_sk2_skill_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},          
+{"texto_susanoo_sk2_amaterasu_onda": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Amaterasu Inferno Negro",
+          "$value":"[texto_susanoo_sk2_skill_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},            
+{"texto_susanoo_sk2_amaterasu_retira": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Retirar Amaterasu",
+          "$value":"[texto_susanoo_sk2_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},            
+{"texto_susanoo_sk2_amaterasu_espinho": {   "type": "label",
+          "offset": [0, 60],
+          "text": "proteçao de Espinhos Amaterasu",
+          "$value":"[texto_susanoo_sk2_skill_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {"hud_skill_susanoo_ob2":{ "type": "image","alpha": true,
+          "texture":"textures/ui/hud_skill/hud_skill_susanoo_ob2",
+          "anchor_from": "center","anchor_to": "center","layer": 20,
+          "size": [165, 165],
+          "offset": [223, -4.9],
+          "$value": "[hud_skill_susanoo_ob2]",
+          "bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"texto_susanoo_ob2_corte": {   "type": "label",
+          "offset": [0, 60],
+          "text": "laminas das chamas",
+          "$value":"[texto_susanoo_ob2_skill_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 6,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"suigetsu_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "punho gigante",
+          "$value":"[texto_suigetsu_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    60",
+          "$value":"[custo_suigetsu_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"suigetsu_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Corpo Líquido",
+          "$value":"[texto_suigetsu_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    80",
+          "$value":"[custo_suigetsu_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+{"suigetsu_skill_2": {   "type": "label",
+          "offset": [0, 60],
+          "text": "pistola de agua",
+          "$value":"[texto_suigetsu_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_suigetsu_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"mk2_skill_1": {   "type": "label",
+          "offset": [0, 60],
+          "text": "Avatar Kurama bijudama",
+          "$value":"[texto_mk2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    200",
+          "$value":"[custo_mk2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]
+  }
+}

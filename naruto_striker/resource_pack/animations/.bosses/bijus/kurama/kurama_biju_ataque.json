@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kurama_biju_ataque": {
+			"animation_length": 0.25,
+			"override_previous_animation": true,
+			"bones": {
+				"peitoral": {
+					"position": {
+						"0.0": [0, 6, 0],
+						"0.0833": [0, 6, -1],
+						"0.1667": [0, 6, 0]
+					}
+				},
+				"boca": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [35, 0, 0],
+						"0.1667": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

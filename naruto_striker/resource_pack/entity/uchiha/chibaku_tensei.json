@@ -1,0 +1,33 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:chibaku_tensei",
+      "materials": {
+        "default": "egg" 
+      },
+      "textures": {
+        "default": "textures/tudo/rinnegan/chibaku_tensei" 
+      },
+      "geometry": {
+        "default": "geometry.chibaku_tensei"  
+      },
+       "particle_effects": {
+        "chibaku_tensei_orb": "tnt:chibaku_tensei_orb",
+        "chibaku_tensei_pedras": "tnt:chibaku_tensei_pedras"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"   ],
+      "animations": {
+        "chibaku_tensei": "animation.chibaku_tensei"
+        
+      },
+      "scripts": {
+        "animate": [
+          "chibaku_tensei"
+        ]
+      }
+    }
+  }
+} 

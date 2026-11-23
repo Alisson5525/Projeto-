@@ -1,0 +1,411 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+"controller.animation.all_modos_ss": {
+    "initial_state": "default",
+    "states": {
+      "default": {
+        "transitions": [
+          {"marca_v1": "query.property('tnt:marca_maldicao') == 1"},
+          {"marca_v2": "query.property('tnt:marca_maldicao') == 2"},
+          {"marca_v3": "query.property('tnt:marca_maldicao') == 3"},
+
+          {"modo_sennin_incompleto": "query.property('tnt:sennin_sapo') == 1"},
+          {"modo_sennin_perfeito": "query.property('tnt:sennin_sapo') == 2"},
+
+          {"portao_1": "query.property('tnt:8_portoes') == 1"},
+          {"portao_2": "query.property('tnt:8_portoes') == 2"},
+          {"portao_3": "query.property('tnt:8_portoes') == 3"},
+          {"portao_4": "query.property('tnt:8_portoes') == 4"},
+          {"portao_5": "query.property('tnt:8_portoes') == 5"},
+          {"portao_6": "query.property('tnt:8_portoes') == 6"},
+          {"portao_7": "query.property('tnt:8_portoes') == 7"},
+          {"portao_8": "query.property('tnt:8_portoes') == 8"},
+
+          {"byakugou_ativado": "query.property('tnt:byakugou') == 2"},
+
+          {"rinnegan_esquerdo": "query.property('tnt:uchiha_slot2') == 1"},
+
+          {"suigetsu": "query.property('tnt:suigetsu') == 1"}
+
+
+        ]
+      },
+
+
+"marca_v1": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:marca_maldicao') != 1"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 15",
+                  "/scoreboard players add @s dano_stats 3",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add marca_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 15",
+                  "/scoreboard players remove @s dano_stats 3",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s marca:desativar",
+                  "/tag @s remove marca_cooldown"
+]},
+
+"marca_v2": {
+                  "animations": ["modos_6m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:marca_maldicao') != 2"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 35",
+                  "/scoreboard players add @s dano_stats 5",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add marca_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 35",
+                  "/scoreboard players remove @s dano_stats 5",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s marca:desativar",
+                  "/tag @s remove marca_cooldown"
+]},
+
+"marca_v3": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:marca_maldicao') != 3"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 60",
+                  "/scoreboard players add @s dano_stats 7",
+                  "/effect @s speed 180 1 true",            
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add marca_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 60",
+                  "/scoreboard players remove @s dano_stats 7",
+                  "/effect @s speed 0 0 true",  
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s marca:desativar",
+                  "/tag @s remove marca_cooldown"
+]},
+
+
+
+
+
+
+
+
+
+"modo_sennin_incompleto": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:sennin_sapo') != 1"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 40",
+                  "/scoreboard players add @s dano_stats 6",
+                  "/effect @s speed 180 2 true",            
+                  "/effect @s resistance 180 1 true",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add sennin_sapo_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 40",
+                  "/scoreboard players remove @s dano_stats 6",
+                  "/effect @s speed 0 0 true",            
+                  "/effect @s resistance 0 0 true",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s sennin:desativar",
+                  "/tag @s remove sennin_sapo_cooldown"
+]},
+
+
+
+"modo_sennin_perfeito": {
+                  "animations": ["modos_6m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:sennin_sapo') != 2"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 80",
+                  "/scoreboard players add @s dano_stats 8",
+                  "/effect @s speed 360 2 true",            
+                  "/effect @s resistance 360 1 true",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add sennin_sapo_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 80",
+                  "/scoreboard players remove @s dano_stats 8",
+                  "/effect @s speed 0 0 true",            
+                  "/effect @s resistance 0 0 true",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s sennin:desativar",
+                  "/tag @s remove sennin_sapo_cooldown"
+]},
+
+
+
+
+
+
+
+
+
+"portao_1": {
+                  "animations": ["modos_2m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 1"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s dano_stats 4",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s dano_stats 4",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_2": {
+                  "animations": ["modos_2m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 2"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s dano_stats 4",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s dano_stats 4",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_3": {
+                  "animations": ["modos_2m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 3"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s dano_stats 5",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s dano_stats 5",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_4": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 4"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 20",
+                  "/scoreboard players add @s dano_stats 6",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 20",
+                  "/scoreboard players remove @s dano_stats 6",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_5": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 5"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 25",
+                  "/scoreboard players add @s dano_stats 6",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 25",
+                  "/scoreboard players remove @s dano_stats 6",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_6": {
+                  "animations": ["modos_6m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 6"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 50",
+                  "/scoreboard players add @s dano_stats 8",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 50",
+                  "/scoreboard players remove @s dano_stats 8",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_7": {
+                  "animations": ["modos_6m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 7"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 100",
+                  "/scoreboard players add @s dano_stats 10",
+                  "/effect @s speed 180 2 true",            
+                  "/effect @s resistance 180 1 true",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 100",
+                  "/scoreboard players remove @s dano_stats 10",
+                  "/effect @s speed 0 0 true",            
+                  "/effect @s resistance 0 0 true",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+"portao_8": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:8_portoes') != 8"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 400",
+                  "/scoreboard players add @s dano_stats 30",
+                  "/effect @s speed 180 3 true",            
+                  "/effect @s resistance 180 2 true",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add portoes_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 400",
+                  "/scoreboard players remove @s dano_stats 30",
+                  "/effect @s speed 0 0 true",            
+                  "/effect @s resistance 0 0 true",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s portoes:desativar",
+                  "/tag @s remove portoes_cooldown"
+]},
+
+
+
+
+
+
+
+"byakugou_ativado": {
+                  "animations": ["modos_3m"],
+                  "transitions": [
+                  {"default": "query.all_animations_finished || query.property('tnt:byakugou') != 2"}
+                  ],
+                  "on_entry": [
+                  "/scoreboard players add @s health_stats 40",
+                  "/scoreboard players add @s dano_stats 4",
+                  "/tag @s add modo_ativado_2",
+                  "/tag @s add byakugou_cooldown"
+                  ],
+                  "on_exit": [
+                  "/scoreboard players remove @s health_stats 40",
+                  "/scoreboard players remove @s dano_stats 4",
+                  "/tag @s remove modo_ativado_2",
+                  "/event entity @s byakugou:marca",
+                  "/tag @s remove byakugou_cooldown"
+]},
+
+
+
+
+"rinnegan_esquerdo": {
+                    "animations": ["modos_6m"],
+        "transitions": [
+          {"default": "query.all_animations_finished || query.property('tnt:uchiha_slot2') != 1"}
+        ],
+        "on_entry": [
+          "/replaceitem entity @s slot.hotbar 1 tnt:rinnegan_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/scoreboard players add @s health_stats 150",
+          "/scoreboard players add @s dano_stats 8",
+          "/tag @s add modo_ativado_2",
+          "/tag @s add rinnegan_cooldown"
+        ],
+        "on_exit": [
+          "/replaceitem entity @s slot.hotbar 1 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/scoreboard players remove @s health_stats 150",
+          "/scoreboard players remove @s dano_stats 8",
+          "/tag @s remove modo_ativado_2",
+          "/event entity @s desativar_slot_2",
+          "/tag @s remove rinnegan_cooldown"
+]},
+
+
+
+
+
+"suigetsu": {
+                    "animations": ["modos_3m"],
+        "transitions": [
+          {"default": "query.all_animations_finished || query.property('tnt:suigetsu') != 1"}
+        ],
+        "on_entry": [
+          "/replaceitem entity @s slot.hotbar 1 tnt:suigetsu_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/scoreboard players add @s health_stats 40",
+          "/scoreboard players add @s dano_stats 7",
+          "/tag @s add modo_ativado_2",
+          "/tag @s add suigetsu_cooldown"
+        ],
+        "on_exit": [
+          "/replaceitem entity @s slot.hotbar 1 tnt:item_lock 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}",
+          "/scoreboard players remove @s health_stats 40",
+          "/scoreboard players remove @s dano_stats 7",
+          "/tag @s remove modo_ativado_2",
+          "/event entity @s desativar_slot_2",
+          "/tag @s remove suigetsu_cooldown"
+]}
+      
+
+    }
+}
+
+
+
+
+
+    }
+  }
+

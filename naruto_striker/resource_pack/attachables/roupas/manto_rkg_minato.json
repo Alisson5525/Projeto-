@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "tnt:manto_rkg_minato",
+
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "armor_enchanted"
+      },
+
+      "textures": {
+        "normal": "textures/roupas/manto_rkg_minato",
+        "kurama": "textures/roupas/mk1/manto_rkg_minato_mk_kurama",
+        "tenseigan": "textures/roupas/tenseigan/manto_rkg_minato_tenseigan",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+
+      "geometry": {
+        "default": "geometry.manto_rkg_minato"
+      },
+
+      "render_controllers": [
+        "controller.render.trajes"
+      ]
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.manto_kurama_6": {
+			"loop": true,
+			"bones": {
+				"calda": {
+					"rotation": ["26.1568+math.sin(query.life_time * 30) * 9", "29.7621+math.sin(query.life_time * 30) * 5", "13.7011+math.sin(query.life_time * 4) * 40"]
+				},
+				"calda2": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda3": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda4": {
+					"rotation": ["-math.sin(query.life_time * 15) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 15"]
+				},
+				"calda5": {
+					"rotation": ["-math.sin(query.life_time * 15) * 9 ", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 10"]
+				},
+				"calda6": {
+					"rotation": ["-math.sin(query.life_time * 15) * 7", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda7": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda8": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda9": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda10": {
+					"rotation": ["45.945+math.sin(query.life_time * 30) * 9", "-30.9866+math.sin(query.life_time * 30) * 5", "-30.8551+math.sin(query.life_time * 4) * -40"]
+				},
+				"calda11": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda12": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda13": {
+					"rotation": ["math.sin(query.life_time * 15) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 15"]
+				},
+				"calda14": {
+					"rotation": ["math.sin(query.life_time * 15) * 9 ", "-math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 10"]
+				},
+				"calda15": {
+					"rotation": ["math.sin(query.life_time * 15) * 7", "-math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda16": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda17": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda18": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda19": {
+					"rotation": ["50+math.sin(query.life_time * 30) * 9", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 40"]
+				},
+				"calda20": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 20"]
+				},
+				"calda21": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 20"]
+				},
+				"calda22": {
+					"rotation": ["-math.sin(query.life_time * 15) * 5", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 15"]
+				},
+				"calda23": {
+					"rotation": ["-math.sin(query.life_time * 15) * 9 ", "-math.sin(query.life_time * 30) * 10", "-math.sin(query.life_time * 4) * 10"]
+				},
+				"calda24": {
+					"rotation": ["-math.sin(query.life_time * 15) * 7", "-math.sin(query.life_time * 30) * 10", "-math.sin(query.life_time * 4) * 5"]
+				},
+				"calda25": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 5"]
+				},
+				"calda26": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 5"]
+				},
+				"calda27": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 4) * 5"]
+				},
+				"calda28": {
+					"rotation": ["18.7425+math.sin(query.life_time * 30) * 9", "12.6795+math.sin(query.life_time * 30) * 5", "-32.899+math.sin(query.life_time * 4) * 40"]
+				},
+				"calda29": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda30": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda31": {
+					"rotation": ["-math.sin(query.life_time * 15) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 15"]
+				},
+				"calda32": {
+					"rotation": ["-math.sin(query.life_time * 15) * 9 ", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 10"]
+				},
+				"calda33": {
+					"rotation": ["-math.sin(query.life_time * 15) * 7", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda34": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda35": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda36": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"ouvido": {
+					"rotation": [
+						"-30-math.sin(query.life_time * 100 + 100) * 5",
+						"math.sin(query.life_time * 100 + 100) * 5",
+						"-30-math.sin(query.life_time * 100 + 100) * 10"
+					]
+				},
+				"ouvido2": {
+					"rotation": [0, 0, "math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido3": {
+					"rotation": [0, 0, "math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido4": {
+					"rotation": [0, 0, "math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido5": {
+					"rotation": [0, 0, "math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido7": {
+					"rotation": [
+						"-30-math.sin(query.life_time * 100 + 100) * 5",
+						"-math.sin(query.life_time * 100 + 100) * 5",
+						"30 +math.sin(query.life_time * 100 + 100) * 10"
+					]
+				},
+				"ouvido8": {
+					"rotation": [0, 0, "-math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido9": {
+					"rotation": [0, 0, "-math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido10": {
+					"rotation": [0, 0, "-math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"ouvido11": {
+					"rotation": [0, 0, "-math.sin(query.life_time * 100 + 100) * 5"]
+				},
+				"calda37": {
+					"rotation": ["-2.5668+math.sin(query.life_time * 30) * 9", "-5.4513+math.sin(query.life_time * 30) * 5", "28.7477+math.sin(query.life_time * 4) * 40"]
+				},
+				"calda38": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda39": {
+					"rotation": ["math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda40": {
+					"rotation": ["-math.sin(query.life_time * 15) * 5", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 15"]
+				},
+				"calda41": {
+					"rotation": ["-math.sin(query.life_time * 15) * 9 ", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 10"]
+				},
+				"calda42": {
+					"rotation": ["-math.sin(query.life_time * 15) * 7", "math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda43": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda44": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda45": {
+					"rotation": ["-math.sin(query.life_time * 15) *  8", "math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda46": {
+					"rotation": ["-4.7304+math.sin(query.life_time * 30) * 9", "-41.125+math.sin(query.life_time * 30) * 5", "1.8594+math.sin(query.life_time * 4) * -40"]
+				},
+				"calda47": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda48": {
+					"rotation": ["-math.sin(query.life_time * 30) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 20"]
+				},
+				"calda49": {
+					"rotation": ["math.sin(query.life_time * 15) * 5", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 15"]
+				},
+				"calda50": {
+					"rotation": ["math.sin(query.life_time * 15) * 9 ", "-math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 10"]
+				},
+				"calda51": {
+					"rotation": ["math.sin(query.life_time * 15) * 7", "-math.sin(query.life_time * 30) * 10", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda52": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda53": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				},
+				"calda54": {
+					"rotation": ["math.sin(query.life_time * 15) *  8", "-math.sin(query.life_time * 30) * 5", "math.sin(query.life_time * 4) * 5"]
+				}
+			}
+		}
+	}
+}

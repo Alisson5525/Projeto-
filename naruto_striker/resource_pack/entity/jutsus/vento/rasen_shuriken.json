@@ -1,0 +1,33 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:rasen_shuriken_projetil",
+      "materials": {
+        "breeze_wind": "entity_alphatest",
+        "outline": "outline" 
+      },
+      "textures": {
+        "rasen_shuriken": "textures/tudo/jutsu/rasen_shuriken" 
+      },
+      "geometry": {
+        "rasen_shuriken": "geometry.rasen_shuriken_projetil"  
+      },
+       "particle_effects": {
+        "rasen_shuriken_fumasa": "tnt:rasen_shuriken_fumasa"
+      },
+       
+      "render_controllers": [ "controller.render.rasen_shuriken","controller.render.item_sprite"   ],
+      "animations": {
+        "rasen_shuriken_projetil": "animation.rasen_shuriken_projetil"
+        
+      },
+      "scripts": {
+        "animate": [
+          "rasen_shuriken_projetil"
+        ]
+      }
+    }
+  }
+} 

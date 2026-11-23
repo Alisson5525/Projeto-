@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.esfera_vacuo_animation": {
+     "loop": false,
+      "animation_length": 1.1,
+			"timeline": {
+				 "0.1": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"],
+				 "0.2": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"],
+				 "0.4": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"],
+				 "0.6": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"],
+				 "0.8": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"],
+				 "1.0": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:esfera_vacuo"]
+         
+
+
+      }
+    }
+  }
+}

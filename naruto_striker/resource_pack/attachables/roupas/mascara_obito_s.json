@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "tnt:mascara_obito_s",
+			"materials": {
+				"default": "entity_alphatest",
+				"enchanted": "armor_enchanted"
+			},
+			"textures": {
+				"default": "textures/roupas/mascaras/mascara_obito_s",
+				"enchanted": "textures/misc/enchanted_item_glint"
+			},
+			"geometry": {
+				"default": "geometry.mascara_obito_s"
+			},
+			"scripts": {
+				"parent_setup": "variable.helmet_layer_visible = 0.0;"
+			},
+			"render_controllers": [
+				"controller.render.armor"
+			]
+		}
+	}
+}

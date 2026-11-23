@@ -1,0 +1,501 @@
+{
+  "namespace":"hp",
+  "hp_panel":{
+    "type":"panel",
+    "controls":[
+      {
+        "hp0":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_0",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp0]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp1":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_1",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp1]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp2":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_2",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp2]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp3":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_3",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp3]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp4":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_4",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp4]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp5":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_5",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp5]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp6":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_6",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp6]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp7":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_7",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp7]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp8":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_8",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp8]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp9":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_9",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp9]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp10":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_10",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp10]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp11":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_11",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp11]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp12":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_12",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp12]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp13":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_13",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp13]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp14":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_14",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp14]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp15":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_15",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp15]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp16":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_16",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp16]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp17":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_17",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp17]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp18":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_18",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp18]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp19":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_19",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp19]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "hp20":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/vida/barra_vida_20",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[hp20]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+    ]
+  }
+}

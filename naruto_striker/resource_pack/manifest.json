@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§6By§f: §aSoldado tnt",
+    "name": "§eshinobi storm ",
+    "uuid": "b7ed2608-41cb-4940-aae5-880269aafcb2",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      19,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§6By§f: §aSoldado tnt",
+      "type": "resources",
+      "uuid": "de7f67a5-b217-4846-88f6-1377729fcc31",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

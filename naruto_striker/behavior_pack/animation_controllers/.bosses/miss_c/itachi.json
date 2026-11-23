@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+  "controller.animation.skill_itachi_miss_c": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "esquiva": "query.property('skills:ninjas') == 1 && q.has_target && query.is_alive"},
+            { "skill_2_fogo": "query.property('skills:ninjas') == 3 && q.has_target && query.is_alive"}
+
+          ]
+        },
+        
+        "esquiva": {
+          "animations": ["skill_1"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_2_fogo": {
+          "animations": ["skill_2_fogo"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        }
+      }
+    }
+  }
+}

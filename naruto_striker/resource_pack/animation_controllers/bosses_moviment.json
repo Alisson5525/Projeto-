@@ -1,0 +1,86 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.mob_controller": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "parado": "q.modified_move_speed < 0.1" },
+            { "andando": "q.modified_move_speed > 0.1 && !q.has_target" },
+            { "correndo": "q.modified_move_speed > 0.1 && q.has_target" }
+          ],
+          "blend_transition": 0.3
+        },
+        "parado": {
+          "animations": ["parado"],
+          "transitions": [
+            { "andando": "q.modified_move_speed > 0.1 && !q.has_target" },
+            { "correndo": "q.modified_move_speed > 0.1 && q.has_target" }
+          ],
+          "blend_transition": 0.3
+        },
+        "andando": {
+          "animations": ["andando"],
+          "transitions": [
+            { "parado": "q.modified_move_speed < 0.1" },
+            { "correndo": "q.modified_move_speed > 0.1 && q.has_target" }
+          ],
+          "blend_transition": 0.3
+        },
+        "correndo": {
+          "animations": ["correndo"],
+          "transitions": [
+            { "parado": "q.modified_move_speed < 0.1" },
+            { "andando": "q.modified_move_speed > 0.1 && !q.has_target" }
+          ],
+          "blend_transition": 0.3
+        }
+      }
+    },
+
+    "controller.animation.ataque_boss": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "variable.attack_time > 0" }
+          ],
+          "blend_transition": 0.3
+        },
+        "attack": {
+          "animations": ["ataque_1"],
+          "transitions": [
+            { "attackcombo2": "query.all_animations_finished" }
+          ],
+          "blend_transition": 0.3
+        },
+        "attackcombo2": {
+          "transitions": [
+            { "attack2": "variable.attack_time > 0" }
+          ],
+          "blend_transition": 0.3
+        },
+        "attack2": {
+          "animations": ["ataque_2"],
+          "transitions": [
+            { "attackcombo3": "query.all_animations_finished" }
+          ],
+          "blend_transition": 0.3
+        },
+        "attackcombo3": {
+          "transitions": [
+            { "attack3": "variable.attack_time > 0" }
+          ],
+          "blend_transition": 0.3
+        },
+        "attack3": {
+          "animations": ["ataque_3"],
+          "transitions": [
+            { "default": "query.all_animations_finished" }
+          ],
+          "blend_transition": 0.3
+        }
+      }
+    }
+  }
+}

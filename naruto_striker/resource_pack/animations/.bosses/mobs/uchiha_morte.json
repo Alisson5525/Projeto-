@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.uchiha_morte": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"body": {
+					"rotation": [-90, 0, 0],
+					"position": [0, -9, -8]
+				},
+				"head": {
+					"rotation": [-10, 45, 0]
+				},
+				"rightArm": {
+					"rotation": [8.71636, -38.46326, 22.22255]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -22.5]
+				},
+				"rightLeg": {
+					"rotation": [-92.94845, 11.33493, -33.31416],
+					"position": [0, -9, -8]
+				},
+				"leftLeg": {
+					"rotation": [-76.36077, -10.04922, -18.63923],
+					"position": [0, -9, -7]
+				}
+			}
+		}
+	}
+}

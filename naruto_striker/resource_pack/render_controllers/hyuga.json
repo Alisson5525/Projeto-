@@ -1,0 +1,153 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.byakugan": {
+      "geometry": "Geometry.olhos_pulpila",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.byakugan" ]
+    },
+    "controller.render.byakugan_evoluido": {
+      "geometry": "Geometry.olhos_pulpila",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.byakugan_evoluido" ]
+    },
+    "controller.render.tenseigan": {
+      "geometry": "Geometry.olhos_pulpila",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.tenseigan" ]
+    },
+        "controller.render.tenseigan_olho_manto": {
+      "geometry": "Geometry.olhos_pulpila_cmd_2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.tenseigan" ]
+    },
+        "controller.render.tenseigan_pele": {
+      "geometry": "Geometry.tenseigan_pele",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.tenseigan_pele" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+    "controller.render.tenseigan_pele_borda": {
+      "arrays": {
+        "textures": {
+          "Array.frame": [
+            "Texture.tenseigan_pele_borda_4",
+            "Texture.tenseigan_pele_borda_4",
+            "Texture.tenseigan_pele_borda_4",
+            "Texture.tenseigan_pele_borda_4",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_1",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_2",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_3",
+            "Texture.tenseigan_pele_borda_4"
+          ]
+        }
+      },
+      "geometry":"Geometry.tenseigan_pele_borda",
+      "materials":[{"*":"Material.outline"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 20)]" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+      "controller.render.gudoudama_tenseigan_borda": {
+      "geometry": "Geometry.gudoudama_borda",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.gudoudama_tenseigan_borda" ],
+       "overlay_color": {
+        "r": 0.0,
+        "g": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "b": "(Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "a": 0.4
+      },
+      "light_color_multiplier": 1.70,
+      
+      "ignore_lighting" : true 
+
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    "controller.render.oito_trigramas": {
+      "geometry": "Geometry.oito_trigramas",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.oito_trigramas" ]
+    },
+    "controller.render.leao_gemeos": {
+      "geometry": "Geometry.leao_gemeos",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.leao_gemeos" ]
+    },
+    "controller.render.leao_gemeos_destruidor": {
+      "geometry": "Geometry.leao_gemeos_destruidor",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.leao_gemeos_destruidor" ]
+    }
+
+
+
+
+
+  }
+}

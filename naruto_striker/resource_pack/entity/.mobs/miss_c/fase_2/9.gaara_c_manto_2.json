@@ -1,0 +1,35 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:gaara_c_manto_2_t",
+      "materials": {
+        "default": "entity_alphatest",
+        "true_zombie_2": "outline"
+      },
+      "textures": {
+         "default_2": "textures/tudo/bijus/shukaku/manto_shukaku_1",
+        "default": "textures/bosses/miss_c/gaara"
+      },
+      "geometry": {
+       "default_2": "geometry.manto_shukaku_1",
+        "default": "geometry.entidades_camadas"  
+      },
+       "particle_effects": {
+
+                      "gaara_trasformation_4": "tnt:gaara_trasformation_4"
+},
+      "render_controllers": [ "controller.render.true_zombie","controller.render.default_2","controller.render.item_sprite"   ],
+      "animations": {
+        "gaara_trasformation_2": "animation.gaara_trasformation_2"
+        
+      },
+      "scripts": {
+        "animate": [
+          "gaara_trasformation_2"
+        ]
+      }
+    }
+  }
+} 

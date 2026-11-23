@@ -1,0 +1,481 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:shukaku_biju_miss",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+
+"boss_skill_shukaku"
+]},
+
+
+    "animations":{
+
+"boss_skill_shukaku": "controller.animation.boss_skill_shukaku",
+"skill_1": "animation.boss_shukaku_skill_grito",
+"skill_2": "animation.boss_shukaku_skill_1",
+"skill_3": "animation.boss_shukaku_skill_2",
+"skill_4": "animation.boss_shukaku_skill_3" 
+
+
+
+
+
+
+
+
+
+},
+       "properties": {
+"skill:shukaku_biju": {"client_sync": true,"type": "int","range":[ 0, 5 ],"default":0}
+
+
+
+
+
+	  }
+
+},
+
+    "component_groups": {
+          "attack": {
+        "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1,
+        "track_target": true
+      }
+        
+      },
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+
+
+"modo_berserk": {
+"minecraft:mark_variant": {"value": 1},
+"minecraft:knockback_resistance": {"value": 1}, 
+"minecraft:attack": {"damage": 40}
+},
+"quebrar_berserk": {
+"minecraft:mark_variant": {"value": 0},
+"minecraft:knockback_resistance": {"value": 0}, 
+"minecraft:attack": {"damage": 20}
+},
+"no_moviment": {
+"minecraft:movement": {"value": 0}
+},
+"yes_moviment": {
+"minecraft:movement": {"value": 0.0}
+},
+
+
+
+
+
+
+
+
+
+
+"tnt:bijudama_projetil_mortal": {
+"minecraft:shooter": {
+"def": "tnt:bola_ar_projetil"
+},
+"minecraft:behavior.ranged_attack": {
+  "priority": 2,
+  "attack_interval": 0.2,     
+  "burst_shots": 1,    
+  "burst_interval": 3,     
+  "charge_charged_trigger": 0.0,  
+  "charge_shoot_trigger": 0.0,
+  "attack_radius": 128.0
+},
+
+"minecraft:timer": {
+  "time": 0.4,
+  "looping": false,
+  "time_down_event": {
+    "event": "bijudama_projetil_mortal_remove"
+  }
+}
+
+}
+
+
+
+    },
+    "components": {
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+
+
+
+
+      "minecraft:preferred_path": {
+        "max_fall_blocks": 10
+      },
+
+      "minecraft:scheduler": {
+        "min_delay_secs": 0,
+        "max_delay_secs": 0,
+        "scheduled_events": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_target"
+                },
+                {
+                  "test": "distance_to_nearest_player",
+                  "operator": ">",
+                  "value": 25
+                }
+              ]
+            },
+            "event": "skill:bola_ar"
+          }
+        ]
+      },
+
+
+
+
+
+
+
+
+    "minecraft:damage_sensor": {
+"triggers": [
+            {
+"on_damage": {
+"filters": {
+"test": "has_damage",
+"subject": "self",
+"operator": "==",
+"value": "fall"
+                }
+              },
+"deals_damage": false
+            },
+    {
+      "on_damage": {
+        "filters": {
+          "test": "has_damage", "value": "fatal"
+        },
+        "event": "tnt:morrer"
+      }
+    },
+
+            {
+"on_damage": {
+"filters": {
+"all_of":[
+{"test":"has_damage","value":"attack"},
+
+
+{"any_of": [ 
+
+{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
+
+]}
+
+]},
+"event": "skills_ataques"
+},
+"deals_damage": true
+},
+
+
+
+
+            {
+"on_damage": {
+"filters": {
+"all_of":[
+{ "test": "distance_to_nearest_player","operator": ">","value": 20},
+
+
+{"any_of": [ 
+
+{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
+
+]}
+
+]},
+"event": "skill:bola_ar"
+},
+"deals_damage": true
+}]},
+
+
+
+
+    
+
+
+      "minecraft:type_family": {
+        "family": [ "bijus","boss" ]
+      },
+     
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 2.8
+      },
+      "minecraft:scale": {
+      	 "value": 4.0
+      },
+  			"minecraft:boss": {
+				"should_darken_sky": false,
+				"hud_range": 60,
+				"name": "§r§r§rshukaku"
+			},
+	"minecraft:health": {
+	   "value": 5000,
+	   "max": 5000
+	},
+      "minecraft:can_climb": {
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:attack": {
+        "damage": 20
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_damage_blocks": true,
+        "avoid_water": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10
+      },
+      "minecraft:navigation.climb": {
+        "can_float": true
+      },
+      "minecraft:movement.basic": {
+    
+      },
+      "minecraft:jump.static": {
+        "value": 1.0
+      },
+      "minecraft:follow_range": {
+        "value": 60,
+        "max": 60
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {
+      },
+     
+
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+ "minecraft:behavior.nearest_attackable_target": {
+  "priority": 2,
+  "within_radius": 60,         
+  "reselect_targets": true,
+  "entity_types": [
+    {
+      "filters": {
+        "any_of": [
+          { "test": "is_family", "subject": "other", "value": "player" }
+        ]
+      },
+      "max_dist": 60
+    }
+  ],
+  "must_see": true
+},
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+
+"modo_berserk": { "add": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s resistance infinite 2 true" ]}},
+"quebrar_berserk": { "add": { "component_groups": [ "quebrar_berserk" ] }, "remove": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s clear" ]}},
+
+"no_moviment": { "add": { "component_groups": [ "no_moviment" ] }},
+"yes_moviment": { "add": { "component_groups": [ "yes_moviment" ] }, "remove": { "component_groups": [ "no_moviment" ] }},
+
+
+
+
+ "skill:sem": {"set_property": {"skill:shukaku_biju": 0}},
+
+ "skill:grito_naacer": {"set_property": {"skill:shukaku_biju": 4}},
+
+ "skill:grito": {"set_property": {"skill:shukaku_biju": 1}},
+ "skill:espinhos_areia": {"set_property": {"skill:shukaku_biju": 2}},
+ "skill:impact": {"set_property": {"skill:shukaku_biju": 3}},
+ "skill:bola_ar": {"set_property": {"skill:shukaku_biju": 5}},
+
+
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+         "event entity @s[tag=!grito_biju] skill:grito_naacer"
+          
+          ]
+        }
+      },
+
+"tnt:morrer": {
+"randomize": [
+
+{"weight": 100,
+"queue_command": {"command": [
+"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e6000.Tp\"}]}",
+"tag @s add missao_12_c",
+"scoreboard players add @s tp 6000"
+
+],
+"target": "other"}},
+
+{"weight": 40,
+"queue_command": {"command": [
+"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+"execute as @s run tellraw @s{\"rawtext\":[{\"text\":\"§a[!] §e10000.Tp\"}]}",
+"tag @s add missao_12_c",
+"scoreboard players add @s tp 10000"
+
+],
+"target": "other"}}
+]},
+
+
+
+
+"skills_ataques": {
+"randomize": [
+
+{"weight": 100,"queue_command": {"command": []}},
+{"weight": 100,"queue_command": {"command": []}},
+{"weight": 100,"queue_command": {"command": []}},
+
+
+{"weight": 60,
+"queue_command": {"command": [
+"event entity @s skill:grito"
+
+]}},
+
+{"weight": 20,
+"queue_command": {"command": [
+"event entity @s skill:espinhos_areia"
+
+]}},
+
+{"weight": 40,
+"queue_command": {"command": [
+"event entity @s skill:impact"
+
+]}}
+]},
+
+"minecraft:entity_spawned": {
+"add": {
+"component_groups": [
+"attack"
+]}},
+
+"minecraft:entity_transformation": {
+"add": {
+"component_groups": [
+"attack"
+]}},
+
+
+
+
+
+
+
+"bijudama_projetil_mortal": {
+"add": {
+"component_groups": [
+"tnt:bijudama_projetil_mortal"
+]},
+"remove": {
+"component_groups": [
+"attack"
+]}},
+
+"bijudama_projetil_mortal_remove": {
+"remove": {
+"component_groups": [
+"tnt:bijudama_projetil_mortal"
+]},
+"add": {
+"component_groups": [
+"attack"
+]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+    }
+    }
+  }
+}

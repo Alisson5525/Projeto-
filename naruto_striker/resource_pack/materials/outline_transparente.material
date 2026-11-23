@@ -1,0 +1,13 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:material": {
+    "description": {
+      "identifier": "tnt:outline_transparente",
+      "materials": "entity_alphatest",
+      "textures": "textures/misc/outline"
+    },
+    "render_method": "alpha_test",
+    "blend": "alpha",
+    "alpha": 0.3
+  }
+}

@@ -1,0 +1,32 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:magatama_itachi_projetil",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "textures/tudo/uchiha/susanoo/skill/magatama_itachi" 
+      },
+      "geometry": {
+        "default": "geometry.magatama_itachi_projetil"  
+      },
+       "particle_effects": {
+        "magatama_itachi_rastro": "tnt:magatama_itachi_rastro"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"   ],
+      "animations": {
+        "magatama_itachi_projetil": "animation.magatama_itachi_projetil"
+        
+      },
+      "scripts": {
+        "animate": [
+          "magatama_itachi_projetil"
+        ]
+      }
+    }
+  }
+} 

@@ -1,0 +1,112 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:chibaku_tensei",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "chibaku_tensei_entity"
+            ]
+    },
+    "animations":{
+      "chibaku_tensei_entity": "animation.chibaku_tensei_entity"
+    }
+    },
+    "component_groups": {
+
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer", "despawer_despawning" ]
+        }
+      }
+    },
+    "components": {
+ 
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 60
+      },
+      "minecraft:type_family": {
+        "family": [ "jutsu_supremo" ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+  
+      "minecraft:health": {
+        "value": 50,
+        "max": 50
+      },
+      "minecraft:can_climb": {},
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": 30,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+      
+      "minecraft:knockback_resistance": {
+        "value": 100
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+      "minecraft:jump.static": {
+        "value": 1.0
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {},
+      "minecraft:physics": {}
+    },
+    "events": {
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+           "tnt:tick": {
+        "queue_command":{
+          "command":[
+
+              ]
+          }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+      }
+    }
+  }
+}
+  

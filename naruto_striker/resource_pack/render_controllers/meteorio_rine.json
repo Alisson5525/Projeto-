@@ -1,0 +1,19 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+       "controller.render.meteorio_rine": {
+      "geometry": "Geometry.meteorio_rine",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.meteorio_rine" ],
+      "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+       
+      "light_color_multiplier": 1.75,
+      "ignore_lighting" : true 
+    }
+  }
+}

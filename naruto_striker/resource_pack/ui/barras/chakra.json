@@ -1,0 +1,501 @@
+{
+  "namespace":"chakra",
+  "chakra_panel":{
+    "type":"panel",
+    "controls":[
+      {
+        "chakra0":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_0",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra0]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra1":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_1",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra1]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra2":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_2",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra2]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra3":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_3",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra3]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra4":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_4",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra4]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra5":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_5",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra5]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra6":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_6",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra6]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra7":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_7",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra7]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra8":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_8",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra8]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra9":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_9",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra9]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra10":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_10",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra10]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra11":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_11",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra11]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra12":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_12",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra12]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra13":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_13",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra13]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra14":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_14",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra14]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra15":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_15",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra15]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra16":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_16",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra16]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra17":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_17",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra17]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra18":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_18",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra18]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra19":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_19",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra19]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "chakra20":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra/barra_chakra_20",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[chakra20]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+    ]
+  }
+}

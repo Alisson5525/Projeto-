@@ -1,0 +1,101 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "tnt:esfera_vacuo",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "runtime_identifier": "minecraft:snowball"
+      },
+      "component_groups": {
+     "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+      },
+      "components": {
+"minecraft:type_family": {"family": ["jutsu_comum"]},
+
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          },
+                    {
+            "filters": {
+          "test": "has_tag",
+          "operator": "==",
+          "value": "impact_skill"
+
+            },
+            "event": "tnt:impact_rasen"
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 1,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+        
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+         "on_hit": {
+          
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "on:hit",
+            "target": "self"
+      }
+     },
+      "impact_damage": {
+              "damage": 10
+            }
+    },
+         "power": 1.6,
+          "gravity": 0,
+          "uncertainty_base": 16,
+          "uncertainty_multiplier": 4,
+          "anchor": 6,
+        "offset": [ 0, 0, 0 ]
+        },
+        "minecraft:physics": {}
+      },
+      "events": {
+        
+
+    
+
+
+"tnt:despawn": {
+"add": {"component_groups": ["tnt:despawn"]}
+        },
+
+        "on:hit": {
+           "queue_command": {
+                "command": [
+                "kill @s"
+
+                ]
+              }
+        }
+      }
+    }
+  }

@@ -1,0 +1,69 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:gaara_c_manto_1_t",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "transformation_": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      }
+
+
+
+        },
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+          "cause": "all",
+            "deals_damage": false
+          }
+        ]
+        },
+      "minecraft:timer": {
+        "time": 10.1,
+        "looping": false,
+        "time_down_event": {
+          "event": "transformation"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+  "minecraft:scale": {
+          "value": 1.0
+        },
+    "minecraft:knockback_resistance": {
+        "value": 10.5
+      },
+  "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:type_family": {
+        "family": [ "ninja","mobs" ]
+    },
+
+
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+"transformation": { "add": { "component_groups": [ "transformation_" ] },
+"queue_command": {"command": [
+"summon tnt:gaara_c_manto_1"
+]}
+
+
+}
+    }
+  }
+}

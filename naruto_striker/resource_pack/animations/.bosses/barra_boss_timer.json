@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.barra_boss": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"bones": {
+				"barra_boss": {
+					"rotation": ["q.camera_rotation(0)", "q.camera_rotation(1) - q.body_y_rotation", 0],
+					"position": [0, "variable.health_bar_position", 0]
+				}
+			}
+		}
+	}
+}

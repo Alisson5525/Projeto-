@@ -1,0 +1,30 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:teuchi",
+      "materials": {
+        "default": "entity_alphatest",
+        "true_zombie_2": "outline"
+      },
+      "textures": {
+        "default": "textures/npcs/teuchi" 
+      },
+      "geometry": {
+        "default": "geometry.entidades_camadas"  
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"   ],
+      "animations": {
+        "naruto_hokage": "animation.teuchi"
+        
+      },
+      "scripts": {
+        "animate": [
+          "naruto_hokage"
+        ]
+      }
+    }
+  }
+} 

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magatama_susanoo_it2": {
+			"animation_length": 2.7,
+			"timeline": {
+
+"0.0": ["/playsound jutsu_ativation @a[r=15] ^^^1 1 1","/playanimation @s animation.susanoo_it2_skill_1"],
+"0.6": ["/camerashake add @s 0.1 0.1 positional","/playsound mob.player.hurt_freeze @a[r=10] ^^^1 0.2 1"],
+"0.9": ["/camerashake add @s 0.1 0.1 positional","/playsound mob.shulker.shoot @a[r=10] ^^^1 0.3 1"],
+"1.2": ["/camerashake add @s 0.1 0.1 positional","/playsound mob.shulker.shoot @a[r=10] ^^^1 0.6 1"],
+"1.4": ["/camerashake add @s 0.1 0.1 positional","/playsound mob.shulker.shoot @a[r=10] ^^^1 0.8 1"],
+
+"2.0": ["/event entity @s jutsu:magatama_itachi_projetil","/playsound mob.llama.swag @a[r=10] ^^^1 1 1"],
+"2.1": ["/camerashake add @s 0.2 0.1 positional"]
+			
+			}
+		}
+	}
+}

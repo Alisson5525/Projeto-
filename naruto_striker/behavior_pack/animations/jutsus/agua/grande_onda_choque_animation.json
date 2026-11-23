@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.grande_onda_choque_animation": {
+"animation_length": 23.1,
+"timeline": {
+"0.0": [ "/playanimation @s animation.grande_onda_choque","/inputpermission set @s movement disabled"],
+"0.1": ["/tag @s add grande_onda_choque"],
+"4.5": ["/summon tnt:grande_onda_choque"],
+"7.0": [ "/inputpermission set @s movement enabled"],
+"20": ["/tag @s remove grande_onda_choque"]
+}
+} 
+}
+}

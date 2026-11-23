@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+"animation.correr_liquido_animation": {
+"loop": true,
+"animation_length": 0.2,
+      "timeline": {
+        "0.0": [
+         "/playanimation @s animation.correr_liquido_suigetsu","/effect @s speed 1 5 true"
+        ]
+      }
+
+
+
+
+
+
+},
+
+"animation.suigetsu_forca_animation": {
+"animation_length": 5.1,
+      "timeline": {
+        "0.0": [
+         "/playanimation @s animation.suigetsu_forca",
+         "/scoreboard players add @s dano_stats 8"
+        ],
+        "5.0": [
+         "/scoreboard players remove @s dano_stats 8"
+        ]       
+      }
+
+
+
+
+
+
+},
+
+"animation.suigetsu_intangivel_animation": {
+"animation_length": 10.1,
+      "timeline": {
+        "0.0": [
+         "/tag @s add suigetsu_in"
+        ],
+        "5.0": [
+         "/tag @s remove suigetsu_in"
+        ]       
+      }
+
+
+
+
+
+
+},
+
+    "animation.bala_agua_suigetsu_animation": {
+     "loop": false,
+      "animation_length": 1.1,
+			"timeline": {
+				 "0.1": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"],
+				 "0.2": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"],
+				 "0.4": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"],
+				 "0.6": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"],
+				 "0.8": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"],
+				 "1.0": ["/playsound random.fizz @a[r=7] ^^^1 0.3 1","/event entity @s jutsu:bala_agua_suigetsu"]
+         
+
+
+      }
+    }
+  }
+}

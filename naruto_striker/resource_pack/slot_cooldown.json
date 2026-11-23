@@ -1,0 +1,192 @@
+{
+  "namespace":"slot_cooldown",
+  "slot_cooldown_panel":{
+    "type":"panel",
+    "controls":[
+       {
+        "slot_cooldown0":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/actionbar",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown0]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown1":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_1",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown1]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown2":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_2",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown2]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown3":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_3",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown3]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown4":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_4",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown4]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown5":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_5",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown5]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown6":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_6",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown6]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "slot_cooldown7":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/bar_slot/cooldown/hud_cooldown_slot_7",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "size": [150, 150],
+          "offset": [225, 0],
+          "$value": "[slot_cooldown7]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

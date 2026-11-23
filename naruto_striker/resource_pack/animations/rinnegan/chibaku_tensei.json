@@ -1,0 +1,47 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.chibaku_tensei": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 30.0833,
+			"override_previous_animation": true,
+			"bones": {
+				"meteorio": {
+					"position": [-0.75, 0.25, 2.5],
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0],
+						"4.0": [0, 0, 0],
+						"15.0": [15, 15, 15],
+						"30.0": [15, 15, 15],
+						"30.0833": {"pre": [15, 15, 15], "post": [0, 0, 0]}
+					}
+				},
+				"chibaku_tensei": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 6, 0],
+						"1.0": [0, 6, 0],
+						"6.0": [0, 713, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [1, 1, 1],
+						"1.0": [1, 1, 1]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.5": {
+					"effect": "chibaku_tensei_orb",
+					"locator": "chibaku_tensei"
+				},
+				"2.0": {
+					"effect": "chibaku_tensei_pedras",
+					"locator": "chibaku_tensei"
+				}
+			}
+		}
+	}
+}

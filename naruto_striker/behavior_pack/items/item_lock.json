@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:item_lock",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+ 
+
+      "minecraft:durability":{
+        "max_durability": 1000
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:icon": {
+        "textures": {
+          "default":"item_lock"
+        }
+      },
+	  "minecraft:display_name": {
+	    "value":"§7Slot De Skills"
+	  }
+    }
+  }
+}

@@ -1,0 +1,927 @@
+{
+  "namespace": "menu_jutsus",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.menu_jutsus": {
+          "$view_content": "@menu_jutsus.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.menu_jutsus.title')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 10],
+          "offset": [0, -714],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+
+            {
+        "buttons": {
+          "type": "panel",
+          "$border_visible": false,
+          "controls": [
+
+
+{"button_sair": {
+"type": "stack_panel",
+"size": [20.2, 20.2],
+"anchor_from": "center",
+"anchor_to": "center",
+"$default_button_texture": "textures/ui/sair",
+"$hover_button_texture": "textures/ui/sair_select",
+"$pressed_button_texture": "textures/ui/sair_select",
+"offset": [-5, 0],
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"size": ["100%", "100%"] }}]}},
+
+
+
+
+
+
+
+
+
+
+{
+"raio_chidori": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [94.73, -141.9],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 0,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/chidori_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/chidori",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"raio_chidori_negro": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [94.73, -102.13],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 1,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/chidori_negro_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/chidori_negro",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"raio_chidori_nagashin": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [74.73, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 2,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/nagashin_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/nagashin",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"raio_raikiri": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [114.4, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 3,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/raikiri_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/raikiri",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"raio_shiden": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [94.73, -64.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 4,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/shiden_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/raio/shiden",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"corte_de_agua": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-206.3, -141.9],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 5,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/corte_de_agua_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/corte_de_agua",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"corte_de_agua": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-206.3, -102.13],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 6,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/grande_onda_choque_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/grande_onda_choque_",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"prisao_agua_": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-226, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 7,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/prisao_agua_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/prisao_agua_",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"saudacao_agua_": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-186.5, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 8,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/saudacao_agua_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/saudacao_agua_",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"tubarao_triplo": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-206.3, -64.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 9,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/tubarao_triplo_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/agua/tubarao_triplo",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"disparos_terra": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [195, -141.9],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 10,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/disparos_terra_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/disparos_terra",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"esconderijo_toupeira": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [195, -102.13],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 11,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/esconderijo_toupeira_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/esconderijo_toupeira",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"mao_terra": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [175.1, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 12,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/mao_terra_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/mao_terra",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"prisao_terra": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [195, -64.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 13,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/prisao_terra_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/prisao_terra_",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"terra_sanduiche": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [214.6, -83.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 14,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/terra_sanduiche_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/terra/terra_sanduiche",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"bola_fogo": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-5.52, -141.9],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 15,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/bola_fogo_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/bola_fogo",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"esfera_fogo_lock": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-5.52, -102.13],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 16,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/esfera_fogo_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/esfera_fogo",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"aniquilacao_fogo_lock": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-5.52, -64.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 17,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/aniquilacao_fogo_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/fogo/aniquilacao_fogo",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"esfera_vacuo": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-106, -141.9],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 18,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/vento/esfera_vacuo_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/vento/esfera_vacuo",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+{
+"rasen_shuriken": {
+"type": "stack_panel",
+"size": [24.6, 24.6],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-106, -102.13],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 19,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/vento/rasen_shuriken_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_jutsus/vento/rasen_shuriken",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}}
+          ]
+        }
+      }
+    ]
+  }
+}

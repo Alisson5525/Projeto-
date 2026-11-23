@@ -1,0 +1,61 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+         "controller.animation.chidori": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "chidori": "q.scoreboard('chakra') >= 50 && query.get_equipped_item_name=='chidori' && query.is_using_item"},
+            { "chidori_negro": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='chidori_negro' && query.is_using_item"},
+            { "raikiri": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name=='raikiri' && query.is_using_item"},
+            {"chidori_nagashi": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name=='chidori_nagashi' && query.is_using_item"}
+
+          ]
+        },
+
+
+        
+        
+"chidori": {
+            "animations": ["chidori_load_animaation"],
+            "on_exit": [
+            "/scoreboard players remove @s chakra 50",
+            "/playsound chidori_load_atk @a[r=15] ^^^3 ",
+            "/tag @s add chidori",
+            "/damage @e[rm=1,r=4] 15"
+            ],"transitions": [{ "default": "!query.is_using_item" }]},
+
+
+
+"chidori_negro": {
+            "animations": ["chidori_negro_load_animaation"],
+            "on_exit": [
+            "/scoreboard players remove @s chakra 70",
+            "/playsound chidori_load_atk @a[r=15] ^^^3 ",
+            "/tag @s add chidori_negro",
+            "/damage @e[rm=1,r=4] 20"
+            ],"transitions": [{ "default": "!query.is_using_item" }]},
+
+
+
+"raikiri": {
+            "animations": ["raikiri_load_animaation"],
+            "on_exit": [
+            "/scoreboard players remove @s chakra 80",
+            "/playsound chidori_load_atk @a[r=15] ^^^3 ",
+            "/tag @s add raikiri",
+            "/damage @e[rm=1,r=4] 15"         
+            ],"transitions": [{ "default": "!query.is_using_item" }]},
+
+"chidori_nagashi": {
+            "animations": ["chidori_nagashi_animation"],
+            "on_entry": ["/scoreboard players remove @s chakra 70"],
+            "transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]}
+
+
+
+
+      }
+    }
+    }
+}

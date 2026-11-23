@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+  "controller.animation.boss_skill_shukaku": {
+      "states": {
+        "default": {
+          "transitions": [
+
+            { "combo1": "query.property('skill:shukaku_biju') == 4"},
+
+            { "combo1": "query.property('skill:shukaku_biju') == 1 && q.has_target && query.is_alive"},
+            { "combo2": "query.property('skill:shukaku_biju') == 2 && q.has_target && query.is_alive"},
+            { "special": "query.property('skill:shukaku_biju') == 3 && q.has_target && query.is_alive"},
+            { "bola_ar": "query.property('skill:shukaku_biju') == 5 && q.has_target && query.is_alive"}
+
+          ]
+        },
+        "combo1": {
+          "animations": ["skill_1"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "combo2": {
+          "animations": ["skill_2"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "special": {
+          "animations": ["skill_3"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+          "bola_ar": {
+          "animations": ["skill_4"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        }
+      }
+    }
+  }
+}

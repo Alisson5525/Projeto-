@@ -1,0 +1,21 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+     "animation.mao_terra_load_animaation": {
+      "loop": true,
+      "animation_length": 0.8,
+      "timeline": {
+        "0.0": [
+          "/playanimation @s animation.mao_terra_skill_1"
+        ],
+        "0.5": [
+          "/playsound dig.deepslate_bricks @a[r=15]"
+        ],
+        "0.7": [   
+          
+        ]
+      }
+    }
+
+  }
+}

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.remover_membros_ativo": {
+			"loop": true,
+			"bones": {
+				"braco_mk1_all_1": {
+					"scale": 0
+				},
+				"braco_mk1_all_2": {
+					"scale": 0
+				},
+				"cabeca_chakra_kurama": {
+					"scale": 0
+				},
+				"braco_mk2_all_1": {
+					"scale": 0
+				},
+				"braco_mk2_all_2": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

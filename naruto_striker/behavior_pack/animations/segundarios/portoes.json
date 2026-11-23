@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.lotos_frontal_animation": {
+      "animation_length": 1.3,
+      "timeline": {
+        "0.0": [
+         "/playanimation @s animation.lotos_frontal",
+          "/tp @e[rm=1,r=3] ~ ~2  ~","/particle tnt:lotos_frontal ~ ~2 ~ ","/damage @e[rm=1,r=4] 4",
+          "/effect @s levitation 1 10 true"
+        ],
+        "0.1": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ "
+        ],
+        "0.2": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ ","/damage @e[rm=1,r=4] 4"
+        ],
+        "0.3": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ "
+        ],
+        "0.4": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ ","/damage @e[rm=1,r=4] 4"
+        ],
+        "0.5": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ "
+        ],
+        "0.6": [
+          "/tp @e[rm=1,r=3] ~ ~4  ~","/particle tnt:lotos_frontal ~ ~2 ~ ","/damage @e[rm=1,r=4] 4"
+        ],
+        "0.7": [
+          "/tp @e[rm=1,r=5] ^^1^4","/tp @s ~ ~ ~ ~ 90","/particle tnt:lotos_frontal ~ ~2 ~ "
+        ],
+        "0.8": [
+          "/tp @e[rm=1,r=4] ^^1^3",
+          "/tag @s add dash","/particle tnt:lotos_frontal ~ ~2 ~ ","/damage @e[rm=1,r=3] 4"
+        ],
+        "0.9": [
+          "/tp @e[rm=1,r=4] ^^1^3"
+        ],
+        "1.0": [
+          "/tp @e[rm=1,r=4] ^^1^2","/damage @e[rm=1,r=3] 4"
+        ],
+        "1.1": [
+          "/tp @e[rm=1,r=3] ^^1^1"
+        ],
+        "1.2": [
+          "/tp @e[rm=1,r=3] ~ ~1 ~","/damage @e[rm=1,r=2] 4"
+        ]
+      }
+    }
+  }
+}

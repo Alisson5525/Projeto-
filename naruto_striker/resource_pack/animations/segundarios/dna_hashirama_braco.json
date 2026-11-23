@@ -1,0 +1,149 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dna_hashirama_braco_olho_8": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_7": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_6": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_5": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin4": {
+					"rotation": [-180, 0, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_4": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin4": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin5": {
+					"rotation": [180, 0, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_3": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin2": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin4": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin5": {
+					"rotation": [180, 0, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_2": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin2": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin4": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin5": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin7": {
+					"rotation": [0, -180, 0]
+				}
+			}
+		},
+		"animation.dna_hashirama_braco_olho_1": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"override_previous_animation": true,
+			"bones": {
+				"sharin1": {
+					"rotation": [0, -180, 0]
+				},
+				"sharin2": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin3": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin4": {
+					"rotation": [-180, 0, 0]
+				},
+				"sharin5": {
+					"rotation": [180, 0, 0]
+				},
+				"sharin6": {
+					"rotation": [0, 180, 0]
+				},
+				"sharin7": {
+					"rotation": [0, -180, 0]
+				}
+			}
+		}
+	}
+}

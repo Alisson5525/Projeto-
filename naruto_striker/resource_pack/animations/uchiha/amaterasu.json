@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.amaterasu": {
+			"loop": true,
+			"override_previous_animation": true,
+			"particle_effects": {
+				"0.0": {
+					"effect": "amaterasu",
+					"locator": "amaterasu_projetil"
+				}
+			}
+		}
+	}
+}

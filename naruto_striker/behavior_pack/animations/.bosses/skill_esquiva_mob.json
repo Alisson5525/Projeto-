@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.skill_esquiva_mob": {
+      "loop": false,
+      "animation_length": 4.1,
+			"timeline": {
+				 "0.0": ["/particle tnt:rasengan_impact_fumaca","/execute at @e[rm=0.5,r=6,c=1,type=!item] run tp @s ^1.5^1^-1.5 facing @s"]
+      }
+    }
+  }
+}

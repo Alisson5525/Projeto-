@@ -1,0 +1,135 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:meteorio_rine",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "meteorio_destruido",
+          "meteorio"
+            ]
+    },
+    "animations":{
+      "meteorio_destruido": "controller.animation.meteorio_destruido",
+      "meteorio": "controller.animation.meteorio"
+    }
+    },
+    "component_groups": {
+    "meteorio_chao": {
+            "minecraft:explode": {
+        "fuse_length": 0.1,
+        "fuse_lit": true,
+        "power": 1,
+        "causes_fire": false
+      }
+
+    },
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer", "despawer_despawning" ]
+        }
+      }
+    },
+    "components": {
+ 
+      "minecraft:type_family": {
+        "family": [ "jutsu" ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/.json"
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.5
+      },
+      "minecraft:scale": {
+        "value": 15.0
+      },
+      "minecraft:health": {
+        "value": 200,
+        "max": 200
+      },
+      "minecraft:can_climb": {},
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": true
+        }
+      },
+      "minecraft:timer": {
+        "time": 100,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 100
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+      "minecraft:jump.static": {
+        "value": 1.0
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {},
+      "minecraft:physics": {}
+    },
+    "events": {
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        },
+          "queue_command": {
+          "command": [
+            "particle tnt:meteorio_fumasa_destruir"
+          ]
+        }
+      },
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "effect @s slow_falling infinite 255 true"
+          ]
+        }
+      },
+            "meteorio_chao": {
+        "add": {
+          "component_groups": [
+            "meteorio_chao"
+          ]
+        }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+      }
+    }
+  }
+}
+  

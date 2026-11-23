@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:pergaminho_miss_c",
+      "materials": {
+        "default": "egg",
+        "outline": "outline"
+      },
+      "textures": {
+         "outline_2": "textures/bosses/outline/pergaminho_borda",
+        "default": "textures/bosses/biju/pergaminho_biju"
+      },
+      "geometry": {
+       "outline_2": "geometry.pergaminho_borda",
+        "default": "geometry.pergaminho_miss_c"
+      },
+
+      "render_controllers": [ "controller.render.item_sprite","controller.render.outline_2" ],
+      "animations": {
+        "drop_pergaminho": "animation.drop_pergaminho"
+        
+      },
+      "scripts": {
+        "animate": [
+          "drop_pergaminho"
+        ]
+      }
+    }
+  }
+} 
