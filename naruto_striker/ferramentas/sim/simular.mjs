@@ -80,7 +80,9 @@ if (process.env.MENUS) {
   }
   steps(100);
 }
-se('ns:lua_vermelha',p1); steps(60); console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cmds.filter(c=>c.c.startsWith('fog')).length); steps(1300);
+se('ns:config',p1,''); se('ns:config',p1,'kawarimi off'); se('ns:config',p1,'kawarimi talvez'); se('ns:config',p1,'kawarimi on'); se('ns:config',undefined,'elite off'); se('ns:config',p1,'elite on');
+se('ns:lua_vermelha',p1); steps(60); console.log('cfg msgs', p1.msgs.filter(m=>m.includes('Naruto Striker+]')).slice(-4).join(' || ').slice(0,400));
+console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cmds.filter(c=>c.c.startsWith('fog')).length); steps(1300);
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('ticks',S.tick,'cmds',S.cmds.length,'particles',S.particles.length,'errors',S.errors.length);

@@ -118,4 +118,16 @@ resource_pack/animation_controllers/ninja_estilo.json
 build.sh                    gera o .mcaddon
 ```
 
+### Configuração do mundo (admin/servidor)
+
+`/scriptevent ns:config` mostra o estado; `/scriptevent ns:config <opção> <on|off>` liga/desliga:
+`kawarimi`, `elite`, `furia`, `esconderijo`, `lua_vermelha`, `ambiente`, `exploracao`.
+Cada jogador também tem seus ajustes visuais no Pergaminho Ninja.
+
+### Decisões de segurança
+
+- Críticos e empurrões **não** finalizam nem deslocam chefes/missões/NPCs (ficam com no mínimo 1 de vida), para não pular eventos roteirizados.
+- O nome dos jogadores **não** é alterado (o sistema VIP original identifica jogadores por `name=`).
+- Esconderijos só são colocados em espaço vazio sobre chão firme (nunca substituem blocos).
+
 Comandos úteis: `/scriptevent ns:perfil` (abre o perfil), `/scriptevent ns:bingo` (abre o Livro Bingo).

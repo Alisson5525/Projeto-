@@ -174,3 +174,39 @@ export function aleatorio(min, max) {
 }
 
 export const tick = () => system.currentTick;
+
+/* ---------------- Configuracao do mundo (admin) ----------------
+   /scriptevent ns:config <opcao> <on|off>
+   opcoes: kawarimi, elite, furia, esconderijo, lua_vermelha, ambiente, exploracao */
+const MUNDO_PADRAO = { kawarimi: true, elite: true, furia: true, esconderijo: true, lua_vermelha: true, ambiente: true, exploracao: true };
+
+export function mundoCfg(chave) {
+  try {
+    const v = world.getDynamicProperty("ns:mundo_cfg");
+    const o = typeof v === "string" ? JSON.parse(v) : {};
+    return (o[chave] ?? MUNDO_PADRAO[chave]) !== false;
+  } catch {
+    return MUNDO_PADRAO[chave] !== false;
+  }
+}
+
+system.afterEvents.scriptEventReceive.subscribe((ev) => {
+  if (ev.id !== "ns:config") return;
+  const quem = ev.sourceEntity;
+  const responder = (t) => { try { if (quem && quem.typeId === PLAYER) quem.sendMessage(t); else console.warn(t); } catch {} };
+  const [opcao, valor] = (ev.message || "").trim().split(/\s+/);
+  let o = {};
+  try { const v = world.getDynamicProperty("ns:mundo_cfg"); o = typeof v === "string" ? JSON.parse(v) : {}; } catch {}
+  if (!opcao || !(opcao in MUNDO_PADRAO)) {
+    const linhas = Object.keys(MUNDO_PADRAO).map((k) => `§7- ${k}: ${(o[k] ?? MUNDO_PADRAO[k]) !== false ? "§aon" : "§coff"}`);
+    responder(`§6[Naruto Striker+] Configuração do mundo\n${linhas.join("\n")}\n§7Uso: /scriptevent ns:config <opção> <on|off>`);
+    return;
+  }
+  if (valor !== "on" && valor !== "off") {
+    responder("§cUse on ou off.");
+    return;
+  }
+  o[opcao] = valor === "on";
+  try { world.setDynamicProperty("ns:mundo_cfg", JSON.stringify(o)); } catch {}
+  responder(`§6[Naruto Striker+] §f${opcao} §7=> ${valor === "on" ? "§aon" : "§coff"}`);
+});

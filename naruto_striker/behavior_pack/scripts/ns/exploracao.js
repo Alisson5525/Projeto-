@@ -1,7 +1,7 @@
 // Exploracao: o mundo e dividido em regioes nomeadas (estilo mundo ninja).
 // Descobrir uma regiao nova da XP; a cada 4 regioes um "Pergaminho Perdido" da TP.
 import { world, system } from "@minecraft/server";
-import { ehJogador, lerNum, lerJSON, gravarJSON, somarScore, particula, som, msg } from "./util";
+import { ehJogador, lerNum, lerJSON, gravarJSON, somarScore, particula, som, msg, mundoCfg } from "./util";
 import { darXP, somarStat } from "./progressao";
 
 const TAM_REGIAO = 192;
@@ -116,6 +116,7 @@ system.runInterval(() => {
 world.afterEvents.playerLeave.subscribe((ev) => ultimaRegiao.delete(ev.playerId));
 
 system.runInterval(() => {
+  if (!mundoCfg("exploracao")) return;
   for (const player of world.getPlayers()) {
     try {
       if (!ehJogador(player)) continue;
@@ -150,7 +151,7 @@ system.runInterval(() => {
       particula(player.dimension, "tnt:ns_folhas", loc);
       darXP(player, xp, "exploracao");
 
-      if (Math.random() < CHANCE_ESCONDERIJO) criarEsconderijo(player);
+      if (mundoCfg("esconderijo") && Math.random() < CHANCE_ESCONDERIJO) criarEsconderijo(player);
 
       if (total % 4 === 0) {
         const tp = 60 + Math.min(240, total * 4);

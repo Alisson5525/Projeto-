@@ -3,7 +3,7 @@
 //  - "Noite da Lua Vermelha": evento noturno raro com névoa vermelha,
 //    XP em dobro e mais ninjas de elite.
 import { world, system } from "@minecraft/server";
-import { ehJogador, particula, som, msg, tremer, aleatorio } from "./util";
+import { ehJogador, particula, som, msg, tremer, aleatorio, mundoCfg } from "./util";
 
 /* ------------------------------------------------------------------ */
 /* Ambiente                                                            */
@@ -22,6 +22,7 @@ const ehNoite = () => {
 };
 
 system.runInterval(() => {
+  if (!mundoCfg("ambiente")) return;
   const noite = ehNoite();
   for (const player of world.getPlayers()) {
     try {
@@ -101,7 +102,7 @@ system.runInterval(() => {
     return;
   }
   if (noite && !noiteAnterior) {
-    if (Math.random() < CHANCE_POR_NOITE && world.getAllPlayers().length > 0) comecar();
+    if (mundoCfg("lua_vermelha") && Math.random() < CHANCE_POR_NOITE && world.getAllPlayers().length > 0) comecar();
   } else if (!noite && noiteAnterior && luaVermelhaAtiva()) {
     terminar();
   }

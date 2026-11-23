@@ -1,7 +1,7 @@
 // IA ninja: Kawarimi no Jutsu (substituicao) para os ninjas do mundo e
 // fase de furia para chefes (vida maxima >= 500) ao cair abaixo de 50% de vida.
 import { world, system } from "@minecraft/server";
-import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio } from "./util";
+import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio, mundoCfg } from "./util";
 import { textoFlutuante } from "./combate";
 import { luaVermelhaAtiva } from "./eventos";
 
@@ -58,6 +58,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const ninja = ev.hurtEntity;
     if (!valido(ninja) || !NINJAS.has(ninja.typeId)) return;
+    if (!mundoCfg("kawarimi")) return;
     const player = ev.damageSource?.damagingEntity;
     if (!ehJogador(player)) return;
     if (player.dimension.id !== ninja.dimension.id) return;
@@ -110,6 +111,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const chefe = ev.hurtEntity;
     if (!valido(chefe) || chefe.typeId === "minecraft:player") return;
+    if (!mundoCfg("furia")) return;
     const vida = chefe.getComponent("health");
     if (!vida || vida.effectiveMax < 500) return;
     if (vida.currentValue <= 0 || vida.currentValue > vida.effectiveMax * 0.5) return;
@@ -187,6 +189,7 @@ world.afterEvents.entitySpawn.subscribe((ev) => {
     const e = ev.entity;
     if (!valido(e) || !NINJAS.has(e.typeId)) return;
     if (e.hasTag("ns_elite") || e.getDynamicProperty("ns:sorteado")) return;
+    if (!mundoCfg("elite")) return;
     gravar(e, "ns:sorteado", true);
     if (Math.random() < CHANCE_ELITE * (luaVermelhaAtiva() ? 3 : 1)) system.run(() => { if (valido(e)) tornarElite(e); });
   } catch {}
