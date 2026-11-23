@@ -8,13 +8,12 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-
         "minecraft:weight": {
           "default": 100
         },
         "minecraft:herd": {
-          "min_size": 10,
-          "max_size": 30
+          "min_size": 3,
+          "max_size": 7
         },
         "minecraft:biome_filter": {
           "any_of": [
@@ -24,6 +23,9 @@
               "value": "pale_garden"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 14
         }
       }
     ]
