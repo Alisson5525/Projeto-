@@ -8,6 +8,7 @@ echo "== 1/4 JSON";            node ferramentas/validar_json.js . | tail -1 | gr
 echo "== 2/4 Referencias (itens 'TEX?', item_sprite, zombie, cape, skeleton, persona sao do vanilla)"
 node ferramentas/referencias.js . | head -3
 echo "== 3/4 Entidades e eventos"; node ferramentas/entidades.js behavior_pack | grep -v "despawning\|transformation not on player"
+echo "== Animacoes (overshoot)"; node ferramentas/animacoes.js resource_pack
 echo "== 4/4 Simulacao dos scripts"
 (cd ferramentas/sim && node --import ./registrar.mjs simular.mjs "$(cd ../.. && pwd)" | grep -E "^ticks|^ERR|^      |UNKNOWN|^   [a-z]|RESULTADO") || falhou=1
 (cd ferramentas/sim && LUCKY=1 node --import ./registrar.mjs simular.mjs "$(cd ../.. && pwd)" | grep -E "RESULTADO") || falhou=1
