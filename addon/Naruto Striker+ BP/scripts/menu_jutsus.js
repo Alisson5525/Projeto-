@@ -40,7 +40,7 @@ function criarTexto(tag, cor, namejutsu2, cor2, namejutsu, chakra, combo, custo,
 §${cor}Estilo ${namejutsu2}.
 §${cor2}${namejutsu} 
 
-§fInformaçoes
+§fInformações
 §7Gasto de Chakra: §a${chakra} 
 
 §7Combos: ${combo} 
@@ -61,30 +61,30 @@ export function menu_jutsus(player) {
 
   const textos = [
 
-    criarTexto("jutsu_r_chidori", "b", "Raio", "e", "Chidori", "50", "§cnao", 400, "Estilo Raio.\n§eChidori"),
-    criarTexto("jutsu_r_chidori_negro", "b", "Raio", "e", "Chidori Negro", "70", "§cnao", 800, "Estilo Raio.\n§eChidori"),
-    criarTexto("jutsu_r_chidori_nagashin", "b", "Raio", "e", "Chidori Nagashin", "70", "§cnao", 900, "Estilo Raio.\n§eChidori"),
-    criarTexto("jutsu_r_chidori_raikiri", "b", "Raio", "e", "Chidori Raikiri", "80", "§cnao", 1000, "Estilo Raio.\n§eChidori"),
+    criarTexto("jutsu_r_chidori", "b", "Raio", "e", "Chidori", "50", "§cnão", 400, "Estilo Raio.\n§eChidori"),
+    criarTexto("jutsu_r_chidori_negro", "b", "Raio", "e", "Chidori Negro", "70", "§cnão", 800, "Estilo Raio.\n§eChidori"),
+    criarTexto("jutsu_r_chidori_nagashin", "b", "Raio", "e", "Chidori Nagashin", "70", "§cnão", 900, "Estilo Raio.\n§eChidori"),
+    criarTexto("jutsu_r_chidori_raikiri", "b", "Raio", "e", "Chidori Raikiri", "80", "§cnão", 1000, "Estilo Raio.\n§eChidori"),
     criarTexto("jutsu_r_shiden", "b", "Raio", "e", "Shiden", "80", "§aSim", 1500, "Estilo Raio.\n§eChidori"),
 
-    criarTexto("jutsu_a_lamina", "9", "Agua", "e", "Lamina De Agua", "70", "§cnao", 300, "Estilo Agua.\n§eLamina De Agua"),
-    criarTexto("jutsu_a_onda_choque", "9", "Agua", "e", "Grande Onda De Choque", "60", "Absover Chakra", 1000, "Estilo Agua.\n§eGrande Onda De Choque"),
-    criarTexto("jutsu_a_prisao_agua", "9", "Agua", "e", "Prisao De Aagua", "125", "§cnao", 1500, "Estilo Agua.\n§ePrisao De Aagua"),
-    criarTexto("jutsu_a_saudacao", "9", "Agua", "e", "Saudacao De Agua", "70", "§cnao", 450, "Estilo Agua.\n§eSaudacao De Agua"),
-    criarTexto("jutsu_a_tubarao", "9", "Agua", "e", "Tubarao Triplo", "70", "§cnao", 1700, "Estilo Agua.\n§eTubarao Triplo"),
+    criarTexto("jutsu_a_lamina", "9", "Agua", "e", "Lâmina De Água", "70", "§cnão", 300, "Estilo Água.\n§eLâmina De Água"),
+    criarTexto("jutsu_a_onda_choque", "9", "Agua", "e", "Grande Onda De Choque", "60", "Absover Chakra", 1000, "Estilo Água.\n§eGrande Onda De Choque"),
+    criarTexto("jutsu_a_prisao_agua", "9", "Agua", "e", "Prisão De Água", "125", "§cnão", 1500, "Estilo Água.\n§ePrisão De Água"),
+    criarTexto("jutsu_a_saudacao", "9", "Agua", "e", "Saudação De Água", "70", "§cnão", 450, "Estilo Água.\n§eSaudação De Água"),
+    criarTexto("jutsu_a_tubarao", "9", "Agua", "e", "Tubarão Triplo", "70", "§cnão", 1700, "Estilo Água.\n§eTubarão Triplo"),
 
-    criarTexto("jutsu_t_disparos_terra", "6", "terra", "e", "Disparos De Terra", "60", "§cnao", 600, "Estilo Terra.\n§eDisparos De Terra"),
-    criarTexto("jutsu_t_toupeira", "6", "terra", "e", "Esconderijo Da Toupeira", "60", "§cnao", 250, "Estilo Terra.\n§eEsconderijo Da Toupeira"),
-    criarTexto("jutsu_t_punho", "6", "terra", "e", "Punho De Terra", "90", "§cnao", 300, "Estilo Terra.\n§ePunho De Terra"),
-    criarTexto("jutsu_t_prisao", "6", "terra", "e", "Prisao De Terra", "125", "§cnao", 600, "Estilo Terra.\n§ePrisao De Terra"),
-    criarTexto("jutsu_t_sanduiche", "6", "terra", "e", "Terra Sanduiche", "200", "§cnao", 1200, "Estilo Terra.\n§eTerra Sanduiche"),
+    criarTexto("jutsu_t_disparos_terra", "6", "terra", "e", "Disparos De Terra", "60", "§cnão", 600, "Estilo Terra.\n§eDisparos De Terra"),
+    criarTexto("jutsu_t_toupeira", "6", "terra", "e", "Esconderijo Da Toupeira", "60", "§cnão", 250, "Estilo Terra.\n§eEsconderijo Da Toupeira"),
+    criarTexto("jutsu_t_punho", "6", "terra", "e", "Punho De Terra", "90", "§cnão", 300, "Estilo Terra.\n§ePunho De Terra"),
+    criarTexto("jutsu_t_prisao", "6", "terra", "e", "Prisão De Terra", "125", "§cnão", 600, "Estilo Terra.\n§ePrisão De Terra"),
+    criarTexto("jutsu_t_sanduiche", "6", "terra", "e", "Terra Sanduíche", "200", "§cnão", 1200, "Estilo Terra.\n§eTerra Sanduíche"),
 
-    criarTexto("jutsu_f_bola_fogo", "c", "fogo", "e", "Bola de Fogo", "90", "§cnao", 500, "Estilo Fogo.\n§eBola de Fogo"),
-    criarTexto("jutsu_f_esfera_fogo", "c", "fogo", "e", "Esfera de Fogo", "60", "§cnao", 300, "Estilo Fogo.\n§eEsfera de Fogo"),
-    criarTexto("jutsu_f_aniquilacao_fogo", "c", "fogo", "e", "Aniquilacao de Fogo", "200", "§cnao", 1700, "Estilo Fogo.\n§eAniquilacao de Fogo"),
+    criarTexto("jutsu_f_bola_fogo", "c", "fogo", "e", "Bola de Fogo", "90", "§cnão", 500, "Estilo Fogo.\n§eBola de Fogo"),
+    criarTexto("jutsu_f_esfera_fogo", "c", "fogo", "e", "Esfera de Fogo", "60", "§cnão", 300, "Estilo Fogo.\n§eEsfera de Fogo"),
+    criarTexto("jutsu_f_aniquilacao_fogo", "c", "fogo", "e", "Aniquilação de Fogo", "200", "§cnão", 1700, "Estilo Fogo.\n§eAniquilação de Fogo"),
 
-    criarTexto("jutsu_v_esfera_vento", "7", "vento", "e", "Esferas de Vento", "50", "§cnao", 200, "Estilo Vento.\n§eEsferas de Vento"),
-    criarTexto("jutsu_v_rasen_shuriken", "7", "vento", "e", "Rasen Shuriken", "125", "§cnao", 1200, "Estilo Vento.\n§eRasen Shuriken"),
+    criarTexto("jutsu_v_esfera_vento", "7", "vento", "e", "Esferas de Vento", "50", "§cnão", 200, "Estilo Vento.\n§eEsferas de Vento"),
+    criarTexto("jutsu_v_rasen_shuriken", "7", "vento", "e", "Rasen Shuriken", "125", "§cnão", 1200, "Estilo Vento.\n§eRasen Shuriken"),
 
 
 

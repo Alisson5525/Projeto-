@@ -28,7 +28,7 @@ export function menu_inicial(player) {
   const form = new ActionFormData();
   form.title("ui.menu_inicial.title");
 
-  form.button("§oProximo");
+  form.button("§oPróximo");
 
   form.show(player).then((response) => {
     switch (response.selection) {

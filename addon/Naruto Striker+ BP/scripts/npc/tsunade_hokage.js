@@ -40,13 +40,13 @@ Vou permitir sua entrada na aldeia, mas a confiança só será conquistada atrav
 
 §c[!]. §eÉ necessário completar as três primeiras missões do modo clássico.
 
-§fMissao §arank §eD.
-§fMissao §arank §eC.
-§fMissao §arank §eB.
+§fMissão §arank §eD.
+§fMissão §arank §eC.
+§fMissão §arank §eB.
 
 `;
 
-  const corBotao1 = hasTag ? "§aMissoes Completa" : "§eSe Tornar Ninja Da Folha";
+  const corBotao1 = hasTag ? "§aMissões Completa" : "§eSe Tornar Ninja Da Folha";
   const corBotao2 = hasTag ? "§o§l§eOutros.." : "§cVoltar Depois";
   const corBotao3 = hasTag ? "§eInfo: §aNinja Da Folha" : "§eInfo:§c forasteiro";
 
@@ -80,8 +80,8 @@ npc_tsunade_hokage_pg2(player);
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Voce E um Membro Da Aldeia Da Folha"}]}');
-player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missoes Para Se Tornar um ninja da Folha"}]}');
+player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
+player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
 break;
 
     }
@@ -107,7 +107,7 @@ export function npc_tsunade_hokage_pg2(player) {
 §fEsse treinamento será §4extremamente difícil§f,
 §fe apenas os verdadeiramente fortes chegam até o fim!
 
-§ainformaçoes.
+§ainformações.
 §a________________________________________
 
 §c[!].§e Jutsu Medico:  §frequer §a500 tp.
@@ -122,7 +122,7 @@ export function npc_tsunade_hokage_pg2(player) {
 
 `
   : 
-  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissao.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldiçao.";
+  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissão.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldição.";
 
   const corBotao3 = hasTag ? "" : "";
 

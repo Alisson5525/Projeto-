@@ -38,8 +38,8 @@ export function npc_jiraiya(player) {
 `§fEntão… você quer aprender o §eRasengan, §fé?
 Muito bem! Eu, §aJiraiya, §fum dos Três Sannins Lendários, irei te ensinar.
 
-§aInformaçoes do Treinamento.
-§fRequer §bchakra nivel 3.
+§aInformações do Treinamento.
+§fRequer §bchakra nível 3.
 
 §c[!] §bRasengan: §ecusta §a§a700. tp,
 ` 
@@ -55,7 +55,7 @@ torne-se um §eninja de Konoha!
 §c[!] §eFale diretamente com a Hokage!
 `;
 
-  const corBotao1 = hasTag ? "§aTecnica Rasengan" : "§eOk, irei falar com ela";
+  const corBotao1 = hasTag ? "§aTécnica Rasengan" : "§eOk, irei falar com ela";
   const corBotao2 = hasTag ? "§eVoltar" : "§cVoltar Depois";
   const corBotao3 = hasTag ? "§bComprar Balao" : "§eInfo:§c forasteiro";
 
@@ -86,8 +86,8 @@ case 1:
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Voce E um Membro Da Aldeia Da Folha"}]}');
-player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missoes Para Se Tornar um ninja da Folha"}]}');
+player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
+player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
 break;
 
     }

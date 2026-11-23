@@ -1,6 +1,6 @@
 tellraw @s {"rawtext":[{"text":"§aBraço danzo Implantado"}]}
 tellraw @s {"rawtext":[{"text":"§e+150 De Vida"}]}
-tellraw @s {"rawtext":[{"text":"§e+Regeneraçao."}]}
+tellraw @s {"rawtext":[{"text":"§e+Regeneração."}]}
 scoreboard players add @s health_dna 150
 event entity @s celula:dna_hashirama
 scoreboard players set @s isanagi 0

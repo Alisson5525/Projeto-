@@ -395,7 +395,7 @@
       "tnt:morrer": {
         "queue_command": {
           "command": [
-            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissão Completa\"}]}",
             "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e300.Tp\"}]}",
             "tag @s add missao_5_c",
             "scoreboard players add @s tp 300"

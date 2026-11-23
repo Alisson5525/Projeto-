@@ -366,7 +366,7 @@
             },
             "queue_command": {
               "command": [
-                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+                "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissão Completa\"}]}",
                 "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e500.Tp\"}]}",
                 "scoreboard players add @s tp 500",
                 "tag @s add missao_9_c"
@@ -578,7 +578,7 @@
       "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §cSua missão não foi concluída\"}]}"
           ]
         },
         "add": {

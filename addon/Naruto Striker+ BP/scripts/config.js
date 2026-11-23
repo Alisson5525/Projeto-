@@ -335,7 +335,7 @@ marca_v1: {
           scoreTime: "tempo_doujutsu_slot_2",
           tempo: 180,
           cmdStart: [
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldiçao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldição §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 15",
                   "scoreboard players add @s dano_stats 3",
                   "tag @s add modo_ativado_2",
@@ -354,7 +354,7 @@ marca_v2: {
           tempo: 360,
           cmdStart: [
                   "playsound marca_2 @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldiçao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldição §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 35",
                   "scoreboard players add @s dano_stats 5",
                   "tag @s add modo_ativado_2",
@@ -373,7 +373,7 @@ marca_v3: {
           tempo: 180,
           cmdStart: [
                   "playsound marca_2 @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldiçao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aMarca da Maldição §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 60",
                   "scoreboard players add @s dano_stats 7",
                   "effect @s speed 180 1 true",            
@@ -448,7 +448,7 @@ portao_1: {
           tempo: 120,
           cmdStart: [
                  "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aPrimeiro Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aPrimeiro Portão §eAtivado\"}]}",
                   "scoreboard players add @s dano_stats 4",
                   "tag @s add modo_ativado_2",
                   "tag @s add portoes_cooldown"
@@ -465,7 +465,7 @@ portao_2: {
           tempo: 120,
           cmdStart: [
                   "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSegundo Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSegundo Portão §eAtivado\"}]}",
                   "scoreboard players add @s dano_stats 4",
                   "tag @s add modo_ativado_2",
                   "tag @s add portoes_cooldown"
@@ -482,7 +482,7 @@ portao_3: {
           tempo: 120,
           cmdStart: [
                   "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aTerceiro Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aTerceiro Portão §eAtivado\"}]}",
                   "scoreboard players add @s dano_stats 5",
                   "tag @s add modo_ativado_2",
                   "tag @s add portoes_cooldown"
@@ -499,7 +499,7 @@ portao_4: {
           tempo: 180,
           cmdStart: [
                   "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aQuarto Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aQuarto Portão §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 20",
                   "scoreboard players add @s dano_stats 6",
                   "tag @s add modo_ativado_2",
@@ -518,7 +518,7 @@ portao_5: {
           tempo: 180,
           cmdStart: [
                   "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aQuinto Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aQuinto Portão §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 25",
                   "scoreboard players add @s dano_stats 6",
                   "tag @s add modo_ativado_2",
@@ -537,7 +537,7 @@ portao_6: {
           tempo: 360,
           cmdStart: [
                   "playsound modo_sabio @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSexto Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSexto Portão §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 80",
                   "scoreboard players add @s dano_stats 8",
                   "tag @s add modo_ativado_2",
@@ -556,7 +556,7 @@ portao_7: {
           tempo: 360,
           cmdStart: [
                   "playsound rinnegan @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSetimo Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aSétimo Portão §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 400",
                   "scoreboard players add @s dano_stats 14",
                   "effect @s speed 180 2 true",            
@@ -581,7 +581,7 @@ portao_8: {
           tempo: 120,
           cmdStart: [
                   "playsound rinnegan @a[r=15] ^^^2",
-                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aOitavo Portao §eAtivado\"}]}",
+                  "tellraw @s {\"rawtext\":[{\"text\":\"§c[slot.2]§f: §aOitavo Portão §eAtivado\"}]}",
                   "scoreboard players add @s health_stats3 800",
                   "scoreboard players add @s dano_stats 30",
                   "effect @s speed 120 3 true",            

@@ -43,13 +43,13 @@ function pergaminho(tag, nome, info, texto_2,) {
 §fComplete os requisitos.
 §7${texto_2}
 
-§fInformaçoes.
+§fInformações.
 §7${info}
 
 `
   : `§aPergaminho Ninja Completo.
 
-§fInformaçoes.
+§fInformações.
 §7Você desbloqueou a capacidade\nde evoluir seu status!
 `;
   }
@@ -66,7 +66,7 @@ function criarTexto(tag, nome, info, texto_2, texto_3, custo, itemname2) {
       ? `§0Lock 
 §e${nome}
 
-§fInformaçoes
+§fInformações
 §7${info}
 
 §fComplete os requisitos.
@@ -76,7 +76,7 @@ function criarTexto(tag, nome, info, texto_2, texto_3, custo, itemname2) {
 
 §7Seu Tp atual: §e${score_tp}
 
-§aBonus
+§aBônus
 §7${texto_3}
 
 `
@@ -92,41 +92,41 @@ export function menu_status(player) {
   const textos = [
 
     pergaminho("pergaminha_ninja_lock",   "Pergaminho Ninja.", "Liberar a árvore de status\npodendo aumentar o \n§bchakra\n§avida\n§cforça\n§dhabilidades.\n§7e podendo dar o §freset.",  "Faça a missão inicial,\npara desbloquear o status"),
-    criarTexto("vida_status_1",   "Vida Nivel 1.", "+20 de Vida",  "Sem Requisitos", "Sem Bonus",  "300",  "§aVida Nivel 1."),
-    criarTexto("vida_status_2",   "Vida Nivel 2.", "+20 de Vida",  "Sem Requisitos", "Sem Bonus",  "600",  "§aVida Nivel 2."),
-    criarTexto("vida_status_3",   "Vida Nivel 3.", "+40 de Vida",  "Sem Requisitos", "Sem Bonus",  "1400",  "§aVida Nivel 3."),
+    criarTexto("vida_status_1",   "Vida Nível 1.", "+20 de Vida",  "Sem Requisitos", "Sem Bônus",  "300",  "§aVida Nível 1."),
+    criarTexto("vida_status_2",   "Vida Nível 2.", "+20 de Vida",  "Sem Requisitos", "Sem Bônus",  "600",  "§aVida Nível 2."),
+    criarTexto("vida_status_3",   "Vida Nível 3.", "+40 de Vida",  "Sem Requisitos", "Sem Bônus",  "1400",  "§aVida Nível 3."),
 
 
-    criarTexto("forca_status_1",   "Força Nivel 1.", "+3 de força",  "Sem Requisitos", "Sem Bonus",  "450",  "§aForça Nivel 1."),
-    criarTexto("forca_status_2",   "Força Nivel 2.", "+6 de força",  "Sem Requisitos", "Sem Bonus",  "800",  "§aForça Nivel 2."),
-    criarTexto("forca_status_3",   "Força Nivel 3.", "+9 de força",  "Sem Requisitos", "Sem Bonus",  "1700",  "§aForça Nivel 3."),
+    criarTexto("forca_status_1",   "Força Nível 1.", "+3 de força",  "Sem Requisitos", "Sem Bônus",  "450",  "§aForça Nível 1."),
+    criarTexto("forca_status_2",   "Força Nível 2.", "+6 de força",  "Sem Requisitos", "Sem Bônus",  "800",  "§aForça Nível 2."),
+    criarTexto("forca_status_3",   "Força Nível 3.", "+9 de força",  "Sem Requisitos", "Sem Bônus",  "1700",  "§aForça Nível 3."),
 
 
-    criarTexto("chakra_status_1",   "Chakra Nivel 1.", "Agachar faz com que seu chakra\nse recarregue mais rápido.\n+10 de velocidade de\nrecarga de chakra",  "Sem Requisitos", "Sem Bonus",  "200",  "§aChakra Nivel 1."),
-    criarTexto("chakra_status_2",   "Chakra Nivel 2.", "Capacidade aumentada:\n0/100 > 0/125",  "Sem Requisitos", "Sem Bonus",  "300",  "§aChakra Nivel 2."),
-    criarTexto("chakra_status_3",   "Chakra Nivel 3.", "O fluxo do seu chakra se\nrenova por conta própria.",  "Sem Requisitos", "Sem Bonus",  "700",  "§aChakra Nivel 3."),
+    criarTexto("chakra_status_1",   "Chakra Nível 1.", "Agachar faz com que seu chakra\nse recarregue mais rápido.\n+10 de velocidade de\nrecarga de chakra",  "Sem Requisitos", "Sem Bônus",  "200",  "§aChakra Nível 1."),
+    criarTexto("chakra_status_2",   "Chakra Nível 2.", "Capacidade aumentada:\n0/100 > 0/125",  "Sem Requisitos", "Sem Bônus",  "300",  "§aChakra Nível 2."),
+    criarTexto("chakra_status_3",   "Chakra Nível 3.", "O fluxo do seu chakra se\nrenova por conta própria.",  "Sem Requisitos", "Sem Bônus",  "700",  "§aChakra Nível 3."),
 
 
 
 
 
-    criarTexto("all_status_dash",   "Dash Nivel 1.", "Pulo duplo ativa um dash\nna direção do olhar.",  "Sem Requisitos", "Sem Bonus",  "500",  "§aDash Nivel 1."),
-    criarTexto("all_status_implantar_olho",   "Implantar Olho e Celulas.", "Permite a coleta de olhos\nApos Derrotar um Uchiha,\ne implantar celulas",  "Sem Requisitos", "Quando um Uchiha é derrotado,\no olho da entidade pode ser\ncoletado como recompensa.",  "500",  "§aImplantar Olho."),
-    criarTexto("all_status_vida_regen",   "Regeneraçao Nivel 1.", "Concede regeneração após\no tempo do modo se encerrar.",  "Sem Requisitos", "Quando o modo chega ao fim,\no usuário recupera\n20 pontos de vida.",  "1300",  "§aRegeneraçao Nivel 1."),
+    criarTexto("all_status_dash",   "Dash Nível 1.", "Pulo duplo ativa um dash\nna direção do olhar.",  "Sem Requisitos", "Sem Bônus",  "500",  "§aDash Nível 1."),
+    criarTexto("all_status_implantar_olho",   "Implantar Olho e Células.", "Permite a coleta de olhos\nApos Derrotar um Uchiha,\ne implantar células",  "Sem Requisitos", "Quando um Uchiha é derrotado,\no olho da entidade pode ser\ncoletado como recompensa.",  "500",  "§aImplantar Olho."),
+    criarTexto("all_status_vida_regen",   "Regeneração Nível 1.", "Concede regeneração após\no tempo do modo se encerrar.",  "Sem Requisitos", "Quando o modo chega ao fim,\no usuário recupera\n20 pontos de vida.",  "1300",  "§aRegeneração Nível 1."),
     
 
 
 
-    criarTexto("all_desativar_mds",   "Status Secreto.", "Poderar Desativar Os Modos\nQue Tiver Equipado .",  "Sem Requisitos", "Poder Desativar o Modo\na Qualquer Momento",  "3500",  "§aStatus Secreto."),
-    criarTexto("all_regeneracao_v2",   "Regeneraçao Nivel 2.", "Concede regeneração\nde 4 coração a cada\n20s.",  "Sem Requisitos", "regeneração a cada 20s",  "2000",  "§aRegeneraçao Nivel 2."),
+    criarTexto("all_desativar_mds",   "Status Secreto.", "Poderá Desativar Os Modos\nQue Tiver Equipado .",  "Sem Requisitos", "Poder Desativar o Modo\na Qualquer Momento",  "3500",  "§aStatus Secreto."),
+    criarTexto("all_regeneracao_v2",   "Regeneração Nível 2.", "Concede regeneração\nde 4 coração a cada\n20s.",  "Sem Requisitos", "regeneração a cada 20s",  "2000",  "§aRegeneração Nível 2."),
 
-    criarTexto("chakra_status_4",   "Chakra Nivel 4.", "Capacidade aumentada:\n0/125 > 0/200",  "Requer chakra Nivel 3.", "Sem Bonus",  "1400",  "§aChakra Nivel 4."),
+    criarTexto("chakra_status_4",   "Chakra Nível 4.", "Capacidade aumentada:\n0/125 > 0/200",  "Requer chakra Nível 3.", "Sem Bônus",  "1400",  "§aChakra Nível 4."),
 
-    criarTexto("vida_status_4",   "Vida Nivel 4.", "+200 de Vida",  "Requer vida Nivel 3.", "Sem Bonus",  "6000",  "§aVida Nivel 4."),
+    criarTexto("vida_status_4",   "Vida Nível 4.", "+200 de Vida",  "Requer vida Nível 3.", "Sem Bônus",  "6000",  "§aVida Nível 4."),
 
-    criarTexto("chakra_status_5",   "Chakra Nivel 5.", "Capacidade aumentada:\n0/200 > 0/300",  "Requer chakra Nivel 4.", "O fluxo do seu chakra\nfoi aumentado para recaregar\n+15 de cahkra",  "2500",  "§aChakra Nivel 5."),
+    criarTexto("chakra_status_5",   "Chakra Nível 5.", "Capacidade aumentada:\n0/200 > 0/300",  "Requer chakra Nível 4.", "O fluxo do seu chakra\nfoi aumentado para recarregar\n+15 de chakra",  "2500",  "§aChakra Nível 5."),
 
-    criarTexto("skills_sword",   "Habilidades Espadas.", "Todas Espadas Tera skills Unicas",  "Sem Requisitos", "Novas Skill",  "4000",  "§aHabilidades Espadas."),
+    criarTexto("skills_sword",   "Habilidades Espadas.", "Todas Espadas Terá skills Únicas",  "Sem Requisitos", "Novas Skill",  "4000",  "§aHabilidades Espadas."),
 
     criarTexto("deus_shinobi",   "Deus Shinobi.", "Sofrera Um Buff Nos Status",  "Sem Requisitos", "§21000 de Vida\n§c17 de Dano\n§bChakra 0/300 > 0/600\n§dEm falta de chakra, não sofrerá\nefeitos negativos.",  "16000",  "§dDeus Shinobi."),
 
@@ -400,7 +400,7 @@ break;
 case 19:
 if (player.hasTag("skills_sword") && !player.hasTag("deus_shinobi")) {
 player.runCommand('/execute as @s[scores={tp=0..15999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 16000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=16000..}] run tellraw @s {"rawtext":[{"text":"§d[!] §aParabens Voce Se Tornou §eDeus Shinobi"}]}');
+player.runCommand('/execute as @s[scores={tp=16000..}] run tellraw @s {"rawtext":[{"text":"§d[!] §aParabens Você Se Tornou §eDeus Shinobi"}]}');
 player.runCommand('/execute as @s[scores={tp=16000..}] run function status/deus_shinobi');
 player.runCommand('/execute as @s[scores={tp=16000..}] run scoreboard players remove @s tp 16000');
 }

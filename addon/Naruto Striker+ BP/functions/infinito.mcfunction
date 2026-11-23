@@ -15,7 +15,7 @@ execute as @s[tag=byakugou_lock,scores={chakra_acumulado=2999..}] run function s
 
 execute as @s[tag=treino_pesos] run scoreboard players remove @s pesos_guy 1
 execute as @s[tag=treino_pesos] run effect @s slowness 1 2 true 
-execute as @s[tag=treino_pesos,scores={pesos_guy=5..5}] run tellraw @s {"rawtext":[{"text":"§c[!]§aTempo De Treinamento Comcluida"}]}
+execute as @s[tag=treino_pesos,scores={pesos_guy=5..5}] run tellraw @s {"rawtext":[{"text":"§c[!]§aTempo De Treinamento Concluído"}]}
 execute as @s[scores={pesos_guy=..0}] run scoreboard players set @s pesos_guy 1
 
 
@@ -55,7 +55,7 @@ execute as @s[scores={chakra=..0}] run scoreboard players set @s chakra 0
 
 
 
-execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s {"rawtext":[{"text":"§aMissao Completa"}]}
+execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s {"rawtext":[{"text":"§aMissão Completa"}]}
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tellraw @s {"rawtext":[{"text":"§c[!] §a170.Tp"}]}
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run tag @s add missao_2_c
 execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run scoreboard players add @s tp 170
@@ -65,7 +65,7 @@ execute at @s[hasitem=[{item=tnt:sinos,location=slot.hotbar,quantity=2..}]] run 
 
 
 
-tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}] {"rawtext":[{"text":"§c[!] §aCapturas Comcluida"}]}
+tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}] {"rawtext":[{"text":"§c[!] §aCapturas Concluída"}]}
 tellraw @s[tag=!missao_1_c,scores={gatos_miss=15..}] {"rawtext":[{"text":"§c[!] §a50.Tp"}]}
 execute as @s[tag=!missao_1_c,scores={gatos_miss=15..}] run scoreboard players add @s tp 50
 execute as @s[tag=!missao_1_c,scores={gatos_miss=15..}] run tag @s add pergaminha_ninja_lock

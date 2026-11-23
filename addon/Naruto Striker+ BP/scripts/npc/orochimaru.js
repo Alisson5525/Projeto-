@@ -28,10 +28,10 @@ export function npc_orochimaru(player) {
   const conversa = hasTag ? 
   "§fimpressionante. Você conseguiu me derrotar. Poucos chegam tão longe…\n\n\n§aRecompensa:\n§dMarca da Maldição." 
   : 
-  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissao.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldiçao.";
+  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissão.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldição.";
 
   const corBotao1 = hasTag ? "" : "§aComeçar Batalha";
-  const corBotao3 = hasTag ? "§a*Finalizar Missao*" : "§cMissao Incompleta";
+  const corBotao3 = hasTag ? "§a*Finalizar Missão*" : "§cMissão Incompleta";
 
   const form = new ActionFormData();
   form.title("ui.npc_orochimaru.title");
@@ -61,11 +61,11 @@ npc_orochimaru_pg2(player);
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eQue Interessante. Você Finalmente Recebeu Minha §dMarca Da Maldiçao."}]}');
+player.runCommand('/execute as @s[tag=orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eQue Interessante. Você Finalmente Recebeu Minha §dMarca Da Maldição."}]}');
 player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s add marca_v1');
 player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s remove treino_orochimaru');
 player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s remove marca_v1_lock');
-player.runCommand('/execute as @s[tag=!orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§c[!] §eDerrote Orochimaru Para Receber a §dMarca Da Maldiçao"}]}');
+player.runCommand('/execute as @s[tag=!orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§c[!] §eDerrote Orochimaru Para Receber a §dMarca Da Maldição"}]}');
 break;
 
     }
@@ -80,9 +80,9 @@ export function npc_orochimaru_pg2(player) {
 
   const hasTag = player.hasTag("orochimaru_complet");
   const conversa = hasTag ? 
-  "§fPara implantar as células de Hashirama, obtenha fragmentos nos §bZetsus Brancos.\n\n§alocalizaçao. §eJardim Pálido.\n\n§aInformaçoes.\n______________________________________\n\n§c[!].§eImplantar DNA Hashirama:§f requer 10 fragmentos de Zetsu.\n§c[!].§eDNA Evoluido Hashirama:§f requer 34 fragmentos de Zetsu.\n§c[!].§eImplantar Braço Danzo:§f requer 128 fragmentos de Zetsu..\ne 7 sharingan.\n§c[!].§eCeifeiro Da Morte: §fRequer§a 6000.Tp\n§a______________________________________\n\n§aBeneficios.\n\n§c[!].§eImplantar DNA Hashirama:§f +30 de Vida.\n§c[!].§eDNA Evoluido Hashirama:§f +70 de Vida, regeneraçao de 2 coraçao.\n§c[!].§eBraço Danzo:§f +150 de Vida, regeneraçao de 5 coraçao.\n§c[!].§eCeifeiro Da Morte:§f Concede a habilidade de selar bijus"
+  "§fPara implantar as células de Hashirama, obtenha fragmentos nos §bZetsus Brancos.\n\n§alocalizaçao. §eJardim Pálido.\n\n§aInformações.\n______________________________________\n\n§c[!].§eImplantar DNA Hashirama:§f requer 10 fragmentos de Zetsu.\n§c[!].§eDNA Evoluido Hashirama:§f requer 34 fragmentos de Zetsu.\n§c[!].§eImplantar Braço Danzo:§f requer 128 fragmentos de Zetsu..\ne 7 sharingan.\n§c[!].§eCeifeiro Da Morte: §fRequer§a 6000.Tp\n§a______________________________________\n\n§aBenefícios.\n\n§c[!].§eImplantar DNA Hashirama:§f +30 de Vida.\n§c[!].§eDNA Evoluido Hashirama:§f +70 de Vida, regeneração de 2 coraçao.\n§c[!].§eBraço Danzo:§f +150 de Vida, regeneração de 5 coraçao.\n§c[!].§eCeifeiro Da Morte:§f Concede a habilidade de selar bijus"
   : 
-  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissao.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldiçao.";
+  "§fVocê deseja receber a marca da maldição… não é? Mas, para obtê-la, terá de cumprir certas missões…\n\n\n§aMissão.§e\nTente me derrotar… e então descobrirei\nse você é digno da §dMarca Da Maldição.";
 
   const corBotao3 = hasTag ? "" : "";
 

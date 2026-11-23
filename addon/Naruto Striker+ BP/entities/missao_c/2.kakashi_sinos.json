@@ -570,7 +570,7 @@
       "tnt:fim_miss_c": {
         "queue_command": {
           "command": [
-            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missao nao foi concluida\"}]}"
+            "execute as @a[r=15] run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aSua missão não foi concluída\"}]}"
           ]
         },
         "add": {

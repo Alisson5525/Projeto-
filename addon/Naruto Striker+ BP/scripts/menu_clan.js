@@ -36,14 +36,14 @@ export function menu_clan(player) {
     switch (response.selection) {
 
       case 0:
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVoce Se Tornou Do Clan §eUchiha"}]}');
+player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eUchiha"}]}');
 player.runCommand('/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
 player.runCommand('/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
 player.runCommand('/scoreboard players set @s clans 0');
 player.runCommand('/clear @s tnt:escolha_clan');
         break;
        case 1:
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVoce Se Tornou Do Clan §eHyuga"}]}');
+player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eHyuga"}]}');
 player.runCommand('/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
 player.runCommand('/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
 player.runCommand('/scoreboard players set @s clans 1');

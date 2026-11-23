@@ -440,7 +440,7 @@
       "tnt:despawn": {
         "queue_command": {
           "command": [
-            "execute as @a[r=20] run tellraw @s {\"rawtext\":[{\"text\":\"§c[Kisame] §eAinda nao e minha vez.. Por ora, esta luta sera sua, §aItachi§a.\"}]}",
+            "execute as @a[r=20] run tellraw @s {\"rawtext\":[{\"text\":\"§c[Kisame] §eAinda não e minha vez.. Por ora, esta luta será sua, §aItachi§a.\"}]}",
             "particle tnt:rasengan_impact_fumaca",
             "camerashake add @a[r=15] 0.2 0.2 rotational"
           ]

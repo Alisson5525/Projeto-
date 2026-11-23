@@ -3,8 +3,8 @@ import { CHEFES_DIRIGIDOS, nomeDoChefe, faseDoChefe } from "./ns/chefes";
 
 // 📦 CONFIG DAS ENTIDADES
 const ENTITY_NAMES = {
-  "tnt:espadachin_s": "§6#S. §f> Espadachin",
-  "tnt:espadachin_ss": "§d#SS. §f> Espadachin",
+  "tnt:espadachin_s": "§6#S. §f> Espadachim",
+  "tnt:espadachin_ss": "§d#SS. §f> Espadachim",
   "tnt:anbu": "§eRank A. §f> Anbu",
   "tnt:dummy": "§cDUMMY",
   "tnt:uchiha_b": "§a#B. §f> Uchiha",

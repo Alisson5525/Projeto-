@@ -37,7 +37,7 @@ Para aprender os §aOito Portões,§f você passará por um duro §etreinamento 
 §fSuporte o peso, fortaleça o corpo e prove sua determinação!
 O fogo da juventude decidirá seu limite!
 
-§aInformaçoes das missoes.
+§aInformações das missões.
 §fTempo de uso do pesos. [ §e${pergminho} §f] 
 
 §c[!] §etempo total e de 10 minutos.
@@ -78,7 +78,7 @@ torne-se um §eninja de Konoha!
     switch (response.selection) {
 
 case 0:
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eSeu treinamento Ja Foi Comcluido"}]}');
+player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eSeu treinamento Já Foi Concluído"}]}');
 player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eentão você finalmente decidiu Começar o treinamento."}]}');
 player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§c[!] §eIrei te Entregar os Pesos."}]}');
 player.runCommand('/give @s[tag=ninja_konoha,tag=!portao_1] tnt:pesos');
@@ -91,8 +91,8 @@ case 2:
 player.runCommand('/execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s remove portao_1_lock');
 player.runCommand('execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s add portao_1');
 player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run clear @s tnt:pesos 0 1');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §aParabens, §ePrimeiro Portao Desbloqueado"}]}');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eTermina o Treinamento Para Aprender os Oito Portoes"}]}');
+player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §aParabens, §ePrimeiro Portão Desbloqueado"}]}');
+player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eTermina o Treinamento Para Aprender os Oito Portões"}]}');
 break;
 
     }

@@ -416,7 +416,7 @@
       "tnt:morrer": {
         "queue_command": {
           "command": [
-            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissao Completa\"}]}",
+            "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§c[!] §aMissão Completa\"}]}",
             "execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e2500.Tp\"}]}",
             "event entity @e[type=tnt:kisame_c,r=20] tnt:despawn",
             "tag @s add missao_11_c",
@@ -448,7 +448,7 @@
       "tnt:despawn": {
         "queue_command": {
           "command": [
-            "execute as @a[r=20] run tellraw @s {\"rawtext\":[{\"text\":\"§c[itachi] §eA força que voce acredita ter ainda nao e suficiente para nos enfrentar.\"}]}",
+            "execute as @a[r=20] run tellraw @s {\"rawtext\":[{\"text\":\"§c[itachi] §eA força que você acredita ter ainda não e suficiente para nos enfrentar.\"}]}",
             "particle tnt:rasengan_impact_fumaca",
             "camerashake add @a[r=15] 0.2 0.2 rotational"
           ]
