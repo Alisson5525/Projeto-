@@ -25,16 +25,23 @@ function noMyoboku(player) {
 
 function construir(player, tentativa = 1) {
   try {
-    player.runCommandAsync(`execute in the_end run structure load monte_myoboku ${ORIGEM_ESTRUTURA.x} ${ORIGEM_ESTRUTURA.y} ${ORIGEM_ESTRUTURA.z}`);
+    const r = player.runCommandAsync(`execute in the_end run structure load monte_myoboku ${ORIGEM_ESTRUTURA.x} ${ORIGEM_ESTRUTURA.y} ${ORIGEM_ESTRUTURA.z}`);
+    // o proprio resultado do comando confirma a construcao
+    r?.then?.((res) => { try { if (res && res.successCount > 0) world.setDynamicProperty(CHAVE_CRIADO, true); } catch {} });
   } catch {}
   // confere se a montanha apareceu; se o chunk ainda nao tinha carregado, tenta de novo
   system.runTimeout(() => {
     try {
       const fim = world.getDimension("the_end");
       let achou = false;
-      for (let y = ORIGEM_ESTRUTURA.y; y < ORIGEM_ESTRUTURA.y + 64 && !achou; y += 2) {
-        const b = fim.getBlock({ x: CENTRO.x, y, z: CENTRO.z });
-        if (b && !b.isAir) achou = true;
+      if (world.getDynamicProperty(CHAVE_CRIADO)) return;
+      // confere varias colunas (o centro pode ser oco)
+      for (const [dx, dz] of [[0, 0], [8, 0], [-8, 0], [0, 8], [0, -8], [12, 12], [-12, -12]]) {
+        for (let y = ORIGEM_ESTRUTURA.y; y < ORIGEM_ESTRUTURA.y + 64 && !achou; y += 2) {
+          const b = fim.getBlock({ x: CENTRO.x + dx, y, z: CENTRO.z + dz });
+          if (b && !b.isAir) achou = true;
+        }
+        if (achou) break;
       }
       if (achou) world.setDynamicProperty(CHAVE_CRIADO, true);
       else if (tentativa < 3 && valido(player)) construir(player, tentativa + 1);

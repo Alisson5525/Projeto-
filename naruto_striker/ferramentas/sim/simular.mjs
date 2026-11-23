@@ -120,6 +120,9 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   p1.isSneaking=true; p1.isOnGround=true; steps(60); p1.isSneaking=false;
   se('ns:myoboku',p1); steps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
   console.log('teste myoboku: bloqueado',bloqueado,'| foi',foi,'| construiu',construiu,'| voltou',voltou);
+  const cargas1=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; se('ns:myoboku',p1); steps(120); se('ns:myoboku',p1); steps(15);
+  const cargas2=S.cmds.filter(c=>c.c.includes('structure load monte_myoboku')).length; console.log('teste myoboku: cargas na 2a viagem', cargas2-cargas1);
+  if(cargas2!==cargas1) S.errors.push({where:'myoboku',msg:'estrutura recarregada',stack:''});
   if(!(bloqueado&&foi&&construiu&&voltou)) S.errors.push({where:'myoboku',msg:'fluxo incorreto',stack:''}); p1.setDynamicProperty('ns:nivel',nivelAntes??1); }
 // teste aura rank: nivel 95 sem modo -> aura + faiscas
 { const nv=p1.getDynamicProperty('ns:nivel'); const tags=p1.getTags(); for(const t of tags) if(t.startsWith('modo_ativado')) p1.removeTag(t);
