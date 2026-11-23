@@ -1,0 +1,27 @@
+name: Validar add-on
+
+on:
+  push:
+    paths: ["naruto_striker/**", ".github/workflows/validar-addon.yml"]
+  pull_request:
+    paths: ["naruto_striker/**"]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validação completa (JSON, referências, auditorias e simulação dos scripts)
+        run: ./naruto_striker/ferramentas/validar.sh
+      - name: Gerar .mcaddon
+        run: ./naruto_striker/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: naruto_striker_plus
+          path: naruto_striker/dist/naruto_striker_plus.mcaddon
