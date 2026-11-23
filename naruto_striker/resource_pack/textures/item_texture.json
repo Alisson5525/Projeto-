@@ -217,6 +217,9 @@
     },
     "ns_icone_mascara_obito_s": {
       "textures": "textures/items/ns/mascara_obito_s"
+    },
+    "ns_bomba_fumaca": {
+      "textures": "textures/items/ns/bomba_fumaca"
     }
   }
 }

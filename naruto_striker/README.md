@@ -41,6 +41,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Arco de corte** brilhante ao golpear com as espadas ninja (Samehada, Kubikiribocho, Kiba, Shibuki, Hiramekarei, Foice do Hidan…), alternando direção a cada golpe (ajuste "Rastro de velocidade").
 - **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
 - **"Puf" de fumaça ninja** quando um ninja é derrotado.
+- **Bomba de Fumaça** (nova ferramenta ninja): some numa nuvem de fumaça com 4 s de invisibilidade e 3 s de velocidade para fugir ou se reposicionar. Receita: 1 pólvora + 2 carvões → 4 bombas; também aparece nos esconderijos.
 - **Kawarimi no Jutsu**: ninjas do mundo (Folha, Areia, Uchiha, Espadachins, ANBU) podem se substituir e reaparecer **atrás do jogador** (12% de chance, recarga de 10 s, só em local seguro).
 - **Falas de combate**: cada facção (Folha, Areia, Uchiha, Espadachins, ANBU, Bandidos, Zetsu) tem gritos de batalha ao começar a luta e últimas palavras ao ser derrotada, flutuando acima da cabeça.
 - **NPCs da vila falam** quando você se aproxima (Teuchi, Iruka, Tsunade, Guy, Jiraiya, Orochimaru), com recarga de 30 s por NPC.
