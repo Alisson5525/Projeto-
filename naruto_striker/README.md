@@ -20,7 +20,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 
 | O quê | Detalhe |
 |---|---|
-| Curvas suaves | 866 keyframes de rotação/posição em 37 arquivos convertidos para interpolação **catmull-rom** (sem "trancos" entre poses). Keyframes de "pausa" e de escala (liga/desliga de partes) foram preservados. |
+| Curvas suaves | ~860 keyframes de rotação/posição em 37 arquivos convertidos para interpolação **catmull-rom** (sem "trancos" entre poses). Keyframes de "pausa" e de escala (liga/desliga de partes) foram preservados, e canais em que a curva "passaria do ponto" ficaram lineares (verificado por `ferramentas/animacoes.js`). |
 | Transições com blend | Todos os estados dos controladores de animação agora fazem *blend* (0,2–0,3 s). |
 | Fim das animações de jutsu | 61 comandos `playanimation` e todas as `playAnimation()` dos scripts ganharam *blend out* suave. |
 | Estilo ninja dos mobs (26 mobs) | Respiração em idle, **corrida ninja** inclinada com braços para trás quando perseguem um alvo, pose de salto, giro do tronco no golpe e reação ao levar dano. |
@@ -114,7 +114,8 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 ## Como foi testado
 
 - Validação de **todos os JSON** (0 inválidos) e de referências cruzadas (texturas, modelos, animações, controladores, partículas, sons, funções, entidades, eventos).
-- **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 136 itens, clique em cada botão de cada menu, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, morte, saída de jogador e navegação completa dos menus → **0 erros**.
+- **Simulador da API de scripts** (`@minecraft/server` simulado e estrito) carregando *todos* os scripts do add-on e disparando: entrada de jogadores, uso de todos os 136 itens, clique em cada botão de cada menu, todos os `scriptevent`, combate contra todos os mobs, críticos/combos forçados, Kawarimi, fúria de chefe, modos (Kurama/Susanoo), dash, queda, meditação, vida baixa, exploração de 10 regiões, esconderijos, Lua Vermelha, configurações de admin, meteoro do Rinnegan, Kamui, selamento de bijuu, morte, saída de jogador e navegação completa dos menus → **0 erros**.
+- Auditorias adicionais: placares usados × criados, tags verificadas × adicionadas, funções chamadas × existentes, render controllers × chaves das entidades, estados de controladores, tabelas de saque, ícones, sintaxe de `execute`.
 
 Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Node.js 20+).
 
@@ -125,12 +126,17 @@ Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Nod
 ## Estrutura
 
 ```
-behavior_pack/scripts/ns/   novos sistemas (util, progressao, combate, visuais,
-                            exploracao, ia_ninja, missoes)
-resource_pack/particles/ns/ novas partículas
-resource_pack/animations/ninja_estilo.json, ns_trilhas.json
+behavior_pack/scripts/ns/        novos sistemas (util, progressao, combate, visuais,
+                                 exploracao, ia_ninja, missoes, eventos)
+behavior_pack/animations/ns/     técnicas de areia do Gaara
+behavior_pack/loot_tables/ns/    saque dos esconderijos
+resource_pack/particles/ns/      novas partículas (+ textures/particle/ns_fx.png)
+resource_pack/animations/        ninja_estilo.json, ns_trilhas.json
 resource_pack/animation_controllers/ninja_estilo.json
-build.sh                    gera o .mcaddon
+resource_pack/fogs/              névoa da Lua Vermelha
+resource_pack/texts/             nomes das entidades (pt_BR, pt_PT, en_US)
+ferramentas/                     validar.sh, simulador, verificadores e geradores
+build.sh                         gera o .mcaddon
 ```
 
 ### Configuração do mundo (admin/servidor)
