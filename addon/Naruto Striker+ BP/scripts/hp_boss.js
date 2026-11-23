@@ -1,4 +1,5 @@
 import * as mc from "@minecraft/server";
+import { CHEFES_DIRIGIDOS, nomeDoChefe, faseDoChefe } from "./ns/chefes";
 
 // 📦 CONFIG DAS ENTIDADES
 const ENTITY_NAMES = {
@@ -28,7 +29,10 @@ const ENTITY_NAMES = {
   "tnt:orochimaru_miss_c": "§fOrochimaru §f> §aMissão.",
   "tnt:neji_c": "§eNeji §f> §aMissão.",
   "tnt:itachi_c": "§eItachi §f> §aMissão.",
-  "tnt:kisame_c": "§eKisame §f> §aMissão."
+  "tnt:kisame_c": "§eKisame §f> §aMissão.",
+  "tnt:kurama_biju": "§6Kurama §f> §dBiju.",
+  "tnt:shukaku_biju": "§6Shukaku §f> §dBiju.",
+  "tnt:shukaku_biju_miss": "§6Shukaku §f> §dBiju."
 };
 
 // 🏷️ entidades sem HP
@@ -43,7 +47,14 @@ const STATIC_NAMES = {
 };
 
 // barra de vida colorida (verde -> amarelo -> vermelho)
-function nomeComVida(baseName, hp, hpMax) {
+function nomeComVida(baseName, hp, hpMax, entity) {
+  // Chefes: a vida aparece na barra de chefe nativa (componente minecraft:boss);
+  // o nome fica em uma linha so, com a fase atual da luta.
+  if (entity && CHEFES_DIRIGIDOS.has(entity.typeId)) {
+    const romano = ["I", "II", "III", "IV"][faseDoChefe(entity)] ?? "I";
+    const elite = baseName.startsWith("§6§l[ELITE]") ? "§6§l[ELITE]§r " : "";
+    return `${elite}§l${nomeDoChefe(entity.typeId)}§r §7- Fase ${romano} §f${hp}§7/§f${hpMax}`;
+  }
   const r = hpMax > 0 ? Math.max(0, Math.min(1, hp / hpMax)) : 0;
   const cor = r > 0.6 ? "§a" : r > 0.3 ? "§e" : "§c";
   const n = Math.round(r * 20);
@@ -59,7 +70,7 @@ mc.world.afterEvents.entityHurt.subscribe((ev) => {
     if (!baseName) return;
     const health = entity.getComponent("health");
     if (!health) return;
-    const tag = nomeComVida(baseName, Math.max(0, Math.floor(health.currentValue)), Math.floor(health.effectiveMax));
+    const tag = nomeComVida(baseName, Math.max(0, Math.floor(health.currentValue)), Math.floor(health.effectiveMax), entity);
     if (entity.nameTag !== tag) entity.nameTag = tag;
   } catch (e) {}
 });
@@ -105,7 +116,7 @@ mc.system.runInterval(() => {
     const hp = Math.floor(health.currentValue);
     const hpMax = Math.floor(health.effectiveMax);
 
-    const newTag = nomeComVida(baseName, hp, hpMax);
+    const newTag = nomeComVida(baseName, hp, hpMax, entity);
 
     // ✅ só atualiza se mudou
     if (entity.nameTag !== newTag) {

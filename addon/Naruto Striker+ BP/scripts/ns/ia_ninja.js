@@ -4,6 +4,7 @@ import { world, system } from "@minecraft/server";
 import { ehJogador, valido, particula, somArea, tremer, gravar, aleatorio, mundoCfg, ehCriatura } from "./util";
 import { textoFlutuante } from "./combate";
 import { luaVermelhaAtiva } from "./eventos";
+import { CHEFES_DIRIGIDOS } from "./chefes";
 
 /* ------------------------------------------------------------------ */
 /* Kawarimi no Jutsu                                                   */
@@ -113,6 +114,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     const chefe = ev.hurtEntity;
     if (!valido(chefe) || chefe.typeId === "minecraft:player" || !ehCriatura(chefe)) return;
     if (!mundoCfg("furia")) return;
+    if (CHEFES_DIRIGIDOS.has(chefe.typeId)) return; // chefes com fases proprias (ns/chefes.js)
     const vida = chefe.getComponent("health");
     if (!vida || vida.effectiveMax < 500) return;
     if (vida.currentValue <= 0 || vida.currentValue > vida.effectiveMax * 0.5) return;

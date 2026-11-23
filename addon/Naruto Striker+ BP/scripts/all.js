@@ -49,3 +49,4 @@ import "./ns/otimizacoes";
 import "./ns/myoboku";
 import "./ns/viagem";
 import "./ns/ferramentas_ninja";
+import "./ns/chefes";

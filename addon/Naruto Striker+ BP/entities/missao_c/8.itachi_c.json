@@ -310,7 +310,11 @@
         ],
         "must_see": true
       },
-      "minecraft:physics": {}
+      "minecraft:physics": {},
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 32
+      }
     },
     "events": {
       "modo_berserk": {
