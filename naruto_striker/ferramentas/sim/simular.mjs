@@ -154,10 +154,12 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   const m=p1.msgs.filter(x=>x.includes('Pílula de Soldado')).pop(); const cmd=S.cmds.some(c=>c.c==='scoreboard players add @s chakra 50');
   console.log('teste pilula:', m, cmd); if(!m||!m.includes('+50')||!cmd) S.errors.push({where:'pilula',msg:'pilula incorreta',stack:''}); }
 // teste emboscada: invoca o grupo perto do jogador
-{ const antes=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
+{ const jaExistiam=new Set(ow._ents); const antes=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
   const mod=await import(pathToFileURL(path.join(dst,'ns','exploracao.js')).href); p1.teleport({x:50,y:64,z:50},{dimension:ow}); mod.emboscada(p1); await steps(2);
   const depois=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
-  console.log('teste emboscada: invocados', depois-antes); if(depois-antes<1) S.errors.push({where:'emboscada',msg:'ninguem invocado',stack:''}); }
+  console.log('teste emboscada: invocados', depois-antes); if(depois-antes<1) S.errors.push({where:'emboscada',msg:'ninguem invocado',stack:''});
+  for (const e of ow._ents.filter(e=>!jaExistiam.has(e) && /^tnt:(bandidos|ninja_|espadachin)/.test(e.typeId))) { try { e.applyDamage(9999,{cause:'entityAttack',damagingEntity:p1}); } catch {} await steps(1); }
+  await steps(2); const rep=p1.msgs.some(x=>x.includes('Emboscada repelida')); console.log('teste emboscada repelida:', rep); if(!rep) S.errors.push({where:'emboscada',msg:'sem recompensa ao repelir',stack:''}); }
 // teste ranking: abre o menu e lista o jogador
 { const n0=(globalThis.__UILOG||[]).length; const mod=await import(pathToFileURL(path.join(dst,'ns','progressao.js')).href); mod.atualizarRanking(p1);
   globalThis.__UISEL=[]; const b=mod.BOTOES_EXTRAS.find(x=>x.nome.includes('Ranking')); await b.abrir(p1);

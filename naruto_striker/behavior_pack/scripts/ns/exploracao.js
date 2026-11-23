@@ -112,6 +112,7 @@ export function criarEsconderijo(player) {
 /* Emboscadas ao entrar em regioes novas (escala com o nivel)           */
 /* ------------------------------------------------------------------ */
 const CHANCE_EMBOSCADA = 0.15;
+const emboscadas = new Map(); // playerId -> { ids: Set, ate }
 
 function pontoNoChao(dim, base, distMin, distMax) {
   for (let tentativa = 0; tentativa < 6; tentativa++) {
@@ -138,15 +139,18 @@ export function emboscada(player) {
     : ["tnt:bandidos_rank_c", "tnt:bandidos_rank_c"];
   const dim = player.dimension;
   let n = 0;
+  const ids = new Set();
   for (const tipo of grupo) {
     const p = pontoNoChao(dim, player.location, 7, 12);
     if (!p) continue;
     try {
-      dim.spawnEntity(tipo, p);
+      const e = dim.spawnEntity(tipo, p);
+      if (e?.id) ids.add(e.id);
       particula(dim, "tnt:ns_fumaca_ninja", p);
       n++;
     } catch {}
   }
+  if (ids.size > 0) emboscadas.set(player.id, { ids, ate: system.currentTick + 20 * 180, nv });
   if (n > 0) {
     msg(player, "§c§l[!] EMBOSCADA!§r §cInimigos surgiram da fumaça!");
     som(player, "mob.evocation_illager.prepare_attack", 0.8, 1.2);
@@ -167,7 +171,32 @@ system.runInterval(() => {
   }
 }, 10);
 
-world.afterEvents.playerLeave.subscribe((ev) => ultimaRegiao.delete(ev.playerId));
+world.afterEvents.playerLeave.subscribe((ev) => {
+  ultimaRegiao.delete(ev.playerId);
+  emboscadas.delete(ev.playerId);
+});
+
+// derrotar todos os inimigos da emboscada em ate 3 minutos rende um bonus
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    if (emboscadas.size === 0) return;
+    const id = ev.deadEntity?.id;
+    for (const [pid, e] of emboscadas) {
+      if (system.currentTick > e.ate) { emboscadas.delete(pid); continue; }
+      if (!e.ids.delete(id) || e.ids.size > 0) continue;
+      emboscadas.delete(pid);
+      const player = world.getPlayers().find((p) => p.id === pid);
+      if (!ehJogador(player)) continue;
+      const xp = 60 + e.nv * 3;
+      const tp = 80 + e.nv * 2;
+      somarScore(player, "tp", tp);
+      darXP(player, xp, "emboscada");
+      msg(player, `§a§lEmboscada repelida!§r §6+${tp} TP §b+${xp} XP`);
+      som(player, "random.levelup", 0.6, 1.2);
+      particula(player.dimension, "tnt:ns_level_up", player.location);
+    }
+  } catch {}
+});
 
 system.runInterval(() => {
   if (!mundoCfg("exploracao")) return;
