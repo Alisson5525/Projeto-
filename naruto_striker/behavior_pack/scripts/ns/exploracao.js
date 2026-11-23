@@ -33,7 +33,7 @@ function hash(x, z, d) {
 function nomeRegiao(x, z, dimId) {
   if (dimId.includes("nether")) {
     const h = hash(x, z, dimId);
-    const L = ["Cavernas", "Rios", "Ruínas", "Abismo", "Fortaleza", "Planícies", "Picos", "Vale"];
+    const L = ["Cavernas", "Rios", "Ruínas", "Abismos", "Fortalezas", "Planícies", "Picos", "Vales"];
     const C = ["de Lava", "Ardentes", "do Fogo Infernal", "dos Ossos", "de Cinzas", "do Amaterasu", "Carmesim", "do Rei Demônio"];
     return `${L[h % L.length]} ${C[(h >>> 8) % C.length]}`;
   }
