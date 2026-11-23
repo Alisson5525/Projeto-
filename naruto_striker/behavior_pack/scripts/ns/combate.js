@@ -236,7 +236,9 @@ world.afterEvents.entityDie.subscribe((ev) => {
     const combo = combos.get(killer.id)?.n ?? 1;
     const bonusCombo = 1 + Math.min(1, (combo - 1) * 0.05);
     const ehNinja = morto.typeId.startsWith("tnt:");
-    let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo;
+    let elite = false;
+    try { elite = morto.hasTag("ns_elite"); } catch {}
+    let xp = Math.max(3, Math.round(vidaMax / 3)) * (ehNinja ? 1.5 : 1) * bonusCombo * (elite ? 3 : 1);
     xp = Math.min(1500, Math.round(xp));
 
     somarStat(killer, "ns:kills", 1);
@@ -248,7 +250,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
     }
 
     if (config(killer).numeros) {
-      textoFlutuante(dim, { x: loc.x, y: loc.y + 1.2, z: loc.z }, `§b+${xp} XP`);
+      textoFlutuante(dim, { x: loc.x, y: loc.y + 1.2, z: loc.z }, elite ? `§6§lELITE! §b+${xp} XP` : `§b+${xp} XP`);
     }
     darXP(killer, xp, "abate");
   } catch {}

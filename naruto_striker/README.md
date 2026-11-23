@@ -36,6 +36,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
 - **"Puf" de fumaça ninja** quando um ninja é derrotado.
 - **Kawarimi no Jutsu**: ninjas do mundo (Folha, Areia, Uchiha, Espadachins, ANBU) podem se substituir e reaparecer **atrás do jogador** (12% de chance, recarga de 10 s, só em local seguro).
+- **Ninjas de elite**: 8% dos ninjas do mundo nascem como `[ELITE]` (nome dourado, aura dourada, +20 de vida, força e resistência) e valem **3× XP**.
 - **Fúria dos chefes**: inimigos com 500+ de vida ficam **ENFURECIDOS** abaixo de 50%: rugido, onda de choque, aura vermelha pulsante, força/velocidade/resistência temporárias.
 - Barras de vida dos inimigos agora são **barras coloridas** (verde → amarelo → vermelho) e atualizam na hora do dano.
 

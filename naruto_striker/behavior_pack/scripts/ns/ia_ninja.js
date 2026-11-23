@@ -160,3 +160,56 @@ system.runInterval(() => {
   const agora = system.currentTick;
   for (const [id, t] of ultimoKawarimi) if (agora - t > RECARGA_KAWARIMI) ultimoKawarimi.delete(id);
 }, 600);
+
+/* ------------------------------------------------------------------ */
+/* Ninjas de elite                                                     */
+/* ------------------------------------------------------------------ */
+const CHANCE_ELITE = 0.08;
+const elites = new Set();
+
+function tornarElite(e) {
+  try {
+    e.addTag("ns_elite");
+    const dur = 20 * 60 * 60 * 24; // 24h de jogo
+    e.addEffect("health_boost", dur, { amplifier: 4, showParticles: false });
+    e.addEffect("strength", dur, { amplifier: 0, showParticles: false });
+    e.addEffect("resistance", dur, { amplifier: 0, showParticles: false });
+    system.runTimeout(() => {
+      try { if (valido(e)) e.getComponent("health")?.resetToMaxValue(); } catch {}
+    }, 2);
+    elites.add(e.id);
+  } catch {}
+}
+
+world.afterEvents.entitySpawn.subscribe((ev) => {
+  try {
+    const e = ev.entity;
+    if (!valido(e) || !NINJAS.has(e.typeId)) return;
+    if (e.hasTag("ns_elite") || e.getDynamicProperty("ns:sorteado")) return;
+    gravar(e, "ns:sorteado", true);
+    if (Math.random() < CHANCE_ELITE) system.run(() => { if (valido(e)) tornarElite(e); });
+  } catch {}
+});
+
+// aura dourada dos elites
+system.runInterval(() => {
+  for (const id of elites) {
+    try {
+      const e = world.getEntity(id);
+      if (!valido(e)) { elites.delete(id); continue; }
+      const l = e.location;
+      particula(e.dimension, "tnt:ns_aura", l, [1.0, 0.78, 0.2]);
+    } catch {
+      elites.delete(id);
+    }
+  }
+}, 8);
+
+// reconstroi a lista ao carregar o mundo / chunks
+system.runInterval(() => {
+  for (const d of ["overworld", "nether", "the_end"]) {
+    try {
+      for (const e of world.getDimension(d).getEntities({ tags: ["ns_elite"] })) elites.add(e.id);
+    } catch {}
+  }
+}, 200);

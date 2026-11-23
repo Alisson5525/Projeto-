@@ -57,7 +57,7 @@ mc.world.afterEvents.entityHurt.subscribe((ev) => {
   try {
     const entity = ev.hurtEntity;
     if (!entity || !entity.isValid()) return;
-    const baseName = ENTITY_NAMES[entity.typeId];
+    const baseName = ENTITY_NAMES[entity.typeId] ? (entity.hasTag("ns_elite") ? "§6§l[ELITE]§r " : "") + ENTITY_NAMES[entity.typeId] : undefined;
     if (!baseName) return;
     const health = entity.getComponent("health");
     if (!health) return;
@@ -89,7 +89,7 @@ mc.system.runInterval(() => {
     }
 
     // ❤️ entidades com HP
-    const baseName = ENTITY_NAMES[entity.typeId];
+    const baseName = ENTITY_NAMES[entity.typeId] ? (entity.hasTag("ns_elite") ? "§6§l[ELITE]§r " : "") + ENTITY_NAMES[entity.typeId] : undefined;
     if (!baseName) continue;
 
     const health = entity.getComponent("health");
