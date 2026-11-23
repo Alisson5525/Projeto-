@@ -8,13 +8,13 @@ execute as @s[scores={health_dna=..0}] run scoreboard players set @s health_dna 
 
 
 execute as @s[scores={chakra_acumulado=3000..}] run scoreboard players set @s chakra_acumulado 3000
-execute as @a[tag=byakugou_lock,scores={chakra_acumulado=2999..}] run function selo_byakugou
+execute as @s[tag=byakugou_lock,scores={chakra_acumulado=2999..}] run function selo_byakugou
 
 
 
 
 execute as @s[tag=treino_pesos] run scoreboard players remove @s pesos_guy 1
-execute as @e[tag=treino_pesos] run effect @s slowness 1 2 true 
+execute as @s[tag=treino_pesos] run effect @s slowness 1 2 true 
 execute as @s[tag=treino_pesos,scores={pesos_guy=5..5}] run tellraw @s {"rawtext":[{"text":"§c[!]§aTempo De Treinamento Comcluida"}]}
 execute as @s[scores={pesos_guy=..0}] run scoreboard players set @s pesos_guy 1
 
