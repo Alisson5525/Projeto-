@@ -1,0 +1,49 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+
+
+    "controller.render.cabelo_sasuke": {
+      "geometry": "Geometry.cabelo_sasuke",
+
+      "materials": [
+        { "*": "Material.default" }
+      ],
+
+      "textures": [
+        "query.property('tnt:hyuga') == 4 ? Texture.cabelo_sasuke_tenseigan :            query.property('tnt:kurama') == 4 || query.property('tnt:kurama') == 5 || query.property('tnt:kurama') == 8 ? Texture.cabelo_sasuke_mk_kurama :              query.property('tnt:kurama') == 3 || query.property('tnt:kurama') == 6 ? Texture.cabelo_sasuke_biju_sangue :               query.property('tnt:8_portoes') == 8 ? Texture.cabelo_sasuke_8_portao :                          Texture.cabelo_sasuke"
+      ]
+    },
+
+  "controller.render.cabelo_naruto": {
+      "geometry": "Geometry.cabelo_naruto",
+
+      "materials": [
+        { "*": "Material.default" }
+      ],
+
+      "textures": [
+        "query.property('tnt:hyuga') == 4 ? Texture.cabelo_naruto_tenseigan :            query.property('tnt:kurama') == 4 || query.property('tnt:kurama') == 5 || query.property('tnt:kurama') == 8 ? Texture.cabelo_naruto_mk_kurama :              query.property('tnt:kurama') == 3 || query.property('tnt:kurama') == 6 ? Texture.cabelo_naruto_biju_sangue :               query.property('tnt:8_portoes') == 8 ? Texture.cabelo_naruto_8_portao :                          Texture.cabelo_naruto"
+      ]
+    },
+
+  "controller.render.cabelo_madara": {
+      "geometry": "Geometry.cabelo_madara",
+
+      "materials": [
+        { "*": "Material.default" }
+      ],
+
+      "textures": [
+        "query.property('tnt:hyuga') == 4 ? Texture.cabelo_madara_tenseigan :            query.property('tnt:kurama') == 4 || query.property('tnt:kurama') == 5 || query.property('tnt:kurama') == 8 ? Texture.cabelo_madara_mk_kurama :              query.property('tnt:kurama') == 3 || query.property('tnt:kurama') == 6 ? Texture.cabelo_madara_biju_sangue :               query.property('tnt:8_portoes') == 8 ? Texture.cabelo_madara_8_portao :                          Texture.cabelo_madara"
+      ]
+    }
+
+
+
+
+
+
+
+  }
+}

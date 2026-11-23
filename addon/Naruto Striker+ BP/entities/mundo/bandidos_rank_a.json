@@ -1,0 +1,474 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:bandidos_rank_a",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+
+"skill_anbu"
+]},
+
+
+    "animations":{
+
+"skill_anbu": "controller.animation.skill_anbu",
+"skill_1": "animation.skill_esquiva_mob",
+"skill_2_agua": "animation.tubarao_triplo_animation",
+"skill_2_fogo": "animation.bola_fogo_animation",
+"skill_2_raio": "animation.chidori_nagashi_animation"
+
+
+
+
+
+
+
+
+
+},
+       "properties": {
+"skills:ninjas": {"client_sync": true,"type": "int","range":[ 0, 4 ],"default":0}
+
+ }
+
+},
+
+    "component_groups": {
+          "attack": {
+        "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1,
+        "track_target": true
+      }
+        
+      },
+      "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+
+
+"modo_berserk": {
+"minecraft:mark_variant": {"value": 1},
+"minecraft:knockback_resistance": {"value": 1}, 
+"minecraft:attack": {"damage": 40}
+},
+"quebrar_berserk": {
+"minecraft:mark_variant": {"value": 0},
+"minecraft:knockback_resistance": {"value": 0}, 
+"minecraft:attack": {"damage": 20}
+},
+"no_moviment": {
+"minecraft:movement": {"value": 0}
+},
+"yes_moviment": {
+"minecraft:movement": {"value": 0.4}
+}
+
+
+
+
+
+
+    },
+    "components": {
+
+
+
+
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+
+
+
+
+      "minecraft:preferred_path": {
+        "max_fall_blocks": 10
+      },
+
+
+
+
+
+
+
+
+
+
+    "minecraft:damage_sensor": {
+"triggers": [
+
+
+    {
+      "on_damage": {
+        "filters": {
+          "test": "has_damage", "value": "fatal"
+        },
+        "event": "tnt:morrer"
+      }
+    },
+
+
+{
+"on_damage": {
+"filters": {
+"all_of":[
+{"test": "has_tag", "subject": "self", "value": "elemento_agua" },
+{"test":"has_damage","value":"attack"},
+
+
+{"any_of": [ 
+
+{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
+
+]}
+
+]},
+"event": "skills_ataques_agua"
+},
+"deals_damage": true
+},
+
+
+{
+"on_damage": {
+"filters": {
+"all_of":[
+{"test": "has_tag", "subject": "self", "value": "elemento_fogo" },
+{"test":"has_damage","value":"attack"},
+
+
+{"any_of": [ 
+
+{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
+
+]}
+
+]},
+"event": "skills_ataques_fogo"
+},
+"deals_damage": true
+},
+
+
+{
+"on_damage": {
+"filters": {
+"all_of":[
+{"test": "has_tag", "subject": "self", "value": "elemento_raio" },
+{"test":"has_damage","value":"attack"},
+
+
+{"any_of": [ 
+
+{"test":"is_family", "subject": "other", "value": "mob"}, {"test":"is_family", "subject": "other", "value": "player"}
+
+]}
+
+]},
+"event": "skills_ataques_raio"
+},
+"deals_damage": true
+}
+
+
+
+
+
+
+
+
+
+]},
+
+
+
+
+    
+
+
+      "minecraft:type_family": {
+        "family": [ "ninja","mobs" ]
+      },
+     
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:scale": {
+      	 "value": 1.0
+      },
+	"minecraft:health": {
+	   "value": 250,
+	   "max": 250
+	},
+      "minecraft:can_climb": {
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:attack": {
+        "damage": 7
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_damage_blocks": true,
+        "avoid_water": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.1
+      },
+     
+      "minecraft:movement.basic": {
+    
+      },
+      "minecraft:jump.static": {
+        "value": 1.0
+      },
+      "minecraft:follow_range": {
+        "value": 60,
+        "max": 60
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": -1,
+        "inhaleTime": 3.75,
+        "generatesBubbles": false
+      },
+      "minecraft:nameable": {
+      },
+     
+
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+ "minecraft:behavior.nearest_attackable_target": {
+  "priority": 2,
+  "within_radius": 20,         
+  "reselect_targets": true,
+  "entity_types": [
+    {
+      "filters": {
+        "any_of": [
+          { "test": "is_family", "subject": "other", "value": "player" }
+        ]
+      },
+      "max_dist": 20
+    }
+  ],
+  "must_see": true
+},
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+
+"modo_berserk": { "add": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s resistance infinite 2 true" ]}},
+"quebrar_berserk": { "add": { "component_groups": [ "quebrar_berserk" ] }, "remove": { "component_groups": [ "modo_berserk" ] },  "queue_command": { "command": [ "effect @s clear" ]}},
+
+"no_moviment": { "add": { "component_groups": [ "no_moviment" ] }},
+"yes_moviment": { "add": { "component_groups": [ "yes_moviment" ] }, "remove": { "component_groups": [ "no_moviment" ] }},
+
+
+"tnt:tick": {
+"queue_command": {"command": [
+"function mobs/elemento_random"
+
+]}},
+
+
+
+"skills_ataques_agua": {
+"randomize": [
+
+{"weight": 100,"queue_command": {"command": []}},
+{"weight": 100,"queue_command": {"command": []}},
+
+
+{"weight": 100,
+"queue_command": {"command": [
+"event entity @s skill:esquiva"
+
+]}},
+{"weight": 20,
+"queue_command": {"command": [
+"event entity @s skill:agua_tubarao"
+
+]}}
+]},
+
+
+
+
+
+"skills_ataques_fogo": {
+"randomize": [
+
+{"weight": 100,"queue_command": {"command": []}},
+{"weight": 100,"queue_command": {"command": []}},
+
+
+
+{"weight": 100,
+"queue_command": {"command": [
+"event entity @s skill:esquiva"
+
+]}},
+{"weight": 40,
+"queue_command": {"command": [
+"event entity @s skill:bola_fogo"
+
+]}}
+]},
+
+
+
+
+
+"skills_ataques_raio": {
+"randomize": [
+
+{"weight": 100,"queue_command": {"command": []}},
+{"weight": 100,"queue_command": {"command": []}},
+
+
+{"weight": 100,
+"queue_command": {"command": [
+"event entity @s skill:esquiva"
+
+]}},
+{"weight": 30,
+"queue_command": {"command": [
+"event entity @s skill:chidori_nagashi"
+
+]}}
+]},
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ "skill:sem": {"set_property": {"skills:ninjas": 0}},
+
+ "skill:esquiva": {"set_property": {"skills:ninjas": 1}},
+ "skill:agua_tubarao": {"set_property": {"skills:ninjas": 2}},
+ "skill:bola_fogo": {"set_property": {"skills:ninjas": 3}},
+ "skill:chidori_nagashi": {"set_property": {"skills:ninjas": 4}},
+
+
+
+
+
+
+
+
+
+
+"tnt:morrer": {
+"randomize": [
+
+{"weight": 100,
+"queue_command": {"command": [
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e120.Tp\"}]}",
+"scoreboard players add @s[tag=missao_6_c] bndidos_a_miss 1",
+"scoreboard players add @s tp 120"
+
+],
+"target": "other"}},
+
+{"weight": 70,
+"queue_command": {"command": [
+"execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§a[!] §e140.Tp\"}]}",
+"scoreboard players add @s[tag=missao_6_c] bndidos_a_miss 1",
+"scoreboard players add @s tp 140"
+
+],
+"target": "other"}}
+]},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"minecraft:entity_spawned": {
+"add": {
+"component_groups": [
+"attack"
+]}},
+
+"minecraft:entity_transformation": {
+"add": {
+"component_groups": [
+"attack"
+]}},
+
+
+
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+      "minecraft:start_despawn": {
+        "add": {
+          "component_groups": [
+            "despawning"
+          ]
+        }
+    }
+    }
+  }
+}

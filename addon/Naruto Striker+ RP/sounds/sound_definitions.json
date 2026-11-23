@@ -1,0 +1,278 @@
+{
+      "bijudama_mk2": {
+     "max_distance": 20,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/bijus/kurama/bijudama_mk2",
+        "volume": 0.8,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+
+
+"byakugan": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/byakugan", "load_on_low_memory": true }]
+},
+"tenseigan": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/tenseigan", "load_on_low_memory": true }]
+},
+"sharingan": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/sharingan", "load_on_low_memory": true }]
+},
+"mgk": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/mgk", "load_on_low_memory": true }]
+},
+"susanoo_2": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/susanoo_2", "load_on_low_memory": true }]
+},
+"rinnegan": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/rinnegan", "load_on_low_memory": true }]
+},
+"marca_2": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/marca_2", "load_on_low_memory": true }]
+},
+"modo_sabio": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/modo_sabio", "load_on_low_memory": true }]
+},
+"manto_chakra_biju": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/manto_chakra_biju", "load_on_low_memory": true }]
+},
+"manto_kurama_4": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/manto_kurama_4", "load_on_low_memory": true }]
+},
+"mk": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/mk", "load_on_low_memory": true }]
+},
+"barion": {
+         "min_distance": 100.0,
+         "sounds": [{"name": "sounds/modo_ativacao/barion", "load_on_low_memory": true }]
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "genjutsu": {
+    "min_distance": 100.0,
+    "sounds": [
+      {
+        "name": "sounds/genjutsu",
+        "load_on_low_memory": true
+      }
+    ]
+  },
+    "previsao_sharingan": {
+    "min_distance": 100.0,
+    "sounds": [
+      {
+        "name": "sounds/previsao_sharingan",
+        "load_on_low_memory": true
+      }
+    ]
+  },
+      "rasengan_ativo": {
+    "min_distance": 100.0,
+    "sounds": [
+      {
+        "name": "sounds/rasengan_ativo",
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "kurama_grito": {
+     "max_distance": 32,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/bosses/kurama/kurama_grito",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "lancar_bijudama": {
+     "max_distance": 32,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/bosses/kurama/lancar_bijudama",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "reload_bijudama": {
+     "max_distance": 32,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/bosses/kurama/reload_bijudama",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "reload_orb_bijudama": {
+     "max_distance": 32,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/bosses/kurama/reload_orb_bijudama",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "terra_sanduiche": {
+     "max_distance": 15,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/terra/terra_sanduiche",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "terra_sanduiche_impact": {
+     "max_distance": 15,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/terra/terra_sanduiche_impact",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "chidori_nagashi": {
+     "max_distance": 20,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/raio/chidori_nagashi",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+      "hit_barion": {
+     "max_distance": 7,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/hit_barion",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+      "bola_fogo": {
+     "max_distance": 15,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/fogo/bola_fogo",
+        "volume": 0.7,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+      "chidori_load": {
+     "max_distance": 10,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/raio/chidori_load",
+        "volume": 0.5,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+        "chidori_load_atk": {
+     "max_distance": 15,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsus/raio/chidori_load_atk",
+        "volume": 1,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+      "rotacao": {
+     "max_distance": 20,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/hyuga/rotacao",
+        "volume": 0.4,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  },
+
+      "jutsu_ativation": {
+     "max_distance": 15,
+    "min_distance": 1,
+    "sounds": [
+      {
+        "name": "sounds/jutsu_ativation",
+        "volume": 0.6,
+        "pitch": 1.0,
+        "load_on_low_memory": true
+      }
+    ]
+  }
+}

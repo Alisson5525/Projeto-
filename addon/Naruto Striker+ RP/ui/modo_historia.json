@@ -1,0 +1,116 @@
+{
+  "namespace": "modo_historia",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.modo_historia": {
+          "$view_content": "@modo_historia.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.modo_historia.title')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 10],
+          "offset": [0, 0],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+      
+      {
+        "buttons": {
+          "type": "panel",
+          "controls": [
+      {
+              "button_0": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/menu_miss/sair",
+                "$hover_button_texture": "textures/ui/menu_miss/sair_select",
+                "$pressed_button_texture": "textures/ui/menu_miss/sair_select",
+                "offset": [-12, -88],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [20, 20],
+                      "collection_index": 0
+                    }
+                  }
+                ]
+              }
+            },
+ {
+              "button_0": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/menu_miss/botoes/text_classico",
+                "$hover_button_texture": "textures/ui/menu_miss/botoes/text_classico_select",
+                "$pressed_button_texture": "textures/ui/menu_miss/botoes/text_classico_select",
+                "offset": [-136, -73],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [25, 120],
+                      "collection_index": 1
+                    }
+                  }
+                ]
+              }
+            },
+             {
+              "button_1": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/menu_miss/botoes/text_shippuden",
+                "$hover_button_texture": "textures/ui/menu_miss/botoes/text_shippuden_select",
+                "$pressed_button_texture": "textures/ui/menu_miss/botoes/text_shippuden_select",
+                "offset": [-90, -73],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [25, 120],
+                      "collection_index": 2
+                    }
+                  }
+                ]
+              }
+            }
+
+                      
+          ]
+        }
+      }
+    ]
+  }
+}

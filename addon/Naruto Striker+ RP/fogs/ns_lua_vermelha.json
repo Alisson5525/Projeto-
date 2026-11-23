@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "tnt:ns_lua_vermelha"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 0.35,
+        "fog_end": 0.92,
+        "fog_color": "#4a0a0c",
+        "render_distance_type": "render"
+      },
+      "weather": {
+        "fog_start": 0.2,
+        "fog_end": 0.75,
+        "fog_color": "#3a0808",
+        "render_distance_type": "render"
+      }
+    }
+  }
+}

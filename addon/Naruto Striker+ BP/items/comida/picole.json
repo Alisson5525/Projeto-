@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:picole",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:use_animation": "eat",
+"minecraft:use_modifiers": {
+    "movement_modifier": 0.5,
+    "use_duration": 0.3
+},
+"minecraft:food": {
+    "can_always_eat": false,
+    "nutrition": 6,
+    "saturation_modifier": 3
+},
+      
+      "minecraft:max_stack_size": 32,
+      "minecraft:icon": {
+        "textures": {
+          "default":"picole"
+        }
+},
+"minecraft:cooldown": { "duration": 0,
+"category": "comida"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§epicole\n§7+3 Nutrition\n§7use duration: 0.3"
+	  }
+    }
+  }
+}
+

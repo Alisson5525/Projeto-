@@ -1,0 +1,120 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.troca_skill_rinnegan": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'rinnegan_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'rinnegan_skill_2' && query.is_sneaking" },
+         
+            { "skill_3": "query.get_equipped_item_name == 'rinnegan_skill_3' && query.is_sneaking" },
+            
+            { "skill_4": "query.get_equipped_item_name == 'rinnegan_skill_4' && query.is_sneaking" },
+
+            { "skill_5": "query.get_equipped_item_name == 'rinnegan_skill_5' && query.is_sneaking" }
+
+           ]
+        },
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:rinnegan_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:rinnegan_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:rinnegan_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:rinnegan_skill_5 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+        "skill_5": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:rinnegan_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+    },
+    "controller.animation.skill_rinnegan": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"skill_1": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'rinnegan_skill_1' && q.is_using_item"},
+            {"skill_2": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'rinnegan_skill_2' && q.is_using_item"},
+            {"skill_3": "q.scoreboard('chakra') >= 30 && query.get_equipped_item_name == 'rinnegan_skill_3' && q.is_using_item"},
+            {"skill_4": "q.scoreboard('chakra') >= 250 && query.get_equipped_item_name == 'rinnegan_skill_4' && q.is_using_item"},
+            {"skill_5": "q.scoreboard('chakra') >= 200 && query.get_equipped_item_name == 'rinnegan_skill_5' && q.is_using_item"}
+         
+            
+           ]
+        },
+
+       "skill_1": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["rinnegan_shinra_tensei"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "skill_2": {
+       "on_entry": ["/scoreboard players remove @s chakra 70","/tp @e[rm=2,r=10] ~ ~ ~ ","/particle tnt:shinra_tensei_2 ~~1~" ],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "skill_3": {
+       "on_entry": ["/scoreboard players remove @s chakra 30"],
+       "animations": ["rinnegan_absover_chakra"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "skill_4": {
+       "on_entry": ["/scoreboard players remove @s chakra 250","/summon tnt:meteorio_rine ~ ~80 ~ "],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "skill_5": {
+       "on_entry": ["/scoreboard players remove @s chakra 200"],
+       "animations": ["rinnegan_chibaku_tensei"],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

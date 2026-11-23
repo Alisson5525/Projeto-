@@ -1,0 +1,81 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "tnt:bijudama_projetil_mult",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "runtime_identifier": "minecraft:snowball"
+      },
+      "component_groups": {
+     "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+      },
+      "components": {
+"minecraft:type_family": {"family": ["jutsu_mortal"]},
+
+      "minecraft:timer": {
+        "time": 4,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+        
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+         "on_hit": {
+          
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "on:hit",
+            "target": "self"
+      }
+     },
+      "impact_damage": {
+              "damage": 20
+            }
+    },
+          "power": 2.0,
+          "gravity": 0.0,
+        "offset": [ 0, -0.2, 1 ]
+        },
+        "minecraft:physics": {}
+      },
+      "events": {
+    
+
+"tnt:despawn": {
+"add": {"component_groups": ["tnt:despawn"]}
+        },
+
+        "on:hit": {
+           "queue_command": {
+                "command": [
+                "playsound ambient.weather.lightning.impact @a[r=15] ~~~ 0.5 1",
+                "particle tnt:bijudama_impact_2",
+                "damage @e[r=6] 15",
+                "kill @s"
+
+                ]
+              }
+        }
+      }
+    }
+  }

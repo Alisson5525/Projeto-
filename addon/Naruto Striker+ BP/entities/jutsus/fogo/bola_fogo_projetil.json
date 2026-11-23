@@ -1,0 +1,100 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "tnt:bola_fogo_projetil",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "runtime_identifier": "minecraft:snowball"
+      },
+      "component_groups": {
+     "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+      },
+      "components": {
+"minecraft:type_family": {"family": ["jutsu_comum"]},
+
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          },
+                    {
+            "filters": {
+          "test": "has_tag",
+          "operator": "==",
+          "value": "impact_skill"
+
+            },
+            "event": "tnt:impact_rasen"
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 9,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+        
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+         "on_hit": {
+          
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "on:hit",
+            "target": "self"
+      }
+     },
+      "impact_damage": {
+              "damage": 25
+            }
+    },
+         "power": 1.6,
+          "gravity": 0,
+        "offset": [ 0, 0.1, 0 ]
+        },
+        "minecraft:physics": {}
+      },
+      "events": {
+        
+
+    
+
+
+"tnt:despawn": {
+"add": {"component_groups": ["tnt:despawn"]}
+        },
+
+        "on:hit": {
+           "queue_command": {
+                "command": [
+                "particle tnt:bola_fogo_projetil_impact",
+                "damage @e[r=5] 10",
+                "kill @s"
+
+                ]
+              }
+        }
+      }
+    }
+  }

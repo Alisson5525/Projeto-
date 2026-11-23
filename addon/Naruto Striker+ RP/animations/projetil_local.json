@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.projetil_local": {
+      "loop": true,
+      "animation_length": 0.75,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-query.target_x_rotation",
+            "-query.body_y_rotation",
+            0
+          ]
+        }
+      },
+      "particle_effects": {
+        "0.0": [
+          {
+            "effect": "vacuo_manto_1",
+            "locator": "vacuo_manto_1"
+          }
+        ]
+      }
+    }
+  }
+}

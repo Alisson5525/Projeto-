@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.bijudama_animation": {
+      "loop": false,
+      "animation_length": 3.1,
+			"timeline": {
+				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama default 0.2"],
+				 "0.2": ["/playsound mob.piglin_brute.step @a[r=5] ~~~ 0.5 1"],
+				 "0.4": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1"],
+				 "1.5": ["/playsound mob.elderguardian.hit @a[r=10] ~~~ 1 1"],
+				 "2.9": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "3.0": ["/event entity @s jutsu:bijudama_projetil"]
+      }
+    },
+        "animation.bijudama_salto_animation": {
+      "loop": false,
+      "animation_length": 2.3,
+			"timeline": {
+				 "0.0": ["/playanimation @s animation.manto_kurama_4_bijudama_salto default 0.2"],
+         "0.1": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1","/event entity @s tnt:no_gravity","/tp @s ~~6~"],
+				 "0.3": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "0.4": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "0.6": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "0.7": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "0.9": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "1.0": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "1.1": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "1.2": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "1.4": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "1.5": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "1.7": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "1.8": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+				 "1.9": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1"],
+				 "2.0": ["/event entity @s jutsu:bijudama_projetil_mult"],
+
+         "2.1": ["/event entity @s tnt:restore_gravity"]
+
+      }
+    }
+  }
+}

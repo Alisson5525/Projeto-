@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.susanoo_move": {
+			"loop": true,
+			"bones": {
+				"susanoo_sasuke_all": {
+					"rotation": ["math.lerp(0, 10, query.cape_flap_amount) + 2", 0, 0],
+					"position": [0, "math.lerp(0, 5, query.cape_flap_amount) - 2", 0]
+				},
+				"susanoo_braco": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:ramen",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:use_animation": "eat",
+"minecraft:use_modifiers": {
+    "movement_modifier": 0.5,
+    "use_duration": 0.8
+},
+"minecraft:food": {
+    "can_always_eat": false,
+    "nutrition": 16,
+    "saturation_modifier": 5
+},
+      
+      "minecraft:max_stack_size": 6,
+      "minecraft:icon": {
+        "textures": {
+          "default":"ramen"
+        }
+},
+"minecraft:cooldown": { "duration": 0,
+"category": "comida"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§eramen\n§7+8 Nutrition\n§7use duration: 0.8"
+	  }
+    }
+  }
+}
+

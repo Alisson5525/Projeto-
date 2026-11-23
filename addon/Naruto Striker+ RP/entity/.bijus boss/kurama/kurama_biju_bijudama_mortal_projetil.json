@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:kurama_biju_bijudama_mortal_projetil",
+      "materials": {
+        "default": "entity_alphatest",
+        "true_zombie_2": "outline"
+      },
+      "textures": {
+        "true_zombie_2": "textures/tudo/bijus/kurama/bijudama_borda",
+        "default": "textures/tudo/bijus/kurama/bijudama"
+      },
+      "geometry": {
+        "true_zombie_2": "geometry.bijudama_projetil_borda",
+        "default": "geometry.bijudama_projetil"
+      },
+      "particle_effects": {
+        "rasen_shuriken_fumasa": "tnt:rasen_shuriken_fumasa",
+        "ns_trilha": "tnt:ns_trilha"
+      },
+      "render_controllers": [
+        "controller.render.true_zombie",
+        "controller.render.item_sprite",
+        "controller.render.true_zombie_2"
+      ],
+      "animations": {
+        "bijudama_projetil": "animation.bijudama_projetil",
+        "ns_trilha": "animation.ns_trilha_roxo"
+      },
+      "scripts": {
+        "animate": [
+          "bijudama_projetil",
+          "ns_trilha"
+        ]
+      }
+    }
+  }
+}

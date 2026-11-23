@@ -1,0 +1,38 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:terra_sanduiche",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "textures/jutsus/terra/terra_sanduiche" 
+      },
+      "geometry": {
+        "default": "geometry.terra_sanduiche"
+      },
+       "particle_effects": {
+        "terra_sanduiche_fumaca": "tnt:terra_sanduiche_fumaca",
+        "terra_sanduice_final": "tnt:terra_sanduice_final",
+        "terra_sanduiche_fumaca_chao": "tnt:terra_sanduiche_fumaca_chao"
+      },     
+        "sound_effects": {
+        "terra_sanduiche": "terra_sanduiche",
+        "terra_sanduiche_impact": "terra_sanduiche_impact"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"],
+      "animations": {
+        "terra_tecnica_sanduiche": "animation.terra_tecnica_sanduiche"
+        
+      },
+      "scripts": {
+        "animate": [
+          "terra_tecnica_sanduiche"
+        ]
+      }
+    }
+  }
+} 

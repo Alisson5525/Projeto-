@@ -1,0 +1,8 @@
+slot=1.2.3.4.5
+jutsus
+
+slot=6
+jutsus separado tip rasengan\chidori etc
+
+slot=7
+Kekkei Genkai

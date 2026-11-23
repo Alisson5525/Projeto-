@@ -1,0 +1,104 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.skill_suigetsu": {
+      "states": {
+        "default": {
+          "transitions": [
+			      {"correr_liquido": "query.property('tnt:suigetsu') == 1 && query.is_sprinting"},
+			      {"correr_liquido_c": "query.property('tnt:suigetsu') == 1 && !query.is_sprinting"}
+         
+         
+            
+           ]
+        },
+"correr_liquido": {
+"on_entry": ["/playsound cauldron.takepotion @a[r=14]"],
+"animations": ["correr_liquido_animation"],
+"transitions": [{"default": "!query.is_sprinting"}]},
+"correr_liquido_c": {
+"on_entry": ["/effect @s speed 0 0 true","/playsound cauldron.takepotion @a[r=14]"],
+"transitions": [{"default": "query.is_sprinting"}]}
+
+      }
+    },
+
+    "controller.animation.skill_suigetsu_2": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1_troca": "query.get_equipped_item_name == 'suigetsu_skill_1' && query.is_sneaking" },
+            { "skill_2_troca": "query.get_equipped_item_name == 'suigetsu_skill_2' && query.is_sneaking" },
+            { "skill_3_troca": "query.get_equipped_item_name == 'suigetsu_skill_3' && query.is_sneaking" },
+
+
+            {"skill_1": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name == 'suigetsu_skill_1' && q.is_using_item"},
+            {"skill_2": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'suigetsu_skill_2' && q.is_using_item"},
+            {"skill_3": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'suigetsu_skill_3' && q.is_using_item"}
+         
+         
+            
+           ]
+        },
+        "skill_1_troca": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:suigetsu_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2_troca": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:suigetsu_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3_troca": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:suigetsu_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+
+
+
+
+
+
+
+"skill_1": {
+"animations": ["suigetsu_forca_animation"],
+"on_entry": ["/scoreboard players remove @s chakra 60"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+"skill_2": {
+"animations": ["suigetsu_intangivel_animation"],
+"on_entry": ["/scoreboard players remove @s chakra 80"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]},
+"skill_3": {
+"animations": ["bala_agua_suigetsu_animation"],
+"on_entry": ["/scoreboard players remove @s chakra 70"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]}
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

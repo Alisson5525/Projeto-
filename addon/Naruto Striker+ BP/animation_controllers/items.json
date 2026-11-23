@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.items_addon": {
+      "states": {
+        "default": {
+          "transitions": [
+
+
+{"chakra_kurama": "query.get_equipped_item_name=='chakra_kurama' && query.is_using_item"},
+
+{"menu_custon": "query.get_equipped_item_name=='menu_custon' && query.is_using_item"}
+            
+           ]
+        },
+
+
+"chakra_kurama": {
+"on_entry": [
+"/tellraw @s {\"rawtext\":[{\"text\":\"§c[!]§e Voce Se Tornou Jinchuuriki da Kurama\"}]}", 
+"/clear @s tnt:chakra_kurama 0 1", 
+"/tag @s remove manto_kurama_1_lock",
+"/tag @s add manto_kurama_1",
+"/tag @s add jinchuuriki_kurama"
+],
+"transitions": [{"default": " !query.is_using_item"}]},
+
+"menu_custon": {
+"on_entry": [
+"/camera @s set minecraft:third_person_front"
+],
+"transitions": [{"default": " !query.is_using_item"}]}
+
+
+
+      }
+    }
+  }
+}

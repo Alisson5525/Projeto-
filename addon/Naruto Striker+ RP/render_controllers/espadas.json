@@ -1,0 +1,68 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.gunbai": {
+      "geometry": "Geometry.gunbai",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.gunbai" ]
+    },
+    "controller.render.samehada": {
+      "geometry": "Geometry.samehada",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.samehada" ]
+    },
+    "controller.render.foice_hidan": {
+      "geometry": "Geometry.foice_hidan",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.foice_hidan" ]
+    },
+    "controller.render.kunai_minato": {
+      "geometry": "Geometry.kunai_minato",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.kunai_minato" ]
+    },
+
+
+
+
+
+
+
+
+
+    
+
+
+    "controller.render.kubikiribocho": {
+      "geometry": "Geometry.kubikiribocho",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.kubikiribocho" ]
+    },
+    "controller.render.kunai_asuma": {
+      "geometry": "Geometry.kunai_asuma",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.kunai_asuma" ]
+    },
+    "controller.render.hiramekarei": {
+      "geometry": "Geometry.hiramekarei",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.hiramekarei" ]
+    },
+    "controller.render.katubowari": {
+      "geometry": "Geometry.katubowari",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.katubowari" ]
+    },
+    "controller.render.kiba": {
+      "geometry": "Geometry.kiba",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.kiba" ]
+    },
+    "controller.render.shibuki": {
+      "geometry": "Geometry.shibuki",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.shibuki" ]
+    }
+
+  }
+}

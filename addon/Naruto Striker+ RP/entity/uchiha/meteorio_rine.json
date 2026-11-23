@@ -1,0 +1,35 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:meteorio_rine",
+      "materials": {
+        "default": "egg",
+        "outline": "outline"
+      },
+      "textures": {
+        "default": "textures/tudo/rinnegan/meteorio_rine",
+        "meteorio_rine": "textures/tudo/rinnegan/meteorio_rine_camada"
+      },
+      "geometry": {
+        "default": "geometry.meteorio",
+        "meteorio_rine": "geometry.meteorio_camada"
+      },
+       "particle_effects": {
+        "meteorio": "tnt:meteorio"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite","controller.render.meteorio_rine" ],
+      "animations": {
+        "meteorio": "animation.meteorio"
+        
+      },
+      "scripts": {
+        "animate": [
+          "meteorio"
+        ]
+      }
+    }
+  }
+} 

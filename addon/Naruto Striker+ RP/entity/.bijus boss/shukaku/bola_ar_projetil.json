@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:bola_ar_projetil",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": ""
+      },
+      "geometry": {
+        "default": "geometry.projetil_local"
+      },
+      "particle_effects": {
+        "vacuo_manto_1": "tnt:bola_ar_shukaku",
+        "ns_trilha": "tnt:ns_trilha"
+      },
+      "render_controllers": [
+        "controller.render.true_zombie",
+        "controller.render.item_sprite"
+      ],
+      "animations": {
+        "projetil_local": "animation.projetil_local",
+        "ns_trilha": "animation.ns_trilha_terra"
+      },
+      "scripts": {
+        "animate": [
+          "projetil_local",
+          "ns_trilha"
+        ]
+      }
+    }
+  }
+}

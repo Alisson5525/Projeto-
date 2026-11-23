@@ -1,0 +1,49 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kamui": {
+			"animation_length": 2.4,
+			"override_previous_animation": true,
+			"bones": {
+				"kamui": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.4": [0, 0, -360]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kamui",
+						"locator": "kamui_1"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_2"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_3"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_4"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_5"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_6"
+					},
+					{
+						"effect": "kamui",
+						"locator": "kamui_7"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:guy_npc_ex",
+      "materials": {
+        "default": "entity_alphatest",
+        "true_zombie_2": "outline"
+      },
+      "textures": {
+        "default": "textures/npcs/guy"
+      },
+      "geometry": {
+        "default": "geometry.entidades_camadas"
+      },
+      "render_controllers": [
+        "controller.render.true_zombie",
+        "controller.render.item_sprite"
+      ],
+      "animations": {
+        "guy_pose": "animation.guy_pose",
+        "tnt_npc_respirar": "animation.tnt_ninja.npc_respirar"
+      },
+      "scripts": {
+        "animate": [
+          "guy_pose",
+          "tnt_npc_respirar"
+        ]
+      }
+    }
+  }
+}

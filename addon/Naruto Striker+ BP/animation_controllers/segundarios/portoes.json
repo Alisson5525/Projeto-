@@ -1,0 +1,70 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.skill_portoes": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"lotos_frontal_": "query.get_equipped_item_name == 'lotos_frontal' && q.is_using_item"},
+            {"pavao_amanhecer_": "query.get_equipped_item_name == 'pavao_amanhecer_' && q.is_using_item"}
+         
+         
+            
+           ]
+        },
+"lotos_frontal_": {
+"on_entry": ["/tp @s ~~0.5~"],
+"transitions": [{"lotos_frontal": "!query.is_on_ground"}]},
+
+"lotos_frontal": {
+"animations": ["lotos_frontal_animation"],
+"transitions": [{"lotos_frontal_2": "query.is_on_ground"}]},
+ 
+
+"lotos_frontal_2": {
+"transitions": [{"default": "query.is_on_ground"}
+    ],
+    "on_entry": [
+      "/effect @e[rm=0.2,r=5,type=!item,family=!jutsu] slowness 2 3 true",
+      "/damage @e[rm=0.2,r=5,type=!item,family=!jutsu] 15",
+      "/particle tnt:lotos_frontal_impact_chao",
+      "/particle tnt:impact_chao",
+      "/playsound random.explode @a[r=30] ~ ~ ~ 1 1",
+      "/playanimation @s animation.rasengan_atk_chao default 0.2"
+
+    ]
+  },
+
+"pavao_amanhecer_": {
+"animations": ["pavao_amanhecer_animation"],
+"transitions": [{"default": "query.all_animations_finished && !query.is_using_item"}]}
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

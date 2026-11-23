@@ -1,0 +1,32 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:teiseigan_chakra_orb",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "textures/tudo/hyuga/teiseigan_chakra_orb" 
+      },
+      "geometry": {
+        "default": "geometry.teiseigan_chakra_orb"  
+      },
+       "particle_effects": {
+        "tenseigan_chakra_orb": "tnt:tenseigan_chakra_orb"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"   ],
+      "animations": {
+        "teiseigan_chakra_orb": "animation.teiseigan_chakra_orb"
+        
+      },
+      "scripts": {
+        "animate": [
+          "teiseigan_chakra_orb"
+        ]
+      }
+    }
+  }
+} 

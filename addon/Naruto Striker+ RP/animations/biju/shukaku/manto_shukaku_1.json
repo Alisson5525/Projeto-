@@ -1,0 +1,48 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.manto_shukaku_1": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"dedo": {
+					"rotation": ["-math.sin(query.life_time * 10) * 20", 0, "-5-math.sin(query.life_time * 10) * 20"]
+				},
+				"dedo2": {
+					"rotation": [0, 0, "27.5+math.sin(query.life_time * 10) * 20"]
+				},
+				"dedo3": {
+					"rotation": [0, 0, "12.5-math.sin(query.life_time * 10) * 20"]
+				},
+				"dedo4": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", 0, "math.sin(query.life_time * 10) * 20"]
+				},
+				"dedo5": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", 0, 0]
+				},
+				"calda": {
+					"rotation": [
+						"25.3113-math.sin(query.life_time * 10) * 20",
+						"16.6658-math.sin(query.life_time * 10) * 20",
+						"-31.2326+math.sin(query.life_time * 10) * 20"
+					]
+				},
+				"calda2": {
+					"rotation": ["-math.sin(query.life_time * 10) * 20", "-math.sin(query.life_time * 10) * 20", "math.sin(query.life_time * 10) * 20"]
+				},
+				"calda3": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", "math.sin(query.life_time * 10) * 20", "-math.sin(query.life_time * 10) * 20"]
+				},
+				"calda4": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", "math.sin(query.life_time * 10) * 20", "-math.sin(query.life_time * 10) * 20"]
+				},
+				"calda5": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", "math.sin(query.life_time * 10) * 20", "-math.sin(query.life_time * 10) * 20"]
+				},
+				"calda6": {
+					"rotation": ["math.sin(query.life_time * 10) * 20", "math.sin(query.life_time * 10) * 20", "-math.sin(query.life_time * 10) * 20"]
+				}
+			}
+		}
+	}
+}

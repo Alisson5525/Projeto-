@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.remover_roupas": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"calca_sasuke": {
+					"scale": 0
+				},
+				"roupa_cd_b_d": {
+					"scale": 0
+				},
+				"roupa_cd_b_e": {
+					"scale": 0
+				},
+				"roupa_cd_p_e": {
+					"scale": 0
+				},
+				"roupa_cd_p_d": {
+					"scale": 0
+				},
+				"roupa_cd_r": {
+					"scale": 0
+				},
+				"roupa_cd_p": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

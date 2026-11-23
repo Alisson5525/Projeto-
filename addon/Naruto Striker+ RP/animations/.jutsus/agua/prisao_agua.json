@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.prisao_agua": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"prisao_agua": {
+					"scale": {
+						"0.0": [1.1, 1.1, 1.1],
+						"3.0": [1, 1, 1],
+						"6.0": [1.1, 1.1, 1.1]
+					}
+				},
+				"prisao_agua2": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"3.0": [1.05, 1.05, 1.05],
+						"6.0": [1, 1, 1]
+					}
+				},
+				"prisao_agua_all": {
+					"position": [0, 7, 0]
+				}
+			}
+		}
+	}
+}

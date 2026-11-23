@@ -1,0 +1,27 @@
+{
+ "format_version": "1.8.0",
+ "render_controllers": {
+  "controller.render.ns_olhos_r13": {
+   "geometry": "Geometry.ns_olhos_r13",
+   "materials": [
+    {
+     "*": "Material.ns_olhos"
+    }
+   ],
+   "textures": [
+    "Texture.ns_olhos"
+   ]
+  },
+  "controller.render.ns_olhos_r14": {
+   "geometry": "Geometry.ns_olhos_r14",
+   "materials": [
+    {
+     "*": "Material.ns_olhos"
+    }
+   ],
+   "textures": [
+    "Texture.ns_olhos"
+   ]
+  }
+ }
+}

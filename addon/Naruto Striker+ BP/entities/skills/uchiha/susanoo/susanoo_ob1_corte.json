@@ -1,0 +1,106 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:susanoo_ob1_corte",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+
+      "tnt:despawn":{"minecraft:instant_despawn":{}}
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "jutsu",
+          "agua"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:timer": {
+        "time": 1.5,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+      "minecraft:scale": {
+        "value": 1.0
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:balloonable": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:on_target_acquired": {},
+      "minecraft:navigation.walk": {
+        "is_amphibious": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+        "has_gravity": false
+      }
+    },
+
+    "events": {
+
+      "minecraft:entity_spawned": {
+        "queue_command":{
+          "command":[
+            
+          ]
+        }
+      },
+      "tnt:tick":{
+        "queue_command":{
+          "command":[
+            "execute if block ^^^1 air if block ^^-1^ air run tp @s ^^-1^",
+            "execute if block ^^^1 tall_grass if block ^^-1^ air run tp @s ^^-1^",
+            "execute if block ^^0.5^0.5 air run tp @s ^^^0.8",
+            "execute if block ^^0.5^0.5 tall_grass run tp @s ^^^0.8",
+            "damage @e[tag=!susanoo_ob1_corte,r=3] 10",
+            "execute unless block ^^^1 air unless block ^^^1 tall_grass run tp @s ^^1^" 
+          ]
+        }
+      },
+      "tnt:despawn":{
+        "queue_command":{
+          "command":[
+            "playsound cauldron.takepotion @a[r=20]",
+            "tag @a remove susanoo_ob1_corte",
+            "effect @e[r=4] slowness 4 2 true" 
+          ]
+        },
+        "add":{"component_groups":["tnt:despawn"]}}
+    }
+  }
+}

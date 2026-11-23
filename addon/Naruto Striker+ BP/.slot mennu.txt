@@ -1,0 +1,12 @@
+para slot 1 
+sao modos de clans e bijus
+para slot 2 
+sao modos segundarios
+como  portoes, celulas do hashirama
+
+---------------------------------------------------------------------
+menu de modos all
+botao [all] > modos como portoes, armadura de raio, e sennins, marcas da maldiçao, celulas do hashirama
+
+botao [bijus] > tera modos das bijus etc
+botao [jutsus] > libera cada potencial do jutsus e kekeigenkai

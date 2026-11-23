@@ -1,0 +1,68 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.estilo_fogo_kamui": {
+			"animation_length": 3,
+			"override_previous_animation": true,
+			"bones": {
+				"bola_fogo_kamui": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, -4],
+						"3.0": [0, -45, -66]
+					},
+					"scale": 1
+				},
+				"bola_fogo_kamui_all": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"3.0": [0, 0, 1360]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"3.0": [0, 0, 0]
+					},
+					"scale": 1
+				},
+				"bola_fogo_kamui2": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"3.0": [0, -45, -66]
+					},
+					"scale": 1
+				},
+				"bola_fogo_kamui3": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"3.0": [0, -45, -66]
+					},
+					"scale": 1
+				},
+				"bola_fogo_kamui4": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"3.0": [0, -45, -66]
+					},
+					"scale": 1
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "bola_fogo_kamui",
+					"locator": "bola_fogo_kamui"
+				},
+				"1.0": {
+					"effect": "bola_fogo_kamui",
+					"locator": "bola_fogo_kamui"
+				},
+				"2.0": {
+					"effect": "bola_fogo_kamui",
+					"locator": "bola_fogo_kamui"
+				}
+			}
+		}
+	}
+}

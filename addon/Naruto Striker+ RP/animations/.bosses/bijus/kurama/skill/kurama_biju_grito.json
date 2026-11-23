@@ -1,0 +1,245 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kurama_biju_grito": {
+      "animation_length": 3.25,
+      "override_previous_animation": true,
+      "bones": {
+        "peitoral": {
+          "rotation": [
+            -22.5,
+            0,
+            0
+          ],
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.5": [
+              1.01,
+              1.01,
+              1.01
+            ],
+            "1.0": [
+              1,
+              1,
+              1
+            ],
+            "1.5": [
+              1.01,
+              1.01,
+              1.01
+            ],
+            "2.0": [
+              1,
+              1,
+              1
+            ],
+            "2.5": [
+              1.01,
+              1.01,
+              1.01
+            ],
+            "3.0": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "cabeca": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                27.5,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                52.5,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.375": {
+              "post": [
+                -7.5,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                -7.50706,
+                2.4786,
+                -0.32652
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.5": {
+              "post": [
+                -7.50706,
+                -2.4786,
+                0.32652
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.0": {
+              "post": [
+                -7.50706,
+                2.4786,
+                -0.32652
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.5": {
+              "post": [
+                -7.50706,
+                -2.4786,
+                0.32652
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "3.0": {
+              "post": [
+                -7.50706,
+                2.4786,
+                -0.32652
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "boca": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              0,
+              0,
+              0
+            ],
+            "0.375": {
+              "post": [
+                40,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "braco_d": {
+          "rotation": [
+            16.10693,
+            -12.45167,
+            -12.62076
+          ]
+        },
+        "braco_d_2": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "braco_d_3": {
+          "rotation": [
+            -45,
+            0,
+            0
+          ]
+        },
+        "braco_d2": {
+          "rotation": [
+            12.5,
+            12.5,
+            12.5
+          ]
+        },
+        "braco_d_4": {
+          "rotation": [
+            -24.81197,
+            -3.1622,
+            -6.80423
+          ]
+        },
+        "braco_d_5": {
+          "rotation": [
+            -40,
+            0,
+            0
+          ]
+        },
+        "perna_d2": {
+          "rotation": [
+            -42.5,
+            32.5,
+            10
+          ]
+        },
+        "perna_d_4": {
+          "rotation": [
+            75.97603,
+            -16.1299,
+            -6.88003
+          ]
+        },
+        "perna_d_5": {
+          "rotation": [
+            -116.69458,
+            -6.86379,
+            -13.36965
+          ]
+        },
+        "perna_d": {
+          "rotation": [
+            -42.20412,
+            -28.02432,
+            -11.17023
+          ]
+        },
+        "perna_d_2": {
+          "rotation": [
+            78.07779,
+            14.2906,
+            4.60659
+          ]
+        },
+        "perna_d_3": {
+          "rotation": [
+            -121.63272,
+            5.07855,
+            19.37006
+          ]
+        }
+      },
+      "sound_effects": {
+        "0.25": {
+          "effect": "kurama_grito"
+        }
+      },
+      "particle_effects": {
+        "0.375": {
+          "effect": "kurama_biju_grito",
+          "locator": "kurama_biju_boca"
+        }
+      }
+    }
+  }
+}

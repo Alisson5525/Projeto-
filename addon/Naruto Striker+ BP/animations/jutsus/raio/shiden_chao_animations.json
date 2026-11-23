@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.shiden_chao_animations": {
+"animation_length": 3.1,
+"timeline": {
+
+"0.0": ["/effect @s slowness 3 2 true","/playsound chidori_nagashi @a[x=~,y=~,z=~,r=20]","/playsound jutsu_ativation @a[r=7] ^^^1 1 1","/playanimation @s animation.shiden_skill_chao default 0.2","/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
+"0.2": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"0.4": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
+"0.6": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"0.8": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
+"1.0": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"1.2": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 4 true"],
+"1.4": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"1.6": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 6 true"],
+"1.8": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"2.0": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 6 true"],
+"2.2": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"2.4": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 1 8 true"],
+"2.6": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"],
+"2.8": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7","/effect @e[rm=0.7,r=4,type=!item,family=!jutsu] slowness 3 8 true"],
+"3.0": ["/damage @e[rm=0.7,r=4,type=!item,family=!jutsu] 7"]
+ 
+			
+}
+} 
+}
+}

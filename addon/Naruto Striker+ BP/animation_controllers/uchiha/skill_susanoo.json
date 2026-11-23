@@ -1,0 +1,266 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+     "controller.animation.troca_skill_susanoo_2_itachi": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'susanoo_it2_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'susanoo_it2_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'susanoo_it2_skill_3' && query.is_sneaking" },
+
+            { "skill_4": "query.get_equipped_item_name == 'susanoo_it2_skill_4' && query.is_sneaking" }
+         
+            
+           ]
+        },
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_it2_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_it2_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_it2_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_it2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+    "controller.animation.skill_susanoo_2_itachi": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "amaterasu": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'susanoo_it2_skill_1' && q.is_using_item" },
+            { "amaterasu_teleguiado": "q.scoreboard('chakra') >= 90 && query.get_equipped_item_name == 'susanoo_it2_skill_2' && q.is_using_item" },
+            { "amaterasu_retirar": "q.scoreboard('chakra') >= 20 && query.get_equipped_item_name == 'susanoo_it2_skill_3' && q.is_using_item" },
+            { "magatama_itachi": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name == 'susanoo_it2_skill_4' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+       "amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 125",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/execute positioned ^^^6 run tag @e[tag=!jutsu_absover,r=5,tag=!amaterasu,c=1] add amaterasu"
+            ]},
+
+       "amaterasu_teleguiado": {
+       "on_entry": ["/scoreboard players remove @s chakra 90"],
+       "animations": ["amaterasu_mgk_itachi"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+        "amaterasu_retirar": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 20",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/tag @s remove amaterasu",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=amaterasu,c=1] remove amaterasu"
+            ]},
+       "magatama_itachi": {
+       "on_entry": ["/scoreboard players remove @s chakra 60"],
+       "animations": ["magatama_susanoo_it2"],
+       "transitions": [{"default": "query.all_animations_finished"}]}       
+}},
+
+
+
+
+
+
+
+
+     "controller.animation.troca_skill_susanoo_2_sasuke": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'susanoo_sk2_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'susanoo_sk2_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'susanoo_sk2_skill_3' && query.is_sneaking" },
+
+            { "skill_4": "query.get_equipped_item_name == 'susanoo_sk2_skill_4' && query.is_sneaking" }
+                
+           ]},
+
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_sk2_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_sk2_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_sk2_skill_4 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_sk2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+
+
+
+
+
+
+    "controller.animation.skill_susanoo_2_sasuke": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "amaterasu": "q.scoreboard('chakra') >= 100 && query.get_equipped_item_name == 'susanoo_sk2_skill_1' && q.is_using_item" },
+            { "amaterasu_onda": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'susanoo_sk2_skill_2' && q.is_using_item" },
+            { "retira_amaterasu": "q.scoreboard('chakra') >= 30 && query.get_equipped_item_name == 'susanoo_sk2_skill_3' && q.is_using_item" },
+            { "espinho_amaterasu": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'susanoo_sk2_skill_4' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+        "amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 100",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=!amaterasu,c=1] add amaterasu"
+            ]},
+
+          "amaterasu_onda": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+           "/scoreboard players remove @s chakra 125",
+           "/tag @s add amaterasu_onda",
+           "/summon tnt:amaterasu_onda ^^^ ~0 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~50 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-50 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~100 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-100 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~150 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~-150 ~10000",
+           "/summon tnt:amaterasu_onda ^^^ ~200 ~10000"
+
+            ]},
+
+        "retira_amaterasu": {
+          "transitions": [{"default":"!q.is_using_item"}],
+          "on_entry": [
+            "/scoreboard players remove @s chakra 30",
+            "/playsound previsao_sharingan @a[r=10] ^^^1",
+            "/camerashake add @s 3 0.1 positional ",
+            "/tag @s remove amaterasu",
+            "/execute positioned ^^^6 run tag @e[r=5,tag=amaterasu,c=3] remove amaterasu"
+            ]},
+
+       "espinho_amaterasu": {
+       "on_entry": ["/scoreboard players remove @s chakra 125"],
+       "animations": ["espinho_amaterasu_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     "controller.animation.troca_skill_susanoo_ob2": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'susanoo_ob2_skill_1' && query.is_sneaking" },
+        
+            { "skill_2": "query.get_equipped_item_name == 'susanoo_ob2_skill_2' && query.is_sneaking" },
+
+            { "skill_3": "query.get_equipped_item_name == 'susanoo_ob2_skill_3' && query.is_sneaking" }
+                
+           ]},
+
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_ob2_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_ob2_skill_3 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_3": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 0 tnt:susanoo_ob2_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]}
+}},
+
+
+    "controller.animation.skill_susanoo_ob2": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "intangivel": "q.scoreboard('chakra') >= 90 && query.get_equipped_item_name == 'susanoo_ob2_skill_1' && q.is_using_item" },
+            { "kamui_absover": "q.scoreboard('chakra') >= 50 && query.get_equipped_item_name == 'susanoo_ob2_skill_2' && q.is_using_item" },
+            { "skill_4": "q.scoreboard('chakra') >= 70 && query.get_equipped_item_name == 'susanoo_ob2_skill_3' && q.is_using_item" }
+         
+            
+           ]
+        },
+
+             "intangivel": {
+       "on_entry": ["/scoreboard players remove @s chakra 90"],
+       "animations": ["kamui_intangivel"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+             "kamui_absover": {
+       "on_entry": ["/scoreboard players remove @s chakra 50"],
+       "animations": ["kamui_absover"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+             "skill_4": {
+       "on_entry": ["/scoreboard players remove @s chakra 70"],
+       "animations": ["susanoo_ob2_skill_1_animtaion"],
+       "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+
+
+
+
+
+
+
+
+}}
+
+
+
+
+
+
+
+
+
+  }
+}
+       

@@ -1,0 +1,199 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.rasengan_atk": {
+      "animation_length": 1.3333,
+      "override_previous_animation": true,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                -5,
+                35,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                10.57319,
+                -22.33706,
+                4.55807
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                -40,
+                -25,
+                -12.5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                30,
+                0,
+                -32.5
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                -75.64115,
+                29.21893,
+                7.12284
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                -97.07362,
+                14.63639,
+                3.31914
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.0833": {
+              "post": [
+                2,
+                0,
+                7
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                2,
+                0,
+                -2
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "rasengan": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.25": [
+              -1720,
+              -1720,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              -12,
+              0
+            ],
+            "0.9167": [
+              0,
+              -12,
+              0
+            ],
+            "1.0": [
+              0,
+              -12,
+              0
+            ],
+            "1.0833": [
+              0,
+              -12,
+              0
+            ],
+            "1.1667": [
+              0,
+              -12,
+              0
+            ]
+          },
+          "scale": {
+            "0.0": [
+              2,
+              2,
+              2
+            ],
+            "0.9167": [
+              2,
+              2,
+              2
+            ],
+            "1.0": [
+              4,
+              4,
+              4
+            ],
+            "1.0833": [
+              2,
+              2,
+              2
+            ],
+            "1.1667": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

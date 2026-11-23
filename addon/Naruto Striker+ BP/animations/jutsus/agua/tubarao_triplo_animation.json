@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.tubarao_triplo_animation": {
+"animation_length": 0.8,
+"timeline": {
+
+"0.0": [ "/tag @s add tubarao_triplo_projetil","/particle tnt:tubarao_triplo_poca_agua","/playsound bubble.downinside @a[r=8]"],
+"0.2": ["/summon tnt:tubarao_triplo_projetil ^^^ ~-20 ~10000","/summon tnt:tubarao_triplo_projetil ^^^ ~20 ~10000","/summon tnt:tubarao_triplo_projetil ^^^ ~0 ~10000"],
+"0.7": [ "/tag @s remove tubarao_triplo_projetil"]
+ 
+			
+}
+} 
+}
+}

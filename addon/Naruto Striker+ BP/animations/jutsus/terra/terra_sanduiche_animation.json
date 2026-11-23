@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.terra_sanduiche_animation": {
+"animation_length": 2.4,
+"timeline": {
+
+"0.0": ["/tp @e[r=3] @s"],
+"0.5": ["/tp @e[r=3] @s"],
+"0.7": ["/damage @e[r=4,type=!tnt:terra_sanduiche] 35","/effect @e[r=3,type=!tnt:terra_sanduiche] slowness 2 4 true"]
+ 
+			
+}
+} 
+}
+}

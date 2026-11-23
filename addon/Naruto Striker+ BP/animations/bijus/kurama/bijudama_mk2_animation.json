@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.bijudama_mk2_animation": {
+      "loop": false,
+      "animation_length": 2.1,
+			"timeline": {
+				 "0.0": ["/playanimation @s animation.cabeca_chakra_kurama_bijudama default 0.2"],
+				 "1.65": ["/event entity @s jutsu:bijudama_mk2_projetil"]
+      }
+    }
+  }
+}

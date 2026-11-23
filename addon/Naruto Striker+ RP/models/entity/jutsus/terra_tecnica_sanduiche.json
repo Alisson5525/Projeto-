@@ -1,0 +1,110 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.terra_sanduiche",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 10,
+				"visible_bounds_offset": [0, -3, 0]
+			},
+			"bones": [
+				{
+					"name": "terra_sanduiche_all",
+					"pivot": [0, -121, 0]
+				},
+				{
+					"name": "terra_sanduiche1",
+					"parent": "terra_sanduiche_all",
+					"pivot": [0, -121, 0],
+					"cubes": [
+						{
+							"origin": [-9, -122, 4],
+							"size": [4, 5, 5],
+							"uv": {
+								"north": {"uv": [26, 44], "uv_size": [4, 5]},
+								"east": {"uv": [42, 34], "uv_size": [5, 5]},
+								"south": {"uv": [44, 26], "uv_size": [4, 5]},
+								"west": {"uv": [44, 16], "uv_size": [5, 5]},
+								"up": {"uv": [30, 44], "uv_size": [4, 5]},
+								"down": {"uv": [34, 49], "uv_size": [4, -5]}
+							}
+						},
+						{
+							"origin": [-8, -121, -8],
+							"size": [8, 16, 16],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [8, 16]},
+								"east": {"uv": [0, 16], "uv_size": [16, 16]},
+								"south": {"uv": [24, 0], "uv_size": [8, 16]},
+								"west": {"uv": [16, 16], "uv_size": [16, 16]},
+								"up": {"uv": [0, 32], "uv_size": [8, 16]},
+								"down": {"uv": [32, 16], "uv_size": [8, -16]}
+							}
+						}
+					]
+				},
+				{
+					"name": "terra_sanduiche2",
+					"parent": "terra_sanduiche_all",
+					"pivot": [0, -120.66667, 0],
+					"cubes": [
+						{
+							"origin": [0, -121, -8],
+							"size": [8, 16, 16],
+							"uv": {
+								"north": {"uv": [8, 0], "uv_size": [8, 16]},
+								"east": {"uv": [0, 16], "uv_size": [16, 16]},
+								"south": {"uv": [16, 0], "uv_size": [8, 16]},
+								"west": {"uv": [16, 16], "uv_size": [16, 16]},
+								"up": {"uv": [8, 32], "uv_size": [8, 16]},
+								"down": {"uv": [40, 16], "uv_size": [8, -16]}
+							}
+						},
+						{
+							"origin": [0, -120, -9],
+							"size": [6, 5, 2],
+							"uv": {
+								"north": {"uv": [32, 29], "uv_size": [6, 5]},
+								"east": {"uv": [16, 45], "uv_size": [2, 5]},
+								"south": {"uv": [30, 34], "uv_size": [6, 5]},
+								"west": {"uv": [18, 45], "uv_size": [2, 5]},
+								"up": {"uv": [44, 31], "uv_size": [6, 2]},
+								"down": {"uv": [45, 23], "uv_size": [6, -2]}
+							}
+						},
+						{
+							"origin": [7, -116, -2],
+							"size": [2, 5, 5],
+							"uv": {
+								"north": {"uv": [45, 39], "uv_size": [2, 5]},
+								"east": {"uv": [40, 39], "uv_size": [5, 5]},
+								"south": {"uv": [46, 44], "uv_size": [2, 5]},
+								"west": {"uv": [21, 42], "uv_size": [5, 5]},
+								"up": {"uv": [20, 47], "uv_size": [2, 5]},
+								"down": {"uv": [22, 52], "uv_size": [2, -5]}
+							}
+						}
+					]
+				},
+				{
+					"name": "local_terra_sanduiche",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"terra_sanduiche": [0, 22, 0],
+						"terra_sanduiche2": {
+							"offset": [-42, 3, 0],
+							"rotation": [0, 90, 0]
+						},
+						"terra_sanduiche3": {
+							"offset": [42, 3, 0],
+							"rotation": [-90, 0, 0]
+						}
+					}
+				}
+			]
+		}
+	]
+}

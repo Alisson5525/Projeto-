@@ -1,0 +1,37 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:kurama_biju_morte",
+      "materials": {
+        "default": "enderman" 
+      },
+      "textures": {
+        "default": "textures/bosses/biju/kurama_biju" 
+       
+      },
+      "geometry": {
+        "default": "geometry.kurama_biju" 
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "kurama_biju_morta"
+        ]
+      },
+      "animations": {
+        "kurama_biju_morta": "animation.kurama_biju_morta"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 7
+      },
+      "render_controllers": [
+        "controller.render.true_zombie"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

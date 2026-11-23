@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.projetil_terra_animation": {
+     "loop": false,
+      "animation_length": 3.3,
+			"timeline": {
+				 "0.0": ["/playanimation @s animation.tenseigan_salto default 0.2"],
+         "0.1": ["/playsound beacon.deactivate @a[r=10] ~~~ 1 1","/event entity @s tnt:no_gravity","/tp @s ~~3~"],
+				 "0.2": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "0.4": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "0.6": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "0.8": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "1.0": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "1.2": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "1.4": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "1.6": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "1.8": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "2.0": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "2.2": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "2.4": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "2.6": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "2.8": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+				 "3.0": ["/playsound mob.shulker.shoot @a[r=15] ~~~ 1 1","/event entity @s jutsu:projetil_terra"],
+         
+
+         "3.1": ["/event entity @s tnt:restore_gravity"]
+
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.true_zombie": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+"is_hurt_color": {
+    "r": 0.0,
+    "b": 0.0, 
+    "g": 0.0, 
+    "a": 0.0
+      }
+    },
+"controller.render.true_zombie_2": {
+      "geometry": "Geometry.true_zombie_2",
+      "materials": [ { "*": "Material.true_zombie_2" } ],
+      "textures": [ "Texture.true_zombie_2" ]
+    }
+  }
+}

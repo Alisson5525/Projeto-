@@ -1,0 +1,21 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.corte_susanoo_1": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"body": {
+					"rotation": [-90, 0, -90],
+					"position": [0, 0, 31]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "susanoo_sk1_corte",
+					"locator": "vacuo_manto_1"
+				}
+			}
+		}
+	}
+}

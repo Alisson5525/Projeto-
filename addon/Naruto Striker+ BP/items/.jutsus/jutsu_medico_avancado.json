@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:jutsu_medico_avancado",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+      "minecraft:glint": true,
+
+      "minecraft:durability":{
+        "max_durability": 10000
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:icon": {
+        "textures": {
+          "default":"jutsu_medico"
+        }
+},
+"minecraft:cooldown": { "duration": 30,
+"category": "jutsus_medico_av"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§dJutsu Medico Avançado\n§c[!]. §7Use o item,\npara Se Curar"
+	  }
+    }
+  }
+}
+

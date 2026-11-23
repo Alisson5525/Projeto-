@@ -1,0 +1,125 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.troca_skill_manto_kurama": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "skill_1": "query.get_equipped_item_name == 'manto_kurama_skill_1' && query.is_sneaking" },
+            { "skill_2": "query.get_equipped_item_name == 'manto_kurama_skill_2' && query.is_sneaking" },
+
+
+            { "skill_4_1": "query.get_equipped_item_name == 'manto_kurama_4_skill_1' && query.is_sneaking" },
+            { "skill_4_2": "query.get_equipped_item_name == 'manto_kurama_4_skill_2' && query.is_sneaking" }
+
+           ]
+        },
+        "skill_1": {
+          "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 1 tnt:manto_kurama_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+          "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 1 tnt:manto_kurama_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+
+        "skill_4_1": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 1 tnt:manto_kurama_4_skill_2 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]},
+
+        "skill_4_2": {
+            "on_entry": ["/replaceitem entity @s slot.weapon.mainhand 1 tnt:manto_kurama_4_skill_1 1 0 {\"minecraft:keep_on_death\":{},\"item_lock\":{\"mode\":\"lock_in_slot\"}}"],
+            "transitions": [{"default": "!query.is_sneaking"}]}
+
+
+
+
+
+
+
+
+      }
+    },
+    "controller.animation.skill_manto_kurama": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"skill_1": "q.scoreboard('chakra') >= 40 && query.get_equipped_item_name == 'manto_kurama_skill_1' && q.is_using_item"},
+            {"skill_2": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name == 'manto_kurama_skill_2' && q.is_using_item"},
+
+            {"skill_4_1": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name == 'manto_kurama_4_skill_1' && query.is_on_ground && q.is_using_item"},
+            {"skill_4_1_salto": "q.scoreboard('chakra') >= 80 && query.get_equipped_item_name=='manto_kurama_4_skill_1' && !query.is_on_ground && query.is_using_item"},
+            {"skill_4_2": "q.scoreboard('chakra') >= 60 && query.get_equipped_item_name=='manto_kurama_4_skill_2' && query.is_on_ground && query.is_using_item"},
+
+            {"mk2_skill_1": "q.scoreboard('chakra') >= 200 && query.get_equipped_item_name=='mk2_skill_1' && query.is_on_ground && query.is_using_item"}
+         
+            
+           ]
+        },
+       "skill_1": {
+       "on_entry": ["/event entity @s jutsu:vacuo_manto_kurama_1","/scoreboard players remove @s chakra 60" ],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+       "skill_2": {
+       "on_entry": ["/scoreboard players remove @s chakra 50"],
+       "animations": ["manto_kurama_1_skill_2_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+
+
+
+       "skill_4_1": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+       "animations": ["bijudama_animation"],
+       "transitions": [{"default": "query.all_animations_finished"}]},
+
+      "skill_4_1_salto": {
+       "on_entry": ["/scoreboard players remove @s chakra 80"],
+           "animations": ["bijudama_salto_animation"],
+            "transitions": [{"default": "query.all_animations_finished"}]},
+
+      "skill_4_2": {
+       "on_entry": ["/scoreboard players remove @s chakra 60"],
+           "animations": ["manto_kurama_4_skill_2_animation"],
+            "transitions": [{"default": "query.all_animations_finished"}]},
+
+
+
+
+
+      "mk2_skill_1": {
+       "on_entry": ["/scoreboard players remove @s chakra 200"],
+           "animations": ["bijudama_mk2_animation"],
+            "transitions": [{"default": "query.all_animations_finished"}]}
+
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
+       

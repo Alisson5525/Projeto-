@@ -1,0 +1,801 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "materials": {
+        "brilhar": "enderman",
+        "trasparente": "slime_outer",
+        "breeze_wind": "entity_alphatest",
+        "outline": "outline",
+        "default": "entity_alphatest",
+        "cape": "entity_alphatest",
+        "animated": "player_animated"
+      },
+
+
+"textures": {
+
+                      "ceifeiro": "textures/tudo/segundario/ceifeiro",
+
+
+                      "cabelo_sasuke": "textures/custom/cabelo_sasuke/cabelo_sasuke",
+                      "cabelo_sasuke_tenseigan": "textures/custom/cabelo_sasuke/cabelo_sasuke_tenseigan",
+                      "cabelo_sasuke_mk_kurama": "textures/custom/cabelo_sasuke/cabelo_sasuke_mk_kurama",
+                      "cabelo_sasuke_8_portao": "textures/custom/cabelo_sasuke/cabelo_sasuke_8_portao",
+                      "cabelo_sasuke_biju_sangue": "textures/custom/cabelo_sasuke/cabelo_sasuke_biju_sangue",
+
+                      "cabelo_naruto": "textures/custom/cabelo_naruto/cabelo_naruto",
+                      "cabelo_naruto_tenseigan": "textures/custom/cabelo_naruto/cabelo_naruto_tenseigan",
+                      "cabelo_naruto_mk_kurama": "textures/custom/cabelo_naruto/cabelo_naruto_mk_kurama",
+                      "cabelo_naruto_8_portao": "textures/custom/cabelo_naruto/cabelo_naruto_8_portao",
+                      "cabelo_naruto_biju_sangue": "textures/custom/cabelo_naruto/cabelo_naruto_biju_sangue",
+
+                      "cabelo_madara": "textures/custom/cabelo_madara/cabelo_madara",
+                      "cabelo_madara_tenseigan": "textures/custom/cabelo_madara/cabelo_madara_tenseigan",
+                      "cabelo_madara_mk_kurama": "textures/custom/cabelo_madara/cabelo_madara_mk_kurama",
+                      "cabelo_madara_8_portao": "textures/custom/cabelo_madara/cabelo_madara_8_portao",
+                      "cabelo_madara_biju_sangue": "textures/custom/cabelo_madara/cabelo_madara_biju_sangue",
+
+
+
+
+
+
+
+
+
+
+
+
+                      "kunai_minato": "textures/tudo/espadas/kunai_minato",
+                      "foice_hidan": "textures/tudo/espadas/foice_hidan",
+                      "samehada": "textures/tudo/espadas/samehada",
+                      "gunbai": "textures/tudo/espadas/gunbai",
+
+
+                      "hiramekarei": "textures/tudo/espadas/hiramekarei",
+                      "katubowari": "textures/tudo/espadas/katubowari",
+                      "kiba": "textures/tudo/espadas/kiba",
+                      "shibuki": "textures/tudo/espadas/shibuki",
+                      "kunai_asuma": "textures/tudo/espadas/kunai_asuma",
+                      "kubikiribocho": "textures/tudo/espadas/kubikiribocho",
+
+
+
+                      "mao_terra": "textures/jutsus/terra/mao_terra",
+
+
+
+                      "manto_shukaku_1": "textures/tudo/bijus/shukaku/manto_shukaku_1",
+                      "manto_shukaku_2": "textures/tudo/bijus/shukaku/manto_shukaku_2",
+
+
+
+
+                      "bastao_gudoudama": "textures/tudo/bijus/kurama/bastao_gudoudama",
+                      "bijudama": "textures/tudo/bijus/kurama/bijudama",
+                      "cabeca_chakra_kurama": "textures/tudo/bijus/kurama/cabeca_chakra_kurama",
+                      "mk2": "textures/tudo/bijus/kurama/mk2",
+                      "mk1": "textures/tudo/bijus/kurama/mk1",
+                      "manto_kurama_1_braco": "textures/tudo/bijus/kurama/manto_kurama_1_f1",
+                      "manto_kurama_4_borda": "textures/tudo/bijus/kurama/manto_kurama_4_borda",
+                      "manto_kurama_4": "textures/tudo/bijus/kurama/manto_kurama_4",
+                      "manto_kurama_6": "textures/tudo/bijus/kurama/manto_kurama_6",
+                      "rikudou_olho": "textures/tudo/bijus/kurama/rikudou_olho",
+                      "gudoudama": "textures/tudo/bijus/kurama/gudoudama",
+                      "gudoudama_borda": "textures/tudo/bijus/kurama/gudoudama_borda",
+                      "barion_olho": "textures/tudo/bijus/kurama/barion_olho",
+                      "olho_kurama": "textures/tudo/bijus/kurama/olho_kurama",
+                      "olho_mk1": "textures/tudo/bijus/kurama/olho_mk1",
+                      "olho_mk2": "textures/tudo/bijus/kurama/olho_mk2",
+                      "barion_kurama": "textures/tudo/bijus/kurama/barion_kurama",
+                      "barion_kurama_borda": "textures/tudo/bijus/kurama/barion_kurama_borda",
+                      "manto_kurama_1_borda": "textures/tudo/bijus/kurama/manto_kurama_1_borda",
+                      "manto_kurama_1_f1": "textures/tudo/bijus/kurama/manto_kurama_1_f1",
+                      "manto_kurama_1_f2": "textures/tudo/bijus/kurama/manto_kurama_1_f2",
+                      "manto_kurama_1_f3": "textures/tudo/bijus/kurama/manto_kurama_1_f3",
+
+                      "kurama_rikudou": "textures/tudo/bijus/kurama/kurama_rikudou",
+
+
+
+                      "dna_hashirama_braco": "textures/tudo/dna_hashirama/dna_hashirama_braco",
+
+
+                      "marca_olho": "textures/tudo/marca/marca_pupila",
+                      "marca_s_n1": "textures/tudo/marca/marca_s_n1",
+                      "marca_s_n2": "textures/tudo/marca/marca_s_n2",
+                      "marca_s_n3": "textures/tudo/marca/marca_s_n3",
+
+
+
+                      "sapos_eremitas": "textures/tudo/modo_sennin/sapo/sapos_eremitas",
+
+                      "modo_sennin_sapo_i": "textures/tudo/modo_sennin/sapo/modo_sennin_sapo_i",
+                      "modo_sennin_sapo_p": "textures/tudo/modo_sennin/sapo/modo_sennin_sapo_p",
+                      "modo_sennin_sapo_i_mancha": "textures/tudo/modo_sennin/sapo/modo_sennin_sapo_i_mancha",
+                      "modo_sennin_sapo_p_mancha": "textures/tudo/modo_sennin/sapo/modo_sennin_sapo_p_mancha",
+
+
+
+                      "marca_byakugou": "textures/tudo/byakugou",
+                      "byakugou_ativado": "textures/tudo/segundario/byakugou_ativado",
+
+
+                      "tenseigan_pele_borda_1": "textures/tudo/hyuga/tenseigan_pele_borda_1",
+                      "tenseigan_pele_borda_2": "textures/tudo/hyuga/tenseigan_pele_borda_2",
+                      "tenseigan_pele_borda_3": "textures/tudo/hyuga/tenseigan_pele_borda_3",
+                      "tenseigan_pele_borda_4": "textures/tudo/hyuga/tenseigan_pele_borda_4",
+
+                      "tenseigan_pele": "textures/tudo/hyuga/tenseigan_pele",
+                      "tenseigan": "textures/tudo/hyuga/tenseigan",
+                      "byakugan": "textures/tudo/hyuga/byakugan",
+                      "leao_gemeos_destruidor": "textures/tudo/hyuga/destruidor_leoes_gemeos",
+                      "leao_gemeos": "textures/tudo/hyuga/leao_gemeos",
+                      "byakugan_evoluido": "textures/tudo/hyuga/byakugan_evoluido",
+                      "oito_trigramas": "textures/tudo/hyuga/oito_trigramas",
+                      "gudoudama_tenseigan_borda": "textures/tudo/hyuga/gudoudama_borda",
+
+
+
+
+                      "olho_sharingan_1": "textures/tudo/uchiha/olho_sharingan_1",
+
+                      "izanagi": "textures/tudo/uchiha/izanagi",
+                      "rinnegan": "textures/tudo/uchiha/rinnegan",
+                      "rasen_shuriken": "textures/tudo/jutsu/rasen_shuriken",
+                      "rasengan_2": "textures/tudo/jutsu/rasengan_2",
+                      "rasengan_3": "textures/tudo/jutsu/rasengan_3",
+                      "rasengan": "textures/tudo/jutsu/rasengan",
+                      "locais": "textures/tudo/uchiha/sharingan",
+                      "sharingan": "textures/tudo/uchiha/sharingan",
+                      "mgk_itachi": "textures/tudo/uchiha/mgk_itachi",
+                      "mgk_obito": "textures/tudo/uchiha/mgk_obito",
+                      "mgk_sasuke": "textures/tudo/uchiha/mgk_sasuke",
+
+
+
+
+                      "susanoo_sk1_borda": "textures/tudo/uchiha/susanoo/susanoo_sk1_borda",
+                      "susanoo_sk1": "textures/tudo/uchiha/susanoo/susanoo_sk1",
+                      "susanoo_sk1_f2": "textures/tudo/uchiha/susanoo/susanoo_sk1_f2",
+                      "susanoo_sk1_f3": "textures/tudo/uchiha/susanoo/susanoo_sk1_f3",
+                      "susanoo_sk1_f4": "textures/tudo/uchiha/susanoo/susanoo_sk1_f4",
+
+                      "susanoo_ob1_borda": "textures/tudo/uchiha/susanoo/susanoo_ob1_borda",
+                      "susanoo_ob1": "textures/tudo/uchiha/susanoo/susanoo_ob1",
+                      "susanoo_ob1_f2": "textures/tudo/uchiha/susanoo/susanoo_ob1_f2",
+                      "susanoo_ob1_f3": "textures/tudo/uchiha/susanoo/susanoo_ob1_f3",
+                      "susanoo_ob1_f4": "textures/tudo/uchiha/susanoo/susanoo_ob1_f4",
+
+
+                      "susanoo_it1_borda": "textures/tudo/uchiha/susanoo/susanoo_it1_borda",
+                      "susanoo_it1": "textures/tudo/uchiha/susanoo/susanoo_it1",
+                      "susanoo_it1_f1": "textures/tudo/uchiha/susanoo/susanoo_it1",
+                      "susanoo_it1_f2": "textures/tudo/uchiha/susanoo/susanoo_it1_f2",
+                      "susanoo_it1_f3": "textures/tudo/uchiha/susanoo/susanoo_it1_f3",
+                      "susanoo_it1_f4": "textures/tudo/uchiha/susanoo/susanoo_it1_f4",
+
+
+
+
+                      "susanoo_it2_borda": "textures/tudo/uchiha/susanoo/borda/susanoo_it2_borda", 
+                      "susanoo_it2": "textures/tudo/uchiha/susanoo/susanoo_it2", 
+
+                      "susanoo_sk2_borda": "textures/tudo/uchiha/susanoo/borda/susanoo_sk2_borda", 
+                      "susanoo_sk2": "textures/tudo/uchiha/susanoo/susanoo_sk2",
+
+                      "susanoo_ob2_borda": "textures/tudo/uchiha/susanoo/borda/susanoo_ob2_borda", 
+                      "susanoo_ob2": "textures/tudo/uchiha/susanoo/susanoo_ob2",  
+
+
+                      "masculino_3_portao": "textures/tudo/portoes/masculino_3_portao",
+                      "masculino_6_portao": "textures/tudo/portoes/masculino_6_portao",
+                      "masculino_8_portao": "textures/tudo/portoes/masculino_8_portao",
+                      "borda_verde": "textures/tudo/bordas/borda_verde",
+                      "borda_azul": "textures/tudo/bordas/borda_azul",
+                      "borda_vermelha": "textures/tudo/bordas/borda_vermelha",
+                      
+                      "pesos": "textures/tudo/segundario/pesos",
+
+                      "masculino_claro": "textures/custom/masculino_claro",
+                      "masculino_escuro": "textures/custom/masculino_escuro",
+                      "default": "textures/custom/actionbar","cape": "textures/entity/cape_invisible"},
+
+"geometry": {
+
+                      "ceifeiro": "geometry.ceifeiro",
+
+                      
+                      "cabelo_sasuke": "geometry.cabelo_sasuke",
+                      "cabelo_naruto": "geometry.cabelo_naruto",
+                      "cabelo_madara": "geometry.cabelo_madara",
+
+                      "corpo_masculino_portao_8": "geometry.corpo_masculino_portao_8",
+                      "portoes_borda": "geometry.portoes_borda",
+                      "marca_s": "geometry.marca_s",
+                      "marca_s_n3": "geometry.marca_s_n3",
+
+
+
+                      "sapos_eremitas": "geometry.sapos_eremitas",
+
+
+                      
+
+
+ 
+
+
+                      "dna_hashirama_braco": "geometry.dna_hashirama_braco",
+
+
+
+
+                      "pesos": "geometry.pesos",
+
+                      "hiramekarei": "geometry.hiramekarei",
+                      "katubowari": "geometry.katubowari",
+                      "kiba": "geometry.kiba",
+                      "kunai_asuma": "geometry.kunai_asuma",
+                      "kubikiribocho": "geometry.kubikiribocho",
+                      "shibuki": "geometry.shibuki",
+                      
+                      "kunai_minato": "geometry.kunai_minato",
+                      "foice_hidan": "geometry.foice_hidan",
+                      "samehada": "geometry.samehada",
+                      "gunbai": "geometry.gunbai",
+
+                      "mao_terra": "geometry.mao_terra",
+                      "tenseigan_pele_borda": "geometry.tenseigan_pele_borda",
+                      "tenseigan_pele": "geometry.tenseigan_pele",
+                      "leao_gemeos_destruidor": "geometry.leao_gemeos_destruidor",
+                      "leao_gemeos": "geometry.leao_gemeos",
+                      "oito_trigramas": "geometry.oito_trigramas",
+                      
+
+
+                     "manto_shukaku_1": "geometry.manto_shukaku_1",
+                     "manto_shukaku_2": "geometry.manto_shukaku_2",
+
+                      "bastao_gudoudama": "geometry.bastao_gudoudama",
+                      "bijudama": "geometry.bijudama",
+                      "cabeca_chakra_kurama": "geometry.cabeca_chakra_kurama",
+                     "gudoudama_borda": "geometry.gudoudama_borda",
+                     "gudoudama": "geometry.gudoudama",
+                     "barion_olho": "geometry.barion_olho",
+                     "barion_kurama_borda": "geometry.barion_kurama_borda",
+                     "barion_kurama": "geometry.barion_kurama",
+                      "mk2": "geometry.mk2",
+                      "mk1": "geometry.mk1",
+                      "manto_kurama_4_borda": "geometry.manto_kurama_4_borda",
+                      "manto_kurama_4": "geometry.manto_kurama_4",
+                      "manto_kurama_6": "geometry.manto_kurama_6",
+                      "manto_kurama_3_borda": "geometry.manto_kurama_3_borda",
+                      "manto_kurama_3": "geometry.manto_kurama_3",
+                      "manto_kurama_1_borda": "geometry.manto_kurama_1_borda",
+                      "manto_kurama_1": "geometry.manto_kurama_1",
+                      "kurama_rikudou": "geometry.kurama_rikudou",
+
+                      "braco_kurama": "geometry.braco_kurama",
+                      "rasen_shuriken": "geometry.rasen_shuriken",
+                      "rasengan_1": "geometry.rasengan_1",
+                      "rasengan_2": "geometry.rasengan_2",
+                      "rasengan_3": "geometry.rasengan_3",
+                      "locais": "geometry.locais",
+
+                      "izanagi": "geometry.izanagi",
+                      
+                      "susanoo_ob1_borda": "geometry.susanoo_ob1_borda",
+                      "susanoo_ob1": "geometry.susanoo_ob1",
+
+                      "susanoo_sk1_borda": "geometry.susanoo_sk1_borda",
+                      "susanoo_sk1": "geometry.susanoo_sk1",
+
+                      "susanoo_it1_borda": "geometry.susanoo_it1_borda",
+                      "susanoo_it1": "geometry.susanoo_it1",
+
+                      "olho_sharingan_1": "geometry.olho_sharingan_1",
+
+
+
+                      "susanoo_it2_borda": "geometry.susanoo_it2_borda", 
+                      "susanoo_it2": "geometry.susanoo_it2", 
+                      
+                      "susanoo_ob2_borda": "geometry.susanoo_ob2_borda",
+                      "susanoo_ob2": "geometry.susanoo_ob2",
+
+                      "susanoo_sk2_borda": "geometry.susanoo_sk2_borda",
+                      "susanoo_sk2": "geometry.susanoo_sk2",
+
+
+                      "olhos_esquerdo": "geometry.olhos_esquerdo",
+                      "rosto_camada": "geometry.rosto_camada",
+                      "olhos_pupila_anticamada": "geometry.olhos_pupila_anticamada",
+
+                      "olhos_complet": "geometry.olhos_complet",
+                      "olhos_pulpila_cmd_2": "geometry.olhos_pulpila_cmd_2",
+                      "olhos_pulpila": "geometry.olhos_pulpila",
+                      "corpo_masculino": "geometry.corpo_masculino",
+                      "default": "geometry.humanoid.custom","cape": "geometry.cape"},
+
+
+
+
+
+
+
+"particle_effects": {
+
+                      "skill_1_suigetsu_correr": "tnt:skill_1_suigetsu_correr",
+
+                      "grande_onda_choque": "tnt:grande_onda_choque",
+                      "grande_onda_choque_2": "tnt:grande_onda_choque_2",
+                      "grande_onda_choque_3": "tnt:grande_onda_choque_3",
+
+                      "corte_de_agua": "tnt:corte_agua",
+
+                      "shiden": "tnt:shiden",
+                      "shiden_2": "tnt:shiden_2",
+
+                      "shiden_r1": "tnt:shiden_r1",
+                      "shiden_r2": "tnt:shiden_r2",
+                      "shiden_skill_2": "tnt:shiden_skill_2",
+
+                      "portao_1": "tnt:portao_1",
+                      "portao_2": "tnt:portao_2",
+                      "portao_3": "tnt:portao_3",
+                      "portao_6": "tnt:portao_6",
+                      "portao_7": "tnt:portao_7",
+                      "portao_8": "tnt:portao_8",
+
+                      "bijudama_orb_azul_mk2": "tnt:bijudama_orb_azul_mk2",
+                      "bijudama_orb_vermelho_mk2": "tnt:bijudama_orb_vermelho_mk2",
+                      "bijudama_kurama_chakra_vacuo": "tnt:bijudama_kurama_chakra_vacuo",
+
+                      "rasengan_bijudana_mk1": "tnt:rasengan_bijudana_mk1",
+                      "rasengan_bj_brilho": "tnt:rasengan_bj_brilho",
+
+                      "chidori_negro": "tnt:chidori_negro",
+                      "chidori_chao_negro": "tnt:chidori_chao_negro",
+                      "chidori_raio_1_negro": "tnt:chidori_raio_1_negro",
+                      "chidori_raio_2_negro": "tnt:chidori_raio_2_negro",
+
+                      "chidori": "tnt:chidori",
+                      "chidori_chao": "tnt:chidori_chao",
+                      "chidori_raio_1": "tnt:chidori_raio_1",
+                      "chidori_raio_2": "tnt:chidori_raio_2",
+
+
+                      "espinhos_amaterasu_susanoo_sk2": "tnt:espinhos_amaterasu_susanoo_sk2",
+
+                      "espada_tenseigan": "tnt:espada_tenseigan",
+                      "espada_tenseigan_load": "tnt:espada_tenseigan_load",
+
+                      "rotacao_celestial": "tnt:rotacao_celestial",
+                      "chakra_hyuga_mao": "tnt:chakra_hyuga_mao",
+
+                      "chidori_nagashi_r1": "tnt:chidori_nagashi_r1",
+                      "chidori_nagashi_r2": "tnt:chidori_nagashi_r2",
+
+                      "grande_aniquilacao_fogo": "tnt:grande_aniquilacao_fogo",
+                      "bola_fogo": "tnt:bola_fogo",
+
+                      "corte_kurama": "tnt:corte_kurama",
+                      "bijudama_orb_azul": "tnt:bijudama_orb_azul",
+                      "bijudama_orb_vermelho": "tnt:bijudama_orb_vermelho",
+
+                      "kamui": "tnt:kamui",
+                      "rasengan": "tnt:rasengan"
+},
+"sound_effects": {
+                      "hit_barion": "hit_barion",
+                      "bijudama_mk2": "bijudama_mk2",
+                      "lancar_bijudama": "lancar_bijudama",
+                      "rotacao": "rotacao"
+
+
+
+
+      },
+     
+
+
+
+
+
+
+
+
+"scripts": {
+
+        "scale": "0.9375","initialize": ["variable.is_holding_right = 0.0;","variable.is_blinking = 0.0;","variable.last_blink_time = 0.0;","variable.hand_bob = 0.0;"],
+  "pre_animation": [
+  "v.melee_spear_java_to_bedrock_scale = 1.0;",
+  "v.gliding_speed_value = 1.0;",
+
+  "v.espadas_d_p = (!v.is_first_person && query.get_equipped_item_name != '');",
+
+  "v.helmet_layer_visible = !query.has_head_gear;",
+  "v.leg_layer_visible = 1.0;",
+  "v.boot_layer_visible = 1.0;",
+  "v.chest_layer_visible = 1.0;",
+
+  "v.attack_body_rot_y = math.sin(360 * math.sqrt(v.attack_time)) * 10.0;",
+  "v.tcos0 = math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / v.gliding_speed_value * 57.3;",
+  "v.first_person_item_rotation_factor = math.sin((1 - v.attack_time) * 180.0);",
+
+  "v.hand_bob = query.life_time < 0.01 ? 0.0 : v.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - v.hand_bob) * 0.02;",
+
+  "v.map_angle = math.clamp(1 - v.player_x_rotation / 45.1, 0.0, 1.0);",
+
+  "v.item_use_duration = query.main_hand_item_use_duration > 0.0 ? (query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) : 0.0;",
+  "v.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
+
+  "v.riding_y_offset = query.is_riding_any_entity_of_type('minecraft:minecart', 'minecraft:boat', 'minecraft:chest_boat', 'minecraft:strider') ? -3.0 : 0.0;",
+
+  "v.melee_spear_equipped = query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_spear');",
+  "v.tp_melee_spear_base_arm_rotation_x = (query.is_swimming || query.is_gliding) ? (-115.0 - query.target_x_rotation) : (query.is_crawling ? -115.0 : -30.0);",
+
+  "t.melee_spear_use_finish_raise_tick = v.melee_spear_equipped ? query.kinetic_weapon_delay : 0.0;",
+  "t.melee_spear_use_start_sway_tick = v.melee_spear_equipped ? t.melee_spear_use_finish_raise_tick + query.kinetic_weapon_dismount_duration : 0.0;",
+  "t.melee_spear_use_start_lower_tick = v.melee_spear_equipped ? t.melee_spear_use_finish_raise_tick + query.kinetic_weapon_knockback_duration : 0.0;",
+  "t.melee_spear_use_finish_lower_tick = v.melee_spear_equipped ? t.melee_spear_use_finish_raise_tick + query.kinetic_weapon_damage_duration : 0.0;",
+
+  "t.melee_spear_use_raise_progress = math.clamp(math.inverse_lerp(0.0, t.melee_spear_use_finish_raise_tick, v.item_use_duration), 0.0, 1.0);",
+  "t.melee_spear_use_raise_progress_start = math.clamp(math.inverse_lerp(0.0, 0.5, t.melee_spear_use_raise_progress), 0.0, 1.0);",
+  "t.melee_spear_use_raise_progress_middle = math.clamp(math.inverse_lerp(0.5, 0.8, t.melee_spear_use_raise_progress), 0.0, 1.0);",
+  "t.melee_spear_use_raise_progress_end = math.clamp(math.inverse_lerp(0.8, 1.0, t.melee_spear_use_raise_progress), 0.0, 1.0);",
+
+  "t.melee_spear_use_sway_progress = math.clamp(math.inverse_lerp(t.melee_spear_use_start_sway_tick, t.melee_spear_use_start_lower_tick, v.item_use_duration), 0.0, 1.0);",
+
+  "t.melee_spear_use_sway_scale_slow = math.sin(v.item_use_duration * 19.0);",
+  "t.melee_spear_use_sway_scale_fast = math.sin(v.item_use_duration * 30.0);",
+
+  "v.fp_melee_spear_use_item_position_x = (t.melee_spear_use_raise_progress_start * 0.05) * v.melee_spear_java_to_bedrock_scale;",
+  "v.fp_melee_spear_use_item_position_y = (t.melee_spear_use_raise_progress_start * -0.075) * v.melee_spear_java_to_bedrock_scale;",
+  "v.fp_melee_spear_use_item_position_z = (t.melee_spear_use_raise_progress_start * 0.05) * v.melee_spear_java_to_bedrock_scale;"
+],
+
+
+
+
+
+
+
+
+"animate": [
+"tnt_player_reacao",
+"tnt_player_corrida",
+{"remover_roupas": "query.property('tnt:kurama') == 6"},
+{"remover_roupas": "query.property('tnt:kurama') == 8"},
+{"remover_roupas": "query.property('tnt:kurama') == 7"},
+{"remover_roupas": "query.property('tnt:kurama') == 5"},
+{"remover_roupas": "query.property('tnt:kurama') == 3"},
+
+
+
+{"remover_fran": "query.property('tnt:shukaku') == 1"},
+
+{"remover_fran": "query.property('tnt:kurama') == 6"},
+{ "remover_fran": "query.is_item_name_any('slot.armor.head','tnt:mascara_obito_s')" },   
+{ "remover_fran": "query.is_item_name_any('slot.armor.head','tnt:mascara_obito_g')" },   
+{ "remover_fran": "query.is_item_name_any('slot.armor.head','tnt:mascara_anbu')" },   
+{ "remover_fran": "query.is_item_name_any('slot.armor.head','tnt:mascara_haku')" },   
+
+
+
+
+{"espadas_dupla_p":"(!v.espadas_d_p && query.get_equipped_item_name=='katubowari')" },
+{"espadas_dupla_p":"(!v.espadas_d_p && query.get_equipped_item_name=='kiba')" },
+{"espadas_dupla_p":"(!v.espadas_d_p && q.get_equipped_item_name == 'kunai_asuma')"},
+{"espadas_d_p":"(!v.espadas_d_p && q.get_equipped_item_name == 'gunbai')"},
+{"espadas_d_p":"(!v.espadas_d_p && q.get_equipped_item_name == 'kubikiribocho')"},
+{"espadas_d_p":"(!v.espadas_d_p && q.get_equipped_item_name == 'samehada')"},
+{"espadas_d_p":"(!v.espadas_d_p && q.get_equipped_item_name == 'foice_hidan')"},
+{"espadas_d_p":"(!v.espadas_d_p && query.get_equipped_item_name=='hiramekarei')" },
+{"espadas_d_p":"(!v.espadas_d_p && query.get_equipped_item_name=='kunai_minato')" },
+{"espadas_d_p":"(!v.espadas_d_p && query.get_equipped_item_name=='shibuki')" },
+{"espadas_d_p":"(!v.espadas_d_p && query.get_equipped_item_name=='bastao_gudoudama')" },
+
+          {"bastao_gudoudama_retirar":"query.get_equipped_item_name=='bastao_gudoudama'" },
+
+          {"portao_1": "query.property('tnt:8_portoes') == 1"},
+          {"portao_2": "query.property('tnt:8_portoes') == 2"},
+          {"portao_3": "query.property('tnt:8_portoes') == 3"},
+          {"portao_3": "query.property('tnt:8_portoes') == 4"},
+          {"portao_3": "query.property('tnt:8_portoes') == 5"},
+          {"portao_6": "query.property('tnt:8_portoes') == 6"},
+          {"portao_7": "query.property('tnt:8_portoes') == 7"},
+          {"8_portao_loop": "query.property('tnt:8_portoes') == 8"},
+
+
+          {"susanoo_move": "query.property('tnt:uchiha') == 5"},
+          {"susanoo_move": "query.property('tnt:uchiha') == 7"},
+          {"susanoo_move": "query.property('tnt:uchiha') == 9"},
+ 
+          
+          {"susanoo_2_sasuke_animation":"query.property('tnt:uchiha') == 6"},
+          {"susanoo_2_itachi_animation":"query.property('tnt:uchiha') == 8"},
+          {"susanoo_2_obito_animation":"query.property('tnt:uchiha') == 10"},
+
+          {"manto_shukaku_1":"query.property('tnt:shukaku') == 1"},
+          {"manto_shukaku_1":"query.property('tnt:shukaku') == 2"},
+
+          {"gudoudama_moveset_animation":"query.property('tnt:kurama') == 8"},
+          {"barion_kurama_animation":"query.property('tnt:kurama') == 7"},
+          {"manto_kurama_4_animation":"query.property('tnt:kurama') == 3"},
+          {"manto_kurama_6_animation":"query.property('tnt:kurama') == 6"},
+          {"manto_kurama_1_animation":"query.property('tnt:kurama') == 1"},
+          {"manto_kurama_1_animation":"query.property('tnt:kurama') == 2"},
+
+
+
+
+          {"remover_membros_ativo":"query.property('tnt:kurama') == 4"},
+
+
+          {"dna_hashirama_braco_olho_7":"query.property('tnt:dna_hashirama_isanagi') == 7"},
+          {"dna_hashirama_braco_olho_6":"query.property('tnt:dna_hashirama_isanagi') == 6"},
+          {"dna_hashirama_braco_olho_5":"query.property('tnt:dna_hashirama_isanagi') == 5"},
+          {"dna_hashirama_braco_olho_4":"query.property('tnt:dna_hashirama_isanagi') == 4"},
+          {"dna_hashirama_braco_olho_3":"query.property('tnt:dna_hashirama_isanagi') == 3"},
+          {"dna_hashirama_braco_olho_2":"query.property('tnt:dna_hashirama_isanagi') == 2"},
+          {"dna_hashirama_braco_olho_1":"query.property('tnt:dna_hashirama_isanagi') == 1"},
+
+
+                       "cabeca_chakra_kurama","root"]},
+
+
+
+
+
+
+
+
+
+
+"animations": {
+        "tnt_player_reacao": "controller.animation.tnt_player.reacao",
+        "tnt_player_corrida": "controller.animation.tnt_player.corrida",
+        "tnt_player_corrida_ninja": "animation.tnt_player.corrida_ninja",
+        "tnt_player_dano": "animation.tnt_player.dano",
+        "bastao_gudoudama_retirar": "animation.bastao_gudoudama_retirar",
+        "remover_fran": "animation.remover_fran",
+
+        
+        "dna_hashirama_braco_olho_7": "animation.dna_hashirama_braco_olho_7",
+        "dna_hashirama_braco_olho_6": "animation.dna_hashirama_braco_olho_6",
+        "dna_hashirama_braco_olho_5": "animation.dna_hashirama_braco_olho_5",
+        "dna_hashirama_braco_olho_4": "animation.dna_hashirama_braco_olho_4",
+        "dna_hashirama_braco_olho_3": "animation.dna_hashirama_braco_olho_3",
+        "dna_hashirama_braco_olho_2": "animation.dna_hashirama_braco_olho_2",
+        "dna_hashirama_braco_olho_1": "animation.dna_hashirama_braco_olho_1",
+
+
+        "remover_roupas": "animation.remover_roupas",
+        
+        "cabeca_chakra_kurama": "animation.remover_membros_ativo",
+        "remover_membros_ativo": "animation.remover_membros_ativo",
+
+
+        "portao_1": "animation.portao_1",
+        "portao_2": "animation.portao_2",
+        "portao_3": "animation.portao_3",
+        "portao_6": "animation.portao_6",
+        "portao_7": "animation.portao_7",
+        "8_portao_loop": "animation.8_portao_loop",
+
+        "susanoo_move": "animation.susanoo_move",
+
+        "susanoo_2_sasuke_animation": "animation.susanoo_2_sasuke",
+        "susanoo_2_itachi_animation": "animation.susanoo_2_itachi",
+        "susanoo_2_obito_animation": "animation.susanoo_2_obito",
+
+        "manto_shukaku_1": "animation.manto_shukaku_1",
+
+        "gudoudama_moveset_animation": "animation.gudoudama_moveset",
+        "barion_kurama_animation": "animation.barion_move",
+        "manto_kurama_4_animation": "animation.manto_kurama_4",
+        "manto_kurama_6_animation": "animation.manto_kurama_6",
+        "manto_kurama_1_animation": "animation.manto_kurama_1_caldas",
+
+
+
+
+
+        
+
+
+
+       "espadas_dupla_p": "animation.espadas_dupla_p",
+       "espadas_d_p": "animation.espadas_d_p",
+
+
+                      "root": "controller.animation.player.root", "base_controller": "controller.animation.player.base","hudplayer": "controller.animation.player.hudplayer","humanoid_base_pose": "animation.humanoid.base_pose","look_at_target": "controller.animation.humanoid.look_at_target","look_at_target_ui": "animation.player.look_at_target.ui","look_at_target_default": "animation.humanoid.look_at_target.default","look_at_target_gliding": "animation.humanoid.look_at_target.gliding","look_at_target_swimming": "animation.humanoid.look_at_target.swimming","look_at_target_inverted": "animation.player.look_at_target.inverted","cape": "animation.player.cape","move.arms": "animation.player.move.arms","move.legs": "animation.player.move.legs","swimming": "animation.player.swim","swimming.legs": "animation.player.swim.legs","riding.arms": "animation.player.riding.arms","riding.legs": "animation.player.riding.legs","holding": "animation.player.holding","brandish_spear": "animation.humanoid.brandish_spear","charging": "animation.humanoid.charging","attack.positions": "animation.player.attack.positions","attack.rotations": "animation.player.attack.rotations","sneaking": "animation.player.sneaking","bob": "animation.player.bob","damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs","bow_and_arrow": "animation.humanoid.bow_and_arrow","use_item_progress": "animation.humanoid.use_item_progress","skeleton_attack": "animation.skeleton.attack","sleeping": "animation.player.sleeping","first_person_base_pose": "animation.player.first_person.base_pose","first_person_empty_hand": "animation.player.first_person.empty_hand","first_person_swap_item": "animation.player.first_person.swap_item","first_person_attack_controller": "controller.animation.player.first_person_attack","first_person_attack_rotation": "animation.player.first_person.attack_rotation","first_person_attack_rotation_item": "animation.player.first_person.attack_rotation_item","first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation","first_person_walk": "animation.player.first_person.walk","first_person_map_controller": "controller.animation.player.first_person_map","first_person_map_hold": "animation.player.first_person.map_hold","first_person_map_hold_attack": "animation.player.first_person.map_hold_attack","first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand","first_person_map_hold_main_hand": "animation.player.first_person.map_hold_main_hand","first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped","first_person_crossbow_hold": "animation.player.first_person.crossbow_hold","first_person_breathing_bob": "animation.player.first_person.breathing_bob","third_person_crossbow_equipped": "animation.player.crossbow_equipped","third_person_bow_equipped": "animation.player.bow_equipped","crossbow_hold": "animation.player.crossbow_hold",        "crossbow_controller": "controller.animation.player.crossbow","shield_block_main_hand": "animation.player.shield_block_main_hand","shield_block_off_hand": "animation.player.shield_block_off_hand","blink": "controller.animation.persona.blink"},
+
+
+
+
+
+
+
+
+
+"render_controllers": [
+
+                      {"controller.render.bijudama": "query.property('tnt:kurama') >= 1 && !variable.is_first_person"},
+                      
+                { "controller.render.rasengan_1": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasengan') || q.is_item_name_any('slot.hotbar',t.i, 'tnt:rasengan') && !variable.is_first_person; t.val ? {return t.val;}; t.i = t.i+1;});" },
+                { "controller.render.rasen_shuriken": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasen_shuriken') || q.is_item_name_any('slot.hotbar',t.i, 'tnt:rasen_shuriken') && !variable.is_first_person; t.val ? {return t.val;}; t.i = t.i+1;});" },
+
+
+
+
+
+                      "controller.render.mao_terra",
+                      {"controller.render.leao_gemeos_destruidor": "query.property('tnt:hyuga') >= 1 && query.property('tnt:hyuga') <= 4"},
+                      {"controller.render.leao_gemeos": "query.property('tnt:hyuga') >= 1 && query.property('tnt:hyuga') <= 4"},
+                      {"controller.render.oito_trigramas": "query.property('tnt:hyuga') >= 1 && query.property('tnt:hyuga') <= 4"},
+                      "controller.render.locais",
+                      {"controller.render.cabeca_chakra_kurama": "query.property('tnt:kurama') >= 1 && query.property('tnt:kurama') <= 8 && !variable.is_first_person"},
+
+                      {"controller.render.marca_s_n1": "query.property('tnt:marca_maldicao') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.marca_s_n2": "query.property('tnt:marca_maldicao') == 2"},
+                      {"controller.render.marca_s_n3": "query.property('tnt:marca_maldicao') == 3"},
+                      {"controller.render.marca_olho": "query.property('tnt:marca_maldicao') == 3 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+
+                      {"controller.render.sapos_eremitas": "query.property('tnt:suporte_entity') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+
+                      {"controller.render.modo_sennin_sapo_i": "query.property('tnt:sennin_sapo') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.modo_sennin_sapo_i_mancha": "query.property('tnt:sennin_sapo') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.modo_sennin_sapo_p": "query.property('tnt:sennin_sapo') == 2 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.modo_sennin_sapo_p_mancha": "query.property('tnt:sennin_sapo') == 2 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+
+
+                      {"controller.render.marca_byakugou": "query.property('tnt:byakugou') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.byakugou_ativado": "query.property('tnt:byakugou') == 2 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+                      {"controller.render.izanagi": "variable.is_first_person"},
+
+                      {"controller.render.rikudou_olho": "query.property('tnt:kurama') == 8 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.kurama_rikudou": "query.property('tnt:kurama') == 8"},
+                      {"controller.render.gudoudama": "query.property('tnt:kurama') == 8 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.gudoudama_borda": "query.property('tnt:kurama') == 8 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+
+
+
+
+                      {"controller.render.manto_shukaku_1": "query.property('tnt:shukaku') == 1"},
+                      {"controller.render.manto_shukaku_2": "query.property('tnt:shukaku') == 2"},
+
+
+
+                      { "controller.render.bastao_gudoudama": "query.get_equipped_item_name=='bastao_gudoudama'" },
+
+                      {"controller.render.barion_olho": "query.property('tnt:kurama') == 7"},
+                      {"controller.render.barion_kurama": "query.property('tnt:kurama') == 7"},
+                      {"controller.render.barion_kurama_borda": "query.property('tnt:kurama') == 7"},
+                      {"controller.render.mk2": "query.property('tnt:kurama') == 5"},
+                      {"controller.render.mk1": "query.property('tnt:kurama') == 4"},
+                      {"controller.render.olho_mk1": "query.property('tnt:kurama') == 4 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.olho_mk2": "query.property('tnt:kurama') == 5 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.manto_kurama_1_braco": "query.property('tnt:kurama') == 2"},
+                      {"controller.render.manto_kurama_1_braco": "query.property('tnt:kurama') == 1"},
+                      {"controller.render.manto_kurama_4_borda": "query.property('tnt:kurama') == 3"},
+                      {"controller.render.manto_kurama_4": "query.property('tnt:kurama') == 3"},
+                      {"controller.render.manto_kurama_6": "query.property('tnt:kurama') == 6"},
+                      {"controller.render.manto_kurama_3": "query.property('tnt:kurama') == 2"},
+                      {"controller.render.manto_kurama_1": "query.property('tnt:kurama') == 1"},
+                      {"controller.render.olho_kurama": "query.property('tnt:kurama') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.olho_kurama": "query.property('tnt:kurama') == 2 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.manto_kurama_3_borda": "query.property('tnt:kurama') == 2"},
+                      {"controller.render.manto_kurama_1_borda": "query.property('tnt:kurama') == 1"},
+
+
+                      {"controller.render.byakugan": "query.property('tnt:hyuga') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.byakugan_evoluido": "query.property('tnt:hyuga') == 2 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.tenseigan": "query.property('tnt:hyuga') == 3 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.tenseigan_pele": "query.property('tnt:hyuga') == 4"},
+                      {"controller.render.tenseigan_pele_borda": "query.property('tnt:hyuga') == 4"},
+                      {"controller.render.tenseigan_olho_manto": "query.property('tnt:hyuga') == 4 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.gudoudama": "query.property('tnt:hyuga') == 4 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.gudoudama_tenseigan_borda": "query.property('tnt:hyuga') == 4 && !variable.is_first_person && !variable.map_face_icon"},
+
+                      {"controller.render.dna_hashirama_braco": "query.property('tnt:retirar_pele') != 1 && query.property('tnt:dna_hashirama') == 1"},
+
+
+
+                      {"controller.render.olhos_uchiha": "query.property('tnt:uchiha') >= 1 && query.property('tnt:uchiha') <= 10 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.susanoo_1_bordas": "query.property('tnt:uchiha') && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.susanoo_2_bordas": "query.property('tnt:uchiha') && !variable.is_first_person && !variable.map_face_icon"},
+
+                      
+                      {"controller.render.susanoo_sk1": "query.property('tnt:uchiha') == 5 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.susanoo_sk2": "query.property('tnt:uchiha') == 6 && !variable.is_first_person && !variable.map_face_icon"},
+
+                      {"controller.render.susanoo_it1": "query.property('tnt:uchiha') == 7 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.susanoo_it2": "query.property('tnt:uchiha') == 8 && !variable.is_first_person && !variable.map_face_icon"},
+
+                      {"controller.render.susanoo_ob1": "query.property('tnt:uchiha') == 9 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.susanoo_ob2": "query.property('tnt:uchiha') == 10 && !variable.is_first_person && !variable.map_face_icon"},
+
+
+                      {"controller.render.rinnegan": "query.property('tnt:uchiha') == 11 && !variable.is_first_person && !variable.map_face_icon"},
+                      {"controller.render.rinnegan_esquerdo": "query.property('tnt:retirar_pele') != 1 && query.property('tnt:uchiha_slot2') == 1 && !variable.is_first_person && !variable.map_face_icon"},
+                      
+
+                      { "controller.render.olho_sharingan_1": "query.get_equipped_item_name=='olho_sharingan'" },
+
+
+
+                      { "controller.render.ceifeiro": "query.get_equipped_item_name=='pergaminho_ceifeiro' && !variable.is_first_person" },
+
+
+                      { "controller.render.hiramekarei": "query.get_equipped_item_name=='hiramekarei'" },
+                      { "controller.render.katubowari": "query.get_equipped_item_name=='katubowari'" },
+                      { "controller.render.kunai_minato": "query.get_equipped_item_name=='kunai_minato'" },
+                      { "controller.render.kiba": "query.get_equipped_item_name=='kiba'" },
+                      { "controller.render.shibuki": "query.get_equipped_item_name=='shibuki'" },
+                      { "controller.render.foice_hidan": "query.get_equipped_item_name=='foice_hidan'" },
+                      { "controller.render.kunai_asuma": "query.get_equipped_item_name=='kunai_asuma'" },
+                      { "controller.render.samehada": "query.get_equipped_item_name=='samehada'" },
+                      { "controller.render.kubikiribocho": "query.get_equipped_item_name=='kubikiribocho'" },
+                      { "controller.render.gunbai": "query.get_equipped_item_name=='gunbai'" },
+
+                      
+
+{ "controller.render.pesos": "!variable.is_first_person && query.is_item_name_any('slot.armor.feet','tnt:pesos')" },   
+
+
+
+
+
+
+    
+
+
+
+
+
+
+                      {"controller.render.cabelo_sasuke": "!variable.is_first_person && query.property('tnt:custom_cabelo') == 1"},
+                      {"controller.render.cabelo_naruto": "!variable.is_first_person && query.property('tnt:custom_cabelo') == 2"},
+                      {"controller.render.cabelo_madara": "!variable.is_first_person && query.property('tnt:custom_cabelo') == 3"},
+
+
+
+
+
+                      {"controller.render.portoes_borda": "query.property('tnt:suigetsu')"},
+                      {"controller.render.portoes_borda": "query.property('tnt:8_portoes')"},
+                      {"controller.render.3_portao": "query.property('tnt:8_portoes') == 3"},
+                      {"controller.render.3_portao": "query.property('tnt:8_portoes') == 4"},
+                      {"controller.render.3_portao": "query.property('tnt:8_portoes') == 5"},
+                      {"controller.render.6_portao": "query.property('tnt:8_portoes') == 6"},
+                      {"controller.render.3_portao": "query.property('tnt:8_portoes') == 7"},
+                      {"controller.render.8_portao": "query.property('tnt:8_portoes') == 8"},
+
+
+                      {"controller.render.masculino_claro.first_person": "variable.is_first_person && query.property('tnt:retirar_pele') != 1 && query.property('tnt:custon') == 1"},
+                      {"controller.render.masculino_claro.third_person": "!variable.is_first_person && query.property('tnt:retirar_pele') != 1 && query.property('tnt:custon') == 1"},
+
+                      {"controller.render.masculino_escuro.first_person": "variable.is_first_person && query.property('tnt:retirar_pele') != 1 && query.property('tnt:custon') == 2"},
+                      {"controller.render.masculino_escuro.third_person": "!variable.is_first_person && query.property('tnt:retirar_pele') != 1 && query.property('tnt:custon') == 2"},
+
+                      { "controller.render.player.first_person": "variable.is_first_person" },{ "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },{ "controller.render.player.map": "variable.map_face_icon" }
+      ],
+      "enable_attachables": true
+    }
+  }
+}

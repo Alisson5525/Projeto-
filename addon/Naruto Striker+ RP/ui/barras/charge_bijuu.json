@@ -1,0 +1,288 @@
+{
+  "namespace":"charge_bijuu",
+  "charge_bijuu_panel":{
+    "type":"panel",
+    "controls":[
+            {
+        "charge_bijuu":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu0]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu0":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_0",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu1]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu1":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_1",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu2]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu2":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_2",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu3]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu3":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_3",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu4]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu4":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_4",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu5]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu5":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_5",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu6]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu6":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_6",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu7]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu7":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_7",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu8]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu8":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_8",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu9]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu9":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_9",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu10]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "charge_bijuu10":{
+          "type": "image",
+          "alpha": true,
+          "texture":"textures/ui/bar_vida_chakra/chakra_biju/barra_chakra_biju_f_10",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 6,
+          "size": [190, 190],
+          "offset": [0, 80],
+          "$value": "[charge_bijuu11]",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+
+
+
+
+    ]
+  }
+}

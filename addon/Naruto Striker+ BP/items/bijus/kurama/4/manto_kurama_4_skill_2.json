@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:manto_kurama_4_skill_2",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "skill_kurama_manto_4"
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": false,
+      "minecraft:glint": false,
+      "minecraft:cooldown": {
+        "category": "manto_kurama_skill",
+        "duration": 1.1
+      },
+      "minecraft:display_name": {
+        "value": "§askill manto kurama 4 caldas\n\n§7informaçao.\n"
+      }
+    }
+  }
+}

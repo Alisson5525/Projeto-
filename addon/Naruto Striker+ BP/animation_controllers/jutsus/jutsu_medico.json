@@ -1,0 +1,50 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+         "controller.animation.jutsu_medico": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "jutsu_medico": "q.scoreboard('chakra') >= 30 && query.get_equipped_item_name=='jutsu_medico' && query.is_using_item"},
+            { "jutsu_medico_avancado_equipe": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name == 'jutsu_medico_avancado' && query.is_sneaking" },
+            { "jutsu_medico_avancado": "q.scoreboard('chakra') >= 125 && query.get_equipped_item_name=='jutsu_medico_avancado' && query.is_using_item"}
+          ]
+        },
+        
+        "jutsu_medico": {
+          "animations": ["jutsu_medico_animaation"],
+          "on_exit": [
+            "/execute as @s run tellraw @s {\"rawtext\":[{\"text\":\"§o§c[!] §aCura Finalizada\"}]}"
+          ],
+          "transitions": [
+            { "default": "!query.is_using_item" }
+          ]
+        },
+
+
+"jutsu_medico_avancado": {
+"on_entry": [
+"/effect @s instant_health 2 3 true",
+"/scoreboard players remove @s chakra 125",
+"/particle minecraft:heart_particle ~ ~2 ~",
+"/particle minecraft:crop_growth_emitter ~ ~1 ~",
+"/playsound place.amethyst_cluster @a[r=15]"
+
+],
+"transitions": [{"default": "!query.is_using_item"}]},
+
+
+
+"jutsu_medico_avancado_equipe": {
+"on_entry": [
+"/effect @a[rm=1,r=3,c=2] instant_health 2 2 true",
+"/scoreboard players remove @s chakra 125",
+"/particle minecraft:totem_particle ~ ~1 ~",
+"/playsound place.amethyst_cluster @a[r=15]"
+
+],
+"transitions": [{"default": "!query.is_sneaking"}]}
+      }
+    }
+    }
+}

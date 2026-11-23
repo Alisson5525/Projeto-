@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:bijudama_mk2_projetil",
+      "materials": {
+        "brilhar": "enderman",
+        "outline": "outline"
+      },
+      "textures": {
+        "bijudama": "textures/tudo/bijus/kurama/bijudama"
+      },
+      "geometry": {
+        "bijudama": "geometry.bijudama_projetil"
+      },
+      "particle_effects": {
+        "rasen_shuriken_fumasa": "tnt:rasen_shuriken_fumasa",
+        "ns_trilha": "tnt:ns_trilha"
+      },
+      "render_controllers": [
+        "controller.render.bijudama"
+      ],
+      "animations": {
+        "bijudama_mk2_projetil": "animation.bijudama_mk2_projetil",
+        "ns_trilha": "animation.ns_trilha_roxo"
+      },
+      "scripts": {
+        "animate": [
+          "bijudama_mk2_projetil",
+          "ns_trilha"
+        ]
+      }
+    }
+  }
+}

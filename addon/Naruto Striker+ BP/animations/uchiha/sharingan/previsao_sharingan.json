@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.previsao_sharingan": {
+			"animation_length": 3.0,
+			"timeline": {
+
+"0.0": ["/playsound previsao_sharingan @a[r=10] ^^^1","/tag @s add previsao_sharingan"],
+"2.9": ["/tag @s remove previsao_sharingan"]
+			
+			}
+		}
+	}
+}

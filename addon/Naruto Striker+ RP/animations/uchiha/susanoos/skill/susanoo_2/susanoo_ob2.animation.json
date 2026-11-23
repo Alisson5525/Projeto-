@@ -1,0 +1,263 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.susanoo_ob2_skill_1": {
+      "animation_length": 0.4167,
+      "override_previous_animation": true,
+      "bones": {
+        "osso_braco": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                -25,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.375": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "braco_susanoo": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                5,
+                60
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                0,
+                67.5,
+                60
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.375": {
+              "post": [
+                2.28312,
+                9.85164,
+                67.5474
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "braco_susanoo2": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                16.98544,
+                56.04267,
+                17.66842
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.25": {
+              "post": [
+                226.27188,
+                72.42089,
+                233.11317
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.375": {
+              "post": [
+                15.55066,
+                18.54774,
+                22.85357
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "susanoo_dedos5": {
+          "rotation": {
+            "0.0": [
+              90,
+              -55,
+              72.5
+            ],
+            "0.25": [
+              90,
+              -50,
+              72.5
+            ]
+          }
+        },
+        "susanoo_dedos12": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              75
+            ],
+            "0.25": [
+              0,
+              0,
+              62.5
+            ]
+          }
+        },
+        "susanoo_dedos4": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              50
+            ],
+            "0.25": [
+              0,
+              0,
+              70
+            ]
+          }
+        },
+        "susanoo_dedos11": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              75
+            ],
+            "0.25": [
+              0,
+              0,
+              90
+            ]
+          }
+        },
+        "susanoo_dedos3": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              65
+            ],
+            "0.25": [
+              0,
+              0,
+              60
+            ]
+          }
+        },
+        "susanoo_dedos9": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              47.5
+            ],
+            "0.25": [
+              0,
+              0,
+              87.5
+            ]
+          }
+        },
+        "susanoo_dedos10": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              55
+            ],
+            "0.25": [
+              0,
+              0,
+              90
+            ]
+          }
+        },
+        "susanoo_dedos25": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              97.5
+            ],
+            "0.25": [
+              0,
+              0,
+              105
+            ]
+          }
+        },
+        "susanoo_dedos26": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              75
+            ],
+            "0.25": [
+              0,
+              0,
+              87.5
+            ]
+          }
+        },
+        "susanoo_dedos2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              57.5
+            ],
+            "0.25": [
+              0,
+              0,
+              57.5
+            ]
+          }
+        },
+        "susanoo_dedos7": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              77.5
+            ],
+            "0.25": [
+              0,
+              0,
+              95
+            ]
+          }
+        },
+        "susanoo_dedos8": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              22.5
+            ],
+            "0.25": [
+              0,
+              0,
+              67.5
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+"animation.esconderijo_toupeira_animation": {
+"animation_length": 3.6,
+"timeline": {
+
+"0.0": ["/playsound jutsu_ativation @a[r=7] ^^^1 1 1","/playanimation @s animation.esconderijo_toupeira default 0.2","/particle tnt:impact_chao","/particle tnt:esconderijo_toupeira"],
+
+
+
+
+
+"3.5": ["/playsound dig.gravel @a[r=10] ~ ~ ~ 1 1","/particle tnt:esconderijo_toupeira","/particle tnt:impact_chao"]
+ 
+			
+}
+} 
+}
+}

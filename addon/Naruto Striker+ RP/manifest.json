@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§6By§f: §aSoldado tnt §7| §6Edição+§7: animações, progressão, combate e exploração",
+    "name": "§eShinobi Storm §6+",
+    "uuid": "b7ed2608-41cb-4940-aae5-880269aafcb2",
+    "version": [
+      1,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      19,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§6By§f: §aSoldado tnt",
+      "type": "resources",
+      "uuid": "de7f67a5-b217-4846-88f6-1377729fcc31",
+      "version": [
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

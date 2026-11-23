@@ -1,0 +1,8 @@
+[
+	{"path":"materials/outline_transparente.material"},
+	{"path":"materials/ui.material"},
+	{"path":"materials/terrain.material"},
+	{"path":"materials/portal.material"},
+	{"path":"materials/cameraFacingSprite.material"},
+	{"path":"materials/wireframe.material"}
+]

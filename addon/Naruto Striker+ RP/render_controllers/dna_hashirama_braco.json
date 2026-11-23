@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+        "controller.render.dna_hashirama_braco": {
+      "geometry": "Geometry.dna_hashirama_braco",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.dna_hashirama_braco" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "sharin1": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin2": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin3": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin4": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin5": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin6": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "sharin7": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    }
+
+
+
+
+  }
+}

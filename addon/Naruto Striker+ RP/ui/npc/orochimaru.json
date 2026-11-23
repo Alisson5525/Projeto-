@@ -1,0 +1,148 @@
+{
+  "namespace": "npc_orochimaru",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.npc_orochimaru": {
+          "$view_content": "@npc_orochimaru.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.npc_orochimaru.title')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+            {
+        "image": {
+          "type": "image",
+          "texture": "textures/ui/hud_npc",
+           "size": [1070, 1070],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [0, -15],
+          "layer": 2
+        }
+      },
+            {
+        "description": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [-150, 23],
+          "text": "§fOrochimaru",
+          "font_type": "MinecraftTen",
+          "backup_font_type": "MinecraftTen",
+          "font_scale_factor": 1.0,
+          "text_alignment": "left",
+          "shadow": false,
+          "layer": 6
+        }
+      },
+           {
+        "description": {
+          "type": "label",
+          "size": ["170%", "170%"],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [-2.5, -20],
+          "text": "#form_text",
+          "font_type": "MinecraftTen",
+          "backup_font_type": "MinecraftTen",
+          "font_scale_factor": 0.9,
+          "text_alignment": "center",
+          "color": "white",
+          "shadow": false,
+          "layer": 6
+
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 10],
+          "offset": [0, -714],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+
+            {
+        "buttons": {
+          "type": "panel",
+          "$border_visible": false,
+          "controls": [
+{
+"button_0": {
+"type": "stack_panel",
+"size": [1, 1],
+"anchor_from": "center",
+"anchor_to": "center",
+"$default_button_texture": "textures/ui/in",
+"$hover_button_texture": "textures/ui/in",
+"$pressed_button_texture": "textures/ui/in",
+"offset": [-180, 45],
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"size": [100, 20],
+"collection_index": 0
+}}]}},
+
+{
+"button_1": {
+"type": "stack_panel",
+"size": [1, 1],
+"anchor_from": "center",
+"anchor_to": "center",
+"$default_button_texture": "textures/ui/in",
+"$hover_button_texture": "textures/ui/in",
+"$pressed_button_texture": "textures/ui/in",
+"offset": [-50, 45],
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"size": [100, 20],
+"collection_index": 1
+}}]}},
+
+{
+"button_2": {
+"type": "stack_panel",
+"size": [1, 1],
+"anchor_from": "center",
+"anchor_to": "center",
+"$default_button_texture": "textures/ui/in",
+"$hover_button_texture": "textures/ui/in",
+"$pressed_button_texture": "textures/ui/in",
+"offset": [60, 45],
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"size": [120, 20],
+"collection_index": 2
+}}]}}
+
+
+          ]
+        }
+      }
+    ]
+  }
+}

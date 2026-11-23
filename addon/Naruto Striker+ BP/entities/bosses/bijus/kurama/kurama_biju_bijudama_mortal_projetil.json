@@ -1,0 +1,97 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "tnt:kurama_biju_bijudama_mortal_projetil",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "runtime_identifier": "minecraft:snowball"
+      },
+      "component_groups": {
+     "tnt:despawn": {
+        "minecraft:transformation": {
+          "into": "tnt:despawn",
+          "delay": 0.0
+        }
+      },
+      "despawning": {
+        "minecraft:type_family": {
+          "family": [ "despawer","despawer_despawning" ]
+        }
+      }
+      },
+      "components": {
+         "minecraft:scale": {
+      	 "value": 5.0
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 5,
+        "looping": true,
+        "time_down_event": {
+          "event": "tnt:despawn"
+        }
+      },
+
+
+        
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+         "on_hit": {
+          
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "on:hit",
+            "target": "self"
+      }
+     },
+      "impact_damage": {
+              "damage": 10
+            }
+    },
+          "power": 2.0,
+          "gravity": 0.0,
+        "offset": [ 0, 4, 2 ]
+        },
+        "minecraft:physics": {}
+      },
+      "events": {
+        
+"tnt:tick": {
+"queue_command":{
+"command":[
+"damage @e[type=!tnt:kurama_biju,r=5] 50" 
+]}},  
+    
+
+
+"tnt:despawn": {
+"add": {"component_groups": ["tnt:despawn"]}
+        },
+
+        "on:hit": {
+           "queue_command": {
+                "command": [
+                "playsound ambient.weather.lightning.impact @a[r=35]",
+                "particle tnt:bijudama_impact_1",
+                "damage @e[r=8] 50",
+                "kill @s"
+
+                ]
+              }
+        }
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.tubara_triplo_projetil": {
+			"loop": true,
+			"bones": {
+				"tubarao_agua": {
+					"rotation": [0, "-math.sin(query.life_time * 360) * 10", 0],
+					"position": ["math.sin(query.life_time * 100) * 2 * -math.sin(query.life_time * 100) * 2", "-math.sin(query.life_time * 100) * 2", 0]
+				},
+				"calda": {
+					"rotation": [0, "math.sin(query.life_time * 360) * 10", 0]
+				},
+				"calda2": {
+					"rotation": [0, "math.sin(query.life_time * 360) * 15", 0]
+				},
+				"boca": {
+					"rotation": ["15+math.sin(query.life_time * 360) * 22.5", 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "tubarao_triplo_rastro_agua",
+					"locator": "tubaraotriplo"
+				}
+			}
+		}
+	}
+}

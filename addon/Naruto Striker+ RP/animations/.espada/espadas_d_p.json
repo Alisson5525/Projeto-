@@ -1,0 +1,74 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.espadas_d_p": {
+			"loop": true,
+			"bones": {
+				"espadas_d": {
+					"rotation": [11.86167, 71.72969, -36.51468],
+					"position": [2, 2, 0]
+				},
+				"gumbai": {
+					"position": [0, 0, 3.25],
+					"scale": 0.8
+				},
+				"gumbai2": {
+					"position": [0, 0, 4],
+					"scale": 0.8
+				},
+				"kubikiribocho": {
+					"position": [-1, 0, 5],
+					"scale": 0.8
+				},
+				"samehada": {
+					"position": [-2, 0, 3],
+					"scale": 0.8
+				}
+			}
+		},
+		"animation.espadas_dupla_p": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"bones": {
+				"espadas_d": {
+					"rotation": [11.86167, 71.72969, -36.51468],
+					"position": [2, 2, 0]
+				},
+				"gumbai": {
+					"position": [0, 0, 3.25],
+					"scale": 0.8
+				},
+				"gumbai2": {
+					"position": [0, 0, 4],
+					"scale": 0.8
+				},
+				"kubikiribocho": {
+					"position": [-1, 0, 5],
+					"scale": 0.8
+				},
+				"samehada": {
+					"position": [-2, 0, 3],
+					"scale": 0.8
+				},
+				"martelo": {
+					"rotation": [97.92348, -8.93551, -194.77532],
+					"position": [-17, -1, 18]
+				},
+				"machado": {
+					"position": [0, 0, 3]
+				},
+				"kiba": {
+					"rotation": [91.66993, 5.10297, -186.79594],
+					"position": [-17, 0, 18]
+				},
+				"kiba2": {
+					"position": [0, 0, 4]
+				},
+				"kunai_asuma2": {
+					"rotation": [91.76761, 182.31898, -4.07682],
+					"position": [-17, 3, 18]
+				}
+			}
+		}
+	}
+}

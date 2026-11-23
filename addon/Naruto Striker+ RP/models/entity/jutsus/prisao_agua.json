@@ -1,0 +1,87 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.prisao_agua",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "prisao_agua_all",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "prisao_agua",
+					"parent": "prisao_agua_all",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-6, -9, -6],
+							"size": [12, 18, 12],
+							"uv": {
+								"north": {"uv": [16, 32], "uv_size": [12, 18]},
+								"east": {"uv": [32, 16], "uv_size": [12, 18]},
+								"south": {"uv": [28, 34], "uv_size": [12, 18]},
+								"west": {"uv": [40, 34], "uv_size": [12, 18]},
+								"up": {"uv": [56, 18], "uv_size": [12, 12]},
+								"down": {"uv": [60, 64], "uv_size": [12, -12]}
+							}
+						},
+						{
+							"origin": [-6, -9, -6],
+							"size": [12, 18, 12],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 90],
+							"uv": {
+								"north": {"uv": [44, 16], "uv_size": [12, 18]},
+								"east": {"uv": [0, 48], "uv_size": [12, 18]},
+								"south": {"uv": [12, 50], "uv_size": [12, 18]},
+								"west": {"uv": [24, 52], "uv_size": [12, 18]},
+								"up": {"uv": [64, 30], "uv_size": [12, 12]},
+								"down": {"uv": [60, 76], "uv_size": [12, -12]}
+							}
+						},
+						{
+							"origin": [-6, -9, -6],
+							"size": [12, 18, 12],
+							"pivot": [0, 0, 0],
+							"rotation": [90, 0, 90],
+							"uv": {
+								"north": {"uv": [52, 34], "uv_size": [12, 18]},
+								"east": {"uv": [36, 52], "uv_size": [12, 18]},
+								"south": {"uv": [48, 52], "uv_size": [12, 18]},
+								"west": {"uv": [56, 0], "uv_size": [12, 18]},
+								"up": {"uv": [0, 66], "uv_size": [12, 12]},
+								"down": {"uv": [68, 12], "uv_size": [12, -12]}
+							}
+						}
+					]
+				},
+				{
+					"name": "prisao_agua2",
+					"parent": "prisao_agua_all",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, -8, -8],
+							"size": [16, 16, 16],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 16]},
+								"east": {"uv": [0, 16], "uv_size": [16, 16]},
+								"south": {"uv": [16, 0], "uv_size": [16, 16]},
+								"west": {"uv": [16, 16], "uv_size": [16, 16]},
+								"up": {"uv": [0, 32], "uv_size": [16, 16]},
+								"down": {"uv": [32, 16], "uv_size": [16, -16]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.dash": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "jump": "query.is_jumping && q.scoreboard('dash') == 0 && q.scoreboard('chakra') >= 40" }
+          ]
+        },
+     
+        "jump": {
+          "transitions": [
+            { "default": "query.is_on_ground" },
+            { "default": "query.is_riding" },
+            { "jump2": "!query.is_jumping" }
+          ]
+        },
+        "jump2": {
+          "transitions": [
+            { "default": "query.is_on_ground" },
+            { "jump3": "query.is_jumping" }
+          ]
+        },
+        "jump3": {
+          "transitions": [
+            { "default": "query.is_on_ground" }
+          ],
+          "on_entry": [
+            "/tag @s[tag=all_status_dash] add dash",
+            "/playsound mob.witch.throw @s[tag=all_status_dash]",
+            "/scoreboard players set @s[tag=all_status_dash] dash 40",
+            "/scoreboard players remove @s[tag=all_status_dash] chakra 30"
+          ]
+        }
+      }
+    }
+  }
+}

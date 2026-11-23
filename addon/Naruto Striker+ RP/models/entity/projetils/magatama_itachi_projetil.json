@@ -1,0 +1,383 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.magatama_itachi_projetil",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "magatama_itachi_all",
+					"parent": "body",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"magatama_itachi": [0, 0, 0]
+					}
+				},
+				{
+					"name": "magatama_itachi_1",
+					"parent": "magatama_itachi_all",
+					"pivot": [-7, 0, -7],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{
+							"origin": [-9, -2, -13],
+							"size": [8, 4, 4],
+							"uv": {
+								"north": {"uv": [15, 10], "uv_size": [8, 4]},
+								"east": {"uv": [0, 24], "uv_size": [4, 4]},
+								"south": {"uv": [17, 14], "uv_size": [8, 4]},
+								"west": {"uv": [4, 24], "uv_size": [4, 4]},
+								"up": {"uv": [8, 18], "uv_size": [8, 4]},
+								"down": {"uv": [16, 22], "uv_size": [8, -4]}
+							}
+						},
+						{
+							"origin": [-5, -2, -9],
+							"size": [4, 4, 8],
+							"uv": {
+								"north": {"uv": [24, 22], "uv_size": [4, 4]},
+								"east": {"uv": [19, 0], "uv_size": [8, 4]},
+								"south": {"uv": [25, 12], "uv_size": [4, 4]},
+								"west": {"uv": [0, 20], "uv_size": [8, 4]},
+								"up": {"uv": [8, 22], "uv_size": [4, 8]},
+								"down": {"uv": [12, 30], "uv_size": [4, -8]}
+							}
+						},
+						{
+							"origin": [-9, -2, -5],
+							"size": [4, 4, 4],
+							"uv": {
+								"north": {"uv": [24, 26], "uv_size": [4, 4]},
+								"east": {"uv": [27, 0], "uv_size": [4, 4]},
+								"south": {"uv": [0, 28], "uv_size": [4, 4]},
+								"west": {"uv": [4, 28], "uv_size": [4, 4]},
+								"up": {"uv": [28, 4], "uv_size": [4, 4]},
+								"down": {"uv": [16, 32], "uv_size": [4, -4]}
+							}
+						},
+						{
+							"origin": [-13, -2, -13],
+							"size": [4, 4, 12],
+							"uv": {
+								"north": {"uv": [24, 6], "uv_size": [4, 4]},
+								"east": {"uv": [0, 0], "uv_size": [12, 4]},
+								"south": {"uv": [24, 18], "uv_size": [4, 4]},
+								"west": {"uv": [0, 4], "uv_size": [12, 4]},
+								"up": {"uv": [0, 8], "uv_size": [4, 12]},
+								"down": {"uv": [4, 20], "uv_size": [4, -12]}
+							}
+						}
+					]
+				},
+				{
+					"name": "bone",
+					"parent": "magatama_itachi_1",
+					"pivot": [-14.04047, 0, -14.04953],
+					"rotation": [0, 32.5, 0],
+					"cubes": [
+						{
+							"origin": [-16.5, -0.75, -11.8],
+							"size": [9.25, 1.5, 4],
+							"uv": {
+								"north": {"uv": [19, 4], "uv_size": [9, 2]},
+								"east": {"uv": [28, 8], "uv_size": [4, 2]},
+								"south": {"uv": [23, 10], "uv_size": [9, 2]},
+								"west": {"uv": [28, 20], "uv_size": [4, 2]},
+								"up": {"uv": [8, 14], "uv_size": [9, 4]},
+								"down": {"uv": [15, 10], "uv_size": [9, -4]}
+							}
+						},
+						{
+							"origin": [-12.69615, -0.5, -15.06795],
+							"size": [6.75, 1, 6],
+							"pivot": [-11.44615, -1.75, -7.06795],
+							"rotation": [0, 30, 0],
+							"uv": {
+								"north": {"uv": [28, 22], "uv_size": [7, 1]},
+								"east": {"uv": [28, 24], "uv_size": [6, 1]},
+								"south": {"uv": [28, 23], "uv_size": [7, 1]},
+								"west": {"uv": [28, 25], "uv_size": [6, 1]},
+								"up": {"uv": [8, 8], "uv_size": [7, 6]},
+								"down": {"uv": [12, 6], "uv_size": [7, -6]}
+							}
+						},
+						{
+							"origin": [-9.72309, -0.25, -18.71307],
+							"size": [3.75, 0.5, 6],
+							"pivot": [-10.97309, -1.75, -10.71307],
+							"rotation": [0, 65, 0],
+							"uv": {
+								"north": {"uv": [28, 28], "uv_size": [4, 1]},
+								"east": {"uv": [28, 26], "uv_size": [6, 1]},
+								"south": {"uv": [29, 12], "uv_size": [4, 1]},
+								"west": {"uv": [28, 27], "uv_size": [6, 1]},
+								"up": {"uv": [16, 22], "uv_size": [4, 6]},
+								"down": {"uv": [20, 28], "uv_size": [4, -6]}
+							}
+						},
+						{
+							"origin": [-12.73811, -0.1, -19.32214],
+							"size": [2.75, 0.2, 4],
+							"pivot": [-14.48811, -1.75, -13.32214],
+							"rotation": [0, 82.5, 0],
+							"uv": {
+								"north": {"uv": [12, 6], "uv_size": [3, 1]},
+								"east": {"uv": [29, 13], "uv_size": [4, 1]},
+								"south": {"uv": [12, 7], "uv_size": [3, 1]},
+								"west": {"uv": [29, 14], "uv_size": [4, 1]},
+								"up": {"uv": [28, 16], "uv_size": [3, 4]},
+								"down": {"uv": [20, 32], "uv_size": [3, -4]}
+							}
+						}
+					]
+				},
+				{
+					"name": "magatama_itachi_2",
+					"parent": "magatama_itachi_all",
+					"pivot": [-1, 0, 10],
+					"rotation": [0, -147.5, 0],
+					"cubes": [
+						{
+							"origin": [-3, -2, 4],
+							"size": [8, 4, 4],
+							"uv": {
+								"north": {"uv": [15, 10], "uv_size": [8, 4]},
+								"east": {"uv": [0, 24], "uv_size": [4, 4]},
+								"south": {"uv": [17, 14], "uv_size": [8, 4]},
+								"west": {"uv": [4, 24], "uv_size": [4, 4]},
+								"up": {"uv": [8, 18], "uv_size": [8, 4]},
+								"down": {"uv": [16, 22], "uv_size": [8, -4]}
+							}
+						},
+						{
+							"origin": [1, -2, 8],
+							"size": [4, 4, 8],
+							"uv": {
+								"north": {"uv": [24, 22], "uv_size": [4, 4]},
+								"east": {"uv": [19, 0], "uv_size": [8, 4]},
+								"south": {"uv": [25, 12], "uv_size": [4, 4]},
+								"west": {"uv": [0, 20], "uv_size": [8, 4]},
+								"up": {"uv": [8, 22], "uv_size": [4, 8]},
+								"down": {"uv": [12, 30], "uv_size": [4, -8]}
+							}
+						},
+						{
+							"origin": [-3, -2, 12],
+							"size": [4, 4, 4],
+							"uv": {
+								"north": {"uv": [24, 26], "uv_size": [4, 4]},
+								"east": {"uv": [27, 0], "uv_size": [4, 4]},
+								"south": {"uv": [0, 28], "uv_size": [4, 4]},
+								"west": {"uv": [4, 28], "uv_size": [4, 4]},
+								"up": {"uv": [28, 4], "uv_size": [4, 4]},
+								"down": {"uv": [16, 32], "uv_size": [4, -4]}
+							}
+						},
+						{
+							"origin": [-7, -2, 4],
+							"size": [4, 4, 12],
+							"uv": {
+								"north": {"uv": [24, 6], "uv_size": [4, 4]},
+								"east": {"uv": [0, 0], "uv_size": [12, 4]},
+								"south": {"uv": [24, 18], "uv_size": [4, 4]},
+								"west": {"uv": [0, 4], "uv_size": [12, 4]},
+								"up": {"uv": [0, 8], "uv_size": [4, 12]},
+								"down": {"uv": [4, 20], "uv_size": [4, -12]}
+							}
+						}
+					]
+				},
+				{
+					"name": "bone2",
+					"parent": "magatama_itachi_2",
+					"pivot": [-8.04047, 0, 2.95047],
+					"rotation": [0, 32.5, 0],
+					"cubes": [
+						{
+							"origin": [-10.5, -0.75, 5.2],
+							"size": [9.25, 1.5, 4],
+							"uv": {
+								"north": {"uv": [19, 4], "uv_size": [9, 2]},
+								"east": {"uv": [28, 8], "uv_size": [4, 2]},
+								"south": {"uv": [23, 10], "uv_size": [9, 2]},
+								"west": {"uv": [28, 20], "uv_size": [4, 2]},
+								"up": {"uv": [8, 14], "uv_size": [9, 4]},
+								"down": {"uv": [15, 10], "uv_size": [9, -4]}
+							}
+						},
+						{
+							"origin": [-6.69615, -0.5, 1.93205],
+							"size": [6.75, 1, 6],
+							"pivot": [-5.44615, -1.75, 9.93205],
+							"rotation": [0, 30, 0],
+							"uv": {
+								"north": {"uv": [28, 22], "uv_size": [7, 1]},
+								"east": {"uv": [28, 24], "uv_size": [6, 1]},
+								"south": {"uv": [28, 23], "uv_size": [7, 1]},
+								"west": {"uv": [28, 25], "uv_size": [6, 1]},
+								"up": {"uv": [8, 8], "uv_size": [7, 6]},
+								"down": {"uv": [12, 6], "uv_size": [7, -6]}
+							}
+						},
+						{
+							"origin": [-3.72309, -0.25, -1.71307],
+							"size": [3.75, 0.5, 6],
+							"pivot": [-4.97309, -1.75, 6.28693],
+							"rotation": [0, 65, 0],
+							"uv": {
+								"north": {"uv": [28, 28], "uv_size": [4, 1]},
+								"east": {"uv": [28, 26], "uv_size": [6, 1]},
+								"south": {"uv": [29, 12], "uv_size": [4, 1]},
+								"west": {"uv": [28, 27], "uv_size": [6, 1]},
+								"up": {"uv": [16, 22], "uv_size": [4, 6]},
+								"down": {"uv": [20, 28], "uv_size": [4, -6]}
+							}
+						},
+						{
+							"origin": [-6.73811, -0.1, -2.32214],
+							"size": [2.75, 0.2, 4],
+							"pivot": [-8.48811, -1.75, 3.67786],
+							"rotation": [0, 82.5, 0],
+							"uv": {
+								"north": {"uv": [12, 6], "uv_size": [3, 1]},
+								"east": {"uv": [29, 13], "uv_size": [4, 1]},
+								"south": {"uv": [12, 7], "uv_size": [3, 1]},
+								"west": {"uv": [29, 14], "uv_size": [4, 1]},
+								"up": {"uv": [28, 16], "uv_size": [3, 4]},
+								"down": {"uv": [20, 32], "uv_size": [3, -4]}
+							}
+						}
+					]
+				},
+				{
+					"name": "magatama_itachi_3",
+					"parent": "magatama_itachi_all",
+					"pivot": [10, 0, -3],
+					"rotation": [0, -32.5, 0],
+					"cubes": [
+						{
+							"origin": [8, -2, -9],
+							"size": [8, 4, 4],
+							"uv": {
+								"north": {"uv": [15, 10], "uv_size": [8, 4]},
+								"east": {"uv": [0, 24], "uv_size": [4, 4]},
+								"south": {"uv": [17, 14], "uv_size": [8, 4]},
+								"west": {"uv": [4, 24], "uv_size": [4, 4]},
+								"up": {"uv": [8, 18], "uv_size": [8, 4]},
+								"down": {"uv": [16, 22], "uv_size": [8, -4]}
+							}
+						},
+						{
+							"origin": [12, -2, -5],
+							"size": [4, 4, 8],
+							"uv": {
+								"north": {"uv": [24, 22], "uv_size": [4, 4]},
+								"east": {"uv": [19, 0], "uv_size": [8, 4]},
+								"south": {"uv": [25, 12], "uv_size": [4, 4]},
+								"west": {"uv": [0, 20], "uv_size": [8, 4]},
+								"up": {"uv": [8, 22], "uv_size": [4, 8]},
+								"down": {"uv": [12, 30], "uv_size": [4, -8]}
+							}
+						},
+						{
+							"origin": [8, -2, -1],
+							"size": [4, 4, 4],
+							"uv": {
+								"north": {"uv": [24, 26], "uv_size": [4, 4]},
+								"east": {"uv": [27, 0], "uv_size": [4, 4]},
+								"south": {"uv": [0, 28], "uv_size": [4, 4]},
+								"west": {"uv": [4, 28], "uv_size": [4, 4]},
+								"up": {"uv": [28, 4], "uv_size": [4, 4]},
+								"down": {"uv": [16, 32], "uv_size": [4, -4]}
+							}
+						},
+						{
+							"origin": [4, -2, -9],
+							"size": [4, 4, 12],
+							"uv": {
+								"north": {"uv": [24, 6], "uv_size": [4, 4]},
+								"east": {"uv": [0, 0], "uv_size": [12, 4]},
+								"south": {"uv": [24, 18], "uv_size": [4, 4]},
+								"west": {"uv": [0, 4], "uv_size": [12, 4]},
+								"up": {"uv": [0, 8], "uv_size": [4, 12]},
+								"down": {"uv": [4, 20], "uv_size": [4, -12]}
+							}
+						}
+					]
+				},
+				{
+					"name": "bone3",
+					"parent": "magatama_itachi_3",
+					"pivot": [2.95953, 0, -10.04953],
+					"rotation": [0, 32.5, 0],
+					"cubes": [
+						{
+							"origin": [0.5, -0.75, -7.8],
+							"size": [9.25, 1.5, 4],
+							"uv": {
+								"north": {"uv": [19, 4], "uv_size": [9, 2]},
+								"east": {"uv": [28, 8], "uv_size": [4, 2]},
+								"south": {"uv": [23, 10], "uv_size": [9, 2]},
+								"west": {"uv": [28, 20], "uv_size": [4, 2]},
+								"up": {"uv": [8, 14], "uv_size": [9, 4]},
+								"down": {"uv": [15, 10], "uv_size": [9, -4]}
+							}
+						},
+						{
+							"origin": [4.30385, -0.5, -11.06795],
+							"size": [6.75, 1, 6],
+							"pivot": [5.55385, -1.75, -3.06795],
+							"rotation": [0, 30, 0],
+							"uv": {
+								"north": {"uv": [28, 22], "uv_size": [7, 1]},
+								"east": {"uv": [28, 24], "uv_size": [6, 1]},
+								"south": {"uv": [28, 23], "uv_size": [7, 1]},
+								"west": {"uv": [28, 25], "uv_size": [6, 1]},
+								"up": {"uv": [8, 8], "uv_size": [7, 6]},
+								"down": {"uv": [12, 6], "uv_size": [7, -6]}
+							}
+						},
+						{
+							"origin": [7.27691, -0.25, -14.71307],
+							"size": [3.75, 0.5, 6],
+							"pivot": [6.02691, -1.75, -6.71307],
+							"rotation": [0, 65, 0],
+							"uv": {
+								"north": {"uv": [28, 28], "uv_size": [4, 1]},
+								"east": {"uv": [28, 26], "uv_size": [6, 1]},
+								"south": {"uv": [29, 12], "uv_size": [4, 1]},
+								"west": {"uv": [28, 27], "uv_size": [6, 1]},
+								"up": {"uv": [16, 22], "uv_size": [4, 6]},
+								"down": {"uv": [20, 28], "uv_size": [4, -6]}
+							}
+						},
+						{
+							"origin": [4.26189, -0.1, -15.32214],
+							"size": [2.75, 0.2, 4],
+							"pivot": [2.51189, -1.75, -9.32214],
+							"rotation": [0, 82.5, 0],
+							"uv": {
+								"north": {"uv": [12, 6], "uv_size": [3, 1]},
+								"east": {"uv": [29, 13], "uv_size": [4, 1]},
+								"south": {"uv": [12, 7], "uv_size": [3, 1]},
+								"west": {"uv": [29, 14], "uv_size": [4, 1]},
+								"up": {"uv": [28, 16], "uv_size": [3, 4]},
+								"down": {"uv": [20, 32], "uv_size": [3, -4]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

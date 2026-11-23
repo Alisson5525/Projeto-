@@ -1,0 +1,121 @@
+{
+  "format_version": "1.14.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:grande_onda_choque",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+  
+      "tnt:transformations": {
+        "minecraft:transformation":{
+        "into":"tnt:despawn",
+        "drop_equipment":true,
+        "delay":{
+        "value":0.0
+    }
+}
+      }
+
+    },
+    "components": {
+         "minecraft:environment_sensor": {
+        "triggers": [
+                    {
+            "filters": {},
+            "event": "tnt:tick"
+          }
+        ]
+      },
+
+      "minecraft:timer": {
+        "time": 15,
+        "looping": true,
+        "time_down_event": {
+          "event": "minecraft:evol2",
+          "target": "self"
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "jutsu" ]
+    },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+          "cause": "all",
+            "deals_damage": false
+          }
+        ]
+        },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:health": {
+        "value": 1158,
+		"max": 1158
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:can_climb": {
+      },
+        "minecraft:scale": {
+          "value": 1.0
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 0,
+          "track_target": false
+        },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10.5
+      },
+   
+       "minecraft:annotation.break_door": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+              
+"tnt:tick": {
+"queue_command":{
+"command":[
+"scoreboard players remove @e[tag=!grande_onda_choque,r=11] chakra 1"
+]}},  
+
+      "minecraft:evol2": {
+        "queue_command": {
+          "command": [
+          "kill @s"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "tnt:transformations"
+          ]
+        }
+      }
+    }
+  }
+}

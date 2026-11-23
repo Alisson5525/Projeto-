@@ -1,0 +1,12 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:espada_tenseigan_impact",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/tudo/transparente" },
+      "geometry": { "default": "geometry.ns_vazio" },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}

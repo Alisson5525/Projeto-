@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.puxar_entity": {
+      "loop": true,
+      "animation_length": 0.1,
+      "timeline": {
+        "0.0": [
+          "/tp @e[family=puxar_entity,rm=20] ~~~"
+        ]   
+      }
+    }
+  }
+}          

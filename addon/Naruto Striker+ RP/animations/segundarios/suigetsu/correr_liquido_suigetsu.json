@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.correr_liquido_suigetsu": {
+			"animation_length": 0.5,
+			"override_previous_animation": true,
+			"bones": {
+				"root": {
+					"scale": 0
+				},
+				"head": {
+					"scale": 0
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "skill_1_suigetsu_correr",
+					"locator": "chidori2"
+				}
+			}
+		}
+	}
+}

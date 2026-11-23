@@ -1,0 +1,63 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.susanoo_sk2_skill_1": {
+			"animation_length": 7,
+			"override_previous_animation": true,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_2"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_3"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_4"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_5"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_6"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_7"
+					}
+				],
+				"3.0": [
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_2"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_3"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_4"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_5"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_6"
+					},
+					{
+						"effect": "espinhos_amaterasu_susanoo_sk2",
+						"locator": "espada_amaterasu_susaanoo_7"
+					}
+				]
+			}
+		}
+	}
+}

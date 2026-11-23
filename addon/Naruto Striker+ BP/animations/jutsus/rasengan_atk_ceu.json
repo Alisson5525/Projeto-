@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.rasengan_atk_ceu": {
+      "animation_length": 0.5,
+      "timeline": {
+        "0.1": ["/tp @s ~~6~"],
+        "0.2": ["/tp @s ~ ~ ~ ~ 50"],
+        "0.4": ["/tag @s add dash"]
+      }
+    }
+  }
+}          

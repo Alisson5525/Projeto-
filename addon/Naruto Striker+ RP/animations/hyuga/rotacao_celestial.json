@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.rotacao_celestial": {
+			"animation_length": 10,
+			"sound_effects": {
+				"0.0": {
+					"effect": "rotacao"
+				},
+				"2.0417": {
+					"effect": "rotacao"
+				},
+				"4.0417": {
+					"effect": "rotacao"
+				},
+				"6.0417": {
+					"effect": "rotacao"
+				},
+				"7.0833": {
+					"effect": "rotacao"
+				}
+			},
+			"particle_effects": {
+				"0.0417": {
+					"effect": "rotacao_celestial",
+					"locator": "rotacao_celestial"
+				}
+			}
+		}
+	}
+}

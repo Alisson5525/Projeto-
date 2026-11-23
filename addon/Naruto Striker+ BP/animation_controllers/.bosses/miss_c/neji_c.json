@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+  "controller.animation.skill_neji_c": {
+      "states": {
+        "default": {
+          "transitions": [
+
+            { "esquiva": "query.property('skills:ninjas') == 1 && q.has_target && query.is_alive"},
+            { "punho_suave": "query.property('skills:ninjas') == 2 && q.has_target && query.is_alive"},
+            { "oito_trigrama": "query.property('skills:ninjas') == 3 && q.has_target && query.is_alive"},
+            { "rotacao_celestial": "query.property('skills:ninjas') == 4 && q.has_target && query.is_alive"}
+
+          ]
+        },
+        "esquiva": {
+          "animations": ["skill_1"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "punho_suave": {
+          "animations": ["skill_2"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "oito_trigrama": {
+          "animations": ["skill_3"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "rotacao_celestial": {
+          "animations": ["skill_4"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        }
+      }
+    }
+  }
+}

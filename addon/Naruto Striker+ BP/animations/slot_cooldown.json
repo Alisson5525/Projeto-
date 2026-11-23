@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.slot_cooldown_1": {
+      "loop": false,
+      "animation_length": 11,
+			"timeline": {
+				 "0.0": ["/scoreboard players set @s slot_cooldown_1 1"],
+				 "10.0": ["/scoreboard players set @s slot_cooldown_1 0"]
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.portao_1": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0417": {
+					"effect": "portao_1",
+					"locator": "portao_c"
+				},
+				"1.0": {
+					"effect": "portao_1",
+					"locator": "portao_c2"
+				},
+				"2.0": {
+					"effect": "portao_2",
+					"locator": "portao_b_d"
+				},
+				"3.0": {
+					"effect": "portao_1",
+					"locator": "portao_p_e"
+				},
+				"4.0": {
+					"effect": "portao_1",
+					"locator": "portao_p_d"
+				},
+				"5.0": {
+					"effect": "portao_1",
+					"locator": "portao_b_e"
+				}
+			}
+		},
+		"animation.portao_2": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0417": {
+					"effect": "portao_2",
+					"locator": "portao_c"
+				},
+				"1.0": {
+					"effect": "portao_2",
+					"locator": "portao_c2"
+				},
+				"2.0": {
+					"effect": "portao_2",
+					"locator": "portao_b_d"
+				},
+				"3.0": {
+					"effect": "portao_2",
+					"locator": "portao_p_e"
+				},
+				"4.0": {
+					"effect": "portao_2",
+					"locator": "portao_p_d"
+				},
+				"5.0": {
+					"effect": "portao_2",
+					"locator": "portao_b_e"
+				}
+			}
+		},
+		"animation.portao_3": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0417": {
+					"effect": "portao_3",
+					"locator": "portao_c"
+				},
+				"1.0": {
+					"effect": "portao_3",
+					"locator": "portao_c2"
+				},
+				"2.0": {
+					"effect": "portao_3",
+					"locator": "portao_b_d"
+				},
+				"3.0": {
+					"effect": "portao_3",
+					"locator": "portao_p_e"
+				},
+				"4.0": {
+					"effect": "portao_3",
+					"locator": "portao_p_d"
+				},
+				"5.0": {
+					"effect": "portao_3",
+					"locator": "portao_b_e"
+				}
+			}
+		},
+		"animation.portao_6": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0417": {
+					"effect": "portao_6",
+					"locator": "portao_c"
+				},
+				"1.0": {
+					"effect": "portao_6",
+					"locator": "portao_c2"
+				},
+				"2.0": {
+					"effect": "portao_6",
+					"locator": "portao_b_d"
+				},
+				"3.0": {
+					"effect": "portao_6",
+					"locator": "portao_p_e"
+				},
+				"4.0": {
+					"effect": "portao_6",
+					"locator": "portao_p_d"
+				},
+				"5.0": {
+					"effect": "portao_6",
+					"locator": "portao_b_e"
+				}
+			}
+		},
+		"animation.portao_7": {
+			"loop": true,
+			"animation_length": 6,
+			"particle_effects": {
+				"0.0417": {
+					"effect": "portao_7",
+					"locator": "portao_c"
+				},
+				"1.0": {
+					"effect": "portao_7",
+					"locator": "portao_c2"
+				},
+				"2.0": {
+					"effect": "portao_7",
+					"locator": "portao_b_d"
+				},
+				"3.0": {
+					"effect": "portao_7",
+					"locator": "portao_p_e"
+				},
+				"4.0": {
+					"effect": "portao_7",
+					"locator": "portao_p_d"
+				},
+				"5.0": {
+					"effect": "portao_7",
+					"locator": "portao_b_e"
+				}
+			}
+		}
+	}
+}

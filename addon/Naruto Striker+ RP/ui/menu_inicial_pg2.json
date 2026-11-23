@@ -1,0 +1,119 @@
+{
+  "namespace": "menu_inicial_pg2",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.tnt_menu_inicial_pg2": {
+          "$view_content": "@menu_inicial_pg2.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.menu_inicial_pg2.title')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+                {
+        "image": {
+          "type": "image",
+          "texture": "textures/ui/pergaminh_texto",
+           "size": [480, 480],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [0, 0],
+          "layer": 2
+        }
+      },
+                        {
+        "description": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [0, -70],
+          "text": "§bVIP Storm",
+          "font_type": "MinecraftTen",
+          "backup_font_type": "MinecraftTen",
+          "font_scale_factor": 1.1,
+          "text_alignment": "left",
+          "shadow": true,
+          "layer": 6
+        }
+      },
+                       {
+        "description": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [-40, -5],
+          "text": "\n\n§eBenefícios exclusivos:\n§8600 TP\n§8Kunai do Asuma\n§8+20 de vida\n§8Modo especial Baryon da Kurama\n\n§bSeu resgate será concluído\n§bapós clicar no botão de resgatar",
+          "font_type": "default",
+          "backup_font_type": "default",
+          "font_scale_factor": 1.2,
+          "text_alignment": "left",
+          "shadow": false,
+          "layer": 6
+        }
+      },
+
+
+
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 30],
+          "offset": [0, 0],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+      
+      {
+        "buttons": {
+          "type": "panel",
+          "controls": [
+     
+{
+              "button_0": {
+                "type": "stack_panel",
+                "size": [1, 1],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                 "$default_button_texture": "textures/ui/botao_inicial",
+                "$hover_button_texture": "textures/ui/botao_inicial_select",
+                "$pressed_button_texture": "textures/ui/botao_inicial_select",
+                "offset": [90, 20],
+                "collection_name": "form_buttons",
+                "controls": [
+                  {
+                    "button@server_form.tnt_form_button": {
+                      "size": [90, 50],
+                      "collection_index": 0
+                    }
+                  }
+                ]
+              }
+}
+
+                      
+          ]
+        }
+      }
+    ]
+  }
+}

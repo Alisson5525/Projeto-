@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.outline_1": {
+      "geometry": "Geometry.outline_1",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.outline_1" ],
+      "overlay_color": {
+        "r": "(Math.sin(query.life_time * 100.0) + 1.0) * 1",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.2
+      },
+      "ignore_lighting" : true 
+  
+    },
+
+
+        "controller.render.outline_2": {
+      "geometry": "Geometry.outline_2",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.outline_2" ],
+      "overlay_color": {
+        "r": 0.0,
+        "g": "(Math.sin(query.life_time * 170.0) + 1.0) * 0.5",
+        "b": 0.0,
+        "a": 0.7
+      },
+      "light_color_multiplier": 2,
+
+      "ignore_lighting" : true 
+  
+    },
+
+
+        "controller.render.outline_3": {
+      "geometry": "Geometry.outline_3",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "Texture.outline_3" ],
+      "overlay_color": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": "(Math.sin(query.life_time * 100.0) + 1.0) * 1",
+        "a": 0.5
+      },
+      "light_color_multiplier": 1.7,
+
+      "ignore_lighting" : true 
+  
+    }
+  }
+}

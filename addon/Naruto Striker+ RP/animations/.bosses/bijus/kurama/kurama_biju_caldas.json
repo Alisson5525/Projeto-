@@ -1,0 +1,396 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.kurama_biju_caldas": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "calda": {
+          "rotation": [
+            "32.5+math.sin(q.life_time*50+0)*5",
+            "0.0+math.sin(q.life_time*38+0+90)*7",
+            "0.0+math.sin(q.life_time*22+0)*9"
+          ]
+        },
+        "bone5": {
+          "rotation": [
+            "math.sin(q.life_time*50+0-42)*6.6",
+            "math.sin(q.life_time*38+0+90-42)*5.9",
+            "math.sin(q.life_time*22+0-30)*2.6"
+          ]
+        },
+        "bone6": {
+          "rotation": [
+            "math.sin(q.life_time*50+0-84)*8.2",
+            "math.sin(q.life_time*38+0+90-84)*7.4",
+            "math.sin(q.life_time*22+0-60)*3.3"
+          ]
+        },
+        "bone7": {
+          "rotation": [
+            "math.sin(q.life_time*50+0-126)*9.8",
+            "math.sin(q.life_time*38+0+90-126)*8.8",
+            "math.sin(q.life_time*22+0-90)*3.9"
+          ]
+        },
+        "bone8": {
+          "rotation": [
+            "math.sin(q.life_time*50+0-168)*11.4",
+            "math.sin(q.life_time*38+0+90-168)*10.3",
+            "math.sin(q.life_time*22+0-120)*4.6"
+          ]
+        },
+        "bone9": {
+          "rotation": [
+            "math.sin(q.life_time*50+0-210)*13.0",
+            "math.sin(q.life_time*38+0+90-210)*11.7",
+            "math.sin(q.life_time*22+0-150)*5.2"
+          ]
+        },
+        "boca": {
+          "rotation": [
+            "math.sin(query.life_time * 40) * 2",
+            0,
+            0
+          ]
+        },
+        "calda2": {
+          "rotation": [
+            "37.0661+math.sin(q.life_time*50+40)*5",
+            "26.9461+math.sin(q.life_time*38+40+90)*7",
+            "18.8961+math.sin(q.life_time*22+40)*9"
+          ]
+        },
+        "bone2": {
+          "rotation": [
+            "math.sin(q.life_time*50+40-42)*6.6",
+            "math.sin(q.life_time*38+40+90-42)*5.9",
+            "math.sin(q.life_time*22+40-30)*2.6"
+          ]
+        },
+        "bone3": {
+          "rotation": [
+            "math.sin(q.life_time*50+40-84)*8.2",
+            "math.sin(q.life_time*38+40+90-84)*7.4",
+            "math.sin(q.life_time*22+40-60)*3.3"
+          ]
+        },
+        "bone4": {
+          "rotation": [
+            "math.sin(q.life_time*50+40-126)*9.8",
+            "math.sin(q.life_time*38+40+90-126)*8.8",
+            "math.sin(q.life_time*22+40-90)*3.9"
+          ]
+        },
+        "bone10": {
+          "rotation": [
+            "math.sin(q.life_time*50+40-168)*11.4",
+            "math.sin(q.life_time*38+40+90-168)*10.3",
+            "math.sin(q.life_time*22+40-120)*4.6"
+          ]
+        },
+        "bone11": {
+          "rotation": [
+            "math.sin(q.life_time*50+40-210)*13.0",
+            "math.sin(q.life_time*38+40+90-210)*11.7",
+            "math.sin(q.life_time*22+40-150)*5.2"
+          ]
+        },
+        "calda3": {
+          "rotation": [
+            "0.0+math.sin(q.life_time*50+80)*5",
+            "0.0+math.sin(q.life_time*38+80+90)*7",
+            "-24.4048+math.sin(q.life_time*22+80)*9"
+          ]
+        },
+        "bone12": {
+          "rotation": [
+            "math.sin(q.life_time*50+80-42)*6.6",
+            "math.sin(q.life_time*38+80+90-42)*5.9",
+            "math.sin(q.life_time*22+80-30)*2.6"
+          ]
+        },
+        "bone13": {
+          "rotation": [
+            "math.sin(q.life_time*50+80-84)*8.2",
+            "math.sin(q.life_time*38+80+90-84)*7.4",
+            "math.sin(q.life_time*22+80-60)*3.3"
+          ]
+        },
+        "bone14": {
+          "rotation": [
+            "math.sin(q.life_time*50+80-126)*9.8",
+            "math.sin(q.life_time*38+80+90-126)*8.8",
+            "math.sin(q.life_time*22+80-90)*3.9"
+          ]
+        },
+        "bone15": {
+          "rotation": [
+            "math.sin(q.life_time*50+80-168)*11.4",
+            "math.sin(q.life_time*38+80+90-168)*10.3",
+            "math.sin(q.life_time*22+80-120)*4.6"
+          ]
+        },
+        "bone16": {
+          "rotation": [
+            "math.sin(q.life_time*50+80-210)*13.0",
+            "math.sin(q.life_time*38+80+90-210)*11.7",
+            "math.sin(q.life_time*22+80-150)*5.2"
+          ]
+        },
+        "calda4": {
+          "rotation": [
+            "68.935+math.sin(q.life_time*50+120)*5",
+            "8.8599+math.sin(q.life_time*38+120+90)*7",
+            "14.3762+math.sin(q.life_time*22+120)*9"
+          ]
+        },
+        "bone17": {
+          "rotation": [
+            "math.sin(q.life_time*50+120-42)*6.6",
+            "math.sin(q.life_time*38+120+90-42)*5.9",
+            "math.sin(q.life_time*22+120-30)*2.6"
+          ]
+        },
+        "bone18": {
+          "rotation": [
+            "math.sin(q.life_time*50+120-84)*8.2",
+            "math.sin(q.life_time*38+120+90-84)*7.4",
+            "math.sin(q.life_time*22+120-60)*3.3"
+          ]
+        },
+        "bone19": {
+          "rotation": [
+            "math.sin(q.life_time*50+120-126)*9.8",
+            "math.sin(q.life_time*38+120+90-126)*8.8",
+            "math.sin(q.life_time*22+120-90)*3.9"
+          ]
+        },
+        "bone20": {
+          "rotation": [
+            "math.sin(q.life_time*50+120-168)*11.4",
+            "math.sin(q.life_time*38+120+90-168)*10.3",
+            "math.sin(q.life_time*22+120-120)*4.6"
+          ]
+        },
+        "bone21": {
+          "rotation": [
+            "math.sin(q.life_time*50+120-210)*13.0",
+            "math.sin(q.life_time*38+120+90-210)*11.7",
+            "math.sin(q.life_time*22+120-150)*5.2"
+          ]
+        },
+        "calda5": {
+          "rotation": [
+            "68.3556+math.sin(q.life_time*50+160)*5",
+            "-7.2601+math.sin(q.life_time*38+160+90)*7",
+            "-25.0838+math.sin(q.life_time*22+160)*9"
+          ]
+        },
+        "bone22": {
+          "rotation": [
+            "math.sin(q.life_time*50+160-42)*6.6",
+            "math.sin(q.life_time*38+160+90-42)*5.9",
+            "math.sin(q.life_time*22+160-30)*2.6"
+          ]
+        },
+        "bone23": {
+          "rotation": [
+            "math.sin(q.life_time*50+160-84)*8.2",
+            "math.sin(q.life_time*38+160+90-84)*7.4",
+            "math.sin(q.life_time*22+160-60)*3.3"
+          ]
+        },
+        "bone24": {
+          "rotation": [
+            "math.sin(q.life_time*50+160-126)*9.8",
+            "math.sin(q.life_time*38+160+90-126)*8.8",
+            "math.sin(q.life_time*22+160-90)*3.9"
+          ]
+        },
+        "bone25": {
+          "rotation": [
+            "math.sin(q.life_time*50+160-168)*11.4",
+            "math.sin(q.life_time*38+160+90-168)*10.3",
+            "math.sin(q.life_time*22+160-120)*4.6"
+          ]
+        },
+        "bone26": {
+          "rotation": [
+            "math.sin(q.life_time*50+160-210)*13.0",
+            "math.sin(q.life_time*38+160+90-210)*11.7",
+            "math.sin(q.life_time*22+160-150)*5.2"
+          ]
+        },
+        "calda6": {
+          "rotation": [
+            "62.9493+math.sin(q.life_time*50+200)*5",
+            "4.8422+math.sin(q.life_time*38+200+90)*7",
+            "68.6362+math.sin(q.life_time*22+200)*9"
+          ]
+        },
+        "bone27": {
+          "rotation": [
+            "math.sin(q.life_time*50+200-42)*6.6",
+            "math.sin(q.life_time*38+200+90-42)*5.9",
+            "math.sin(q.life_time*22+200-30)*2.6"
+          ]
+        },
+        "bone28": {
+          "rotation": [
+            "math.sin(q.life_time*50+200-84)*8.2",
+            "math.sin(q.life_time*38+200+90-84)*7.4",
+            "math.sin(q.life_time*22+200-60)*3.3"
+          ]
+        },
+        "bone29": {
+          "rotation": [
+            "math.sin(q.life_time*50+200-126)*9.8",
+            "math.sin(q.life_time*38+200+90-126)*8.8",
+            "math.sin(q.life_time*22+200-90)*3.9"
+          ]
+        },
+        "bone30": {
+          "rotation": [
+            "math.sin(q.life_time*50+200-168)*11.4",
+            "math.sin(q.life_time*38+200+90-168)*10.3",
+            "math.sin(q.life_time*22+200-120)*4.6"
+          ]
+        },
+        "bone31": {
+          "rotation": [
+            "math.sin(q.life_time*50+200-210)*13.0",
+            "math.sin(q.life_time*38+200+90-210)*11.7",
+            "math.sin(q.life_time*22+200-150)*5.2"
+          ]
+        },
+        "calda7": {
+          "rotation": [
+            "64.4057+math.sin(q.life_time*50+240)*5",
+            "-26.6565+math.sin(q.life_time*38+240+90)*7",
+            "-55.9382+math.sin(q.life_time*22+240)*9"
+          ]
+        },
+        "bone32": {
+          "rotation": [
+            "math.sin(q.life_time*50+240-42)*6.6",
+            "math.sin(q.life_time*38+240+90-42)*5.9",
+            "math.sin(q.life_time*22+240-30)*2.6"
+          ]
+        },
+        "bone33": {
+          "rotation": [
+            "math.sin(q.life_time*50+240-84)*8.2",
+            "math.sin(q.life_time*38+240+90-84)*7.4",
+            "math.sin(q.life_time*22+240-60)*3.3"
+          ]
+        },
+        "bone34": {
+          "rotation": [
+            "math.sin(q.life_time*50+240-126)*9.8",
+            "math.sin(q.life_time*38+240+90-126)*8.8",
+            "math.sin(q.life_time*22+240-90)*3.9"
+          ]
+        },
+        "bone35": {
+          "rotation": [
+            "math.sin(q.life_time*50+240-168)*11.4",
+            "math.sin(q.life_time*38+240+90-168)*10.3",
+            "math.sin(q.life_time*22+240-120)*4.6"
+          ]
+        },
+        "bone36": {
+          "rotation": [
+            "math.sin(q.life_time*50+240-210)*13.0",
+            "math.sin(q.life_time*38+240+90-210)*11.7",
+            "math.sin(q.life_time*22+240-150)*5.2"
+          ]
+        },
+        "calda8": {
+          "rotation": [
+            "60.0+math.sin(q.life_time*50+280)*5",
+            "0.0+math.sin(q.life_time*38+280+90)*7",
+            "0.0+math.sin(q.life_time*22+280)*9"
+          ]
+        },
+        "bone37": {
+          "rotation": [
+            "math.sin(q.life_time*50+280-42)*6.6",
+            "math.sin(q.life_time*38+280+90-42)*5.9",
+            "math.sin(q.life_time*22+280-30)*2.6"
+          ]
+        },
+        "bone38": {
+          "rotation": [
+            "math.sin(q.life_time*50+280-84)*8.2",
+            "math.sin(q.life_time*38+280+90-84)*7.4",
+            "math.sin(q.life_time*22+280-60)*3.3"
+          ]
+        },
+        "bone39": {
+          "rotation": [
+            "math.sin(q.life_time*50+280-126)*9.8",
+            "math.sin(q.life_time*38+280+90-126)*8.8",
+            "math.sin(q.life_time*22+280-90)*3.9"
+          ]
+        },
+        "bone40": {
+          "rotation": [
+            "math.sin(q.life_time*50+280-168)*11.4",
+            "math.sin(q.life_time*38+280+90-168)*10.3",
+            "math.sin(q.life_time*22+280-120)*4.6"
+          ]
+        },
+        "bone41": {
+          "rotation": [
+            "math.sin(q.life_time*50+280-210)*13.0",
+            "math.sin(q.life_time*38+280+90-210)*11.7",
+            "math.sin(q.life_time*22+280-150)*5.2"
+          ]
+        },
+        "calda9": {
+          "rotation": [
+            "95.0589+math.sin(q.life_time*50+320)*5",
+            "64.9256+math.sin(q.life_time*38+320+90)*7",
+            "0.0+math.sin(q.life_time*22+320)*9"
+          ]
+        },
+        "bone42": {
+          "rotation": [
+            "math.sin(q.life_time*50+320-42)*6.6",
+            "math.sin(q.life_time*38+320+90-42)*5.9",
+            "math.sin(q.life_time*22+320-30)*2.6"
+          ]
+        },
+        "bone43": {
+          "rotation": [
+            "math.sin(q.life_time*50+320-84)*8.2",
+            "math.sin(q.life_time*38+320+90-84)*7.4",
+            "math.sin(q.life_time*22+320-60)*3.3"
+          ]
+        },
+        "bone44": {
+          "rotation": [
+            "math.sin(q.life_time*50+320-126)*9.8",
+            "math.sin(q.life_time*38+320+90-126)*8.8",
+            "math.sin(q.life_time*22+320-90)*3.9"
+          ]
+        },
+        "bone45": {
+          "rotation": [
+            "math.sin(q.life_time*50+320-168)*11.4",
+            "math.sin(q.life_time*38+320+90-168)*10.3",
+            "math.sin(q.life_time*22+320-120)*4.6"
+          ]
+        },
+        "bone46": {
+          "rotation": [
+            "math.sin(q.life_time*50+320-210)*13.0",
+            "math.sin(q.life_time*38+320+90-210)*11.7",
+            "math.sin(q.life_time*22+320-150)*5.2"
+          ]
+        }
+      }
+    }
+  }
+}

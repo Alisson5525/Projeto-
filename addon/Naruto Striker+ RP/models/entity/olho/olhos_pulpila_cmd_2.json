@@ -1,0 +1,86 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.olhos_pulpila_cmd_2",
+				"texture_width": 17,
+				"texture_height": 17,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "waist",
+					"parent": "root",
+					"pivot": [0, 12, 0]
+				},
+				{
+					"name": "body",
+					"parent": "waist",
+					"pivot": [0, 12, 0]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{
+							"origin": [1.175, 26.332, -4.045],
+							"size": [0.952, 0.96, 0.008],
+							"pivot": [1.651, 26.812, -4.046],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [17, 0], "uv_size": [-17, 17]},
+								"east": {"uv": [0, 0], "uv_size": [0, 17]},
+								"south": {"uv": [0, 0], "uv_size": [17, 17]},
+								"west": {"uv": [0, 0], "uv_size": [0, 17]},
+								"up": {"uv": [17, 0], "uv_size": [-17, 0]},
+								"down": {"uv": [17, 0], "uv_size": [-17, 0]}
+							}
+						},
+						{
+							"origin": [-2.125, 26.332, -4.045],
+							"size": [0.952, 0.96, 0.008],
+							"pivot": [-1.649, 26.812, -4.046],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [17, 0], "uv_size": [-17, 17]},
+								"east": {"uv": [0, 0], "uv_size": [0, 17]},
+								"south": {"uv": [0, 0], "uv_size": [17, 17]},
+								"west": {"uv": [0, 0], "uv_size": [0, 17]},
+								"up": {"uv": [17, 0], "uv_size": [-17, 0]},
+								"down": {"uv": [17, 0], "uv_size": [-17, 0]}
+							}
+						}
+					]
+				},
+				{
+					"name": "rightLeg",
+					"parent": "waist",
+					"pivot": [-1.9, 12, 0]
+				},
+				{
+					"name": "leftLeg",
+					"parent": "waist",
+					"pivot": [1.9, 12, 0]
+				}
+			]
+		}
+	]
+}

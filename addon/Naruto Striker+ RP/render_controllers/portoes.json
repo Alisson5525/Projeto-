@@ -1,0 +1,78 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+
+    "controller.render.3_portao": {
+      "geometry": "Geometry.corpo_masculino",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.masculino_3_portao" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.6_portao": {
+      "geometry": "Geometry.corpo_masculino",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.masculino_6_portao" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+        "controller.render.8_portao": {
+      "geometry": "Geometry.corpo_masculino_portao_8",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.masculino_8_portao" ],
+             "overlay_color": {
+        "r": "(Math.sin(query.life_time * 100.0) + 0.7) * 0.2",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.2
+      },
+      
+      "light_color_multiplier": 1,
+      "ignore_lighting" : true,
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "fire_portao_animation2": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+
+
+
+
+
+
+ "controller.render.portoes_borda": {
+      "geometry": "Geometry.portoes_borda",
+
+      "materials": [
+        { "*": "Material.outline" }
+      ],
+
+      "textures": [
+        "query.property('tnt:8_portoes') >= 4 && query.property('tnt:8_portoes') <= 6 ? Texture.borda_verde : query.property('tnt:8_portoes') == 7 ? Texture.borda_azul : query.property('tnt:suigetsu') == 1 ? Texture.borda_azul : query.property('tnt:8_portoes') == 8 ? Texture.borda_vermelha"
+      ],
+             "overlay_color": {
+        "r":  "query.property('tnt:8_portoes') == 8 && (Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "g":  "query.property('tnt:8_portoes') >= 4 && query.property('tnt:8_portoes') <= 7 && query.property('tnt:8_portoes') != 8 && (Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "b":  "query.property('tnt:8_portoes') == 7 && (Math.sin(query.life_time * 100.0) + 1.0) * 0.5",
+        "a": 0.5
+      },
+              "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "fire_portao_animation2": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ],
+      "light_color_multiplier": 1.5,
+      "ignore_lighting" : true 
+    }
+
+
+
+
+  
+  }
+}

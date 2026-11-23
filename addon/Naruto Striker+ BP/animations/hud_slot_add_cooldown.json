@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hud_slot_add_cooldown": {
+			"animation_length": 0.3,
+			"timeline": {
+				 "0.0": [
+					"/playsound block.itemframe.remove_item @s ~ ~ ~ 1 2"
+				]
+			
+			}
+		}
+	}
+}

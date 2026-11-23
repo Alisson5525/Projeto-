@@ -1,0 +1,29 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:prisao_terra",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "textures/jutsus/terra/prisao_terra" 
+      },
+      "geometry": {
+        "default": "geometry.prisao_terra"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"],
+      "animations": {
+        "prisao_terra": "animation.prisao_terra"
+        
+      },
+      "scripts": {
+        "animate": [
+          "prisao_terra"
+        ]
+      }
+    }
+  }
+} 

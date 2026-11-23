@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+  "controller.animation.skill_orochimaru_miss_c": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "cansado": "q.health < 100"},
+            {"despawn": "q.scoreboard('sinos') == 1"},
+            { "esquiva": "query.property('skills:ninjas') == 1 && q.has_target && query.is_alive"},
+            { "skill_2_agua": "query.property('skills:ninjas') == 2 && q.has_target && query.is_alive"},
+            { "skill_2_fogo": "query.property('skills:ninjas') == 3 && q.has_target && query.is_alive"},
+            { "skill_2_raio": "query.property('skills:ninjas') == 4 && q.has_target && query.is_alive"}
+
+          ]
+        },
+          "despawn": {
+           "transitions": [
+            { "default": "q.scoreboard('sinos') <= 1 && q.all_animations_finished"}
+          ],
+          "on_entry": [
+            "/event entity @s tnt:despawn"
+          ]
+        },
+
+
+          "cansado": {
+          "animations": ["kakashi_sinos_cansado"],
+          "transitions": [
+            { "default": "q.health > 100 && q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        
+        "esquiva": {
+          "animations": ["skill_1"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_2_agua": {
+          "animations": ["skill_2_agua"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_2_fogo": {
+          "animations": ["skill_2_fogo"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_2_raio": {
+          "animations": ["skill_2_raio"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        }
+      }
+    }
+  }
+}

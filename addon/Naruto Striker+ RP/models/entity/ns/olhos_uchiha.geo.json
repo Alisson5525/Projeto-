@@ -1,0 +1,207 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.ns_olhos_uchiha_r13",
+    "texture_width": 2,
+    "texture_height": 2,
+    "visible_bounds_width": 2,
+    "visible_bounds_height": 3,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "waist",
+     "parent": "root",
+     "pivot": [
+      0,
+      12,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "parent": "waist",
+     "pivot": [
+      0,
+      12,
+      0
+     ]
+    },
+    {
+     "name": "head",
+     "parent": "body",
+     "pivot": [
+      0,
+      24,
+      0
+     ],
+     "cubes": [
+      {
+       "origin": [
+        1.0,
+        26,
+        -4.03
+       ],
+       "size": [
+        1,
+        1,
+        0
+       ],
+       "uv": {
+        "north": {
+         "uv": [
+          0,
+          0
+         ],
+         "uv_size": [
+          1,
+          1
+         ]
+        }
+       }
+      },
+      {
+       "origin": [
+        -2.0,
+        26,
+        -4.03
+       ],
+       "size": [
+        1,
+        1,
+        0
+       ],
+       "uv": {
+        "north": {
+         "uv": [
+          0,
+          0
+         ],
+         "uv_size": [
+          1,
+          1
+         ]
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "description": {
+    "identifier": "geometry.ns_olhos_uchiha_r14",
+    "texture_width": 2,
+    "texture_height": 2,
+    "visible_bounds_width": 2,
+    "visible_bounds_height": 3,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "root",
+     "pivot": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "name": "waist",
+     "parent": "root",
+     "pivot": [
+      0,
+      12,
+      0
+     ]
+    },
+    {
+     "name": "body",
+     "parent": "waist",
+     "pivot": [
+      0,
+      12,
+      0
+     ]
+    },
+    {
+     "name": "head",
+     "parent": "body",
+     "pivot": [
+      0,
+      24,
+      0
+     ],
+     "cubes": [
+      {
+       "origin": [
+        1.0,
+        25,
+        -4.03
+       ],
+       "size": [
+        1,
+        1,
+        0
+       ],
+       "uv": {
+        "north": {
+         "uv": [
+          0,
+          0
+         ],
+         "uv_size": [
+          1,
+          1
+         ]
+        }
+       }
+      },
+      {
+       "origin": [
+        -2.0,
+        25,
+        -4.03
+       ],
+       "size": [
+        1,
+        1,
+        0
+       ],
+       "uv": {
+        "north": {
+         "uv": [
+          0,
+          0
+         ],
+         "uv_size": [
+          1,
+          1
+         ]
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

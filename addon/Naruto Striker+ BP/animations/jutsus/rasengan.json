@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+
+"animation.correr_rasengan": {
+"loop": true,
+"animation_length": 0.2,
+"timeline": {
+
+"0.0": ["/playanimation @s animation.rasengan default 0.2","/playsound item.trident.riptide_1 @a[r=10] ~ ~ ~ 0.2 1","/tag @s add correr"],
+"0.1": [ "/summon tnt:correr ^^^-2"]
+ 
+			
+}
+},
+
+"animation.rasengan_atk": {
+"animation_length": 2.1,
+"timeline": {
+
+"0.0": [
+"/tag @s add rasengan_atk",
+"/playanimation @s animation.rasengan_atk default 0.2"
+],
+"0.1": ["/inputpermission set @s movement disabled","/playsound mob.wither.shoot @a[r=5]","/tp @s @s","/tp @e[rm=0.5,r=4] ^^0.5^2 ~ ~","/playanimation @s animation.rasengan_atk default 0.2"],
+"0.2": ["/damage @e[rm=0.7,r=5,type=!item,family=!jutsu] 15","/tp @s @s","/tag @e[rm=0.5,type=!item,family=!jutsu,family=!bust,r=4,c=1] add rasengan_atk_","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.3": ["/playsound mob.evocation_illager.cast_spell @a[r=5] ~~~ 0.5 1","/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.4": ["/damage @e[rm=0.7,r=5,type=!item,family=!jutsu] 15","/tp @s @s","/camerashake add @s 0.3 1.8","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.15": ["/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.6": ["/playsound mob.evocation_illager.cast_spell @a[r=5] ~~~ 0.5 1","/damage @e[rm=0.7,r=5,type=!item,family=!jutsu] 15","/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.7": ["/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.8": ["/damage @e[rm=0.7,r=5,type=!item,family=!jutsu] 15","/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"0.9": ["/tag @e[tag=rasengan_atk_,r=30] remove rasengan_atk_","/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+"1.0": ["/camerashake stop @s ","/tp @s @s","/tp @e[rm=0.5,r=4,c=1] ^^0.5^2 ~ ~"],
+
+"1.1": ["/damage @e[rm=0.7,r=5,type=!item,family=!jutsu] 5","/particle tnt:rasengan_impact_fumaca ^^1^1","/playsound mob.shulker.shoot @a[r=5]","/camerashake add @s 1 0.1 rotational","/summon tnt:rasengan_impact ^^^-1","/tag @e[rm=0.5,family=!bust,r=4,c=1] add rasengan_rastro","/inputpermission set @s movement enabled"],
+"1.9": ["/tag @e[tag=rasengan_rastro,r=60] remove rasengan_rastro"]
+			
+}
+}
+}
+}

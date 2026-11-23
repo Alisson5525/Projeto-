@@ -1,0 +1,32 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:grande_onda_choque",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "" 
+      },
+      "geometry": {
+        "default": "geometry.jutsus_aria"  
+      },
+       "particle_effects": {
+        "grande_onda_choque_4": "tnt:grande_onda_choque_4"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"   ],
+      "animations": {
+        "grande_onda_choque_animat": "animation.grande_onda_choque_animat"
+        
+      },
+      "scripts": {
+        "animate": [
+          "grande_onda_choque_animat"
+        ]
+      }
+    }
+  }
+} 

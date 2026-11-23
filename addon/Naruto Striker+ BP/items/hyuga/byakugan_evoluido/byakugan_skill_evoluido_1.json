@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:byakugan_skill_evoluido_1",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "byakugan"
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": false,
+      "minecraft:glint": false,
+      "minecraft:cooldown": {
+        "category": "byakugan_evoluido",
+        "duration": 1.1
+      },
+      "minecraft:display_name": {
+        "value": "§bByakugan evoluido\n\n§7informaçao.\n"
+      }
+    }
+  }
+}

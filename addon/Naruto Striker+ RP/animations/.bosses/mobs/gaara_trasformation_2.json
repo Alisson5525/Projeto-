@@ -1,0 +1,219 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.gaara_trasformation_2": {
+      "animation_length": 0.75,
+      "override_previous_animation": true,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              17.5,
+              0,
+              0
+            ],
+            "0.25": [
+              17.5,
+              0,
+              0
+            ],
+            "0.3333": {
+              "post": [
+                -17.5,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              -41.62537,
+              48.20277,
+              24.02393
+            ],
+            "0.25": [
+              -41.62537,
+              48.20277,
+              24.02393
+            ],
+            "0.3333": {
+              "post": [
+                60.3931,
+                -77.47044,
+                -147.12678
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              1,
+              -1,
+              0
+            ],
+            "0.25": [
+              1,
+              -1,
+              0
+            ]
+          },
+          "scale": 1
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              -98.79112,
+              -54.37312,
+              -4.65125
+            ],
+            "0.25": [
+              -98.79112,
+              -54.37312,
+              -4.65125
+            ],
+            "0.3333": {
+              "post": [
+                -251.29511,
+                73.88278,
+                -173.79784
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              0,
+              -3,
+              0
+            ],
+            "0.25": [
+              0,
+              -3,
+              0
+            ],
+            "0.3333": {
+              "post": [
+                -2,
+                -3,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": 1
+        },
+        "head": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.125": [
+              50,
+              0,
+              0
+            ],
+            "0.25": [
+              50,
+              0,
+              0
+            ],
+            "0.3333": {
+              "post": [
+                -30,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "rightLeg": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        "leftLeg": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        }
+      },
+      "particle_effects": {
+        "0.25": {
+          "effect": "gaara_trasformation_4",
+          "locator": "indicador"
+        }
+      }
+    }
+  }
+}

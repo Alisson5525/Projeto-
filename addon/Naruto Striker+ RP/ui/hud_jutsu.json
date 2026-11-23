@@ -1,0 +1,516 @@
+{
+  "namespace":"hud_jutsu",
+  "hud_jutsu_panel":{
+    "type":"panel",
+    "controls":[
+
+{"slot_select_jutsu_1":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_1",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_1]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_2":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_2",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_2]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_3":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_3",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_3]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_4":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_4",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_4]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_5":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_5",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_5]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_6":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_6",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_6]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+{"slot_select_jutsu_7":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_7",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_7]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+
+
+
+
+
+
+
+{"slot_select_jutsu_5_salto":{ "type": "image","alpha": true,
+"texture":"textures/ui/hud_jutsu/select/hud_jutsus_slot_5_jump",
+"anchor_from": "center","anchor_to": "center","layer": 25,
+"size": [165, 165],
+"offset": [223, -4.9],
+"$value": "[slot_select_jutsu_5_salto]",
+"bindings": [{"binding_name": "#hud_title_text_string"},{"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) \u003d #hud_title_text_string))","target_property_name": "#visible"}]}},
+
+
+
+
+
+
+{"chidori": {   "type": "label",
+          "offset": [0, 60],
+          "text": "chidori",
+          "$value":"[texto_jutsu_raio_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+       "text": "§b§lCHAKRA\n§f§r    50",
+          "$value":"[custo_jutsu_raio_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"chidori_negro": {   "type": "label",
+          "offset": [0, 60],
+          "text": "chidori negro",
+          "$value":"[texto_jutsu_raio_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_jutsu_raio_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"chidori_nagashi": {   "type": "label",
+          "offset": [0, 60],
+          "text": "chidori nagashi",
+          "$value":"[texto_jutsu_raio_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_jutsu_raio_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"raikiri": {   "type": "label",
+          "offset": [0, 60],
+          "text": "raikiri",
+          "$value":"[texto_jutsu_raio_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    80",
+          "$value":"[custo_jutsu_raio_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"shiden": {   "type": "label",
+          "offset": [0, 60],
+          "text": "shiden",
+          "$value":"[texto_jutsu_raio_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§a§r    80\n\n§a§l COMBO\n§r§f   Jump",
+          "$value":"[custo_jutsu_raio_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+          
+
+{"corte_de_agua": {   "type": "label",
+          "offset": [0, 60],
+          "text": "lamina de agua",
+          "$value":"[texto_jutsu_agua_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_jutsu_agua_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"grande_onda_choque_": {   "type": "label",
+          "offset": [0, 60],
+          "text": "grande onda de choque",
+          "$value":"[texto_jutsu_agua_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    60",
+          "$value":"[custo_jutsu_agua_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"prisao_agua_": {   "type": "label",
+          "offset": [0, 60],
+          "text": "prisao de agua",
+          "$value":"[texto_jutsu_agua_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    125",
+          "$value":"[custo_jutsu_agua_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"saudacao_agua_": {   "type": "label",
+          "offset": [0, 60],
+          "text": "saudacao da agua",
+          "$value":"[texto_jutsu_agua_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_jutsu_agua_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"tubarao_triplo": {   "type": "label",
+          "offset": [0, 60],
+          "text": "tubarao da agua triplo",
+          "$value":"[texto_jutsu_agua_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    70",
+          "$value":"[custo_jutsu_agua_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+          
+
+{"disparos_terra": {   "type": "label",
+          "offset": [0, 60],
+          "text": "disparos de terrra",
+          "$value":"[texto_jutsu_terra_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    60",
+          "$value":"[custo_jutsu_terra_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"esconderijo_toupeira": {   "type": "label",
+          "offset": [0, 60],
+          "text": "esconderijo da toupeira",
+          "$value":"[texto_jutsu_terra_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r   60",
+          "$value":"[custo_jutsu_terra_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"mao_terra": {   "type": "label",
+          "offset": [0, 60],
+          "text": "punho de terra",
+          "$value":"[texto_jutsu_terra_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    90",
+          "$value":"[custo_jutsu_terra_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"prisao_terra": {   "type": "label",
+          "offset": [0, 60],
+          "text": "prisao de terra",
+          "$value":"[texto_jutsu_terra_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    125",
+          "$value":"[custo_jutsu_terra_4]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"terra_sanduiche": {   "type": "label",
+          "offset": [0, 60],
+          "text": "sanduiche de terra",
+          "$value":"[texto_jutsu_terra_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    200",
+          "$value":"[custo_jutsu_terra_5]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+          
+
+{"bola_fogo": {   "type": "label",
+          "offset": [0, 60],
+          "text": "bola de fogo",
+          "$value":"[texto_jutsu_fogo_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    90",
+          "$value":"[custo_jutsu_fogo_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"esfera_fogo": {   "type": "label",
+          "offset": [0, 60],
+          "text": "esfera de fogo",
+          "$value":"[texto_jutsu_fogo_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    60",
+          "$value":"[custo_jutsu_fogo_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"grande_aniquilacao_fogo": {   "type": "label",
+          "offset": [0, 60],
+          "text": "grande aniquilacao de fogo",
+          "$value":"[texto_jutsu_fogo_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    200",
+          "$value":"[custo_jutsu_fogo_3]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+          
+
+{"esfera_vacuo": {   "type": "label",
+          "offset": [0, 60],
+          "text": "esfera de vacuo",
+          "$value":"[texto_jutsu_vento_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    50",
+          "$value":"[custo_jutsu_vento_1]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          
+
+{"rasen_shuriken": {   "type": "label",
+          "offset": [0, 60],
+          "text": "rasen shuriken",
+          "$value":"[texto_jutsu_vento_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    125",
+          "$value":"[custo_jutsu_vento_2]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"texto_jutsu_medico": {   "type": "label",
+          "offset": [0, 60],
+          "text": "§aJutsu Medico",
+          "$value":"[texto_jutsu_medico]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [201, -23],
+      "text": "§b§lCHAKRA\n§f§r    5",
+          "$value":"[custo_jutsu_medico]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+
+
+{"texto_jutsu_medico_avancado": {   "type": "label",
+          "offset": [0, 60],
+          "text": "§aJutsu Medico",
+          "$value":"[texto_jutsu_medico_avancado]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": false,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}},
+
+          {"custo": {   "type": "label",
+          "offset": [190, -23],
+      "text": "§b§l     CHAKRA\n§f§r          125\n\n§a§l      COMBO\n§r§fShift Para Equipe",
+          "$value":"[custo_jutsu_medico_avancado]",
+          "font_size": "default","font_type": "MinecraftTen","shadow": true,"layer": 7,"bindings": [{"binding_name": "#hud_title_text_string"},  {"binding_type": "view","source_property_name": "(not((#hud_title_text_string - $value) = #hud_title_text_string))","target_property_name": "#visible"}
+          ]}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]
+  }
+}

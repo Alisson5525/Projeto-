@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.projetil_terra": {
+			"animation_length": 1.5,
+			"bones": {
+				"projetil_terra": {
+					"scale": {
+						"0.0417": [0, 0, 0],
+						"0.0833": [1.2, 1.2, 1.2],
+						"0.125": [1, 1, 1]
+					}
+				},
+				"body": {
+					"rotation": ["-query.target_x_rotation", "-query.body_y_rotation", 0]
+				}
+			}
+		}
+	}
+}

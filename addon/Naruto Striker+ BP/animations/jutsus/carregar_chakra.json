@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+     "animation.carregar_chakra": {
+      "loop": true,
+      "animation_length": 1,
+      "timeline": {
+        "0": [
+          "/execute as @s run particle tnt:chidori_chao"
+        ],
+         "0.9": [
+          "/execute as @s run scoreboard players add @s chakra 5",
+          "/execute as @s[tag=chakra_status_1] run scoreboard players add @s chakra 10"
+        ]
+      }
+    },
+         "animation.carregar_chakra_regen": {
+      "loop": true,
+      "animation_length": 1,
+      "timeline": {
+         "0.9": [
+          "/execute as @s[tag=chakra_status_3_regem] run scoreboard players add @s chakra 5",
+          "/execute as @s[tag=chakra_status_5] run scoreboard players add @s chakra 15"
+        ]
+      }
+    }
+
+  }
+}

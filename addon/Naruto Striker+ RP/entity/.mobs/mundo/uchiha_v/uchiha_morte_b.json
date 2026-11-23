@@ -1,0 +1,51 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:uchiha_morte_b",
+      "materials": {
+        "default": "zombie"
+      },
+      "textures": {
+"skin_1": "textures/bosses/mundo/uchiha_1",
+"skin_2": "textures/bosses/mundo/uchiha_2",
+"skin_3":"textures/bosses/mundo/uchiha_3",
+        "default_4":""
+      },
+      "geometry": {
+       "default": "geometry.entidades_camadas",
+        "default_4": "geometry.locais"
+      },
+       
+       
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate":[
+          "uchiha_morte"
+        ]
+      },
+      "animations": {
+        "uchiha_morte": "animation.uchiha_morte"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 7
+      },
+
+
+
+
+      "render_controllers": [
+
+{"controller.render.skin_1": "query.property('skin:variacao') == 1"},
+{"controller.render.skin_2": "query.property('skin:variacao') == 2"},
+{"controller.render.skin_3": "query.property('skin:variacao') == 3"},
+
+        "controller.render.default_4" 
+      ],
+      "enable_attachables": true
+    }
+  }
+}

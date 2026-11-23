@@ -1,0 +1,664 @@
+{
+  "namespace": "modo_historia_c",
+  "input": {
+    "type": "panel",
+    "controls": [
+      {
+        "@server_form.modo_historia_c": {
+          "$view_content": "@modo_historia_c.interface_content",
+          "bindings": [
+            {
+              "binding_name": "#title_text",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#title_text = 'ui.modo_historia_c.title.0') or (#title_text = 'ui.modo_historia_c.title.1') or (#title_text = 'ui.modo_historia_c.title.2') or (#title_text = 'ui.modo_historia_c.title.3') or (#title_text = 'ui.modo_historia_c.title.4') or (#title_text = 'ui.modo_historia_c.title.5') or (#title_text = 'ui.modo_historia_c.title.6') or (#title_text = 'ui.modo_historia_c.title.7') or (#title_text = 'ui.modo_historia_c.title.8') or (#title_text = 'ui.modo_historia_c.title.9') or (#title_text = 'ui.modo_historia_c.title.10')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "interface_content": {
+    "type": "panel",
+    "controls": [
+            {
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/fundo_miss_classico_texto",
+"size": [450, 450],
+"anchor_from": "center",
+"anchor_to": "center",
+"offset": [-70, 85],
+"layer": 1
+}
+},
+{
+"description": { "text": "§aMissao 1#.  §eCapture 15 gatos",
+
+"type": "label","anchor_from": "center","anchor_to": "center",
+"offset": [-190, 85],
+"font_type": "MinecraftTen","backup_font_type": "MinecraftTen","font_scale_factor": 1.0,"text_alignment": "left","shadow": true,"layer": 6,
+"bindings": [{"binding_name": "#title_text","binding_type": "global"},{"binding_type": "view","target_property_name": "#visible",
+"source_property_name": "(#title_text = 'ui.modo_historia_c.title.1')"
+}]}},
+{
+"description": { "text": "§aMight Guy 2",
+
+"type": "label","anchor_from": "center","anchor_to": "center",
+"offset": [-190, 85],
+"font_type": "MinecraftTen","backup_font_type": "MinecraftTen","font_scale_factor": 1.0,"text_alignment": "left","shadow": true,"layer": 6,
+"bindings": [{"binding_name": "#title_text","binding_type": "global"},{"binding_type": "view","target_property_name": "#visible",
+"source_property_name": "(#title_text = 'ui.modo_historia_c.title.2')"
+}]}},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {
+        "title": {
+          "type": "label",
+          "size": ["default", 10],
+          "offset": [0, -714],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#title_text",
+          "line_padding": 2,
+          "text_alignment": "left",
+          "color": "$title_text_color"
+        }
+      },
+
+            {
+        "buttons": {
+          "type": "panel",
+          "$border_visible": false,
+          "controls": [
+
+{"button_sair": {
+"type": "stack_panel",
+"size": [20.2, 20.2],
+"anchor_from": "center",
+"anchor_to": "center",
+"$default_button_texture": "textures/ui/sair",
+"$hover_button_texture": "textures/ui/sair_select",
+"$pressed_button_texture": "textures/ui/sair_select",
+"offset": [-256, -60.5],
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"size": ["100%", "100%"] }}]}},
+
+
+
+
+
+
+
+
+
+{
+"miss_1": {
+"type": "stack_panel",
+"size": [21.2, 21.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-256, -12.5],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 0,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/rank_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/rank_d",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_2": {
+"type": "stack_panel",
+"size": [28.2, 28.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-220, -12.5],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 1,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_kakashi_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_kakashi_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_3": {
+"type": "stack_panel",
+"size": [28.2, 28.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-220, 23.7],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 2,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_anbu_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_anbu_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_4": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-183, -12.5],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 3,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_status_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_status_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_5": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-147.7, -12.5],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 4,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_zabuza_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_zabuza_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_6": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-147.7, -50],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 5,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_bandidos_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_bandidos_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_7": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-108.7, -50],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 6,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_bandidos_a_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_bandidos_a",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_7": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-108.7, -12.6],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 7,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_pergaminho_c_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_pergaminho_c",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_8": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-108.9, 24.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 8,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_orochimaru_mulher_s_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_orochimaru_mulher_s",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_9": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-72.6, 24.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 9,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_neji_s_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_neji_s",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_10": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-35.6, 24.4],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 10,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_desconhecido_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_desconhecido",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}},
+
+
+
+
+
+{
+"miss_11": {
+"type": "stack_panel",
+"size": [25.2, 25.2],
+"anchor_from": "center","anchor_to": "center",
+"offset": [-35.6, -12.6],
+
+"collection_name": "form_buttons",
+"controls": [{
+"button@server_form.tnt_form_button": {
+"collection_index": 11,
+
+"size": ["100%", "100%"],
+"controls": [{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_gaara_s_lock",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection"},
+{ "binding_type": "view", "source_property_name": "(not((#form_button_text - 'Lock') = #form_button_text))", "target_property_name": "#visible" }
+]}},{
+"image": {
+"type": "image",
+"texture": "textures/ui/menu_miss/botoes/miss_gaara_s",
+
+"layer": 100,
+"bindings": [
+{ "binding_type": "collection_details", "binding_collection_name": "form_buttons" },
+{ "binding_name": "#form_button_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "(#form_button_text - 'Lock' = #form_button_text)", "target_property_name": "#visible" }
+]}},{
+"hover@common.hover_text": {
+"layer": 500,
+"bindings": [
+{ "binding_name": "#form_button_text", "binding_name_override": "#hover_text", "binding_collection_name": "form_buttons", "binding_type": "collection" },
+{ "binding_type": "view", "source_property_name": "$hover_state", "target_property_name": "#visible" }
+]}}]}}]}}
+
+
+
+
+
+
+
+
+
+
+          ]
+        }
+      }
+    ]
+  }
+}

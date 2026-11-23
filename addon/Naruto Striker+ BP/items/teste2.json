@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "tnt:teste2",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.35,
+        "use_duration": 99999
+      },
+
+      "minecraft:durability":{
+        "max_durability": 10000
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:icon": {
+        "textures": {
+          "default":"jutsu_medico"
+        }
+},
+"minecraft:cooldown": { "duration": 1,
+"category": "jutsus"
+},
+
+	  "minecraft:display_name": {
+	    "value":"§eteste2"
+	  }
+    }
+  }
+}
+

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.suigetsu_forca": {
+			"animation_length": 5,
+			"bones": {
+				"rightArm": {
+					"scale": {
+						"0.0": {
+							"post": [1, 0.9, 1],
+							"lerp_mode": "catmullrom"
+						},
+						"2.5": {
+							"post": [1.2, 1, 1.2],
+							"lerp_mode": "catmullrom"
+						},
+						"5.0": {
+							"post": [1, 1, 1],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		}
+	}
+}

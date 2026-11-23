@@ -1,0 +1,135 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+
+
+    "controller.render.olhos_uchiha": {
+      "geometry": "Geometry.olhos_pulpila",
+
+      "materials": [
+        { "*": "Material.brilhar" }
+      ],
+
+      "textures": [
+        "query.property('tnt:uchiha') == 1 ? Texture.sharingan :                   query.property('tnt:uchiha') == 2 || query.property('tnt:uchiha') == 7 || query.property('tnt:uchiha') == 8 ? Texture.mgk_itachi :                   query.property('tnt:uchiha') == 3 || query.property('tnt:uchiha') == 9 || query.property('tnt:uchiha') == 10 ? Texture.mgk_obito :                   query.property('tnt:uchiha') == 4 || query.property('tnt:uchiha') == 5 || query.property('tnt:uchiha') == 6 ? Texture.mgk_sasuke : Texture.default"
+      ]
+    },
+
+
+      "controller.render.susanoo_1_bordas": {
+      "geometry": "query.property('tnt:uchiha') == 5 ? Geometry.susanoo_sk1_borda: query.property('tnt:uchiha') == 7 ? Geometry.susanoo_it1_borda: query.property('tnt:uchiha') == 9 ? Geometry.susanoo_ob1_borda : Geometry.default",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "query.property('tnt:uchiha') == 5 ? Texture.susanoo_sk1_borda : query.property('tnt:uchiha') == 7 ? Texture.susanoo_it1_borda : query.property('tnt:uchiha') == 9 ? Texture.susanoo_ob1_borda : Texture.default" ],
+       "overlay_color": {"r": 0.0,"g": 0.0,"b": 0.0,"a": 0},
+      "light_color_multiplier": 1.70,"ignore_lighting" : true 
+    },
+
+    
+      "controller.render.susanoo_2_bordas": {
+      "geometry": "query.property('tnt:uchiha') == 6 ? Geometry.susanoo_sk2_borda: query.property('tnt:uchiha') == 8 ? Geometry.susanoo_it2_borda: query.property('tnt:uchiha') == 10 ? Geometry.susanoo_ob2_borda : Geometry.default",
+      "materials": [ { "*": "Material.outline" } ],
+      "textures": [ "query.property('tnt:uchiha') == 6 ? Texture.susanoo_sk2_borda : query.property('tnt:uchiha') == 8 ? Texture.susanoo_it2_borda : query.property('tnt:uchiha') == 10 ? Texture.susanoo_ob2_borda : Texture.default" ],
+       "overlay_color": {"r": 0.0,"g": 0.0,"b": 0.0,"a": 0},
+      "light_color_multiplier": 1.70,"ignore_lighting" : true 
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "controller.render.olho_sharingan_1": {
+      "geometry": "Geometry.olho_sharingan_1",
+      "materials": [ { "*": "Material.brilhar" },{ "olho_sharingan2": "Material.outline" } ],
+      "textures": [ "Texture.olho_sharingan_1" ],
+      "ignore_lighting" : true,
+      "light_color_multiplier": 1
+
+    },
+
+
+
+      "controller.render.izanagi": {
+      "geometry": "Geometry.izanagi",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.izanagi" ],
+      "light_color_multiplier": 1.70,"ignore_lighting" : true 
+
+    },
+   
+
+    "controller.render.susanoo_sk1": {
+      "arrays": {
+        "textures": {"Array.frame": ["Texture.susanoo_sk1",  "Texture.susanoo_sk1_f2",  "Texture.susanoo_sk1_f3",  "Texture.susanoo_sk1_f4"]}},
+      "geometry":"Geometry.susanoo_sk1",
+      "materials":[{"*":"Material.brilhar"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 20)]" ]
+    },
+
+    "controller.render.susanoo_it1": {
+      "arrays": {
+        "textures": {"Array.frame": ["Texture.susanoo_it1",  "Texture.susanoo_it1_f2",  "Texture.susanoo_it1_f3",  "Texture.susanoo_it1_f4"]}},
+      "geometry":"Geometry.susanoo_it1",
+      "materials":[{"*":"Material.brilhar"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 20)]" ]
+    },
+
+    "controller.render.susanoo_ob1": {
+      "arrays": {
+        "textures": {"Array.frame": ["Texture.susanoo_ob1",  "Texture.susanoo_ob1_f2",  "Texture.susanoo_ob1_f3",  "Texture.susanoo_ob1_f4"]}},
+      "geometry":"Geometry.susanoo_ob1",
+      "materials":[{"*":"Material.brilhar"}],
+      "rebuild_animation_matrices": true,
+      "textures":["Array.frame[(query.anim_time * 20)]" ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "controller.render.susanoo_sk2": {
+      "geometry": "Geometry.susanoo_sk2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.susanoo_sk2" ]
+    },
+
+    "controller.render.susanoo_it2": {
+      "geometry": "Geometry.susanoo_it2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.susanoo_it2" ]
+    },
+    "controller.render.susanoo_ob2": {
+      "geometry": "Geometry.susanoo_ob2",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.susanoo_ob2" ]
+    },
+    "controller.render.rinnegan": {
+      "geometry": "Geometry.olhos_complet",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.rinnegan" ]
+    },
+    "controller.render.rinnegan_esquerdo": {
+      "geometry": "Geometry.olhos_esquerdo",
+      "materials": [ { "*": "Material.brilhar" } ],
+      "textures": [ "Texture.rinnegan" ]
+    }
+
+  }
+}

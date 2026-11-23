@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magatama_itachi_projetil": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"body": {
+					"rotation": ["-query.target_x_rotation", "-query.body_y_rotation", 0]
+				},
+				"magatama_itachi_all": {
+					"rotation": [0, "-math.abs(query.life_time * -80) * 6", "math.sin(query.life_time * 20) * 30"]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "magatama_itachi_rastro",
+					"locator": "magatama_itachi"
+				}
+			}
+		}
+	}
+}

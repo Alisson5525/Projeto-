@@ -1,0 +1,18 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.amaterasu_tag": {
+      "loop": true,
+      "animation_length": 0.4,
+      "timeline": {
+        "0.0": [
+          "/playsound mob.blaze.shoot @a[r=5] ~ ~ ~ 1 1.1 ",
+          "/tag @e[r=3,type=!tnt:amaterasu,tag=!jutsu_absover,tag=!amaterasu_t,tag=!amaterasu_onda] add amaterasu"
+          ],
+         "0.1": ["/tag @e[r=3,type=!tnt:amaterasu,tag=!jutsu_absover,tag=!amaterasu_t,tag=!amaterasu_onda] add amaterasu"],
+         "0.2": ["/tag @e[r=3,type=!tnt:amaterasu,tag=!jutsu_absover,tag=!amaterasu_t,tag=!amaterasu_onda] add amaterasu"],
+         "0.3": ["/tag @e[r=3,type=!tnt:amaterasu,tag=!jutsu_absover,tag=!amaterasu_t,tag=!amaterasu_onda] add amaterasu"]
+      }
+    }
+  }
+}          

@@ -1,0 +1,5 @@
+#1 seguinifica mobs mais fracos            / cor cinza §7
+#2 mobs que sao iniciantes                 / cor verde §a
+#3 mobs com a vida acima de 500            / cor azul §b
+#4 mobs classe hokague                     / cor amarelo §e
+#5 mobs que sao classe biju ou superior    / cor roxa §d

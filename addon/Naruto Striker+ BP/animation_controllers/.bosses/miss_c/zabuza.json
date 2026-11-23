@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+  "controller.animation.skill_zabuza": {
+      "states": {
+        "default": {
+          "transitions": [
+
+            { "esquiva": "query.property('skills:ninjas') == 1 && q.has_target && query.is_alive"},
+            { "skill_2_agua": "query.property('skills:ninjas') == 2 && q.has_target && query.is_alive"},
+            { "skill_enfincar": "query.property('skills:ninjas') == 3 && q.has_target && query.is_alive"}
+
+          ]
+        },
+        "esquiva": {
+          "animations": ["skill_1"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_2_agua": {
+          "animations": ["skill_2_agua"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        },
+        "skill_enfincar": {
+          "animations": ["skill_enfincar"],
+          "transitions": [
+            { "default": "q.all_animations_finished"}
+          ],
+          "on_exit": [
+            "/event entity @s skill:sem"
+          ]
+        }
+      }
+    }
+  }
+}

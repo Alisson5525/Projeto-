@@ -1,0 +1,32 @@
+
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tnt:susanoo_sk1_corte",
+      "materials": {
+        "default": "entity_alphatest" 
+      },
+      "textures": {
+        "default": "" 
+      },
+      "geometry": {
+        "default": "geometry.projetil_local"
+      },
+       "particle_effects": {
+        "susanoo_sk1_corte": "tnt:susanoo_sk1_corte"
+      },
+       
+      "render_controllers": [ "controller.render.true_zombie","controller.render.item_sprite"],
+      "animations": {
+        "corte_susanoo_1": "animation.corte_susanoo_1"
+        
+      },
+      "scripts": {
+        "animate": [
+          "corte_susanoo_1"
+        ]
+      }
+    }
+  }
+} 

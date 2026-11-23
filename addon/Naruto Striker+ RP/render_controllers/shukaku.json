@@ -1,0 +1,49 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+            "controller.render.manto_shukaku_1": {
+      "geometry": "Geometry.manto_shukaku_1",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_shukaku_1" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "dedo": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo2": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo3": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo4": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo5": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    },
+                "controller.render.manto_shukaku_2": {
+      "geometry": "Geometry.manto_shukaku_2",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.manto_shukaku_2" ],
+        "part_visibility": [
+        { "*": "!variable.is_first_person" },
+        { "dedo": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo2": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo3": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo4": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "dedo5": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"},
+        { "rightArm": "!variable.is_first_person || (variable.is_first_person && query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'map')"}
+        ]
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+}
