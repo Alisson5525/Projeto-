@@ -15,7 +15,7 @@ const LUGAR = [
 const COMPLEMENTO = [
   "da Névoa", "do Trovão", "dos Sapos", "das Serpentes", "das Lesmas", "dos Corvos",
   "da Lua Vermelha", "do Vento Cortante", "das Mil Folhas", "do Sol Nascente",
-  "Esquecida", "Sombria", "dos Heróis", "do Chakra Antigo", "das Sombras",
+  "do Esquecimento", "das Trevas", "dos Heróis", "do Chakra Antigo", "das Sombras",
   "do Dragão de Água", "da Areia Dourada", "das Cinzas", "do Eremita", "dos Sete Espadachins",
 ];
 
