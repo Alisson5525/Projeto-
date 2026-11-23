@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path');
 const OUT=process.argv[2];
-const UV={glow:[0,0],core:[32,0],star:[64,0],ring:[96,0],streak:[0,32],puff:[32,32],leaf:[64,32],bolt:[96,32],drop:[0,64],wisp:[32,64],blade:[64,64],rock:[96,64]};
+const UV={petala:[0,96],glow:[0,0],core:[32,0],star:[64,0],ring:[96,0],streak:[0,32],puff:[32,32],leaf:[64,32],bolt:[96,32],drop:[0,64],wisp:[32,64],blade:[64,64],rock:[96,64]};
 const tex={texture_width:128,texture_height:128,uv:null,uv_size:[32,32]};
 function P(id,{mat='particles_blend',events,emitter,shape,init={},motion,size,uv,color,facing='lookat_xyz',lifetime,collision,spin,dirFace,lighting=false}){
  const c={};
@@ -113,3 +113,9 @@ P('ns_vagalume',{mat:'particles_add',emitter:once(1,0.1),shape:['minecraft:emitt
 P('ns_corte',{mat:'particles_add',emitter:once(1,0.05),shape:['minecraft:emitter_shape_point',{}],
  lifetime:{max_lifetime:0.2},init:{speed:0},motion:{},
  size:['0.22 * (1 - v.particle_age / v.particle_lifetime) + 0.03','0.22 * (1 - v.particle_age / v.particle_lifetime) + 0.03'],uv:'glow',color:varFade});
+// ---------- petalas de sakura (ambiente de Konoha) ----------
+P('ns_petala',{mat:'particles_alpha',emitter:once(1,0.1),shape:['minecraft:emitter_shape_point',{}],
+ lifetime:{max_lifetime:'5 + math.random(0, 3)'},init:{speed:0,rot:'math.random(0,360)',rate:'math.random(-120,120)'},
+ motion:{linear_acceleration:['1.2 + math.sin(v.particle_age * 120 + v.particle_random_1 * 360) * 1.5',-0.3,'math.cos(v.particle_age * 100 + v.particle_random_2 * 360) * 1.5'],linear_drag_coefficient:1.8},
+ size:[0.09,0.09],uv:'petala',lighting:true,collision:{collision_radius:0.05,collision_drag:10,coefficient_of_restitution:0},
+ color:{gradient:{'0.0':[1,1,1,0],'0.1':[1,1,1,1],'0.85':[1,1,1,1],'1.0':[1,1,1,0]},interpolant:'v.particle_age / v.particle_lifetime'}});

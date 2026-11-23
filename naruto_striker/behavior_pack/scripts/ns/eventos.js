@@ -21,6 +21,21 @@ const ehNoite = () => {
   return t >= 13000 && t <= 23000;
 };
 
+let cacheVila = null, cacheVilaTick = -9999;
+function posicaoVila() {
+  if (system.currentTick - cacheVilaTick < 600) return cacheVila;
+  cacheVilaTick = system.currentTick;
+  try {
+    const v = world.getDynamicProperty("ns:konoha_pos");
+    if (typeof v === "string") cacheVila = JSON.parse(v);
+    else if (world.getDynamicProperty("estrutura_spawnada")) {
+      const s = world.getDefaultSpawnLocation();
+      cacheVila = { x: s.x, z: s.z };
+    } else cacheVila = null;
+  } catch { cacheVila = null; }
+  return cacheVila;
+}
+
 system.runInterval(() => {
   if (!mundoCfg("ambiente")) return;
   const noite = ehNoite();
@@ -38,6 +53,13 @@ system.runInterval(() => {
         try { bloco = dim.getBlock({ x, y, z }); } catch { continue; }
         if (bloco && bloco.typeId.includes("leaves")) {
           particula(dim, "tnt:ns_folha_caindo", { x: x + Math.random(), y: y - 0.1, z: z + Math.random() });
+        }
+      }
+      // petalas de sakura perto da Vila da Folha
+      const vila = posicaoVila();
+      if (vila && Math.abs(b.x - vila.x) < 70 && Math.abs(b.z - vila.z) < 70) {
+        for (let i = 0; i < 2; i++) {
+          particula(dim, "tnt:ns_petala", { x: b.x + aleatorio(-9, 9), y: b.y + aleatorio(3, 7), z: b.z + aleatorio(-9, 9) });
         }
       }
       // vagalumes a noite, ao ar livre e perto do chao

@@ -75,11 +75,12 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 ## 4.1 Ambiente e eventos do mundo
 
 - **Folhas caindo** sob as copas das árvores e **vagalumes** à noite perto dos jogadores.
+- **Pétalas de sakura** flutuando ao redor da Vila da Folha.
 - **Noite da Lua Vermelha** (12% das noites): névoa vermelha, partículas carmesim no ar, **XP em dobro** e **3× mais ninjas de elite** até o amanhecer. Admin: `/scriptevent ns:lua_vermelha` liga/desliga.
 
 ## 5. Visuais
 
-- **20 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
+- **21 partículas novas** com atlas de efeitos próprio (`textures/particle/ns_fx.png`): impacto, crítico, onda de choque, aura de chakra (cor muda com o modo: vermelho Sharingan, roxo Susanoo, laranja Kurama, branco/azul Byakugan/Tenseigan, verde Portões…), rastro de velocidade (dash/raikiri), poeira e detritos de pouso, level up, folhas, meditação, faíscas de raio, fumaça ninja, trilhas de projéteis.
 - **Transformação**: ao ativar um modo (Sharingan, Kurama, Portões…) há uma explosão de chakra na cor do modo, onda de choque, detritos e tremor de câmera; ao terminar, um "puf" de fumaça.
 - **Trilhas de energia** nos projéteis: Bijudama (roxo), Tubarão (azul), Terra, Rasen Shuriken (vento) e o projétil do Shukaku.
 - Impacto final da **Rasen Shuriken** (`rasen_shuriken_inpact_jt_3`) que estava faltando agora existe.
