@@ -230,3 +230,72 @@ world.afterEvents.entitySpawn.subscribe((ev) => {
     particula(e.dimension, "tnt:ns_fumaca_ninja", e.location);
   } catch {}
 });
+
+/* ------------------------------------------------------------------ */
+/* Falas de combate: cada faccao tem gritos de batalha e ultimas palavras */
+/* ------------------------------------------------------------------ */
+const FALAS = {
+  folha: { ids: ["tnt:ninja_folha_b", "tnt:ninja_folha_s"], cor: "§a",
+    luta: ["Pela Vila da Folha!", "A Vontade do Fogo queima em mim!", "Você não vai passar daqui!"],
+    morte: ["A Vontade do Fogo... continua...", "Hokage-sama... me perdoe..."] },
+  areia: { ids: ["tnt:ninja_areia_b", "tnt:ninja_areia_s"], cor: "§6",
+    luta: ["A areia não perdoa!", "Pela Vila da Areia!", "O deserto vai te engolir!"],
+    morte: ["Kazekage-sama...", "A areia... me chama..."] },
+  uchiha: { ids: ["tnt:uchiha_b", "tnt:uchiha_s"], cor: "§c",
+    luta: ["Seus olhos não veem o que os meus veem.", "Sinta o poder do clã Uchiha!", "Patético."],
+    morte: ["Meu Sharingan... apagou...", "O clã... Uchiha..."] },
+  espada: { ids: ["tnt:espadachin_s", "tnt:espadachin_ss"], cor: "§b",
+    luta: ["Minha lâmina tem sede!", "Os Sete Espadachins não recuam!", "Vou te cortar ao meio!"],
+    morte: ["Minha espada... quebrou...", "Que corte... perfeito..."] },
+  anbu: { ids: ["tnt:anbu"], cor: "§7",
+    luta: ["Alvo confirmado.", "Eliminação autorizada.", "..."],
+    morte: ["Missão... falhou...", "..."] },
+  bandidos: { ids: ["tnt:bandidos_rank_a", "tnt:bandidos_rank_c"], cor: "§e",
+    luta: ["Passa tudo, ninja!", "Pega ele, pessoal!", "Hehe, mais um otário!"],
+    morte: ["Eu me rendo! Eu me rendo!", "Não era pra ser assim..."] },
+  zetsu: { ids: ["tnt:zetsu_branco"], cor: "§f",
+    luta: ["Hehehe... achei você!", "Que chakra delicioso...", "Somos muitos..."],
+    morte: ["Hehe... ainda existem... milhares...", "Ai..."] },
+};
+const FACCAO = new Map();
+for (const f of Object.values(FALAS)) for (const id of f.ids) FACCAO.set(id, f);
+const ultimaFala = new Map(); // entityId -> tick
+const sortear = (lista) => lista[Math.floor(Math.random() * lista.length)];
+
+function falar(ent, texto, cor) {
+  try {
+    const c = ent.getHeadLocation();
+    textoFlutuante(ent.dimension, { x: c.x, y: c.y + 1.4, z: c.z }, `${cor}§o"${texto}"`);
+  } catch {}
+}
+
+// grito de batalha quando a luta comeca (golpe de qualquer lado), com recarga de 20s
+world.afterEvents.entityHitEntity.subscribe((ev) => {
+  try {
+    const a = ev.damagingEntity, b = ev.hitEntity;
+    const ninja = a && FACCAO.has(a.typeId) && ehJogador(b) ? a : b && FACCAO.has(b.typeId) && ehJogador(a) ? b : null;
+    if (!valido(ninja)) return;
+    const agora = system.currentTick;
+    if (agora - (ultimaFala.get(ninja.id) ?? -9999) < 400) return;
+    if (Math.random() > 0.35) return;
+    ultimaFala.set(ninja.id, agora);
+    const f = FACCAO.get(ninja.typeId);
+    falar(ninja, sortear(f.luta), f.cor);
+  } catch {}
+});
+
+// ultimas palavras (40% das vezes)
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    const e = ev.deadEntity;
+    const f = e && FACCAO.get(e.typeId);
+    if (!f || Math.random() > 0.4) return;
+    falar(e, sortear(f.morte), "§7");
+    ultimaFala.delete(e.id);
+  } catch {}
+});
+
+system.runInterval(() => {
+  const agora = system.currentTick;
+  for (const [id, t] of ultimaFala) if (agora - t > 400) ultimaFala.delete(id);
+}, 1200);
