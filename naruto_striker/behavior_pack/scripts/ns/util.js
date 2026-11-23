@@ -178,7 +178,7 @@ export const tick = () => system.currentTick;
 /* ---------------- Configuracao do mundo (admin) ----------------
    /scriptevent ns:config <opcao> <on|off>
    opcoes: kawarimi, elite, furia, esconderijo, lua_vermelha, ambiente, exploracao */
-const MUNDO_PADRAO = { kawarimi: true, elite: true, furia: true, esconderijo: true, lua_vermelha: true, ambiente: true, exploracao: true };
+const MUNDO_PADRAO = { kawarimi: true, elite: true, furia: true, esconderijo: true, lua_vermelha: true, ambiente: true, exploracao: true, emboscada: true };
 
 export function mundoCfg(chave) {
   try {

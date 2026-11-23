@@ -67,6 +67,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - A cada 4 regiões: **Pergaminho Perdido** com TP.
 - **Esconderijos ninja**: ao descobrir uma região (35% de chance) surge um baú por perto, marcado por uma coluna de fumaça dourada por 90 s, com direção e distância no chat. Saque próprio (`loot_tables/ns/esconderijo.json`): comidas do add-on, minérios, pérolas, maçã dourada/diamante raros e chance de roupas/armas ninja.
 - **Monte Myoboku** (estrutura 64×64×64 que vinha no pack sem uso): *Invocação Reversa* pelo Pergaminho Ninja a partir do rank **Chunin** (nível 15). A montanha é construída no vazio do End em (-500, -500) — longe de qualquer construção, como o Kamui original —, você chega com queda lenta e um botão te devolve ao ponto exato de onde saiu. Meditar lá rende **chakra triplo e XP** (treino de energia natural).
+- **Emboscadas**: ao descobrir uma região (15%), um esquadrão surge da fumaça perto de você — bandidos no começo, ninjas da Folha/Areia a partir do nível 20 e Espadachins da Névoa a partir do 40.
 - **Viagem Rápida: Konoha** pelo Pergaminho Ninja (recarga de 5 min): volta à vila depois de explorar longe. Mundos novos guardam o ponto exato da vila; em mundos antigos usa o spawn do mundo (onde a vila foi gerada) com queda lenta.
 - **Meditação**: o "agachar para carregar chakra" original ganha partículas de chakra convergindo e, parado por 2 s, um bônus de +2% do chakra máximo por segundo.
 
@@ -179,7 +180,7 @@ build.sh                         gera o .mcaddon
 ### Configuração do mundo (admin/servidor)
 
 `/scriptevent ns:config` mostra o estado; `/scriptevent ns:config <opção> <on|off>` liga/desliga:
-`kawarimi`, `elite`, `furia`, `esconderijo`, `lua_vermelha`, `ambiente`, `exploracao`.
+`kawarimi`, `elite`, `furia`, `esconderijo`, `emboscada`, `lua_vermelha`, `ambiente`, `exploracao`.
 Cada jogador também tem seus ajustes visuais no Pergaminho Ninja.
 
 ### Decisões de segurança

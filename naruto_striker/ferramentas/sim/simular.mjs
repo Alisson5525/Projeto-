@@ -148,6 +148,11 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   world.afterEvents.itemCompleteUse.fire({source:p1,itemStack:new S.ItemStack('tnt:ns_pilula_soldado'),useDuration:0}); steps(2);
   const m=p1.msgs.filter(x=>x.includes('Pílula de Soldado')).pop(); const cmd=S.cmds.some(c=>c.c==='scoreboard players add @s chakra 50');
   console.log('teste pilula:', m, cmd); if(!m||!m.includes('+50')||!cmd) S.errors.push({where:'pilula',msg:'pilula incorreta',stack:''}); }
+// teste emboscada: invoca o grupo perto do jogador
+{ const antes=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
+  const mod=await import(pathToFileURL(path.join(dst,'ns','exploracao.js')).href); p1.teleport({x:50,y:64,z:50},{dimension:ow}); mod.emboscada(p1); steps(2);
+  const depois=ow._ents.filter(e=>e.typeId.startsWith('tnt:bandidos')||e.typeId.startsWith('tnt:ninja_')||e.typeId.startsWith('tnt:espadachin')).length;
+  console.log('teste emboscada: invocados', depois-antes); if(depois-antes<1) S.errors.push({where:'emboscada',msg:'ninguem invocado',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));

@@ -2,7 +2,7 @@
 // Descobrir uma regiao nova da XP; a cada 4 regioes um "Pergaminho Perdido" da TP.
 import { world, system } from "@minecraft/server";
 import { ehJogador, lerNum, lerJSON, gravarJSON, somarScore, particula, som, msg, mundoCfg } from "./util";
-import { darXP, somarStat } from "./progressao";
+import { darXP, somarStat, nivelDe } from "./progressao";
 
 const TAM_REGIAO = 192;
 const MAX_SALVAS = 1500;
@@ -103,6 +103,51 @@ export function criarEsconderijo(player) {
   return false;
 }
 
+/* ------------------------------------------------------------------ */
+/* Emboscadas ao entrar em regioes novas (escala com o nivel)           */
+/* ------------------------------------------------------------------ */
+const CHANCE_EMBOSCADA = 0.15;
+
+function pontoNoChao(dim, base, distMin, distMax) {
+  for (let tentativa = 0; tentativa < 6; tentativa++) {
+    const ang = Math.random() * Math.PI * 2;
+    const dist = distMin + Math.random() * (distMax - distMin);
+    const x = Math.floor(base.x + Math.cos(ang) * dist);
+    const z = Math.floor(base.z + Math.sin(ang) * dist);
+    for (let y = Math.floor(base.y) + 6; y >= Math.floor(base.y) - 8; y--) {
+      let chao, a1, a2;
+      try {
+        chao = dim.getBlock({ x, y, z }); a1 = dim.getBlock({ x, y: y + 1, z }); a2 = dim.getBlock({ x, y: y + 2, z });
+      } catch { break; }
+      if (!chao || !a1 || !a2) break;
+      if (ehChaoFirme(chao) && ehAr(a1) && ehAr(a2)) return { x: x + 0.5, y: y + 1, z: z + 0.5 };
+    }
+  }
+  return undefined;
+}
+
+export function emboscada(player) {
+  const nv = nivelDe(player);
+  const grupo = nv >= 40 ? ["tnt:espadachin_s", "tnt:ninja_folha_s"]
+    : nv >= 20 ? ["tnt:ninja_folha_b", "tnt:ninja_areia_b", "tnt:bandidos_rank_a"]
+    : ["tnt:bandidos_rank_c", "tnt:bandidos_rank_c"];
+  const dim = player.dimension;
+  let n = 0;
+  for (const tipo of grupo) {
+    const p = pontoNoChao(dim, player.location, 7, 12);
+    if (!p) continue;
+    try {
+      dim.spawnEntity(tipo, p);
+      particula(dim, "tnt:ns_fumaca_ninja", p);
+      n++;
+    } catch {}
+  }
+  if (n > 0) {
+    msg(player, "§c§l[!] EMBOSCADA!§r §cInimigos surgiram da fumaça!");
+    som(player, "mob.evocation_illager.prepare_attack", 0.8, 1.2);
+  }
+}
+
 // coluna de fumaca sobre os esconderijos por 90s
 system.runInterval(() => {
   const agora = system.currentTick;
@@ -156,6 +201,7 @@ system.runInterval(() => {
       darXP(player, xp, "exploracao");
 
       if (mundoCfg("esconderijo") && Math.random() < CHANCE_ESCONDERIJO) criarEsconderijo(player);
+      else if (mundoCfg("emboscada") && player.dimension.id === "minecraft:overworld" && Math.random() < CHANCE_EMBOSCADA) emboscada(player);
 
       if (total % 4 === 0) {
         const tp = 60 + Math.min(240, total * 4);
