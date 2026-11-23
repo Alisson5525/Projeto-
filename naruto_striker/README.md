@@ -118,6 +118,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | `infinito.mcfunction` disparava um evento de entidade a cada tick por jogador só para reescrever a mesma propriedade (olhos do Izanagi) | Sincronização em script, só quando o valor muda (mesmo mapeamento) |
 | 100 linhas (`dano_stats=1..100`) avaliadas a cada tick por jogador, re-adicionando o grupo de ataque a cada tick | Script dispara `tnt:dano.N` na mudança + 1x/s (mesmo efeito, ~95% menos trabalho) |
 | `execute_jutsus` (seletores globais de Amaterasu/Genjutsu/Rasengan) rodava 1x por jogador por tick: em multijogador, efeitos e partículas aplicados N vezes | 1x por tick por dimensão com jogadores |
+| `tick.mcfunction` (roda por jogador) usava `@a` para diminuir a recarga do dash: com N jogadores a recarga caía N vezes mais rápido | `@s` (cada jogador cuida da própria recarga) |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
