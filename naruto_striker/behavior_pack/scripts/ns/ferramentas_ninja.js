@@ -1,6 +1,7 @@
 // Ferramentas ninja: Bomba de Fumaca (fuga com invisibilidade e velocidade).
 import { world, system } from "@minecraft/server";
 import { ehJogador, particula, somArea, msg, lerScore, somarScore, corDoChakra, som } from "./util";
+import { somarStat } from "./progressao";
 
 const BOMBA = "tnt:ns_bomba_fumaca";
 const usando = new Set();
@@ -38,6 +39,7 @@ function usarBomba(player) {
     if (player.getGameMode?.() !== "creative") player.runCommandAsync(`clear @s ${BOMBA} 0 1`);
   } catch {}
   msg(player, "§7§o*puf* ...você desaparece na fumaça.");
+  somarStat(player, "ns:bombas", 1);
 }
 
 /* Pilula de Soldado: ao terminar de comer, restaura 50% do chakra maximo. */

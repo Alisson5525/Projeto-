@@ -1,7 +1,7 @@
 // Viagem Rapida: volta a Konoha pelo Pergaminho Ninja (recarga de 5 minutos).
 import { world, system } from "@minecraft/server";
 import { ehJogador, valido, lerNum, gravar, particula, som, msg } from "./util";
-import { BOTOES_EXTRAS } from "./progressao";
+import { BOTOES_EXTRAS, somarStat } from "./progressao";
 
 const RECARGA = 20 * 60 * 5;
 
@@ -35,6 +35,7 @@ function viajarKonoha(player) {
     player.addEffect("slow_falling", exato ? 20 * 4 : 20 * 15, { amplifier: 0, showParticles: false });
     player.teleport(pos, { dimension: world.getDimension("overworld") });
     gravar(player, "ns:viagem_pronta", agora + RECARGA);
+    somarStat(player, "ns:viagens", 1);
     system.runTimeout(() => {
       if (!valido(player)) return;
       particula(player.dimension, "tnt:ns_fumaca_ninja", player.location);

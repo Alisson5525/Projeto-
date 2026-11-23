@@ -57,6 +57,8 @@ export const CONQUISTAS = [
   { id: "lua20", nome: "Caçador da Lua Vermelha", desc: "Derrote 20 inimigos durante a Lua Vermelha.", stat: "ns:kills_lua", meta: 20, tp: 600 },
   { id: "transf25", nome: "Mestre das Transformações", desc: "Ative modos 25 vezes.", stat: "ns:transformacoes", meta: 25, tp: 350 },
   { id: "sabio", nome: "Sábio dos Sapos", desc: "Medite 60 s no Monte Myoboku.", stat: "ns:myoboku_med", meta: 30, tp: 800 },
+  { id: "fuga15", nome: "Mestre da Fuga", desc: "Use 15 Bombas de Fumaça.", stat: "ns:bombas", meta: 15, tp: 250 },
+  { id: "viagem10", nome: "Viajante Experiente", desc: "Faça 10 viagens rápidas.", stat: "ns:viagens", meta: 10, tp: 200 },
   { id: "explora50", nome: "Andarilho das Cinco Nações", desc: "Descubra 50 regiões.", stat: "ns:regioes_n", meta: 50, tp: 900 },
   { id: "genin", nome: "Bandana de Genin", desc: "Alcance o nível 5.", stat: "ns:nivel", meta: 5, tp: 100 },
   { id: "chunin", nome: "Exame Chunin", desc: "Alcance o nível 15.", stat: "ns:nivel", meta: 15, tp: 300 },
