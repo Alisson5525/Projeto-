@@ -126,6 +126,20 @@ Para revalidar tudo depois de qualquer edição: `./ferramentas/validar.sh` (Nod
 > os scripts não quebram e que as referências existem, mas a aparência final das
 > animações/partículas deve ser conferida no Minecraft.
 
+## Roteiro de teste rápido no jogo (5 minutos, mundo com cheats)
+
+1. **Entrar no mundo** → chega o *Pergaminho Ninja* (use-o: perfil, conquistas, ajustes, Livro Bingo).
+2. `/summon tnt:dummy` e bata nele → números de dano, `HITS!`, críticos dourados e o **DPS** acima dele.
+3. `/summon tnt:ninja_folha_s` → corrida ninja inclinada ao te perseguir, giro do tronco ao golpear, reação ao apanhar; às vezes **Kawarimi** (some em fumaça e reaparece atrás de você); ao morrer, desaba e solta fumaça.
+4. `/time set night` + `/summon tnt:uchiha_s` → **Sharingan brilhando** no escuro; vagalumes por perto.
+5. `/scriptevent ns:lua_vermelha` → névoa vermelha e anúncio da **Lua Vermelha** (repita para desligar).
+6. Ative um modo pelo menu de modos → **explosão de chakra** na cor do modo + aura contínua.
+7. Corra (sprint) sem modo ativo e em 3ª pessoa (F5) → **corrida ninja** do jogador; pule de ~8 blocos → poeira/onda de pouso.
+8. Agache parado 2 s → partículas de **meditação** e chakra subindo.
+9. Ande ~200 blocos em linha reta → **nova região** com nome, folhas caindo e às vezes um **esconderijo** com fumaça dourada.
+10. `/summon tnt:kurama_biju` (longe da base) → caudas em **onda**, barra de vida colorida e **fúria** abaixo de 50%.
+11. `/scriptevent ns:config` → painel de configuração do mundo.
+
 ## Estrutura
 
 ```
