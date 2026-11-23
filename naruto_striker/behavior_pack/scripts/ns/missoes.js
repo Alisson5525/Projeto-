@@ -53,11 +53,17 @@ world.afterEvents.entityDie.subscribe((ev) => {
     try { vidaMax = ev.deadEntity.getComponent("health")?.effectiveMax ?? 0; } catch {}
     if (vidaMax < 2) return;
 
+    // "Qualquer inimigo": ninjas do add-on ou mobs hostis (nao conta animais)
+    let inimigo = tipo.startsWith("tnt:");
+    if (!inimigo) {
+      try { inimigo = !!ev.deadEntity.getComponent("type_family")?.hasTypeFamily("monster"); } catch {}
+    }
+
     const c = contratos(player);
     let mudou = false;
     for (let i = 0; i < c.length; i++) {
       const k = c[i];
-      if (k.tipo !== tipo && !(k.tipo === "*" && !ehJogador(ev.deadEntity))) continue;
+      if (k.tipo !== tipo && !(k.tipo === "*" && inimigo)) continue;
       const alvo = POR_TIPO.get(k.tipo);
       k.prog++;
       mudou = true;
