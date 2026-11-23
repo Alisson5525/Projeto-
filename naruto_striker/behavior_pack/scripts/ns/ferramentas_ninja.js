@@ -1,6 +1,6 @@
 // Ferramentas ninja: Bomba de Fumaca (fuga com invisibilidade e velocidade).
 import { world, system } from "@minecraft/server";
-import { ehJogador, particula, somArea, msg } from "./util";
+import { ehJogador, particula, somArea, msg, lerScore, somarScore, corDoChakra, som } from "./util";
 
 const BOMBA = "tnt:ns_bomba_fumaca";
 const usando = new Set();
@@ -39,3 +39,23 @@ function usarBomba(player) {
   } catch {}
   msg(player, "§7§o*puf* ...você desaparece na fumaça.");
 }
+
+/* Pilula de Soldado: ao terminar de comer, restaura 50% do chakra maximo. */
+
+world.afterEvents.itemCompleteUse.subscribe((ev) => {
+  try {
+    if (ev.itemStack?.typeId !== "tnt:ns_pilula_soldado") return;
+    const player = ev.source;
+    if (!ehJogador(player)) return;
+    const chakra = lerScore(player, "chakra");
+    const max = lerScore(player, "chakra_max");
+    const ganho = max > 0 ? Math.max(0, Math.min(max - chakra, Math.round(max * 0.5))) : 0;
+    if (ganho > 0) somarScore(player, "chakra", ganho);
+    try { player.addEffect("regeneration", 20 * 5, { amplifier: 0, showParticles: false }); } catch {}
+    const l = player.location;
+    for (let i = 0; i < 3; i++) particula(player.dimension, "tnt:ns_aura", l, corDoChakra(player));
+    particula(player.dimension, "tnt:ns_meditacao", l, corDoChakra(player));
+    som(player, "random.burp", 0.6, 1.3);
+    msg(player, `§6Pílula de Soldado: §b+${ganho} chakra`);
+  } catch {}
+});

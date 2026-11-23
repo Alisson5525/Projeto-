@@ -220,6 +220,9 @@
     },
     "ns_bomba_fumaca": {
       "textures": "textures/items/ns/bomba_fumaca"
+    },
+    "ns_pilula_soldado": {
+      "textures": "textures/items/ns/pilula_soldado"
     }
   }
 }

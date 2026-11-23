@@ -143,6 +143,11 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
 { p1.teleport({x:-490,y:40,z:-505},{dimension:S.dims.the_end}); steps(6);
   const ok=p1.location.y>150; console.log('teste queda myoboku: resgatado', ok); if(!ok) S.errors.push({where:'myoboku queda',msg:'nao resgatou',stack:''});
   p1.teleport({x:5,y:70,z:5},{dimension:ow}); steps(2); }
+// teste pilula: chakra 50/100 -> +50
+{ const o=world.scoreboard.getObjective('chakra'); o.setScore(p1.scoreboardIdentity,50); world.scoreboard.getObjective('chakra_max').setScore(p1.scoreboardIdentity,100);
+  world.afterEvents.itemCompleteUse.fire({source:p1,itemStack:new S.ItemStack('tnt:ns_pilula_soldado'),useDuration:0}); steps(2);
+  const m=p1.msgs.filter(x=>x.includes('Pílula de Soldado')).pop(); const cmd=S.cmds.some(c=>c.c==='scoreboard players add @s chakra 50');
+  console.log('teste pilula:', m, cmd); if(!m||!m.includes('+50')||!cmd) S.errors.push({where:'pilula',msg:'pilula incorreta',stack:''}); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));
