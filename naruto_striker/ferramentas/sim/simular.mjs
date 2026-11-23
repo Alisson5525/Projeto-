@@ -121,6 +121,11 @@ console.log('lua', world.getDynamicProperty('ns:lua_vermelha'), 'fog cmds', S.cm
   se('ns:myoboku',p1); steps(15); const voltou=p1.dimension===ow && Math.abs(p1.location.x-origem.x)<0.01;
   console.log('teste myoboku: bloqueado',bloqueado,'| foi',foi,'| construiu',construiu,'| voltou',voltou);
   if(!(bloqueado&&foi&&construiu&&voltou)) S.errors.push({where:'myoboku',msg:'fluxo incorreto',stack:''}); p1.setDynamicProperty('ns:nivel',nivelAntes??1); }
+// teste aura rank: nivel 95 sem modo -> aura + faiscas
+{ const nv=p1.getDynamicProperty('ns:nivel'); const tags=p1.getTags(); for(const t of tags) if(t.startsWith('modo_ativado')) p1.removeTag(t);
+  p1.setDynamicProperty('ns:nivel',95); const antes=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; steps(60);
+  const depois=S.particles.filter(x=>x==='tnt:ns_faisca_raio').length; console.log('teste aura rank: faiscas', depois-antes);
+  if(depois-antes<2) S.errors.push({where:'aura rank',msg:'aura de rank nao apareceu',stack:''}); p1.setDynamicProperty('ns:nivel',nv??1); }
 // relatorio
 const byKey=new Map(); for(const e of S.errors){ const k=e.where+' :: '+e.msg; if(!byKey.has(k)) byKey.set(k,{n:0,stack:e.stack}); byKey.get(k).n++; }
 console.log('objetivos criados:', ['dash','slot_select','slot_cooldown_1','stamina','reset_all'].every(o=>world.scoreboard.getObjective(o)));
