@@ -97,6 +97,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Sem arquivos de idioma: mensagens mostravam `entity.tnt:uchiha_b.name` | `texts/` com nomes de 84 entidades e ovos (pt_BR, pt_PT, en_US) |
 | Funções chamadas mas inexistentes (`remove_jutsu` do Rinnegan, `reset_menu_modos_unlock`) | Criadas |
 | Chidori podia atingir o próprio usuário se o nome mudasse | Exclusão por ID |
+| Meteoro do Rinnegan alterava blocos dentro de `beforeEvents` (somente leitura): a casca da cratera, a fumaça e o som nunca aconteciam; e apagava 10.000 blocos por tick | Alterações adiadas para o tick seguinte, lotes de 2.500, dimensão correta e blocos especiais protegidos |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
