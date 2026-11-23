@@ -291,6 +291,10 @@ function processarGolpe(player, d) {
   const finalizador = corpoACorpo && n >= 5 && n % 5 === 0;
   if ((critico || finalizador) && valido(d.alvo)) {
     const empurravel = d.alvo.typeId.startsWith("minecraft:") || FINALIZAVEIS.has(d.alvo.typeId);
+    // "hit-stop": o alvo congela por um instante antes de ser arremessado
+    if (empurravel && d.alvo.typeId !== "minecraft:player") {
+      try { d.alvo.addEffect("slowness", finalizador ? 6 : 4, { amplifier: 6, showParticles: false }); } catch {}
+    }
     if (empurravel) try {
       const v = player.getViewDirection();
       const h = Math.hypot(v.x, v.z) || 1;

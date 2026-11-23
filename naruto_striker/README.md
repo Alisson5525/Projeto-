@@ -36,7 +36,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 - **Modos duram mais com o nível**: +0,5% de duração por nível (até +50%); efeitos do modo acompanham a duração.
 - **Combos**: golpes seguidos (janela de 2 s) mostram `3 HITS!`, `10 HITS!`… e aumentam o XP do abate.
 - **Medidor de DPS** no boneco de treino (`tnt:dummy`): mostra o dano por segundo dos últimos 5 s acima dele; o boneco se regenera abaixo de 30% de vida (treino contínuo, sem virar fazenda de XP).
-- **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) empurram o inimigo para trás com leve elevação, com onda de choque no finalizador.
+- **Impacto físico**: críticos e cada 5º golpe do combo (finalizador) dão um *hit-stop* (o inimigo congela por um instante) e o empurram para trás com leve elevação, com onda de choque no finalizador.
 - **Números de dano flutuantes** coloridos pela força do golpe, subindo com desaceleração suave.
 - **Arco de corte** brilhante ao golpear com as espadas ninja (Samehada, Kubikiribocho, Kiba, Shibuki, Hiramekarei, Foice do Hidan…), alternando direção a cada golpe (ajuste "Rastro de velocidade").
 - **Faíscas de impacto** em todo acerto, onda de choque em golpes pesados.
