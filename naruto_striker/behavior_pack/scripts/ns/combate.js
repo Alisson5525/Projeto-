@@ -238,7 +238,8 @@ function processarGolpe(player, d) {
   // ----- impacto fisico: critico e cada 5o golpe do combo empurram o alvo -----
   const finalizador = corpoACorpo && n >= 5 && n % 5 === 0;
   if ((critico || finalizador) && valido(d.alvo)) {
-    try {
+    const empurravel = d.alvo.typeId.startsWith("minecraft:") || FINALIZAVEIS.has(d.alvo.typeId);
+    if (empurravel) try {
       const v = player.getViewDirection();
       const h = Math.hypot(v.x, v.z) || 1;
       d.alvo.applyKnockback(v.x / h, v.z / h, finalizador ? 1.4 : 0.9, finalizador ? 0.42 : 0.28);
