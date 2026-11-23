@@ -55,6 +55,7 @@ export const CONQUISTAS = [
   { id: "bingo5", nome: "Caçador do Livro Bingo", desc: "Conclua 5 contratos de caça.", stat: "ns:contratos_ok", meta: 5, tp: 400 },
   { id: "bingo25", nome: "Lenda do Submundo", desc: "Conclua 25 contratos de caça.", stat: "ns:contratos_ok", meta: 25, tp: 1500 },
   { id: "lua20", nome: "Caçador da Lua Vermelha", desc: "Derrote 20 inimigos durante a Lua Vermelha.", stat: "ns:kills_lua", meta: 20, tp: 600 },
+  { id: "emb5", nome: "Sentinela da Estrada", desc: "Repila 5 emboscadas.", stat: "ns:emboscadas_ok", meta: 5, tp: 500 },
   { id: "transf25", nome: "Mestre das Transformações", desc: "Ative modos 25 vezes.", stat: "ns:transformacoes", meta: 25, tp: 350 },
   { id: "sabio", nome: "Sábio dos Sapos", desc: "Medite 60 s no Monte Myoboku.", stat: "ns:myoboku_med", meta: 30, tp: 800 },
   { id: "fuga15", nome: "Mestre da Fuga", desc: "Use 15 Bombas de Fumaça.", stat: "ns:bombas", meta: 15, tp: 250 },

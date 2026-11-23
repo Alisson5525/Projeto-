@@ -191,6 +191,7 @@ world.afterEvents.entityDie.subscribe((ev) => {
       const tp = 80 + e.nv * 2;
       somarScore(player, "tp", tp);
       darXP(player, xp, "emboscada");
+      somarStat(player, "ns:emboscadas_ok", 1);
       msg(player, `§a§lEmboscada repelida!§r §6+${tp} TP §b+${xp} XP`);
       som(player, "random.levelup", 0.6, 1.2);
       particula(player.dimension, "tnt:ns_level_up", player.location);
