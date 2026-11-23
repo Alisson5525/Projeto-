@@ -9,6 +9,7 @@ function runTimeoutSeguro(fn, ticks) {
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
     if (player.getProperty("tnt:kurama") != 7) continue;
 
     // COMBO 1
@@ -306,6 +307,8 @@ mc.system.runInterval(() => {
       runTimeoutSeguro(() => player.removeTag("dano_barion"), 0.1 * 20);
 
     }
+  
+    } catch (e) {}
   }
 });
 

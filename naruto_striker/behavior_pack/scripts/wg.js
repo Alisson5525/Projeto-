@@ -63,6 +63,7 @@ function desativarModo(player, modeId) {
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
     if (!player.isValid()) continue;
     for (const modeId in MODES) {
       const mode = MODES[modeId];
@@ -79,6 +80,8 @@ mc.system.runInterval(() => {
         setScore(player, mode.scoreTime, time);
       }
     }
+  
+    } catch (e) {}
   }
 }, 20);
 

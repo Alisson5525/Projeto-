@@ -5,6 +5,7 @@ const ITEM_ID = "tnt:selo_byakugou"; // item que vai mostrar o score
 
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+    try {
 
         const scoreboard = world.scoreboard.getObjective(OBJETIVO);
         if (!scoreboard) return;
@@ -28,5 +29,7 @@ system.runInterval(() => {
                 }
             }
         }
-    }
+    
+    } catch (e) {}
+  }
 }, 20); 

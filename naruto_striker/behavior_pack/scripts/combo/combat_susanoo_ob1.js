@@ -9,6 +9,7 @@ function runTimeoutSeguro(fn, ticks) {
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
     if (player.getProperty("tnt:uchiha") != 9) continue;
 
     // ================= COMBO 1 =================
@@ -82,6 +83,8 @@ mc.system.runInterval(() => {
         }
       }, 0.75 * 20);
     }
+  
+    } catch (e) {}
   }
 });
 

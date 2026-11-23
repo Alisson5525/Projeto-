@@ -140,12 +140,15 @@ function chidori(player) {
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
     if (player.hasTag("dash")) dash(player);
     if (player.hasTag("shiden_negro")) shiden_negro(player);
     if (player.hasTag("raikiri")) raikiri(player);
     if (player.hasTag("mao_terra")) mao_terra(player);
     if (player.hasTag("chidori_negro")) chidori_negro(player);
     if (player.hasTag("chidori")) chidori(player);
+  
+    } catch (e) {}
   }
 
   const dims = [];
@@ -173,6 +176,7 @@ mc.system.runInterval(() => {
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
     let ticks = player.getDynamicProperty("chidori_damage_ticks");
     if (ticks === undefined) continue;
 
@@ -204,5 +208,7 @@ mc.system.runInterval(() => {
       player.setDynamicProperty("chidori_damage", undefined);
       player.setDynamicProperty("chidori_radius", undefined);
     }
+  
+    } catch (e) {}
   }
 }, 1);

@@ -167,6 +167,7 @@ function ratio(value, max, steps) {
 ======================================================= */
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
 
     if (!player.isValid()) continue;
     const heldItem = player.getComponent("equippable")?.getEquipment("Mainhand");
@@ -201,6 +202,8 @@ mc.system.runInterval(() => {
       `                       ` +
       `${Math.round(getScore("chakra", player))}/${Math.round(getScore("chakra_max", player))}`
     );
+  
+    } catch (e) {}
   }
 }, 1);
 
@@ -209,6 +212,7 @@ mc.system.runInterval(() => {
 ======================================================= */
 mc.system.runInterval(() => {
   for (const player of mc.world.getPlayers()) {
+    try {
 
     if (!player.isValid()) continue;
     const healthComp = player.getComponent("health");
@@ -232,5 +236,7 @@ mc.system.runInterval(() => {
         `scoreboard players set @s current_health ${Math.floor(vidaReal)}`
       );
     }
+  
+    } catch (e) {}
   }
 }, 1);
