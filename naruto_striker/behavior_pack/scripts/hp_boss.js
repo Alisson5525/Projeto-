@@ -66,15 +66,24 @@ mc.world.afterEvents.entityHurt.subscribe((ev) => {
   } catch (e) {}
 });
 
+const TIPOS_COM_NOME = [...new Set([...Object.keys(ENTITY_NAMES), ...Object.keys(STATIC_NAMES)])];
+
 // 🔄 Atualiza entidades
 mc.system.runInterval(() => {
 
-  const entities = dimension.getEntities({
-    excludeFamilies: ["inanimate"],
-    excludeTypes: ["item", "xp_orb"]
-  });
+  // busca so os tipos que tem nome/barra (antes: TODAS as entidades do overworld a cada 1s)
+  // e em todas as dimensoes (chefes no End/Nether tambem ganham a barra)
+  const entities = [];
+  for (const dimId of ["overworld", "nether", "the_end"]) {
+    let dim;
+    try { dim = mc.world.getDimension(dimId); } catch { continue; }
+    for (const type of TIPOS_COM_NOME) {
+      try { for (const e of dim.getEntities({ type })) entities.push(e); } catch {}
+    }
+  }
 
   for (const entity of entities) {
+    try {
 
     // 🏷️ nomes estáticos
     if (STATIC_NAMES[entity.typeId]) {
@@ -104,6 +113,7 @@ mc.system.runInterval(() => {
     if (entity.nameTag !== newTag) {
       entity.nameTag = newTag;
     }
+    } catch (e) {}
   }
 
 }, 20); // 1 segundo

@@ -39,6 +39,7 @@ steps(30);
 const mobs=[...S.knownEntities].filter(e=>/ninja|uchiha|espadachin|bandidos|zetsu|anbu|kakashi|zabuza|gaara|neji|itachi|kisame|orochimaru|kurama_biju$|shukaku_biju$|dummy/.test(e));
 const spawned=mobs.map((id,i)=>new S.Entity(id, ow, {x:6+(i%5)*0.3,y:64,z:7+(i%3)*0.3}, {hp: id.includes('biju')?800:60, family:['mob']}));
 for(const m of spawned) world.afterEvents.entitySpawn.fire({entity:m, cause:'Spawned'}); steps(3);
+steps(25); console.log('nametag amostra:', JSON.stringify(spawned.filter(m=>m._valid&&m.nameTag).slice(0,3).map(m=>m.nameTag)));
 console.log('elites', spawned.filter(m=>m._tags.has('ns_elite')).length);
 const item=new S.Entity('minecraft:item', ow, {x:6,y:64,z:6},{hp:1});
 // combates

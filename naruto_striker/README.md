@@ -108,6 +108,7 @@ versão `1.1.0`, então mundos existentes são atualizados sem perder progresso.
 | Seletores com espaço antes dos colchetes (`@e [tag=...]`) na função executada a cada tick — risco de a função inteira não carregar | Normalizados para `@e[...]` (válido em qualquer caso) |
 | Missões, NPCs e menus agendavam comandos com o jogador; se ele saísse durante a espera (até 35 s nas missões) gerava erros | Agendamentos protegidos em 20 scripts |
 | Nos laços por jogador (HUD, dash, modos, combos), um erro com um jogador interrompia o processamento de todos | Erros isolados por jogador (`ferramentas/isolar_lacos.py`) |
+| `hp_boss.js` percorria todas as entidades do overworld a cada segundo e ignorava Nether/End | Busca só pelos tipos com nome, nas 3 dimensões |
 | `q.all_animation_finished` (nome errado) | `q.all_animations_finished` |
 | Hordas de 10–30 Zetsu sem limite (lag) | 3–7 por grupo, limite de densidade |
 
