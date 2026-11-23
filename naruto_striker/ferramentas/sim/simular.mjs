@@ -1,6 +1,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 const ROOT = process.argv[2]; const BP=path.join(ROOT,'behavior_pack'), RP=path.join(ROOT,'resource_pack');
 const S = globalThis.__SIM = {};
+globalThis.__AVISOS=[]; console.warn=(...a)=>globalThis.__AVISOS.push(a.join(' '));
 if (process.env.LUCKY) { Math.random = () => 0.01; }
 process.on('unhandledRejection', (e) => { (globalThis.__SIM.errors ||= []).push({ where: 'promise', msg: String(e && e.message || e), stack: (e && e.stack || '').split('\n').slice(1,4).join(' | ') }); });
 function walk(d,a=[]){ for(const f of fs.readdirSync(d)){ const p=path.join(d,f); if(fs.statSync(p).isDirectory()) walk(p,a); else a.push(p);} return a; }
