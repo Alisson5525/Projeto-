@@ -81,14 +81,14 @@ function ferirArea(chefe, centro, raio, dano, extra) {
   return acertos;
 }
 
+/* Avisos de luta vao para o chat: o HUD do add-on esconde o titulo da tela e usa o texto
+   do titulo/actionbar para desenhar as barras de vida e chakra (titulos apagariam o HUD). */
 function anunciar(chefe, raio, titulo, sub, mensagem) {
   try {
-    for (const p of chefe.dimension.getPlayers({ location: chefe.location, maxDistance: raio })) {
-      try {
-        if (titulo !== undefined) p.onScreenDisplay.setTitle(titulo, { subtitle: sub ?? "", fadeInDuration: 4, stayDuration: 36, fadeOutDuration: 10 });
-        if (mensagem) msg(p, mensagem);
-      } catch {}
-    }
+    const linhas = [titulo, sub, mensagem].filter((t) => typeof t === "string" && t.length > 0);
+    if (!linhas.length) return;
+    const texto = linhas.join(" §r§8| §r");
+    for (const p of chefe.dimension.getPlayers({ location: chefe.location, maxDistance: raio })) msg(p, texto);
   } catch {}
 }
 
