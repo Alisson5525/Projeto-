@@ -718,6 +718,15 @@ world.afterEvents.entityHurt.subscribe((ev) => {
 /* ------------------------------------------------------------------ */
 /* Laco principal do diretor (a cada 5 ticks)                          */
 /* ------------------------------------------------------------------ */
+function imovel(chefe) {
+  try {
+    const m = chefe.getComponent("minecraft:movement");
+    return !!m && m.currentValue <= 0.001;
+  } catch {
+    return false;
+  }
+}
+
 function escolherAlvo(chefe) {
   let melhor, melhorD = Infinity;
   try {
@@ -780,6 +789,9 @@ system.runInterval(() => {
         const fase = faseAlvo(perfil, v.atual / v.max);
         if (fase > s.fase) { mudarFase(chefe, perfil, s, fase); continue; }
         if (agora < s.ocupadoAte || agora < s.proxima) continue;
+        // chefe imovel (ex.: Kakashi/Orochimaru "cansados" nas missoes de captura, que dependem
+        // de o jogador interagir com eles parados): o diretor nao age nesse estado
+        if (imovel(chefe)) continue;
         const alvo = escolherAlvo(chefe);
         if (!alvo) continue;
         const ritmo = perfil.ritmo[Math.min(s.fase, perfil.ritmo.length - 1)];

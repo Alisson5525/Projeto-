@@ -1,6 +1,7 @@
 // Utilitarios compartilhados dos sistemas "Naruto Striker+" (pasta ns/).
 // Tudo aqui e defensivo: nenhuma funcao lanca erro para quem chama.
 import { world, system, MolangVariableMap } from "@minecraft/server";
+import { ultimasFalhas } from "../lib/cmd.js";
 import { cmd } from "../lib/cmd.js";
 
 export const PLAYER = "minecraft:player";
@@ -250,3 +251,17 @@ export function ehCriatura(e) {
     return false;
   }
 }
+
+/* /scriptevent ns:diagnostico  -> mostra as ultimas falhas inesperadas de comando
+   (para relatar problemas). Tambem copia para o registro de conteudo (console). */
+system.afterEvents.scriptEventReceive.subscribe((ev) => {
+  if (ev.id !== "ns:diagnostico") return;
+  const falhas = ultimasFalhas();
+  const quem = ev.sourceEntity;
+  const linhas = falhas.length
+    ? falhas.slice(-12).map((f) => `§7[t${f.tick}] §f${f.comando}\n   §c${f.erro}`)
+    : ["§aNenhuma falha inesperada de comando registrada desde que o mundo abriu."];
+  const texto = `§6[Naruto Striker+] Diagnóstico (${falhas.length} falhas)\n` + linhas.join("\n");
+  try { if (ehJogador(quem)) /** @type {any} */ (quem).sendMessage(texto); } catch {}
+  for (const f of falhas) console.warn(`[Naruto Striker+] comando falhou: ${f.comando} -> ${f.erro}`);
+});
