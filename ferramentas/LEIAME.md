@@ -15,3 +15,11 @@ ambiente onde foram executados; ajuste-os antes de reutilizar.
 - `sheet.py` — folhas de contato para revisão visual.
 - `teste_execucao/` — simulação da API `@minecraft/server` para rodar os scripts em Node:
   `node --import ./registrar.mjs teste.mjs "<caminho do BP>"`.
+- `check2.py` — identificadores duplicados, Texture/Geometry/Material dos render controllers,
+  animações dos controladores e placares usados sem serem criados.
+- `sombra.mjs` — nomes locais que escondem funções importadas (causa do bug dos modos).
+- `extrair_cmds.mjs` — extrai os comandos de dentro dos scripts para validação.
+- `diagnosticador_blockception.cjs` — roda o `bc-minecraft-bedrock-diagnoser` num projeto
+  com `behavior_packs/` e `resource_packs/` (instale o pacote no npm antes).
+- `teste_execucao/teste2.mjs` — testes funcionais com asserções (compra de status, modos,
+  varredura dos menus): `node --import ./registrar.mjs teste2.mjs "<caminho do BP>"`.

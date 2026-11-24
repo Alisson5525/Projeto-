@@ -116,7 +116,12 @@ export class Entity {
   applyImpulse() {}
   addEffect(t, d, o) { if (!Number.isFinite(d)) throw new Error("effect dur"); return {}; } removeEffect() { return true; } getEffects() { return []; } getEffect() { return undefined; }
   triggerEvent(e) { if (typeof e !== "string") throw new Error("event"); log.push(["event", e]); }
-  runCommand(c) { if (typeof c !== "string") throw new Error("cmd"); log.push(["cmd", c]); return { successCount: 1 }; }
+  runCommand(c) {
+    if (typeof c !== "string") throw new Error("cmd");
+    if (c.startsWith("/")) throw new Error("CommandError: barra inicial");
+    log.push(["cmd", c]);
+    return executarComando(this, c);
+  }
   playAnimation(a, o) { if (typeof a !== "string") throw new Error("anim"); log.push(["anim", a]); }
   remove() { this.isValid = false; }
   setOnFire() { return true; } extinguishFire() { return true; }
@@ -171,4 +176,48 @@ export function vigiar(obj, nome) {
     },
     set(t, k, v) { t[k] = v; return true; },
   });
+}
+
+
+// ---- interpretacao minima de comandos (como o motor): seletor @s com scores/tag; tag/scoreboard
+function seletorCasa(ent, sel) {
+  const m = /^@s(?:\[(.*)\])?$/.exec(sel);
+  if (!m) return true; // outros seletores: assume que existe alvo
+  const cond = m[1] ?? "";
+  const sc = /scores=\{([^}]*)\}/.exec(cond);
+  if (sc) for (const par of sc[1].split(",")) {
+    const [obj, faixa] = par.split("=");
+    const v = placares.get(obj.trim())?.getScore(ent) ;
+    if (v === undefined) return false;
+    let [a, b] = faixa.includes("..") ? faixa.split("..") : [faixa, faixa];
+    const lo = a === "" ? -Infinity : Number(a), hi = b === "" ? Infinity : Number(b);
+    if (!(v >= lo && v <= hi)) return false;
+  }
+  const semSc = cond.replace(/scores=\{[^}]*\}/, "").replace(/hasitem=\[[^\]]*\]|hasitem=\{[^}]*\}/g, "");
+  for (const t of semSc.matchAll(/tag=(!?)([\w.]+)/g)) {
+    const tem = ent.tags.has(t[2]);
+    if (t[1] === "!" ? tem : !tem) return false;
+  }
+  return true;
+}
+export const efeitos = [];
+function executarComando(ent, c) {
+  c = c.trim();
+  let m;
+  if ((m = /^execute (?:as|at) (@s(?:\[[^\]]*(?:\[[^\]]*\][^\]]*)*\])?) run (.*)$/.exec(c))) {
+    if (!seletorCasa(ent, m[1])) throw new Error("CommandError: No targets matched selector");
+    return executarComando(ent, m[2]);
+  }
+  if ((m = /^tag @s (add|remove) (\S+)/.exec(c))) { m[1] === "add" ? ent.tags.add(m[2]) : ent.tags.delete(m[2]); return { successCount: 1 }; }
+  if ((m = /^scoreboard players (add|remove|set) @s (\S+) (-?\d+)/.exec(c))) {
+    let o = placares.get(m[2]); if (!o) throw new Error("CommandError: objective not found " + m[2]);
+    const atual = o.getScore(ent) ?? 0, n = Number(m[3]);
+    o.setScore(ent, m[1] === "add" ? atual + n : m[1] === "remove" ? atual - n : n);
+    return { successCount: 1 };
+  }
+  if ((m = /^(tellraw|tag|scoreboard|effect|replaceitem|give|clear|playsound|particle|event|function|camerashake|camera|hud|title|titleraw|tp|summon|structure|tickingarea|playanimation|fog|loot|say|kill|xp|inputpermission|gamemode|setblock|fill) (@s\[[^\]]*\])/.exec(c))) {
+    if (!seletorCasa(ent, m[2])) throw new Error("CommandError: No targets matched selector");
+  }
+  efeitos.push(c);
+  return { successCount: 1 };
 }

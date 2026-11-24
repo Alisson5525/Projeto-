@@ -175,8 +175,8 @@ as chaves `ui.*` foram preservados (`ferramentas/ortografia.py`).
 
 | Item | Valor |
 |---|---|
-| Versão do pack | 2.0.0 (BP e RP) |
-| `min_engine_version` | 1.21.90 (exigido pela API 2.0) |
+| Versão do pack | 2.0.1 (BP e RP) |
+| `min_engine_version` | BP 1.21.90 (exigido pela API 2.0); RP 1.19.0 (original) |
 | `@minecraft/server` | 2.0.0 (estável, sem experimentos) |
 | `@minecraft/server-ui` | 2.0.0 (estável) |
 | UUIDs dos packs e módulos | **preservados** (BP `94062a6c-…`, RP `b7ed2608-…`) |
@@ -247,11 +247,72 @@ Sendo direto sobre o escopo:
 
 ---
 
+## 10. Rodada 2 de correções (relato de "muitos bugs e erros")
+
+Nesta rodada foram usadas ferramentas de verificação mais fortes: o validador oficial da
+Mojang (**Minecraft Creator Tools**), o diagnosticador da **Blockception** (valida comandos,
+Molang e referências como a extensão de VS Code para Bedrock) e um **teste de execução com
+asserções** que simula o motor de comandos (seletores `@s[scores=..., tag=...]` falham como
+no jogo; `tag`/`scoreboard` alteram o estado).
+
+### Bugs graves corrigidos
+1. **Compras e desbloqueios não funcionavam (bug do add-on original).** Os menus executavam
+   sequências de `runCommand` síncrono: quando o primeiro comando não encontrava alvo (ex.:
+   `execute as @s[scores={tp=0..299}]` com TP suficiente), o script lançava erro e o resto
+   não rodava. Afetava **status, desbloqueio de modos (Portões, Sennin, Marca, Sharingan,
+   Mangekyou, Susanoo, Byakugan, Tenseigan, Kurama), ativação de modos pelos menus, missões,
+   customização e NPCs** — 514 chamadas convertidas para o executor seguro `cmd()`.
+2. **Modos não ativavam (regressão da 1ª entrega).** Em `wg.js` e `selamentos_biju.js` uma
+   variável de laço chamada `cmd` escondia a função `cmd()`; nenhum comando de
+   ativação/desativação de modo (e de selamento de Bijuu) era executado.
+3. **Anúncios dos chefes apagavam o HUD (regressão da 1ª entrega).** O HUD do add-on usa o
+   texto do título da tela para desenhar as barras; os avisos agora vão para o chat.
+4. **Diretor de chefes interferia nas missões de captura** (Kakashi/Orochimaru "cansados"):
+   agora não age enquanto o chefe está imóvel.
+
+### Outros bugs corrigidos
+- Comandos com barra inicial (`/`) — a API pede sem a barra; `cmd()` remove.
+- Kamui: posição de retorno era salva depois do teleporte; sem posição salva o jogador
+  ficava preso no End (agora volta ao ponto de nascimento do mundo).
+- Faixas de TP incoerentes (Vida 3, Prisão de Terra, Manto da Kurama 6) e aviso errado no 1º Portão.
+- Chibaku Tensei: a tag nunca era removida (evento além da duração da animação).
+- Eventos inexistentes chamados por entidades (`tnt:`, `vanish`) e `minecraft:entity_spawned`
+  ausente em 15 projéteis (aviso a cada jutsu lançado).
+- Tabelas de saque com caminho vazio; geometria `geometry.mk1` definida duas vezes;
+  animação vazia no jogador; variável Molang indefinida na barra do Gaara.
+- 42 anexos de itens com textura apontando para uma pasta (erro ao carregar o pack).
+- Expressão do Rasengan/Rasen Shuriken: aparecia em primeira pessoa e consultava posições
+  inexistentes da hotbar a cada quadro.
+- `sound_definitions.json` no formato atual.
+- Placares do `start.mcfunction` garantidos ao abrir o mundo.
+- Assinatura vazia de `itemUse` (Teuchi) e cache de jogadores que saíram.
+- Arquivos de anotação e uma UI órfã que estavam dentro dos packs foram movidos para
+  `docs/arquivos_do_autor_fora_do_pack/`.
+- Resource Pack voltou ao `min_engine_version` original (1.19.0) para manter a semântica de
+  Molang com que foi feito.
+
+### Novo: diagnóstico
+`/scriptevent ns:diagnostico` mostra no chat as últimas falhas **inesperadas** de comando
+(as falhas normais de "sem alvo" dos menus são ignoradas) e copia para o registro de
+conteúdo. Se algo ainda falhar no seu jogo, envie essa lista.
+
+### Resultado das verificações desta rodada
+| Verificação | Resultado |
+|---|---|
+| Minecraft Creator Tools (validador oficial) | **0 erros** (avisos restantes: rigidez de esquema que o jogo aceita, links para conteúdo vanilla, e texturas citadas só por UIs não carregadas) |
+| Blockception (comandos, Molang, referências) | apenas falsos positivos documentados (ex.: `summon` com rotação, `loop` de Molang, variáveis do motor) |
+| Tipos contra a API 2.0 / sintaxe / sombreamento de nomes | 0 problemas |
+| Teste funcional com asserções | **11/11**: compra de status com e sem TP, Sharingan ativa/desativa/expira, varredura de 12 menus × 22 opções desbloqueando Portões 1–8, Sennin, Sharingan→Mangekyou→Susanoo, Byakugan→Tenseigan, sem comandos com barra e sem erros de script |
+| Mesmo teste na versão anterior entregue | 4/11 (confirma os bugs acima) |
+
+---
+
 ## 9. Arquivos novos
 
 - `BP/scripts/lib/cmd.js`, `BP/scripts/lib/fisica.js` — compatibilidade/segurança da API 2.x
 - `BP/scripts/ns/chefes.js` — diretor de combate dos chefes
 - `BP/scripts/ns/interface.js` — retorno sonoro dos menus
+- `BP/loot_tables/ns/vazio.json` — tabela de saque vazia (substitui caminhos vazios)
 - `RP/animations/ns/transformacao.json` — transformação, destransformação, fase de chefe
 - `RP/particles/ns/ns_aviso.json` — marcador de perigo no chão
 - `RP/sounds/ns/*.ogg` — 11 efeitos sonoros
