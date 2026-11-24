@@ -1,4 +1,5 @@
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 const config = {
   bijuus: [
@@ -42,11 +43,11 @@ function getScore(player, objective) {
 }
 
 function setScore(player, obj, value) {
-  player.runCommand(`scoreboard players set @s ${obj} ${value}`);
+  cmd(player, `scoreboard players set @s ${obj} ${value}`);
 }
 
 function addScore(player, obj, value) {
-  player.runCommand(`scoreboard players add @s ${obj} ${value}`);
+  cmd(player, `scoreboard players add @s ${obj} ${value}`);
 }
 
 function isStopped(player) {
@@ -102,7 +103,7 @@ world.afterEvents.itemStartUse.subscribe(ev => {
 
   if (!player || !isValidItem(item)) return;
 
-  player.runCommand("playanimation @s animation.ceifeiro default 0.2");
+  cmd(player, "playanimation @s animation.ceifeiro default 0.2");
   charging.add(player.id);
 });
 
@@ -119,8 +120,8 @@ world.afterEvents.itemStopUse.subscribe(ev => {
 
   charging.delete(player.id);
 
-  player.runCommand("particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
-  player.runCommand("playanimation @s animation.ceifeiro_stop default 0.2");
+  cmd(player, "particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
+  cmd(player, "playanimation @s animation.ceifeiro_stop default 0.2");
 
   setScore(player, "charge_bijuu", 0);
 });
@@ -138,8 +139,8 @@ system.runInterval(() => {
     // SE ANDAR CANCELA
     //
     if (isMoving(player)) {
-      player.runCommand("particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
-      player.runCommand("playanimation @s animation.ceifeiro_stop default 0.2");
+      cmd(player, "particle tnt:rasengan_impact_fumaca ^^0.6^-1.7");
+      cmd(player, "playanimation @s animation.ceifeiro_stop default 0.2");
 
       charging.delete(player.id);
       setScore(player, "charge_bijuu", 0);
@@ -172,14 +173,14 @@ system.runInterval(() => {
       const bijuuCfg = getBijuuConfig(bijuu);
 
       if (bijuuCfg?.playerCmds) {
-        for (const cmd of bijuuCfg.playerCmds) {
-          player.runCommand(cmd);
+        for (const comando of bijuuCfg.playerCmds) {
+          cmd(player, comando);
         }
       }
 
       if (bijuuCfg?.mobCmds) {
-        for (const cmd of bijuuCfg.mobCmds) {
-          bijuu.runCommand(cmd);
+        for (const comando of bijuuCfg.mobCmds) {
+          cmd(bijuu, comando);
         }
       }
     }

@@ -1,5 +1,6 @@
 //import
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -36,18 +37,18 @@ export function menu_clan(player) {
     switch (response.selection) {
 
       case 0:
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eUchiha"}]}');
-player.runCommand('/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
-player.runCommand('/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
-player.runCommand('/scoreboard players set @s clans 0');
-player.runCommand('/clear @s tnt:escolha_clan');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eUchiha"}]}');
+cmd(player, '/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
+cmd(player, '/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
+cmd(player, '/scoreboard players set @s clans 0');
+cmd(player, '/clear @s tnt:escolha_clan');
         break;
        case 1:
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eHyuga"}]}');
-player.runCommand('/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
-player.runCommand('/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
-player.runCommand('/scoreboard players set @s clans 1');
-player.runCommand('/clear @s tnt:escolha_clan');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê Se Tornou Do Clan §eHyuga"}]}');
+cmd(player, '/tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §aVocê tem um VIP para resgatar! §eUse o Pergaminho Inicial."}]}');
+cmd(player, '/replaceitem entity @s[tag=vip_storm] slot.hotbar 4 tnt:pergaminho_inicial 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
+cmd(player, '/scoreboard players set @s clans 1');
+cmd(player, '/clear @s tnt:escolha_clan');
         break; 
         
     }

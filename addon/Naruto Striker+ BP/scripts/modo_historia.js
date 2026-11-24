@@ -1,5 +1,6 @@
 //import
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -228,12 +229,12 @@ case 1:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && !player.hasTag("missao_2_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 240');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 240');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:kakashi_sinos ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:kakashi_sinos ^^2^2'); }, 30); } else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -242,17 +243,17 @@ case 2:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && player.hasTag("missao_2_c") && !player.hasTag("missao_3_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 300');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 300');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_boss ^^2^2'); }, 30); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_boss ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_basico ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_basico ^^2^2'); }, 30); 
 
-} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+} else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -265,14 +266,14 @@ case 4:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_1_c") && player.hasTag("missao_2_c") && player.hasTag("missao_3_c") && player.hasTag("missao_4_c") && !player.hasTag("missao_5_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 300');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 300');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:zabuza ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:zabuza ^^2^2'); }, 30); 
 
-} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+} else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -282,42 +283,42 @@ case 7:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_6_c") && player.hasTag("missao_7_c") && !player.hasTag("missao_8_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 10 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 500');
-player.runCommand('/tag @s add pergminho_miss_5');
-player.runCommand('/give @s tnt:pergaminho_miss');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 10 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 500');
+cmd(player, '/tag @s add pergminho_miss_5');
+cmd(player, '/give @s tnt:pergaminho_miss');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 100); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 200); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 300); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_c ^^2^2'); }, 400); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 500); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:anbu_ladrao_a ^^2^2'); }, 600); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_c ^^2^2'); }, 100); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_c ^^2^2'); }, 200); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_a ^^2^2'); }, 300); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_c ^^2^2'); }, 400); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_a ^^2^2'); }, 500); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:anbu_ladrao_a ^^2^2'); }, 600); 
 
 runTimeoutSeguro(() => { 
-player.runCommand('/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §aMissão Completa"}]}');
+cmd(player, '/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §aMissão Completa"}]}');
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/tellraw @s[tag=!pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §cMissão Fracassada"}]}');
+cmd(player, '/tellraw @s[tag=!pergminho_miss_5] {"rawtext":[{"text":"§c[!]§f: §cMissão Fracassada"}]}');
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/tag @s[tag=pergminho_miss_5] add missao_8_c'); 
+cmd(player, '/tag @s[tag=pergminho_miss_5] add missao_8_c'); 
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/clear @s[tag=pergminho_miss_5] tnt:pergaminho_miss'); 
+cmd(player, '/clear @s[tag=pergminho_miss_5] tnt:pergaminho_miss'); 
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/event entity @e[r=50,family=miss_5_c] tnt:despawn'); 
+cmd(player, '/event entity @e[r=50,family=miss_5_c] tnt:despawn'); 
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/scoreboard players add @s[tag=pergminho_miss_5] tp 300'); 
+cmd(player, '/scoreboard players add @s[tag=pergminho_miss_5] tp 300'); 
 }, 700); 
 runTimeoutSeguro(() => { 
-player.runCommand('/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§a[!] §e300.Tp"}]}');
+cmd(player, '/tellraw @s[tag=pergminho_miss_5] {"rawtext":[{"text":"§a[!] §e300.Tp"}]}');
 }, 700); 
-} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+} else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -328,12 +329,12 @@ case 8:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_7_c") && player.hasTag("missao_8_c") && !player.hasTag("missao_9_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 240');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 240');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:orochimaru_miss_c ^^2^2'); }, 30); } else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -343,12 +344,12 @@ case 9:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_8_c") && player.hasTag("missao_9_c") && !player.hasTag("missao_10_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 340');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 340');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:neji_c ^^2^2'); }, 30); } else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:neji_c ^^2^2'); }, 30); } else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -358,16 +359,16 @@ case 10:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_9_c") && player.hasTag("missao_10_c") && !player.hasTag("missao_11_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §cNinjas Da Akatsuki"}]}');
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 6 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 640');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §cNinjas Da Akatsuki"}]}');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 6 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 640');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:itachi_c ^^2^2'); }, 60); 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:kisame_c ^^2^2'); }, 80); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:itachi_c ^^2^2'); }, 60); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:kisame_c ^^2^2'); }, 80); 
 
-} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+} else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
 
@@ -376,14 +377,14 @@ case 11:
 {const cooldown_miss = getScore(player, "cooldown_miss");
 if (cooldown_miss === 0) { if (player.hasTag("missao_10_c") && player.hasTag("missao_11_c") && !player.hasTag("missao_12_c")) {
 
-player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
-player.runCommand('/scoreboard players set @s cooldown_miss 800');
+cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aA Missão ira começar em 3 segundos"}]}');
+cmd(player, '/scoreboard players set @s cooldown_miss 800');
 
-runTimeoutSeguro(() => { player.runCommand('/summon tnt:gaara_c ^^2^2'); }, 30); 
+runTimeoutSeguro(() => { cmd(player, '/summon tnt:gaara_c ^^2^2'); }, 30); 
 
-} else { player.runCommand('tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
+} else { cmd(player, 'tellraw @s {"rawtext":[{"text":"§c[!]§f: §7Missão indisponível: já concluída ou bloqueada (complete as anteriores)."}]}'); }} 
         
-else {player.runCommand('/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
+else {cmd(player, '/tellraw @s {"rawtext":[{"text":"§c[!]§f: §aVocê ainda está em cooldown. Aguarde §c' + cooldown_miss + '§a segundos."}]}');}}
 break;
 
       }

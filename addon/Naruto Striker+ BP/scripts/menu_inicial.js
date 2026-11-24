@@ -1,5 +1,6 @@
 //import
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -53,12 +54,12 @@ export function menu_inicial_pg2(player) {
 
 
        case 0:
-player.runCommand('tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §eVIP resgatado com sucesso!"}]}');
-player.runCommand('scoreboard players add @s[tag=vip_storm] tp 600');
-player.runCommand('give @s[tag=vip_storm] tnt:kunai_asuma');
-player.runCommand('scoreboard players add @s[tag=vip_storm] health_stats 20');
-player.runCommand('tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§c[!]§f: §dModo Especial: §eBarion Kurama"}]}');
-player.runCommand('clear @s tnt:pergaminho_inicial');
+cmd(player, 'tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§d[!]§f: §eVIP resgatado com sucesso!"}]}');
+cmd(player, 'scoreboard players add @s[tag=vip_storm] tp 600');
+cmd(player, 'give @s[tag=vip_storm] tnt:kunai_asuma');
+cmd(player, 'scoreboard players add @s[tag=vip_storm] health_stats 20');
+cmd(player, 'tellraw @s[tag=vip_storm] {"rawtext":[{"text":"§c[!]§f: §dModo Especial: §eBarion Kurama"}]}');
+cmd(player, 'clear @s tnt:pergaminho_inicial');
 break; 
 
     }

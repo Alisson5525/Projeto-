@@ -1,5 +1,6 @@
 // import
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -78,21 +79,21 @@ torne-se um §eninja de Konoha!
     switch (response.selection) {
 
 case 0:
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eSeu treinamento Já Foi Concluído"}]}');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eentão você finalmente decidiu Começar o treinamento."}]}');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§c[!] §eIrei te Entregar os Pesos."}]}');
-player.runCommand('/give @s[tag=ninja_konoha,tag=!portao_1] tnt:pesos');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eSeu treinamento Já Foi Concluído"}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eentão você finalmente decidiu Começar o treinamento."}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§c[!] §eIrei te Entregar os Pesos."}]}');
+cmd(player, '/give @s[tag=ninja_konoha,tag=!portao_1] tnt:pesos');
 break;
 
 case 1:
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s remove portao_1_lock');
-player.runCommand('execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s add portao_1');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run clear @s tnt:pesos 0 1');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §aParabens, §ePrimeiro Portão Desbloqueado"}]}');
-player.runCommand('/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eTermina o Treinamento Para Aprender os Oito Portões"}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s remove portao_1_lock');
+cmd(player, 'execute as @s[tag=ninja_konoha,tag=treino_pesos,scores={pesos_guy=0..10}] run tag @s add portao_1');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=portao_1] run clear @s tnt:pesos 0 1');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §aParabens, §ePrimeiro Portão Desbloqueado"}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha,tag=!portao_1] run tellraw @s {"rawtext":[{"text":"§a[Might Guy] §eTermina o Treinamento Para Aprender os Oito Portões"}]}');
 break;
 
     }

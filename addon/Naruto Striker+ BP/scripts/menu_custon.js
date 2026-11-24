@@ -1,5 +1,6 @@
 //import
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -42,46 +43,46 @@ export function menu_custon(player) {
 
 
        case 0:
-player.runCommand('event entity @s cabelo:naruto');
+cmd(player, 'event entity @s cabelo:naruto');
 menu_custon_cabelo_2(player);
         break; 
 
        case 1:
-player.runCommand('event entity @s custon:masculino_claro');
+cmd(player, 'event entity @s custon:masculino_claro');
 menu_custon(player);
         break; 
 
        case 2:
-player.runCommand('event entity @s custon:masculino_escuro');
+cmd(player, 'event entity @s custon:masculino_escuro');
 menu_custon(player);
         break; 
 
        case 3:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person');
 menu_custon(player);
         break; 
 
        case 4:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person_front');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person_front');
 menu_custon(player);
         break; 
 
        case 5:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_set 1 1 in_back');
-player.runCommand('camera @s set minecraft:fixed_boom');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_set 1 1 in_back');
+cmd(player, 'camera @s set minecraft:fixed_boom');
 menu_custon(player);
         break; 
 
          case 6:
-player.runCommand('replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s clear');
+cmd(player, 'replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s clear');
         break; 
     }
   }).catch(() => {});
@@ -105,46 +106,46 @@ export function menu_custon_cabelo_2(player) {
 
 
        case 0:
-player.runCommand('event entity @s cabelo:sasuke');
+cmd(player, 'event entity @s cabelo:sasuke');
 menu_custon_cabelo_3(player);
         break; 
 
        case 1:
-player.runCommand('event entity @s custon:masculino_claro');
+cmd(player, 'event entity @s custon:masculino_claro');
 menu_custon_cabelo_2(player);
         break; 
 
        case 2:
-player.runCommand('event entity @s custon:masculino_escuro');
+cmd(player, 'event entity @s custon:masculino_escuro');
 menu_custon_cabelo_2(player);
         break; 
 
        case 3:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person');
 menu_custon_cabelo_2(player);
         break; 
 
        case 4:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person_front');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person_front');
 menu_custon_cabelo_2(player);
         break; 
 
        case 5:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_set 1 1 in_back');
-player.runCommand('camera @s set minecraft:fixed_boom');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_set 1 1 in_back');
+cmd(player, 'camera @s set minecraft:fixed_boom');
 menu_custon_cabelo_2(player);
         break; 
 
          case 6:
-player.runCommand('replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s clear');
+cmd(player, 'replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s clear');
         break; 
     }
   }).catch(() => {});
@@ -168,46 +169,46 @@ export function menu_custon_cabelo_3(player) {
 
 
        case 0:
-player.runCommand('event entity @s cabelo:madara');
+cmd(player, 'event entity @s cabelo:madara');
 menu_custon(player);
         break; 
 
        case 1:
-player.runCommand('event entity @s custon:masculino_claro');
+cmd(player, 'event entity @s custon:masculino_claro');
 menu_custon_cabelo_3(player);
         break; 
 
        case 2:
-player.runCommand('event entity @s custon:masculino_escuro');
+cmd(player, 'event entity @s custon:masculino_escuro');
 menu_custon_cabelo_3(player);
         break; 
 
        case 3:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person');
 menu_custon_cabelo_3(player);
         break; 
 
        case 4:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s set minecraft:third_person_front');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s set minecraft:third_person_front');
 menu_custon_cabelo_3(player);
         break; 
 
        case 5:
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_set 1 1 in_back');
-player.runCommand('camera @s set minecraft:fixed_boom');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_set 1 1 in_back');
+cmd(player, 'camera @s set minecraft:fixed_boom');
 menu_custon_cabelo_3(player);
         break; 
 
          case 6:
-player.runCommand('replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
-player.runCommand('tp @s @s ');
-player.runCommand('camera @s fov_clear');
-player.runCommand('camera @s clear');
+cmd(player, 'replaceitem entity @s slot.hotbar 4 tnt:escolha_clan 1 0 {"minecraft:keep_on_death":{},"item_lock":{"mode":"lock_in_slot"}} ');
+cmd(player, 'tp @s @s ');
+cmd(player, 'camera @s fov_clear');
+cmd(player, 'camera @s clear');
         break; 
     }
   }).catch(() => {});

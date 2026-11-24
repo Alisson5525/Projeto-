@@ -1,4 +1,5 @@
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -191,25 +192,25 @@ break;
 
 case 2:
 if (player.hasTag("marca_v1_lock")) {
-player.runCommand('/execute as @s run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer Treinamento Com Orochimaru"}]}');
+cmd(player, '/execute as @s run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer Treinamento Com Orochimaru"}]}');
 }
 break;
 
 case 3:
 if (player.hasTag("marca_v2_lock") && !player.hasTag("marca_v1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s add marca_v2');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s remove marca_v2_lock');
-            player.runCommand('/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
+            cmd(player, '/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s add marca_v2');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s remove marca_v2_lock');
+            cmd(player, '/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
 }
 break;
 
 case 4:
 if (player.hasTag("marca_v3_lock") && !player.hasTag("marca_v1_lock") && !player.hasTag("marca_v2_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..1199}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1200. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=1200..}] run tag @s add marca_v3');
-            player.runCommand('/execute as @s[scores={tp=1200..}] run tag @s remove marca_v3_lock');
-            player.runCommand('/execute as @s[scores={tp=1200..}] run scoreboard players remove @s tp 1200');
+            cmd(player, '/execute as @s[scores={tp=0..1199}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1200. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=1200..}] run tag @s add marca_v3');
+            cmd(player, '/execute as @s[scores={tp=1200..}] run tag @s remove marca_v3_lock');
+            cmd(player, '/execute as @s[scores={tp=1200..}] run scoreboard players remove @s tp 1200');
 }
 break;
 
@@ -218,19 +219,19 @@ break;
 
 case 5:
 if (player.hasTag("sennin_sapo_v1_lock") && player.hasTag("forca_status_3") && player.hasTag("vida_status_3") && player.hasTag("chakra_status_3")) {
-            player.runCommand('/execute as @s[scores={tp=0..899}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a900. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=900..}] run tag @s add sennin_sapo_v1');
-            player.runCommand('/execute as @s[scores={tp=900..}] run tag @s remove sennin_sapo_v1_lock');
-            player.runCommand('/execute as @s[scores={tp=900..}] run scoreboard players remove @s tp 900');
+            cmd(player, '/execute as @s[scores={tp=0..899}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a900. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=900..}] run tag @s add sennin_sapo_v1');
+            cmd(player, '/execute as @s[scores={tp=900..}] run tag @s remove sennin_sapo_v1_lock');
+            cmd(player, '/execute as @s[scores={tp=900..}] run scoreboard players remove @s tp 900');
 }
 break;
 
 case 6:
 if (player.hasTag("sennin_sapo_v2_lock") && !player.hasTag("sennin_sapo_v1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..1499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1500. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run tag @s add sennin_sapo_v2');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run tag @s remove sennin_sapo_v2_lock');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run scoreboard players remove @s tp 1500');
+            cmd(player, '/execute as @s[scores={tp=0..1499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1500. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run tag @s add sennin_sapo_v2');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run tag @s remove sennin_sapo_v2_lock');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run scoreboard players remove @s tp 1500');
 }
 break;
 
@@ -239,73 +240,73 @@ break;
 
 case 7:
 if (player.hasTag("portao_1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..149}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer Treinamento Com guy"}]}');
-            player.runCommand('/execute as @s[scores={tp=150..}] run tag @s add portao_1');
-            player.runCommand('/execute as @s[scores={tp=150..}] run tag @s remove portao_1_lock');
-            player.runCommand('/execute as @s[scores={tp=150..}] run scoreboard players remove @s tp 150');
+            cmd(player, '/execute as @s[scores={tp=0..149}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer Treinamento Com guy"}]}');
+            cmd(player, '/execute as @s[scores={tp=150..}] run tag @s add portao_1');
+            cmd(player, '/execute as @s[scores={tp=150..}] run tag @s remove portao_1_lock');
+            cmd(player, '/execute as @s[scores={tp=150..}] run scoreboard players remove @s tp 150');
 }
 break;
 
 case 8:
 if (player.hasTag("portao_2_lock") && !player.hasTag("portao_1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..399}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a400. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=400..}] run tag @s add portao_2');
-            player.runCommand('/execute as @s[scores={tp=400..}] run tag @s remove portao_2_lock');
-            player.runCommand('/execute as @s[scores={tp=400..}] run scoreboard players remove @s tp 400');
+            cmd(player, '/execute as @s[scores={tp=0..399}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a400. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=400..}] run tag @s add portao_2');
+            cmd(player, '/execute as @s[scores={tp=400..}] run tag @s remove portao_2_lock');
+            cmd(player, '/execute as @s[scores={tp=400..}] run scoreboard players remove @s tp 400');
 }
 break;
 
 case 9:
 if (player.hasTag("portao_3_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a600. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=600..}] run tag @s add portao_3');
-            player.runCommand('/execute as @s[scores={tp=600..}] run tag @s remove portao_3_lock');
-            player.runCommand('/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
+            cmd(player, '/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a600. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=600..}] run tag @s add portao_3');
+            cmd(player, '/execute as @s[scores={tp=600..}] run tag @s remove portao_3_lock');
+            cmd(player, '/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
 }
 break;
 
 case 10:
 if (player.hasTag("portao_4_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock") && !player.hasTag("portao_3_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s add portao_4');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s remove portao_4_lock');
-            player.runCommand('/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
+            cmd(player, '/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s add portao_4');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s remove portao_4_lock');
+            cmd(player, '/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
 }
 break;
 
 case 11:
 if (player.hasTag("portao_5_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock") && !player.hasTag("portao_3_lock") && !player.hasTag("portao_4_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..899}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a900. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=900..}] run tag @s add portao_5');
-            player.runCommand('/execute as @s[scores={tp=900..}] run tag @s remove portao_5_lock');
-            player.runCommand('/execute as @s[scores={tp=900..}] run scoreboard players remove @s tp 900');
+            cmd(player, '/execute as @s[scores={tp=0..899}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a900. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=900..}] run tag @s add portao_5');
+            cmd(player, '/execute as @s[scores={tp=900..}] run tag @s remove portao_5_lock');
+            cmd(player, '/execute as @s[scores={tp=900..}] run scoreboard players remove @s tp 900');
 }
 break;
 
 case 12:
 if (player.hasTag("portao_6_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock") && !player.hasTag("portao_3_lock") && !player.hasTag("portao_4_lock") && !player.hasTag("portao_5_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..1499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1500. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run tag @s add portao_6');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run tag @s remove portao_6_lock');
-            player.runCommand('/execute as @s[scores={tp=1500..}] run scoreboard players remove @s tp 1500');
+            cmd(player, '/execute as @s[scores={tp=0..1499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1500. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run tag @s add portao_6');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run tag @s remove portao_6_lock');
+            cmd(player, '/execute as @s[scores={tp=1500..}] run scoreboard players remove @s tp 1500');
 }
 break;
 
 case 13:
 if (player.hasTag("portao_7_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock") && !player.hasTag("portao_3_lock") && !player.hasTag("portao_4_lock") && !player.hasTag("portao_5_lock") && !player.hasTag("portao_6_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..2499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2500. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=2500..}] run tag @s add portao_7');
-            player.runCommand('/execute as @s[scores={tp=2500..}] run tag @s remove portao_7_lock');
-            player.runCommand('/execute as @s[scores={tp=2500..}] run scoreboard players remove @s tp 2500');
+            cmd(player, '/execute as @s[scores={tp=0..2499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a2500. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=2500..}] run tag @s add portao_7');
+            cmd(player, '/execute as @s[scores={tp=2500..}] run tag @s remove portao_7_lock');
+            cmd(player, '/execute as @s[scores={tp=2500..}] run scoreboard players remove @s tp 2500');
 }
 break;
 
 case 14:
 if (player.hasTag("portao_8_lock") && !player.hasTag("portao_1_lock") && !player.hasTag("portao_2_lock") && !player.hasTag("portao_3_lock") && !player.hasTag("portao_4_lock") && !player.hasTag("portao_5_lock") && !player.hasTag("portao_6_lock") && !player.hasTag("portao_7_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..9499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a9500. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=9500..}] run tag @s add portao_8');
-            player.runCommand('/execute as @s[scores={tp=9500..}] run tag @s remove portao_8_lock');
-            player.runCommand('/execute as @s[scores={tp=9500..}] run scoreboard players remove @s tp 9500');
+            cmd(player, '/execute as @s[scores={tp=0..9499}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a9500. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=9500..}] run tag @s add portao_8');
+            cmd(player, '/execute as @s[scores={tp=9500..}] run tag @s remove portao_8_lock');
+            cmd(player, '/execute as @s[scores={tp=9500..}] run scoreboard players remove @s tp 9500');
 }
 break;
 
@@ -314,13 +315,13 @@ break;
 
 case 15:
 if (player.hasTag("dna_hashirama_sh_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..799}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a800. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=800..}] run event entity @s celula:dna_hashirama');
-            player.runCommand('/execute as @s[scores={tp=800..}] run scoreboard players add @s health_stats 50');
-            player.runCommand('/execute as @s[scores={tp=800..}] run scoreboard players set @s isanagi 0');
-            player.runCommand('/execute as @s[scores={tp=800..}] run tag @s add dna_hashirama_sh');
-            player.runCommand('/execute as @s[scores={tp=800..}] run tag @s remove dna_hashirama_sh_lock');
-            player.runCommand('/execute as @s[scores={tp=800..}] run scoreboard players remove @s tp 800');
+            cmd(player, '/execute as @s[scores={tp=0..799}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a800. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=800..}] run event entity @s celula:dna_hashirama');
+            cmd(player, '/execute as @s[scores={tp=800..}] run scoreboard players add @s health_stats 50');
+            cmd(player, '/execute as @s[scores={tp=800..}] run scoreboard players set @s isanagi 0');
+            cmd(player, '/execute as @s[scores={tp=800..}] run tag @s add dna_hashirama_sh');
+            cmd(player, '/execute as @s[scores={tp=800..}] run tag @s remove dna_hashirama_sh_lock');
+            cmd(player, '/execute as @s[scores={tp=800..}] run scoreboard players remove @s tp 800');
 }
 break;
 
@@ -337,11 +338,11 @@ break;
 
 case 17:
 if (player.hasTag("rinnegan_2_lock")) {
-            player.runCommand('/execute as @s[tag=!dna_hashirama_v2] run tellraw @s {"rawtext":[{"text":"§c[!] §aPrecisa da celula hashirama"}]}');
-            player.runCommand('/execute as @s[scores={tp=0..5999},tag=dna_hashirama_v2] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a6000. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run tag @s add rinnegan_2');
-            player.runCommand('/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run tag @s remove rinnegan_2_lock');
-            player.runCommand('/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run scoreboard players remove @s tp 6000');
+            cmd(player, '/execute as @s[tag=!dna_hashirama_v2] run tellraw @s {"rawtext":[{"text":"§c[!] §aPrecisa da celula hashirama"}]}');
+            cmd(player, '/execute as @s[scores={tp=0..5999},tag=dna_hashirama_v2] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a6000. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run tag @s add rinnegan_2');
+            cmd(player, '/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run tag @s remove rinnegan_2_lock');
+            cmd(player, '/execute as @s[scores={tp=6000..},tag=dna_hashirama_v2] run scoreboard players remove @s tp 6000');
 }
 break;
 
@@ -349,10 +350,10 @@ break;
 
 case 18:
 if (player.hasTag("modo_suigetsu_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a600. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=600..}] run tag @s add modo_suigetsu');
-            player.runCommand('/execute as @s[scores={tp=600..}] run tag @s remove modo_suigetsu_lock');
-            player.runCommand('/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
+            cmd(player, '/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a600. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=600..}] run tag @s add modo_suigetsu');
+            cmd(player, '/execute as @s[scores={tp=600..}] run tag @s remove modo_suigetsu_lock');
+            cmd(player, '/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
 }
 break;
 
@@ -404,14 +405,14 @@ export function bijus_modos(player) {
 
 case 0:
 if (player.hasTag("")) {
-player.runCommand('');
+cmd(player, '');
 }
 menu_all_modos(player);
 break;
 
 case 1:
 if (player.hasTag("")) {
-player.runCommand('');
+cmd(player, '');
 }
 bijus_modos(player);
 break;
@@ -419,10 +420,10 @@ break;
 
 case 2:
 if (player.hasTag("manto_kurama_1_lock") && player.hasTag("jinchuuriki_kurama")) {
-            player.runCommand('/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s add manto_kurama_1');
-            player.runCommand('/execute as @s[scores={tp=700..}] run tag @s remove manto_kurama_1_lock');
-            player.runCommand('/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
+            cmd(player, '/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a700. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s add manto_kurama_1');
+            cmd(player, '/execute as @s[scores={tp=700..}] run tag @s remove manto_kurama_1_lock');
+            cmd(player, '/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
 }
 break;
 
@@ -430,10 +431,10 @@ break;
 
 case 3:
 if (player.hasTag("manto_kurama_3_lock") && !player.hasTag("manto_kurama_1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1000. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=1000..}] run tag @s add manto_kurama_3');
-            player.runCommand('/execute as @s[scores={tp=1000..}] run tag @s remove manto_kurama_3_lock');
-            player.runCommand('/execute as @s[scores={tp=1000..}] run scoreboard players remove @s tp 1000');
+            cmd(player, '/execute as @s[scores={tp=0..999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a1000. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=1000..}] run tag @s add manto_kurama_3');
+            cmd(player, '/execute as @s[scores={tp=1000..}] run tag @s remove manto_kurama_3_lock');
+            cmd(player, '/execute as @s[scores={tp=1000..}] run scoreboard players remove @s tp 1000');
 }
 break;
 
@@ -441,10 +442,10 @@ break;
 
 case 4:
 if (player.hasTag("manto_kurama_4_lock") && !player.hasTag("manto_kurama_3_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..2999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a3000. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run tag @s add manto_kurama_4');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run tag @s remove manto_kurama_4_lock');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run scoreboard players remove @s tp 3000');
+            cmd(player, '/execute as @s[scores={tp=0..2999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a3000. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run tag @s add manto_kurama_4');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run tag @s remove manto_kurama_4_lock');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run scoreboard players remove @s tp 3000');
 }
 break;
 
@@ -452,10 +453,10 @@ break;
 
 case 5:
 if (player.hasTag("manto_kurama_6_lock") && !player.hasTag("manto_kurama_4_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..4399}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a4500. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=4500..}] run tag @s add manto_kurama_6');
-            player.runCommand('/execute as @s[scores={tp=4500..}] run tag @s remove manto_kurama_6_lock');
-            player.runCommand('/execute as @s[scores={tp=4500..}] run scoreboard players remove @s tp 4500');
+            cmd(player, '/execute as @s[scores={tp=0..4399}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a4500. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=4500..}] run tag @s add manto_kurama_6');
+            cmd(player, '/execute as @s[scores={tp=4500..}] run tag @s remove manto_kurama_6_lock');
+            cmd(player, '/execute as @s[scores={tp=4500..}] run scoreboard players remove @s tp 4500');
 }
 break;
 
@@ -463,10 +464,10 @@ break;
 
 case 6:
 if (player.hasTag("mk1_lock") && !player.hasTag("manto_kurama_6_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..2999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a3000. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run tag @s add mk1');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run tag @s remove mk1_lock');
-            player.runCommand('/execute as @s[scores={tp=3000..}] run scoreboard players remove @s tp 3000');
+            cmd(player, '/execute as @s[scores={tp=0..2999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a3000. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run tag @s add mk1');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run tag @s remove mk1_lock');
+            cmd(player, '/execute as @s[scores={tp=3000..}] run scoreboard players remove @s tp 3000');
 }
 break;
 
@@ -474,10 +475,10 @@ break;
 
 case 7:
 if (player.hasTag("mk2_lock") && !player.hasTag("mk1_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..7999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a8000. Tp"}]}');
-            player.runCommand('/execute as @s[scores={tp=8000..}] run tag @s add mk2');
-            player.runCommand('/execute as @s[scores={tp=8000..}] run tag @s remove mk2_lock');
-            player.runCommand('/execute as @s[scores={tp=8000..}] run scoreboard players remove @s tp 8000');
+            cmd(player, '/execute as @s[scores={tp=0..7999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a8000. Tp"}]}');
+            cmd(player, '/execute as @s[scores={tp=8000..}] run tag @s add mk2');
+            cmd(player, '/execute as @s[scores={tp=8000..}] run tag @s remove mk2_lock');
+            cmd(player, '/execute as @s[scores={tp=8000..}] run scoreboard players remove @s tp 8000');
 }
 break;
 
@@ -485,11 +486,11 @@ break;
 
 case 8:
 if (player.hasTag("mk_barion_lock") && !player.hasTag("mk2_lock")) {
-            player.runCommand('/execute as @s[scores={tp=0..9999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a10000. Tp"}]}');
-            player.runCommand('/execute as @s[tag=!vip_storm,scores={tp=10000..}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §dVip Storm"}]}');
-            player.runCommand('/execute as @s[tag=vip_storm,scores={tp=10000..}] run tag @s add mk_barion');
-            player.runCommand('/execute as @s[tag=vip_storm,scores={tp=10000..}] run tag @s remove mk_barion_lock');
-            player.runCommand('/execute as @s[tag=vip_storm,scores={tp=10000..}] run scoreboard players remove @s tp 10000');
+            cmd(player, '/execute as @s[scores={tp=0..9999}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §a10000. Tp"}]}');
+            cmd(player, '/execute as @s[tag=!vip_storm,scores={tp=10000..}] run tellraw @s {"rawtext":[{"text":"§o§c[!] §eRequer §dVip Storm"}]}');
+            cmd(player, '/execute as @s[tag=vip_storm,scores={tp=10000..}] run tag @s add mk_barion');
+            cmd(player, '/execute as @s[tag=vip_storm,scores={tp=10000..}] run tag @s remove mk_barion_lock');
+            cmd(player, '/execute as @s[tag=vip_storm,scores={tp=10000..}] run scoreboard players remove @s tp 10000');
 }
 break;
 

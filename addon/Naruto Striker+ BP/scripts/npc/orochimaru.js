@@ -51,9 +51,9 @@ export function npc_orochimaru(player) {
     switch (response.selection) {
 
 case 0:
-player.runCommand('/execute as @s run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eentão você finalmente decidiu lutar. Mostre-me se é digno da marca que carrega."}]}');
-player.runCommand('/tag @s add treino_orochimaru');
-player.runCommand('/tag @e[r=10,type=tnt:orochimaru_npc,c=1] add mentor_furia');
+cmd(player, '/execute as @s run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eentão você finalmente decidiu lutar. Mostre-me se é digno da marca que carrega."}]}');
+cmd(player, '/tag @s add treino_orochimaru');
+cmd(player, '/tag @e[r=10,type=tnt:orochimaru_npc,c=1] add mentor_furia');
 break;
 
 case 1:
@@ -61,11 +61,11 @@ npc_orochimaru_pg2(player);
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eQue Interessante. Você Finalmente Recebeu Minha §dMarca Da Maldição."}]}');
-player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s add marca_v1');
-player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s remove treino_orochimaru');
-player.runCommand('/execute as @s[tag=orochimaru_complet] run tag @s remove marca_v1_lock');
-player.runCommand('/execute as @s[tag=!orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§c[!] §eDerrote Orochimaru Para Receber a §dMarca Da Maldição"}]}');
+cmd(player, '/execute as @s[tag=orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§a[Orochimaru] §eQue Interessante. Você Finalmente Recebeu Minha §dMarca Da Maldição."}]}');
+cmd(player, '/execute as @s[tag=orochimaru_complet] run tag @s add marca_v1');
+cmd(player, '/execute as @s[tag=orochimaru_complet] run tag @s remove treino_orochimaru');
+cmd(player, '/execute as @s[tag=orochimaru_complet] run tag @s remove marca_v1_lock');
+cmd(player, '/execute as @s[tag=!orochimaru_complet] run tellraw @s {"rawtext":[{"text":"§c[!] §eDerrote Orochimaru Para Receber a §dMarca Da Maldição"}]}');
 break;
 
     }

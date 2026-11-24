@@ -1,4 +1,5 @@
 // scripts/all.js
+import { cmd } from "./lib/cmd.js";
 import {
   world,
   EntityDamageCause,
@@ -35,7 +36,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
 
       // 🔥 SUMMON PORCO
       try {
-        target.runCommand("scoreboard players remove @s chakra 10");
+        cmd(target, "scoreboard players remove @s chakra 10");
       } catch (e) {
         console.warn("Erro ao spawnar porco:", e);
       }
@@ -66,7 +67,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     if (Math.random() < CHANCE_LEOES) {
 
       try {
-        target.runCommand("scoreboard players remove @s chakra 7");
+        cmd(target, "scoreboard players remove @s chakra 7");
       } catch {}
 
       try {
@@ -95,7 +96,7 @@ world.afterEvents.entityHurt.subscribe((ev) => {
     if (Math.random() < CHANCE_LEOES_DESTUIDOR) {
 
       try {
-        target.runCommand("scoreboard players remove @s chakra 15");
+        cmd(target, "scoreboard players remove @s chakra 15");
       } catch {}
 
       try {

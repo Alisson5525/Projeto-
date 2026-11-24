@@ -1,5 +1,6 @@
 // importações
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -83,114 +84,114 @@ export function menu(player) {
 
 case 0:
 if (!player.hasTag("modo_ativado") && !player.hasTag("sh_cooldown") && player.hasTag("sharingan")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:sharingan');
+cmd(player, '/event entity @s uchiha:sharingan');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break;
 
 case 1:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_itachi")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:mgk_itachi');
+cmd(player, '/event entity @s uchiha:mgk_itachi');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break;
 
 case 2:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_sasuke")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:mgk_sasuke');
+cmd(player, '/event entity @s uchiha:mgk_sasuke');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 case 3:
 if (!player.hasTag("modo_ativado") && !player.hasTag("mgk_cooldown") && player.hasTag("mgk_obito")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:mgk_obito');
+cmd(player, '/event entity @s uchiha:mgk_obito');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 //susanoo itachi
 case 4:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_it_1")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_itachi_f1');
+cmd(player, '/event entity @s uchiha:susano_itachi_f1');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 case 5:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_it_2")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_itachi_f2');
+cmd(player, '/event entity @s uchiha:susano_itachi_f2');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 //susanoo sasuke
 case 6:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_sk_1")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_sasuke_f1');
+cmd(player, '/event entity @s uchiha:susano_sasuke_f1');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 case 7:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_sk_2")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_sasuke_f2');
+cmd(player, '/event entity @s uchiha:susano_sasuke_f2');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 //susanoo sasuke
 case 8:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_ob_1")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_obito_f1');
+cmd(player, '/event entity @s uchiha:susano_obito_f1');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 case 9:
 if (!player.hasTag("modo_ativado") && !player.hasTag("susanoo_cooldown") && player.hasTag("susanoo_ob_2")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:susano_obito_f2');
+cmd(player, '/event entity @s uchiha:susano_obito_f2');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
 case 10:
 if (!player.hasTag("modo_ativado") && !player.hasTag("rinnegan_cooldown") && player.hasTag("rinnegan")) {
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 runTimeoutSeguro(() => {
-player.runCommand('/event entity @s uchiha:rinnegan');
+cmd(player, '/event entity @s uchiha:rinnegan');
 }, 3);
-runTimeoutSeguro(() => {player.runCommand('/effect @s instant_health 1 7 true');}, 4);
+runTimeoutSeguro(() => {cmd(player, '/effect @s instant_health 1 7 true');}, 4);
 } else { avisoModo(player); }
 break; 
 
@@ -198,9 +199,9 @@ break;
 
 case 11:
 if (player.hasTag("all_desativar_mds")) {
-player.runCommand('/tag @s remove modo_ativado');
-player.runCommand('/function tag/tags_cooldown_slot_1');
-player.runCommand('/event entity @s desativar_slot_1');
+cmd(player, '/tag @s remove modo_ativado');
+cmd(player, '/function tag/tags_cooldown_slot_1');
+cmd(player, '/event entity @s desativar_slot_1');
 }
 break;
 

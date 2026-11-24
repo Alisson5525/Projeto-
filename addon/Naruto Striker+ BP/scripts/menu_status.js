@@ -1,4 +1,5 @@
 import { world, system } from "@minecraft/server";
+import { cmd } from "./lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -143,32 +144,32 @@ export function menu_status(player) {
 
 case 0:
 if (player.hasTag("pergaminha_ninja_miss")) {
-player.runCommand('/tag @s add pergaminha_ninja_lock');
+cmd(player, '/tag @s add pergaminha_ninja_lock');
 }
 break;
 
 
 case 1:
 if (player.hasTag("pergaminha_ninja_lock") && !player.hasTag("vida_status_1")) {
-player.runCommand('/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=300..}] run function status/vida/vida_status_1');
-player.runCommand('/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
+cmd(player, '/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=300..}] run function status/vida/vida_status_1');
+cmd(player, '/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
 }
 break;
 
 case 2:
 if (player.hasTag("vida_status_1") && !player.hasTag("vida_status_2")) {
-player.runCommand('/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 600. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=600..}] run function status/vida/vida_status_2');
-player.runCommand('/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
+cmd(player, '/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 600. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=600..}] run function status/vida/vida_status_2');
+cmd(player, '/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
 }
 break;
 
 case 3:
 if (player.hasTag("vida_status_2") && !player.hasTag("vida_status_3")) {
-player.runCommand('/execute as @s[scores={tp=0..1299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=1400..}] run function status/vida/vida_status_3');
-player.runCommand('/execute as @s[scores={tp=1400..}] run scoreboard players remove @s tp 1400');
+cmd(player, '/execute as @s[scores={tp=0..1299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=1400..}] run function status/vida/vida_status_3');
+cmd(player, '/execute as @s[scores={tp=1400..}] run scoreboard players remove @s tp 1400');
 }
 break;
 
@@ -186,25 +187,25 @@ break;
 
 case 4:
 if (player.hasTag("pergaminha_ninja_lock") && !player.hasTag("forca_status_1")) {
-player.runCommand('/execute as @s[scores={tp=0..449}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 450. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=450..}] run function status/forca/forca_status_1');
-player.runCommand('/execute as @s[scores={tp=450..}] run scoreboard players remove @s tp 450');
+cmd(player, '/execute as @s[scores={tp=0..449}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 450. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=450..}] run function status/forca/forca_status_1');
+cmd(player, '/execute as @s[scores={tp=450..}] run scoreboard players remove @s tp 450');
 }
 break;
 
 case 5:
 if (player.hasTag("forca_status_1") && !player.hasTag("forca_status_2")) {
-player.runCommand('/execute as @s[scores={tp=0..799}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 800. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=800..}] run function status/forca/forca_status_2');
-player.runCommand('/execute as @s[scores={tp=800..}] run scoreboard players remove @s tp 800');
+cmd(player, '/execute as @s[scores={tp=0..799}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 800. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=800..}] run function status/forca/forca_status_2');
+cmd(player, '/execute as @s[scores={tp=800..}] run scoreboard players remove @s tp 800');
 }
 break;
 
 case 6:
 if (player.hasTag("forca_status_2") && !player.hasTag("forca_status_3")) {
-player.runCommand('/execute as @s[scores={tp=0..1699}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1700. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=1700..}] run function status/forca/forca_status_3');
-player.runCommand('/execute as @s[scores={tp=1700..}] run scoreboard players remove @s tp 1700');
+cmd(player, '/execute as @s[scores={tp=0..1699}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1700. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=1700..}] run function status/forca/forca_status_3');
+cmd(player, '/execute as @s[scores={tp=1700..}] run scoreboard players remove @s tp 1700');
 }
 break;
 
@@ -226,26 +227,26 @@ break;
 
 case 7:
 if (player.hasTag("pergaminha_ninja_lock") && !player.hasTag("chakra_status_1")) {
-player.runCommand('/execute as @s[scores={tp=0..199}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 200. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=200..}] run function status/chakra/chakra_status_1');
-player.runCommand('/execute as @s[scores={tp=200..}] run scoreboard players remove @s tp 200');
+cmd(player, '/execute as @s[scores={tp=0..199}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 200. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=200..}] run function status/chakra/chakra_status_1');
+cmd(player, '/execute as @s[scores={tp=200..}] run scoreboard players remove @s tp 200');
 }
 break;
 
 
 case 8:
 if (player.hasTag("chakra_status_1") && !player.hasTag("chakra_status_2")) {
-player.runCommand('/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=300..}] run function status/chakra/chakra_status_2');
-player.runCommand('/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
+cmd(player, '/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=300..}] run function status/chakra/chakra_status_2');
+cmd(player, '/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
 }
 break;
 
 case 9:
 if (player.hasTag("chakra_status_2") && !player.hasTag("chakra_status_3")) {
-player.runCommand('/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 700. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=700..}] run function status/chakra/chakra_status_3');
-player.runCommand('/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
+cmd(player, '/execute as @s[scores={tp=0..699}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 700. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=700..}] run function status/chakra/chakra_status_3');
+cmd(player, '/execute as @s[scores={tp=700..}] run scoreboard players remove @s tp 700');
 }
 break;
 
@@ -264,9 +265,9 @@ break;
 
 case 10:
 if (player.hasTag("pergaminha_ninja_lock") && !player.hasTag("all_status_dash")) {
-player.runCommand('/execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 500. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=500..}] run tag @s add all_status_dash');
-player.runCommand('/execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
+cmd(player, '/execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 500. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=500..}] run tag @s add all_status_dash');
+cmd(player, '/execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
 }
 break;
 
@@ -279,9 +280,9 @@ break;
 
 case 11:
 if (player.hasTag("all_status_dash") && !player.hasTag("all_status_implantar_olho")) {
-player.runCommand('/execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 500. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=500..}] run tag @s add all_status_implantar_olho');
-player.runCommand('/execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
+cmd(player, '/execute as @s[scores={tp=0..499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 500. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=500..}] run tag @s add all_status_implantar_olho');
+cmd(player, '/execute as @s[scores={tp=500..}] run scoreboard players remove @s tp 500');
 }
 break;
 
@@ -294,9 +295,9 @@ break;
 
 case 12:
 if (player.hasTag("all_status_implantar_olho") && !player.hasTag("all_status_vida_regen")) {
-player.runCommand('/execute as @s[scores={tp=0..1299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1300. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=1300..}] run tag @s add all_status_vida_regen');
-player.runCommand('/execute as @s[scores={tp=1300..}] run scoreboard players remove @s tp 1300');
+cmd(player, '/execute as @s[scores={tp=0..1299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1300. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=1300..}] run tag @s add all_status_vida_regen');
+cmd(player, '/execute as @s[scores={tp=1300..}] run scoreboard players remove @s tp 1300');
 }
 break;
 
@@ -309,10 +310,10 @@ break;
 
 case 13:
 if (player.hasTag("chakra_status_3") && player.hasTag("all_status_vida_regen") && !player.hasTag("all_desativar_mds")) {
-player.runCommand('/execute as @s[scores={tp=0..3499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 3500. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=3500..}] run tellraw @s {"rawtext":[{"text":"§c[!] §eNovo Botão disponível Nos Menu"}]}');
-player.runCommand('/execute as @s[scores={tp=3500..}] run tag @s add all_desativar_mds');
-player.runCommand('/execute as @s[scores={tp=3500..}] run scoreboard players remove @s tp 3500');
+cmd(player, '/execute as @s[scores={tp=0..3499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 3500. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=3500..}] run tellraw @s {"rawtext":[{"text":"§c[!] §eNovo Botão disponível Nos Menu"}]}');
+cmd(player, '/execute as @s[scores={tp=3500..}] run tag @s add all_desativar_mds');
+cmd(player, '/execute as @s[scores={tp=3500..}] run scoreboard players remove @s tp 3500');
 }
 break;
 
@@ -320,9 +321,9 @@ break;
 
 case 14:
 if (player.hasTag("vida_status_3") && player.hasTag("forca_status_3") && !player.hasTag("all_regeneracao_v2")) {
-player.runCommand('/execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 2000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=2000..}] run tag @s add all_regeneracao_v2');
-player.runCommand('/execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000');
+cmd(player, '/execute as @s[scores={tp=0..1999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 2000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=2000..}] run tag @s add all_regeneracao_v2');
+cmd(player, '/execute as @s[scores={tp=2000..}] run scoreboard players remove @s tp 2000');
 }
 break;
 
@@ -337,9 +338,9 @@ break;
 
 case 15:
 if (player.hasTag("all_regeneracao_v2") && player.hasTag("all_desativar_mds") && !player.hasTag("chakra_status_4")) {
-player.runCommand('/execute as @s[scores={tp=0..1399}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=1400..}] run function status/chakra/chakra_status_4');
-player.runCommand('/execute as @s[scores={tp=1400..}] run scoreboard players remove @s tp 1400');
+cmd(player, '/execute as @s[scores={tp=0..1399}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=1400..}] run function status/chakra/chakra_status_4');
+cmd(player, '/execute as @s[scores={tp=1400..}] run scoreboard players remove @s tp 1400');
 }
 break;
 
@@ -354,9 +355,9 @@ break;
 
 case 16:
 if (player.hasTag("chakra_status_4") && !player.hasTag("vida_status_4")) {
-player.runCommand('/execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=6000..}] run function status/vida/vida_status_4');
-player.runCommand('/execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000');
+cmd(player, '/execute as @s[scores={tp=0..5999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 6000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=6000..}] run function status/vida/vida_status_4');
+cmd(player, '/execute as @s[scores={tp=6000..}] run scoreboard players remove @s tp 6000');
 }
 break;
 
@@ -369,9 +370,9 @@ break;
 
 case 17:
 if (player.hasTag("vida_status_4") && !player.hasTag("chakra_status_5")) {
-player.runCommand('/execute as @s[scores={tp=0..2499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 2500. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=2500..}] run function status/chakra/chakra_status_5');
-player.runCommand('/execute as @s[scores={tp=2500..}] run scoreboard players remove @s tp 2500');
+cmd(player, '/execute as @s[scores={tp=0..2499}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 2500. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=2500..}] run function status/chakra/chakra_status_5');
+cmd(player, '/execute as @s[scores={tp=2500..}] run scoreboard players remove @s tp 2500');
 }
 break;
 
@@ -384,9 +385,9 @@ break;
 
 case 18:
 if (player.hasTag("chakra_status_5") && !player.hasTag("skills_sword")) {
-player.runCommand('/execute as @s[scores={tp=0..3999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 4000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=4000..}] run tag @s add skills_sword');
-player.runCommand('/execute as @s[scores={tp=4000..}] run scoreboard players remove @s tp 4000');
+cmd(player, '/execute as @s[scores={tp=0..3999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 4000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=4000..}] run tag @s add skills_sword');
+cmd(player, '/execute as @s[scores={tp=4000..}] run scoreboard players remove @s tp 4000');
 }
 break;
 
@@ -399,10 +400,10 @@ break;
 
 case 19:
 if (player.hasTag("skills_sword") && !player.hasTag("deus_shinobi")) {
-player.runCommand('/execute as @s[scores={tp=0..15999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 16000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=16000..}] run tellraw @s {"rawtext":[{"text":"§d[!] §aParabens Você Se Tornou §eDeus Shinobi"}]}');
-player.runCommand('/execute as @s[scores={tp=16000..}] run function status/deus_shinobi');
-player.runCommand('/execute as @s[scores={tp=16000..}] run scoreboard players remove @s tp 16000');
+cmd(player, '/execute as @s[scores={tp=0..15999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 16000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=16000..}] run tellraw @s {"rawtext":[{"text":"§d[!] §aParabens Você Se Tornou §eDeus Shinobi"}]}');
+cmd(player, '/execute as @s[scores={tp=16000..}] run function status/deus_shinobi');
+cmd(player, '/execute as @s[scores={tp=16000..}] run scoreboard players remove @s tp 16000');
 }
 break;
       }

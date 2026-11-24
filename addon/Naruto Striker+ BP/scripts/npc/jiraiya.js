@@ -86,8 +86,8 @@ case 1:
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
-player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
+cmd(player, '/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
 break;
 
     }

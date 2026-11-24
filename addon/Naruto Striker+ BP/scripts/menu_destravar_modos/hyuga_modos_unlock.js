@@ -1,5 +1,6 @@
 // importações
 import { world, system } from "@minecraft/server";
+import { cmd } from "../lib/cmd.js";
 
 // Agenda com protecao: se o jogador sair no meio da espera, o callback nao gera erro.
 function runTimeoutSeguro(fn, ticks) {
@@ -85,37 +86,37 @@ export function menu(player) {
 
 case 0:
 if (player.hasTag("byakugan_lock")) {
-player.runCommand('/execute as @s[scores={tp=0..99}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 100. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=100..}] run tag @s add byakugan');
-player.runCommand('/execute as @s[scores={tp=100..}] run tag @s remove byakugan_lock');
-player.runCommand('/execute as @s[scores={tp=100..}] run scoreboard players remove @s tp 100');
+cmd(player, '/execute as @s[scores={tp=0..99}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 100. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=100..}] run tag @s add byakugan');
+cmd(player, '/execute as @s[scores={tp=100..}] run tag @s remove byakugan_lock');
+cmd(player, '/execute as @s[scores={tp=100..}] run scoreboard players remove @s tp 100');
 }
 break;
 
 case 1:
 if (!player.hasTag("byakugan_lock") && player.hasTag("byakugan_evoluido_lock")) {
-player.runCommand('/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=300..}] run tag @s add byakugan_evoluido');
-player.runCommand('/execute as @s[scores={tp=300..}] run tag @s remove byakugan_evoluido_lock');
-player.runCommand('/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
+cmd(player, '/execute as @s[scores={tp=0..299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 300. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=300..}] run tag @s add byakugan_evoluido');
+cmd(player, '/execute as @s[scores={tp=300..}] run tag @s remove byakugan_evoluido_lock');
+cmd(player, '/execute as @s[scores={tp=300..}] run scoreboard players remove @s tp 300');
 }
 break;
 
 case 2:
 if (!player.hasTag("byakugan_evoluido_lock") && !player.hasTag("byakugan_lock") && player.hasTag("tenseigan_lock")) {
-player.runCommand('/execute as @s[scores={tp=0..999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=1000..}] run tag @s add tenseigan');
-player.runCommand('/execute as @s[scores={tp=1000..}] run tag @s remove tenseigan_lock');
-player.runCommand('/execute as @s[scores={tp=1000..}] run scoreboard players remove @s tp 1000');
+cmd(player, '/execute as @s[scores={tp=0..999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=1000..}] run tag @s add tenseigan');
+cmd(player, '/execute as @s[scores={tp=1000..}] run tag @s remove tenseigan_lock');
+cmd(player, '/execute as @s[scores={tp=1000..}] run scoreboard players remove @s tp 1000');
 }
 break;
 
 case 3:
 if (!player.hasTag("tenseigan_lock") && !player.hasTag("byakugan_evoluido_lock") && !player.hasTag("byakugan_lock") && player.hasTag("tenseigan_manto_lock")) {
-player.runCommand('/execute as @s[scores={tp=0..9999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 10000. Tp"}]}');
-player.runCommand('/execute as @s[scores={tp=10000..}] run tag @s add tenseigan_manto');
-player.runCommand('/execute as @s[scores={tp=10000..}] run tag @s remove tenseigan_manto_lock');
-player.runCommand('/execute as @s[scores={tp=10000..}] run scoreboard players remove @s tp 10000');
+cmd(player, '/execute as @s[scores={tp=0..9999}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 10000. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=10000..}] run tag @s add tenseigan_manto');
+cmd(player, '/execute as @s[scores={tp=10000..}] run tag @s remove tenseigan_manto_lock');
+cmd(player, '/execute as @s[scores={tp=10000..}] run scoreboard players remove @s tp 10000');
 }
 break;
 

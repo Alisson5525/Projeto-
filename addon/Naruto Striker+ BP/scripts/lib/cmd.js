@@ -14,7 +14,10 @@ function restrito(e) {
 }
 
 export function cmd(alvo, comando) {
-  if (!alvo || typeof comando !== "string" || comando.length === 0) return 0;
+  if (!alvo || typeof comando !== "string") return 0;
+  // a API pede o comando sem a barra inicial
+  comando = comando.replace(/^\s*\//, "");
+  if (comando.length === 0) return 0;
   try {
     return alvo.runCommand(comando)?.successCount ?? 0;
   } catch (e) {

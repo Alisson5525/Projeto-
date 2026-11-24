@@ -47,9 +47,9 @@ function ativarModo(player, modeId) {
 
   apresentarTransformacao(player);
 
-  for (const cmd of mode.cmdStart) {
+  for (const comando of mode.cmdStart) {
     // efeitos com a mesma duracao do modo acompanham o tempo estendido
-    const ajustado = cmd.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
+    const ajustado = comando.replace(/^(effect @s \S+ )(\d+)(?=\s)/, (m, a, d) => (Number(d) === mode.tempo ? a + tempo : m));
     try { cmd(player, ajustado); } catch (e) {}
   }
 }
@@ -69,8 +69,8 @@ function desativarModo(player, modeId) {
     if (player.isValid) player.playAnimation("animation.ns.destransformar", { controller: "ns_transformacao", blendOutTime: 0.3 });
   } catch {}
 
-  for (const cmd of mode.cmdFinish) {
-    try { cmd(player, cmd); } catch (e) {}
+  for (const comando of mode.cmdFinish) {
+    try { cmd(player, comando); } catch (e) {}
   }
 }
 

@@ -68,9 +68,9 @@ Vou permitir sua entrada na aldeia, mas a confiança só será conquistada atrav
     switch (response.selection) {
 
 case 0:
-player.runCommand('/execute as @s[tag=!missao_3_c] run tellraw @s {"rawtext":[{"text":"§a[Hokage] §cSuas missões ainda não foram concluídas."}]}');
-player.runCommand('/execute as @s[tag=missao_3_c] run tellraw @s {"rawtext":[{"text":"§a[Hokage] §aParabéns!§e Você agora é um Ninja da Vila da Folha."}]}');
-player.runCommand('/execute as @s[tag=missao_3_c] run tag @s add ninja_konoha');
+cmd(player, '/execute as @s[tag=!missao_3_c] run tellraw @s {"rawtext":[{"text":"§a[Hokage] §cSuas missões ainda não foram concluídas."}]}');
+cmd(player, '/execute as @s[tag=missao_3_c] run tellraw @s {"rawtext":[{"text":"§a[Hokage] §aParabéns!§e Você agora é um Ninja da Vila da Folha."}]}');
+cmd(player, '/execute as @s[tag=missao_3_c] run tag @s add ninja_konoha');
 break;
 
 case 1:
@@ -80,8 +80,8 @@ npc_tsunade_hokage_pg2(player);
 break;
 
 case 2:
-player.runCommand('/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
-player.runCommand('/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
+cmd(player, '/execute as @s[tag=ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eAgora Você E um Membro Da Aldeia Da Folha"}]}');
+cmd(player, '/execute as @s[tag=!ninja_konoha] run tellraw @s {"rawtext":[{"text":"§a[Tsunade] §eTermina As Missões Para Se Tornar um ninja da Folha"}]}');
 break;
 
     }
