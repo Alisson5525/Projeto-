@@ -1,0 +1,1137 @@
+{
+ "icones_contornados": [
+  "items/portao_vermelho.png",
+  "items/shibuki.png",
+  "items/kunai_minato.png",
+  "items/kiba.png",
+  "items/hud_modo_up.png",
+  "items/escolha_clan.png",
+  "items/rasen_shuriken.png",
+  "items/kunai_asuma.png",
+  "items/skill_kurama_manto_4.png",
+  "items/portao_verde.png",
+  "items/jutsu_medico.png",
+  "items/katubowari.png",
+  "items/portao_azul.png",
+  "items/kubikiribocho.png",
+  "items/pergaminho_ceifeiro.png",
+  "items/fragrimento_zetsu.png",
+  "items/foice_hidan.png",
+  "items/samehada.png",
+  "items/sinos.png",
+  "items/comida/peixe.png",
+  "items/comida/bolinho_arroz.png",
+  "items/comida/ramen.png",
+  "items/comida/espetinho.png",
+  "items/comida/picole.png"
+ ],
+ "limpeza": {
+  "tudo/hyuga/destruidor_leoes_gemeos.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 9,
+   "cores_depois": 8,
+   "orfaos": 0
+  },
+  "tudo/hyuga/oito_trigramas.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 370,
+   "cores_depois": 28,
+   "orfaos": 8
+  },
+  "tudo/hyuga/leao_gemeos.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 22,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "tudo/hyuga/teiseigan_chakra_orb.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 8,
+   "cores_depois": 7,
+   "orfaos": 0
+  },
+  "tudo/hyuga/tenseigan_pele.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 23,
+   "cores_depois": 15,
+   "orfaos": 0
+  },
+  "tudo/espadas/shibuki.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 193,
+   "cores_depois": 46,
+   "orfaos": 0
+  },
+  "tudo/espadas/kunai_minato.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 97,
+   "cores_depois": 21,
+   "orfaos": 0
+  },
+  "tudo/espadas/hiramekarei.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 130,
+   "cores_depois": 11,
+   "orfaos": 1
+  },
+  "tudo/espadas/kiba.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 93,
+   "cores_depois": 28,
+   "orfaos": 0
+  },
+  "tudo/espadas/kunai_asuma.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 52,
+   "cores_depois": 13,
+   "orfaos": 0
+  },
+  "tudo/espadas/katubowari.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 141,
+   "cores_depois": 29,
+   "orfaos": 0
+  },
+  "tudo/espadas/kubikiribocho.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 220,
+   "cores_depois": 28,
+   "orfaos": 0
+  },
+  "tudo/espadas/gunbai.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 226,
+   "cores_depois": 37,
+   "orfaos": 0
+  },
+  "tudo/espadas/foice_hidan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 66,
+   "cores_depois": 27,
+   "orfaos": 0
+  },
+  "tudo/espadas/samehada.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 376,
+   "cores_depois": 35,
+   "orfaos": 8
+  },
+  "tudo/dna_hashirama/dna_hashirama_braco.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 18,
+   "cores_depois": 18,
+   "orfaos": 2
+  },
+  "tudo/jutsu/rasen_shuriken.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 282,
+   "cores_depois": 16,
+   "orfaos": 5
+  },
+  "tudo/jutsu/rasengan_3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 66,
+   "cores_depois": 7,
+   "orfaos": 0
+  },
+  "tudo/jutsu/rasengan_3_biju.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 3,
+   "cores_depois": 1,
+   "orfaos": 0
+  },
+  "tudo/jutsu/rasengan_biju.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 7,
+   "cores_depois": 1,
+   "orfaos": 0
+  },
+  "tudo/jutsu/rasengan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 230,
+   "cores_depois": 17,
+   "orfaos": 0
+  },
+  "tudo/portoes/masculino_8_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 1283,
+   "cores_depois": 57,
+   "orfaos": 14
+  },
+  "tudo/portoes/masculino_6_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 12,
+   "cores_depois": 11,
+   "orfaos": 19
+  },
+  "tudo/portoes/masculino_3_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 12,
+   "cores_depois": 11,
+   "orfaos": 19
+  },
+  "tudo/modo_sennin/sapo/modo_sennin_sapo_p_mancha.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 3,
+   "cores_depois": 2,
+   "orfaos": 0
+  },
+  "tudo/modo_sennin/sapo/sapos_eremitas.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 48,
+   "cores_depois": 45,
+   "orfaos": 10
+  },
+  "tudo/marca/marca_s_n3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 15,
+   "cores_depois": 13,
+   "orfaos": 16
+  },
+  "tudo/marca/marca_s_n2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 8,
+   "cores_depois": 7,
+   "orfaos": 0
+  },
+  "tudo/rinnegan/meteorio_rine.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 5,
+   "cores_depois": 5,
+   "orfaos": 12
+  },
+  "tudo/rinnegan/meteorio_rine_camada.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 5,
+   "cores_depois": 5,
+   "orfaos": 6
+  },
+  "tudo/uchiha/olho_sharingan_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 97,
+   "cores_depois": 17,
+   "orfaos": 1
+  },
+  "tudo/uchiha/susanoo/susanoo_ob1_f4.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 23
+  },
+  "tudo/uchiha/susanoo/susanoo_ob2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 13,
+   "cores_depois": 12,
+   "orfaos": 74
+  },
+  "tudo/uchiha/susanoo/susanoo_sk2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 13,
+   "cores_depois": 12,
+   "orfaos": 8
+  },
+  "tudo/uchiha/susanoo/susanoo_ob1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 23
+  },
+  "tudo/uchiha/susanoo/susanoo_it1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 2
+  },
+  "tudo/uchiha/susanoo/susanoo_ob1_f3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 23
+  },
+  "tudo/uchiha/susanoo/susanoo_it1_f3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 2
+  },
+  "tudo/uchiha/susanoo/susanoo_it1_f2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 2
+  },
+  "tudo/uchiha/susanoo/susanoo_it1_f4.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 2
+  },
+  "tudo/uchiha/susanoo/susanoo_ob1_f2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 10,
+   "cores_depois": 10,
+   "orfaos": 23
+  },
+  "tudo/uchiha/susanoo/susanoo_it2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 17,
+   "cores_depois": 16,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/barion_olho.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 8,
+   "cores_depois": 7,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/mk2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 15,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/manto_kurama_1_f3.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 2,
+   "cores_depois": 2,
+   "orfaos": 145
+  },
+  "tudo/bijus/kurama/manto_kurama_1_f2.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 2,
+   "cores_depois": 2,
+   "orfaos": 135
+  },
+  "tudo/bijus/kurama/avatar_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 522,
+   "cores_depois": 34,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/cabeca_chakra_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 522,
+   "cores_depois": 34,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/manto_kurama_1_borda.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 2,
+   "cores_antes": 6,
+   "cores_depois": 6,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/manto_kurama_4.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 225,
+   "cores_depois": 55,
+   "orfaos": 329
+  },
+  "tudo/bijus/kurama/bijudama_borda.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 13,
+   "cores_depois": 9,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/kurama_rikudou.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 56,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/bijudama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 509,
+   "cores_depois": 21,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/gudoudama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 2,
+   "cores_depois": 2,
+   "orfaos": 48
+  },
+  "tudo/bijus/kurama/braco_kurama_4.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 357,
+   "cores_depois": 17,
+   "orfaos": 212
+  },
+  "tudo/bijus/kurama/barion_kurama_borda.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 9,
+   "cores_depois": 8,
+   "orfaos": 0
+  },
+  "tudo/bijus/kurama/manto_kurama_6.png": {
+   "alfa_residuo": 0,
+   "cores_antes": 230,
+   "cores_depois": 61,
+   "orfaos": 299
+  },
+  "tudo/bijus/shukaku/manto_shukaku_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 21,
+   "cores_depois": 21,
+   "orfaos": 73
+  },
+  "tudo/bijus/shukaku/manto_shukaku_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 20,
+   "cores_depois": 20,
+   "orfaos": 52
+  },
+  "tudo/segundario/ceifeiro.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 31,
+   "cores_depois": 29,
+   "orfaos": 1
+  },
+  "tudo/segundario/pesos.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 5,
+   "cores_depois": 5,
+   "orfaos": 1
+  },
+  "tudo/segundario/cabaca_gaara.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 114,
+   "cores_depois": 13,
+   "orfaos": 10
+  },
+  "jutsus/agua/tubarao_triplo_projetil.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 9,
+   "cores_depois": 9,
+   "orfaos": 2
+  },
+  "roupas/roupa_sasuke.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 340,
+   "cores_depois": 37,
+   "orfaos": 6
+  },
+  "roupas/armadura_madara.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 207,
+   "cores_depois": 28,
+   "orfaos": 10
+  },
+  "roupas/manto_preto_anbu.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 213,
+   "cores_depois": 23,
+   "orfaos": 4
+  },
+  "roupas/roupa_naruto.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 243,
+   "cores_depois": 41,
+   "orfaos": 5
+  },
+  "roupas/roupa_anbu.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 214,
+   "cores_depois": 22,
+   "orfaos": 4
+  },
+  "roupas/manto_rkg_minato.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 207,
+   "cores_depois": 19,
+   "orfaos": 1
+  },
+  "roupas/roupa_shisui.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 188,
+   "cores_depois": 24,
+   "orfaos": 0
+  },
+  "roupas/roupa_zabuza.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 199,
+   "cores_depois": 23,
+   "orfaos": 2
+  },
+  "roupas/jaqueta_jonin.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 222,
+   "cores_depois": 39,
+   "orfaos": 2
+  },
+  "roupas/roupa_gaara_c.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 225,
+   "cores_depois": 28,
+   "orfaos": 0
+  },
+  "roupas/roupa_obito_g.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 220,
+   "cores_depois": 34,
+   "orfaos": 4
+  },
+  "roupas/manto_akatsuki.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 188,
+   "cores_depois": 24,
+   "orfaos": 3
+  },
+  "roupas/mascaras/mascara_obito_g.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 107,
+   "cores_depois": 18,
+   "orfaos": 0
+  },
+  "roupas/mascaras/mascara_haku.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 97,
+   "cores_depois": 23,
+   "orfaos": 0
+  },
+  "roupas/mascaras/mascara_obito_s.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 119,
+   "cores_depois": 23,
+   "orfaos": 0
+  },
+  "roupas/mascaras/mascara_anbu.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 96,
+   "cores_depois": 16,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/roupa_gaara_c_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 241,
+   "cores_depois": 27,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/roupa_zabuza_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 229,
+   "cores_depois": 23,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/armadura_madara_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 210,
+   "cores_depois": 23,
+   "orfaos": 4
+  },
+  "roupas/tenseigan/jaqueta_jonin_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 269,
+   "cores_depois": 39,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/manto_akatsuki_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 216,
+   "cores_depois": 22,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/roupa_anbu_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 215,
+   "cores_depois": 21,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/roupa_shisui_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 222,
+   "cores_depois": 28,
+   "orfaos": 0
+  },
+  "roupas/tenseigan/roupa_obito_g_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 308,
+   "cores_depois": 32,
+   "orfaos": 4
+  },
+  "roupas/tenseigan/roupa_naruto_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 266,
+   "cores_depois": 36,
+   "orfaos": 5
+  },
+  "roupas/tenseigan/roupa_sasuke_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 302,
+   "cores_depois": 28,
+   "orfaos": 6
+  },
+  "roupas/tenseigan/manto_rkg_minato_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 202,
+   "cores_depois": 20,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_obito_g_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 315,
+   "cores_depois": 46,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_sasuke_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 313,
+   "cores_depois": 40,
+   "orfaos": 0
+  },
+  "roupas/mk1/manto_akatsuki_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 244,
+   "cores_depois": 35,
+   "orfaos": 0
+  },
+  "roupas/mk1/manto_rkg_minato_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 206,
+   "cores_depois": 28,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_gaara_c_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 242,
+   "cores_depois": 43,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_shisui_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 218,
+   "cores_depois": 37,
+   "orfaos": 0
+  },
+  "roupas/mk1/jaqueta_jonin_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 254,
+   "cores_depois": 45,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_zabuza_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 232,
+   "cores_depois": 38,
+   "orfaos": 0
+  },
+  "roupas/mk1/armadura_madara_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 235,
+   "cores_depois": 36,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_naruto_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 262,
+   "cores_depois": 45,
+   "orfaos": 0
+  },
+  "roupas/mk1/roupa_anbu_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 218,
+   "cores_depois": 35,
+   "orfaos": 0
+  },
+  "custom/masculino_escuro.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 146,
+   "cores_depois": 25,
+   "orfaos": 1
+  },
+  "custom/masculino_claro.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 177,
+   "cores_depois": 30,
+   "orfaos": 0
+  },
+  "custom/cabelo_naruto/cabelo_naruto.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 95,
+   "cores_depois": 17,
+   "orfaos": 0
+  },
+  "custom/cabelo_naruto/cabelo_naruto_biju_sangue.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 71,
+   "cores_depois": 9,
+   "orfaos": 0
+  },
+  "custom/cabelo_naruto/cabelo_naruto_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 85,
+   "cores_depois": 12,
+   "orfaos": 0
+  },
+  "custom/cabelo_naruto/cabelo_naruto_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 85,
+   "cores_depois": 12,
+   "orfaos": 0
+  },
+  "custom/cabelo_naruto/cabelo_naruto_8_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 79,
+   "cores_depois": 13,
+   "orfaos": 0
+  },
+  "custom/cabelo_madara/cabelo_madara.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 53,
+   "cores_depois": 3,
+   "orfaos": 0
+  },
+  "custom/cabelo_madara/cabelo_madara_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 110,
+   "cores_depois": 16,
+   "orfaos": 0
+  },
+  "custom/cabelo_madara/cabelo_madara_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 108,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "custom/cabelo_madara/cabelo_madara_8_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 93,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "custom/cabelo_madara/cabelo_madara_biju_sangue.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 78,
+   "cores_depois": 9,
+   "orfaos": 0
+  },
+  "custom/cabelo_sasuke/cabelo_sasuke_biju_sangue.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 79,
+   "cores_depois": 10,
+   "orfaos": 0
+  },
+  "custom/cabelo_sasuke/cabelo_sasuke_tenseigan.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 96,
+   "cores_depois": 13,
+   "orfaos": 0
+  },
+  "custom/cabelo_sasuke/cabelo_sasuke.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 56,
+   "cores_depois": 5,
+   "orfaos": 0
+  },
+  "custom/cabelo_sasuke/cabelo_sasuke_mk_kurama.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 94,
+   "cores_depois": 15,
+   "orfaos": 0
+  },
+  "custom/cabelo_sasuke/cabelo_sasuke_8_portao.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 91,
+   "cores_depois": 14,
+   "orfaos": 0
+  },
+  "bosses/dummy.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 7,
+   "cores_depois": 7,
+   "orfaos": 98
+  },
+  "bosses/barra_boss_timer.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 16,
+   "cores_depois": 16,
+   "orfaos": 1
+  },
+  "bosses/miss_c/anbu_bandido_c.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 274,
+   "cores_depois": 100,
+   "orfaos": 2
+  },
+  "bosses/miss_c/anbu_basico.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 285,
+   "cores_depois": 61,
+   "orfaos": 0
+  },
+  "bosses/miss_c/anbu_bandido_a.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 234,
+   "cores_depois": 84,
+   "orfaos": 4
+  },
+  "bosses/miss_c/anbu_boss.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 290,
+   "cores_depois": 60,
+   "orfaos": 0
+  },
+  "bosses/miss_c/kakashi.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 224,
+   "cores_depois": 53,
+   "orfaos": 0
+  },
+  "bosses/miss_c/bandido_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 271,
+   "cores_depois": 87,
+   "orfaos": 0
+  },
+  "bosses/miss_c/orochimaru_mulher.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 264,
+   "cores_depois": 52,
+   "orfaos": 9
+  },
+  "bosses/miss_c/bandido_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 320,
+   "cores_depois": 101,
+   "orfaos": 2
+  },
+  "bosses/miss_c/kisame_c.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 341,
+   "cores_depois": 73,
+   "orfaos": 2
+  },
+  "bosses/miss_c/zabuza.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 367,
+   "cores_depois": 65,
+   "orfaos": 1
+  },
+  "bosses/miss_c/neji.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 4,
+   "cores_antes": 354,
+   "cores_depois": 73,
+   "orfaos": 10
+  },
+  "bosses/miss_c/gaara.png": {
+   "alfa_residuo": 33,
+   "alfa_fechado": 1,
+   "cores_antes": 486,
+   "cores_depois": 99,
+   "orfaos": 11
+  },
+  "bosses/miss_c/haku.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 276,
+   "cores_depois": 63,
+   "orfaos": 0
+  },
+  "bosses/miss_c/itachi_c.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 373,
+   "cores_depois": 69,
+   "orfaos": 0
+  },
+  "bosses/mentores/orochimaru_c.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 197,
+   "cores_depois": 43,
+   "orfaos": 0
+  },
+  "bosses/mundo/uchiha_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 29,
+   "cores_antes": 209,
+   "cores_depois": 37,
+   "orfaos": 0
+  },
+  "bosses/mundo/espadachin_v_3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 812,
+   "cores_depois": 98,
+   "orfaos": 12
+  },
+  "bosses/mundo/zetsu_branco_v_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 290,
+   "cores_depois": 46,
+   "orfaos": 2
+  },
+  "bosses/mundo/ninja_folha_v_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 279,
+   "cores_depois": 56,
+   "orfaos": 0
+  },
+  "bosses/mundo/ninja_folha_v_3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 289,
+   "cores_depois": 56,
+   "orfaos": 1
+  },
+  "bosses/mundo/uchiha_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 5,
+   "cores_antes": 201,
+   "cores_depois": 66,
+   "orfaos": 0
+  },
+  "bosses/mundo/zetsu_branco_v_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 289,
+   "cores_depois": 43,
+   "orfaos": 2
+  },
+  "bosses/mundo/ninja_areia_v_3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 182,
+   "cores_depois": 40,
+   "orfaos": 0
+  },
+  "bosses/mundo/ninja_areia_v_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 176,
+   "cores_depois": 37,
+   "orfaos": 0
+  },
+  "bosses/mundo/ninja_areia_v_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 179,
+   "cores_depois": 39,
+   "orfaos": 0
+  },
+  "bosses/mundo/ninja_folha_v_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 335,
+   "cores_depois": 67,
+   "orfaos": 0
+  },
+  "bosses/mundo/espadachin_v_2.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 3,
+   "cores_antes": 1336,
+   "cores_depois": 54,
+   "orfaos": 5
+  },
+  "bosses/mundo/uchiha_3.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 29,
+   "cores_antes": 189,
+   "cores_depois": 50,
+   "orfaos": 4
+  },
+  "bosses/mundo/espadachin_v_1.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 3,
+   "cores_antes": 1435,
+   "cores_depois": 56,
+   "orfaos": 6
+  },
+  "bosses/outline/outline_vermelha.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 18,
+   "cores_depois": 13,
+   "orfaos": 0
+  },
+  "bosses/biju/kurama_biju.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 761,
+   "cores_depois": 66,
+   "orfaos": 6
+  },
+  "bosses/biju/shukaku_biju.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 354,
+   "cores_depois": 40,
+   "orfaos": 12
+  },
+  "bosses/biju/pergaminho_biju.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 221,
+   "cores_depois": 32,
+   "orfaos": 0
+  },
+  "npcs/naruto_hokage.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 290,
+   "cores_depois": 68,
+   "orfaos": 0
+  },
+  "npcs/teuchi.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 282,
+   "cores_depois": 30,
+   "orfaos": 0
+  },
+  "npcs/tsunade.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 266,
+   "cores_depois": 57,
+   "orfaos": 0
+  },
+  "npcs/guy.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 897,
+   "cores_depois": 114,
+   "orfaos": 7
+  },
+  "npcs/jiraiya.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 299,
+   "cores_depois": 51,
+   "orfaos": 0
+  },
+  "npcs/iruka.png": {
+   "alfa_residuo": 0,
+   "alfa_fechado": 0,
+   "cores_antes": 280,
+   "cores_depois": 48,
+   "orfaos": 8
+  }
+ }
+}
