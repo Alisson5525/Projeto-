@@ -71,13 +71,20 @@ mc.world.afterEvents.itemStopUse.subscribe(event => {
   } else if (player.hasTag("in_kamui")) {
     player.removeTag("in_kamui");
 
-    if (player_position_str) {
-      const pos = JSON.parse(String(player_position_str));
+    let pos;
+    try { pos = player_position_str ? JSON.parse(String(player_position_str)) : undefined; } catch { pos = undefined; }
+    if (pos && [pos.x, pos.y, pos.z].every(Number.isFinite)) {
       cmd(player, `execute in overworld run tp @s ${pos.x} ${pos.y} ${pos.z}`);
+    } else {
+      // sem posicao salva: volta ao ponto de nascimento do mundo (antes ficava preso no End)
+      const sp = world.getDefaultSpawnLocation();
+      const y = sp.y > 300 || sp.y < -64 ? 100 : sp.y;
+      cmd(player, `execute in overworld run tp @s ${sp.x} ${y} ${sp.z}`);
     }
   } else {
+    // salva a posicao ANTES do teleporte (o comando agora e sincrono)
+    player.setDynamicProperty("player_position", JSON.stringify(player.location));
     player.addTag("in_kamui");
     cmd(player, `execute in the_end run tp @s ${THE_END_POS.x} ${THE_END_POS.y + 1} ${THE_END_POS.z}`);
-    player.setDynamicProperty("player_position", JSON.stringify(player.location));
   }
 });

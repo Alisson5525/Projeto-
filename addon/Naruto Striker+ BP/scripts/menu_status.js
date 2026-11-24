@@ -167,7 +167,7 @@ break;
 
 case 3:
 if (player.hasTag("vida_status_2") && !player.hasTag("vida_status_3")) {
-cmd(player, '/execute as @s[scores={tp=0..1299}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=0..1399}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 1400. Tp"}]}');
 cmd(player, '/execute as @s[scores={tp=1400..}] run function status/vida/vida_status_3');
 cmd(player, '/execute as @s[scores={tp=1400..}] run scoreboard players remove @s tp 1400');
 }

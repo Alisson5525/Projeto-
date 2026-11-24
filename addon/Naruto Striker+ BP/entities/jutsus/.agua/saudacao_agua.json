@@ -1,15 +1,15 @@
 {
-    "format_version": "1.19.0",
-    "minecraft:entity": {
-      "description": {
-        "identifier": "tnt:saudacao_agua",
-        "is_spawnable": false,
-        "is_summonable": true,
-        "is_experimental": false,
-        "runtime_identifier": "minecraft:snowball"
-      },
-      "component_groups": {
-     "tnt:despawn": {
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:saudacao_agua",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "tnt:despawn": {
         "minecraft:transformation": {
           "into": "tnt:despawn",
           "delay": 0.0
@@ -17,25 +17,30 @@
       },
       "despawning": {
         "minecraft:type_family": {
-          "family": [ "despawer","despawer_despawning" ]
+          "family": [
+            "despawer",
+            "despawer_despawning"
+          ]
         }
       }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "jutsu_comum"
+        ]
       },
-      "components": {
-"minecraft:type_family": {"family": ["jutsu_comum"]},
-
       "minecraft:environment_sensor": {
         "triggers": [
-                    {
+          {
             "filters": {},
             "event": "tnt:tick"
           },
-                    {
+          {
             "filters": {
-          "test": "has_tag",
-          "operator": "==",
-          "value": "impact_skill"
-
+              "test": "has_tag",
+              "operator": "==",
+              "value": "impact_skill"
             },
             "event": "tnt:impact_rasen"
           }
@@ -48,56 +53,54 @@
           "event": "tnt:despawn"
         }
       },
-
-
-        
-        "minecraft:collision_box": {
-          "width": 0.25,
-          "height": 0.25
-        },
-        "minecraft:projectile": {
-         "on_hit": {
-          
-     "definition_event": {
-      "affect_projectile": true,
-      "event_trigger": {
-            "event": "on:hit",
-            "target": "self"
-      }
-     },
-      "impact_damage": {
-              "damage": 12
-            }
-    },
-         "power": 1.6,
-          "gravity": 0,
-          "uncertainty_base": 16,
-          "uncertainty_multiplier": 4,
-          "anchor": 3,
-        "offset": [ 0, 0, 0 ]
-        },
-        "minecraft:physics": {}
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
       },
-      "events": {
-        
-
-    
-
-
-"tnt:despawn": {
-"add": {"component_groups": ["tnt:despawn"]}
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "on:hit",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 12
+          }
         },
-
-        "on:hit": {
-           "queue_command": {
-                "command": [
-                "playsound dig.gravel @a[r=15] ~ ~ ~ 1 1",
-                "particle tnt:impact_agua",
-                "kill @s"
-
-                ]
-              }
+        "power": 1.6,
+        "gravity": 0,
+        "uncertainty_base": 16,
+        "uncertainty_multiplier": 4,
+        "anchor": 3,
+        "offset": [
+          0,
+          0,
+          0
+        ]
+      },
+      "minecraft:physics": {}
+    },
+    "events": {
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
         }
-      }
+      },
+      "on:hit": {
+        "queue_command": {
+          "command": [
+            "playsound dig.gravel @a[r=15] ~ ~ ~ 1 1",
+            "particle tnt:impact_agua",
+            "kill @s"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {}
     }
   }
+}

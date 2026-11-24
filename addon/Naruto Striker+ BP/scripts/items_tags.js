@@ -116,6 +116,7 @@ const ITEMS = [
 
 // 🧠 CACHE (evita spam)
 const playerState = new Map();
+world.afterEvents.playerLeave.subscribe((ev) => playerState.delete(ev.playerId));
 
 system.runInterval(() => {
   for (const player of world.getPlayers()) {

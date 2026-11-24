@@ -1,6 +1,6 @@
 {
   "format_version": "1.10.0",
-	"minecraft:entity": {
+  "minecraft:entity": {
     "description": {
       "identifier": "tnt:empurrao_kurama_biju",
       "is_spawnable": false,
@@ -8,63 +8,79 @@
       "is_experimental": false,
       "runtime_identifier": "tnt:empurrao_kurama_biju"
     },
-	"components": {
-     "minecraft:damage_sensor": [
-       {
-        "cause": "all",
-        "deals_damage": false
-       }
-     ],
-     "minecraft:type_family": {
-       "family": [ "empurrao" ]
-     },
-     "minecraft:collision_box": {
-		"width": 0.25,
-		"height": 0.25
-     },
-     "minecraft:scale": {
-       "value": 0.0
-     },
-     "minecraft:explode": {
-      "fuseLength": 1,
-      "fuseLit": true,
-      "power": 0,
-      "fireAffectedByGriefing": false,
-      "destroyAffectedByGriefing": false,
-      "breaks_blocks": true
-     },
-        "minecraft:behavior.knockback_roar": {
-          "priority": 1,
-          "duration": 0.1,
-          "attack_time": 0.1,
-          "knockback_damage": 0,
-          "knockback_strength": 3,
-          "knockback_range": 5,
-          "knockback_filters": {
-            "test": "is_family",
-            "subject": "other",
-            "operator": "!=",
-            "value": "bijus"
-          },
-          "damage_filters": {
-            "test": "is_family",
-            "subject": "other",
-            "operator": "=",
-            "value": "oni"
-          },
-          "on_roar_end": {
-            "event": "vanish"
-          },
-          "cooldown_time": 0.1
+    "components": {
+      "minecraft:damage_sensor": [
+        {
+          "cause": "all",
+          "deals_damage": false
+        }
+      ],
+      "minecraft:type_family": {
+        "family": [
+          "empurrao"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:scale": {
+        "value": 0.0
+      },
+      "minecraft:explode": {
+        "fuseLength": 1,
+        "fuseLit": true,
+        "power": 0,
+        "fireAffectedByGriefing": false,
+        "destroyAffectedByGriefing": false,
+        "breaks_blocks": true
+      },
+      "minecraft:behavior.knockback_roar": {
+        "priority": 1,
+        "duration": 0.1,
+        "attack_time": 0.1,
+        "knockback_damage": 0,
+        "knockback_strength": 3,
+        "knockback_range": 5,
+        "knockback_filters": {
+          "test": "is_family",
+          "subject": "other",
+          "operator": "!=",
+          "value": "bijus"
         },
-         "minecraft:pushable": {
-           "is_pushable": true,
-           "is_pushable_by_piston": true
-         },
-         "minecraft:physics": {
-           "has_gravity": false,
-           "has_collision": false
-         }
-		}
-	}
+        "damage_filters": {
+          "test": "is_family",
+          "subject": "other",
+          "operator": "=",
+          "value": "oni"
+        },
+        "on_roar_end": {
+          "event": "vanish"
+        },
+        "cooldown_time": 0.1
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      }
+    },
+    "events": {
+      "vanish": {
+        "add": {
+          "component_groups": [
+            "tnt:sumir"
+          ]
+        }
+      }
+    },
+    "component_groups": {
+      "tnt:sumir": {
+        "minecraft:instant_despawn": {}
+      }
+    }
+  }
 }

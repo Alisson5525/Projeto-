@@ -211,11 +211,13 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   responder(`§6[Naruto Striker+] §f${opcao} §7=> ${valor === "on" ? "§aon" : "§coff"}`);
 });
 
-/* Placares que o add-on original usa mas nunca criava (ex.: "dash" e o tempo de
-   recarga do dash duplo; sem ele a recarga nunca funcionava). Criados ao carregar
-   o mundo, inclusive em mundos antigos. */
+/* Placares usados pelo add-on, criados ao carregar o mundo (inclusive mundos antigos).
+   Inclui os que o original nunca criava (ex.: "dash") e todos os de start.mcfunction,
+   para que nenhum comando falhe se um script rodar antes do start do jogador. */
 system.runTimeout(() => {
-  for (const nome of ["dash", "slot_select", "slot_cooldown_1", "stamina", "reset_all", "ns_nivel"]) objetivo(nome);
+  for (const nome of [
+    "dash", "slot_select", "slot_cooldown_1", "stamina", "reset_all", "ns_nivel", "skill_selados_timer", "chakra_acumulado", "charge_bijuu", "charge_bijuu_max", "pesos_guy", "bndidos_c_miss", "missao_classico", "bndidos_a_miss", "pergminho_konoha", "gatos_miss", "cooldown_miss", "cooldown_miss_tick", "current_health", "tempo_doujutsu", "tempo_doujutsu_slot_2", "tempo_modos", "health_stats2", "health_stats3", "health_dna", "clans", "chakra", "chakra_max", "isanagi", "tp", "health_stats", "dano_stats",
+  ]) objetivo(nome);
 }, 1);
 
 /* Propriedade visual do Izanagi (olhos do DNA Hashirama) a partir do placar "isanagi".

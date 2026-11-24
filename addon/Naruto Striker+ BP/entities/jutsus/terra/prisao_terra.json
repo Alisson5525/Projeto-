@@ -6,10 +6,9 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
-
     },
     "component_groups": {
-     "tnt:despawn": {
+      "tnt:despawn": {
         "minecraft:transformation": {
           "into": "tnt:despawn",
           "delay": 0.0
@@ -17,25 +16,30 @@
       },
       "despawning": {
         "minecraft:type_family": {
-          "family": [ "despawer","despawer_despawning" ]
+          "family": [
+            "despawer",
+            "despawer_despawning"
+          ]
         }
       }
     },
     "components": {
-              "minecraft:timer": {
-          "time": 10,
-          "looping": true,
-          "time_down_event": {
-            "event": "minecraft:evol2",
-            "target": "self"
-          }
-        },
+      "minecraft:timer": {
+        "time": 10,
+        "looping": true,
+        "time_down_event": {
+          "event": "minecraft:evol2",
+          "target": "self"
+        }
+      },
       "minecraft:type_family": {
-        "family": [ "jutsu" ]
-    },
+        "family": [
+          "jutsu"
+        ]
+      },
       "minecraft:environment_sensor": {
         "triggers": [
-                    {
+          {
             "filters": {},
             "event": "tnt:tick"
           }
@@ -46,45 +50,48 @@
         "damage_per_tick": 1,
         "cause": "contact"
       },
-
       "minecraft:loot": {
-        "table": "loot_tables/"
+        "table": "loot_tables/ns/vazio.json"
       },
       "minecraft:damage_sensor": {
         "triggers": [
           {
-          "cause": "all",
+            "cause": "all",
             "deals_damage": false
           }
         ]
-        },
+      },
       "minecraft:collision_box": {
         "width": 0.0,
         "height": 0.0
       },
       "minecraft:health": {
         "value": 5000,
-		"max": 5000
+        "max": 5000
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
             "damage_per_tick": 4
           }
         ]
       },
-      "minecraft:can_climb": {
+      "minecraft:can_climb": {},
+      "minecraft:scale": {
+        "value": 1.0
       },
-        "minecraft:scale": {
-          "value": 1.0
-        },
-        "minecraft:behavior.melee_attack": {
-          "priority": 0,
-          "speed_multiplier": 0,
-          "track_target": false
-        },
+      "minecraft:behavior.melee_attack": {
+        "priority": 0,
+        "speed_multiplier": 0,
+        "track_target": false
+      },
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
         "avoid_damage_blocks": true
@@ -92,29 +99,22 @@
       "minecraft:knockback_resistance": {
         "value": 10.5
       },
-      
-       "minecraft:annotation.break_door": {
-      },
+      "minecraft:annotation.break_door": {},
       "minecraft:pushable": {
         "is_pushable": false,
         "is_pushable_by_piston": false
       },
-      "minecraft:physics": {
-      }
+      "minecraft:physics": {}
     },
     "events": {
-"tnt:tick": {
-"queue_command":{
-"command":[
-"tp @e[family=!jutsu,r=3,c=1] @s"
-]}},  
-
-
-
-
-
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "tp @e[family=!jutsu,r=3,c=1] @s"
+          ]
+        }
+      },
       "minecraft:evol2": {
- 
         "add": {
           "component_groups": [
             "tnt:despawn"

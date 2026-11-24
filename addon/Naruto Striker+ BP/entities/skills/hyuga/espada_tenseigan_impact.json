@@ -1,15 +1,15 @@
 {
-    "format_version": "1.19.0",
-    "minecraft:entity": {
-      "description": {
-        "identifier": "tnt:espada_tenseigan_impact",
-        "is_spawnable": false,
-        "is_summonable": true,
-        "is_experimental": false,
-        "runtime_identifier": "minecraft:snowball"
-      },
-      "component_groups": {
-     "tnt:despawn": {
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tnt:espada_tenseigan_impact",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "tnt:despawn": {
         "minecraft:transformation": {
           "into": "tnt:despawn",
           "delay": 0.0
@@ -17,16 +17,19 @@
       },
       "despawning": {
         "minecraft:type_family": {
-          "family": [ "despawer","despawer_despawning" ]
+          "family": [
+            "despawer",
+            "despawer_despawning"
+          ]
         }
       }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "jutsu_incomum"
+        ]
       },
-      "components": {
-"minecraft:type_family": {"family": ["jutsu_incomum"]},
-
-
-
-
       "minecraft:timer": {
         "time": 0.7,
         "looping": true,
@@ -34,55 +37,64 @@
           "event": "tnt:despawn"
         }
       },
-
-        
-        "minecraft:collision_box": {
-          "width": 0.25,
-          "height": 0.25
-        },
-      "minecraft:projectile": {
-"on_hit": {"definition_event": {
-"affect_projectile": true,"eventTrigger": { 
-"event": "on:hit", 
-"target": "self"
-}},
-
-"impact_damage": {
-"damage": [ 10, 15 ],
-"knockback": true, "semi_random_diff_damage": false, "destroy_on_hit": true
-},
-"stick_in_ground": { "shake_time" : 0.35 }
-},          
-"power": 5.5,
-"gravity": 0.0,
-"angleoffset": 0.0
-},
-        "minecraft:physics": {}
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
       },
-      "events": {
-          
-"tnt:tick": {
-"queue_command":{
-"command":[
-"tag @e[family=jutsu_incomum,rm=2,r=5] add impact_skill"
-]}},        
-
-
-"tnt:despawn": {
-"add": {"component_groups": ["tnt:despawn"]}
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "eventTrigger": {
+              "event": "on:hit",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": [
+              10,
+              15
+            ],
+            "knockback": true,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true
+          },
+          "stick_in_ground": {
+            "shake_time": 0.35
+          }
         },
-
-        "on:hit": {
-           "queue_command": {
-                "command": [
-                "particle tnt:bijudama_impact_2",
-                "particle tnt:impact_chao_leve ~~~1",
-                "damage @e[r=3] 4",
-                "kill @s"
-
-                ]
-              }
+        "power": 5.5,
+        "gravity": 0.0,
+        "angleoffset": 0.0
+      },
+      "minecraft:physics": {}
+    },
+    "events": {
+      "tnt:tick": {
+        "queue_command": {
+          "command": [
+            "tag @e[family=jutsu_incomum,rm=2,r=5] add impact_skill"
+          ]
         }
-      }
+      },
+      "tnt:despawn": {
+        "add": {
+          "component_groups": [
+            "tnt:despawn"
+          ]
+        }
+      },
+      "on:hit": {
+        "queue_command": {
+          "command": [
+            "particle tnt:bijudama_impact_2",
+            "particle tnt:impact_chao_leve ~~~1",
+            "damage @e[r=3] 4",
+            "kill @s"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {}
     }
   }
+}

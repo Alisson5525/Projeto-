@@ -62,7 +62,7 @@
           "value": "sla"
         },
         "on_roar_end": {
-          "event": "tnt:"
+          "event": "tnt:despawn"
         },
         "cooldown_time": 0.1
       }

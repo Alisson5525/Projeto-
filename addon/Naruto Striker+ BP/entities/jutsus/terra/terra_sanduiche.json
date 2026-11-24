@@ -47,7 +47,7 @@
         ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/"
+        "table": "loot_tables/ns/vazio.json"
       },
       "minecraft:damage_sensor": {
         "triggers": [

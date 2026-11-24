@@ -627,8 +627,8 @@
 
                       {"controller.render.bijudama": "query.property('tnt:kurama') >= 1 && !variable.is_first_person"},
                       
-                { "controller.render.rasengan_1": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasengan') || q.is_item_name_any('slot.hotbar',t.i, 'tnt:rasengan') && !variable.is_first_person; t.val ? {return t.val;}; t.i = t.i+1;});" },
-                { "controller.render.rasen_shuriken": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasen_shuriken') || q.is_item_name_any('slot.hotbar',t.i, 'tnt:rasen_shuriken') && !variable.is_first_person; t.val ? {return t.val;}; t.i = t.i+1;});" },
+                { "controller.render.rasengan_1": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasengan') || (t.i < 9 ? q.is_item_name_any('slot.hotbar', t.i, 'tnt:rasengan') : 0); t.val ? break; t.i = t.i + 1;}); return t.val && !variable.is_first_person;" },
+                { "controller.render.rasen_shuriken": "t.val = 0; t.i = 0; loop(27, {t.val = q.is_item_name_any('slot.inventory', t.i, 'tnt:rasen_shuriken') || (t.i < 9 ? q.is_item_name_any('slot.hotbar', t.i, 'tnt:rasen_shuriken') : 0); t.val ? break; t.i = t.i + 1;}); return t.val && !variable.is_first_person;" },
 
 
 

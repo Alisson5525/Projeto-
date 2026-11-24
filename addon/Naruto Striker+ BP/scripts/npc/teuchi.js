@@ -66,23 +66,6 @@ system.afterEvents.scriptEventReceive.subscribe((ev) => {
   npc_teuchi(player);
 });
 
-// ================= ITEM USE =================
-
-world.beforeEvents.itemUse.subscribe((data) => {
-
-  const player = data.source;
-
-  switch (data.itemStack.typeId) {
-
-    case "":
-
-      runTimeoutSeguro(() => {
-        npc_teuchi(player);
-      }, 1);
-
-      break;
-  }
-});
 
 // ================= MENU =================
 

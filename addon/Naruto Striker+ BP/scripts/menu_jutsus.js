@@ -199,7 +199,7 @@ cmd(player, '/execute as @s[scores={tp=300..}] run scoreboard players remove @s 
 
 case 13:
 if (!player.hasTag("jutsu_t_prisao")) {
-cmd(player, '/execute as @s[scores={tp=0..799}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 600. Tp"}]}');
+cmd(player, '/execute as @s[scores={tp=0..599}] run tellraw @s {"rawtext":[{"text":"§c[!] §aRequer 600. Tp"}]}');
 cmd(player, '/execute as @s[scores={tp=600..}] run give @s tnt:prisao_terra_');
 cmd(player, '/execute as @s[scores={tp=600..}] run scoreboard players remove @s tp 600');
 }break;

@@ -21,6 +21,7 @@
       },
       "scripts": {
         "pre_animation": [
+          "variable.health_bar_position = 0.0;",
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
         "animate": [
