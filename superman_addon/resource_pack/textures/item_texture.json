@@ -1,0 +1,24 @@
+{
+  "resource_pack_name": "superman",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "superman_emblema": {
+      "textures": "textures/items/superman/emblema"
+    },
+    "superman_voo": {
+      "textures": "textures/items/superman/voo"
+    },
+    "superman_visao_calor": {
+      "textures": "textures/items/superman/visao_calor"
+    },
+    "superman_sopro_congelante": {
+      "textures": "textures/items/superman/sopro_congelante"
+    },
+    "superman_super_soco": {
+      "textures": "textures/items/superman/super_soco"
+    },
+    "superman_impacto": {
+      "textures": "textures/items/superman/impacto"
+    }
+  }
+}

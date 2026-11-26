@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "superman:emblema_receita"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "RGR",
+      "GDG",
+      " R "
+    ],
+    "key": {
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "D": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "superman:emblema"
+    }
+  }
+}

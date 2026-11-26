@@ -1,0 +1,1392 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.superman.base": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "sm.cape",
+            "sm.breath",
+            "sm.curl",
+            {
+              "sm.orient": "v.sm_full"
+            },
+            {
+              "sm.look": "v.sm_full"
+            },
+            {
+              "sm.walk_legs": "v.sm_full * (v.sm_fly == 0 && q.is_on_ground ? 1.0 : 0.0)"
+            },
+            {
+              "sm.hero_idle": "v.sm_hero * (1.0 - v.sm_full)"
+            },
+            {
+              "sm.air_jump": "v.sm_airw * (1.0 - v.sm_full)"
+            },
+            {
+              "sm.walk_style": "v.sm_on * (1.0 - v.sm_full)"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.superman.move": {
+      "initial_state": "ground",
+      "states": {
+        "ground": {
+          "transitions": [
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "charge": {
+          "animations": [
+            "sm.charge.core",
+            {
+              "sm.charge.arms": "v.sm_full * v.sm_arms"
+            },
+            {
+              "sm.tremble": "0.3 + v.sm_chg"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.25,
+          "blend_via_shortest_path": true
+        },
+        "launch": {
+          "animations": [
+            "sm.launch.core",
+            {
+              "sm.launch.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "boost": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.08,
+          "blend_via_shortest_path": true
+        },
+        "airstart": {
+          "animations": [
+            "sm.airstart.core",
+            {
+              "sm.airstart.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "boost": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "hover": {
+          "animations": [
+            "sm.hover.core",
+            {
+              "sm.hover.arms": "v.sm_full * v.sm_arms * (1.0 - v.sm_cross)"
+            },
+            {
+              "sm.hover.crossed": "v.sm_full * v.sm_arms * v.sm_cross"
+            },
+            {
+              "sm.hover.vert": "v.sm_full"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "boost": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "fly": {
+          "animations": [
+            "sm.fly.core",
+            {
+              "sm.fly.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "brake": "v.sm_fly == 3"
+            },
+            {
+              "boost": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "fast": {
+          "animations": [
+            "sm.fast.core",
+            {
+              "sm.fast.arms": "v.sm_full * v.sm_arms"
+            },
+            {
+              "sm.tremble": "0.35"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "brake": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "dive": {
+          "animations": [
+            "sm.dive.core",
+            {
+              "sm.dive.arms": "v.sm_full * v.sm_arms"
+            },
+            {
+              "sm.tremble": "0.5"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "brake": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "landprep": {
+          "animations": [
+            "sm.landprep.core",
+            {
+              "sm.landprep.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "land_soft": {
+          "animations": [
+            "sm.land_soft.core",
+            {
+              "sm.land_soft.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "land_hero": {
+          "animations": [
+            "sm.land_hero.core",
+            {
+              "sm.land_hero.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "superspeed": {
+          "animations": [
+            "sm.superspeed.core",
+            {
+              "sm.superspeed.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            }
+          ],
+          "blend_transition": 0.25,
+          "blend_via_shortest_path": true
+        },
+        "boost": {
+          "animations": [
+            "sm.boost.core",
+            {
+              "sm.boost.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5 && q.all_animations_finished"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.1,
+          "blend_via_shortest_path": true
+        },
+        "brake": {
+          "animations": [
+            "sm.brake.core",
+            {
+              "sm.brake.arms": "v.sm_full * v.sm_arms"
+            }
+          ],
+          "transitions": [
+            {
+              "ground": "v.sm_fly == 0"
+            },
+            {
+              "charge": "v.sm_fly == 1"
+            },
+            {
+              "launch": "v.sm_fly == 2"
+            },
+            {
+              "hover": "v.sm_fly == 3 && q.all_animations_finished"
+            },
+            {
+              "fly": "v.sm_fly == 4"
+            },
+            {
+              "fast": "v.sm_fly == 5"
+            },
+            {
+              "dive": "v.sm_fly == 6"
+            },
+            {
+              "landprep": "v.sm_fly == 7"
+            },
+            {
+              "land_soft": "v.sm_fly == 8"
+            },
+            {
+              "land_hero": "v.sm_fly == 9"
+            },
+            {
+              "airstart": "v.sm_fly == 10"
+            },
+            {
+              "superspeed": "v.sm_fly == 11"
+            }
+          ],
+          "blend_transition": 0.15,
+          "blend_via_shortest_path": true
+        }
+      }
+    },
+    "controller.animation.superman.power": {
+      "initial_state": "none",
+      "states": {
+        "none": {
+          "transitions": [
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.3,
+          "blend_via_shortest_path": true
+        },
+        "transform": {
+          "animations": [
+            {
+              "sm.transform.upper": "v.sm_full"
+            },
+            {
+              "sm.transform.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.tremble": "v.sm_full * 0.6"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "detransform": {
+          "animations": [
+            {
+              "sm.detransform.upper": "v.sm_full"
+            },
+            {
+              "sm.detransform.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "heat_in": {
+          "animations": [
+            {
+              "sm.heat_in.upper": "v.sm_full"
+            },
+            {
+              "sm.heat_in.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "heat": "q.all_animations_finished && v.sm_pow == 3"
+            },
+            {
+              "heat_out": "v.sm_pow != 3"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "heat": {
+          "animations": [
+            {
+              "sm.heat.upper": "v.sm_full"
+            },
+            {
+              "sm.heat.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "heat_out": "v.sm_pow != 3"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "heat_out": {
+          "animations": [
+            {
+              "sm.heat_out.upper": "v.sm_full"
+            },
+            {
+              "sm.heat_out.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "none": "q.all_animations_finished"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "freeze_in": {
+          "animations": [
+            {
+              "sm.freeze_in.upper": "v.sm_full"
+            },
+            {
+              "sm.freeze_in.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "freeze": "q.all_animations_finished && v.sm_pow == 4"
+            },
+            {
+              "freeze_out": "v.sm_pow != 4"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "freeze": {
+          "animations": [
+            {
+              "sm.freeze.upper": "v.sm_full"
+            },
+            {
+              "sm.freeze.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.tremble": "0.4"
+            }
+          ],
+          "transitions": [
+            {
+              "freeze_out": "v.sm_pow != 4"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "freeze_out": {
+          "animations": [
+            {
+              "sm.freeze_out.upper": "v.sm_full"
+            },
+            {
+              "sm.freeze_out.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "none": "q.all_animations_finished"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "punch_charge": {
+          "animations": [
+            {
+              "sm.punch_charge.upper": "v.sm_full"
+            },
+            {
+              "sm.punch_charge.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.tremble": "v.sm_chg * 1.6"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.2,
+          "blend_via_shortest_path": true
+        },
+        "punch": {
+          "animations": [
+            {
+              "sm.punch.upper": "v.sm_full"
+            },
+            {
+              "sm.punch.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.05,
+          "blend_via_shortest_path": true
+        },
+        "combo1": {
+          "animations": [
+            {
+              "sm.combo1.upper": "v.sm_full"
+            },
+            {
+              "sm.combo1.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "combo2": {
+          "animations": [
+            {
+              "sm.combo2.upper": "v.sm_full"
+            },
+            {
+              "sm.combo2.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "combo3": {
+          "animations": [
+            {
+              "sm.combo3.upper": "v.sm_full"
+            },
+            {
+              "sm.combo3.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "clap": {
+          "animations": [
+            {
+              "sm.clap.upper": "v.sm_full"
+            },
+            {
+              "sm.clap.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "slam": {
+          "animations": [
+            {
+              "sm.slam.upper": "v.sm_full"
+            },
+            {
+              "sm.slam.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            }
+          ],
+          "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        }
+      }
+    },
+    "controller.animation.superman.first_person": {
+      "initial_state": "none",
+      "states": {
+        "none": {
+          "transitions": [
+            {
+              "charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "fast": "v.sm_fly == 5 || v.sm_fly == 6"
+            }
+          ]
+        },
+        "charge": {
+          "animations": [
+            "sm.fp.charge"
+          ],
+          "transitions": [
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "none": "v.sm_pow != 5"
+            }
+          ],
+          "blend_transition": 0.15
+        },
+        "punch": {
+          "animations": [
+            "sm.fp.punch"
+          ],
+          "transitions": [
+            {
+              "charge": "v.sm_pow == 5"
+            },
+            {
+              "none": "q.all_animations_finished"
+            }
+          ],
+          "blend_transition": 0.05
+        },
+        "fast": {
+          "animations": [
+            "sm.fp.fast"
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_fly != 5 && v.sm_fly != 6"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

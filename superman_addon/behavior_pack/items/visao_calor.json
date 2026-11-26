@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "superman:visao_calor",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "superman_visao_calor",
+      "minecraft:display_name": {
+        "value": "item.superman:visao_calor.name"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:allow_off_hand": false,
+      "minecraft:hand_equipped": false,
+      "minecraft:rarity": "rare"
+    }
+  }
+}

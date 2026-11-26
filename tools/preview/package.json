@@ -1,0 +1,9 @@
+{
+  "name": "superman-preview",
+  "private": true,
+  "type": "module",
+  "description": "Visualizador offline do modelo/animacoes (three.js + Playwright)",
+  "dependencies": {
+    "three": "^0.170.0"
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Superman preview</title>
+<style>body{margin:0;background:#222;color:#eee;font:12px sans-serif}</style></head>
+<body>
+<script type="module">
+import { buildModel, applyPose, makeScene, loadTexture, THREE } from './preview.js';
+
+const RP = '/superman_addon/resource_pack/';
+async function json(u) { const r = await fetch(u); const t = await r.text(); return JSON.parse(t.replace(/^\s*\/\/.*$/mg, '')); }
+
+window.init = async (animFiles) => {
+  const geo = await json(RP + 'models/entity/superman.geo.json');
+  const tex = await loadTexture(RP + 'textures/entity/superman/superman.png?' + Date.now());
+  window.ANIMS = {};
+  for (const f of animFiles) {
+    const d = await json(RP + 'animations/' + f);
+    Object.assign(window.ANIMS, d.animations);
+  }
+  window.GEO = geo; window.TEX = tex;
+  return Object.keys(window.ANIMS).length;
+};
+
+// cells: [{label, layers:[{anim,time,weight}], Q:{}, V:{}, view:{yaw,pitch,dist,ty}}]
+window.sheet = async (cells, cols, cw, ch) => {
+  const rows = Math.ceil(cells.length / cols);
+  const out = document.createElement('canvas');
+  out.width = cols * cw; out.height = rows * ch;
+  const ctx = out.getContext('2d');
+  const { renderer, scene, camera } = makeScene(cw, ch);
+  const model = buildModel(window.GEO, window.TEX);
+  scene.add(model.root);
+  cells.forEach((c, i) => {
+    const layers = (c.layers || []).map(l => {
+      const a = window.ANIMS[l.anim];
+      if (!a) throw new Error('animacao inexistente: ' + l.anim);
+      return { anim: a, time: l.time || 0, weight: l.weight };
+    });
+    applyPose(model, layers, Object.assign({ life_time: c.t || 0, anim_time: 0 }, c.Q || {}), Object.assign({}, c.V || {}));
+    const v = Object.assign({ yaw: 30, pitch: 12, dist: 78, ty: 15, tx: 0 }, c.view || {});
+    const yaw = v.yaw * Math.PI / 180, pit = v.pitch * Math.PI / 180;
+    const L = c.lift || 0;
+    camera.position.set(v.tx + v.dist * Math.sin(yaw) * Math.cos(pit), L + v.ty + v.dist * Math.sin(pit), -v.dist * Math.cos(yaw) * Math.cos(pit));
+    camera.lookAt(v.tx, L + v.ty, 0);
+    model.root.position.set(0, (c.lift || 0), 0);
+    renderer.render(scene, camera);
+    const x = (i % cols) * cw, y = Math.floor(i / cols) * ch;
+    ctx.drawImage(renderer.domElement, x, y);
+    ctx.fillStyle = 'rgba(0,0,0,0.55)'; ctx.fillRect(x, y, cw, 16);
+    ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.fillText(c.label || '', x + 4, y + 12);
+  });
+  renderer.dispose();
+  return out.toDataURL('image/png');
+};
+</script></body></html>

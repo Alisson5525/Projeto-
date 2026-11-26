@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "strict": false,
+    "skipLibCheck": true,
+    "lib": ["ES2022"],
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "@minecraft/server": ["./node_modules/@minecraft/server"],
+      "@minecraft/server-ui": ["./node_modules/@minecraft/server-ui"],
+      "@minecraft/common": ["./node_modules/@minecraft/common"]
+    }
+  },
+  "include": ["../../superman_addon/behavior_pack/scripts/**/*.js", "./env.d.ts"]
+}
