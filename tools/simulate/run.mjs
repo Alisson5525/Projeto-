@@ -98,10 +98,15 @@ const hb = overworld.typeAt(hx, hy + 1, hz);
 check(P(p, 'power') === 3, 'visao de calor ativa');
 check(hb === 'minecraft:lava' || hb === 'minecraft:magma', `pedra derreteu (virou ${hb})`);
 check((LOG.particles['superman:heat_beam'] || 0) > 50, 'raios desenhados');
+check((LOG.particles['superman:heat_core'] || 0) > 50, 'nucleo do raio desenhado');
+let melted = 0;
+for (let y = -1; y < 4; y++) for (let dx = -1; dx <= 1; dx++) { const t = overworld.typeAt(hx + dx, hy + y, hz); if (t === 'minecraft:lava' || t === 'minecraft:magma' || t === 'minecraft:air') melted++; }
+check(melted >= 4, `derreteu uma area, nao so um bloco (${melted})`);
 tick(10); use(p, 'superman:visao_calor'); tick(1);
 check(P(p, 'power') === 0, 'desligou ao tocar de novo');
 
 section('sopro congelante');
+const victim = new Entity('minecraft:skeleton', { x: p.location.x + 0.5, y: p.location.y, z: p.location.z - 6 });
 const fz = Math.floor(p.location.z) - 1;
 for (let x = -3; x <= 3; x++) for (let z = 0; z < 8; z++) overworld.set({ x: Math.floor(p.location.x) + x, y: 63, z: fz - z }, 'minecraft:water');
 p.rot = { x: 30, y: 180 };
@@ -111,7 +116,12 @@ tick(60);
 let ice = 0;
 for (let x = -3; x <= 3; x++) for (let z = 0; z < 8; z++) if (overworld.typeAt(Math.floor(p.location.x) + x, 63, fz - z) === 'minecraft:ice') ice++;
 check(ice > 0, `agua congelou (${ice} blocos)`);
-tick(100);
+check(victim.effects.slowness?.amp >= 6, 'inimigo congelado (lentidao forte)');
+let cage = 0;
+for (const [dx, dz] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) if (overworld.typeAt(Math.floor(victim.location.x) + dx, Math.floor(victim.location.y), Math.floor(victim.location.z) + dz) === 'minecraft:ice') cage++;
+check(cage >= 2, `jaula de gelo em volta do inimigo (${cage} lados)`);
+victim.remove();
+tick(200);
 check(P(p, 'power') === 0, 'sopro terminou sozinho');
 
 section('super soco');
@@ -144,13 +154,17 @@ tick(15);
 section('combos');
 zombie.location = { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 };
 const seen = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 6; i++) {
   world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: zombie });
   tick(1); seen.push(P(p, 'power')); tick(5);
+  zombie.location = { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 }; zombie.vel = { x: 0, y: 0, z: 0 };
 }
-check(seen.join() === '9,10,11', `sequencia de combo ${seen.join()}`);
-tick(20);
+check(seen.join() === '9,10,12,11,13,14', `sequencia de combo no chao ${seen.join()}`);
+check(P(p, 'combat') === true, 'postura de luta ativa');
+tick(25);
 check(P(p, 'power') === 0, 'combo terminou');
+tick(100);
+check(P(p, 'combat') === false, 'postura de luta encerrada');
 
 section('soco quebra bloco');
 const bl = overworld.getBlock({ x: 5, y: 63, z: 5 });
@@ -179,8 +193,28 @@ check(P(p, 'fly') === 6, 'DIVE');
 for (let i = 0; i < 200 && P(p, 'fly') !== 9; i++) tick(1);
 check(P(p, 'fly') === 9, 'LANDHERO ao bater no chao');
 check(LOG.explosions.length > ex2, 'cratera do pouso');
+check(p.location.y > 55, `mergulho parou na superficie (y=${p.location.y.toFixed(1)})`);
 tick(40);
 check(P(p, 'fly') === 0, 'levantou do pouso');
+
+section('combo aereo');
+jump(p); tick(4); jump(p); tick(12);
+check(P(p, 'fly') === 3, 'pairando para o combo aereo');
+const bat = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 });
+const seenAir = [];
+for (let i = 0; i < 3; i++) {
+  world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: bat });
+  tick(1); seenAir.push(P(p, 'power')); tick(6);
+  bat.location = { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 };
+}
+check(seenAir.join() === '15,16,17', `sequencia aerea ${seenAir.join()}`);
+check(bat.vel.y < 0, 'martelo cravou o inimigo para baixo');
+const exSpike = LOG.explosions.length;
+for (let i = 0; i < 40; i++) { bat.location.y += bat.vel.y; if (overworld.solid(bat.location.x, bat.location.y, bat.location.z)) { bat.location.y = Math.floor(bat.location.y) + 1; bat.vel.y = 0; } tick(1); }
+check(LOG.explosions.length > exSpike, `cratera onde o inimigo caiu (y=${bat.location.y.toFixed(1)} vy=${bat.vel.y.toFixed(2)} chao=${bat.isOnGround} jogador y=${p.location.y.toFixed(1)})`);
+bat.remove();
+p.sneakHeld = true; for (let i = 0; i < 300 && P(p, 'fly') !== 0; i++) tick(1); p.sneakHeld = false;
+tick(20);
 
 section('super velocidade');
 p.isSprinting = true; tick(3);

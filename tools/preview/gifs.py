@@ -133,6 +133,23 @@ SCENES = {
         seg(["slam.upper", "slam.legs"], 1.2),
         seg([], 0.3),
     ]), {"yaw": 60, "dist": 75, "ty": 14}),
+    "15_combo_de_6_golpes": (frames([
+        seg(["combat_stance"], 0.5, {"sm_cmbw": 1}),
+        seg(["combo1.upper", "combo1.legs"], 0.35),
+        seg(["combo2.upper", "combo2.legs"], 0.35),
+        seg(["combo4.upper", "combo4.legs"], 0.42),
+        seg(["combo3.upper", "combo3.legs"], 0.5),
+        seg(["combo5.upper", "combo5.legs"], 0.62),
+        seg(["combo6.upper", "combo6.legs"], 0.85),
+        seg(["combat_stance"], 0.5),
+    ], blend=0.06), {"yaw": 45, "dist": 80, "ty": 15}),
+    "16_combo_aereo": (frames([
+        seg(["hover.core", "hover.combat"], 0.4, HOVV, (10, 10)),
+        seg(["hover.core", "air1.upper"], 0.42, HOVV, (10, 10)),
+        seg(["hover.core", "air2.upper", "air2.legs"], 0.55, HOVV, (10, 10)),
+        seg(["hover.core", "air3.upper"], 0.6, HOVV, (10, 10)),
+        seg(["hover.core", "hover.combat"], 0.4, HOVV, (10, 10)),
+    ], blend=0.06), {"yaw": 55, "dist": 80, "ty": 16}),
     "14_super_velocidade": (frames([
         seg(["superspeed.core", "superspeed.arms"], 1.6, {"sm_cl": 0.95, "sm_cf": 12, "cs": 3.5}),
     ]), {"yaw": 80, "dist": 75, "ty": 14}),

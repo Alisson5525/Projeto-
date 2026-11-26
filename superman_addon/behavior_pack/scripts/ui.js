@@ -9,7 +9,7 @@ export function openSettings(player) {
   const s = getSettings();
   const speedIdx = Math.max(0, SPEEDS.findIndex((v) => v >= s.fastSpeed - 0.01));
   const form = new ModalFormData()
-    .title('§9§lSuperman §r§8- Configurações')
+    .title('§6§lSolaris §r§8- Configurações')
     .toggle('§cDestruição do cenário', { defaultValue: s.destruction })
     .slider('Intensidade da destruição (1 = leve, 3 = devastador)', 1, 3, { defaultValue: s.intensity, valueStep: 1 })
     .toggle('Blocos destruídos soltam itens', { defaultValue: s.drops })
@@ -40,6 +40,6 @@ export function openSettings(player) {
       invertStrafe: !!v[10],
       hud: !!v[11],
     });
-    player.sendMessage('§9[Superman]§r Configurações salvas.');
+    player.sendMessage('§6[Solaris]§r Configurações salvas.');
   }).catch(() => { /* formulario fechado */ });
 }

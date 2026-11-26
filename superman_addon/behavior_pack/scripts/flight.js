@@ -114,7 +114,7 @@ function launch(player, st) {
   if (c > 0.6) sound(dim, 'mob.warden.sonic_boom', f, 0.8, 1.2);
   shakeArea(dim, f, 18, 0.35 + 0.6 * c, 0.5);
   if (getSettings().destruction) {
-    if (c > 0.45) blast(dim, { x: f.x, y: f.y - 0.6, z: f.z }, 1.2 + 2.0 * c, player);
+    if (c > 0.4) blast(dim, { x: f.x, y: f.y - 0.6, z: f.z }, 1.5 + 3 * c, player);
     else breakBlocks(dim, sphereBlocks(dim, f, 3, isFragile), { visible: 10 });
   }
   pushMobs(player, f, 3 + 4 * c, 1 + 1.5 * c, 0.5 + 0.5 * c, 2 + 6 * c);
@@ -133,7 +133,7 @@ function heroLand(player, st, speed) {
   setFly(player, st, FLY.LANDHERO);
   const dim = player.dimension;
   const f = feet(player);
-  const r = clamp(1.2 + speed * 1.5, 2, 6.5);
+  const r = clamp(2 + speed * 2, 3, 9);
   st.vel = V.zero();
   applyVel(player, st.vel);
   particle(dim, 'superman:shockwave', f, { radius: r * 2.6, color: { r: 1, g: 1, b: 1 } });
@@ -145,9 +145,9 @@ function heroLand(player, st, speed) {
   sound(dim, 'random.explode', f, 1, 0.8);
   if (speed > 1.4) sound(dim, 'mob.warden.sonic_boom', f, 1, 0.9);
   shakeArea(dim, f, 28, 0.5 + speed * 0.4, 0.9);
-  if (getSettings().destruction && speed > 0.8) blast(dim, { x: f.x, y: f.y - 0.8, z: f.z }, r * 0.75, player);
+  if (getSettings().destruction && speed > 0.8) blast(dim, { x: f.x, y: f.y - 0.8, z: f.z }, r * 0.8, player);
   else blast(dim, f, r * 0.6, player, { noBlocks: true });
-  pushMobs(player, f, r * 2.2, 1.6, 0.7, 0);
+  pushMobs(player, f, r * 2.4, 2.4, 0.9, 6);
 }
 
 function goFast(player, st) {
@@ -161,7 +161,7 @@ function goFast(player, st) {
   sound(dim, 'item.trident.riptide_3', l, 1, 1.3);
   shake(player, 0.6, 0.4);
   // o estrondo supersonico estilhaca vidros, folhas e plantas ao redor
-  if (getSettings().destruction) breakBlocks(dim, sphereBlocks(dim, l, 6, isFragile), { visible: 12, max: 60 });
+  if (getSettings().destruction) breakBlocks(dim, sphereBlocks(dim, l, 8, isFragile), { visible: 14, max: 120 });
 }
 
 // ---------------------------------------------------------------- tick
@@ -383,8 +383,10 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   const speed = V.len(st.vel);
 
   // contato com o chao
-  const gd = groundDist(player, 3.5);
-  if (onGround || (gd !== undefined && gd < 0.3 && st.vel.y <= 0.05)) {
+  const gd = groundDist(player, Math.max(3.5, -st.vel.y + 1));
+  // no mergulho o chao e detectado antes do impacto: a cratera fica na superficie
+  const diveHit = st.fly === FLY.DIVE && gd !== undefined && gd <= -st.vel.y + 0.4;
+  if (onGround || diveHit || (gd !== undefined && gd < 0.3 && st.vel.y <= 0.05)) {
     if (st.fly === FLY.DIVE || (-st.vel.y > 0.75 && speed > 0.9)) {
       heroLand(player, st, Math.max(speed, st.fly === FLY.DIVE ? 2.4 : 0));
       return;
@@ -406,13 +408,13 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   }
 
   // destruicao do cenario no caminho (voo rapido / mergulho)
-  if (s.destruction && (st.fly === FLY.FAST || st.fly === FLY.DIVE || speed > 0.75)) {
+  if (s.destruction && st.fly !== FLY.DIVE && (st.fly === FLY.FAST || speed > 0.75)) {
     const dir = V.norm(st.vel);
     const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
-    const radius = st.fly === FLY.DIVE ? 1.9 : st.fly === FLY.FAST ? 1.5 : 1.25;
+    const radius = st.fly === FLY.DIVE ? 2.6 : st.fly === FLY.FAST ? 2.1 : 1.5;
     let broke = 0;
     for (let d = 0.8; d <= speed + 1.3; d += 0.9) {
-      broke += breakSphere(dim, V.add(mid, V.mul(dir, d)), radius, { visible: 3, debrisEvery: 2, max: 24 });
+      broke += breakSphere(dim, V.add(mid, V.mul(dir, d)), radius, { visible: 3, debrisEvery: 2, max: 40 });
     }
     if (broke > 0) {
       if (tick % 3 === 0) sound(dim, 'random.explode', mid, 0.35, 1.5);

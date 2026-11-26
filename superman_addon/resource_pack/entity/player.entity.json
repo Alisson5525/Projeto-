@@ -43,7 +43,8 @@
           "v.sm_still = 0.0;",
           "v.sm_airw = 0.0;",
           "v.sm_hidle = 0.0;",
-          "v.sm_cross = 0.0;"
+          "v.sm_cross = 0.0;",
+          "v.sm_cmbw = 0.0;"
         ],
         "pre_animation": [
           "variable.helmet_layer_visible = !query.has_head_gear;",
@@ -63,13 +64,14 @@
           "v.sm_pow = v.sm_hp ? q.property('superman:power') : 0.0;",
           "v.sm_chg = v.sm_hp ? q.property('superman:charge') : 0.0;",
           "v.sm_inp = v.sm_hp ? q.property('superman:input') : 4.0;",
+          "v.sm_cmb = v.sm_hp ? q.property('superman:combat') : 0.0;",
           "v.sm_act = v.sm_on || v.sm_pow == 1;",
           "v.sm_dt = math.clamp(q.delta_time, 0.0, 0.1);",
           "v.sm_k = math.min(1.0, v.sm_dt * 6.0);",
           "v.sm_kf = math.min(1.0, v.sm_dt * 12.0);",
           "v.sm_ks = math.min(1.0, v.sm_dt * 3.0);",
           "v.sm_air = v.sm_fly == 2 || v.sm_fly == 3 || v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6 || v.sm_fly == 7 || v.sm_fly == 10;",
-          "v.sm_full = v.sm_full + (((v.sm_act && !v.is_first_person && (v.sm_fly > 0 || v.sm_pow > 0)) ? 1.0 : 0.0) - v.sm_full) * v.sm_kf;",
+          "v.sm_full = v.sm_full + (((v.sm_act && !v.is_first_person && (v.sm_fly > 0 || v.sm_pow > 0 || v.sm_cmb)) ? 1.0 : 0.0) - v.sm_full) * v.sm_kf;",
           "v.sm_vanilla = 1.0 - v.sm_full;",
           "v.sm_arms = v.sm_arms + ((v.sm_pow == 0 ? 1.0 : 0.0) - v.sm_arms) * v.sm_kf;",
           "v.sm_inf = math.floor(v.sm_inp / 3.0) - 1.0;",
@@ -96,7 +98,8 @@
           "v.sm_hero = v.sm_hero + ((v.is_paperdoll || v.sm_still > 1.2 ? 1.0 : 0.0) - v.sm_hero) * v.sm_ks;",
           "v.sm_airw = v.sm_airw + (((v.sm_on && v.sm_fly == 0 && !q.is_on_ground && !q.is_in_water && !q.is_riding) ? 1.0 : 0.0) - v.sm_airw) * v.sm_k;",
           "v.sm_hidle = (v.sm_fly == 3 && v.sm_inp == 4 && v.sm_pow == 0 && math.abs(v.sm_vs) < 0.5) ? v.sm_hidle + v.sm_dt : 0.0;",
-          "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;"
+          "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
+          "v.sm_cmbw = v.sm_cmbw + ((v.sm_cmb && v.sm_on ? 1.0 : 0.0) - v.sm_cmbw) * v.sm_k;"
         ],
         "animate": [
           {
@@ -262,6 +265,20 @@
         "sm.combo2.upper": "animation.superman.combo2.upper",
         "sm.combo3.legs": "animation.superman.combo3.legs",
         "sm.combo3.upper": "animation.superman.combo3.upper",
+        "sm.combo4.legs": "animation.superman.combo4.legs",
+        "sm.combo4.upper": "animation.superman.combo4.upper",
+        "sm.combo5.legs": "animation.superman.combo5.legs",
+        "sm.combo5.upper": "animation.superman.combo5.upper",
+        "sm.combo6.legs": "animation.superman.combo6.legs",
+        "sm.combo6.upper": "animation.superman.combo6.upper",
+        "sm.air1.legs": "animation.superman.air1.legs",
+        "sm.air1.upper": "animation.superman.air1.upper",
+        "sm.air2.legs": "animation.superman.air2.legs",
+        "sm.air2.upper": "animation.superman.air2.upper",
+        "sm.air3.legs": "animation.superman.air3.legs",
+        "sm.air3.upper": "animation.superman.air3.upper",
+        "sm.combat_stance": "animation.superman.combat_stance",
+        "sm.hover.combat": "animation.superman.hover.combat",
         "sm.clap.legs": "animation.superman.clap.legs",
         "sm.clap.upper": "animation.superman.clap.upper",
         "sm.slam.legs": "animation.superman.slam.legs",

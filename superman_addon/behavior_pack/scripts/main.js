@@ -1,4 +1,4 @@
-// Superman Add-on - ponto de entrada dos scripts (servidor).
+// Solaris - Heroi Voador: ponto de entrada dos scripts (servidor).
 import { ButtonState, InputButton, system, world } from '@minecraft/server';
 import { FLY, ITEM, POW, getSettings } from './config.js';
 import { actionbar } from './fx.js';
@@ -42,7 +42,7 @@ function hud(player, st, tick) {
   const v = st.meas ?? player.getVelocity();
   let extra = `§e${Math.round(V.len(v) * 72)} km/h`;
   if (st.fly === FLY.CHARGE) extra = bar(st.charge);
-  actionbar(player, `§9§lS§r §8| ${name} §8| ${extra}`);
+  actionbar(player, `§6§lSOLARIS§r §8| ${name} §8| ${extra}`);
 }
 
 function bar(x) {
@@ -57,6 +57,7 @@ function tickPlayer(player, tick) {
     st.jumpEdge = false;
     return;
   }
+  sync(player, st, 'combat', st.on && tick < st.combatUntil);
   const inp = readInput(player);
   sync(player, st, 'input', (inp.fwd + 1) * 3 + (inp.right + 1));
   if (st.on) maintainEffects(player, st, tick);
@@ -72,7 +73,7 @@ system.runInterval(() => {
     try {
       tickPlayer(player, tick);
     } catch (e) {
-      if (tick % 100 === 0) console.warn(`[Superman] ${e}`);
+      if (tick % 100 === 0) console.warn(`[Solaris] ${e}`);
     }
   }
 }, 1);
@@ -99,7 +100,7 @@ world.afterEvents.itemUse.subscribe((ev) => {
   try {
     onItemUse(player, st, id, tick);
   } catch (e) {
-    console.warn(`[Superman] itemUse: ${e}`);
+    console.warn(`[Solaris] itemUse: ${e}`);
   }
 });
 
@@ -129,6 +130,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
   sync(player, st, 'power', POW.NONE);
   sync(player, st, 'charge', 0);
   sync(player, st, 'input', 4);
+  sync(player, st, 'combat', false);
   if (wasOn) restore(player, st);
   else sync(player, st, 'on', false);
   if (ev.initialSpawn) {
@@ -137,7 +139,7 @@ world.afterEvents.playerSpawn.subscribe((ev) => {
     if (!got) {
       giveItems(player, [ITEM.EMBLEM]);
       try { player.setDynamicProperty('superman:got_emblem', true); } catch (e) { /* */ }
-      player.sendMessage('§9[Superman]§r Você recebeu o §eEmblema do Superman§r! Use-o para se transformar.');
+      player.sendMessage('§6[Solaris]§r Você recebeu o §eEmblema Solar§r! Use-o para se transformar.');
       player.sendMessage('§7Pulo duplo = voar  |  correr = super velocidade  |  agachar + usar o Emblema = configurações');
     }
   }
@@ -159,4 +161,4 @@ world.beforeEvents.playerLeave.subscribe((ev) => {
   system.run(() => dropState(id));
 });
 
-console.warn('[Superman] add-on carregado');
+console.warn('[Solaris] add-on carregado');

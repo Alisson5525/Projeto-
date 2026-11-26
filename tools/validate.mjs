@@ -138,7 +138,7 @@ const itemIds = new Set(Object.values(json).filter((d) => d['minecraft:item']).m
 const src = walk(path.join(BP, 'scripts'), '.js').map((p) => fs.readFileSync(p, 'utf8')).join('\n');
 for (const m of src.matchAll(/'(superman:[a-z_]+)'/g)) {
   const id = m[1];
-  if (id.startsWith('superman:') && (partIds.has(id) || itemIds.has(id) || /superman:(on|fly|power|charge|input|settings|got_emblem)$/.test(id))) ok();
+  if (id.startsWith('superman:') && (partIds.has(id) || itemIds.has(id) || /superman:(on|fly|power|charge|input|combat|settings|got_emblem)$/.test(id))) ok();
   else err(`script usa id desconhecido ${id}`);
 }
 for (const m of src.matchAll(/sound\(\w+, '([a-z0-9_.]+)'/g)) {

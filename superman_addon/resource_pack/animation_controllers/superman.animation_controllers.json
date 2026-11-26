@@ -22,6 +22,9 @@
               "sm.hero_idle": "v.sm_hero * (1.0 - v.sm_full)"
             },
             {
+              "sm.combat_stance": "v.sm_full * v.sm_arms * v.sm_cmbw * (v.sm_fly == 0 ? 1.0 : 0.0)"
+            },
+            {
               "sm.air_jump": "v.sm_airw * (1.0 - v.sm_full)"
             },
             {
@@ -215,7 +218,10 @@
           "animations": [
             "sm.hover.core",
             {
-              "sm.hover.arms": "v.sm_full * v.sm_arms * (1.0 - v.sm_cross)"
+              "sm.hover.arms": "v.sm_full * v.sm_arms * (1.0 - v.sm_cross) * (1.0 - v.sm_cmbw)"
+            },
+            {
+              "sm.hover.combat": "v.sm_full * v.sm_arms * v.sm_cmbw"
             },
             {
               "sm.hover.crossed": "v.sm_full * v.sm_arms * v.sm_cross"
@@ -718,6 +724,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.3,
@@ -768,6 +792,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.2,
@@ -815,6 +857,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.2,
@@ -899,6 +959,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             },
             {
               "none": "q.all_animations_finished"
@@ -991,6 +1069,24 @@
               "combo3": "v.sm_pow == 11"
             },
             {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            },
+            {
               "none": "q.all_animations_finished"
             }
           ],
@@ -1042,6 +1138,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.2,
@@ -1089,6 +1203,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.05,
@@ -1136,6 +1268,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.06,
@@ -1183,6 +1333,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.06,
@@ -1230,6 +1398,417 @@
             },
             {
               "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "combo4": {
+          "animations": [
+            {
+              "sm.combo4.upper": "v.sm_full"
+            },
+            {
+              "sm.combo4.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "combo5": {
+          "animations": [
+            {
+              "sm.combo5.upper": "v.sm_full"
+            },
+            {
+              "sm.combo5.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "combo6": {
+          "animations": [
+            {
+              "sm.combo6.upper": "v.sm_full"
+            },
+            {
+              "sm.combo6.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.tremble": "0.4"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "air1": {
+          "animations": [
+            {
+              "sm.air1.upper": "v.sm_full"
+            },
+            {
+              "sm.air1.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "air2": {
+          "animations": [
+            {
+              "sm.air2.upper": "v.sm_full"
+            },
+            {
+              "sm.air2.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            }
+          ],
+          "blend_transition": 0.06,
+          "blend_via_shortest_path": true
+        },
+        "air3": {
+          "animations": [
+            {
+              "sm.air3.upper": "v.sm_full"
+            },
+            {
+              "sm.air3.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
             }
           ],
           "blend_transition": 0.06,
@@ -1277,6 +1856,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.12,
@@ -1324,6 +1921,24 @@
             },
             {
               "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
             }
           ],
           "blend_transition": 0.12,

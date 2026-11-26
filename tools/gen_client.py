@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Gera o lado cliente do add-on: animacoes, controladores de animacao,
-render controllers e o player.entity.json (vanilla + Superman).
+render controllers e o player.entity.json (vanilla + heroi Solaris).
 
 Convencoes de rotacao do Bedrock (verificadas no visualizador):
   bracos/pernas: x negativo = para frente, x positivo = para tras
@@ -26,7 +26,8 @@ FLY = dict(NONE=0, CHARGE=1, LAUNCH=2, HOVER=3, FLY=4, FAST=5, DIVE=6, LANDPREP=
            LANDSOFT=8, LANDHERO=9, AIRSTART=10, SPEED=11)
 # (propriedade superman:power)
 POW = dict(NONE=0, TRANSFORM=1, DETRANSFORM=2, HEAT=3, FREEZE=4, CHARGE=5, PUNCH=6,
-           CLAP=7, SLAM=8, COMBO1=9, COMBO2=10, COMBO3=11)
+           CLAP=7, SLAM=8, COMBO1=9, COMBO2=10, COMBO3=11, COMBO4=12, COMBO5=13, COMBO6=14,
+           AIR1=15, AIR2=16, AIR3=17)
 
 ARMS = {"rightArm", "leftArm"}
 LEGS = {"rightLeg", "leftLeg"}
@@ -493,8 +494,83 @@ def build_animations():
                     leftArm=R(8, 0, -12))),
         (0.5, NEUTRAL),
     ], loop="hold")
-    for c in ("combo1", "combo2", "combo3"):
+    # gancho de esquerda
+    timeline("combo4", 0.42, [
+        (0.0, GUARD),
+        (0.08, pose(sm_yaw=T(0, -1, 0), waist=R(8, -8, 0), body=R(0, -22, 0), head=R(0, 14, 0),
+                    rightArm=R(-48, -16, -8), leftArm=R(-78, -18, -48), rightLeg=R(14, 0, 4), leftLeg=R(-14, 0, -4))),
+        (0.17, pose(sm_yaw=T(0, -1.2, -0.8), waist=R(10, 12, 0), body=R(0, 36, 0), head=R(0, -24, 0),
+                    rightArm=R(-52, -20, -10), leftArm=R(-90, 44, -4), rightLeg=R(18, 0, 4), leftLeg=R(-16, 0, -4))),
+        (0.42, GUARD),
+    ], loop="hold")
+    # chute giratorio (uma volta completa)
+    timeline("combo5", 0.62, [
+        (0.0, GUARD),
+        (0.12, pose(sm_yaw=RT((0, -100, 0), (0, -0.5, 0)), waist=R(4, 0, 10), rightLeg=R(-62, 0, 24),
+                    rightArm=R(-30, 0, 42), leftArm=R(-30, 0, -42), leftLeg=R(-6, 0, -3))),
+        (0.24, pose(sm_yaw=RT((0, -210, 0), (0, 0.4, 0)), waist=R(2, 0, 22), rightLeg=R(-10, 0, 86),
+                    rightArm=R(-20, 0, 30), leftArm=R(-20, 0, -64), leftLeg=R(-4, 0, -6), head=R(0, 0, -14))),
+        (0.38, pose(sm_yaw=RT((0, -320, 0), (0, 0.2, 0)), waist=R(2, 0, 18), rightLeg=R(-10, 0, 80),
+                    rightArm=R(-20, 0, 34), leftArm=R(-20, 0, -58), leftLeg=R(-4, 0, -6), head=R(0, 0, -10))),
+        (0.62, blend_pose(GUARD, pose(sm_yaw=R(0, -360, 0)), 1.0)),
+    ], loop="hold")
+    # golpe final: investida com soco voador
+    timeline("combo6", 0.85, [
+        (0.0, GUARD),
+        (0.16, pose(sm_yaw=T(0, -2.6, 1.5), waist=R(22), body=R(0, -40, 0), head=R(0, 30, 0),
+                    rightArm=R(56, 0, 12), leftArm=R(-62, 0, -10), rightLeg=R(32, 0, 4), leftLeg=R(-36, 0, -4))),
+        (0.3, pose(sm_yaw=T(0, 1.6, -7), sm_pitch=R(36), body=R(0, 24, 0), head=R(-28, -20, 0),
+                   rightArm=R(-92, 0, -4), leftArm=R(42, 0, -22), rightLeg=R(42, 0, 2), leftLeg=R(-24, 0, -2))),
+        (0.5, pose(sm_yaw=T(0, -1.6, -6), sm_pitch=R(14), body=R(0, 20, 0), head=R(-10, -16, 0),
+                   rightArm=R(-88, 0, -4), leftArm=R(38, 0, -20), rightLeg=R(30, 0, 3), leftLeg=R(-40, 0, -3))),
+        (0.85, GUARD),
+    ], loop="hold")
+    # golpes aereos (pairando/voando)
+    HGUARD = pose(rightArm=R(-55, -18, -6), leftArm=R(-72, 14, 4), rightLeg=R(6, 0, 3), leftLeg=R(12, 0, -3))
+    timeline("air1", 0.42, [
+        (0.0, HGUARD),
+        (0.08, pose(sm_pitch=R(24), rightArm=R(-92, 0, -4), leftArm=R(24, 0, -16), rightLeg=R(26, 0, 2), leftLeg=R(32, 0, -2),
+                    sm_yaw=T(0, 0, -2))),
+        (0.2, pose(sm_pitch=R(28), leftArm=R(-92, 0, 4), rightArm=R(30, 0, 16), rightLeg=R(28, 0, 2), leftLeg=R(34, 0, -2),
+                   sm_yaw=T(0, 0, -3))),
+        (0.42, HGUARD),
+    ], loop="hold")
+    timeline("air2", 0.55, [
+        (0.0, HGUARD),
+        (0.1, pose(sm_yaw=R(0, -90, 0), rightLeg=R(-40, 0, 40), leftLeg=R(20, 0, -6), rightArm=R(-40, 0, 24), leftArm=R(-40, 0, -24))),
+        (0.22, pose(sm_yaw=R(0, -200, 0), rightLeg=R(-6, 0, 84), leftLeg=R(16, 0, -8), rightArm=R(-30, 0, 30), leftArm=R(-30, 0, -50),
+                    waist=R(0, 0, 18))),
+        (0.36, pose(sm_yaw=R(0, -310, 0), rightLeg=R(-6, 0, 78), leftLeg=R(16, 0, -8), rightArm=R(-30, 0, 30), leftArm=R(-30, 0, -50),
+                    waist=R(0, 0, 14))),
+        (0.55, blend_pose(HGUARD, pose(sm_yaw=R(0, -360, 0)), 1.0)),
+    ], loop="hold")
+    timeline("air3", 0.6, [
+        (0.0, HGUARD),
+        (0.18, pose(sm_pitch=R(-16), rightArm=R(-172, 0, -12), leftArm=R(-172, 0, 12), rightLeg=R(-18, 0, 3), leftLeg=R(-10, 0, -3),
+                    head=R(-12))),
+        (0.3, pose(sm_pitch=R(46), rightArm=R(-28, 0, -8), leftArm=R(-28, 0, 8), rightLeg=R(34, 0, 3), leftLeg=R(40, 0, -3),
+                   head=R(20))),
+        (0.6, HGUARD),
+    ], loop="hold")
+    for c in ("combo1", "combo2", "combo3", "combo4", "combo5", "combo6", "air1", "air2", "air3"):
         split(c, {"legs": LEGS, "upper": None})
+
+    # postura de luta (no chao) e guarda no ar
+    st = "q.anim_time * 400.0"
+    proc("combat_stance", {
+        "sm_yaw": {"p": [0, f"-1.2 + math.abs(math.sin({st})) * 0.7", 0]},
+        "waist": {"r": [8, 0, 0]},
+        "body": {"r": [0, 18, 0]},
+        "head": {"r": [-4, -14, 0]},
+        "rightArm": {"r": [f"-55.0 + math.sin({st}) * 3.0", -18, -6]},
+        "leftArm": {"r": [f"-75.0 + math.sin({st} + 90.0) * 4.0", 14, 4]},
+        "rightLeg": {"r": [14, 0, 6]},
+        "leftLeg": {"r": [-16, 0, -6]},
+    }, length=0.9)
+    proc("hover.combat", {
+        "rightArm": {"r": [f"-55.0 + math.sin({st}) * 3.0", -18, -6]},
+        "leftArm": {"r": [f"-72.0 + math.sin({st} + 90.0) * 4.0", 14, 4]},
+    }, length=0.9)
 
     timeline("clap", 1.0, [
         (0.0, NEUTRAL),
@@ -559,6 +635,7 @@ def build_controllers():
                     {"sm.look": W},
                     {"sm.walk_legs": f"{W} * (v.sm_fly == 0 && q.is_on_ground ? 1.0 : 0.0)"},
                     {"sm.hero_idle": "v.sm_hero * (1.0 - v.sm_full)"},
+                    {"sm.combat_stance": "v.sm_full * v.sm_arms * v.sm_cmbw * (v.sm_fly == 0 ? 1.0 : 0.0)"},
                     {"sm.air_jump": "v.sm_airw * (1.0 - v.sm_full)"},
                     {"sm.walk_style": "v.sm_on * (1.0 - v.sm_full)"},
                 ],
@@ -573,7 +650,8 @@ def build_controllers():
         "charge": (["sm.charge.core", {"sm.charge.arms": WA}, {"sm.tremble": "0.3 + v.sm_chg"}], F["CHARGE"]),
         "launch": (["sm.launch.core", {"sm.launch.arms": WA}], F["LAUNCH"]),
         "airstart": (["sm.airstart.core", {"sm.airstart.arms": WA}], F["AIRSTART"]),
-        "hover": (["sm.hover.core", {"sm.hover.arms": f"{WA} * (1.0 - v.sm_cross)"},
+        "hover": (["sm.hover.core", {"sm.hover.arms": f"{WA} * (1.0 - v.sm_cross) * (1.0 - v.sm_cmbw)"},
+                   {"sm.hover.combat": f"{WA} * v.sm_cmbw"},
                    {"sm.hover.crossed": f"{WA} * v.sm_cross"}, {"sm.hover.vert": W}], F["HOVER"]),
         "fly": (["sm.fly.core", {"sm.fly.arms": WA}], F["FLY"]),
         "fast": (["sm.fast.core", {"sm.fast.arms": WA}, {"sm.tremble": "0.35"}], F["FAST"]),
@@ -641,6 +719,12 @@ def build_controllers():
         "combo1": ([up("combo1"), lg("combo1")], P["COMBO1"]),
         "combo2": ([up("combo2"), lg("combo2")], P["COMBO2"]),
         "combo3": ([up("combo3"), lg("combo3")], P["COMBO3"]),
+        "combo4": ([up("combo4"), lg("combo4")], P["COMBO4"]),
+        "combo5": ([up("combo5"), lg("combo5")], P["COMBO5"]),
+        "combo6": ([up("combo6"), lg("combo6"), {"sm.tremble": "0.4"}], P["COMBO6"]),
+        "air1": ([up("air1"), lg("air1")], P["AIR1"]),
+        "air2": ([up("air2"), lg("air2")], P["AIR2"]),
+        "air3": ([up("air3"), lg("air3")], P["AIR3"]),
         "clap": ([up("clap"), lg("clap")], P["CLAP"]),
         "slam": ([up("slam"), lg("slam")], P["SLAM"]),
     }
@@ -675,7 +759,8 @@ def build_controllers():
                     continue
                 trans.append({pgo(v): f"v.sm_pow == {v}"})
         st["transitions"] = trans
-        st["blend_transition"] = {"punch": 0.05, "combo1": 0.06, "combo2": 0.06, "combo3": 0.06,
+        st["blend_transition"] = {"punch": 0.05, "combo1": 0.06, "combo2": 0.06, "combo3": 0.06, "combo4": 0.06,
+                                  "combo5": 0.06, "combo6": 0.06, "air1": 0.06, "air2": 0.06, "air3": 0.06,
                                   "clap": 0.12, "slam": 0.12, "none": 0.3}.get(name, 0.2)
         st["blend_via_shortest_path"] = True
         pstates[name] = st
@@ -707,7 +792,7 @@ SM_INIT = [
     "v.sm_full = 0.0;", "v.sm_arms = 1.0;", "v.sm_p = 0.0;", "v.sm_yw = 0.0;", "v.sm_yawp = 0.0;",
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
-    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;",
+    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;",
 ]
 
 ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:sopro_congelante",
@@ -720,13 +805,14 @@ SM_PRE = [
     "v.sm_pow = v.sm_hp ? q.property('superman:power') : 0.0;",
     "v.sm_chg = v.sm_hp ? q.property('superman:charge') : 0.0;",
     "v.sm_inp = v.sm_hp ? q.property('superman:input') : 4.0;",
+    "v.sm_cmb = v.sm_hp ? q.property('superman:combat') : 0.0;",
     "v.sm_act = v.sm_on || v.sm_pow == 1;",
     "v.sm_dt = math.clamp(q.delta_time, 0.0, 0.1);",
     "v.sm_k = math.min(1.0, v.sm_dt * 6.0);",
     "v.sm_kf = math.min(1.0, v.sm_dt * 12.0);",
     "v.sm_ks = math.min(1.0, v.sm_dt * 3.0);",
     "v.sm_air = v.sm_fly == 2 || v.sm_fly == 3 || v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6 || v.sm_fly == 7 || v.sm_fly == 10;",
-    "v.sm_full = v.sm_full + (((v.sm_act && !v.is_first_person && (v.sm_fly > 0 || v.sm_pow > 0)) ? 1.0 : 0.0) - v.sm_full) * v.sm_kf;",
+    "v.sm_full = v.sm_full + (((v.sm_act && !v.is_first_person && (v.sm_fly > 0 || v.sm_pow > 0 || v.sm_cmb)) ? 1.0 : 0.0) - v.sm_full) * v.sm_kf;",
     "v.sm_vanilla = 1.0 - v.sm_full;",
     "v.sm_arms = v.sm_arms + ((v.sm_pow == 0 ? 1.0 : 0.0) - v.sm_arms) * v.sm_kf;",
     "v.sm_inf = math.floor(v.sm_inp / 3.0) - 1.0;",
@@ -759,6 +845,7 @@ SM_PRE = [
     "v.sm_airw = v.sm_airw + (((v.sm_on && v.sm_fly == 0 && !q.is_on_ground && !q.is_in_water && !q.is_riding) ? 1.0 : 0.0) - v.sm_airw) * v.sm_k;",
     "v.sm_hidle = (v.sm_fly == 3 && v.sm_inp == 4 && v.sm_pow == 0 && math.abs(v.sm_vs) < 0.5) ? v.sm_hidle + v.sm_dt : 0.0;",
     "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
+    "v.sm_cmbw = v.sm_cmbw + ((v.sm_cmb && v.sm_on ? 1.0 : 0.0) - v.sm_cmbw) * v.sm_k;",
 ]
 
 
@@ -800,6 +887,7 @@ def build_entity():
 
 def build_render_controllers():
     vanilla_fp_right = "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map'"
+    holding_power = "q.is_item_name_any('slot.weapon.mainhand', 0, " + ", ".join(f"'{i}'" for i in ITEMS) + ")"
     vanilla_fp_left = ("(query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield') || "
                        "(query.get_equipped_item_name('off_hand') == 'filled_map' && !query.item_is_charged) || "
                        "(!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))")
@@ -822,7 +910,7 @@ def build_render_controllers():
                 "textures": ["Texture.superman"],
                 "part_visibility": [
                     {"*": False},
-                    {"rightArm": vanilla_fp_right},
+                    {"rightArm": f"{vanilla_fp_right} || {holding_power}"},
                     {"leftArm": vanilla_fp_left},
                 ],
             },

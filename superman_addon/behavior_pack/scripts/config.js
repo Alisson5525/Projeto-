@@ -7,6 +7,7 @@ export const PROP = {
   power: 'superman:power',
   charge: 'superman:charge',
   input: 'superman:input',
+  combat: 'superman:combat',
 };
 
 // Estados de voo/locomocao (iguais aos usados nos controladores de animacao)
@@ -19,7 +20,8 @@ export const AIR_STATES = new Set([FLY.LAUNCH, FLY.HOVER, FLY.FLY, FLY.FAST, FLY
 // Poderes
 export const POW = {
   NONE: 0, TRANSFORM: 1, DETRANSFORM: 2, HEAT: 3, FREEZE: 4, CHARGE: 5, PUNCH: 6,
-  CLAP: 7, SLAM: 8, COMBO1: 9, COMBO2: 10, COMBO3: 11,
+  CLAP: 7, SLAM: 8, COMBO1: 9, COMBO2: 10, COMBO3: 11, COMBO4: 12, COMBO5: 13, COMBO6: 14,
+  AIR1: 15, AIR2: 16, AIR3: 17,
 };
 
 export const ITEM = {

@@ -152,6 +152,7 @@ export class Entity {
   extinguishFire() { this.fire = 0; return true; }
   remove() { this.isValid = false; overworld.entities = overworld.entities.filter((e) => e !== this); }
   getVelocity() { return { ...this.vel }; }
+  get isOnGround() { return this.dimension.solid(this.location.x, this.location.y - 0.01, this.location.z) && this.vel.y <= 0.001; }
   getDynamicProperty(k) { return this.dyn[k]; }
   setDynamicProperty(k, v) { this.dyn[k] = v; }
 }

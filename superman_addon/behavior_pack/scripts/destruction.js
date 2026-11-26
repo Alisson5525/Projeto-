@@ -1,7 +1,7 @@
 import { system, world } from '@minecraft/server';
 import { getSettings, intensityMul } from './config.js';
 import { particle, q } from './fx.js';
-import { isSupermanId } from './state.js';
+import { isHeroId } from './state.js';
 import { V } from './vec.js';
 
 // Blocos que nunca sao destruidos
@@ -146,7 +146,7 @@ export function breakSphere(dim, center, r, opts = {}) {
 // ---------------------------------------------------------------- explosoes
 let blastDepth = 0;
 
-/** Explosao do Superman: respeita configuracoes e nunca fere o proprio jogador. */
+/** Explosao do heroi: respeita configuracoes e nunca fere o proprio jogador. */
 export function blast(dim, loc, radius, source, opts = {}) {
   const s = getSettings();
   const r = radius * intensityMul();
@@ -166,10 +166,10 @@ export function blast(dim, loc, radius, source, opts = {}) {
   if (!s.drops) markNoDrops(dim, loc, r + 2);
 }
 
-// Filtra blocos protegidos das explosoes do Superman
+// Filtra blocos protegidos das explosoes do heroi
 world.beforeEvents.explosion.subscribe((ev) => {
   let ours = blastDepth > 0;
-  try { ours = ours || (!!ev.source && isSupermanId(ev.source.id)); } catch (e) { /* */ }
+  try { ours = ours || (!!ev.source && isHeroId(ev.source.id)); } catch (e) { /* */ }
   if (!ours) return;
   try {
     const blocks = ev.getImpactedBlocks();

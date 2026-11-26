@@ -291,7 +291,7 @@ def particles():
 
     # --- visao de calor
     E["heat_beam"] = P("heat_beam", "particles_add", {
-        "minecraft:emitter_rate_instant": {"num_particles": "math.clamp((v.len ?? 8.0) * 4.0, 2, 220)"},
+        "minecraft:emitter_rate_instant": {"num_particles": "math.clamp((v.len ?? 8.0) * (v.den ?? 4.0), 2, 320)"},
         **once(),
         "minecraft:emitter_shape_point": {},
         **life("0.1"),
@@ -300,8 +300,33 @@ def particles():
             "v.dir.x * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_2 - 0.5) * 0.04",
             "v.dir.y * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_3 - 0.5) * 0.04",
             "v.dir.z * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_4 - 0.5) * 0.04"]},
-        "minecraft:particle_appearance_billboard": billboard(["0.09 + v.particle_random_2 * 0.06", "0.09 + v.particle_random_2 * 0.06"], "glow"),
-        "minecraft:particle_appearance_tinting": {"color": ["1.0", "0.35 + v.particle_random_3 * 0.5", "0.15 + v.particle_random_4 * 0.2", 1.0]},
+        "minecraft:particle_appearance_billboard": billboard(["0.16 + v.particle_random_2 * 0.1", "0.16 + v.particle_random_2 * 0.1"], "glow"),
+        "minecraft:particle_appearance_tinting": {"color": ["1.0", "0.25 + v.particle_random_3 * 0.4", "0.08 + v.particle_random_4 * 0.15", 1.0]},
+    })
+    # nucleo branco-amarelo do raio (mais fino e intenso)
+    E["heat_core"] = P("heat_core", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": "math.clamp((v.len ?? 8.0) * (v.den ?? 3.0), 2, 260)"},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("0.1"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_motion_parametric": {"relative_position": [
+            "v.dir.x * v.particle_random_1 * (v.len ?? 8.0)",
+            "v.dir.y * v.particle_random_1 * (v.len ?? 8.0)",
+            "v.dir.z * v.particle_random_1 * (v.len ?? 8.0)"]},
+        "minecraft:particle_appearance_billboard": billboard([0.06, 0.06], "glow"),
+        "minecraft:particle_appearance_tinting": {"color": [1.0, 0.97, "0.7 + v.particle_random_2 * 0.3", 1.0]},
+    })
+    E["heat_scorch"] = P("heat_scorch", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 1},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("8.0"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)"},
+        "minecraft:particle_appearance_billboard": billboard(["1.2 + v.particle_random_1 * 0.8", "1.2 + v.particle_random_1 * 0.8"], "smoke",
+                                                             "emitter_transform_xz"),
+        "minecraft:particle_appearance_tinting": {"color": [0.12, 0.08, 0.06, "0.8 * math.clamp((v.particle_lifetime - v.particle_age) / 2.0, 0.0, 1.0)"]},
     })
     E["eye_glow"] = P("eye_glow", "particles_add", {
         "minecraft:emitter_rate_instant": {"num_particles": 1},
@@ -336,17 +361,53 @@ def particles():
 
     # --- sopro congelante
     E["frost_breath"] = P("frost_breath", "particles_blend", {
-        "minecraft:emitter_rate_instant": {"num_particles": 14},
+        "minecraft:emitter_rate_instant": {"num_particles": 26},
         **once(),
         "minecraft:emitter_shape_point": {"direction": [
-            "v.dir.x + math.random(-0.22, 0.22)", "v.dir.y + math.random(-0.22, 0.22)", "v.dir.z + math.random(-0.22, 0.22)"]},
-        **life("math.random(0.6, 1.0)"),
-        "minecraft:particle_initial_speed": "math.random(10, 17)",
+            "v.dir.x + math.random(-0.3, 0.3)", "v.dir.y + math.random(-0.3, 0.3)", "v.dir.z + math.random(-0.3, 0.3)"]},
+        **life("math.random(0.8, 1.3)"),
+        "minecraft:particle_initial_speed": "math.random(16, 26)",
         "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-90, 90)"},
         "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -0.6, 0], "linear_drag_coefficient": 2.6},
         "minecraft:particle_motion_collision": {"collision_radius": 0.12, "coefficient_of_restitution": 0.05, "collision_drag": 6},
-        "minecraft:particle_appearance_billboard": billboard(["0.08 + v.particle_age * 1.1", "0.08 + v.particle_age * 1.1"], "puff"),
+        "minecraft:particle_appearance_billboard": billboard(["0.1 + v.particle_age * 1.6", "0.1 + v.particle_age * 1.6"], "puff"),
         "minecraft:particle_appearance_tinting": gradient([(0, "#F0FFFFFF"), (0.5, "#B0C8ECFF"), (1, "#00A0D0FF")]),
+    })
+    E["frost_flakes"] = P("frost_flakes", "particles_alpha", {
+        "minecraft:emitter_rate_instant": {"num_particles": 6},
+        **once(),
+        "minecraft:emitter_shape_point": {"direction": [
+            "v.dir.x + math.random(-0.3, 0.3)", "v.dir.y + math.random(-0.3, 0.3)", "v.dir.z + math.random(-0.3, 0.3)"]},
+        **life("math.random(0.8, 1.4)"),
+        "minecraft:particle_initial_speed": "math.random(12, 22)",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-300, 300)"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -2, 0], "linear_drag_coefficient": 2.2},
+        "minecraft:particle_motion_collision": {"collision_radius": 0.06, "coefficient_of_restitution": 0.1, "collision_drag": 6},
+        "minecraft:particle_appearance_billboard": billboard(["0.1 + v.particle_random_1 * 0.1", "0.1 + v.particle_random_1 * 0.1"], "flake"),
+        "minecraft:particle_appearance_tinting": {"color": [0.9, 0.97, 1, 1]},
+    })
+    E["frost_patch"] = P("frost_patch", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 1},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("6.0"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)"},
+        "minecraft:particle_appearance_billboard": billboard(["1.0 + v.particle_random_1", "1.0 + v.particle_random_1"], "flake",
+                                                             "emitter_transform_xz"),
+        "minecraft:particle_appearance_tinting": {"color": [0.85, 0.95, 1, "0.8 * math.clamp((v.particle_lifetime - v.particle_age) / 2.0, 0.0, 1.0)"]},
+    })
+    E["ice_burst"] = P("ice_burst", "particles_alpha", {
+        "minecraft:emitter_rate_instant": {"num_particles": 26},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.6, "direction": "outwards"},
+        **life("math.random(0.8, 1.6)"),
+        "minecraft:particle_initial_speed": "math.random(3, 8)",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-400, 400)"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -14, 0], "linear_drag_coefficient": 0.8},
+        "minecraft:particle_motion_collision": {"collision_radius": 0.06, "coefficient_of_restitution": 0.4, "collision_drag": 3},
+        "minecraft:particle_appearance_billboard": billboard(["0.08 + v.particle_random_1 * 0.12", "0.08 + v.particle_random_1 * 0.12"], "chunk"),
+        "minecraft:particle_appearance_tinting": {"color": [0.72, 0.88, 1, 1]},
     })
     E["frost_hit"] = P("frost_hit", "particles_alpha", {
         "minecraft:emitter_rate_instant": {"num_particles": 6},
@@ -442,28 +503,21 @@ def rgba(h, a=255):
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4)) + (a,)
 
 
-SHIELD = [(0.13, 0.03), (0.87, 0.03), (0.995, 0.30), (0.5, 0.985), (0.005, 0.30)]
-
-
-def s_path(w, h, x0=0, y0=0):
-    import gen_model as gm  # reaproveita o mesmo desenho do S
-    sp = []
-    sp += gm.bezier((x0 + 0.80 * w, y0 + 0.17 * h), (x0 + 0.55 * w, y0 + 0.10 * h), (x0 + 0.20 * w, y0 + 0.14 * h), (x0 + 0.24 * w, y0 + 0.32 * h))
-    sp += gm.bezier((x0 + 0.24 * w, y0 + 0.32 * h), (x0 + 0.28 * w, y0 + 0.48 * h), (x0 + 0.74 * w, y0 + 0.40 * h), (x0 + 0.70 * w, y0 + 0.58 * h))[1:]
-    sp += gm.bezier((x0 + 0.70 * w, y0 + 0.58 * h), (x0 + 0.67 * w, y0 + 0.72 * h), (x0 + 0.42 * w, y0 + 0.76 * h), (x0 + 0.30 * w, y0 + 0.62 * h))[1:]
-    return gm.stroke_polygon(sp, 0.085 * w, 0.17 * w)
-
-
-def draw_shield(d, x0, y0, w, h, field="#f8cc2c", border="#c8162a", s_col="#c8162a", outline="#4e0610"):
-    P_ = [(x0 + x * w, y0 + y * h) for x, y in SHIELD]
-    d.polygon(P_, fill=rgba(outline))
-    cx, cy = x0 + w / 2, y0 + h * 0.44
-
-    def shrink(k):
-        return [(cx + (x - cx) * k, cy + (y - cy) * k) for x, y in P_]
-    d.polygon(shrink(0.92), fill=rgba(border))
-    d.polygon(shrink(0.78), fill=rgba(field))
-    d.polygon(s_path(w, h, x0, y0), fill=rgba(s_col))
+def draw_sun(d, cx, cy, r, ring="#98600f", field="#161b33", core="#efb937", ray="#cc8d1c", hot="#fff5c8"):
+    """Emblema solar original: medalhao com sol de 8 raios."""
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=rgba(ring))
+    r2 = r * 0.84
+    d.ellipse((cx - r2, cy - r2, cx + r2, cy + r2), fill=rgba(field))
+    for i in range(8):
+        a = i / 8 * math.tau
+        w = 0.17
+        d.polygon([(cx + math.cos(a - w) * r * 0.36, cy + math.sin(a - w) * r * 0.36),
+                   (cx + math.cos(a) * r * 0.72, cy + math.sin(a) * r * 0.72),
+                   (cx + math.cos(a + w) * r * 0.36, cy + math.sin(a + w) * r * 0.36)], fill=rgba(ray))
+    rc = r * 0.38
+    d.ellipse((cx - rc, cy - rc, cx + rc, cy + rc), fill=rgba(core))
+    rh = r * 0.2
+    d.ellipse((cx - rh, cy - rh, cx + rh, cy + rh), fill=rgba(hot))
 
 
 def icon(name, draw_fn, size=32, ss=8):
@@ -487,10 +541,10 @@ def icon(name, draw_fn, size=32, ss=8):
 
 
 def icons():
-    icon("emblema", lambda d, W: draw_shield(d, W * 0.06, W * 0.1, W * 0.88, W * 0.8))
+    icon("emblema", lambda d, W: draw_sun(d, W * 0.5, W * 0.5, W * 0.46))
 
     def voo(d, W):
-        # capa vermelha ondulando com linhas de velocidade
+        # capa laranja ondulando com linhas de velocidade
         pts = [(W * 0.3, W * 0.12), (W * 0.62, W * 0.12)]
         for i in range(9):
             t = i / 8
@@ -498,9 +552,9 @@ def icons():
         for i in range(9):
             t = 1 - i / 8
             pts.append((W * (0.18 + 0.2 * t + 0.05 * math.sin(t * 9 + 1)), W * (0.12 + 0.78 * t)))
-        d.polygon(pts, fill=rgba("c8162a"))
-        d.polygon([(W * 0.35, W * 0.2), (W * 0.55, W * 0.2), (W * 0.62, W * 0.7), (W * 0.42, W * 0.75)], fill=rgba("ee4a4e"))
-        draw_shield(d, W * 0.36, W * 0.36, W * 0.26, W * 0.24, field="#f8cc2c", border="#f8cc2c", s_col="#c8162a", outline="#c08a10")
+        d.polygon(pts, fill=rgba("d9531b"))
+        d.polygon([(W * 0.35, W * 0.2), (W * 0.55, W * 0.2), (W * 0.62, W * 0.7), (W * 0.42, W * 0.75)], fill=rgba("f3802c"))
+        draw_sun(d, W * 0.5, W * 0.45, W * 0.13, ring="#efb937", field="#d9531b", core="#ffdf78", ray="#efb937")
         for y in (0.3, 0.5, 0.7):
             d.line((W * 0.02, W * y, W * 0.16, W * y), fill=rgba("dfe9ff"), width=int(W * 0.05))
 
@@ -529,21 +583,21 @@ def icons():
         d.ellipse((c - W * 0.08, c - W * 0.08, c + W * 0.08, c + W * 0.08), fill=rgba("ffffff"))
 
     def soco(d, W):
-        # estrela de impacto + punho
+        # estrela de impacto + punho com luva grafite e bracelete dourado
         star = []
         for i in range(16):
             a = i / 16 * math.tau
             r = 0.47 if i % 2 == 0 else 0.3
             star.append((W * 0.5 + math.cos(a) * W * r, W * 0.5 + math.sin(a) * W * r))
-        d.polygon(star, fill=rgba("f8cc2c"))
-        d.rounded_rectangle((W * 0.24, W * 0.3, W * 0.76, W * 0.72), radius=W * 0.08, fill=rgba("efbf96"))
+        d.polygon(star, fill=rgba("efb937"))
+        d.rounded_rectangle((W * 0.24, W * 0.3, W * 0.76, W * 0.72), radius=W * 0.08, fill=rgba("2b355e"))
         for i in range(4):
             x = W * (0.27 + i * 0.12)
-            d.rounded_rectangle((x, W * 0.26, x + W * 0.11, W * 0.44), radius=W * 0.04, fill=rgba("f3caa4"))
-            d.line((x + W * 0.11, W * 0.3, x + W * 0.11, W * 0.44), fill=rgba("c98b64"), width=int(W * 0.015))
-        d.rounded_rectangle((W * 0.18, W * 0.46, W * 0.36, W * 0.62), radius=W * 0.05, fill=rgba("f3caa4"))
-        d.rectangle((W * 0.3, W * 0.72, W * 0.7, W * 0.96), fill=rgba("2350be"))
-        d.rectangle((W * 0.3, W * 0.72, W * 0.7, W * 0.77), fill=rgba("142c78"))
+            d.rounded_rectangle((x, W * 0.26, x + W * 0.11, W * 0.44), radius=W * 0.04, fill=rgba("3c4a7c"))
+            d.line((x + W * 0.11, W * 0.3, x + W * 0.11, W * 0.44), fill=rgba("161b33"), width=int(W * 0.015))
+        d.rounded_rectangle((W * 0.18, W * 0.46, W * 0.36, W * 0.62), radius=W * 0.05, fill=rgba("3c4a7c"))
+        d.rectangle((W * 0.3, W * 0.72, W * 0.7, W * 0.96), fill=rgba("cc8d1c"))
+        d.rectangle((W * 0.3, W * 0.72, W * 0.7, W * 0.77), fill=rgba("ffdf78"))
 
     def impacto(d, W):
         d.rectangle((0, W * 0.72, W, W), fill=rgba("6b5a48"))
@@ -554,11 +608,11 @@ def icons():
                    fill=rgba("2a2018"), width=int(W * 0.03))
         d.arc((W * 0.05, W * 0.38, W * 0.95, W * 1.08), 190, 350, fill=rgba("ffffff"), width=int(W * 0.06))
         d.arc((W * 0.2, W * 0.5, W * 0.8, W * 0.98), 190, 350, fill=rgba("dfe9ff"), width=int(W * 0.05))
-        d.rounded_rectangle((W * 0.36, W * 0.1, W * 0.64, W * 0.5), radius=W * 0.07, fill=rgba("efbf96"))
-        d.rectangle((W * 0.38, 0, W * 0.62, W * 0.12), fill=rgba("2350be"))
+        d.rounded_rectangle((W * 0.36, W * 0.1, W * 0.64, W * 0.5), radius=W * 0.07, fill=rgba("2b355e"))
+        d.rectangle((W * 0.38, 0, W * 0.62, W * 0.12), fill=rgba("cc8d1c"))
         for i in range(3):
             y = W * (0.22 + i * 0.09)
-            d.line((W * 0.38, y, W * 0.62, y), fill=rgba("c98b64"), width=int(W * 0.02))
+            d.line((W * 0.38, y, W * 0.62, y), fill=rgba("161b33"), width=int(W * 0.02))
 
     icon("voo", voo)
     icon("visao_calor", calor)
@@ -575,13 +629,12 @@ def pack_icon(path, bg_top, bg_bot, subtitle_bar):
     for y in range(W):
         t = y / (W - 1)
         d.line((0, y, W, y), fill=tuple(int(c) for c in top * (1 - t) + bot * t) + (255,))
-    # raios de luz
     for i in range(12):
         a = i / 12 * math.tau
         d.polygon([(W / 2, W / 2), (W / 2 + math.cos(a - 0.08) * W, W / 2 + math.sin(a - 0.08) * W),
-                   (W / 2 + math.cos(a + 0.08) * W, W / 2 + math.sin(a + 0.08) * W)], fill=(255, 255, 255, 28))
+                   (W / 2 + math.cos(a + 0.08) * W, W / 2 + math.sin(a + 0.08) * W)], fill=(255, 240, 200, 30))
     big = Image.new("RGBA", (W * 4, W * 4), (0, 0, 0, 0))
-    draw_shield(ImageDraw.Draw(big), W * 4 * 0.14, W * 4 * 0.12, W * 4 * 0.72, W * 4 * 0.66)
+    draw_sun(ImageDraw.Draw(big), W * 2, W * 1.9, W * 1.45)
     big = big.resize((W, W), Image.LANCZOS)
     shadow = Image.new("RGBA", (W, W), (0, 0, 0, 0))
     shadow.paste((0, 0, 0, 140), (6, 8), big)
@@ -597,7 +650,7 @@ def pack_icon(path, bg_top, bg_bot, subtitle_bar):
 # Textos
 # ---------------------------------------------------------------------------
 ITEMS = {
-    "emblema": ("Emblema do Superman", "Superman Emblem"),
+    "emblema": ("Emblema Solar", "Solar Emblem"),
     "voo": ("Poder: Voo", "Power: Flight"),
     "visao_calor": ("Poder: Visão de Calor", "Power: Heat Vision"),
     "sopro_congelante": ("Poder: Sopro Congelante", "Power: Freeze Breath"),
@@ -612,7 +665,7 @@ def texts():
     write_json(os.path.join(d, "languages.json"), ["pt_BR", "pt_PT", "en_US"])
     for lang, idx in (("pt_BR", 0), ("pt_PT", 0), ("en_US", 1)):
         lines = [f"item.superman:{k}.name={v[idx]}" for k, v in ITEMS.items()]
-        lines.append("pack.name=Superman Add-on")
+        lines.append("pack.name=Solaris - Herói Voador")
         lines.append("pack.description=" + ("Voo, visão de calor, sopro congelante, super força e destruição do cenário"
                                             if idx == 0 else "Flight, heat vision, freeze breath, super strength and scenery destruction"))
         with open(os.path.join(d, f"{lang}.lang"), "w", encoding="utf-8") as f:
@@ -622,7 +675,7 @@ def texts():
     write_json(os.path.join(bd, "languages.json"), ["pt_BR", "pt_PT", "en_US"])
     for lang, idx in (("pt_BR", 0), ("pt_PT", 0), ("en_US", 1)):
         with open(os.path.join(bd, f"{lang}.lang"), "w", encoding="utf-8") as f:
-            f.write("pack.name=Superman Add-on (Comportamento)\n")
+            f.write("pack.name=Solaris - Herói Voador (Comportamento)\n")
             f.write("pack.description=" + ("Scripts de voo, poderes e destruição" if idx == 0 else "Flight, powers and destruction scripts") + "\n")
 
 
@@ -668,13 +721,39 @@ def items():
     })
 
 
+def attachables():
+    """Anexos vazios: os itens de poder nao aparecem na mao do personagem."""
+    write_json(os.path.join(RP, "models", "entity", "superman_empty.geo.json"), {
+        "format_version": "1.16.0",
+        "minecraft:geometry": [{
+            "description": {"identifier": "geometry.superman.empty", "texture_width": 16, "texture_height": 16},
+            "bones": [{"name": "empty", "pivot": [0, 0, 0]}],
+        }],
+    })
+    Image.new("RGBA", (16, 16), (0, 0, 0, 0)).save(os.path.join(RP, "textures", "entity", "superman", "empty.png"))
+    for k in ITEMS:
+        write_json(os.path.join(RP, "attachables", f"{k}.json"), {
+            "format_version": "1.10.0",
+            "minecraft:attachable": {
+                "description": {
+                    "identifier": f"superman:{k}",
+                    "materials": {"default": "entity_alphatest"},
+                    "textures": {"default": "textures/entity/superman/empty"},
+                    "geometry": {"default": "geometry.superman.empty"},
+                    "render_controllers": ["controller.render.item_default"],
+                },
+            },
+        })
+
+
 def bp_player():
     with open(os.path.join(VANILLA, "player.json")) as f:
         ent = json.load(f)
     ent["minecraft:entity"]["description"]["properties"] = {
         "superman:on": {"type": "bool", "default": False, "client_sync": True},
         "superman:fly": {"type": "int", "range": [0, 11], "default": 0, "client_sync": True},
-        "superman:power": {"type": "int", "range": [0, 11], "default": 0, "client_sync": True},
+        "superman:power": {"type": "int", "range": [0, 20], "default": 0, "client_sync": True},
+        "superman:combat": {"type": "bool", "default": False, "client_sync": True},
         "superman:charge": {"type": "float", "range": [0.0, 1.0], "default": 0.0, "client_sync": True},
         "superman:input": {"type": "int", "range": [0, 8], "default": 4, "client_sync": True},
     }
@@ -716,10 +795,11 @@ def main():
     particle_atlas()
     names = particles()
     icons()
-    pack_icon(os.path.join(RP, "pack_icon.png"), "2a5ad6", "0c1c52", "c8162a")
-    pack_icon(os.path.join(BP, "pack_icon.png"), "c8162a", "4e0610", "2350be")
+    pack_icon(os.path.join(RP, "pack_icon.png"), "2b355e", "07080f", "d9531b")
+    pack_icon(os.path.join(BP, "pack_icon.png"), "d9531b", "2c0805", "2b355e")
     texts()
     items()
+    attachables()
     bp_player()
     manifests()
     print(f"{len(names)} particulas, 6 itens, manifestos e textos gerados")

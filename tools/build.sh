@@ -22,10 +22,10 @@ echo "== simulando os scripts"
 
 echo "== empacotando"
 rm -rf dist && mkdir -p dist/tmp
-cp -r superman_addon/behavior_pack "dist/tmp/Superman_BP"
-cp -r superman_addon/resource_pack "dist/tmp/Superman_RP"
-(cd dist/tmp && zip -qr ../Superman_Addon.mcaddon Superman_BP Superman_RP)
-(cd dist/tmp/Superman_BP && zip -qr ../../Superman_BP.mcpack .)
-(cd dist/tmp/Superman_RP && zip -qr ../../Superman_RP.mcpack .)
+cp -r superman_addon/behavior_pack "dist/tmp/Solaris_BP"
+cp -r superman_addon/resource_pack "dist/tmp/Solaris_RP"
+(cd dist/tmp && zip -qr ../Solaris_Addon.mcaddon Solaris_BP Solaris_RP)
+(cd dist/tmp/Solaris_BP && zip -qr ../../Solaris_BP.mcpack .)
+(cd dist/tmp/Solaris_RP && zip -qr ../../Solaris_RP.mcpack .)
 rm -rf dist/tmp
 ls -la dist

@@ -34,6 +34,11 @@ export function getState(player) {
       meas: undefined,
       gain: 1,
       punchCharge: 0,
+      comboAir: false,
+      combatUntil: 0,
+      exposure: new Map(),
+      focus: 0,
+      lastHit: undefined,
       hudTick: 0,
     };
     states.set(player.id, st);
@@ -42,7 +47,7 @@ export function getState(player) {
 }
 
 /** True se o jogador com este id esta transformado (seguro em eventos "before"). */
-export function isSupermanId(id) {
+export function isHeroId(id) {
   return !!states.get(id)?.on;
 }
 
