@@ -60,6 +60,8 @@ export const DEFAULT_SETTINGS = {
   protectContainers: true,// nunca destruir baus, fornalhas, etc.
   punchBreak: true,       // socos quebram blocos instantaneamente
   hud: true,              // mostra velocidade/estado na barra de acao
+  hurtPlayers: false,     // poderes em area atingem outros jogadores
+  protectFriends: true,   // poupa aldeoes, golens e animais domesticados
 };
 
 const KEY = 'superman:settings';
@@ -77,8 +79,13 @@ export function getSettings() {
 }
 
 export function saveSettings(s) {
-  cache = Object.assign({}, DEFAULT_SETTINGS, s);
+  cache = Object.assign({}, DEFAULT_SETTINGS, s || {});
   world.setDynamicProperty(KEY, JSON.stringify(cache));
+}
+
+/** Volta todas as configuracoes ao padrao. */
+export function resetSettings() {
+  saveSettings({});
 }
 
 export function intensityMul() {

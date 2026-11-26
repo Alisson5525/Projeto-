@@ -2,6 +2,7 @@ import { system, world } from '@minecraft/server';
 import { getSettings, intensityMul } from './config.js';
 import { particle, q } from './fx.js';
 import { isHeroId } from './state.js';
+import { shieldProtected } from './targets.js';
 import { V } from './vec.js';
 
 // Blocos que nunca sao destruidos
@@ -14,6 +15,9 @@ const PROTECTED = new Set([
 ]);
 const CONTAINER_RE = /(chest|shulker_box|barrel|furnace|smoker|hopper|dropper|dispenser|brewing_stand|lectern|chiseled_bookshelf|decorated_pot|crafter|beacon|beehive|bee_nest|jukebox|enchanting_table|anvil)/;
 const FRAGILE_RE = /(glass|leaves|flower|tall_grass|short_grass|^minecraft:grass$|fern|bush|sapling|torch|snow_layer|vine|lantern|carpet|tulip|daisy|poppy|dandelion|orchid|allium|bluet|cornflower|lily|rose|peony|lilac|sunflower|mushroom|sugar_cane|bamboo|kelp|seagrass|cobweb|candle|pane|button|lever|rail|redstone_wire|wheat|carrots|potatoes|beetroot|melon_stem|pumpkin_stem|flower_pot|ice$)/;
+
+const MAX_BLAST = 10;          // raio maximo de explosao (desempenho)
+const READ_BUDGET = 1600;      // leituras de bloco por tick para as ondas de destruicao
 
 export function isBreakable(id) {
   if (!id || id === 'minecraft:air' || id === 'minecraft:cave_air' || id === 'minecraft:void_air') return false;
@@ -77,8 +81,11 @@ function getBlock(dim, loc) {
   }
 }
 
-/** Blocos solidos dentro de uma esfera (ordenados do centro para fora). */
-export function sphereBlocks(dim, center, r, filter) {
+/**
+ * Blocos solidos dentro de uma esfera (ordenados do centro para fora).
+ * `seen` (opcional) evita reler posicoes ja verificadas em esferas sobrepostas.
+ */
+export function sphereBlocks(dim, center, r, filter, seen) {
   const out = [];
   const c = V.floor(center);
   const R = Math.ceil(r);
@@ -90,6 +97,11 @@ export function sphereBlocks(dim, center, r, filter) {
       for (let z = -R; z <= R; z++) {
         const d2 = x * x + y * y + z * z;
         if (d2 > r * r) continue;
+        if (seen) {
+          const k = `${c.x + x},${yy},${c.z + z}`;
+          if (seen.has(k)) continue;
+          seen.add(k);
+        }
         const b = getBlock(dim, { x: c.x + x, y: yy, z: c.z + z });
         if (!b || b.isAir || b.isLiquid) continue;
         if (filter && !filter(b.typeId)) continue;
@@ -127,7 +139,7 @@ export function breakBlocks(dim, blocks, opts = {}) {
       if (opts.max && n >= opts.max) break;
     } catch (e) { /* bloco invalido */ }
   }
-  if (n && !s.drops) {
+  if (n && !s.drops && !opts.keepDrops) {
     const c = { x: cx / n + 0.5, y: cy / n + 0.5, z: cz / n + 0.5 };
     let r = 2;
     for (const b of blocks) {
@@ -140,18 +152,117 @@ export function breakBlocks(dim, blocks, opts = {}) {
 
 export function breakSphere(dim, center, r, opts = {}) {
   if (!getSettings().destruction && !opts.force) return 0;
-  return breakBlocks(dim, sphereBlocks(dim, center, r, opts.filter), opts);
+  return breakBlocks(dim, sphereBlocks(dim, center, r, opts.filter, opts.seen), opts);
+}
+
+// ---------------------------------------------------------------- ondas de destruicao
+// A destruicao grande e feita em camadas, do centro para fora, ao longo de varios
+// ticks: parece uma onda de choque e evita travadas (orcamento de leituras por tick).
+
+const MAXR = 12;
+const OFFSETS = (() => {
+  const o = [];
+  for (let x = -MAXR; x <= MAXR; x++) {
+    for (let y = -MAXR; y <= MAXR; y++) {
+      for (let z = -MAXR; z <= MAXR; z++) {
+        const d2 = x * x + y * y + z * z;
+        if (d2 <= MAXR * MAXR) o.push({ x, y, z, d2 });
+      }
+    }
+  }
+  return o.sort((a, b) => a.d2 - b.d2);
+})();
+
+const jobs = [];
+
+/** Onda esferica: quebra blocos (opcionalmente filtrados) ate `radius`, `speed` blocos por tick. */
+export function waveBreak(dim, center, radius, opts = {}) {
+  if (!getSettings().destruction && !opts.force) return;
+  const c = V.floor(center);
+  const r2 = Math.min(radius, MAXR) ** 2;
+  let idx = 0;
+  let rad = 0;
+  let broken = 0;
+  const max = opts.max ?? 600;
+  jobs.push({
+    run(budget) {
+      rad += opts.speed ?? 1.6;
+      const lim = Math.min(r2, rad * rad);
+      const batch = [];
+      let used = 0;
+      while (idx < OFFSETS.length && used < budget) {
+        const o = OFFSETS[idx];
+        if (o.d2 > lim) break;
+        idx++;
+        used++;
+        const b = getBlock(dim, { x: c.x + o.x, y: c.y + o.y, z: c.z + o.z });
+        if (!b || b.isAir || b.isLiquid) continue;
+        if (opts.filter && !opts.filter(b.typeId)) continue;
+        batch.push(b);
+      }
+      if (batch.length) broken += breakBlocks(dim, batch, { visible: opts.visible ?? 5, debrisEvery: opts.debrisEvery ?? 4, max: max - broken });
+      this.done = idx >= OFFSETS.length || OFFSETS[idx].d2 > r2 || broken >= max;
+      return used;
+    },
+  });
+}
+
+/** Tunel que avanca ao longo de uma reta (soco carregado), `speed` blocos por tick. */
+export function waveLine(dim, origin, dir, from, to, radius, opts = {}) {
+  if (!getSettings().destruction && !opts.force) return;
+  let d = from;
+  const seen = new Set();
+  const step = opts.step ?? 1.4;
+  const perTick = Math.max(1, Math.round((opts.speed ?? 3) / step));
+  jobs.push({
+    run(budget) {
+      let used = 0;
+      for (let i = 0; i < perTick && d <= to && used < budget; i++) {
+        const p = V.add(origin, V.mul(dir, d));
+        const blocks = sphereBlocks(dim, p, radius, opts.filter, seen);
+        used += Math.ceil((2 * radius + 1) ** 3 / 2);
+        breakBlocks(dim, blocks, { visible: opts.visible ?? 3, max: opts.max ?? 60 });
+        d += step;
+      }
+      this.done = d > to;
+      return used;
+    },
+  });
+}
+
+/** Processa as ondas pendentes (chamado uma vez por tick). */
+export function processDestruction() {
+  let budget = READ_BUDGET;
+  for (let i = 0; i < jobs.length && budget > 0; i++) {
+    const job = jobs[i];
+    try {
+      budget -= job.run(budget);
+    } catch (e) {
+      job.done = true;
+    }
+    if (job.done) {
+      jobs.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+export function pendingDestruction() {
+  return jobs.length;
 }
 
 // ---------------------------------------------------------------- explosoes
 let blastDepth = 0;
 
-/** Explosao do heroi: respeita configuracoes e nunca fere o proprio jogador. */
+/** Explosao do heroi: respeita configuracoes, nunca fere o proprio jogador nem os protegidos. */
 export function blast(dim, loc, radius, source, opts = {}) {
   const s = getSettings();
-  const r = radius * intensityMul();
-  if (source && !s.invulnerable) {
-    try { source.addEffect('resistance', 3, { amplifier: 4, showParticles: false }); } catch (e) { /* */ }
+  const r = Math.min(MAX_BLAST, radius * intensityMul());
+  if (source) {
+    if (!s.invulnerable) {
+      try { source.addEffect('resistance', 3, { amplifier: 4, showParticles: false }); } catch (e) { /* */ }
+    }
+    shieldProtected(source, loc, r * 2 + 2);
   }
   blastDepth++;
   try {

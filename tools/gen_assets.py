@@ -5,16 +5,19 @@ import json
 import math
 import os
 
+import sys
+
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 ADDON = os.path.join(ROOT, "superman_addon")
 RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [1, 0, 0]
+VERSION = [1, 2, 0]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
@@ -520,21 +523,40 @@ def draw_sun(d, cx, cy, r, ring="#98600f", field="#161b33", core="#efb937", ray=
     d.ellipse((cx - rh, cy - rh, cx + rh, cy + rh), fill=rgba(hot))
 
 
+def icon_palette():
+    """Paleta fechada dos icones: as mesmas rampas da skin + gelo, fogo, grama e terra."""
+    import gen_model as gm
+    ramps = [gm.SUIT, gm.GOLD, gm.CAPE, gm.SILV, gm.SKIN, gm.HAIR]
+    extra = ["16405c", "2f7fae", "69b9e6", "bfe6ff", "f2fbff", "5a0d05", "a8200a", "ff5020", "ffa040", "fff4a0",
+             "ffffff", "2f5a1f", "5f9b3f", "2a2018", "6b5a48", "8a7560"]
+    pal = np.concatenate([r for r in ramps] + [np.array([[int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)] for h in extra])])
+    return pal * 255
+
+
 def icon(name, draw_fn, size=32, ss=8):
     W = size * ss
     img = Image.new("RGBA", (W, W), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     draw_fn(d, W)
-    img = img.resize((size, size), Image.LANCZOS)
+    img = img.resize((size, size), Image.BOX)
+    arr = np.asarray(img).astype(np.float64)
+    # pixel art: alfa binario e cores presas a paleta fechada (sem meios-tons borrados)
+    pal = icon_palette()
+    rgb = arr[..., :3]
+    dist = ((rgb[:, :, None, :] - pal[None, None, :, :]) ** 2).sum(-1)
+    rgb = pal[dist.argmin(-1)]
+    a = arr[..., 3] > 110
     # contorno escuro de 1px (estilo de icone do Minecraft)
-    a = np.asarray(img)[..., 3] > 100
     edge = np.zeros_like(a)
     for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
         edge |= np.roll(np.roll(a, dy, 0), dx, 1)
     edge &= ~a
-    arr = np.asarray(img).copy()
-    arr[edge] = [20, 14, 24, 255]
-    arr[..., 3] = np.where(arr[..., 3] > 100, 255, np.where(edge, 255, 0))
+    out = np.zeros((size, size, 4))
+    out[..., :3] = rgb
+    out[..., 3] = 255
+    out[edge, :3] = [20, 14, 24]
+    out[~(a | edge), 3] = 0
+    arr = out.astype(np.uint8)
     out = os.path.join(RP, "textures", "items", "superman")
     os.makedirs(out, exist_ok=True)
     Image.fromarray(arr, "RGBA").save(os.path.join(out, f"{name}.png"))

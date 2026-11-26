@@ -8,7 +8,6 @@
           "animations": [
             "sm.cape",
             "sm.breath",
-            "sm.curl",
             {
               "sm.orient": "v.sm_full"
             },
@@ -1943,6 +1942,53 @@
           ],
           "blend_transition": 0.12,
           "blend_via_shortest_path": true
+        }
+      }
+    },
+    "controller.animation.superman.idle": {
+      "initial_state": "wait",
+      "states": {
+        "wait": {
+          "transitions": [
+            {
+              "look": "v.sm_still > 5.0 && v.sm_islot != v.sm_idone && math.mod(v.sm_islot, 2) == 0"
+            },
+            {
+              "stretch": "v.sm_still > 5.0 && v.sm_islot != v.sm_idone && math.mod(v.sm_islot, 2) == 1"
+            }
+          ]
+        },
+        "look": {
+          "animations": [
+            {
+              "sm.idle_look": "v.sm_hero * (1.0 - v.sm_full)"
+            }
+          ],
+          "on_entry": [
+            "v.sm_idone = v.sm_islot;"
+          ],
+          "transitions": [
+            {
+              "wait": "q.all_animations_finished || v.sm_still < 0.1"
+            }
+          ],
+          "blend_transition": 0.4
+        },
+        "stretch": {
+          "animations": [
+            {
+              "sm.idle_stretch": "v.sm_hero * (1.0 - v.sm_full)"
+            }
+          ],
+          "on_entry": [
+            "v.sm_idone = v.sm_islot;"
+          ],
+          "transitions": [
+            {
+              "wait": "q.all_animations_finished || v.sm_still < 0.1"
+            }
+          ],
+          "blend_transition": 0.4
         }
       }
     },

@@ -41,6 +41,11 @@
           "v.sm_run = 0.0;",
           "v.sm_hero = 0.0;",
           "v.sm_still = 0.0;",
+          "v.sm_clv = 0.0;",
+          "v.sm_spdp = 0.0;",
+          "v.sm_acc = 0.0;",
+          "v.sm_idone = -1.0;",
+          "v.sm_islot = 0.0;",
           "v.sm_airw = 0.0;",
           "v.sm_hidle = 0.0;",
           "v.sm_cross = 0.0;",
@@ -89,13 +94,19 @@
           "v.sm_bank = v.sm_bank + (((v.sm_fly == 4 || v.sm_fly == 5) ? math.clamp(-v.sm_turn * 0.22 - v.sm_ins * 18.0, -60.0, 60.0) : 0.0) - v.sm_bank) * v.sm_k;",
           "v.sm_lean = v.sm_lean + ((v.sm_fly == 3 ? math.clamp(-v.sm_ins * 14.0 - v.sm_turn * 0.04, -24.0, 24.0) : 0.0) - v.sm_lean) * v.sm_k;",
           "v.sm_clt = (v.sm_fly == 2 || v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6) ? 0.04 : (v.sm_fly == 3 ? 0.1 + math.max(v.sm_inf, 0.0) * 0.25 + math.clamp(-v.sm_vs * 0.04, 0.0, 0.6) : (v.sm_fly == 11 ? 0.95 : ((!q.is_on_ground && v.sm_vs < -2.0) ? math.clamp(-v.sm_vs * 0.07, 0.0, 1.5) : 0.04 + math.clamp(v.sm_gs * 0.06, 0.0, 0.55))));",
-          "v.sm_cl = v.sm_cl + (v.sm_clt - v.sm_cl) * v.sm_ks;",
-          "v.sm_cf = v.sm_cf + (((v.sm_fly == 5 || v.sm_fly == 6) ? 16.0 : (v.sm_fly == 4 ? 10.0 : (v.sm_fly == 3 ? 6.0 : (v.sm_fly == 11 ? 12.0 : 2.0 + math.clamp(v.sm_gs, 0.0, 8.0))))) - v.sm_cf) * v.sm_ks;",
+          "v.sm_spd = math.sqrt(v.sm_gs * v.sm_gs + v.sm_vs * v.sm_vs);",
+          "v.sm_acc = v.sm_acc + (math.clamp((v.sm_spd - v.sm_spdp) / math.max(v.sm_dt, 0.01), -120.0, 120.0) - v.sm_acc) * v.sm_k;",
+          "v.sm_spdp = v.sm_spd;",
+          "v.sm_clv = (v.sm_clv + ((v.sm_clt - v.sm_cl) * 38.0 - v.sm_clv * 7.5) * v.sm_dt) * (v.sm_dt > 0.09 ? 0.0 : 1.0);",
+          "v.sm_cl = math.clamp(v.sm_cl + v.sm_clv * v.sm_dt, -0.3, 1.8);",
+          "v.sm_cf = v.sm_cf + (((v.sm_fly == 5 || v.sm_fly == 6) ? 16.0 : (v.sm_fly == 4 ? 10.0 : (v.sm_fly == 3 ? 6.0 : (v.sm_fly == 11 ? 12.0 : 2.0 + math.clamp(v.sm_gs, 0.0, 8.0)))) + math.clamp(math.abs(v.sm_acc) * 0.12, 0.0, 10.0)) - v.sm_cf) * v.sm_ks;",
           "v.sm_cs = v.sm_cs + (((v.sm_fly == 5 || v.sm_fly == 6) ? 4.5 : (v.sm_fly == 4 ? 2.4 : (v.sm_fly == 3 ? 0.7 : (v.sm_fly == 11 ? 3.5 : 0.45 + math.clamp(v.sm_gs * 0.25, 0.0, 1.5))))) - v.sm_cs) * v.sm_ks;",
           "v.sm_cph = math.mod(v.sm_cph + v.sm_dt * v.sm_cs * 360.0, 3600.0);",
           "v.sm_run = math.mod(v.sm_run + v.sm_dt * math.clamp(v.sm_gs * 0.45, 0.0, 4.0) * 360.0, 3600.0);",
           "v.sm_still = (v.sm_on && v.sm_fly == 0 && v.sm_pow == 0 && q.is_on_ground && v.sm_gs < 0.3 && !q.is_sneaking && (q.get_equipped_item_name == '' || q.is_item_name_any('slot.weapon.mainhand', 0, 'superman:emblema', 'superman:voo', 'superman:visao_calor', 'superman:sopro_congelante', 'superman:super_soco', 'superman:impacto'))) ? v.sm_still + v.sm_dt : 0.0;",
           "v.sm_hero = v.sm_hero + ((v.is_paperdoll || v.sm_still > 1.2 ? 1.0 : 0.0) - v.sm_hero) * v.sm_ks;",
+          "v.sm_islot = math.floor((v.sm_still - 5.0) / 9.0);",
+          "v.sm_idone = v.sm_still < 0.1 ? -1.0 : v.sm_idone;",
           "v.sm_airw = v.sm_airw + (((v.sm_on && v.sm_fly == 0 && !q.is_on_ground && !q.is_in_water && !q.is_riding) ? 1.0 : 0.0) - v.sm_airw) * v.sm_k;",
           "v.sm_hidle = (v.sm_fly == 3 && v.sm_inp == 4 && v.sm_pow == 0 && math.abs(v.sm_vs) < 0.5) ? v.sm_hidle + v.sm_dt : 0.0;",
           "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
@@ -113,6 +124,9 @@
           },
           {
             "sm_power": "v.sm_act && !v.is_first_person"
+          },
+          {
+            "sm_idle": "v.sm_on && !v.is_first_person"
           },
           {
             "sm_fp": "v.sm_on && v.is_first_person"
@@ -203,7 +217,6 @@
         "third_person_melee_spear_controller": "controller.animation.player.melee_spear",
         "sm.cape": "animation.superman.cape",
         "sm.breath": "animation.superman.breath",
-        "sm.curl": "animation.superman.curl",
         "sm.orient": "animation.superman.orient",
         "sm.look": "animation.superman.look",
         "sm.walk_legs": "animation.superman.walk_legs",
@@ -211,6 +224,8 @@
         "sm.tremble": "animation.superman.tremble",
         "sm.hover.vert": "animation.superman.hover.vert",
         "sm.hero_idle": "animation.superman.hero_idle",
+        "sm.idle_look": "animation.superman.idle_look",
+        "sm.idle_stretch": "animation.superman.idle_stretch",
         "sm.air_jump": "animation.superman.air_jump",
         "sm.superspeed.arms": "animation.superman.superspeed.arms",
         "sm.superspeed.core": "animation.superman.superspeed.core",
@@ -289,6 +304,7 @@
         "sm_base": "controller.animation.superman.base",
         "sm_move": "controller.animation.superman.move",
         "sm_power": "controller.animation.superman.power",
+        "sm_idle": "controller.animation.superman.idle",
         "sm_fp": "controller.animation.superman.first_person"
       },
       "render_controllers": [

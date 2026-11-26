@@ -40,7 +40,6 @@ BONES = [
     ("body", "waist", [0, 24, 0]),
     ("head", "body", [0, 24, 0]),
     ("hair", "head", [0, 24, 0]),
-    ("curl", "head", [0, 31, -4.5]),
     ("eyelids", "head", [0, 28, -4]),
     ("eye_glow", "head", [0, 28, -4]),
     ("sm_cape", "body", [0, 24, 2.25]),
@@ -315,8 +314,13 @@ def cape_color(X, Y, side):
 
 
 def p_cape(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
     if face == "south":
-        return cape_color(X, Y, "out"), np.ones(X.shape)
+        col = cape_color(X, Y, "out")
+        # debrum dourado nas bordas laterais da capa
+        edge = (X < o[0] + 0.5) | (X > o[0] + sz[0] - 0.5)
+        col = np.where(edge[..., None], ramp(GOLD, np.full(X.shape, 0.5 + 0.17 * (Y > 12))), col)
+        return col, np.ones(X.shape)
     if face == "north":
         return cape_color(X, Y, "in"), np.ones(X.shape)
     col = ramp(CAPE, np.full(X.shape, 0.33))
@@ -368,6 +372,10 @@ def p_arm(face, X, Y, Z, cube, px, py):
     if face == "down":
         hL = np.full(X.shape, 0.33)
     col = np.where(hand[..., None] > 0, ramp(SUIT, hL - 0.17), col)
+    if face == "north":
+        # placa dourada sobre os nos dos dedos
+        knuckle = band(Y, 13.5, 14) * band(lx, 0.125, 0.875) * (np.mod(np.floor(lx * 8), 2) == 0)
+        col = np.where(knuckle[..., None] > 0, ramp(GOLD, np.full(X.shape, 0.66)), col)
     if face == "up":
         col = ramp(SUIT, np.full(X.shape, 0.66))
     if face == "down":

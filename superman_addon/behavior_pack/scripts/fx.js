@@ -25,9 +25,11 @@ export function q(n) {
   return Math.max(1, Math.round(n * (p === 1 ? 0.4 : p === 3 ? 1.6 : 1)));
 }
 
-export function sound(dim, id, loc, volume = 1, pitch = 1) {
+/** Som no mundo com leve variacao de tom (evita repeticao mecanica). */
+export function sound(dim, id, loc, volume = 1, pitch = 1, jitter = 0.07) {
   try {
-    dim.playSound(id, loc, { volume, pitch });
+    const p = Math.max(0.1, pitch * (1 + (Math.random() * 2 - 1) * jitter));
+    dim.playSound(id, loc, { volume, pitch: p });
   } catch (e) { /* ignore */ }
 }
 

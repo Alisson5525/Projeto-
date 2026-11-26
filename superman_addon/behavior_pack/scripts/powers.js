@@ -1,11 +1,12 @@
 import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system } from '@minecraft/server';
 import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings } from './config.js';
-import { blast, breakBlocks, breakSphere, debrisColor, isBreakable, isFragile, sphereBlocks } from './destruction.js';
+import { blast, breakBlocks, debrisColor, isBreakable, isFragile, waveBreak, waveLine } from './destruction.js';
 import { startDive, stopAll, toggleFlight } from './flight.js';
 import { actionbar, flash, particle, q, shake, shakeArea, sound } from './fx.js';
-import { setOn, setPower, sync } from './state.js';
+import { setFly, setOn, setPower, sync } from './state.js';
+import { canHit, hurt, nearby, pushMobs } from './targets.js';
 import { openSettings } from './ui.js';
-import { V, clamp } from './vec.js';
+import { V } from './vec.js';
 
 const UP = { x: 0, y: 1, z: 0 };
 
@@ -37,7 +38,25 @@ function mainhand(player) {
   }
 }
 
-/** Da os itens de poder que estiverem faltando no inventario. */
+// Descricao de uso mostrada ao passar o dedo/mouse sobre cada item
+const LORE = {
+  [ITEM.EMBLEM]: ['§7Usar: transformar / destransformar', '§7Agachar + usar: configurações'],
+  [ITEM.FLIGHT]: ['§7No chão: decolagem automática', '§7Voando: pousar', '§8Dica: pulo duplo também faz voar'],
+  [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
+  [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
+  [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força'],
+  [ITEM.IMPACT]: ['§7No chão: palma trovão', '§7Agachado: pancada no chão', '§7Voando: mergulho meteoro'],
+};
+
+function decorate(stack) {
+  try {
+    stack.setLore(LORE[stack.typeId] ?? []);
+    stack.keepOnDeath = true;
+  } catch (e) { /* */ }
+  return stack;
+}
+
+/** Da os itens que estiverem faltando e atualiza a descricao dos que ja existem. */
 export function giveItems(player, list) {
   try {
     const inv = player.getComponent('minecraft:inventory')?.container;
@@ -45,9 +64,11 @@ export function giveItems(player, list) {
     const have = new Set();
     for (let i = 0; i < inv.size; i++) {
       const it = inv.getItem(i);
-      if (it) have.add(it.typeId);
+      if (!it) continue;
+      have.add(it.typeId);
+      if (LORE[it.typeId] && (!it.keepOnDeath || it.getLore().length === 0)) inv.setItem(i, decorate(it));
     }
-    for (const id of list) if (!have.has(id)) inv.addItem(new ItemStack(id, 1));
+    for (const id of list) if (!have.has(id)) inv.addItem(decorate(new ItemStack(id, 1)));
   } catch (e) { /* */ }
 }
 
@@ -96,10 +117,15 @@ export function onItemUse(player, st, id, tick) {
 function beginPower(player, st, p, timeout) {
   st.charge = 0;
   st.powerTimeout = timeout;
+  st.powerDur = Math.max(1, timeout - system.currentTick);
   st.heat.clear();
   st.focus = 0;
   setPower(player, st, p);
-  if (st.fly === FLY.SPEED) st.fly = FLY.NONE; // poderes interrompem a super velocidade
+  if (st.fly === FLY.SPEED) {
+    // poderes interrompem a super velocidade (e o cliente precisa saber)
+    setFly(player, st, FLY.NONE);
+    try { player.removeEffect('speed'); } catch (e) { /* */ }
+  }
 }
 
 function stopPower(player, st) {
@@ -159,7 +185,26 @@ function transformTick(player, st) {
       });
     } catch (e) { /* */ }
   }
+  if (t === 32) tutorial(player);
   if (t >= 40) setPower(player, st, POW.NONE);
+}
+
+/** Guia rapido de controles, so na primeira transformacao de cada jogador. */
+function tutorial(player) {
+  try {
+    if (player.getDynamicProperty('superman:tutorial') === true) return;
+    player.setDynamicProperty('superman:tutorial', true);
+  } catch (e) { return; }
+  const lines = [
+    '§6§lSOLARIS §r§7- guia rápido',
+    '§e• Voar:§f pulo duplo  §8|  §eSupersônico:§f correr voando',
+    '§e• Decolagem com cratera:§f segure agachar parado e pule',
+    '§e• Pousar:§f desça até o chão  §8|  §eSuper velocidade:§f correr',
+    '§e• Combate:§f 6 golpes no chão e 3 no ar',
+    '§e• Poderes:§f itens da barra (cada um tem uma descrição)',
+    '§e• Configurações:§f agachar + usar o Emblema',
+  ];
+  for (const l of lines) player.sendMessage(l);
 }
 
 function detransformTick(player, st) {
@@ -265,8 +310,7 @@ function heatTick(player, st, tick) {
   // o raio atravessa todas as criaturas no caminho
   let ents = [];
   try {
-    ents = dim.getEntitiesFromRay(head, dir, { maxDistance: dist })
-      .filter((h) => h.entity.id !== player.id && h.entity.typeId !== 'minecraft:item' && h.entity.typeId !== 'minecraft:xp_orb');
+    ents = dim.getEntitiesFromRay(head, dir, { maxDistance: dist }).filter((h) => canHit(player, h.entity));
   } catch (e) { /* */ }
   const hitPoint = V.add(head, V.mul(dir, dist));
   for (const sgn of [1, -1]) {
@@ -285,7 +329,7 @@ function heatTick(player, st, tick) {
     for (const h of ents) {
       try {
         h.entity.setOnFire(8, true);
-        h.entity.applyDamage(7, { cause: EntityDamageCause.fire, damagingEntity: player });
+        hurt(player, h.entity, 7, EntityDamageCause.fire);
         h.entity.applyKnockback({ x: dir.x * 0.25, z: dir.z * 0.25 }, 0.05);
         particle(dim, 'superman:heat_impact', V.add(h.entity.location, { x: 0, y: 1, z: 0 }));
       } catch (e) { /* */ }
@@ -363,8 +407,7 @@ function freezeTick(player, st, tick) {
   const s = getSettings();
   // entidades no cone: congelam, sofrem dano e sao empurradas pelo vendaval
   try {
-    for (const e of dim.getEntities({ location: mouth, maxDistance: range })) {
-      if (e.id === player.id || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
+    for (const e of nearby(player, mouth, range)) {
       const rel = V.sub(V.add(e.location, { x: 0, y: 0.8, z: 0 }), mouth);
       const d = V.len(rel);
       if (d < 0.1 || V.dot(V.norm(rel), dir) < Math.cos((32 * Math.PI) / 180)) continue;
@@ -375,7 +418,7 @@ function freezeTick(player, st, tick) {
         e.addEffect('mining_fatigue', 100, { amplifier: 2, showParticles: false });
         e.addEffect('weakness', 100, { amplifier: 1, showParticles: false });
         e.extinguishFire(true);
-        if (t % 4 === 0) e.applyDamage(3, { cause: EntityDamageCause.freezing, damagingEntity: player });
+        if (t % 4 === 0) hurt(player, e, 3, EntityDamageCause.freezing);
         const push = 0.55 * (1 - Math.min(1, d / range) * 0.5);
         e.applyKnockback({ x: dir.x * push, z: dir.z * push }, 0.06);
       } catch (err) { /* */ }
@@ -384,7 +427,7 @@ function freezeTick(player, st, tick) {
         encase(player, e);
         try {
           e.addEffect('slowness', 120, { amplifier: 10, showParticles: false });
-          e.applyDamage(8, { cause: EntityDamageCause.freezing, damagingEntity: player });
+          hurt(player, e, 8, EntityDamageCause.freezing);
         } catch (err) { /* */ }
       }
     }
@@ -463,14 +506,13 @@ function punchImpact(player, st) {
   // entidades no caminho do soco
   try {
     const mid = V.add(origin, V.mul(dir, range / 2));
-    for (const e of dim.getEntities({ location: mid, maxDistance: range / 2 + 2.5 })) {
-      if (e.id === player.id || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
+    for (const e of nearby(player, mid, range / 2 + 2.5)) {
       const rel = V.sub(V.add(e.location, { x: 0, y: 0.9, z: 0 }), origin);
       const along = V.dot(rel, dir);
       if (along < 0 || along > range + 1.5) continue;
       if (V.len(V.sub(rel, V.mul(dir, along))) > 2 + 1.5 * c) continue;
       try {
-        e.applyDamage(14 + 46 * c, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
+        hurt(player, e, 14 + 46 * c);
         e.applyKnockback({ x: dir.x * (2.5 + 6 * c), z: dir.z * (2.5 + 6 * c) }, 0.45 + 1.1 * c + Math.max(0, dir.y) * 2.5);
       } catch (err) { /* */ }
       particle(dim, 'superman:punch_impact', V.add(e.location, { x: 0, y: 1, z: 0 }));
@@ -484,11 +526,8 @@ function punchImpact(player, st) {
     const hd = V.dist(origin, hp);
     blast(dim, hp, 2 + 4 * c, player);
     particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hit.block.typeId) });
-    if (getSettings().destruction && c > 0.3) {
-      for (let d = hd + 1.2; d <= range + 3 * c; d += 1.4) {
-        breakSphere(dim, V.add(origin, V.mul(dir, d)), 1.3 + 2 * c, { visible: 3, max: 40 });
-      }
-    }
+    // o tunel avanca em onda a partir do ponto de impacto
+    if (c > 0.3) waveLine(dim, origin, dir, hd + 1.2, range + 3 * c, 1.3 + 2 * c, { speed: 3, visible: 3 });
   }
   particle(dim, 'superman:sonic_boom', fistPos, { dir, radius: 1 + 2.5 * c });
   particle(dim, 'superman:punch_wave', fistPos, { dir, power: c });
@@ -515,22 +554,19 @@ function clapImpact(player, st) {
   sound(dim, 'random.explode', center, 0.7, 1.3);
   shakeArea(dim, center, 28, 0.9, 0.7);
   try {
-    for (const e of dim.getEntities({ location: center, maxDistance: 24 })) {
-      if (e.id === player.id || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
+    for (const e of nearby(player, center, 24)) {
       const rel = V.sub(e.location, player.location);
       const h = V.norm({ x: rel.x, y: 0, z: rel.z });
       if (V.dot(h, fwd) < 0.15) continue;
       const f = 1 - Math.min(1, V.len(rel) / 24) * 0.7;
       try {
         e.applyKnockback({ x: h.x * 5 * f, z: h.z * 5 * f }, 0.75 * f);
-        e.applyDamage(12 * f, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
+        hurt(player, e, 12 * f);
       } catch (err) { /* */ }
     }
   } catch (e) { /* */ }
-  if (getSettings().destruction) {
-    const blocks = sphereBlocks(dim, V.add(center, V.mul(fwd, 6)), 10, isFragile);
-    breakBlocks(dim, blocks, { visible: 18, max: 260 });
-  }
+  // vidros, folhas e plantas estilhacam numa onda que avanca a frente
+  waveBreak(dim, V.add(center, V.mul(fwd, 4)), 10, { filter: isFragile, speed: 1.8, visible: 5, max: 300 });
 }
 
 function slamImpact(player, st) {
@@ -548,14 +584,13 @@ function slamImpact(player, st) {
   sound(dim, 'mob.warden.sonic_boom', p, 1, 0.8);
   shakeArea(dim, p, 32, 1.4, 0.9);
   try {
-    for (const e of dim.getEntities({ location: p, maxDistance: 14 })) {
-      if (e.id === player.id || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
+    for (const e of nearby(player, p, 14)) {
       const rel = V.sub(e.location, p);
       const h = V.norm({ x: rel.x, y: 0, z: rel.z });
       const f = 1 - Math.min(1, V.len(rel) / 14) * 0.6;
       try {
         e.applyKnockback({ x: h.x * 1.8 * f, z: h.z * 1.8 * f }, 1.6 * f);
-        e.applyDamage(16 * f, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
+        hurt(player, e, 16 * f);
       } catch (err) { /* */ }
     }
   } catch (e) { /* */ }
@@ -565,17 +600,17 @@ function slamImpact(player, st) {
 
 // Sequencias de golpes: no chao (6) e no ar (3). k = empurrao, up = vertical, t = duracao (ticks)
 const GROUND_COMBO = [
-  { pow: POW.COMBO1, k: 2.2, up: 0.35, t: 7 },                     // jab
-  { pow: POW.COMBO2, k: 2.8, up: 0.45, t: 7 },                     // direto
-  { pow: POW.COMBO4, k: 2.6, up: 0.5, t: 8, side: true },          // gancho
-  { pow: POW.COMBO3, k: 1.0, up: 2.0, t: 10 },                     // uppercut
-  { pow: POW.COMBO5, k: 4.0, up: 0.7, t: 12, side: true, wave: true }, // chute giratorio
-  { pow: POW.COMBO6, k: 6.0, up: 1.2, t: 17, finisher: true },     // golpe final
+  { pow: POW.COMBO1, k: 2.2, up: 0.35, t: 7, name: 'Jab' },
+  { pow: POW.COMBO2, k: 2.8, up: 0.45, t: 7, name: 'Direto' },
+  { pow: POW.COMBO4, k: 2.6, up: 0.5, t: 8, side: true, name: 'Gancho' },
+  { pow: POW.COMBO3, k: 1.0, up: 2.0, t: 10, name: 'Uppercut' },
+  { pow: POW.COMBO5, k: 4.0, up: 0.7, t: 12, side: true, wave: true, name: 'Chute giratório' },
+  { pow: POW.COMBO6, k: 6.0, up: 1.2, t: 17, finisher: true, name: 'GOLPE FINAL' },
 ];
 const AIR_COMBO = [
-  { pow: POW.AIR1, k: 3.2, up: 0.5, t: 8, dash: true },            // soco aereo duplo
-  { pow: POW.AIR2, k: 3.8, up: 0.6, t: 11, side: true, wave: true }, // chute tornado
-  { pow: POW.AIR3, k: 0.6, up: -3.2, t: 12, spike: true },         // martelo: crava no chao
+  { pow: POW.AIR1, k: 3.2, up: 0.5, t: 8, dash: true, name: 'Soco aéreo' },
+  { pow: POW.AIR2, k: 3.8, up: 0.6, t: 11, side: true, wave: true, name: 'Chute tornado' },
+  { pow: POW.AIR3, k: 0.6, up: -3.2, t: 12, spike: true, name: 'MARTELO' },
 ];
 
 const spikes = [];
@@ -591,11 +626,14 @@ export function onMeleeHit(player, st, target, tick) {
   st.lastHitTick = tick;
   st.combatUntil = tick + 90;
   const mv = list[st.combo - 1];
+  st.lastMove = mv.name;
   if (!busy) {
     setPower(player, st, mv.pow);
     st.powerTimeout = tick + mv.t;
   }
   const dim = player.dimension;
+  // outros jogadores so recebem os efeitos extras se a opcao estiver ligada
+  if (target.typeId === 'minecraft:player' && !getSettings().hurtPlayers) return;
   try {
     const rel = V.sub(target.location, player.location);
     const h = V.norm({ x: rel.x, y: 0, z: rel.z });
@@ -614,7 +652,7 @@ export function onMeleeHit(player, st, target, tick) {
       particle(dim, 'superman:sonic_boom', hp, { dir: { x: h.x * 0.3, y: 0.95, z: h.z * 0.3 }, radius: 1.6 });
     }
     if (mv.finisher) {
-      target.applyDamage(30, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
+      hurt(player, target, 30);
       particle(dim, 'superman:sonic_boom', hp, { dir: h, radius: 3 });
       particle(dim, 'superman:shockwave', V.add(target.location, { x: 0, y: 0.1, z: 0 }), { radius: 7, color: { r: 1, g: 1, b: 1 } });
       particle(dim, 'superman:debris_burst', target.location, { color: { r: 0.55, g: 0.5, b: 0.45 } });
@@ -625,27 +663,11 @@ export function onMeleeHit(player, st, target, tick) {
     }
     if (mv.dash) st.vel = V.add(st.vel, V.mul(V.norm(rel), 0.9));
     if (mv.spike) {
-      target.applyDamage(18, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
+      hurt(player, target, 18);
       spikes.push({ e: target, from: tick + 2, until: tick + 40, player });
       sound(dim, 'mace.heavy_smash_ground', hp, 0.8, 1.4);
     }
   } catch (e) { /* alvo invalido */ }
-}
-
-/** Empurra todas as entidades num raio (menos o jogador e, opcionalmente, um alvo). */
-function pushMobs(player, center, radius, strength, lift, damage, skipId) {
-  try {
-    for (const e of player.dimension.getEntities({ location: center, maxDistance: radius })) {
-      if (e.id === player.id || e.id === skipId || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
-      const rel = V.sub(e.location, center);
-      const h = V.norm({ x: rel.x, y: 0, z: rel.z });
-      const f = 1 - Math.min(1, V.len(rel) / radius) * 0.6;
-      try {
-        e.applyKnockback({ x: h.x * strength * f, z: h.z * strength * f }, lift * f);
-        if (damage > 0) e.applyDamage(damage * f, { cause: EntityDamageCause.entityAttack, damagingEntity: player });
-      } catch (err) { /* */ }
-    }
-  } catch (e) { /* */ }
 }
 
 /** Inimigos cravados pelo martelo aereo abrem cratera ao bater no chao. */
@@ -663,7 +685,7 @@ function updateSpikes(tick) {
         particle(dim, 'superman:ground_crack', { x: l.x, y: Math.floor(l.y) + 0.06, z: l.z }, { radius: 3 });
         sound(dim, 'mace.heavy_smash_ground', l, 1.6, 0.8);
         shakeArea(dim, l, 20, 0.6, 0.5);
-        sp.e.applyDamage(12, { cause: EntityDamageCause.entityAttack, damagingEntity: sp.player });
+        hurt(sp.player, sp.e, 12);
         done = true;
       }
     } catch (e) {
@@ -679,7 +701,8 @@ export function onBlockPunch(player, st, block) {
   const hand = mainhand(player);
   if (hand && !hand.startsWith('superman:')) return;
   try {
-    if (player.getGameMode() === GameMode.Creative) return;
+    const mode = player.getGameMode();
+    if (mode === GameMode.Creative || mode === GameMode.Adventure) return;
   } catch (e) { /* */ }
   const dim = player.dimension;
   const id = block.typeId;

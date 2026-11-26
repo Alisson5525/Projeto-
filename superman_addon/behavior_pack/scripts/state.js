@@ -40,6 +40,10 @@ export function getState(player) {
       focus: 0,
       lastHit: undefined,
       hudTick: 0,
+      powerDur: 1,
+      tunnelSeen: new Set(),
+      lastMove: '',
+      lastMoveTick: -100,
     };
     states.set(player.id, st);
   }

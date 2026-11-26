@@ -28,7 +28,9 @@ export class MolangVariableMap {
 }
 
 export class ItemStack {
-  constructor(typeId, amount = 1) { this.typeId = typeId; this.amount = amount; }
+  constructor(typeId, amount = 1) { this.typeId = typeId; this.amount = amount; this.lore = []; this.keepOnDeath = false; }
+  setLore(l) { if (!Array.isArray(l) || l.some((x) => typeof x !== 'string' || x.length > 50)) err('lore invalida ' + JSON.stringify(l)); this.lore = (l || []).slice(); }
+  getLore() { return this.lore.slice(); }
 }
 
 // ---------------------------------------------------------------- mundo
@@ -134,7 +136,7 @@ let nextId = 1;
 export class Entity {
   constructor(typeId, loc) {
     this.id = String(nextId++); this.typeId = typeId; this.location = { ...loc }; this.dimension = overworld; this.isValid = true;
-    this.vel = { x: 0, y: 0, z: 0 }; this.health = 20; this.effects = {}; this.dyn = {}; this.fire = 0;
+    this.vel = { x: 0, y: 0, z: 0 }; this.health = 20; this.effects = {}; this.dyn = {}; this.fire = 0; this.tamed = false;
     overworld.entities.push(this);
   }
   applyKnockback(h, v) {
@@ -155,11 +157,16 @@ export class Entity {
   get isOnGround() { return this.dimension.solid(this.location.x, this.location.y - 0.01, this.location.z) && this.vel.y <= 0.001; }
   getDynamicProperty(k) { return this.dyn[k]; }
   setDynamicProperty(k, v) { this.dyn[k] = v; }
+  getComponent(id) {
+    if (id === 'minecraft:tameable') return this.tamed ? { isTamed: true } : undefined;
+    return undefined;
+  }
 }
 
 class Container {
   constructor() { this.size = 36; this.items = new Array(36).fill(undefined); }
   getItem(i) { return this.items[i]; }
+  setItem(i, it) { this.items[i] = it; }
   addItem(it) { const i = this.items.findIndex((x) => !x); if (i >= 0) this.items[i] = it; return undefined; }
 }
 
@@ -170,6 +177,7 @@ export class Player extends Entity {
     for (const [k, p] of Object.entries(PROPS)) this.props[k] = p.default;
     this.mv = { x: 0, y: 0 }; this.jumpHeld = false; this.sneakHeld = false; this.isSprinting = false; this.isFlying = false;
     this.isInWater = false; this.inv = new Container(); this.selected = 0; this.actionbar = ''; this.mode = 'Survival';
+    this.isGliding = false; this.ridingOn = undefined; this.chest = undefined;
     this.inputInfo = { getMovementVector: () => ({ ...this.mv }), getButtonState: (b) => ((b === 'Jump' ? this.jumpHeld : this.sneakHeld) ? 'Pressed' : 'Released') };
     this.camera = { fade: () => {} };
     this.onScreenDisplay = { setActionBar: (t) => { this.actionbar = t; }, setTitle: (t, o) => { this.title = t; } };
@@ -195,12 +203,13 @@ export class Player extends Entity {
   getProperty(k) { return this.props[k]; }
   getComponent(id) {
     if (id === 'minecraft:inventory') return { container: this.inv };
-    if (id === 'minecraft:equippable') return { getEquipment: (s) => (s === 'Mainhand' ? this.inv.items[this.selected] : undefined) };
+    if (id === 'minecraft:equippable') return { getEquipment: (s) => (s === 'Mainhand' ? this.inv.items[this.selected] : s === 'Chest' ? this.chest : undefined) };
+    if (id === 'minecraft:riding') return this.ridingOn ? { entityRidingOn: this.ridingOn } : undefined;
     return undefined;
   }
   getGameMode() { return this.mode; }
   runCommand(cmd) { LOG.commands.push(cmd); if (!/^camerashake add @s [\d.]+ [\d.]+ positional$/.test(cmd)) err('comando de jogador invalido ' + cmd); return { successCount: 1 }; }
-  sendMessage(m) { this.lastMessage = m; }
+  sendMessage(m) { this.lastMessage = m; (this.messages ||= []).push(String(m)); }
   hold(id) { const i = this.inv.items.findIndex((x) => x?.typeId === id); if (i < 0) err('item nao encontrado no inventario: ' + id); this.selected = i; }
   /** Fisica simples: integra velocidade, gravidade (reduzida por slow_falling), arrasto e colisao com o chao. */
   physics() {
@@ -223,7 +232,8 @@ class Signal {
   unsubscribe(f) { this._subs = this._subs.filter((x) => x !== f); }
   fire(ev) { for (const f of this._subs) f(ev); }
 }
-const AFTER = ['itemUse', 'playerButtonInput', 'entityHitEntity', 'entityHitBlock', 'playerSpawn', 'entityDie', 'entitySpawn', 'explosion'];
+const AFTER = ['itemUse', 'playerButtonInput', 'entityHitEntity', 'entityHitBlock', 'playerSpawn', 'entityDie', 'entitySpawn', 'explosion',
+  'playerDimensionChange'];
 const BEFORE = ['explosion', 'playerLeave'];
 export const world = {
   players: [], dyn: {},

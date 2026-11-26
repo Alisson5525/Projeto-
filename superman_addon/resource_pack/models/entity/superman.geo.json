@@ -618,15 +618,6 @@
      ]
     },
     {
-     "name": "curl",
-     "pivot": [
-      0,
-      31,
-      -4.5
-     ],
-     "parent": "head"
-    },
-    {
      "name": "eyelids",
      "pivot": [
       0,

@@ -1,6 +1,8 @@
 # Solaris – Herói Voador (Add-on para Minecraft Bedrock)
 
-Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 85, com transições suaves entre todos os estados. A skin é em **pixel art detalhada**.
+Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 86, com transições suaves entre todos os estados. A skin é em **pixel art detalhada**.
+
+> **Versão 1.2.0, polimento geral.** A destruição grande agora acontece em ondas, sem travar. Os poderes poupam aliados, os itens têm descrição e não caem ao morrer, há um guia rápido na primeira transformação, e o HUD mostra combo e tempo dos poderes. A capa ganhou física de mola, há deformação nos impactos e animações ociosas, e os ícones foram refeitos em pixel art. Veja o [histórico de mudanças](CHANGELOG.md).
 
 ![Visão geral das animações](docs/preview/visao_geral.png)
 
@@ -33,7 +35,11 @@ Ao entrar no mundo pela primeira vez você recebe o **Emblema Solar**. Se perder
           | Redstone |
 ```
 
-**Use o Emblema** para se transformar. Ao se transformar você recebe os 5 itens de poder. Os itens **não aparecem na mão do personagem**: em terceira pessoa ele fica de mãos livres e em primeira pessoa aparece o punho.
+**Use o Emblema** para se transformar. Ao se transformar você recebe os 5 itens de poder, e na primeira vez aparece um **guia rápido** no chat. Os itens:
+
+- têm **descrição de uso**: passe o dedo ou o mouse sobre eles;
+- **não caem ao morrer**;
+- **não aparecem na mão do personagem**: em terceira pessoa ele fica de mãos livres e em primeira pessoa aparece o punho.
 
 ### Controles
 
@@ -53,7 +59,7 @@ Ao entrar no mundo pela primeira vez você recebe o **Emblema Solar**. Se perder
 
 ### Combate corpo a corpo
 
-Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, gingado e base de lutador. Cada novo acerto em até 1,3 s continua a sequência:
+Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, gingado e base de lutador. Cada novo acerto em até 1,3 s continua a sequência, e o HUD mostra o **contador de combo** com o nome do golpe:
 
 | No chão | No ar (pairando ou voando) |
 |---|---|
@@ -85,7 +91,13 @@ Enquanto transformado: força VI, regeneração III, resistência total, imunida
 - **Decolagem carregada, pancada, soco e palma:** crateras, túneis e ondas de choque.
 - **Visão de calor:** derrete, queima e explode; **sopro congelante:** congela e prende em gelo.
 
+A destruição grande (palma trovão, estrondo sônico, túnel do soco) se espalha em **ondas** ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
+
 Blocos como bedrock, portais e blocos de comando **nunca** são destruídos. Por padrão, baús e blocos com itens também são protegidos.
+
+### Aliados protegidos
+
+Por padrão, os poderes em área (raios, sopro, palmas, explosões, golpe final) **não atingem** aldeões, golens, animais domesticados nem outros jogadores. Isso pode ser mudado nas configurações.
 
 ### Configurações (agachar + usar o Emblema)
 
@@ -95,26 +107,28 @@ Blocos como bedrock, portais e blocos de comando **nunca** são destruídos. Por
 - visão de calor incendeia e derrete ou não
 - velocidade do supersônico (100 a 245 km/h)
 - invulnerabilidade, tremor de câmera
+- poupar aldeões, golens e animais domesticados / atingir outros jogadores
 - quantidade de partículas (use 1 em celular fraco)
 - proteção de baús, soco que quebra bloco
 - **inverter esquerda/direita** (se o desvio lateral no voo estiver trocado)
-- mostrar velocidade na tela
+- mostrar velocidade, combos e tempo dos poderes na tela
+- **restaurar o padrão**
 
 ---
 
-## Animações (85)
+## Animações (86)
 
 Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*) entre estados e camadas procedurais que se somam: capa, respiração, inclinação nas curvas, flutuação e tremor de esforço.
 
 | Voo e locomoção | Poderes | Combate | Camadas contínuas |
 |---|---|---|---|
-| decolagem carregada e salto com punho para cima | transformação e destransformação | postura de luta no chão e guarda no ar | **capa em 5 segmentos** com onda que percorre o tecido |
+| decolagem carregada e salto com punho para cima | transformação e destransformação | postura de luta no chão e guarda no ar | **capa em 5 segmentos** com onda e **física de mola** |
 | decolagem no ar (pulo duplo) | visão de calor (início, tensão, fim) | jab, direto e gancho | a capa levanta com a velocidade e sobe ao cair |
 | pairar e pairar com **braços cruzados** | sopro congelante (inspira e sopra) | uppercut | respiração e piscar de olhos |
 | voo com **inclinação nas curvas** | super soco (carga e golpe) | **chute giratório** 360° | olhos brilham na visão de calor |
 | arrancada e voo supersônico | palma trovão | **golpe final** com investida | cabeça segue a câmera em todas as poses |
-| freada, mergulho meteoro | pancada no chão | soco aéreo duplo | pose de herói parado e no inventário |
-| descida, pouso suave e **pouso de herói** | animações em 1ª pessoa | **chute tornado** e **martelo** aéreo | caminhada heroica e pose no ar ao pular |
+| freada, mergulho meteoro | pancada no chão | soco aéreo duplo | pose de herói parado e no inventário, **olhar em volta** e **alongar** quando fica parado |
+| descida, pouso suave e **pouso de herói** | animações em 1ª pessoa | **chute tornado** e **martelo** aéreo | caminhada heroica e pose no ar ao pular; **deformação** no impacto e na decolagem |
 | super velocidade correndo | | | |
 
 ### Prévias
@@ -126,6 +140,7 @@ Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*
 | ![](docs/preview/07_pouso_de_heroi.gif) pouso de herói | ![](docs/preview/08_visao_de_calor.gif) visão de calor | ![](docs/preview/09_sopro_congelante.gif) sopro congelante |
 | ![](docs/preview/10_super_soco.gif) super soco | ![](docs/preview/15_combo_de_6_golpes.gif) combo de 6 golpes | ![](docs/preview/16_combo_aereo.gif) combo aéreo |
 | ![](docs/preview/12_palma_trovao.gif) palma trovão | ![](docs/preview/13_pancada_no_chao.gif) pancada no chão | ![](docs/preview/14_super_velocidade.gif) super velocidade |
+| ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | | |
 
 *As prévias foram renderizadas fora do jogo pelo visualizador em `tools/preview`, com as mesmas animações e modelo do add-on. As partículas e a câmera aparecem só dentro do jogo.*
 
@@ -138,7 +153,9 @@ Personagem original, desenhado em pixel art com 2 pixels por unidade (detalhe eq
 - uniforme grafite com músculos sombreados e frisos dourados nas laterais
 - **emblema solar** em relevo no peito
 - braceletes e botas douradas, luvas grafite, cinto prateado com fivela de sol
-- capa laranja "chama solar" com dobras, bainha dourada e sol vazado nas costas
+- capa laranja "chama solar" com dobras, bainha e debrum dourados e sol vazado nas costas
+- luvas grafite com placa dourada nos nós dos dedos
+- ícones dos itens em pixel art com a mesma paleta
 
 ---
 
@@ -152,7 +169,7 @@ tools/gen_client.py       animações, controladores, render controllers, player
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (68 verificações)
+tools/simulate/           roda os scripts num mundo simulado (87 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos
@@ -170,6 +187,7 @@ python3 tools/preview/gifs.py /tmp                        # regera as prévias
 - O estado (voo, poder, carga, combate, direção do controle) é sincronizado com o cliente por **propriedades de entidade** do jogador. Os controladores de animação usam essas propriedades para escolher as animações e misturar as transições.
 - A inclinação nas curvas, a orientação do corpo seguindo a câmera e a física da capa são calculadas **no cliente**, a cada quadro, por Molang. Por isso ficam fluidas mesmo com atraso de rede.
 - Os itens de poder usam **anexos vazios**, então nada é desenhado na mão do personagem.
+- A destruição grande passa por uma **fila de ondas**, com limite de blocos verificados por tick, para não travar o jogo.
 
 ### Limitações conhecidas
 

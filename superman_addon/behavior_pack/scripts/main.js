@@ -1,8 +1,9 @@
 // Solaris - Heroi Voador: ponto de entrada dos scripts (servidor).
 import { ButtonState, InputButton, system, world } from '@minecraft/server';
 import { FLY, ITEM, POW, getSettings } from './config.js';
+import { processDestruction } from './destruction.js';
 import { actionbar } from './fx.js';
-import { updateFlight } from './flight.js';
+import { resetFlight, updateFlight } from './flight.js';
 import { POWER_NAMES, giveItems, maintainEffects, onBlockPunch, onItemUse, onMeleeHit, restore, updatePowers } from './powers.js';
 import { dropState, getState, setFly, setPower, sync } from './state.js';
 import { V, sign0 } from './vec.js';
@@ -35,19 +36,31 @@ function readInput(player) {
 
 function hud(player, st, tick) {
   if (!getSettings().hud || tick % 4 !== 0) return;
+  // combo em andamento tem prioridade
+  if (st.on && tick - st.lastHitTick < 30 && st.combo > 0) {
+    const big = st.combo >= 4 ? '§c§l' : '§e§l';
+    actionbar(player, `§6§lSOLARIS§r §8| ${big}COMBO x${st.combo}§r §8| §f${st.lastMove}`);
+    return;
+  }
   let name = POWER_NAMES[st.power];
-  if (st.power === POW.CHARGE) name += ` ${bar(st.charge)}`;
+  let extra;
+  if (st.power === POW.CHARGE) extra = bar(st.charge, '§6');
+  if (st.power === POW.HEAT || st.power === POW.FREEZE) {
+    extra = bar(Math.max(0, (st.powerTimeout - tick) / st.powerDur), st.power === POW.HEAT ? '§c' : '§b');
+  }
   if (!name) name = FLY_NAMES[st.fly];
   if (!name) return;
-  const v = st.meas ?? player.getVelocity();
-  let extra = `§e${Math.round(V.len(v) * 72)} km/h`;
-  if (st.fly === FLY.CHARGE) extra = bar(st.charge);
+  if (!extra) {
+    let v = st.meas ?? player.getVelocity();
+    if (V.len(v) > 6) v = player.getVelocity(); // teleporte: ignora o salto
+    extra = st.fly === FLY.CHARGE ? bar(st.charge, '§6') : `§e${Math.round(V.len(v) * 72)} km/h`;
+  }
   actionbar(player, `§6§lSOLARIS§r §8| ${name} §8| ${extra}`);
 }
 
-function bar(x) {
-  const n = Math.round(x * 10);
-  return '§a' + '|'.repeat(n) + '§8' + '|'.repeat(10 - n);
+function bar(x, color = '§a') {
+  const n = Math.max(0, Math.min(10, Math.round(x * 10)));
+  return color + '|'.repeat(n) + '§8' + '|'.repeat(10 - n);
 }
 
 function tickPlayer(player, tick) {
@@ -69,6 +82,11 @@ function tickPlayer(player, tick) {
 
 system.runInterval(() => {
   const tick = system.currentTick;
+  try {
+    processDestruction();
+  } catch (e) {
+    if (tick % 100 === 0) console.warn(`[Solaris] destruicao: ${e}`);
+  }
   for (const player of world.getAllPlayers()) {
     try {
       tickPlayer(player, tick);
@@ -154,6 +172,11 @@ world.afterEvents.entityDie.subscribe((ev) => {
     setFly(e, st, FLY.NONE);
     setPower(e, st, POW.NONE);
   } catch (err) { /* */ }
+});
+
+world.afterEvents.playerDimensionChange.subscribe((ev) => {
+  const st = getState(ev.player);
+  try { resetFlight(ev.player, st); } catch (e) { /* */ }
 });
 
 world.beforeEvents.playerLeave.subscribe((ev) => {

@@ -48,6 +48,11 @@ def RT(r, p):
     return {"r": list(r), "p": list(p)}
 
 
+def SC(x, y=None, z=None):
+    """Escala (deformacao): SC(1.05, 0.9) = achata; SC(0.95, 1.1) = estica."""
+    return {"s": [x, y if y is not None else x, z if z is not None else x]}
+
+
 def pose(**bones):
     return bones
 
@@ -83,9 +88,9 @@ def timeline(name, length, frames, loop=False, mode="catmullrom", extra=None):
                 bones.append(b)
     out = {}
     for b in bones:
-        for ch, key in (("r", "rotation"), ("p", "position")):
-            vals = [(t, p.get(b, {}).get(ch, [0, 0, 0])) for t, p in frames]
-            if all(all((not isinstance(x, str)) and abs(x) < 1e-6 for x in v) for _, v in vals):
+        for ch, key, dflt in (("r", "rotation", 0), ("p", "position", 0), ("s", "scale", 1)):
+            vals = [(t, p.get(b, {}).get(ch, [dflt, dflt, dflt])) for t, p in frames]
+            if all(all((not isinstance(x, str)) and abs(x - dflt) < 1e-6 for x in v) for _, v in vals):
                 continue
             d = {}
             for t, v in vals:
@@ -187,10 +192,6 @@ def build_animations():
         "rightArm": {"r": [0, 0, "math.sin(q.life_time * 100.0 + 30.0) * 1.1 + 0.8"]},
         "leftArm": {"r": [0, 0, "-math.sin(q.life_time * 100.0 + 30.0) * 1.1 - 0.8"]},
     })
-    proc("curl", {
-        "curl": {"r": ["math.sin(q.life_time * 160.0) * 4.0 + math.clamp(-q.vertical_speed * 2.5, -25.0, 25.0)",
-                       0, "math.sin(q.life_time * 110.0) * 3.0"]},
-    })
     proc("orient", {
         "sm_yaw": {"r": [0, "q.target_y_rotation * v.sm_yw", 0]},
         "sm_pitch": {"r": ["v.sm_p", 0, 0]},
@@ -229,6 +230,21 @@ def build_animations():
         (1.6, blend_pose(HERO, pose(waist=R(-6), head=R(-9), rightArm=R(6, 0, 26), leftArm=R(6, 0, -26)), 1.0)),
         (3.2, HERO),
     ], loop=True)
+    timeline("idle_look", 3.0, [
+        (0.0, NEUTRAL),
+        (0.5, pose(head=R(-4, -36, 0), waist=R(0, -6, 0))),
+        (1.3, pose(head=R(-2, -38, 0), waist=R(0, -7, 0))),
+        (1.8, pose(head=R(-6, 32, 0), waist=R(0, 5, 0))),
+        (2.5, pose(head=R(-5, 34, 0), waist=R(0, 6, 0))),
+        (3.0, NEUTRAL),
+    ], loop="hold")
+    timeline("idle_stretch", 2.6, [
+        (0.0, NEUTRAL),
+        (0.6, pose(rightArm=R(-24, 0, 22), leftArm=R(-24, 0, -22), head=R(-6, 0, 14), waist=R(-5), body=SC(1.03))),
+        (1.2, pose(rightArm=R(-18, 0, 18), leftArm=R(-18, 0, -18), head=R(-6, 0, -14), waist=R(-6), body=SC(1.04))),
+        (1.8, pose(head=R(-8), waist=R(-7), body=SC(1.03))),
+        (2.6, NEUTRAL),
+    ], loop="hold")
     timeline("air_jump", 1.0, [
         (0.0, pose(rightLeg=R(-16, 0, 2), leftLeg=R(8, 0, -2), rightArm=R(-8, 0, 16), leftArm=R(-8, 0, -16), waist=R(4))),
     ], loop=True)
@@ -255,7 +271,7 @@ def build_animations():
     timeline("launch", 0.6, [
         (0.0, CHARGE),
         (0.07, pose(sm_yaw=T(0, 1.6, 0), waist=R(-6), head=R(-32), rightArm=R(-178, 0, 6), leftArm=R(18, 0, -8),
-                    rightLeg=R(6, 0, 1), leftLeg=R(14, 0, -1))),
+                    rightLeg=R(6, 0, 1), leftLeg=R(14, 0, -1), root=SC(0.93, 1.12))),
         (0.3, pose(sm_yaw=T(0, 0.5, 0), waist=R(-3), head=R(-25), rightArm=R(-176, 0, 5), leftArm=R(12, 0, -6),
                    rightLeg=R(4, 0, 1), leftLeg=R(10, 0, -1))),
         (0.6, pose(waist=R(1), head=R(-10), rightArm=R(-140, 0, 10), leftArm=R(6, 0, -9),
@@ -349,7 +365,7 @@ def build_animations():
     timeline("land_soft", 0.9, [
         (0.0, LANDPREP),
         (0.08, pose(sm_yaw=T(0, -2.4, 0), waist=R(16), head=R(8), rightLeg=R(-33, 0, 4), leftLeg=R(30, 0, -4),
-                    rightArm=R(-28, 0, 38), leftArm=R(-28, 0, -38))),
+                    rightArm=R(-28, 0, 38), leftArm=R(-28, 0, -38), root=SC(1.04, 0.94))),
         (0.3, pose(sm_yaw=T(0, -0.9, 0), waist=R(7), head=R(2), rightLeg=R(-14, 0, 3), leftLeg=R(12, 0, -3),
                    rightArm=R(-10, 0, 18), leftArm=R(-10, 0, -18))),
         (0.6, pose(waist=R(1), rightLeg=R(-2, 0, 2), leftLeg=R(2, 0, -2), rightArm=R(0, 0, 8), leftArm=R(0, 0, -8))),
@@ -360,7 +376,7 @@ def build_animations():
     timeline("land_hero", 1.8, [
         (0.0, pose(sm_yaw=T(0, -1, 0), waist=R(10), rightLeg=R(-10, 0, 3), leftLeg=R(10, 0, -3),
                    rightArm=R(-120, 0, 10), leftArm=R(-60, 0, -30))),
-        (0.07, KNEEL),
+        (0.07, dict(KNEEL, root=SC(1.08, 0.88))),
         (0.16, blend_pose(KNEEL, pose(sm_yaw=T(0, -5.8, 0), waist=R(38), head=R(34), rightLeg=R(60, 0, 6),
                                       leftLeg=R(-62, 0, -6), rightArm=R(-54, 0, 6), leftArm=R(48, 0, -34)), 1.0)),
         (0.75, blend_pose(KNEEL, pose(sm_yaw=T(0, -5.9, 0), waist=R(39), head=R(36), rightLeg=R(60, 0, 6),
@@ -381,7 +397,7 @@ def build_animations():
         (0.85, pose(sm_yaw=T(0, -2.6, 0), waist=R(22), head=R(30), rightArm=R(-82, -42, -6), leftArm=R(-78, 40, 6),
                     rightLeg=R(-25, 0, 3), leftLeg=R(21, 0, -3))),
         (1.0, pose(sm_yaw=T(0, 1.5, 0), waist=R(-18), head=R(-30), rightArm=R(-20, 0, 78), leftArm=R(-20, 0, -78),
-                   rightLeg=R(0, 0, 8), leftLeg=R(0, 0, -8))),
+                   rightLeg=R(0, 0, 8), leftLeg=R(0, 0, -8), root=SC(1.06))),
         (1.4, pose(sm_yaw=T(0, 1.0, 0), waist=R(-14), head=R(-24), rightArm=R(-16, 0, 70), leftArm=R(-16, 0, -70),
                    rightLeg=R(0, 0, 7), leftLeg=R(0, 0, -7))),
         (2.0, HERO),
@@ -589,7 +605,7 @@ def build_animations():
         (0.35, pose(sm_yaw=T(0, 1.5, 0), waist=R(-15), head=R(-15), rightArm=R(-170, 0, -15), leftArm=R(-170, 0, 15),
                     rightLeg=R(-6, 0, 4), leftLeg=R(6, 0, -4))),
         (0.55, pose(sm_yaw=T(0, -5, 0), waist=R(55), head=R(30), rightArm=R(-40, 0, -8), leftArm=R(-40, 0, 8),
-                    rightLeg=R(-48, 0, 6), leftLeg=R(48, 0, -6))),
+                    rightLeg=R(-48, 0, 6), leftLeg=R(48, 0, -6), root=SC(1.06, 0.9))),
         (0.8, pose(sm_yaw=T(0, -4.8, 0), waist=R(52), head=R(26), rightArm=R(-42, 0, -8), leftArm=R(-42, 0, 8),
                    rightLeg=R(-46, 0, 6), leftLeg=R(46, 0, -6))),
         (1.2, NEUTRAL),
@@ -630,7 +646,7 @@ def build_controllers():
         "states": {
             "default": {
                 "animations": [
-                    "sm.cape", "sm.breath", "sm.curl",
+                    "sm.cape", "sm.breath",
                     {"sm.orient": W},
                     {"sm.look": W},
                     {"sm.walk_legs": f"{W} * (v.sm_fly == 0 && q.is_on_ground ? 1.0 : 0.0)"},
@@ -766,6 +782,24 @@ def build_controllers():
         pstates[name] = st
     C["controller.animation.superman.power"] = {"initial_state": "none", "states": pstates}
 
+    # variacoes ociosas: alternam a cada 9 s parado em pose de heroi
+    C["controller.animation.superman.idle"] = {
+        "initial_state": "wait",
+        "states": {
+            "wait": {"transitions": [
+                {"look": "v.sm_still > 5.0 && v.sm_islot != v.sm_idone && math.mod(v.sm_islot, 2) == 0"},
+                {"stretch": "v.sm_still > 5.0 && v.sm_islot != v.sm_idone && math.mod(v.sm_islot, 2) == 1"},
+            ]},
+            "look": {"animations": [{"sm.idle_look": "v.sm_hero * (1.0 - v.sm_full)"}],
+                     "on_entry": ["v.sm_idone = v.sm_islot;"],
+                     "transitions": [{"wait": "q.all_animations_finished || v.sm_still < 0.1"}],
+                     "blend_transition": 0.4},
+            "stretch": {"animations": [{"sm.idle_stretch": "v.sm_hero * (1.0 - v.sm_full)"}],
+                        "on_entry": ["v.sm_idone = v.sm_islot;"],
+                        "transitions": [{"wait": "q.all_animations_finished || v.sm_still < 0.1"}],
+                        "blend_transition": 0.4},
+        },
+    }
     C["controller.animation.superman.first_person"] = {
         "initial_state": "none",
         "states": {
@@ -792,6 +826,7 @@ SM_INIT = [
     "v.sm_full = 0.0;", "v.sm_arms = 1.0;", "v.sm_p = 0.0;", "v.sm_yw = 0.0;", "v.sm_yawp = 0.0;",
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
+    "v.sm_clv = 0.0;", "v.sm_spdp = 0.0;", "v.sm_acc = 0.0;", "v.sm_idone = -1.0;", "v.sm_islot = 0.0;",
     "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;",
 ]
 
@@ -833,8 +868,13 @@ SM_PRE = [
     "v.sm_lean = v.sm_lean + ((v.sm_fly == 3 ? math.clamp(-v.sm_ins * 14.0 - v.sm_turn * 0.04, -24.0, 24.0) : 0.0) - v.sm_lean) * v.sm_k;",
     # capa
     "v.sm_clt = (v.sm_fly == 2 || v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6) ? 0.04 : (v.sm_fly == 3 ? 0.1 + math.max(v.sm_inf, 0.0) * 0.25 + math.clamp(-v.sm_vs * 0.04, 0.0, 0.6) : (v.sm_fly == 11 ? 0.95 : ((!q.is_on_ground && v.sm_vs < -2.0) ? math.clamp(-v.sm_vs * 0.07, 0.0, 1.5) : 0.04 + math.clamp(v.sm_gs * 0.06, 0.0, 0.55))));",
-    "v.sm_cl = v.sm_cl + (v.sm_clt - v.sm_cl) * v.sm_ks;",
-    "v.sm_cf = v.sm_cf + (((v.sm_fly == 5 || v.sm_fly == 6) ? 16.0 : (v.sm_fly == 4 ? 10.0 : (v.sm_fly == 3 ? 6.0 : (v.sm_fly == 11 ? 12.0 : 2.0 + math.clamp(v.sm_gs, 0.0, 8.0))))) - v.sm_cf) * v.sm_ks;",
+    # capa com mola amortecida: passa um pouco do ponto e volta (balanco natural)
+    "v.sm_spd = math.sqrt(v.sm_gs * v.sm_gs + v.sm_vs * v.sm_vs);",
+    "v.sm_acc = v.sm_acc + (math.clamp((v.sm_spd - v.sm_spdp) / math.max(v.sm_dt, 0.01), -120.0, 120.0) - v.sm_acc) * v.sm_k;",
+    "v.sm_spdp = v.sm_spd;",
+    "v.sm_clv = (v.sm_clv + ((v.sm_clt - v.sm_cl) * 38.0 - v.sm_clv * 7.5) * v.sm_dt) * (v.sm_dt > 0.09 ? 0.0 : 1.0);",
+    "v.sm_cl = math.clamp(v.sm_cl + v.sm_clv * v.sm_dt, -0.3, 1.8);",
+    "v.sm_cf = v.sm_cf + (((v.sm_fly == 5 || v.sm_fly == 6) ? 16.0 : (v.sm_fly == 4 ? 10.0 : (v.sm_fly == 3 ? 6.0 : (v.sm_fly == 11 ? 12.0 : 2.0 + math.clamp(v.sm_gs, 0.0, 8.0)))) + math.clamp(math.abs(v.sm_acc) * 0.12, 0.0, 10.0)) - v.sm_cf) * v.sm_ks;",
     "v.sm_cs = v.sm_cs + (((v.sm_fly == 5 || v.sm_fly == 6) ? 4.5 : (v.sm_fly == 4 ? 2.4 : (v.sm_fly == 3 ? 0.7 : (v.sm_fly == 11 ? 3.5 : 0.45 + math.clamp(v.sm_gs * 0.25, 0.0, 1.5))))) - v.sm_cs) * v.sm_ks;",
     "v.sm_cph = math.mod(v.sm_cph + v.sm_dt * v.sm_cs * 360.0, 3600.0);",
     "v.sm_run = math.mod(v.sm_run + v.sm_dt * math.clamp(v.sm_gs * 0.45, 0.0, 4.0) * 360.0, 3600.0);",
@@ -842,6 +882,8 @@ SM_PRE = [
     "v.sm_still = (v.sm_on && v.sm_fly == 0 && v.sm_pow == 0 && q.is_on_ground && v.sm_gs < 0.3 && !q.is_sneaking && (q.get_equipped_item_name == '' || q.is_item_name_any('slot.weapon.mainhand', 0, "
     + ", ".join(f"'{i}'" for i in ITEMS) + "))) ? v.sm_still + v.sm_dt : 0.0;",
     "v.sm_hero = v.sm_hero + ((v.is_paperdoll || v.sm_still > 1.2 ? 1.0 : 0.0) - v.sm_hero) * v.sm_ks;",
+    "v.sm_islot = math.floor((v.sm_still - 5.0) / 9.0);",
+    "v.sm_idone = v.sm_still < 0.1 ? -1.0 : v.sm_idone;",
     "v.sm_airw = v.sm_airw + (((v.sm_on && v.sm_fly == 0 && !q.is_on_ground && !q.is_in_water && !q.is_riding) ? 1.0 : 0.0) - v.sm_airw) * v.sm_k;",
     "v.sm_hidle = (v.sm_fly == 3 && v.sm_inp == 4 && v.sm_pow == 0 && math.abs(v.sm_vs) < 0.5) ? v.sm_hidle + v.sm_dt : 0.0;",
     "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
@@ -863,6 +905,7 @@ def build_entity():
         {"sm_base": "v.sm_act && !v.is_first_person"},
         {"sm_move": "v.sm_act && !v.is_first_person"},
         {"sm_power": "v.sm_act && !v.is_first_person"},
+        {"sm_idle": "v.sm_on && !v.is_first_person"},
         {"sm_fp": "v.sm_on && v.is_first_person"},
     ]
     anims = d["animations"]
@@ -871,6 +914,7 @@ def build_entity():
     anims["sm_base"] = "controller.animation.superman.base"
     anims["sm_move"] = "controller.animation.superman.move"
     anims["sm_power"] = "controller.animation.superman.power"
+    anims["sm_idle"] = "controller.animation.superman.idle"
     anims["sm_fp"] = "controller.animation.superman.first_person"
     # render controllers: vanilla so quando nao transformado
     new_rc = []

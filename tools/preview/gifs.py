@@ -51,7 +51,7 @@ def frames(segs, blend=0.22):
         V["sm_run"] = t * 360 * 2.6
         lift = s["lift"][0] + (s["lift"][1] - s["lift"][0]) * min(1, lt / max(s["dur"], 1e-6))
         layers += [{"anim": N + "cape", "time": t}, {"anim": N + "orient", "time": t}, {"anim": N + "look", "time": t},
-                   {"anim": N + "breath", "time": t}, {"anim": N + "curl", "time": t}]
+                   {"anim": N + "breath", "time": t}]
         out.append({"layers": layers, "V": V, "t": t, "Q": {"life_time": t}, "lift": lift})
     return out
 
@@ -150,6 +150,12 @@ SCENES = {
         seg(["hover.core", "air3.upper"], 0.6, HOVV, (10, 10)),
         seg(["hover.core", "hover.combat"], 0.4, HOVV, (10, 10)),
     ], blend=0.06), {"yaw": 55, "dist": 80, "ty": 16}),
+    "17_animacoes_ociosas": (frames([
+        seg(["hero_idle"], 0.5, {"sm_full": 0}),
+        seg(["hero_idle", "idle_look"], 3.0, {"sm_full": 0}),
+        seg(["hero_idle", "idle_stretch"], 2.6, {"sm_full": 0}),
+        seg(["hero_idle"], 0.4, {"sm_full": 0}),
+    ], blend=0.4), {"yaw": 20, "dist": 65, "ty": 17}),
     "14_super_velocidade": (frames([
         seg(["superspeed.core", "superspeed.arms"], 1.6, {"sm_cl": 0.95, "sm_cf": 12, "cs": 3.5}),
     ]), {"yaw": 80, "dist": 75, "ty": 14}),

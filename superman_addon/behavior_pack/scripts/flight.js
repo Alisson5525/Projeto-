@@ -1,8 +1,9 @@
-import { EntityDamageCause } from '@minecraft/server';
+import { EquipmentSlot, GameMode } from '@minecraft/server';
 import { AIR_STATES, FLY, PHYS, POW, getSettings } from './config.js';
-import { blast, breakBlocks, breakSphere, isFragile, sphereBlocks } from './destruction.js';
+import { blast, breakSphere, isFragile, waveBreak } from './destruction.js';
 import { particle, q, shake, shakeArea, sound } from './fx.js';
 import { setFly, sync } from './state.js';
+import { pushMobs } from './targets.js';
 import { V, clamp } from './vec.js';
 
 const UP = { x: 0, y: 1, z: 0 };
@@ -38,19 +39,31 @@ function feet(player) {
   return { x: l.x, y: l.y + 0.05, z: l.z };
 }
 
-function pushMobs(player, center, radius, strength, lift, damage) {
+/** Situacoes em que o voo do heroi fica desligado (elitro, montaria, espectador). */
+function flightBlocked(player) {
   try {
-    for (const e of player.dimension.getEntities({ location: center, maxDistance: radius })) {
-      if (e.id === player.id || e.typeId === 'minecraft:item' || e.typeId === 'minecraft:xp_orb') continue;
-      const d = V.sub(e.location, center);
-      const h = V.norm({ x: d.x, y: 0, z: d.z });
-      const f = 1 - Math.min(1, V.len(d) / radius) * 0.6;
-      try { e.applyKnockback({ x: h.x * strength * f, z: h.z * strength * f }, lift * f); } catch (err) { /* */ }
-      if (damage > 0) {
-        try { e.applyDamage(damage * f, { cause: EntityDamageCause.entityAttack, damagingEntity: player }); } catch (err) { /* */ }
-      }
-    }
+    if (player.isGliding) return true;
+    if (player.getComponent('minecraft:riding')) return true;
+    if (player.getGameMode() === GameMode.Spectator) return true;
   } catch (e) { /* */ }
+  return false;
+}
+
+function wearsElytra(player) {
+  try {
+    return player.getComponent('minecraft:equippable')?.getEquipment(EquipmentSlot.Chest)?.typeId === 'minecraft:elytra';
+  } catch (e) {
+    return false;
+  }
+}
+
+/** Zera o voo (troca de dimensao, morte, teleporte). */
+export function resetFlight(player, st) {
+  setFly(player, st, FLY.NONE);
+  st.vel = V.zero();
+  st.prevLoc = undefined;
+  st.meas = undefined;
+  st.tunnelSeen.clear();
 }
 
 // ---------------------------------------------------------------- entradas publicas
@@ -115,7 +128,7 @@ function launch(player, st) {
   shakeArea(dim, f, 18, 0.35 + 0.6 * c, 0.5);
   if (getSettings().destruction) {
     if (c > 0.4) blast(dim, { x: f.x, y: f.y - 0.6, z: f.z }, 1.5 + 3 * c, player);
-    else breakBlocks(dim, sphereBlocks(dim, f, 3, isFragile), { visible: 10 });
+    else waveBreak(dim, f, 3.5, { filter: isFragile, speed: 1.2, visible: 6 });
   }
   pushMobs(player, f, 3 + 4 * c, 1 + 1.5 * c, 0.5 + 0.5 * c, 2 + 6 * c);
 }
@@ -160,8 +173,8 @@ function goFast(player, st) {
   sound(dim, 'mob.warden.sonic_boom', l, 1.2, 1.1);
   sound(dim, 'item.trident.riptide_3', l, 1, 1.3);
   shake(player, 0.6, 0.4);
-  // o estrondo supersonico estilhaca vidros, folhas e plantas ao redor
-  if (getSettings().destruction) breakBlocks(dim, sphereBlocks(dim, l, 8, isFragile), { visible: 14, max: 120 });
+  // o estrondo supersonico estilhaca vidros, folhas e plantas ao redor (em onda)
+  waveBreak(dim, l, 8, { filter: isFragile, speed: 2, visible: 4, max: 160 });
 }
 
 // ---------------------------------------------------------------- tick
@@ -179,8 +192,8 @@ export function updateFlight(player, st, inp, tick) {
 
   let creativeFly = false;
   try { creativeFly = player.isFlying; } catch (e) { /* */ }
-  if (creativeFly) {
-    if (st.fly !== FLY.NONE) setFly(player, st, FLY.NONE);
+  if (creativeFly || flightBlocked(player)) {
+    if (st.fly !== FLY.NONE) resetFlight(player, st);
     return;
   }
 
@@ -220,14 +233,14 @@ function groundTick(player, st, inp, onGround, jumpEdge) {
       sound(dim, 'item.trident.riptide_1', player.location, 0.8, 1.6);
       particle(dim, 'superman:dust_ring', feet(player), { radius: 1.5 });
     }
-    effect(player, 'speed', 6, 7);
+    if (st.flyTicks % 4 === 0) effect(player, 'speed', 10, 7);
     const v = player.getVelocity();
     const back = V.sub(feet(player), V.mul(V.norm({ x: v.x, y: 0, z: v.z }), 0.6));
     particle(dim, 'superman:speed_dust', back);
     if (st.flyTicks % 2 === 0) particle(dim, 'superman:speed_trail', V.add(player.location, { x: 0, y: 1, z: 0 }), { dir: V.norm(v) });
     if (getSettings().destruction && st.flyTicks % 2 === 0) {
       const ahead = V.add(player.location, V.add(V.mul(V.norm({ x: v.x, y: 0, z: v.z }), 1.6), { x: 0, y: 1, z: 0 }));
-      breakBlocks(dim, sphereBlocks(dim, ahead, 1.5, isFragile), { visible: 4, max: 12 });
+      breakSphere(dim, ahead, 1.5, { filter: isFragile, visible: 4, max: 12 });
     }
   } else if (st.fly === FLY.SPEED) {
     setFly(player, st, FLY.NONE);
@@ -246,8 +259,8 @@ function groundTick(player, st, inp, onGround, jumpEdge) {
     st.sneakTicks = 0;
   }
 
-  // pulo duplo (pular de novo no ar) = comecar a voar
-  if (!onGround && jumpEdge && st.airTicks >= 2 && st.power !== POW.TRANSFORM) startAir(player, st);
+  // pulo duplo (pular de novo no ar) = comecar a voar (com elitro o pulo no ar e do elitro)
+  if (!onGround && jumpEdge && st.airTicks >= 2 && st.power !== POW.TRANSFORM && !wearsElytra(player)) startAir(player, st);
 }
 
 function chargeTick(player, st, inp, onGround, jumpEdge) {
@@ -411,10 +424,12 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   if (s.destruction && st.fly !== FLY.DIVE && (st.fly === FLY.FAST || speed > 0.75)) {
     const dir = V.norm(st.vel);
     const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
-    const radius = st.fly === FLY.DIVE ? 2.6 : st.fly === FLY.FAST ? 2.1 : 1.5;
+    const radius = st.fly === FLY.FAST ? 2.1 : 1.5;
+    // posicoes ja verificadas nos ultimos ticks nao sao relidas (esferas se sobrepoem)
+    if (st.flyTicks % 8 === 0) st.tunnelSeen.clear();
     let broke = 0;
     for (let d = 0.8; d <= speed + 1.3; d += 0.9) {
-      broke += breakSphere(dim, V.add(mid, V.mul(dir, d)), radius, { visible: 3, debrisEvery: 2, max: 40 });
+      broke += breakSphere(dim, V.add(mid, V.mul(dir, d)), radius, { visible: 3, debrisEvery: 2, max: 40, seen: st.tunnelSeen });
     }
     if (broke > 0) {
       if (tick % 3 === 0) sound(dim, 'random.explode', mid, 0.35, 1.5);
