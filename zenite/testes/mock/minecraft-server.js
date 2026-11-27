@@ -247,6 +247,10 @@ export class Entity {
     return out.sort((a, b) => a.distance - b.distance);
   }
   kill() { if (this.__vida) this.__vida.atual = 0; this.__morrer(undefined); return true; }
+  extinguishFire() { this.__fogo = false; return true; }
+  setProperty(k, val) { (this.__propsEnt ??= new Map()).set(k, val); }
+  getProperty(k) { return this.__propsEnt?.get(k); }
+  triggerEvent(ev) { (this.__eventos ??= []).push(ev); }
   remove() { this.isValid = false; this.dimension.__entidades = this.dimension.__entidades.filter((e) => e !== this); }
   addTag(t) { this.__tags.add(t); return true; }
   removeTag(t) { return this.__tags.delete(t); }

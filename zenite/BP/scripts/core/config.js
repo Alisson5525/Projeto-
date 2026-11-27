@@ -37,6 +37,8 @@ export const CHAVES = Object.freeze({
   abobadas: 'zenite:abobadas_pendentes',
   recebeuCodice: 'zenite:recebeu_codice',
   faseArconte: 'zenite:fase',
+  estadoArconte: 'zenite:estado',
+  congelado: 'zenite:congelado',
 });
 
 /** Comandos customizados. */
