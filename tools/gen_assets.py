@@ -17,7 +17,7 @@ RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [2, 0, 1]
+VERSION = [2, 0, 2]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
@@ -369,12 +369,12 @@ def particles():
         "minecraft:emitter_shape_point": {"direction": [
             "v.dir.x + math.random(-0.3, 0.3)", "v.dir.y + math.random(-0.3, 0.3)", "v.dir.z + math.random(-0.3, 0.3)"]},
         **life("math.random(0.8, 1.3)"),
-        "minecraft:particle_initial_speed": "math.random(16, 26)",
+        "minecraft:particle_initial_speed": "math.random(16, 26) + (v.boost ?? 0.0)",
         "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-90, 90)"},
         "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -0.6, 0], "linear_drag_coefficient": 2.6},
         "minecraft:particle_motion_collision": {"collision_radius": 0.12, "coefficient_of_restitution": 0.05, "collision_drag": 6},
         "minecraft:particle_appearance_billboard": billboard(["0.1 + v.particle_age * 1.6", "0.1 + v.particle_age * 1.6"], "puff"),
-        "minecraft:particle_appearance_tinting": gradient([(0, "#F0FFFFFF"), (0.5, "#B0C8ECFF"), (1, "#00A0D0FF")]),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#50FFFFFF"), (0.15, "#C8E8F8FF"), (0.55, "#A0C8ECFF"), (1, "#00A0D0FF")]),
     })
     E["frost_flakes"] = P("frost_flakes", "particles_alpha", {
         "minecraft:emitter_rate_instant": {"num_particles": 6},
@@ -382,7 +382,7 @@ def particles():
         "minecraft:emitter_shape_point": {"direction": [
             "v.dir.x + math.random(-0.3, 0.3)", "v.dir.y + math.random(-0.3, 0.3)", "v.dir.z + math.random(-0.3, 0.3)"]},
         **life("math.random(0.8, 1.4)"),
-        "minecraft:particle_initial_speed": "math.random(12, 22)",
+        "minecraft:particle_initial_speed": "math.random(12, 22) + (v.boost ?? 0.0)",
         "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-300, 300)"},
         "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -2, 0], "linear_drag_coefficient": 2.2},
         "minecraft:particle_motion_collision": {"collision_radius": 0.06, "coefficient_of_restitution": 0.1, "collision_drag": 6},

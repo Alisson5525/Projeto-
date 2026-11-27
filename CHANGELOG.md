@@ -1,5 +1,11 @@
 # Histórico de mudanças
 
+## 2.0.2 — Sopro congelante voando
+
+- **Visão de calor, sopro congelante e Explosão Solar agora são usados pairando.** Se o herói estiver voando rápido, ele freia e fica em pé no ar enquanto o poder dura (dá para se mover devagar). Antes ele continuava voando de corpo deitado, alcançava a própria nuvem de gelo e ficava escondido dentro dela.
+- A nuvem do sopro sai mais à frente do rosto, herda a velocidade do herói e começa mais transparente, para não cobrir a cabeça.
+- **Partes do corpo encolhendo:** a deformação dos impactos (decolagem, pousos, pancada, socos, Explosão Solar) e o peito inflando ao inspirar usavam escala dentro das animações que fazem transição. Durante a troca de animação, isso podia encolher o tronco até ele sumir por um instante. Agora a escala fica numa camada que nunca entra em transição e é calculada por variáveis.
+
 ## 2.0.1 — Correções
 
 - **Sopro congelante:** olhando para baixo ou com alguém por perto, ele criava gelo, neve e pilares de gelo dentro do próprio herói, e parte do corpo sumia dentro dos blocos. Agora nada é criado no espaço do herói nem dentro de outras criaturas. A jaula de gelo também não prende mais o herói junto com o inimigo.

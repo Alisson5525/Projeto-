@@ -4,6 +4,14 @@ import path from 'node:path';
 import { Entity, ItemStack, LOG, Player, overworld, system, world } from './mock_server.mjs';
 
 globalThis.KB_MODE = process.argv[2] || 'absolute';
+// aleatoriedade com semente fixa: a simulacao da sempre o mesmo resultado
+let seed = Number(process.env.SIM_SEED || 0x5eed1234);
+Math.random = () => {
+  seed = (seed + 0x6d2b79f5) | 0;
+  let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+  t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
 const warnings = [];
 const origWarn = console.warn;
 console.warn = (...a) => { const m = a.join(' '); if (!m.includes('add-on carregado')) warnings.push(m); };
@@ -256,6 +264,26 @@ const exSpike = LOG.explosions.length;
 for (let i = 0; i < 40; i++) { bat.location.y += bat.vel.y; if (overworld.solid(bat.location.x, bat.location.y, bat.location.z)) { bat.location.y = Math.floor(bat.location.y) + 1; bat.vel.y = 0; } tick(1); }
 check(LOG.explosions.length > exSpike, `cratera onde o inimigo caiu (y=${bat.location.y.toFixed(1)} vy=${bat.vel.y.toFixed(2)} chao=${bat.isOnGround} jogador y=${p.location.y.toFixed(1)})`);
 bat.remove();
+
+section('sopro congelante voando');
+{
+  p.rot = { x: 0, y: 0 };
+  p.mv = { x: 0, y: 1 };
+  for (let i = 0; i < 20 && P(p, 'fly') !== 4; i++) tick(1);
+  check(P(p, 'fly') === 4, 'voando para frente antes do sopro');
+  use(p, 'superman:sopro_congelante'); tick(2);
+  check(P(p, 'fly') === 3, 'o heroi freia e paira para soprar');
+  tick(30);
+  check(P(p, 'fly') === 3 && P(p, 'power') === 4, 'continua pairando enquanto sopra, mesmo segurando para frente');
+  p.isSprinting = true; tick(10); p.isSprinting = false;
+  check(P(p, 'fly') === 3, 'nao entra no supersonico durante o sopro');
+  use(p, 'superman:sopro_congelante'); tick(1);
+  check(P(p, 'power') === 0, 'sopro desligado');
+  for (let i = 0; i < 20 && P(p, 'fly') !== 4; i++) tick(1);
+  check(P(p, 'fly') === 4, 'volta a voar depois do sopro');
+  p.mv = { x: 0, y: 0 };
+  for (let i = 0; i < 20 && P(p, 'fly') !== 3; i++) tick(1);
+}
 
 section('explosao solar');
 tick(20);

@@ -225,9 +225,14 @@ def build_animations():
         "rightArm": {"r": [0, 0, "math.sin(q.life_time * 100.0 + 30.0) * 1.1 + 0.8"]},
         "leftArm": {"r": [0, 0, "-math.sin(q.life_time * 100.0 + 30.0) * 1.1 - 0.8"]},
         "emblem": {"s": "1.0 + math.max(0.0, math.sin(q.life_time * 100.0)) * 0.03 + v.sm_glow * 0.06"},
+        # peito inflando ao inspirar para o sopro congelante
+        "body": {"s": ["1.0 + v.sm_chest * 0.04", "1.0 + v.sm_chest * 0.02", "1.0 + v.sm_chest * 0.08"]},
     })
     # porte imponente: o heroi transformado e maior que um jogador comum
-    proc("stature", {"root": {"s": ["1.0 + v.sm_on * 0.05", "1.0 + v.sm_on * 0.06", "1.0 + v.sm_on * 0.05"]}})
+    # + deformacao de impacto (v.sm_sq: achata/estica) e pulso uniforme (v.sm_su), calculados no pre_animation
+    proc("stature", {"root": {"s": ["(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)",
+                                    "(1.0 + v.sm_on * 0.06) * (1.0 - v.sm_sq + v.sm_su)",
+                                    "(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)"]}})
     proc("orient", {
         "sm_yaw": {"r": [0, "q.target_y_rotation * v.sm_yw", 0]},
         "sm_pitch": {"r": ["v.sm_p", 0, 0]},
@@ -937,7 +942,7 @@ SM_INIT = [
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
     "v.sm_clv = 0.0;", "v.sm_spdp = 0.0;", "v.sm_acc = 0.0;", "v.sm_idone = -1.0;", "v.sm_islot = 0.0;",
-    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;",
+    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;", "v.sm_pfly = 0.0;", "v.sm_ppow = 0.0;", "v.sm_sqt = -10.0;", "v.sm_sqa = 0.0;", "v.sm_sut = -10.0;", "v.sm_sua = 0.0;", "v.sm_sq = 0.0;", "v.sm_su = 0.0;", "v.sm_powt0 = 0.0;", "v.sm_chest = 0.0;",
 ]
 
 ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:sopro_congelante",
@@ -1002,6 +1007,23 @@ SM_PRE = [
     # quanto o corpo desce nas poses agachadas (no chao): a capa dobra para tras e nao atravessa o chao
     "v.sm_dropt = v.sm_air ? 0.0 : math.max((v.sm_fly == 9 ? 2.5 : (v.sm_fly == 1 ? 2.5 : (v.sm_fly == 8 ? 3.0 : 0.0))), (v.sm_pow == 8 ? 2.5 : ((v.sm_pow == 1 || v.sm_pow == 6) ? 2.8 : ((v.sm_pow == 3 || v.sm_pow == 4) ? 1.6 : ((v.sm_pow >= 5 && v.sm_pow <= 14) ? 2.4 : 0.0)))));",
     "v.sm_drop = v.sm_drop + (v.sm_dropt - v.sm_drop) * v.sm_kf;",
+    # deformacao de impacto: dispara quando o estado muda (decolagem estica, pousos e pancada achatam)
+    "v.sm_sqn = (v.sm_fly != v.sm_pfly) ? (v.sm_fly == 2 ? -0.12 : (v.sm_fly == 9 ? 0.13 : (v.sm_fly == 8 ? 0.06 : (v.sm_fly == 5 ? -0.05 : 0.0)))) : 0.0;",
+    "v.sm_sqt = v.sm_sqn != 0.0 ? q.life_time : v.sm_sqt;",
+    "v.sm_sqa = v.sm_sqn != 0.0 ? v.sm_sqn : v.sm_sqa;",
+    "v.sm_sqp = (v.sm_pow != v.sm_ppow) ? (v.sm_pow == 8 ? 0.11 : (v.sm_pow == 7 ? 0.04 : ((v.sm_pow == 6 || v.sm_pow == 11 || v.sm_pow == 14) ? -0.05 : 0.0))) : 0.0;",
+    "v.sm_sqd = v.sm_pow == 8 ? 0.5 : (v.sm_pow == 7 ? 0.42 : (v.sm_pow == 14 ? 0.28 : 0.1));",
+    "v.sm_sqt = v.sm_sqp != 0.0 ? q.life_time + v.sm_sqd : v.sm_sqt;",
+    "v.sm_sqa = v.sm_sqp != 0.0 ? v.sm_sqp : v.sm_sqa;",
+    "v.sm_sut = (v.sm_pow != v.sm_ppow && v.sm_pow == 19) ? q.life_time + 0.05 : v.sm_sut;",
+    "v.sm_powt0 = v.sm_pow != v.sm_ppow ? q.life_time : v.sm_powt0;",
+    "v.sm_pfly = v.sm_fly;",
+    "v.sm_ppow = v.sm_pow;",
+    "v.sm_st = q.life_time - v.sm_sqt;",
+    "v.sm_sq = (v.sm_st >= 0.0 && v.sm_st < 0.45) ? v.sm_sqa * math.cos(v.sm_st * 800.0) * (1.0 - v.sm_st / 0.45) : 0.0;",
+    "v.sm_ut = q.life_time - v.sm_sut;",
+    "v.sm_su = ((v.sm_ut >= 0.0 && v.sm_ut < 0.5) ? 0.12 * (1.0 - v.sm_ut / 0.5) : 0.0) + (v.sm_pow == 18 ? -0.04 + math.sin(q.life_time * 1600.0) * 0.012 : 0.0);",
+    "v.sm_chest = v.sm_chest + (((v.sm_pow == 4 && q.life_time - v.sm_powt0 < 0.6) ? 1.0 : 0.0) - v.sm_chest) * v.sm_k;",
     "v.sm_glowt = 0.3 + ((v.sm_pow == 1 || v.sm_pow == 3 || v.sm_pow >= 18) ? 0.7 : 0.0) + (v.sm_pow == 5 ? 0.2 + v.sm_chg * 0.5 : 0.0) + ((v.sm_pow == 6 || v.sm_pow == 14 || v.sm_pow == 7 || v.sm_pow == 8) ? 0.5 : 0.0) + ((v.sm_fly == 5 || v.sm_fly == 6 || v.sm_fly == 2) ? 0.45 : 0.0);",
     "v.sm_glow = v.sm_glow + (math.clamp(v.sm_glowt, 0.0, 1.0) - v.sm_glow) * v.sm_k;",
 ]
@@ -1103,8 +1125,26 @@ def write(path, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
+# Animacoes que ficam sempre ligadas com peso 1 (nunca entram em transicao): so elas podem usar escala.
+ALWAYS_ON = {NS + "breath", NS + "stature"}
+
+
+def strip_blended_scale():
+    """Escala em animacoes que fazem transicao (blend_transition / peso variavel) pode encolher o osso ate sumir
+    durante a mistura. A deformacao (squash & stretch) e o peito inflando ficam nas camadas sempre ligadas."""
+    n = 0
+    for name, a in ANIMS.items():
+        if name in ALWAYS_ON:
+            continue
+        for bone in a.get("bones", {}).values():
+            if bone.pop("scale", None) is not None:
+                n += 1
+    return n
+
+
 def main():
     build_animations()
+    print("escala removida de", strip_blended_scale(), "canais em animacoes com transicao")
     write(os.path.join(RP, "animations", "superman.animation.json"),
           {"format_version": "1.10.0", "animations": ANIMS})
     write(os.path.join(RP, "animation_controllers", "superman.animation_controllers.json"),

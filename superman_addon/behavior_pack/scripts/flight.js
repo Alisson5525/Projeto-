@@ -344,6 +344,14 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   const vert = inp.jump ? 1 : inp.sneak ? -1 : 0;
   let target;
   let acc;
+  // visao de calor, sopro e o supremo sao usados pairando: o heroi freia e fica em pe no ar
+  const channeling = st.power === POW.HEAT || st.power === POW.FREEZE || st.power === POW.NOVA_CHARGE || st.power === POW.NOVA;
+  if (channeling && (st.fly === FLY.FLY || st.fly === FLY.FAST)) {
+    setFly(player, st, FLY.HOVER);
+    st.fwdTicks = 0;
+    st.stopTicks = 0;
+    sound(dim, 'wind_charge.burst', player.location, 0.6, 0.8);
+  }
 
   switch (st.fly) {
     case FLY.HOVER: {
@@ -351,7 +359,8 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
         V.mul(UP, vert * PHYS.hoverVertical + (vert === 0 ? 0.012 : 0)));
       acc = PHYS.accelHover;
       st.fwdTicks = inp.fwd > 0 ? st.fwdTicks + 1 : 0;
-      if (inp.sprint && inp.fwd > 0) { goFast(player, st); st.stopTicks = 0; } else if (st.fwdTicks >= 5) { setFly(player, st, FLY.FLY); st.stopTicks = 0; }
+      if (channeling) st.fwdTicks = 0;
+      else if (inp.sprint && inp.fwd > 0) { goFast(player, st); st.stopTicks = 0; } else if (st.fwdTicks >= 5) { setFly(player, st, FLY.FLY); st.stopTicks = 0; }
       break;
     }
     case FLY.FLY: {

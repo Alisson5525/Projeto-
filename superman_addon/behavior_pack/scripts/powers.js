@@ -467,9 +467,13 @@ function freezeTick(player, st, tick) {
     return;
   }
   const dir = player.getViewDirection();
-  const mouth = V.add(V.add(head, V.mul(dir, 0.35)), { x: 0, y: -0.18, z: 0 });
-  particle(dim, 'superman:frost_breath', mouth, { dir });
-  if (t % 2 === 0) particle(dim, 'superman:frost_flakes', mouth, { dir });
+  let pv = { x: 0, y: 0, z: 0 };
+  try { pv = player.getVelocity(); } catch (e) { /* */ }
+  // a nuvem sai na frente do rosto e herda o movimento do heroi: ele nunca fica escondido dentro dela
+  const mouth = V.add(V.add(head, V.mul(dir, 0.6)), V.add(V.mul(pv, 2), { x: 0, y: -0.18, z: 0 }));
+  const boost = Math.max(0, V.dot(pv, dir) * 20);
+  particle(dim, 'superman:frost_breath', mouth, { dir, boost });
+  if (t % 2 === 0) particle(dim, 'superman:frost_flakes', mouth, { dir, boost });
   if (t % 8 === 0) sound(dim, 'mob.breeze.idle_air', mouth, 1.2, 0.5);
   if (t % 5 === 0) sound(dim, 'mob.player.hurt_freeze', mouth, 0.35, 1.5);
   if (t % 16 === 0) shake(player, 0.08, 0.4);
