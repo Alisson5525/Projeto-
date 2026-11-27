@@ -493,16 +493,18 @@ def build_animations():
         (0.35, HEAT),
     ], loop="hold")
     split("heat_in", {"legs": LEGS, "upper": None})
+    # v.sm_chg = potencia do raio (0 a 1 em 2 s): o heroi se inclina, firma a base e treme cada vez mais
     proc("heat", {
-        "sm_yaw": {"p": [0, -1, 0]},
-        "waist": {"r": [-3, 0, 0]},
-        "head": {"r": ["math.sin(q.life_time * 3300.0) * 0.6", 0, "math.sin(q.life_time * 2900.0) * 0.9"]},
-        "rightArm": {"r": ["-6.0 + math.sin(q.life_time * 3100.0) * 1.0", 0, 16]},
-        "rightForearm": {"r": ["-38.0 + math.sin(q.life_time * 2500.0) * 3.0", 0, 0]},
-        "leftArm": {"r": ["-6.0 + math.sin(q.life_time * 2700.0) * 1.0", 0, -16]},
-        "leftForearm": {"r": ["-38.0 + math.sin(q.life_time * 2300.0) * 3.0", 0, 0]},
-        "rightLeg": {"r": [-24, 0, 6]}, "rightShin": {"r": [48, 0, 0]},
-        "leftLeg": {"r": [-24, 0, -6]}, "leftShin": {"r": [48, 0, 0]},
+        "sm_yaw": {"p": [0, "-1.0 - v.sm_chg * 0.8", 0]},
+        "waist": {"r": ["-3.0 + v.sm_chg * 9.0 + math.sin(q.life_time * 2900.0) * v.sm_chg * 0.8", 0, 0]},
+        "head": {"r": ["-v.sm_chg * 6.0 + math.sin(q.life_time * 3300.0) * (0.6 + v.sm_chg)", 0,
+                       "math.sin(q.life_time * 2900.0) * (0.9 + v.sm_chg)"]},
+        "rightArm": {"r": ["-6.0 + v.sm_chg * 10.0 + math.sin(q.life_time * 3100.0) * (1.0 + v.sm_chg * 1.5)", 0, "16.0 + v.sm_chg * 14.0"]},
+        "rightForearm": {"r": ["-38.0 - v.sm_chg * 30.0 + math.sin(q.life_time * 2500.0) * 3.0", 0, 0]},
+        "leftArm": {"r": ["-6.0 + v.sm_chg * 10.0 + math.sin(q.life_time * 2700.0) * (1.0 + v.sm_chg * 1.5)", 0, "-16.0 - v.sm_chg * 14.0"]},
+        "leftForearm": {"r": ["-38.0 - v.sm_chg * 30.0 + math.sin(q.life_time * 2300.0) * 3.0", 0, 0]},
+        "rightLeg": {"r": ["-24.0 - v.sm_chg * 8.0", 0, "6.0 + v.sm_chg * 4.0"]}, "rightShin": {"r": ["48.0 + v.sm_chg * 10.0", 0, 0]},
+        "leftLeg": {"r": ["-24.0 - v.sm_chg * 8.0", 0, "-6.0 - v.sm_chg * 4.0"]}, "leftShin": {"r": ["48.0 + v.sm_chg * 10.0", 0, 0]},
     })
     split("heat", {"legs": LEGS, "upper": None})
     timeline("heat_out", 0.45, [
@@ -865,7 +867,7 @@ def build_controllers():
         "transform": ([up("transform"), lg("transform"), {"sm.tremble": "v.sm_full * 0.6"}], P["TRANSFORM"]),
         "detransform": ([up("detransform"), lg("detransform")], P["DETRANSFORM"]),
         "heat_in": ([up("heat_in"), lg("heat_in")], P["HEAT"]),
-        "heat": ([up("heat"), lg("heat")], None),
+        "heat": ([up("heat"), lg("heat"), {"sm.tremble": "0.2 + v.sm_chg * 0.9"}], None),
         "heat_out": ([up("heat_out"), lg("heat_out")], None),
         "freeze_in": ([up("freeze_in"), lg("freeze_in")], P["FREEZE"]),
         "freeze": ([up("freeze"), lg("freeze"), {"sm.tremble": "0.4"}], None),

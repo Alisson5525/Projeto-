@@ -1,4 +1,4 @@
-import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system } from '@minecraft/server';
+import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system, world } from '@minecraft/server';
 import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings, intensityMul } from './config.js';
 import { blast, breakBlocks, debrisColor, debrisKind, groundColor, isBreakable, isFragile, spawnDebris, waveBreak, waveLine } from './destruction.js';
 import { startDive, stopAll, toggleFlight } from './flight.js';
@@ -44,7 +44,8 @@ const LORE = {
   [ITEM.EMBLEM]: ['§7Usar: transformar / destransformar', '§7Agachar + usar: configurações'],
   [ITEM.FLIGHT]: ['§7No chão: decolagem automática', '§7Voando: pousar', '§7Toque duplo para o lado: giro de esquiva',
     '§7Supersônico por 2,5 s: Mach 2', '§8Dica: pulo duplo também faz voar'],
-  [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
+  [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Esquenta em 2 s: mais forte e mais largo', '§7Varra com o olhar para cortar',
+    '§7Derrete pedra, ferve água, detona TNT', '§7O raio atravessa todos os inimigos'],
   [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
   [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força',
     '§7Abre um túnel de até 40 blocos', '§7Inimigos congelados se estilhaçam'],
@@ -259,6 +260,8 @@ const NEIGHBORS = [
 
 // limiares de calor (ticks de exposicao) -> resultado
 function heatRule(id) {
+  if (id === 'minecraft:tnt') return [[3, 'detonate']];
+  if (/leaves/.test(id)) return [[1.5, 'ignite'], [4, 'break']];
   if (STONE_RE.test(id)) return [[7, 'minecraft:magma'], [18, 'minecraft:lava']];
   if (id === 'minecraft:magma') return [[10, 'minecraft:lava']];
   if (id === 'minecraft:sand') return [[4, 'minecraft:glass']];
@@ -286,7 +289,16 @@ function heatBlockAt(player, st, b, face, amount) {
   for (const [th, res] of heatRule(id)) {
     if (!(before < th && h >= th)) continue;
     const pc = V.center(l);
-    if (res === 'ignite') {
+    if (res === 'detonate') {
+      if (!s.destruction) continue;
+      try { b.setType('minecraft:air'); } catch (e) { /* */ }
+      particle(dim, 'superman:heat_impact', pc);
+      sound(dim, 'random.fuse', pc, 1, 1.2);
+      later(10, () => {
+        blast(dim, pc, 4, player, { fire: true });
+        particle(dim, 'superman:impact_flash', pc, { radius: 4 });
+      });
+    } else if (res === 'ignite') {
       if (!s.fire) continue;
       const off = FACE[face] || UP;
       try {
@@ -309,16 +321,55 @@ function heatBlockAt(player, st, b, face, amount) {
   }
 }
 
+// planos das marcas de brasa/queimado conforme a face atingida
+const FACE_PLANE = { Up: 'xz', Down: 'xz', North: 'xy', South: 'xy', East: 'yz', West: 'yz' };
+// esfera de derretimento (vizinhos por distancia): cresce com a potencia do raio
+const MELT_OFFSETS = (() => {
+  const o = [];
+  for (let x = -2; x <= 2; x++) for (let y = -2; y <= 2; y++) for (let z = -2; z <= 2; z++) {
+    const d = Math.hypot(x, y, z);
+    if (d > 0 && d <= 2) o.push({ x, y, z, d });
+  }
+  return o.sort((a, b) => a.d - b.d);
+})();
+const burned = new Map(); // criaturas queimadas pelo raio -> tick (viram cinzas se morrerem)
+
+/** Brasa que esfria e queimado escuro colados na face atingida. */
+function heatMark(dim, point, face, scorch) {
+  const n = FACE[face] || UP;
+  const plane = FACE_PLANE[face] || 'xz';
+  const p = V.add(point, V.mul(n, 0.035));
+  particle(dim, `superman:heat_mark_${plane}`, p);
+  if (scorch) particle(dim, `superman:heat_scorch_${plane}`, V.add(point, V.mul(n, 0.025)));
+}
+
+/** Aquece o bloco atingido e os vizinhos numa esfera que cresce com a potencia. */
+function meltAround(player, st, b, face, pw) {
+  const dim = player.dimension;
+  heatBlockAt(player, st, b, face, 2 + 3 * pw);
+  const r = 1 + pw * 0.8;
+  for (const o of MELT_OFFSETS) {
+    if (o.d > r) break;
+    try { heatBlockAt(player, st, dim.getBlock(V.add(b.location, o)), face, (0.8 + 1.2 * pw) / o.d); } catch (e) { /* */ }
+  }
+}
+
 function heatTick(player, st, tick) {
   const t = st.powTicks;
   const dim = player.dimension;
   const head = player.getHeadLocation();
   const s = getSettings();
   if (t === 1) {
+    st.heatPower = 0;
+    st.heatPrev = undefined;
     sound(dim, 'beacon.ambient', head, 1, 1.8);
     sound(dim, 'mob.blaze.shoot', head, 0.8, 0.6);
   }
   if (t < 7) return; // olhos acendendo (animacao de inicio)
+  // o raio esquenta em 2 s: mais grosso, mais claro, derrete mais rapido e mais largo, fere mais
+  st.heatPower = Math.min(1, (st.heatPower || 0) + 1 / 40);
+  const pw = st.heatPower;
+  if (t % 4 === 0) sync(player, st, 'charge', Math.round(pw * 20) / 20);
   const dir = player.getViewDirection();
   const side = V.norm(V.cross(dir, UP));
   const range = 80;
@@ -328,48 +379,89 @@ function heatTick(player, st, tick) {
     blockHit = dim.getBlockFromRay(head, dir, { maxDistance: range, includeLiquidBlocks: false, includePassableBlocks: true });
   } catch (e) { /* */ }
   if (blockHit) dist = V.dist(head, V.add(blockHit.block.location, blockHit.faceLocation));
+  // agua no caminho ferve e evapora
+  if (s.destruction && t % 2 === 0) {
+    let wet;
+    try { wet = dim.getBlockFromRay(head, dir, { maxDistance: dist, includeLiquidBlocks: true, includePassableBlocks: true }); } catch (e) { /* */ }
+    if (wet && wet.block.typeId.includes('water')) {
+      const wl = wet.block.location;
+      for (const o of [{ x: 0, y: 0, z: 0 }, ...NEIGHBORS.slice(0, 4)]) {
+        try {
+          const wb = dim.getBlock(V.add(wl, o));
+          if (wb && wb.typeId.includes('water') && !touchesSomeone(player, wb.location)) wb.setType('minecraft:air');
+        } catch (e) { /* */ }
+      }
+      particle(dim, 'superman:steam', V.center(wl));
+      if (t % 6 === 0) sound(dim, 'random.fizz', V.center(wl), 1, 0.7);
+    }
+  }
   // o raio atravessa todas as criaturas no caminho
   let ents = [];
   try {
     ents = dim.getEntitiesFromRay(head, dir, { maxDistance: dist }).filter((h) => canHit(player, h.entity));
   } catch (e) { /* */ }
   const hitPoint = V.add(head, V.mul(dir, dist));
+  // um raio saindo de cada olho, os dois se encontrando no alvo
   for (const sgn of [1, -1]) {
     const eye = V.add(V.add(head, V.mul(side, 0.13 * sgn)), V.add(V.mul(dir, 0.3), { x: 0, y: -0.04, z: 0 }));
-    const len = Math.max(0.5, dist - 0.3);
-    particle(dim, 'superman:heat_beam', eye, { dir, len, den: q(4) });
-    particle(dim, 'superman:heat_core', eye, { dir, len, den: q(3) });
+    const to = V.sub(hitPoint, eye);
+    const len = Math.max(0.5, V.len(to) - 0.1);
+    const bdir = V.norm(to);
+    particle(dim, 'superman:heat_beam', eye, { dir: bdir, len, den: q(4), power: pw });
+    particle(dim, 'superman:heat_core', eye, { dir: bdir, len, den: q(3), power: pw });
+    if (t % 3 === 0) particle(dim, 'superman:heat_halo', eye, { dir: bdir, len, power: pw });
     if (t % 2 === 0) particle(dim, 'superman:eye_glow', eye);
   }
-  // brilho de lente no ponto de impacto (nos olhos ele cobriria a tela em primeira pessoa)
+  const hp = V.sub(hitPoint, V.mul(dir, 0.15));
   if (t % 2 === 0) particle(dim, 'superman:lens_flare', V.sub(hitPoint, V.mul(dir, 0.4)));
-  particle(dim, 'superman:heat_impact', V.sub(hitPoint, V.mul(dir, 0.15)));
-  if (t % 2 === 0) particle(dim, 'superman:impact_flash', V.sub(hitPoint, V.mul(dir, 0.3)), { radius: 1.4 });
+  particle(dim, 'superman:heat_impact', hp);
+  if (t % 2 === 0) particle(dim, 'superman:impact_flash', V.sub(hitPoint, V.mul(dir, 0.3)), { radius: 1.1 + pw * 1.1 });
+  if (t % 2 === 0) particle(dim, 'superman:sparks', hp, { count: 3 + Math.round(pw * 7) });
   if (blockHit && t % 3 === 0) particle(dim, 'superman:molten_drop', V.sub(hitPoint, V.mul(dir, 0.2)));
   if (t % 3 === 0) particle(dim, 'superman:melt_burst', V.sub(hitPoint, V.mul(dir, 0.3)));
-  if (t % 6 === 0) sound(dim, 'fire.fire', hitPoint, 1.6, 1.2);
-  if (t % 12 === 0) sound(dim, 'mob.blaze.breathe', head, 0.7, 1.5);
-  if (t % 14 === 0) shake(player, 0.1, 0.4);
+  if (t % 5 === 0) particle(dim, 'superman:heat_smoke', V.sub(hitPoint, V.mul(dir, 0.4)));
+  if (t % 6 === 0) sound(dim, 'fire.fire', hitPoint, 1.2 + pw, 1.4 - pw * 0.4);
+  if (t % 4 === 0) sound(dim, 'random.fizz', hitPoint, 0.3 + pw * 0.5, 1.6 - pw * 0.5);
+  if (t % 12 === 0) sound(dim, 'mob.blaze.breathe', head, 0.7, 1.5 - pw * 0.4);
+  if (t === 47) { sound(dim, 'beacon.power', head, 1, 1.6); shake(player, 0.25, 0.3); }
+  if (t % 14 === 0) shake(player, 0.08 + pw * 0.12, 0.4);
   if (t % 3 === 0) {
     for (const h of ents) {
       try {
         h.entity.setOnFire(8, true);
-        hurt(player, h.entity, 7, EntityDamageCause.fire);
-        h.entity.applyKnockback({ x: dir.x * 0.25, z: dir.z * 0.25 }, 0.05);
+        hurt(player, h.entity, 5 + 7 * pw, EntityDamageCause.fire);
+        h.entity.applyKnockback({ x: dir.x * (0.2 + pw * 0.3), z: dir.z * (0.2 + pw * 0.3) }, 0.05);
+        if (burned.size > 200) burned.clear();
+        burned.set(h.entity.id, tick);
         particle(dim, 'superman:heat_impact', V.add(h.entity.location, { x: 0, y: 1, z: 0 }));
+        particle(dim, 'superman:sparks', V.add(h.entity.location, { x: 0, y: 1, z: 0 }), { count: 4 });
       } catch (e) { /* */ }
     }
   }
-  if (!blockHit) { st.focus = 0; return; }
-  // derrete uma area em cruz (bloco atingido + vizinhos)
+  if (!blockHit) { st.focus = 0; st.heatPrev = undefined; return; }
   const b = blockHit.block;
-  heatBlockAt(player, st, b, blockHit.face, 2);
-  for (const n of NEIGHBORS) {
-    try { heatBlockAt(player, st, dim.getBlock(V.add(b.location, n)), blockHit.face, 1); } catch (e) { /* */ }
+  meltAround(player, st, b, blockHit.face, pw);
+  heatMark(dim, hitPoint, blockHit.face, t % 4 === 0);
+  // varrer com o olhar corta uma linha continua (sem pular blocos entre um tick e outro)
+  if (st.heatPrev) {
+    const gap = V.dist(st.heatPrev, hitPoint);
+    if (gap > 0.6 && gap < 10) {
+      const n = Math.min(8, Math.ceil(gap / 0.7));
+      for (let k = 1; k < n; k++) {
+        const sp = V.add(st.heatPrev, V.mul(V.sub(hitPoint, st.heatPrev), k / n));
+        let sh;
+        try {
+          sh = dim.getBlockFromRay(head, V.norm(V.sub(sp, head)), { maxDistance: range, includeLiquidBlocks: false, includePassableBlocks: true });
+        } catch (e) { /* */ }
+        if (!sh) continue;
+        heatBlockAt(player, st, sh.block, sh.face, 2 + 3 * pw);
+        heatMark(dim, V.add(sh.block.location, sh.faceLocation), sh.face, k % 2 === 0);
+      }
+    }
   }
-  // marca de queimado e fogo espalhado
-  if (blockHit.face === 'Up' && t % 8 === 0) particle(dim, 'superman:heat_scorch', { x: hitPoint.x, y: hitPoint.y + 0.03, z: hitPoint.z });
-  if (s.fire && Math.random() < 0.3) {
+  st.heatPrev = hitPoint;
+  // fogo espalhado em volta
+  if (s.fire && Math.random() < 0.2 + pw * 0.2) {
     try {
       const r = { x: Math.floor(Math.random() * 3) - 1, y: 1, z: Math.floor(Math.random() * 3) - 1 };
       const above = dim.getBlock(V.add(b.location, r));
@@ -377,18 +469,37 @@ function heatTick(player, st, tick) {
       if (above && above.isAir && below && !below.isAir && !below.isLiquid) above.setType('minecraft:fire');
     } catch (e) { /* */ }
   }
-  // mirar no mesmo ponto acumula calor ate uma explosao derretida
+  // mirar no mesmo ponto acumula calor ate uma explosao derretida (maior com o raio no maximo)
   if (st.lastHit && V.dist(st.lastHit, hitPoint) < 1.6) st.focus++;
   else st.focus = 0;
   st.lastHit = hitPoint;
   if (st.focus > 0 && st.focus % 30 === 0) {
-    blast(dim, hitPoint, 2.3, player, { fire: true });
+    const r = 2.5 + 1.8 * pw;
+    blast(dim, hitPoint, r, player, { fire: true });
     particle(dim, 'superman:debris_burst', hitPoint, { color: { r: 0.9, g: 0.4, b: 0.1 } });
-    particle(dim, 'superman:shockwave', hitPoint, { radius: 5, color: { r: 1, g: 0.55, b: 0.2 } });
-    shakeArea(dim, hitPoint, 18, 0.4, 0.4);
+    particle(dim, 'superman:impact_flash', hitPoint, { radius: r });
+    for (let i = 0; i < 3; i++) particle(dim, 'superman:molten_drop', hitPoint);
+    ringBurst(dim, hitPoint, [r * 1.6, r * 2.6], { r: 1, g: 0.55, b: 0.2 }, 3);
+    sound(dim, 'random.explode', hitPoint, 1, 0.9);
+    shakeArea(dim, hitPoint, 20, 0.4 + pw * 0.3, 0.4);
   }
 }
 
+// criaturas mortas pelo raio viram cinzas
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    const e = ev.deadEntity;
+    const when = burned.get(e.id);
+    if (when === undefined) return;
+    burned.delete(e.id);
+    if (system.currentTick - when > 60) return;
+    const c = V.add(e.location, { x: 0, y: 0.2, z: 0 });
+    particle(e.dimension, 'superman:ash_burst', c);
+    particle(e.dimension, 'superman:heat_smoke', V.add(c, { x: 0, y: 0.6, z: 0 }));
+    particle(e.dimension, 'superman:heat_impact', V.add(c, { x: 0, y: 0.8, z: 0 }));
+    sound(e.dimension, 'fire.ignite', c, 1, 0.6);
+  } catch (err) { /* */ }
+});
 // ---------------------------------------------------------------- sopro congelante
 
 /**

@@ -17,7 +17,7 @@ RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [2, 2, 1]
+VERSION = [2, 3, 0]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
@@ -404,8 +404,24 @@ def particles():
             "v.dir.x * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_2 - 0.5) * 0.04",
             "v.dir.y * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_3 - 0.5) * 0.04",
             "v.dir.z * v.particle_random_1 * (v.len ?? 8.0) + (v.particle_random_4 - 0.5) * 0.04"]},
-        "minecraft:particle_appearance_billboard": billboard(["0.16 + v.particle_random_2 * 0.1", "0.16 + v.particle_random_2 * 0.1"], "glow"),
-        "minecraft:particle_appearance_tinting": {"color": ["1.0", "0.25 + v.particle_random_3 * 0.4", "0.08 + v.particle_random_4 * 0.15", 1.0]},
+        "minecraft:particle_appearance_billboard": billboard(["(0.13 + v.particle_random_2 * 0.09) * (0.9 + (v.power ?? 0.5) * 0.9)",
+                                                             "(0.13 + v.particle_random_2 * 0.09) * (0.9 + (v.power ?? 0.5) * 0.9)"], "glow"),
+        # vermelho escuro no comeco, laranja-branco no maximo
+        "minecraft:particle_appearance_tinting": {"color": ["1.0", "0.15 + (v.power ?? 0.5) * 0.35 + v.particle_random_3 * 0.3",
+                                                            "0.05 + (v.power ?? 0.5) * 0.15 + v.particle_random_4 * 0.12", 1.0]},
+    })
+    # brilho largo e fraco em volta do raio
+    E["heat_halo"] = P("heat_halo", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": "math.clamp((v.len ?? 8.0) * 1.2, 2, 100)"},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("0.16"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_motion_parametric": {"relative_position": [
+            "v.dir.x * v.particle_random_1 * (v.len ?? 8.0)", "v.dir.y * v.particle_random_1 * (v.len ?? 8.0)",
+            "v.dir.z * v.particle_random_1 * (v.len ?? 8.0)"]},
+        "minecraft:particle_appearance_billboard": billboard(["0.35 + (v.power ?? 0.5) * 0.35", "0.35 + (v.power ?? 0.5) * 0.35"], "glow"),
+        "minecraft:particle_appearance_tinting": {"color": [1.0, "0.2 + (v.power ?? 0.5) * 0.2", 0.05, "0.18 + (v.power ?? 0.5) * 0.12"]},
     })
     # nucleo branco-amarelo do raio (mais fino e intenso)
     E["heat_core"] = P("heat_core", "particles_add", {
@@ -418,9 +434,77 @@ def particles():
             "v.dir.x * v.particle_random_1 * (v.len ?? 8.0)",
             "v.dir.y * v.particle_random_1 * (v.len ?? 8.0)",
             "v.dir.z * v.particle_random_1 * (v.len ?? 8.0)"]},
-        "minecraft:particle_appearance_billboard": billboard([0.06, 0.06], "glow"),
+        "minecraft:particle_appearance_billboard": billboard(["0.045 + (v.power ?? 0.5) * 0.05", "0.045 + (v.power ?? 0.5) * 0.05"], "glow"),
         "minecraft:particle_appearance_tinting": {"color": [1.0, 0.97, "0.7 + v.particle_random_2 * 0.3", 1.0]},
     })
+    for plane in ("xz", "xy", "yz"):
+        E[f"heat_mark_{plane}"] = P(f"heat_mark_{plane}", "particles_add", {
+            "minecraft:emitter_rate_instant": {"num_particles": 1},
+            **once(),
+            "minecraft:emitter_shape_point": {},
+            **life("math.random(2.6, 3.4)"),
+            "minecraft:particle_initial_speed": 0,
+            "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)"},
+            "minecraft:particle_appearance_billboard": billboard(["0.42 + v.particle_random_1 * 0.2", "0.42 + v.particle_random_1 * 0.2"], "glow",
+                                                                 f"emitter_transform_{plane}"),
+            # metal em brasa: branco, amarelo, laranja, vermelho e apaga
+            "minecraft:particle_appearance_tinting": gradient([(0, "#FFFFF6D0"), (0.12, "#FFFFC040"), (0.4, "#E0FF6010"),
+                                                               (0.75, "#90B01800"), (1, "#00400000")]),
+        })
+        E[f"heat_scorch_{plane}"] = P(f"heat_scorch_{plane}", "particles_blend", {
+            "minecraft:emitter_rate_instant": {"num_particles": 1},
+            **once(),
+            "minecraft:emitter_shape_point": {},
+            **life("10.0"),
+            "minecraft:particle_initial_speed": 0,
+            "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)"},
+            "minecraft:particle_appearance_billboard": billboard(["0.9 + v.particle_random_1 * 0.6", "0.9 + v.particle_random_1 * 0.6"], "smoke",
+                                                                 f"emitter_transform_{plane}"),
+            "minecraft:particle_appearance_tinting": {"color": [0.1, 0.07, 0.05, "0.75 * math.clamp((v.particle_lifetime - v.particle_age) / 2.5, 0.0, 1.0)"]},
+        })
+    E["heat_smoke"] = P("heat_smoke", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 2},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.3, "direction": ["math.random(-0.3, 0.3)", 1, "math.random(-0.3, 0.3)"]},
+        **life("math.random(1.8, 2.8)"),
+        "minecraft:particle_initial_speed": "math.random(0.8, 1.6)",
+        "minecraft:particle_initial_spin": {"rotation": "math.floor(math.random(0, 4)) * 90.0"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": ["math.sin(v.particle_age * 200.0) * 0.6", 1.6, 0], "linear_drag_coefficient": 0.9},
+        "minecraft:particle_appearance_billboard": {"size": ["0.5 + v.particle_age * 0.7", "0.5 + v.particle_age * 0.7"], "facing_camera_mode": "lookat_xyz",
+                                                    "uv": DUSTFB},
+        "minecraft:particle_appearance_tinting": {"color": [0.22, 0.2, 0.19, 0.85]},
+        "minecraft:particle_appearance_lighting": {},
+    }, TEX2)
+    E["steam"] = P("steam", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 4},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.4, "direction": ["math.random(-0.4, 0.4)", 1, "math.random(-0.4, 0.4)"]},
+        **life("math.random(1.0, 1.8)"),
+        "minecraft:particle_initial_speed": "math.random(1.5, 3.5)",
+        "minecraft:particle_initial_spin": {"rotation": "math.floor(math.random(0, 4)) * 90.0"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, 2.2, 0], "linear_drag_coefficient": 1.6},
+        "minecraft:particle_appearance_billboard": {"size": ["0.6 + v.particle_age * 0.9", "0.6 + v.particle_age * 0.9"], "facing_camera_mode": "lookat_xyz",
+                                                    "uv": DUSTFB},
+        "minecraft:particle_appearance_tinting": {"color": [0.97, 0.98, 1.0, 0.85]},
+    }, TEX2)
+    E["ash_burst"] = P("ash_burst", "particles_alpha", {
+        "minecraft:emitter_rate_instant": {"num_particles": 26},
+        **once(),
+        "minecraft:emitter_shape_box": {"half_dimensions": [0.3, 0.9, 0.3], "direction": ["math.random(-1, 1)", "math.random(0.2, 1.2)", "math.random(-1, 1)"]},
+        **life("math.random(1.6, 3.0)"),
+        "minecraft:particle_initial_speed": "math.random(0.5, 2.5)",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-200, 200)"},
+        # cinzas flutuam e caem balancando
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": ["math.sin(v.particle_age * 300.0 + v.particle_random_1 * 360.0) * 2.5", -1.2,
+                                                                      "math.cos(v.particle_age * 260.0 + v.particle_random_2 * 360.0) * 2.5"],
+                                              "linear_drag_coefficient": 2.2},
+        "minecraft:particle_motion_collision": {"collision_radius": 0.04, "coefficient_of_restitution": 0.05, "collision_drag": 8},
+        "minecraft:particle_appearance_billboard": {"size": [f"(0.06 + v.particle_random_1 * 0.07) * {SHRINK}", f"(0.06 + v.particle_random_1 * 0.07) * {SHRINK}"],
+                                                    "facing_camera_mode": "lookat_xyz", "uv": cell2("pebble")},
+        "minecraft:particle_appearance_tinting": {"color": ["0.16 + v.particle_random_3 * 0.22", "0.15 + v.particle_random_3 * 0.2",
+                                                            "0.14 + v.particle_random_3 * 0.18", 1]},
+        "minecraft:particle_appearance_lighting": {},
+    }, TEX2)
     E["heat_scorch"] = P("heat_scorch", "particles_blend", {
         "minecraft:emitter_rate_instant": {"num_particles": 1},
         **once(),

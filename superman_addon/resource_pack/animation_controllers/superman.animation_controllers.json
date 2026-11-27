@@ -944,6 +944,9 @@
             },
             {
               "sm.heat.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.tremble": "0.2 + v.sm_chg * 0.9"
             }
           ],
           "transitions": [

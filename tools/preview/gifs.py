@@ -105,7 +105,7 @@ SCENES = {
     "08_visao_de_calor": (frames([
         seg([], 0.3),
         seg(["heat_in.upper", "heat_in.legs"], 0.35),
-        seg(["heat.upper", "heat.legs"], 1.2, {"sm_glow": 1}),
+        seg(["heat.upper", "heat.legs", "tremble"], 2.2, {"sm_glow": 1, "sm_chg": lambda u: min(1.0, u / 1.6)}),
         seg(["heat_out.upper", "heat_out.legs"], 0.45),
     ]), {"yaw": 20, "dist": 55, "ty": 20}),
     "09_sopro_congelante": (frames([

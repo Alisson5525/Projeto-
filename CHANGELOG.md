@@ -1,5 +1,17 @@
 # Histórico de mudanças
 
+## 2.3.0 — Visão de calor
+
+- **O raio esquenta em 2 s:** vai de vermelho-escuro a laranja-branco, fica mais grosso e ganha um brilho largo em volta. O derretimento fica mais rápido e mais largo (até uma esfera de 2 blocos), e o dano sobe de 5 para 12 a cada golpe do raio.
+- **Dois raios** saem dos olhos e se encontram no ponto mirado, em vez de correrem paralelos.
+- **Corte contínuo:** varrer com o olhar aquece todos os blocos entre um tick e o outro, então o corte sai sem falhas mesmo virando rápido.
+- **Marcas em brasa** que esfriam aos poucos (branco, amarelo, laranja, vermelho) e **queimado** no chão, nas paredes e no teto (antes só no chão).
+- **Água ferve e evapora** no caminho do raio, com vapor subindo; **TNT detona**; folhas pegam fogo e somem mais rápido.
+- **Criaturas mortas pelo raio viram cinzas**, que caem balançando, com fumaça e brasas.
+- Faíscas e fumaça escura no impacto; o chiado e o fogo ficam mais fortes com a potência.
+- A explosão de foco (mirar no mesmo ponto) cresce com a potência e solta anéis e gotas derretidas.
+- **Animação:** conforme o raio esquenta, o herói se inclina, abre os braços com os punhos cerrados, firma as pernas e treme mais.
+
 ## 2.2.1 — Super soco reto e mais destrutivo
 
 - O super soco **não tem mais mira automática**: ele vai reto para onde você olha e o herói não é puxado até o inimigo (a mira dourada e a investida foram removidas).

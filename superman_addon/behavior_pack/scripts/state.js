@@ -66,6 +66,8 @@ export function getState(player) {
       jumpTapTick: -100,
       prevDir: undefined,
       grab: undefined,
+      heatPower: 0,
+      heatPrev: undefined,
     };
     states.set(player.id, st);
   }

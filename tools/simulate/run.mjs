@@ -192,6 +192,62 @@ for (let y = -1; y < 4; y++) for (let dx = -1; dx <= 1; dx++) { const t = overwo
 check(melted >= 4, `derreteu uma area, nao so um bloco (${melted})`);
 tick(10); use(p, 'superman:visao_calor'); tick(1);
 check(P(p, 'power') === 0, 'desligou ao tocar de novo');
+check(P(p, 'charge') === 0, 'potencia do raio zerada ao desligar');
+
+section('visao de calor: potencia, corte continuo, agua, TNT e cinzas');
+{
+  const bx = Math.floor(p.location.x), by = Math.floor(p.location.y), bz = Math.floor(p.location.z);
+  // parede larga de pedra a 8 blocos para varrer de um lado ao outro
+  for (let x = -12; x <= 12; x++) for (let y = 0; y < 4; y++) overworld.set({ x: bx + x, y: by + y, z: bz + 8 }, 'minecraft:stone');
+  const victim2 = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 4 });
+  victim2.health = 6;
+  const mk0 = LOG.particles['superman:heat_mark_xy'] || 0;
+  p.rot = { x: 6, y: -35 };
+  tick(12); // o mesmo item so conta um novo toque depois de 0,5 s
+  use(p, 'superman:visao_calor');
+  tick(10);
+  tick(4);
+  // varre 70 graus em 20 ticks: o corte deve ser continuo
+  for (let i = 0; i <= 20; i++) { p.rot = { x: 6, y: -35 + i * 3.5 }; tick(1); }
+  tick(30);
+  check(P(p, 'charge') >= 0.9, `o raio esquenta ate o maximo (potencia ${P(p, 'charge')})`);
+  check((LOG.particles['superman:heat_mark_xy'] || 0) > mk0, 'marcas de brasa na parede');
+  check((LOG.particles['superman:heat_halo'] || 0) > 0 && (LOG.particles['superman:heat_smoke'] || 0) > 0, 'brilho em volta do raio e fumaca no impacto');
+  let cut = 0, maxGap = 0, gap = 0;
+  for (let x = -5; x <= 5; x++) {
+    let hot = false;
+    for (let y = 0; y < 4; y++) { const t = overworld.typeAt(bx + x, by + y, bz + 8); if (t !== 'minecraft:stone') hot = true; }
+    if (hot) { cut++; gap = 0; } else { gap++; maxGap = Math.max(maxGap, gap); }
+  }
+  check(cut >= 9, `varrer com o olhar corta uma linha na parede (${cut} colunas)`);
+  check(maxGap === 0, `corte continuo, sem pular blocos (maior buraco ${maxGap}, ${cut} colunas: ${[...Array(11).keys()].map((i) => { const x = i - 5; let h = 0; for (let y = 0; y < 4; y++) if (overworld.typeAt(bx + x, by + y, bz + 8) !== 'minecraft:stone') h = 1; return h; }).join('')}, x=${(p.location.x - bx).toFixed(2)})`);
+  check(victim2.health < 6, 'criatura no caminho do raio queimou');
+  world.afterEvents.entityDie.fire({ deadEntity: victim2, damageSource: { cause: 'fire' } });
+  check((LOG.particles['superman:ash_burst'] || 0) > 0, 'criatura morta pelo raio vira cinzas');
+  victim2.remove();
+  use(p, 'superman:visao_calor'); tick(1);
+  // agua no caminho ferve e evapora
+  const wz = bz + 5;
+  for (let x = -1; x <= 1; x++) for (let y = -1; y <= 1; y++) overworld.set({ x: bx + x, y: by + 1 + y, z: wz }, 'minecraft:water');
+  p.rot = { x: -2, y: 0 };
+  tick(12);
+  const st0 = LOG.particles['superman:steam'] || 0;
+  use(p, 'superman:visao_calor'); tick(30);
+  check((LOG.particles['superman:steam'] || 0) > st0, 'vapor subindo da agua fervendo');
+  check(overworld.typeAt(bx, by + 1, wz) === 'minecraft:air', 'agua no caminho do raio evaporou');
+  use(p, 'superman:visao_calor'); tick(12);
+  // TNT detona
+  for (let x = -1; x <= 1; x++) for (let y = -1; y <= 1; y++) overworld.set({ x: bx + x, y: by + 1 + y, z: wz }, 'minecraft:air');
+  overworld.set({ x: bx, y: by + 1, z: bz + 6 }, 'minecraft:tnt');
+  const exT = LOG.explosions.length;
+  use(p, 'superman:visao_calor'); tick(30);
+  check(LOG.explosions.length > exT && overworld.typeAt(bx, by + 1, bz + 6) !== 'minecraft:tnt', 'o raio detona TNT');
+  tick(2); use(p, 'superman:visao_calor'); tick(10);
+  check(P(p, 'power') === 0, 'visao de calor desligada');
+  for (let x = -12; x <= 12; x++) for (let y = -2; y < 6; y++) for (let z = 4; z <= 9; z++) overworld.set({ x: bx + x, y: by + y, z: bz + z }, y < 0 ? 'minecraft:dirt' : 'minecraft:air');
+  p.rot = { x: 0, y: 0 };
+  tick(5);
+}
 
 section('sopro congelante');
 const victim = new Entity('minecraft:skeleton', { x: p.location.x + 0.5, y: p.location.y, z: p.location.z - 6 });

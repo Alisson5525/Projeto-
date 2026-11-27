@@ -5649,28 +5649,28 @@
       "bones": {
         "rightLeg": {
           "rotation": [
-            -24,
+            "-24.0 - v.sm_chg * 8.0",
             0,
-            6
+            "6.0 + v.sm_chg * 4.0"
           ]
         },
         "rightShin": {
           "rotation": [
-            48,
+            "48.0 + v.sm_chg * 10.0",
             0,
             0
           ]
         },
         "leftLeg": {
           "rotation": [
-            -24,
+            "-24.0 - v.sm_chg * 8.0",
             0,
-            -6
+            "-6.0 - v.sm_chg * 4.0"
           ]
         },
         "leftShin": {
           "rotation": [
-            48,
+            "48.0 + v.sm_chg * 10.0",
             0,
             0
           ]
@@ -5683,48 +5683,48 @@
         "sm_yaw": {
           "position": [
             0,
-            -1,
+            "-1.0 - v.sm_chg * 0.8",
             0
           ]
         },
         "waist": {
           "rotation": [
-            -3,
+            "-3.0 + v.sm_chg * 9.0 + math.sin(q.life_time * 2900.0) * v.sm_chg * 0.8",
             0,
             0
           ]
         },
         "head": {
           "rotation": [
-            "math.sin(q.life_time * 3300.0) * 0.6",
+            "-v.sm_chg * 6.0 + math.sin(q.life_time * 3300.0) * (0.6 + v.sm_chg)",
             0,
-            "math.sin(q.life_time * 2900.0) * 0.9"
+            "math.sin(q.life_time * 2900.0) * (0.9 + v.sm_chg)"
           ]
         },
         "rightArm": {
           "rotation": [
-            "-6.0 + math.sin(q.life_time * 3100.0) * 1.0",
+            "-6.0 + v.sm_chg * 10.0 + math.sin(q.life_time * 3100.0) * (1.0 + v.sm_chg * 1.5)",
             0,
-            16
+            "16.0 + v.sm_chg * 14.0"
           ]
         },
         "rightForearm": {
           "rotation": [
-            "-38.0 + math.sin(q.life_time * 2500.0) * 3.0",
+            "-38.0 - v.sm_chg * 30.0 + math.sin(q.life_time * 2500.0) * 3.0",
             0,
             0
           ]
         },
         "leftArm": {
           "rotation": [
-            "-6.0 + math.sin(q.life_time * 2700.0) * 1.0",
+            "-6.0 + v.sm_chg * 10.0 + math.sin(q.life_time * 2700.0) * (1.0 + v.sm_chg * 1.5)",
             0,
-            -16
+            "-16.0 - v.sm_chg * 14.0"
           ]
         },
         "leftForearm": {
           "rotation": [
-            "-38.0 + math.sin(q.life_time * 2300.0) * 3.0",
+            "-38.0 - v.sm_chg * 30.0 + math.sin(q.life_time * 2300.0) * 3.0",
             0,
             0
           ]
