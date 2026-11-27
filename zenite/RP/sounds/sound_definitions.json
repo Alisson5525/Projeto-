@@ -1,0 +1,233 @@
+{
+  "format_version": "1.20.20",
+  "sound_definitions": {
+    "zenite.veu_on": {
+      "category": "player",
+      "max_distance": 24.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/veu_on",
+          "volume": 0.9,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.veu_off": {
+      "category": "player",
+      "max_distance": 24.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/veu_off",
+          "volume": 0.8,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.veu_bloqueio": {
+      "category": "player",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/veu_bloqueio",
+          "volume": 0.7,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.poco": {
+      "category": "player",
+      "max_distance": 48.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/poco",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.nova_disparo": {
+      "category": "player",
+      "max_distance": 40.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/nova_disparo",
+          "volume": 0.9,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.nova_impacto": {
+      "category": "player",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/nova_impacto",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.passo": {
+      "category": "player",
+      "max_distance": 24.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/passo",
+          "volume": 0.8,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.reversao": {
+      "category": "player",
+      "max_distance": 24.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/reversao",
+          "volume": 0.8,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.horizonte_carga": {
+      "category": "player",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/horizonte_carga",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.horizonte_disparo": {
+      "category": "player",
+      "max_distance": 96.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/horizonte_disparo",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.abobada": {
+      "category": "player",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/abobada",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.abobada_fim": {
+      "category": "player",
+      "max_distance": 48.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/abobada_fim",
+          "volume": 0.9,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.nivel": {
+      "category": "ui",
+      "max_distance": 16.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/nivel",
+          "volume": 0.8,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.ui": {
+      "category": "ui",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/ui",
+          "volume": 0.45,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.negado": {
+      "category": "ui",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/negado",
+          "volume": 0.5,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.arconte_rugido": {
+      "category": "hostile",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/arconte_rugido",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.arconte_ritual": {
+      "category": "hostile",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/arconte_ritual",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.arconte_morte": {
+      "category": "hostile",
+      "max_distance": 96.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/arconte_morte",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "zenite.arconte_feixe": {
+      "category": "hostile",
+      "max_distance": 64.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/zenite/arconte_feixe",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    }
+  }
+}
