@@ -1,5 +1,22 @@
 # Histórico de mudanças
 
+## 2.2.0 — Combate e pilotagem
+
+**Voo**
+- **Fim do drift:** antes a velocidade antiga se misturava aos poucos com a nova, e o herói escorregava de lado nas curvas. Agora a direção do movimento gira junto com a câmera (em menos de 0,25 s numa curva de 90°) e só a velocidade tem inércia; curvas muito fechadas custam um pouco de velocidade.
+- O corpo acompanha a direção do voo duas vezes mais rápido.
+- **Freada firme:** soltar o comando para o herói quase na hora; parar o supersônico solta um cone de vapor. Pairando sem comando, ele estabiliza no lugar.
+- **Looping:** toque duplo no pulo durante o voo. Círculo vertical completo com a animação do corpo girando junto, rastro branco desenhando o círculo e saída na mesma altura. Funciona no supersônico mantendo o Mach 2.
+- Redemoinhos de ar saem dos ombros nas curvas fortes.
+
+**Combate**
+- **Soco teleguiado:** mira dourada sobre o inimigo enquanto o Super Soco carrega; ao soltar, investida em super velocidade com rastro de imagens até o alvo.
+- **Agarrar e arremessar:** agachado + bater ergue o inimigo acima da cabeça (com animações novas de agarrar e arremessar); soltar o agachar arremessa para onde o herói olha. Dá para voar carregando o inimigo.
+- **Inimigos-projétil:** arremessados, atingidos pelo golpe final ou por um super soco forte voam, atropelam outros inimigos e abrem cratera ao bater no chão ou numa parede.
+- **Estilhaçar:** inimigos congelados se partem em cacos de gelo no próximo golpe (dano extra e a jaula de gelo se desfaz).
+- Faíscas em cada golpe do combo, crescendo com o contador.
+- Guia rápido e descrição do Super Soco atualizados.
+
 ## 2.1.0 — Destruição e voo
 
 **Partículas de destruição em pixel art**

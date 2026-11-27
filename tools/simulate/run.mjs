@@ -31,6 +31,7 @@ const jump = (p) => {
   world.afterEvents.playerButtonInput.fire({ player: p, button: 'Jump', newButtonState: 'Pressed' });
 };
 const section = (t) => origWarn(`\n== ${t}`);
+const V3dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
 const AIR = new Set([3, 4, 5, 10]);
 
 const p = new Player('Teste', { x: 0.5, y: 64, z: 0.5 });
@@ -105,12 +106,35 @@ section('giro de esquiva, Mach 2, rastros e particulas por material');
   check(P(p, 'fly') === 4, 'volta ao voo depois do giro');
   p.mv = { x: -1, y: 1 }; tick(1); p.mv = { x: 0, y: 1 }; tick(1);
   check(P(p, 'fly') === 4, 'um toque so nao gira');
+  // curva de 90 graus: a direcao acompanha o olhar sem derrapar
+  tick(20);
+  p.rot = { x: 0, y: 90 };
+  const look90 = p.getViewDirection();
+  tick(5);
+  const vdir = { x: p.vel.x / hspeed(p), z: p.vel.z / hspeed(p) };
+  const align = vdir.x * look90.x + vdir.z * look90.z;
+  check(align > 0.93, `curva sem derrapar: em 5 ticks o movimento ja segue o olhar (alinhamento ${align.toFixed(2)})`);
+  check(hspeed(p) > 0.6, `a curva nao para o heroi (${hspeed(p).toFixed(2)})`);
+  p.rot = { x: 0, y: 0 };
+  tick(8);
+  // looping: toque duplo no pulo
+  const yl = p.location.y, zl = p.location.z;
+  jump(p); tick(2); jump(p); tick(1);
+  check(P(p, 'fly') === 16, `looping com toque duplo no pulo (${P(p, 'fly')})`);
+  let topY = p.location.y;
+  for (let i = 0; i < 16; i++) { tick(1); topY = Math.max(topY, p.location.y); }
+  check(topY > yl + 2, `subiu no looping (${(topY - yl).toFixed(1)} blocos)`);
+  tick(3);
+  check(P(p, 'fly') === 4, 'volta ao voo depois do looping');
+  check(Math.abs(p.location.y - yl) < 3, `termina perto da altura inicial (${(p.location.y - yl).toFixed(1)})`);
+  check(p.location.z > zl, 'segue em frente depois do looping');
+  tick(10);
   // agua embaixo e uma parede de materiais variados no caminho
   const bx = Math.floor(p.location.x), bz = Math.floor(p.location.z), by = Math.floor(p.location.y);
   // lago 3 blocos abaixo da rota (voo rasante) e parede de materiais variados mais a frente
   for (let x = -5; x <= 5; x++) for (let z = 4; z < 60; z++) overworld.set({ x: bx + x, y: by - 3, z: bz + z }, 'minecraft:water');
   const mats = ['minecraft:sand', 'minecraft:glass', 'minecraft:oak_log', 'minecraft:oak_leaves'];
-  for (let x = -3; x <= 3; x++) for (let y = -1; y <= 2; y++) for (let z = 0; z < 2; z++) overworld.set({ x: bx + x, y: by + y, z: bz + 90 + z }, mats[y + 1]);
+  for (let x = -3; x <= 3; x++) for (let y = 0; y <= 2; y++) for (let z = 0; z < 2; z++) overworld.set({ x: bx + x, y: by + y, z: bz + 90 + z }, mats[(x + 4) % 4]);
   const c0 = (k) => LOG.particles['superman:' + k] || 0;
   const before = Object.fromEntries(['shards', 'leaf_bits', 'grains', 'splinters', 'debris_dust', 'water_spray', 'water_foam'].map((k) => [k, c0(k)]));
   p.isSprinting = true; tick(3);
@@ -275,6 +299,70 @@ const bl = overworld.getBlock({ x: 5, y: 63, z: 5 });
 p.selected = 30; // mao vazia
 world.afterEvents.entityHitBlock.fire({ damagingEntity: p, hitBlock: bl, blockFace: 'Up' });
 check(bl.typeId === 'minecraft:air', 'super forca quebrou o bloco');
+
+section('soco teleguiado, agarrar e arremessar, estilhacar');
+{
+  const fly = (e, n) => { // fisica simples para criaturas arremessadas no simulador
+    for (let i = 0; i < n; i++) {
+      e.location = { x: e.location.x + e.vel.x, y: e.location.y + e.vel.y, z: e.location.z + e.vel.z };
+      e.vel.y = Math.max(-3, e.vel.y - 0.08);
+      if (overworld.solid(e.location.x, e.location.y, e.location.z)) { e.location.y = Math.floor(e.location.y) + 1; e.vel = { x: 0, y: 0, z: 0 }; }
+      tick(1);
+    }
+  };
+  // soco teleguiado: inimigo a 14 blocos na mira
+  p.rot = { x: 0, y: 0 };
+  tick(5);
+  const px = p.location.x, pz = p.location.z, py = p.location.y;
+  for (let x = -2; x <= 2; x++) for (let y = 0; y < 4; y++) for (let z = 1; z < 20; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: Math.floor(pz) + z }, 'minecraft:air');
+  const far = new Entity('minecraft:zombie', { x: px, y: py, z: pz + 14 });
+  const lock0 = LOG.particles['superman:lock_on'] || 0;
+  use(p, 'superman:super_soco'); tick(25);
+  check((LOG.particles['superman:lock_on'] || 0) > lock0, 'mira dourada sobre o inimigo durante a carga');
+  use(p, 'superman:super_soco'); tick(1);
+  check(V3dist(p.location, far.location) < 3, `investida ate o inimigo (ficou a ${V3dist(p.location, far.location).toFixed(1)} blocos)`);
+  tick(4);
+  check(far.health < 20, 'o soco teleguiado acertou');
+  check(Math.hypot(far.vel.x, far.vel.z) > 1.5, 'inimigo arremessado pelo soco');
+  far.remove();
+  tick(15);
+  // agarrar e arremessar
+  const ex0 = LOG.explosions.length;
+  const foe = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 });
+  p.sneakHeld = true;
+  world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: foe });
+  tick(1);
+  check(P(p, 'power') === 20, 'agachado + bater = agarrar');
+  tick(10);
+  check(Math.abs(foe.location.y - (p.location.y + 2.45)) < 0.3, 'inimigo erguido acima da cabeca');
+  use(p, 'superman:visao_calor'); tick(1);
+  check(P(p, 'power') === 20, 'com as maos ocupadas os outros poderes esperam');
+  p.sneakHeld = false; tick(1);
+  check(P(p, 'power') === 21, 'soltar o agachar = arremessar');
+  tick(4);
+  check(Math.hypot(foe.vel.x, foe.vel.z) > 3, `arremesso forte (${Math.hypot(foe.vel.x, foe.vel.z).toFixed(1)})`);
+  const bystander = new Entity('minecraft:zombie', { x: foe.location.x + foe.vel.x * 2, y: foe.location.y - 1, z: foe.location.z + foe.vel.z * 2 });
+  fly(foe, 30);
+  check(LOG.explosions.length > ex0, 'o inimigo arremessado abriu uma cratera ao cair');
+  check(foe.health < 20, 'o arremessado se machucou no impacto');
+  foe.remove(); bystander.remove();
+  tick(20);
+  check(P(p, 'power') === 0, 'arremesso terminou');
+  // estilhacar: congela com o sopro e depois bate
+  const ice = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 4 });
+  p.rot = { x: 10, y: 0 };
+  use(p, 'superman:sopro_congelante'); tick(40);
+  use(p, 'superman:sopro_congelante'); tick(2);
+  const hp0 = ice.health;
+  ice.location = { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 };
+  world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: ice });
+  tick(1);
+  check(hp0 - ice.health >= 22, `inimigo congelado estilhacou (dano ${(hp0 - ice.health).toFixed(0)})`);
+  check((LOG.particles['superman:shards'] || 0) > 0 && p.actionbar.includes('ESTILHA'), 'cacos de gelo e aviso de estilhacar');
+  ice.remove();
+  p.rot = { x: 0, y: 0 };
+  tick(20);
+}
 
 section('decolagem carregada');
 p.location = { x: 40.5, y: 64, z: 40.5 }; p.vel = { x: 0, y: 0, z: 0 };

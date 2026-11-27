@@ -16,9 +16,15 @@ export const FLY = {
   LANDPREP: 7, LANDSOFT: 8, LANDHERO: 9, AIRSTART: 10, SPEED: 11,
   // giro de esquiva (toque duplo para o lado): esquerda/direita, vindo do voo normal ou do supersonico
   ROLL_L: 12, ROLL_R: 13, ROLL_LF: 14, ROLL_RF: 15,
+  // looping (toque duplo no pulo voando), vindo do voo normal ou do supersonico
+  LOOP: 16, LOOP_F: 17,
 };
 export const ROLL_STATES = new Set([FLY.ROLL_L, FLY.ROLL_R, FLY.ROLL_LF, FLY.ROLL_RF]);
-export const AIR_STATES = new Set([FLY.LAUNCH, FLY.HOVER, FLY.FLY, FLY.FAST, FLY.DIVE, FLY.LANDPREP, FLY.AIRSTART, ...ROLL_STATES]);
+export const LOOP_STATES = new Set([FLY.LOOP, FLY.LOOP_F]);
+/** Manobras que acontecem dentro do supersonico (mantem o Mach 2). */
+export const FAST_STATES = new Set([FLY.FAST, FLY.ROLL_LF, FLY.ROLL_RF, FLY.LOOP_F]);
+export const AIR_STATES = new Set([FLY.LAUNCH, FLY.HOVER, FLY.FLY, FLY.FAST, FLY.DIVE, FLY.LANDPREP, FLY.AIRSTART,
+  ...ROLL_STATES, ...LOOP_STATES]);
 export const MACH2 = 1.3;        // multiplicador de velocidade depois de 2,5 s de supersonico
 export const CLOUD_Y = 192;      // altura da camada de nuvens no mundo normal
 
@@ -26,7 +32,7 @@ export const CLOUD_Y = 192;      // altura da camada de nuvens no mundo normal
 export const POW = {
   NONE: 0, TRANSFORM: 1, DETRANSFORM: 2, HEAT: 3, FREEZE: 4, CHARGE: 5, PUNCH: 6,
   CLAP: 7, SLAM: 8, COMBO1: 9, COMBO2: 10, COMBO3: 11, COMBO4: 12, COMBO5: 13, COMBO6: 14,
-  AIR1: 15, AIR2: 16, AIR3: 17, NOVA_CHARGE: 18, NOVA: 19,
+  AIR1: 15, AIR2: 16, AIR3: 17, NOVA_CHARGE: 18, NOVA: 19, GRAB: 20, THROW: 21,
 };
 
 export const ITEM = {

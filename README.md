@@ -2,6 +2,8 @@
 
 Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
+> **Versão 2.2.0, combate e pilotagem.** O voo não derrapa mais nas curvas: a direção acompanha a câmera na hora e só a velocidade tem inércia. A freada ficou firme e há uma manobra nova, o **looping** (toque duplo no pulo). No combate, chegaram o **soco teleguiado** com mira dourada, **agarrar e arremessar** inimigos que se espatifam no cenário, o **golpe final** que vira projétil e o **estilhaçar** de inimigos congelados.
+>
 > **Versão 2.1.0, destruição e voo.** As partículas de destruição foram refeitas em pixel art e mudam conforme o material: pedaços de pedra que quicam, poeira animada da cor do bloco, grãos de areia, lascas de madeira, cacos de vidro que brilham e folhas que caem balançando. O voo ganhou o **giro de esquiva** (toque duplo para o lado), a barreira de **Mach 2**, rastro de spray na água e de poeira no chão em voo rasante, nuvens que se abrem quando você as atravessa, linhas de velocidade e rastros de condensação.
 >
 > **Versão 2.0.2:** o sopro congelante usado voando não esconde mais o herói, e a deformação nos impactos não encolhe mais partes do corpo.
@@ -58,6 +60,8 @@ Ao entrar no mundo pela primeira vez você recebe o **Emblema Solar**. Se perder
 | **Voo supersônico** (atravessa montanhas) | correr (Ctrl ou W duplo) voando | botão de correr / analógico todo à frente |
 | **Mach 2** | continuar no supersônico por 2,5 s | idem |
 | **Giro de esquiva** | voando, tocar duas vezes **A** ou **D** | voando, tocar duas vezes para o lado no analógico |
+| **Looping** | voando, tocar duas vezes **pular** | voando, tocar duas vezes o botão de pular |
+| **Agarrar** / **arremessar** | segurar **agachar** e bater num inimigo / soltar o agachar | idem |
 | Frear e pairar | soltar W | soltar o analógico |
 | Pousar | descer até o chão, ou usar **Poder: Voo** | idem |
 | **Super velocidade** no chão | correr transformado | correr |
@@ -76,7 +80,15 @@ Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, ginga
 | 3. gancho de esquerda (empurra para o lado) | 3. **martelo**: crava o inimigo no chão, abrindo uma cratera onde ele cai |
 | 4. uppercut (lança o inimigo para cima) | |
 | 5. **chute giratório** (360°, com onda de choque) | |
-| 6. **golpe final**: investida com soco voador, estrondo sônico e onda que empurra todos em volta | |
+| 6. **golpe final**: investida com soco voador, estrondo sônico e onda que empurra todos em volta; o inimigo sai voando e abre uma cratera onde bater | |
+
+### Poderes de combate
+
+- **Soco teleguiado:** carregue o Super Soco olhando para um inimigo (até 26 blocos). Um **anel dourado** marca o alvo; ao soltar, o herói cruza a distância em super velocidade, deixando um rastro de imagens, e acerta o soco cara a cara.
+- **Agarrar e arremessar:** segure **agachar** e bata num inimigo. O herói o ergue acima da cabeça (dá para voar carregando). Solte o agachar para arremessá-lo para onde estiver olhando. Ele atropela quem estiver no caminho e abre uma cratera quando bate no chão ou numa parede.
+- **Inimigos-projétil:** o golpe final do combo e o super soco bem carregado também transformam o inimigo num projétil que se espatifa no cenário.
+- **Estilhaçar:** inimigos congelados pelo sopro (ou presos na jaula de gelo) se partem em cacos de gelo no próximo golpe, com dano extra.
+- Cada golpe do combo solta faíscas, que aumentam a cada acerto.
 
 ### Itens de poder
 
@@ -131,6 +143,9 @@ As explosões do herói também soltam os pedaços dos blocos que destruíram, e
 - **Supersônico:** linhas de velocidade passando pela tela, dois rastros de condensação atrás das botas e o campo de visão abrindo com a velocidade (se a opção de campo de visão do jogo estiver ligada).
 - **Mach 2:** depois de 2,5 s no supersônico, um segundo estrondo, mais 30% de velocidade e túnel mais largo.
 - **Giro de esquiva:** um giro de 360° no eixo do corpo com um impulso para o lado; também funciona no supersônico sem perder o Mach 2.
+- **Pilotagem sem derrapar:** nas curvas, a direção do voo acompanha a câmera na hora; só a velocidade tem inércia, e curvas muito fechadas custam um pouco de velocidade. Nas curvas fortes saem redemoinhos de ar dos ombros.
+- **Freada firme:** soltar o comando para o herói quase na hora; no supersônico, a freada solta um cone de vapor.
+- **Looping:** toque duas vezes no pulo voando. O herói faz um círculo vertical completo, deixando um rastro branco no céu, e sai na mesma direção e altura.
 
 A destruição grande (palma trovão, estrondo sônico, túnel do soco) se espalha em **ondas** ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
 
@@ -157,7 +172,7 @@ Por padrão, os poderes em área (raios, sopro, palmas, explosões, golpe final)
 
 ---
 
-## Animações (92)
+## Animações (97)
 
 Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*) entre estados e camadas procedurais que se somam: capa, respiração, inclinação nas curvas, flutuação e tremor de esforço.
 
@@ -183,6 +198,7 @@ Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*
 | ![](docs/preview/10_super_soco.gif) super soco | ![](docs/preview/15_combo_de_6_golpes.gif) combo de 6 golpes | ![](docs/preview/16_combo_aereo.gif) combo aéreo |
 | ![](docs/preview/12_palma_trovao.gif) palma trovão | ![](docs/preview/13_pancada_no_chao.gif) pancada no chão | ![](docs/preview/14_super_velocidade.gif) super velocidade |
 | ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | ![](docs/preview/18_explosao_solar.gif) Explosão Solar | ![](docs/preview/19_giro_e_mach_2.gif) giro de esquiva e Mach 2 |
+| ![](docs/preview/20_looping.gif) looping | ![](docs/preview/21_agarrar_e_arremessar.gif) agarrar e arremessar | |
 
 *As prévias foram renderizadas fora do jogo pelo visualizador em `tools/preview`, com as mesmas animações e modelo do add-on. As partículas e a câmera aparecem só dentro do jogo.*
 
@@ -221,7 +237,7 @@ tools/gen_fx_atlas.py     folha de sprites em pixel art das partículas de destr
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (136 verificações)
+tools/simulate/           roda os scripts num mundo simulado (157 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos

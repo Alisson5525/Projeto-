@@ -13,6 +13,7 @@ const FLY_NAMES = {
   [FLY.HOVER]: '§fPairando', [FLY.FLY]: '§fVoando', [FLY.FAST]: '§c§lSUPERSÔNICO', [FLY.DIVE]: '§c§lMERGULHO',
   [FLY.LANDPREP]: '§7Pousando', [FLY.SPEED]: '§eSuper velocidade',
   [FLY.ROLL_L]: '§bGiro', [FLY.ROLL_R]: '§bGiro', [FLY.ROLL_LF]: '§b§lGIRO', [FLY.ROLL_RF]: '§b§lGIRO',
+  [FLY.LOOP]: '§bLooping', [FLY.LOOP_F]: '§b§lLOOPING',
 };
 
 function readInput(player) {

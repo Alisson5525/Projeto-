@@ -5,6 +5,7 @@ import { startDive, stopAll, toggleFlight } from './flight.js';
 import { actionbar, flash, flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, setOn, setPower, sync } from './state.js';
 import { canHit, hurt, nearby, pushMobs } from './targets.js';
+import { canGrab, findTarget, grabTick, homingDash, launchProjectile, markFrozen, markTarget, shatter, startGrab, throwTick, updateProjectiles } from './combat.js';
 import { openSettings } from './ui.js';
 import { V } from './vec.js';
 
@@ -45,7 +46,8 @@ const LORE = {
     '§7Supersônico por 2,5 s: Mach 2', '§8Dica: pulo duplo também faz voar'],
   [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
   [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
-  [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força'],
+  [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força',
+    '§6Mirando um inimigo: soco teleguiado', '§7Inimigos congelados se estilhaçam'],
   [ITEM.IMPACT]: ['§7No chão: palma trovão', '§7Agachado: pancada no chão', '§7Voando: mergulho meteoro',
     '§6Agachado voando: EXPLOSÃO SOLAR'],
 };
@@ -90,6 +92,7 @@ export function onItemUse(player, st, id, tick) {
   }
   if (st.power === POW.TRANSFORM || st.power === POW.DETRANSFORM) return;
   if (st.power === POW.NOVA_CHARGE || st.power === POW.NOVA) return; // o supremo nao pode ser interrompido
+  if (st.power === POW.GRAB || st.power === POW.THROW) return;      // maos ocupadas
   switch (id) {
     case ITEM.FLIGHT:
       toggleFlight(player, st);
@@ -214,7 +217,10 @@ function tutorial(player) {
     '§e• Giro de esquiva:§f toque duas vezes para o lado voando',
     '§e• Decolagem com cratera:§f segure agachar parado e pule',
     '§e• Pousar:§f desça até o chão  §8|  §eSuper velocidade:§f correr',
-    '§e• Combate:§f 6 golpes no chão e 3 no ar',
+    '§e• Combate:§f 6 golpes no chão e 3 no ar; o golpe final arremessa',
+    '§e• Agarrar:§f agachado, bata num inimigo; solte o agachar para arremessar',
+    '§e• Soco teleguiado:§f carregue o Super Soco mirando um inimigo',
+    '§e• Looping:§f toque duas vezes no pulo voando',
     '§e• Poderes:§f itens da barra (cada um tem uma descrição)',
     '§6• Explosão Solar:§f voando, agache e use o Impacto',
     '§e• Configurações:§f agachar + usar o Emblema',
@@ -489,6 +495,7 @@ function freezeTick(player, st, tick) {
       if (d < 0.1 || V.dot(V.norm(rel), dir) < Math.cos((32 * Math.PI) / 180)) continue;
       const ex = (st.exposure.get(e.id) || 0) + 1;
       st.exposure.set(e.id, ex);
+      if (ex >= 12) markFrozen(e, tick + 140);
       try {
         e.addEffect('slowness', 100, { amplifier: 6, showParticles: false });
         e.addEffect('mining_fatigue', 100, { amplifier: 2, showParticles: false });
@@ -501,6 +508,7 @@ function freezeTick(player, st, tick) {
       if (t % 3 === 0) particle(dim, 'superman:frost_hit', V.add(e.location, { x: 0, y: 1, z: 0 }));
       if (ex === 25 && s.destruction) {
         encase(player, e);
+        markFrozen(e, tick + 220);
         try {
           e.addEffect('slowness', 120, { amplifier: 10, showParticles: false });
           hurt(player, e, 8, EntityDamageCause.freezing);
@@ -643,6 +651,11 @@ function chargeTick(player, st) {
   const { fwd, right } = V.basis(look);
   const fist = V.add(player.location, V.add(V.add(V.mul(right, 0.45), V.mul(fwd, -0.35)), { x: 0, y: 1.05, z: 0 }));
   if (t % 2 === 0) particle(dim, 'superman:charge_energy', fist, { power: st.charge });
+  // mira: o alvo alinhado com o olhar ganha um anel dourado (o soco vai ate ele)
+  if (t % 2 === 0) {
+    st.punchTarget = findTarget(player);
+    if (st.punchTarget) markTarget(player, st.punchTarget);
+  }
   if (t % 4 === 0 && st.charge > 0.5) particle(dim, 'superman:aura', V.add(player.location, { x: 0, y: 1, z: 0 }), { radius: 0.9 });
   if (t === 1) sound(dim, 'crossbow.quick_charge.start', fist, 1, 0.8);
   if (t === 12) sound(dim, 'crossbow.quick_charge.middle', fist, 1, 0.8);
@@ -654,6 +667,10 @@ function chargeTick(player, st) {
 
 function releasePunch(player, st) {
   st.punchCharge = Math.max(0.15, st.charge);
+  // soco teleguiado: com um inimigo na mira, o heroi atravessa a distancia em super velocidade
+  const tgt = st.punchTarget && st.punchTarget.isValid ? st.punchTarget : findTarget(player);
+  st.punchTarget = undefined;
+  if (tgt && canHit(player, tgt)) homingDash(player, tgt);
   setPower(player, st, POW.PUNCH);
   st.charge = 0;
 }
@@ -675,8 +692,10 @@ function punchImpact(player, st) {
       if (along < 0 || along > range + 1.5) continue;
       if (V.len(V.sub(rel, V.mul(dir, along))) > 2 + 1.5 * c) continue;
       try {
+        shatter(player, e, system.currentTick);
         hurt(player, e, 14 + 46 * c);
-        e.applyKnockback({ x: dir.x * (2.5 + 6 * c), z: dir.z * (2.5 + 6 * c) }, 0.45 + 1.1 * c + Math.max(0, dir.y) * 2.5);
+        if (c > 0.45) launchProjectile(player, e, V.norm(V.add(dir, { x: 0, y: 0.15, z: 0 })), 1.5 + 2.5 * c, system.currentTick);
+        else e.applyKnockback({ x: dir.x * (2.5 + 6 * c), z: dir.z * (2.5 + 6 * c) }, 0.45 + 1.1 * c + Math.max(0, dir.y) * 2.5);
       } catch (err) { /* */ }
       particle(dim, 'superman:punch_impact', V.add(e.location, { x: 0, y: 1, z: 0 }));
     }
@@ -795,6 +814,14 @@ const spikes = [];
 
 export function onMeleeHit(player, st, target, tick) {
   if (!st.on) return;
+  // agachado + bater = agarrar (soltar o agachar arremessa)
+  const free = st.power === POW.NONE || (st.power >= POW.COMBO1 && st.power <= POW.AIR3);
+  if (player.isSneaking && free && canGrab(player, target)) {
+    startGrab(player, st, target, tick);
+    return;
+  }
+  if (st.power === POW.GRAB || st.power === POW.THROW) return;
+  const shattered = shatter(player, target, tick);
   const inAir = AIR_STATES.has(st.fly);
   const list = inAir ? AIR_COMBO : GROUND_COMBO;
   const isCombo = st.power >= POW.COMBO1 && st.power <= POW.AIR3;
@@ -820,6 +847,8 @@ export function onMeleeHit(player, st, target, tick) {
     const hp = V.add(target.location, { x: 0, y: 1, z: 0 });
     particle(dim, 'superman:punch_impact', hp);
     particle(dim, 'superman:impact_flash', hp, { radius: 0.8 + st.combo * 0.25 });
+    particle(dim, 'superman:sparks', hp, { count: 4 + st.combo * 2 });
+    if (shattered) st.lastMove = 'ESTILHAÇAR';
     sound(dim, 'game.player.attack.strong', hp, 1, 0.65 + st.combo * 0.08);
     shake(player, 0.08 + st.combo * 0.05, 0.2);
     if (mv.wave) {
@@ -840,6 +869,8 @@ export function onMeleeHit(player, st, target, tick) {
       sound(dim, 'random.explode', hp, 0.6, 1.3);
       shakeArea(dim, hp, 16, 0.6, 0.4);
       pushMobs(player, hp, 5, 2.5, 0.6, 8, target.id);
+      // o golpe final transforma o inimigo num projetil que se espatifa no que encontrar
+      launchProjectile(player, target, V.norm({ x: h.x, y: 0.35, z: h.z }), 3, tick);
     }
     if (mv.dash) st.vel = V.add(st.vel, V.mul(V.norm(rel), 0.9));
     if (mv.spike) {
@@ -900,6 +931,7 @@ export function updatePowers(player, st, inp, tick) {
   if (lastSpikeTick !== tick) {
     lastSpikeTick = tick;
     updateSpikes(tick);
+    updateProjectiles(tick);
   }
   if (st.power === POW.NONE) return;
   st.powTicks++;
@@ -938,6 +970,12 @@ export function updatePowers(player, st, inp, tick) {
     case POW.NOVA_CHARGE:
       novaChargeTick(player, st, tick);
       break;
+    case POW.GRAB:
+      grabTick(player, st, tick);
+      break;
+    case POW.THROW:
+      throwTick(player, st, tick);
+      break;
     case POW.NOVA:
       if (st.powTicks === 2) novaRelease(player, st, tick);
       if (st.powTicks >= 26) setPower(player, st, POW.NONE);
@@ -951,4 +989,5 @@ export const POWER_NAMES = {
   [POW.HEAT]: '§cVisão de calor', [POW.FREEZE]: '§bSopro congelante', [POW.CHARGE]: '§6Carregando soco',
   [POW.PUNCH]: '§6Super soco', [POW.CLAP]: '§fPalma trovão', [POW.SLAM]: '§fPancada no chão',
   [POW.NOVA_CHARGE]: '§6Concentrando energia solar', [POW.NOVA]: '§e§lEXPLOSÃO SOLAR',
+  [POW.GRAB]: '§6Agarrando §7(solte o agachar)', [POW.THROW]: '§6§lARREMESSO',
 };

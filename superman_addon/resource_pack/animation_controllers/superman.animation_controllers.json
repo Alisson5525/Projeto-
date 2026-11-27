@@ -749,6 +749,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.3,
@@ -823,6 +829,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.2,
@@ -894,6 +906,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.2,
@@ -1002,6 +1020,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             },
             {
               "none": "q.all_animations_finished"
@@ -1118,6 +1142,12 @@
               "nova": "v.sm_pow == 19"
             },
             {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
+            },
+            {
               "none": "q.all_animations_finished"
             }
           ],
@@ -1193,6 +1223,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.2,
@@ -1264,6 +1300,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.05,
@@ -1335,6 +1377,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1406,6 +1454,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1477,6 +1531,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1548,6 +1608,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1619,6 +1685,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1693,6 +1765,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1764,6 +1842,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1835,6 +1919,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1906,6 +1996,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.06,
@@ -1980,6 +2076,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.3,
@@ -2051,6 +2153,12 @@
             },
             {
               "nova_charge": "v.sm_pow == 18"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.04,
@@ -2122,6 +2230,12 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.12,
@@ -2193,9 +2307,175 @@
             },
             {
               "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            },
+            {
+              "throw": "v.sm_pow == 21"
             }
           ],
           "blend_transition": 0.12,
+          "blend_via_shortest_path": true
+        },
+        "grab": {
+          "animations": [
+            {
+              "sm.grab.upper": "v.sm_full"
+            },
+            {
+              "sm.grab.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            },
+            {
+              "sm.grab_hold": "v.sm_full"
+            },
+            {
+              "sm.tremble": "0.5"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            },
+            {
+              "nova_charge": "v.sm_pow == 18"
+            },
+            {
+              "nova": "v.sm_pow == 19"
+            },
+            {
+              "throw": "v.sm_pow == 21"
+            }
+          ],
+          "blend_transition": 0.1,
+          "blend_via_shortest_path": true
+        },
+        "throw": {
+          "animations": [
+            {
+              "sm.throw.upper": "v.sm_full"
+            },
+            {
+              "sm.throw.legs": "v.sm_full * (v.sm_air ? 0.0 : 1.0)"
+            }
+          ],
+          "transitions": [
+            {
+              "none": "v.sm_pow == 0"
+            },
+            {
+              "transform": "v.sm_pow == 1"
+            },
+            {
+              "detransform": "v.sm_pow == 2"
+            },
+            {
+              "heat_in": "v.sm_pow == 3"
+            },
+            {
+              "freeze_in": "v.sm_pow == 4"
+            },
+            {
+              "punch_charge": "v.sm_pow == 5"
+            },
+            {
+              "punch": "v.sm_pow == 6"
+            },
+            {
+              "clap": "v.sm_pow == 7"
+            },
+            {
+              "slam": "v.sm_pow == 8"
+            },
+            {
+              "combo1": "v.sm_pow == 9"
+            },
+            {
+              "combo2": "v.sm_pow == 10"
+            },
+            {
+              "combo3": "v.sm_pow == 11"
+            },
+            {
+              "combo4": "v.sm_pow == 12"
+            },
+            {
+              "combo5": "v.sm_pow == 13"
+            },
+            {
+              "combo6": "v.sm_pow == 14"
+            },
+            {
+              "air1": "v.sm_pow == 15"
+            },
+            {
+              "air2": "v.sm_pow == 16"
+            },
+            {
+              "air3": "v.sm_pow == 17"
+            },
+            {
+              "nova_charge": "v.sm_pow == 18"
+            },
+            {
+              "nova": "v.sm_pow == 19"
+            },
+            {
+              "grab": "v.sm_pow == 20"
+            }
+          ],
+          "blend_transition": 0.05,
           "blend_via_shortest_path": true
         }
       }

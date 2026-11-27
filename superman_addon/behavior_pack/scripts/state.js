@@ -56,6 +56,17 @@ export function getState(player) {
       lastStrafe: 0,
       inWater: false,
       cloudSide: 0,
+      loopFrom: 0,
+      loopFwd: { x: 0, y: 0, z: 1 },
+      loopSpeed: 1,
+      loopN: 16,
+      loopR: 2.5,
+      loopY0: 0,
+      loopReadyAt: 0,
+      jumpTapTick: -100,
+      prevDir: undefined,
+      grab: undefined,
+      punchTarget: undefined,
     };
     states.set(player.id, st);
   }

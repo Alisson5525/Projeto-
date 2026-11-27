@@ -1,5 +1,5 @@
 import { EquipmentSlot, GameMode } from '@minecraft/server';
-import { AIR_STATES, CLOUD_Y, FLY, MACH2, PHYS, POW, ROLL_STATES, getSettings } from './config.js';
+import { AIR_STATES, CLOUD_Y, FAST_STATES, FLY, LOOP_STATES, MACH2, PHYS, POW, ROLL_STATES, getSettings } from './config.js';
 import { blast, breakSphere, debrisColor, debrisKind, groundColor, isFragile, waveBreak } from './destruction.js';
 import { flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, sync } from './state.js';
@@ -189,6 +189,43 @@ function goFast(player, st) {
   waveBreak(dim, l, 8, { filter: isFragile, speed: 2, visible: 4, max: 160 });
 }
 
+/**
+ * Pilotagem sem derrapar: em vez de misturar a velocidade antiga com a nova (o que faz o heroi escorregar
+ * de lado nas curvas), a DIRECAO do movimento gira rapido para onde ele olha e so o modulo da velocidade
+ * tem inercia. Curvas fechadas custam um pouco de velocidade, como um aviao de verdade.
+ */
+function steer(v, target, acc, turn) {
+  const sv = V.len(v);
+  const tv = V.len(target);
+  if (sv < 0.15 || tv < 0.15) return V.lerp(v, target, acc);
+  const dv = V.mul(v, 1 / sv);
+  const dt = V.mul(target, 1 / tv);
+  const cos = V.dot(dv, dt);
+  const d = cos < -0.6 ? dt : V.norm(V.lerp(dv, dt, turn));
+  const bleed = 1 - Math.max(0, 1 - cos) * 0.08;
+  const speed = (sv + (tv - sv) * acc) * bleed;
+  return V.mul(d, speed);
+}
+
+/** Looping: toque duplo no pulo durante o voo. O heroi faz um circulo vertical completo e segue em frente. */
+function startLoop(player, st, look, tick) {
+  st.loopFrom = st.fly;
+  const h = V.norm({ x: st.vel.x, y: 0, z: st.vel.z });
+  st.loopFwd = V.len(h) > 0.5 ? h : V.basis(look).fwd;
+  const fast = st.fly === FLY.FAST;
+  st.loopN = fast ? 18 : 16;
+  st.loopSpeed = fast ? getSettings().fastSpeed * (st.mach2 ? MACH2 : 1) * 0.8 : Math.max(0.95, Math.hypot(st.vel.x, st.vel.z));
+  st.loopR = (st.loopSpeed * st.loopN) / (Math.PI * 2);
+  st.loopY0 = player.location.y;
+  st.loopReadyAt = tick + 24;
+  setFly(player, st, fast ? FLY.LOOP_F : FLY.LOOP);
+  const dim = player.dimension;
+  const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
+  particle(dim, 'superman:roll_swirl', mid, { dir: st.loopFwd });
+  sound(dim, 'mob.phantom.swoop', mid, 1, 0.9);
+  sound(dim, 'item.trident.riptide_2', mid, 0.7, 1.3);
+}
+
 /** Giro de esquiva: toque duplo para o lado durante o voo. */
 function startRoll(player, st, side, look, tick) {
   const fast = st.fly === FLY.FAST;
@@ -226,9 +263,22 @@ function flightFx(player, st, tick, speed, look) {
   const s = getSettings();
   const l = player.location;
   const mid = V.add(l, { x: 0, y: 0.9, z: 0 });
-  const rolling = ROLL_STATES.has(st.fly);
-  const fastish = st.fly === FLY.FAST || st.fly === FLY.ROLL_LF || st.fly === FLY.ROLL_RF;
+  const rolling = ROLL_STATES.has(st.fly) || LOOP_STATES.has(st.fly);
+  const fastish = FAST_STATES.has(st.fly);
   const moving = fastish || rolling || st.fly === FLY.FLY;
+
+  // curvas fechadas: redemoinhos de ar saindo das "pontas" (ombros) e o rastro desenha o looping no ceu
+  const vd = V.norm(st.vel);
+  if (speed > 0.7 && st.prevDir && (moving || LOOP_STATES.has(st.fly))) {
+    const turn = Math.acos(clamp(V.dot(st.prevDir, vd), -1, 1));
+    if (turn > 0.06 || LOOP_STATES.has(st.fly)) {
+      let sd = V.cross(vd, UP);
+      sd = V.len(sd) < 0.2 ? V.basis(look).right : V.norm(sd);
+      for (const sg of [-1, 1]) particle(dim, 'superman:contrail', V.add(mid, V.mul(sd, 0.85 * sg)), { dir: vd, len: speed });
+      if (turn > 0.12 && fastish && tick % 6 === 0) sound(dim, 'mob.phantom.swoop', mid, 0.45, 1.5);
+    }
+  }
+  st.prevDir = speed > 0.3 ? vd : undefined;
   const hv = Math.hypot(st.vel.x, st.vel.z);
 
   // entrar e sair da agua: respingo grande; dentro dela, bolhas
@@ -455,21 +505,31 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   const dim = player.dimension;
   const look = player.getViewDirection();
   const { fwd, right } = V.basis(look);
-  const vert = inp.jump ? 1 : inp.sneak ? -1 : 0;
+  // segurando um inimigo, o agachar nao faz descer (soltar o agachar e o arremesso)
+  const vert = inp.jump ? 1 : inp.sneak && st.power !== POW.GRAB ? -1 : 0;
   let target;
   let acc;
   // visao de calor, sopro e o supremo sao usados pairando: o heroi freia e fica em pe no ar
   const channeling = st.power === POW.HEAT || st.power === POW.FREEZE || st.power === POW.NOVA_CHARGE || st.power === POW.NOVA;
-  if (channeling && (st.fly === FLY.FLY || st.fly === FLY.FAST || ROLL_STATES.has(st.fly))) {
+  if (channeling && (st.fly === FLY.FLY || st.fly === FLY.FAST || ROLL_STATES.has(st.fly) || LOOP_STATES.has(st.fly))) {
     setFly(player, st, FLY.HOVER);
     st.fwdTicks = 0;
     st.stopTicks = 0;
     sound(dim, 'wind_charge.burst', player.location, 0.6, 0.8);
   }
   // Mach 2 dura enquanto o supersonico (ou um giro dentro dele) continuar
-  if (st.fly !== FLY.FAST && st.fly !== FLY.ROLL_LF && st.fly !== FLY.ROLL_RF) {
+  if (!FAST_STATES.has(st.fly)) {
     st.fastTicks = 0;
     st.mach2 = false;
+  }
+  // toque duplo no pulo = looping
+  if ((st.fly === FLY.FLY || st.fly === FLY.FAST) && jumpEdge && !channeling) {
+    if (tick - st.jumpTapTick <= 8 && tick >= st.loopReadyAt) {
+      startLoop(player, st, look, tick);
+      st.jumpTapTick = -100;
+    } else {
+      st.jumpTapTick = tick;
+    }
   }
   // toque duplo para o lado = giro de esquiva
   if (st.fly === FLY.FLY || st.fly === FLY.FAST) {
@@ -492,7 +552,8 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
     case FLY.HOVER: {
       target = V.add(V.add(V.mul(fwd, inp.fwdRaw * PHYS.hoverSpeed), V.mul(right, inp.rightRaw * PHYS.hoverSpeed)),
         V.mul(UP, vert * PHYS.hoverVertical + (vert === 0 ? 0.012 : 0)));
-      acc = PHYS.accelHover;
+      // sem comando, o heroi estabiliza rapido no lugar
+      acc = inp.fwd === 0 && inp.right === 0 && vert === 0 ? 0.32 : PHYS.accelHover;
       st.fwdTicks = inp.fwd > 0 ? st.fwdTicks + 1 : 0;
       if (channeling) st.fwdTicks = 0;
       else if (inp.sprint && inp.fwd > 0) { goFast(player, st); st.stopTicks = 0; } else if (st.fwdTicks >= 5) { setFly(player, st, FLY.FLY); st.stopTicks = 0; }
@@ -506,6 +567,7 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       if (st.stopTicks >= 3) {
         setFly(player, st, FLY.HOVER);
         st.fwdTicks = 0;
+        st.vel = V.mul(st.vel, 0.5);   // freio firme: para sem escorregar
         sound(dim, 'mob.phantom.flap', player.location, 0.6, 0.7);
       } else if (inp.sprint && inp.fwd > 0) {
         goFast(player, st);
@@ -524,6 +586,8 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       st.fwdTicks = !inp.sprint ? st.fwdTicks + 1 : 0;
       if (st.stopTicks >= 3) {
         setFly(player, st, FLY.HOVER);
+        st.vel = V.mul(st.vel, 0.3);   // freio aerodinamico do supersonico
+        particle(dim, 'superman:vapor_cone', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: V.mul(look, -1) });
         particle(dim, 'superman:shockwave', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { radius: 3, color: { r: 0.9, g: 0.95, b: 1 } });
         sound(dim, 'wind_charge.burst', player.location, 0.9, 0.7);
       } else if (st.fwdTicks >= 8) {
@@ -547,6 +611,24 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       if (st.flyTicks >= 9) setFly(player, st, st.rollFrom === FLY.FAST ? FLY.FAST : FLY.FLY);
       break;
     }
+    case FLY.LOOP:
+    case FLY.LOOP_F: {
+      const n = st.loopN;
+      const th = (Math.min(st.flyTicks, n) / n) * Math.PI * 2;
+      const d = V.add(V.mul(st.loopFwd, Math.cos(th)), V.mul(UP, Math.sin(th)));
+      const sp = st.loopSpeed;
+      target = V.mul(d, sp);
+      // mantem o circulo fechado: corrige a altura para a posicao esperada no looping
+      const wantY = st.loopY0 + st.loopR * (1 - Math.cos(th));
+      target.y += clamp((wantY - player.location.y) * 0.4, -0.6, 0.6);
+      acc = 0.7;
+      if (st.flyTicks >= n) {
+        setFly(player, st, st.fly === FLY.LOOP_F ? FLY.FAST : FLY.FLY);
+        st.vel = V.mul(st.loopFwd, sp);
+        target = st.vel;
+      }
+      break;
+    }
     case FLY.DIVE: {
       target = { x: look.x * 0.4, y: -PHYS.diveSpeed, z: look.z * 0.4 };
       acc = 0.25;
@@ -565,7 +647,8 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
     target = { x: 0, y: 0.012, z: 0 };
     acc = 0.3;
   }
-  st.vel = V.lerp(st.vel, target, acc);
+  if (st.fly === FLY.FLY || st.fly === FLY.FAST) st.vel = steer(st.vel, target, acc, st.fly === FLY.FAST ? 0.34 : 0.5);
+  else st.vel = V.lerp(st.vel, target, acc);
   const speed = V.len(st.vel);
 
   // contato com o chao

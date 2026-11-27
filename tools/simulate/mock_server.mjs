@@ -155,6 +155,17 @@ export class Entity {
   remove() { this.isValid = false; overworld.entities = overworld.entities.filter((e) => e !== this); }
   getVelocity() { return { ...this.vel }; }
   get isOnGround() { return this.dimension.solid(this.location.x, this.location.y - 0.01, this.location.z) && this.vel.y <= 0.001; }
+  teleport(loc, opt = {}) {
+    if (![loc.x, loc.y, loc.z].every(Number.isFinite)) err('teleporte invalido ' + JSON.stringify(loc));
+    this.location = { ...loc };
+    if (!opt.keepVelocity) this.vel = { x: 0, y: 0, z: 0 };
+    if (opt.facingLocation && this.rot) {
+      const d = { x: opt.facingLocation.x - loc.x, y: opt.facingLocation.y - (loc.y + 1.62), z: opt.facingLocation.z - loc.z };
+      const h = Math.hypot(d.x, d.z);
+      this.rot = { x: -Math.atan2(d.y, h) * 180 / Math.PI, y: Math.atan2(-d.x, d.z) * 180 / Math.PI };
+    }
+    LOG.teleports = (LOG.teleports || 0) + 1;
+  }
   getDynamicProperty(k) { return this.dyn[k]; }
   setDynamicProperty(k, v) { this.dyn[k] = v; }
   getComponent(id) {

@@ -174,6 +174,18 @@ SCENES = {
         seg(["fast.core", "fast.arms"], 0.45, dict(FASTV, sm_glow=1, sm_rolla=lambda u: 360 * min(1, u / 0.42) ** 2 * (3 - 2 * min(1, u / 0.42))), (12, 12)),
         seg(["fast.core", "fast.arms"], 0.4, dict(FASTV, sm_glow=1), (12, 12)),
     ], blend=0.1), {"yaw": 160, "dist": 80, "ty": 16, "pitch": 14}),
+    "20_looping": (frames([
+        seg(["fly.core", "fly.arms"], 0.4, FLYV, (12, 12)),
+        seg(["fly.core", "fly.arms"], 0.8, dict(FLYV, sm_loopa=lambda u: -360 * min(1, u / 0.8)),
+            (12, 12)),
+        seg(["fly.core", "fly.arms"], 0.5, FLYV, (12, 12)),
+    ], blend=0.1), {"yaw": 90, "dist": 85, "ty": 16, "pitch": 6}),
+    "21_agarrar_e_arremessar": (frames([
+        seg(["combat_stance"], 0.4, {"sm_cmbw": 1}),
+        seg(["grab.upper", "grab.legs", "grab_hold"], 1.2, {"sm_glow": 0.5}),
+        seg(["throw.upper", "throw.legs"], 0.8, {"sm_glow": 0.8}),
+        seg(["combat_stance"], 0.4, {"sm_cmbw": 1}),
+    ], blend=0.1), {"yaw": 50, "dist": 75, "ty": 17}),
     "14_super_velocidade": (frames([
         seg(["superspeed.core", "superspeed.arms"], 1.6, {"sm_cl": 0.95, "sm_cf": 12, "cs": 3.5}),
     ]), {"yaw": 80, "dist": 75, "ty": 14}),

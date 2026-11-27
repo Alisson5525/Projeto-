@@ -24,11 +24,11 @@ NS = "animation.superman."
 
 # Valores sincronizados pelo servidor (propriedade superman:fly)
 FLY = dict(NONE=0, CHARGE=1, LAUNCH=2, HOVER=3, FLY=4, FAST=5, DIVE=6, LANDPREP=7,
-           LANDSOFT=8, LANDHERO=9, AIRSTART=10, SPEED=11)  # 12-15 = giro (remapeado no cliente)
+           LANDSOFT=8, LANDHERO=9, AIRSTART=10, SPEED=11)  # 12-15 = giro, 16-17 = looping (remapeados no cliente)
 # (propriedade superman:power)
 POW = dict(NONE=0, TRANSFORM=1, DETRANSFORM=2, HEAT=3, FREEZE=4, CHARGE=5, PUNCH=6,
            CLAP=7, SLAM=8, COMBO1=9, COMBO2=10, COMBO3=11, COMBO4=12, COMBO5=13, COMBO6=14,
-           AIR1=15, AIR2=16, AIR3=17, NOVA_CHARGE=18, NOVA=19)
+           AIR1=15, AIR2=16, AIR3=17, NOVA_CHARGE=18, NOVA=19, GRAB=20, THROW=21)
 
 ARMS = {"rightArm", "leftArm", "rightForearm", "leftForearm"}
 LEGS = {"rightLeg", "leftLeg", "rightShin", "leftShin"}
@@ -233,7 +233,7 @@ def build_animations():
     proc("stature", {"root": {"s": ["(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)",
                                     "(1.0 + v.sm_on * 0.06) * (1.0 - v.sm_sq + v.sm_su)",
                                     "(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)"]}})
-    proc("roll", {"sm_roll": {"r": [0, "v.sm_rolla", 0]}})
+    proc("roll", {"sm_roll": {"r": [0, "v.sm_rolla", 0]}, "sm_pitch": {"r": ["v.sm_loopa", 0, 0]}})
     proc("orient", {
         "sm_yaw": {"r": [0, "q.target_y_rotation * v.sm_yw", 0]},
         "sm_pitch": {"r": ["v.sm_p", 0, 0]},
@@ -703,6 +703,33 @@ def build_animations():
     ], loop="hold")
     split("slam", {"legs": LEGS, "upper": None})
 
+    # ------------------------------------------------------------------ agarrar e arremessar
+    # segura o inimigo acima da cabeca (bracos erguidos, cotovelos dobrados, base firme e tremor de esforco)
+    HOLD = merge(squat(1.2, 6, 0), pose(waist=R(-8), head=R(-16), rightArm=R(-168, 0, 16), rightForearm=R(-34),
+                                        leftArm=R(-168, 0, -16), leftForearm=R(-34)))
+    timeline("grab", 0.35, [
+        (0.0, NEUTRAL),
+        (0.12, merge(squat(2.5, 6, 18), pose(rightArm=R(-70, 0, 10), rightForearm=R(-40), leftArm=R(-70, 0, -10), leftForearm=R(-40)))),
+        (0.35, HOLD),
+    ], loop="hold")
+    split("grab", {"legs": LEGS, "upper": None})
+    proc("grab_hold", {
+        "waist": {"r": ["-8.0 + math.sin(q.life_time * 2400.0) * 0.8", 0, 0]},
+        "rightArm": {"r": ["math.sin(q.life_time * 2600.0) * 1.5", 0, 0]},
+        "leftArm": {"r": ["math.sin(q.life_time * 2300.0 + 50.0) * 1.5", 0, 0]},
+    })
+    timeline("throw", 0.75, [
+        (0.0, HOLD),
+        (0.12, merge(squat(1.5, 7, -10), pose(waist=R(-24), head=R(-22), rightArm=R(-178, 0, 10), rightForearm=R(-70),
+                                              leftArm=R(-178, 0, -10), leftForearm=R(-70), rightLeg=R(-18, 0, 4), rightShin=R(12)))),
+        (0.22, merge(squat(2.5, 8, 30), pose(head=R(10), rightArm=R(-70, 0, 4), rightForearm=R(-6), leftArm=R(-70, 0, -4),
+                                             leftForearm=R(-6), rightLeg=R(-38, 0, 4), rightShin=R(30), leftLeg=R(18, 0, -4)))),
+        (0.4, merge(squat(2.0, 7, 22), pose(rightArm=R(-40, 0, 8), rightForearm=R(-12), leftArm=R(-42, 0, -8), leftForearm=R(-12),
+                                            rightLeg=R(-30, 0, 4), rightShin=R(24)))),
+        (0.75, NEUTRAL),
+    ], loop="hold")
+    split("throw", {"legs": LEGS, "upper": None})
+
     # ------------------------------------------------------------------ explosao solar (supremo)
     proc("nova_charge", {
         "sm_yaw": {"r": [0, "q.anim_time * 40.0", 0], "p": [0, "math.sin(q.anim_time * 360.0) * 0.6", 0]},
@@ -858,6 +885,8 @@ def build_controllers():
         "nova": ([up("nova_release", "1.0"), {"sm.nova_release.legs": "1.0"}], P["NOVA"]),
         "clap": ([up("clap"), lg("clap")], P["CLAP"]),
         "slam": ([up("slam"), lg("slam")], P["SLAM"]),
+        "grab": ([up("grab"), lg("grab"), {"sm.grab_hold": W}, {"sm.tremble": "0.5"}], P["GRAB"]),
+        "throw": ([up("throw"), lg("throw")], P["THROW"]),
     }
     entry = {v: k for k, (a, v) in pw.items() if v is not None}
 
@@ -893,7 +922,7 @@ def build_controllers():
         st["blend_transition"] = {"punch": 0.05, "combo1": 0.06, "combo2": 0.06, "combo3": 0.06, "combo4": 0.06,
                                   "combo5": 0.06, "combo6": 0.06, "air1": 0.06, "air2": 0.06, "air3": 0.06,
                                   "nova_charge": 0.3, "nova": 0.04,
-                                  "clap": 0.12, "slam": 0.12, "none": 0.3}.get(name, 0.2)
+                                  "clap": 0.12, "slam": 0.12, "grab": 0.1, "throw": 0.05, "none": 0.3}.get(name, 0.2)
         st["blend_via_shortest_path"] = True
         pstates[name] = st
     C["controller.animation.superman.power"] = {"initial_state": "none", "states": pstates}
@@ -943,7 +972,7 @@ SM_INIT = [
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
     "v.sm_clv = 0.0;", "v.sm_spdp = 0.0;", "v.sm_acc = 0.0;", "v.sm_idone = -1.0;", "v.sm_islot = 0.0;",
-    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;", "v.sm_pfly = 0.0;", "v.sm_ppow = 0.0;", "v.sm_sqt = -10.0;", "v.sm_sqa = 0.0;", "v.sm_sut = -10.0;", "v.sm_sua = 0.0;", "v.sm_sq = 0.0;", "v.sm_su = 0.0;", "v.sm_powt0 = 0.0;", "v.sm_chest = 0.0;", "v.sm_rollt0 = -10.0;", "v.sm_prolld = 0.0;", "v.sm_rolla = 0.0;",
+    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;", "v.sm_pfly = 0.0;", "v.sm_ppow = 0.0;", "v.sm_sqt = -10.0;", "v.sm_sqa = 0.0;", "v.sm_sut = -10.0;", "v.sm_sua = 0.0;", "v.sm_sq = 0.0;", "v.sm_su = 0.0;", "v.sm_powt0 = 0.0;", "v.sm_chest = 0.0;", "v.sm_rollt0 = -10.0;", "v.sm_prolld = 0.0;", "v.sm_rolla = 0.0;", "v.sm_loopt0 = -10.0;", "v.sm_ploopd = 0.0;", "v.sm_loopa = 0.0;",
 ]
 
 ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:sopro_congelante",
@@ -955,7 +984,8 @@ SM_PRE = [
     "v.sm_flyr = v.sm_hp ? q.property('superman:fly') : 0.0;",
     # giro de esquiva (12-15): para o resto da animacao conta como voo (4) ou supersonico (5)
     "v.sm_rolld = (v.sm_flyr == 12 || v.sm_flyr == 14) ? -1.0 : ((v.sm_flyr == 13 || v.sm_flyr == 15) ? 1.0 : 0.0);",
-    "v.sm_fly = v.sm_flyr >= 14 ? 5.0 : (v.sm_flyr >= 12 ? 4.0 : v.sm_flyr);",
+    "v.sm_fly = (v.sm_flyr == 14 || v.sm_flyr == 15 || v.sm_flyr == 17) ? 5.0 : ((v.sm_flyr == 12 || v.sm_flyr == 13 || v.sm_flyr == 16) ? 4.0 : v.sm_flyr);",
+    "v.sm_loopd = (v.sm_flyr == 16 || v.sm_flyr == 17) ? 1.0 : 0.0;",
     "v.sm_pow = v.sm_hp ? q.property('superman:power') : 0.0;",
     "v.sm_chg = v.sm_hp ? q.property('superman:charge') : 0.0;",
     "v.sm_inp = v.sm_hp ? q.property('superman:input') : 4.0;",
@@ -976,7 +1006,7 @@ SM_PRE = [
     # orientacao do corpo no voo
     "v.sm_tx = math.clamp(q.target_x_rotation, -89.0, 89.0);",
     "v.sm_pt = (v.sm_fly == 4 || v.sm_fly == 5) ? math.clamp(90.0 + v.sm_tx, 8.0, 172.0) : (v.sm_fly == 6 ? math.clamp(90.0 + v.sm_tx, 120.0, 178.0) : (v.sm_fly == 3 ? v.sm_inf * 14.0 : 0.0));",
-    "v.sm_p = v.sm_p + (v.sm_pt - v.sm_p) * ((v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6) ? math.min(1.0, v.sm_dt * 5.0) : ((v.sm_fly == 8 || v.sm_fly == 9) ? math.min(1.0, v.sm_dt * 30.0) : v.sm_k));",
+    "v.sm_p = v.sm_p + (v.sm_pt - v.sm_p) * ((v.sm_fly == 4 || v.sm_fly == 5 || v.sm_fly == 6) ? math.min(1.0, v.sm_dt * 10.0) : ((v.sm_fly == 8 || v.sm_fly == 9) ? math.min(1.0, v.sm_dt * 30.0) : v.sm_k));",
     "v.sm_yw = v.sm_yw + ((((v.sm_fly >= 2 && v.sm_fly <= 7) || v.sm_fly == 10) ? 1.0 : 0.0) - v.sm_yw) * v.sm_k;",
     # velocidade de curva -> inclinacao lateral (bank)
     "v.sm_yawn = q.body_y_rotation + q.target_y_rotation;",
@@ -1009,13 +1039,13 @@ SM_PRE = [
     "v.sm_cmbw = v.sm_cmbw + ((v.sm_cmb && v.sm_on ? 1.0 : 0.0) - v.sm_cmbw) * v.sm_k;",
     # brilho do emblema, olhos e frisos: sobe com os poderes e no voo supersonico
     # quanto o corpo desce nas poses agachadas (no chao): a capa dobra para tras e nao atravessa o chao
-    "v.sm_dropt = v.sm_air ? 0.0 : math.max((v.sm_fly == 9 ? 2.5 : (v.sm_fly == 1 ? 2.5 : (v.sm_fly == 8 ? 3.0 : 0.0))), (v.sm_pow == 8 ? 2.5 : ((v.sm_pow == 1 || v.sm_pow == 6) ? 2.8 : ((v.sm_pow == 3 || v.sm_pow == 4) ? 1.6 : ((v.sm_pow >= 5 && v.sm_pow <= 14) ? 2.4 : 0.0)))));",
+    "v.sm_dropt = v.sm_air ? 0.0 : math.max((v.sm_fly == 9 ? 2.5 : (v.sm_fly == 1 ? 2.5 : (v.sm_fly == 8 ? 3.0 : 0.0))), (v.sm_pow == 8 ? 2.5 : ((v.sm_pow == 1 || v.sm_pow == 6) ? 2.8 : ((v.sm_pow == 3 || v.sm_pow == 4) ? 1.6 : (((v.sm_pow >= 5 && v.sm_pow <= 14) || v.sm_pow == 20 || v.sm_pow == 21) ? 2.4 : 0.0)))));",
     "v.sm_drop = v.sm_drop + (v.sm_dropt - v.sm_drop) * v.sm_kf;",
     # deformacao de impacto: dispara quando o estado muda (decolagem estica, pousos e pancada achatam)
     "v.sm_sqn = (v.sm_fly != v.sm_pfly) ? (v.sm_fly == 2 ? -0.12 : (v.sm_fly == 9 ? 0.13 : (v.sm_fly == 8 ? 0.06 : (v.sm_fly == 5 ? -0.05 : 0.0)))) : 0.0;",
     "v.sm_sqt = v.sm_sqn != 0.0 ? q.life_time : v.sm_sqt;",
     "v.sm_sqa = v.sm_sqn != 0.0 ? v.sm_sqn : v.sm_sqa;",
-    "v.sm_sqp = (v.sm_pow != v.sm_ppow) ? (v.sm_pow == 8 ? 0.11 : (v.sm_pow == 7 ? 0.04 : ((v.sm_pow == 6 || v.sm_pow == 11 || v.sm_pow == 14) ? -0.05 : 0.0))) : 0.0;",
+    "v.sm_sqp = (v.sm_pow != v.sm_ppow) ? (v.sm_pow == 8 ? 0.11 : (v.sm_pow == 7 ? 0.04 : ((v.sm_pow == 6 || v.sm_pow == 11 || v.sm_pow == 14 || v.sm_pow == 21) ? -0.05 : 0.0))) : 0.0;",
     "v.sm_sqd = v.sm_pow == 8 ? 0.5 : (v.sm_pow == 7 ? 0.42 : (v.sm_pow == 14 ? 0.28 : 0.1));",
     "v.sm_sqt = v.sm_sqp != 0.0 ? q.life_time + v.sm_sqd : v.sm_sqt;",
     "v.sm_sqa = v.sm_sqp != 0.0 ? v.sm_sqp : v.sm_sqa;",
@@ -1027,6 +1057,10 @@ SM_PRE = [
     "v.sm_prolld = v.sm_rolld;",
     "v.sm_rolle = math.clamp((q.life_time - v.sm_rollt0) / 0.42, 0.0, 1.0);",
     "v.sm_rolla = v.sm_rolld != 0.0 ? -v.sm_rolld * 360.0 * v.sm_rolle * v.sm_rolle * (3.0 - 2.0 * v.sm_rolle) : 0.0;",
+    # looping: o corpo da uma volta completa para tras no mesmo ritmo do circulo feito pelo servidor
+    "v.sm_loopt0 = (v.sm_loopd != 0.0 && v.sm_ploopd == 0.0) ? q.life_time : v.sm_loopt0;",
+    "v.sm_ploopd = v.sm_loopd;",
+    "v.sm_loopa = v.sm_loopd != 0.0 ? -360.0 * math.clamp((q.life_time - v.sm_loopt0) / (v.sm_flyr == 17 ? 0.9 : 0.8), 0.0, 1.0) : 0.0;",
     "v.sm_ppow = v.sm_pow;",
     "v.sm_st = q.life_time - v.sm_sqt;",
     "v.sm_sq = (v.sm_st >= 0.0 && v.sm_st < 0.45) ? v.sm_sqa * math.cos(v.sm_st * 800.0) * (1.0 - v.sm_st / 0.45) : 0.0;",
