@@ -17,6 +17,8 @@ import './tecnicas/passo.js';
 import './tecnicas/reversao.js';
 import './tecnicas/horizonte.js';
 import { limparAbobadasPendentes } from './tecnicas/abobada.js';
+import { iniciarArconte } from './chefe/arconte.js';
+import './chefe/ritual.js';
 
 system.beforeEvents.startup.subscribe((ev) => {
   registrarComandos(ev.customCommandRegistry);
@@ -46,6 +48,7 @@ world.afterEvents.worldLoad.subscribe(() => {
   iniciarCiclo();
   iniciarArmadura();
   iniciarVeu();
+  iniciarArconte();
   // Cúpulas que ficaram no mundo (queda ou recarga) somem assim que o chunk carregar.
   system.runTimeout(() => limparAbobadasPendentes(), 40);
   system.runInterval(() => limparAbobadasPendentes(), 600);

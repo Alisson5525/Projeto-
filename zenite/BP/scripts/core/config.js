@@ -39,6 +39,7 @@ export const CHAVES = Object.freeze({
   faseArconte: 'zenite:fase',
   estadoArconte: 'zenite:estado',
   congelado: 'zenite:congelado',
+  eventoFuria: 'zenite:entrar_furia',
 });
 
 /** Comandos customizados. */
@@ -72,6 +73,7 @@ export const SONS = Object.freeze({
   arconteRitual: 'zenite.arconte_ritual',
   arconteMorte: 'zenite.arconte_morte',
   arconteFeixe: 'zenite.arconte_feixe',
+  trovao: 'ambient.weather.thunder',
 });
 
 /** Ids de partícula (RP/particles). Variáveis: variable.cor (RGBA) e variable.tamanho. */
