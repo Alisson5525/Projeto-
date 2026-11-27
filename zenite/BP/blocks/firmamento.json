@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:block": {
+    "description": {
+      "identifier": "zenite:firmamento",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:display_name": "tile.zenite:firmamento.name",
+      "minecraft:destructible_by_mining": false,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:light_emission": 7,
+      "minecraft:loot": "loot_tables/vazio.json",
+      "minecraft:map_color": "#170a30",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "zenite_firmamento",
+          "render_method": "opaque"
+        }
+      }
+    }
+  }
+}

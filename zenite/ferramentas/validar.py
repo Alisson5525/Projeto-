@@ -318,7 +318,7 @@ def checar_bp(itens_tex: dict, terreno: dict) -> None:
     for p in sorted((BP / "recipes").glob("*.json")):
         d = json_de(p)
         if d:
-            for ident in re.findall(r'"((?:zenite|minecraft):[a-z0-9_]+)"', json.dumps(d)):
+            for ident in re.findall(r'"item":\s*"([a-z_]+:[a-z0-9_]+)"', json.dumps(d)):
                 exigir_item(ident, rel(p))
     for p in sorted((BP / "loot_tables").rglob("*.json")):
         d = json_de(p)

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "zenite:diadema"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PPP",
+      "PXP",
+      "PPP"
+    ],
+    "key": {
+      "P": {
+        "item": "zenite:poeira_estelar"
+      },
+      "X": {
+        "item": "minecraft:diamond_helmet"
+      }
+    },
+    "unlock": [
+      {
+        "item": "zenite:poeira_estelar"
+      }
+    ],
+    "result": {
+      "item": "zenite:diadema",
+      "count": 1
+    }
+  }
+}

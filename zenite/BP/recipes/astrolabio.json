@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "zenite:astrolabio"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PDP",
+      "GOG",
+      "PDP"
+    ],
+    "key": {
+      "P": {
+        "item": "zenite:poeira_estelar"
+      },
+      "D": {
+        "item": "minecraft:diamond"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "O": {
+        "item": "minecraft:ender_eye"
+      }
+    },
+    "unlock": [
+      {
+        "item": "zenite:poeira_estelar"
+      }
+    ],
+    "result": {
+      "item": "zenite:astrolabio",
+      "count": 1
+    }
+  }
+}

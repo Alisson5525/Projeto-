@@ -1,0 +1,45 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:item": {
+    "description": {
+      "identifier": "zenite:perneiras",
+      "menu_category": {
+        "category": "equipment",
+        "group": "minecraft:itemGroup.name.leggings"
+      }
+    },
+    "components": {
+      "minecraft:icon": "zenite_perneiras",
+      "minecraft:display_name": {
+        "value": "item.zenite.perneiras.name"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:wearable": {
+        "slot": "slot.armor.legs",
+        "protection": 6
+      },
+      "minecraft:durability": {
+        "max_durability": 680
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "zenite:poeira_estelar"
+            ],
+            "repair_amount": 170
+          }
+        ]
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_legs",
+        "value": 15
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_armor"
+        ]
+      }
+    }
+  }
+}

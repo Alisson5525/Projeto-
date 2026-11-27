@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:item": {
+    "description": {
+      "identifier": "zenite:selo_eclipse",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "zenite_selo_eclipse",
+      "minecraft:display_name": {
+        "value": "item.zenite.selo_eclipse.name"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:glint": true
+    }
+  }
+}
