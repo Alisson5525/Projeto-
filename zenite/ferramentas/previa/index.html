@@ -1,0 +1,120 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;background:#15131f}canvas{display:block}</style></head>
+<body>
+<script type="module">
+import * as THREE from '/node_modules/three/build/three.module.js';
+const rad = (g) => (g * Math.PI) / 180;
+const carregarJSON = (u) => fetch(u).then((r) => r.json());
+function carregarImagem(u) { return new Promise((res) => { const i = new Image(); i.onload = () => res(i); i.src = u; }); }
+
+// Converte a textura: cor opaca + mapa emissivo (alfa < 128 = brilha), como o material entity_emissive_alpha.
+function texturas(img, emissivo) {
+  const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
+  const cx = cv.getContext('2d'); cx.drawImage(img, 0, 0);
+  const d = cx.getImageData(0, 0, img.width, img.height);
+  const cor = new ImageData(img.width, img.height), emi = new ImageData(img.width, img.height);
+  for (let i = 0; i < d.data.length; i += 4) {
+    const a = d.data[i + 3];
+    for (let k = 0; k < 3; k++) { cor.data[i + k] = d.data[i + k]; emi.data[i + k] = emissivo && a < 128 ? d.data[i + k] : 0; }
+    cor.data[i + 3] = emissivo ? 255 : a; emi.data[i + 3] = 255;
+  }
+  const mk = (id) => { const c = document.createElement('canvas'); c.width = img.width; c.height = img.height; c.getContext('2d').putImageData(id, 0, 0); const t = new THREE.CanvasTexture(c); t.magFilter = t.minFilter = THREE.NearestFilter; t.colorSpace = THREE.SRGBColorSpace; return t; };
+  return { cor: mk(cor), emi: mk(emi) };
+}
+
+function cuboMesh(c, tw, th, mat) {
+  const [w, h, d] = c.size; const [u, v] = c.uv; const inf = c.inflate || 0;
+  const g = new THREE.BoxGeometry(w + 2 * inf, h + 2 * inf, d + 2 * inf);
+  const rects = [[u, v + d, d, h], [u + d + w, v + d, d, h], [u + d, v, w, d], [u + d + w, v, w, d], [u + 2 * d + w, v + d, w, h], [u + d, v + d, w, h]];
+  const uv = g.attributes.uv;
+  rects.forEach(([x, y, rw, rh], f) => {
+    const u0 = x / tw, u1 = (x + rw) / tw, v0 = 1 - y / th, v1 = 1 - (y + rh) / th;
+    uv.setXY(f * 4 + 0, u0, v0); uv.setXY(f * 4 + 1, u1, v0); uv.setXY(f * 4 + 2, u0, v1); uv.setXY(f * 4 + 3, u1, v1);
+  });
+  return new THREE.Mesh(g, mat);
+}
+
+function montar(geo, mat) {
+  const desc = geo['minecraft:geometry'][0];
+  const tw = desc.description.texture_width, th = desc.description.texture_height;
+  const raiz = new THREE.Group(); const ossos = {};
+  for (const b of desc.bones) ossos[b.name] = { b, g: new THREE.Group() };
+  for (const { b, g } of Object.values(ossos)) {
+    const pai = b.parent ? ossos[b.parent] : null;
+    const pv = b.pivot || [0, 0, 0]; const ppv = pai ? pai.b.pivot || [0, 0, 0] : [0, 0, 0];
+    g.position.set(-(pv[0] - ppv[0]), pv[1] - ppv[1], pv[2] - ppv[2]);
+    if (b.rotation) g.rotation.set(rad(-b.rotation[0]), rad(-b.rotation[1]), rad(b.rotation[2]), 'ZYX');
+    (pai ? pai.g : raiz).add(g);
+    for (const c of b.cubes || []) {
+      const m = cuboMesh(c, tw, th, mat);
+      const centro = [-(c.origin[0] + c.size[0] / 2), c.origin[1] + c.size[1] / 2, c.origin[2] + c.size[2] / 2];
+      if (c.rotation) {
+        const p = c.pivot; const piv = new THREE.Group();
+        piv.position.set(-p[0] + pv[0], p[1] - pv[1], p[2] - pv[2]);
+        piv.rotation.set(rad(-c.rotation[0]), rad(-c.rotation[1]), rad(c.rotation[2]), 'ZYX');
+        m.position.set(centro[0] + p[0], centro[1] - p[1], centro[2] - p[2]);
+        piv.add(m); g.add(piv);
+      } else {
+        m.position.set(centro[0] + pv[0], centro[1] - pv[1], centro[2] - pv[2]);
+        g.add(m);
+      }
+    }
+  }
+  return raiz;
+}
+
+// Boneco humano simples + camadas de armadura (layout vanilla 64x32)
+function boneco(arm1, arm2, diadema, matDiadema) {
+  const g = new THREE.Group();
+  const pele = new THREE.MeshLambertMaterial({ color: 0x9a8f86 });
+  const partes = [[-4, 24, -4, 8, 8, 8], [-4, 12, -2, 8, 12, 4], [-8, 12, -2, 4, 12, 4], [4, 12, -2, 4, 12, 4], [-3.9, 0, -2, 4, 12, 4], [-0.1, 0, -2, 4, 12, 4]];
+  for (const [x, y, z, w, h, d] of partes) { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), pele); m.position.set(-(x + w / 2), y + h / 2, z + d / 2); g.add(m); }
+  const camadas = [
+    [arm1, [-4, 12, -2], [8, 12, 4], [16, 16], 1.01], [arm1, [-8, 12, -2], [4, 12, 4], [40, 16], 1.0], [arm1, [4, 12, -2], [4, 12, 4], [40, 16], 1.0],
+    [arm1, [-3.9, 0, -2], [4, 12, 4], [0, 16], 1.0], [arm1, [-0.1, 0, -2], [4, 12, 4], [0, 16], 1.0],
+    [arm2, [-4, 12, -2], [8, 12, 4], [16, 16], 0.5], [arm2, [-3.9, 0, -2], [4, 12, 4], [0, 16], 0.49], [arm2, [-0.1, 0, -2], [4, 12, 4], [0, 16], 0.49],
+  ];
+  for (const [mat, o, s, uv, inf] of camadas) {
+    const m = cuboMesh({ size: s, uv, inflate: inf }, 64, 32, mat);
+    m.position.set(-(o[0] + s[0] / 2), o[1] + s[1] / 2, o[2] + s[2] / 2); g.add(m);
+  }
+  g.add(montar(diadema, matDiadema));
+  return g;
+}
+
+async function main() {
+  const W = 1400, H = 900;
+  const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  r.setSize(W, H); r.setScissorTest(true); document.body.appendChild(r.domElement);
+  r.outputColorSpace = THREE.SRGBColorSpace;
+  const geoA = await carregarJSON('/RP/models/entity/arconte.geo.json');
+  const geoD = await carregarJSON('/RP/models/entity/diadema.geo.json');
+  const tex = async (u) => { const t = new THREE.CanvasTexture(await carregarImagem(u)); t.magFilter = t.minFilter = THREE.NearestFilter; t.colorSpace = THREE.SRGBColorSpace; return t; };
+  const tA = { cor: await tex('/ferramentas/previa/saida/arconte_cor.png'), emi: await tex('/ferramentas/previa/saida/arconte_emi.png') };
+  const tF = { cor: await tex('/ferramentas/previa/saida/arconte_furia_cor.png'), emi: await tex('/ferramentas/previa/saida/arconte_furia_emi.png') };
+  const t1 = texturas(await carregarImagem('/RP/textures/models/armor/zenite_1.png'), false);
+  const t2 = texturas(await carregarImagem('/RP/textures/models/armor/zenite_2.png'), false);
+  const tD = texturas(await carregarImagem('/RP/textures/models/armor/zenite_diadema.png'), false);
+  const mA = new THREE.MeshLambertMaterial({ map: tA.cor, emissiveMap: tA.emi, emissive: 0xffffff });
+  const mF = new THREE.MeshLambertMaterial({ map: tF.cor, emissiveMap: tF.emi, emissive: 0xffffff });
+  const arm = (t) => new THREE.MeshLambertMaterial({ map: t.cor, transparent: false, alphaTest: 0.5 });
+  const vistas = [
+    { obj: () => montar(geoA, mA), cam: [36, 40, -70], alvo: [0, 25, 0], x: 0, y: 450, w: 466, h: 450 },
+    { obj: () => montar(geoA, mA), cam: [-40, 36, 66], alvo: [0, 25, 0], x: 466, y: 450, w: 466, h: 450 },
+    { obj: () => montar(geoA, mF), cam: [-30, 34, -72], alvo: [0, 25, 0], x: 932, y: 450, w: 468, h: 450 },
+    { obj: () => boneco(arm(t1), arm(t2), geoD, arm(tD)), cam: [24, 30, -50], alvo: [0, 20, 0], x: 0, y: 0, w: 700, h: 450 },
+    { obj: () => boneco(arm(t1), arm(t2), geoD, arm(tD)), cam: [-28, 32, 48], alvo: [0, 20, 0], x: 700, y: 0, w: 700, h: 450 },
+  ];
+  for (const v of vistas) {
+    const cena = new THREE.Scene(); cena.background = new THREE.Color(0x1b1830);
+    cena.add(new THREE.AmbientLight(0xffffff, 1.1));
+    const dl = new THREE.DirectionalLight(0xffffff, 1.6); dl.position.set(v.cam[0] + 10, v.cam[1] + 30, v.cam[2]); cena.add(dl);
+    cena.add(v.obj());
+    const chao = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshLambertMaterial({ color: 0x2b3b2b })); chao.rotation.x = -Math.PI / 2; cena.add(chao);
+    const cam = new THREE.PerspectiveCamera(40, v.w / v.h, 1, 500); cam.position.set(...v.cam); cam.lookAt(...v.alvo);
+    r.setViewport(v.x, v.y, v.w, v.h); r.setScissor(v.x, v.y, v.w, v.h); r.render(cena, cam);
+  }
+  document.title = 'pronto';
+}
+main();
+</script></body></html>

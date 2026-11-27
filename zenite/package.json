@@ -16,6 +16,7 @@
     "@minecraft/server": "2.3.0",
     "@minecraft/server-ui": "2.0.0",
     "@minecraft/vanilla-data": "1.21.120",
+    "three": "^0.170.0",
     "typescript": "5.9.3"
   }
 }
