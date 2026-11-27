@@ -295,7 +295,7 @@ function heatBlockAt(player, st, b, face, amount) {
       particle(dim, 'superman:heat_impact', pc);
       sound(dim, 'random.fuse', pc, 1, 1.2);
       later(10, () => {
-        blast(dim, pc, 4, player, { fire: true });
+        blast(dim, pc, 4, player, { fire: true, vanilla: true });
         particle(dim, 'superman:impact_flash', pc, { radius: 4 });
       });
     } else if (res === 'ignite') {
@@ -809,30 +809,30 @@ function punchImpact(player, st) {
   if (hit) {
     const hp = V.add(hit.block.location, hit.faceLocation);
     const hd = V.dist(origin, hp);
-    blast(dim, hp, 3 + 5 * c, player);
+    blast(dim, hp, 3 + 4 * c, player);
     const hid = hit.block.typeId;
     particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hid), scale: 1 + c * 0.6 });
     spawnDebris(dim, hp, hid, 2 + c);
     particle(dim, 'superman:dust_wall', hp, { radius: 3 + 4 * c, color: debrisColor(hid) });
     particle(dim, 'superman:ground_crack', V.sub(hp, V.mul(dir, 0.05)), { radius: 3 + 4 * c });
     // estilhaca vidros, folhas e plantas em volta do impacto
-    waveBreak(dim, hp, 5 + 6 * c, { filter: isFragile, speed: 2.5, visible: 4, max: 220 });
+    waveBreak(dim, hp, 4 + 4 * c, { filter: isFragile, speed: 2.5, visible: 3, max: 160 });
     if (debrisKind(hid) === 'stone') particle(dim, 'superman:sparks', hp, { count: 10 + Math.round(c * 14) });
     // o tunel avanca em onda a partir do ponto de impacto e explode no fim
     if (c > 0.2) {
-      const tr = Math.min(6, (1.8 + 3.2 * c) * Math.sqrt(intensityMul()));
+      const tr = Math.min(4.5, (1.6 + 2.4 * c) * Math.sqrt(intensityMul()));
       const end = range + 8 * c;
       waveLine(dim, origin, dir, hd + 1, end, tr, {
-        speed: 4, visible: 3, max: 220, power: 1 + c, debrisEvery: 4,
+        speed: 3, visible: 2, max: 140, power: 1 + c, debrisEvery: 6,
         onStep: (p, d) => {
           if (Math.round(d / 1.4) % 4 === 0) {
             particle(dim, 'superman:sonic_boom', p, { dir, radius: tr + 1 });
-            particle(dim, 'superman:dust_wall', p, { radius: tr, color: debrisColor(hid) });
+            particle(dim, 'superman:debris_dust', p, { color: debrisColor(hid), count: 3, scale: 1.8 });
           }
         },
         onEnd: (p) => {
           if (c < 0.5) return;
-          blast(dim, p, 3 + 4 * c, player);
+          blast(dim, p, 2.5 + 3.5 * c, player);
           particle(dim, 'superman:impact_flash', p, { radius: 3 + 3 * c });
           particle(dim, 'superman:debris_burst', p, { color: debrisColor(hid), scale: 1.5 });
           ringBurst(dim, p, [4 + 3 * c, 7 + 5 * c], { r: 1, g: 0.9, b: 0.75 }, 3);

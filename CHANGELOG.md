@@ -1,5 +1,20 @@
 # Histórico de mudanças
 
+## 2.3.1 — Super soco sem travar
+
+**O problema:**
+- O super soco usava a explosão do próprio jogo com raio até 8, e outra no fim do túnel. Ela quebrava milhares de blocos de uma vez e cada bloco virava um item, que o add-on apagava logo em seguida.
+- O túnel largo destruía mais de 400 blocos por tick.
+- Voando era pior, porque a explosão empurrava o herói e esse empurrão brigava com o voo a cada tick.
+
+**A correção:**
+- As crateras de todos os poderes (soco, pousos, pancada, Explosão Solar, arremessos, foco da visão de calor) agora são **cavadas em ondas**, com borda irregular. Nenhum item é solto.
+- **Limite de 130 blocos destruídos por tick** para todas as ondas juntas (52 com partículas no nível 1, 208 no nível 3). O que passar disso continua no tick seguinte, sem deixar buracos no túnel.
+- A explosão do jogo ficou pequena e só faz o estrondo, a fumaça e o fogo. Se o herói estiver dentro dela, ela é trocada por um clarão e um som, sem empurrá-lo. O dano em área continua, agora calculado pelo add-on e poupando o herói e os aliados.
+- A TNT detonada pela visão de calor continua sendo uma explosão de verdade.
+- O túnel do soco ficou com raio de até 4,5 (o comprimento continua igual), com menos poeira pelo caminho.
+- Inimigos arremessados pelo soco não são mais freados pelo empurrão da própria cratera.
+
 ## 2.3.0 — Visão de calor
 
 - **O raio esquenta em 2 s:** vai de vermelho-escuro a laranja-branco, fica mais grosso e ganha um brilho largo em volta. O derretimento fica mais rápido e mais largo (até uma esfera de 2 blocos), e o dano sobe de 5 para 12 a cada golpe do raio.

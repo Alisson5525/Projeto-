@@ -645,7 +645,7 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
 
   if (st.power === POW.NOVA_CHARGE || st.power === POW.NOVA) {
     target = { x: 0, y: 0.012, z: 0 };
-    acc = 0.3;
+    acc = 0.5;
   }
   if (st.fly === FLY.FLY || st.fly === FLY.FAST) st.vel = steer(st.vel, target, acc, st.fly === FLY.FAST ? 0.34 : 0.5);
   else st.vel = V.lerp(st.vel, target, acc);

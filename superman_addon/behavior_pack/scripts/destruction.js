@@ -1,8 +1,8 @@
 import { system, world } from '@minecraft/server';
 import { getSettings, intensityMul } from './config.js';
-import { particle, q } from './fx.js';
+import { particle, q, sound } from './fx.js';
 import { isHeroId } from './state.js';
-import { shieldProtected } from './targets.js';
+import { pushMobs, shieldProtected } from './targets.js';
 import { V } from './vec.js';
 
 // Blocos que nunca sao destruidos
@@ -18,6 +18,19 @@ const FRAGILE_RE = /(glass|leaves|flower|tall_grass|short_grass|^minecraft:grass
 
 const MAX_BLAST = 10;          // raio maximo de explosao (desempenho)
 const READ_BUDGET = 1600;      // leituras de bloco por tick para as ondas de destruicao
+const WRITE_BUDGET = 130;      // blocos destruidos por tick pelas ondas (o resto fica para os proximos ticks)
+
+// contadores para os testes
+export const stats = { blasts: 0, written: 0 };
+
+let wTick = -1;
+let writesLeft = 0;
+/** Blocos que ainda podem ser destruidos neste tick (todas as fontes contam; as ondas esperam se acabar). */
+function writes() {
+  const t = system.currentTick;
+  if (t !== wTick) { wTick = t; writesLeft = q(WRITE_BUDGET); }
+  return writesLeft;
+}
 
 export function isBreakable(id) {
   if (!id || id === 'minecraft:air' || id === 'minecraft:cave_air' || id === 'minecraft:void_air') return false;
@@ -212,6 +225,9 @@ export function breakBlocks(dim, blocks, opts = {}) {
       const l = b.location;
       if (n < visible) dim.runCommand(`setblock ${l.x} ${l.y} ${l.z} air destroy`);
       else b.setType('minecraft:air');
+      writes();
+      writesLeft--;
+      stats.written++;
       if (n % (opts.debrisEvery ?? 3) === 0) spawnDebris(dim, V.center(l), id, opts.power ?? 1);
       cx += l.x; cy += l.y; cz += l.z;
       n++;
@@ -263,23 +279,29 @@ export function waveBreak(dim, center, radius, opts = {}) {
   let rad = 0;
   let broken = 0;
   const max = opts.max ?? 600;
+  const shell = opts.rough ? (Math.sqrt(r2) - 1.2) ** 2 : Infinity;
   jobs.push({
     run(budget) {
+      const room = writes();
+      if (room <= 0) return 0;          // ja destruiu o bastante neste tick: continua no proximo
       rad += opts.speed ?? 1.6;
       const lim = Math.min(r2, rad * rad);
       const batch = [];
       let used = 0;
-      while (idx < OFFSETS.length && used < budget) {
+      while (idx < OFFSETS.length && used < budget && batch.length < room) {
         const o = OFFSETS[idx];
         if (o.d2 > lim) break;
         idx++;
         used++;
+        // borda irregular, como uma cratera de verdade
+        if (o.d2 > shell && Math.random() < 0.45) continue;
         const b = getBlock(dim, { x: c.x + o.x, y: c.y + o.y, z: c.z + o.z });
         if (!b || b.isAir || b.isLiquid) continue;
         if (opts.filter && !opts.filter(b.typeId)) continue;
         batch.push(b);
       }
-      if (batch.length) broken += breakBlocks(dim, batch, { visible: opts.visible ?? 5, debrisEvery: opts.debrisEvery ?? 4, max: max - broken });
+      if (idx < OFFSETS.length && OFFSETS[idx].d2 <= lim) rad -= opts.speed ?? 1.6; // nao avanca o raio sem terminar a camada
+      if (batch.length) broken += breakBlocks(dim, batch, { visible: opts.visible ?? 5, debrisEvery: opts.debrisEvery ?? 4, max: max - broken, power: opts.power });
       this.done = idx >= OFFSETS.length || OFFSETS[idx].d2 > r2 || broken >= max;
       return used;
     },
@@ -293,20 +315,33 @@ export function waveLine(dim, origin, dir, from, to, radius, opts = {}) {
   const seen = new Set();
   const step = opts.step ?? 1.4;
   const perTick = Math.max(1, Math.round((opts.speed ?? 3) / step));
+  let pending = [];   // blocos ja lidos que ficaram para o proximo tick (orcamento de escrita)
+  let ended = false;
+  const brk = (list) => breakBlocks(dim, list, { visible: opts.visible ?? 3, power: opts.power, debrisEvery: opts.debrisEvery });
   jobs.push({
     run(budget) {
       let used = 0;
+      if (pending.length) {
+        const room = writes();
+        if (room <= 0) return 0;
+        brk(pending.splice(0, room));
+        if (pending.length) return 0;
+      }
       for (let i = 0; i < perTick && d <= to && used < budget; i++) {
+        const room = writes();
+        if (room <= 0) break;           // continua no proximo tick
         const p = V.add(origin, V.mul(dir, d));
         const blocks = sphereBlocks(dim, p, radius, opts.filter, seen);
         used += Math.ceil((2 * radius + 1) ** 3 / 2);
-        breakBlocks(dim, blocks, { visible: opts.visible ?? 3, max: opts.max ?? 60, power: opts.power, debrisEvery: opts.debrisEvery });
+        if (blocks.length > room) pending = blocks.slice(room);
+        brk(blocks.slice(0, room));
         if (opts.onStep) opts.onStep(p, d);
         d += step;
+        if (pending.length) break;
       }
-      this.done = d > to;
+      this.done = d > to && !pending.length;
       // a onda chegou ao fim do tunel
-      if (this.done && opts.onEnd) opts.onEnd(V.add(origin, V.mul(dir, to)));
+      if (this.done && !ended && opts.onEnd) { ended = true; opts.onEnd(V.add(origin, V.mul(dir, to))); }
       return used;
     },
   });
@@ -340,22 +375,40 @@ let blastDepth = 0;
 export function blast(dim, loc, radius, source, opts = {}) {
   const s = getSettings();
   const r = Math.min(MAX_BLAST, radius * intensityMul());
+  stats.blasts++;
   if (source) {
     if (!s.invulnerable) {
       try { source.addEffect('resistance', 3, { amplifier: 4, showParticles: false }); } catch (e) { /* */ }
     }
     shieldProtected(source, loc, r * 2 + 2);
   }
-  blastDepth++;
-  try {
-    dim.createExplosion(loc, r, {
-      breaksBlocks: s.destruction && !opts.noBlocks,
-      causesFire: !!opts.fire && s.fire,
-      source,
-      allowUnderwater: true,
-    });
-  } catch (e) { /* fora do mundo */ }
-  blastDepth--;
+  // A explosao do proprio jogo fica pequena e NAO quebra blocos: so o estrondo, a fumaca e o fogo.
+  // (Explosoes grandes quebrando blocos soltavam milhares de itens de uma vez e travavam o jogo.)
+  // Se o heroi estiver dentro dela, ela nem acontece: o empurrao brigava com o voo.
+  const vr = Math.min(r, 3.5);
+  let heroNear = false;
+  try { heroNear = !!source && V.dist(source.location, loc) < vr + 2; } catch (e) { /* */ }
+  if (!heroNear || opts.vanilla) {
+    blastDepth++;
+    try {
+      dim.createExplosion(loc, opts.vanilla ? r : vr, {
+        breaksBlocks: !!opts.vanilla && s.destruction,
+        causesFire: !!opts.fire && s.fire,
+        source,
+        allowUnderwater: true,
+      });
+    } catch (e) { /* fora do mundo */ }
+    blastDepth--;
+  } else {
+    particle(dim, 'superman:impact_flash', loc, { radius: 2 + r * 0.4 });
+    sound(dim, 'random.explode', loc, 1, 0.9);
+  }
+  // dano e empurrao em toda a area (poupa o heroi e os aliados)
+  if (source && !opts.vanilla) pushMobs(source, loc, r * 1.3, 0.8 + r * 0.12, 0.45, 3 + r * 2);
+  // cratera cavada em onda, com orcamento por tick: grande, mas sem travar
+  if (s.destruction && !opts.noBlocks && !opts.vanilla) {
+    waveBreak(dim, loc, r, { speed: Math.max(1.2, r / 5), visible: 4, max: 3000, rough: true, power: 2, debrisEvery: 5 });
+  }
   if (!s.drops) markNoDrops(dim, loc, r + 2);
 }
 

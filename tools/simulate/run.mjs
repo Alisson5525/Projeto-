@@ -18,6 +18,7 @@ console.warn = (...a) => { const m = a.join(' '); if (!m.includes('add-on carreg
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
 await import(path.join(ROOT, 'superman_addon/behavior_pack/scripts/main.js'));
+const D = await import(path.join(ROOT, 'superman_addon/behavior_pack/scripts/destruction.js'));
 
 let fails = 0, passes = 0;
 const check = (cond, msg) => { if (cond) passes++; else { fails++; origWarn('  FALHOU: ' + msg); } };
@@ -239,9 +240,9 @@ section('visao de calor: potencia, corte continuo, agua, TNT e cinzas');
   // TNT detona
   for (let x = -1; x <= 1; x++) for (let y = -1; y <= 1; y++) overworld.set({ x: bx + x, y: by + 1 + y, z: wz }, 'minecraft:air');
   overworld.set({ x: bx, y: by + 1, z: bz + 6 }, 'minecraft:tnt');
-  const exT = LOG.explosions.length;
+  const exT = D.stats.blasts;
   use(p, 'superman:visao_calor'); tick(30);
-  check(LOG.explosions.length > exT && overworld.typeAt(bx, by + 1, bz + 6) !== 'minecraft:tnt', 'o raio detona TNT');
+  check(D.stats.blasts > exT && overworld.typeAt(bx, by + 1, bz + 6) !== 'minecraft:tnt', 'o raio detona TNT');
   tick(2); use(p, 'superman:visao_calor'); tick(10);
   check(P(p, 'power') === 0, 'visao de calor desligada');
   for (let x = -12; x <= 12; x++) for (let y = -2; y < 6; y++) for (let z = 4; z <= 9; z++) overworld.set({ x: bx + x, y: by + y, z: bz + z }, y < 0 ? 'minecraft:dirt' : 'minecraft:air');
@@ -307,14 +308,14 @@ section('sopro olhando para os pes (nada de gelo dentro do heroi)');
 
 section('super soco');
 p.rot = { x: 0, y: 0 };
-const ex0 = LOG.explosions.length;
+const ex0 = D.stats.blasts;
 for (let y = 0; y < 3; y++) for (let x = -1; x <= 1; x++) overworld.set({ x: Math.floor(p.location.x) + x, y: Math.floor(p.location.y) + y, z: Math.floor(p.location.z) + 4 }, 'minecraft:stone');
 use(p, 'superman:super_soco'); tick(25);
 check(P(p, 'power') === 5 && P(p, 'charge') > 0.6, 'carregando soco');
 use(p, 'superman:super_soco'); tick(1);
 check(P(p, 'power') === 6, 'soco liberado');
 tick(5);
-check(LOG.explosions.length > ex0, 'impacto do soco explodiu a parede');
+check(D.stats.blasts > ex0, 'impacto do soco explodiu a parede');
 tick(12);
 check(P(p, 'power') === 0, 'soco terminou');
 check((LOG.particles['superman:impact_flash'] || 0) > 0 && (LOG.particles['superman:dust_wall'] || 0) > 0, 'clarao e parede de poeira no impacto do soco');
@@ -328,9 +329,9 @@ check(Math.hypot(zombie.vel.x, zombie.vel.z) > 1, 'zumbi arremessado pela palma'
 tick(15);
 p.sneakHeld = true; use(p, 'superman:impacto'); tick(1); p.sneakHeld = false;
 check(P(p, 'power') === 8, 'pancada no chao');
-const ex1 = LOG.explosions.length;
+const ex1 = D.stats.blasts;
 tick(14);
-check(LOG.explosions.length > ex1, 'cratera da pancada');
+check(D.stats.blasts > ex1, 'cratera da pancada');
 tick(8);
 check((LOG.particles['superman:rising_debris'] || 0) > 0, 'detritos flutuando depois da pancada');
 tick(15);
@@ -385,20 +386,26 @@ section('soco teleguiado, agarrar e arremessar, estilhacar');
   // tunel longo e largo: parede de pedra a 12 blocos, com 30 de espessura
   const wz0 = Math.floor(pz) + 12;
   for (let x = -7; x <= 7; x++) for (let y = -5; y <= 8; y++) for (let z = 0; z < 30; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: wz0 + z }, 'minecraft:stone');
-  const ex1 = LOG.explosions.length;
+  const ex1 = D.stats.blasts;
+  const kb0 = LOG.explosions.filter((e) => e.opt.breaksBlocks).length;
   use(p, 'superman:super_soco'); tick(32);
-  use(p, 'superman:super_soco'); tick(60);
+  use(p, 'superman:super_soco');
+  let peak = 0;
+  for (let i = 0; i < 90; i++) { const w0 = D.stats.written; tick(1); peak = Math.max(peak, D.stats.written - w0); }
+  origWarn(`  soco: pico de ${peak} blocos destruidos num tick`);
+  check(peak <= 150, `destruicao do soco espalhada pelos ticks, sem travar (pico ${peak} blocos/tick)`);
+  check(LOG.explosions.filter((e) => e.opt.breaksBlocks).length === kb0, 'explosoes do heroi nao quebram blocos de uma vez (nada de milhares de itens)');
   let deepest = 0, widest = 0;
   for (let z = 0; z < 30; z++) if (overworld.typeAt(Math.floor(px), Math.floor(py) + 1, wz0 + z) === 'minecraft:air') deepest = z + 1;
   for (let x = 0; x <= 7; x++) if (overworld.typeAt(Math.floor(px) + x, Math.floor(py) + 1, wz0 + 15) === 'minecraft:air') widest = x;
   origWarn(`  tunel do soco: ${deepest} blocos de comprimento, raio ${widest}`);
   check(deepest >= 24, `tunel longo atravessa a montanha (${deepest} blocos)`);
   check(widest >= 3, `tunel largo (raio ${widest})`);
-  check(LOG.explosions.length >= ex1 + 2, 'cratera no impacto e explosao no fim do tunel');
+  check(D.stats.blasts >= ex1 + 2, 'cratera no impacto e explosao no fim do tunel');
   for (let x = -7; x <= 7; x++) for (let y = -5; y <= 8; y++) for (let z = 0; z < 30; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: wz0 + z }, 'minecraft:air');
   tick(10);
   // agarrar e arremessar
-  const ex0 = LOG.explosions.length;
+  const ex0 = D.stats.blasts;
   const foe = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 });
   p.sneakHeld = true;
   world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: foe });
@@ -414,7 +421,7 @@ section('soco teleguiado, agarrar e arremessar, estilhacar');
   check(Math.hypot(foe.vel.x, foe.vel.z) > 3, `arremesso forte (${Math.hypot(foe.vel.x, foe.vel.z).toFixed(1)})`);
   const bystander = new Entity('minecraft:zombie', { x: foe.location.x + foe.vel.x * 2, y: foe.location.y - 1, z: foe.location.z + foe.vel.z * 2 });
   fly(foe, 30);
-  check(LOG.explosions.length > ex0, 'o inimigo arremessado abriu uma cratera ao cair');
+  check(D.stats.blasts > ex0, 'o inimigo arremessado abriu uma cratera ao cair');
   check(foe.health < 20, 'o arremessado se machucou no impacto');
   foe.remove(); bystander.remove();
   tick(20);
@@ -450,12 +457,12 @@ check(P(p, 'fly') === 3, 'HOVER apos decolar');
 
 section('mergulho -> pouso de heroi');
 p.jumpHeld = true; tick(40); p.jumpHeld = false;
-const ex2 = LOG.explosions.length;
+const ex2 = D.stats.blasts;
 use(p, 'superman:impacto'); tick(1);
 check(P(p, 'fly') === 6, 'DIVE');
 for (let i = 0; i < 200 && P(p, 'fly') !== 9; i++) tick(1);
 check(P(p, 'fly') === 9, 'LANDHERO ao bater no chao');
-check(LOG.explosions.length > ex2, 'cratera do pouso');
+check(D.stats.blasts > ex2, 'cratera do pouso');
 check(p.location.y > 55, `mergulho parou na superficie (y=${p.location.y.toFixed(1)})`);
 tick(40);
 check(P(p, 'fly') === 0, 'levantou do pouso');
@@ -464,6 +471,7 @@ section('combo aereo');
 jump(p); tick(4); jump(p); tick(12);
 check(P(p, 'fly') === 3, 'pairando para o combo aereo');
 const bat = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 });
+const exSpike = D.stats.blasts; // (se o inimigo ja estiver encostado no chao, a cratera sai na hora)
 const seenAir = [];
 for (let i = 0; i < 3; i++) {
   world.afterEvents.entityHitEntity.fire({ damagingEntity: p, hitEntity: bat });
@@ -471,10 +479,9 @@ for (let i = 0; i < 3; i++) {
   bat.location = { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 };
 }
 check(seenAir.join() === '15,16,17', `sequencia aerea ${seenAir.join()}`);
-check(bat.vel.y < 0, 'martelo cravou o inimigo para baixo');
-const exSpike = LOG.explosions.length;
+check(bat.vel.y < 0 || D.stats.blasts > exSpike, 'martelo cravou o inimigo para baixo');
 for (let i = 0; i < 40; i++) { bat.location.y += bat.vel.y; if (overworld.solid(bat.location.x, bat.location.y, bat.location.z)) { bat.location.y = Math.floor(bat.location.y) + 1; bat.vel.y = 0; } tick(1); }
-check(LOG.explosions.length > exSpike, `cratera onde o inimigo caiu (y=${bat.location.y.toFixed(1)} vy=${bat.vel.y.toFixed(2)} chao=${bat.isOnGround} jogador y=${p.location.y.toFixed(1)})`);
+check(D.stats.blasts > exSpike, `cratera onde o inimigo caiu (y=${bat.location.y.toFixed(1)} vy=${bat.vel.y.toFixed(2)} chao=${bat.isOnGround} jogador y=${p.location.y.toFixed(1)})`);
 bat.remove();
 
 section('sopro congelante voando');
@@ -497,11 +504,34 @@ section('sopro congelante voando');
   for (let i = 0; i < 20 && P(p, 'fly') !== 3; i++) tick(1);
 }
 
+section('super soco voando colado numa parede (sem travar e sem empurrar o heroi)');
+{
+  p.rot = { x: 0, y: 0 }; p.mv = { x: 0, y: 0 };
+  for (let i = 0; i < 20 && P(p, 'fly') !== 3; i++) tick(1);
+  const bx = Math.floor(p.location.x), by = Math.floor(p.location.y), bz = Math.floor(p.location.z) + 3;
+  for (let x = -7; x <= 7; x++) for (let y = -6; y <= 8; y++) for (let z = 0; z < 12; z++) overworld.set({ x: bx + x, y: by + y, z: bz + z }, 'minecraft:stone');
+  const vx0 = LOG.explosions.length;
+  tick(12);
+  use(p, 'superman:super_soco'); tick(32);
+  use(p, 'superman:super_soco');
+  let maxV = 0, peak = 0;
+  for (let i = 0; i < 8; i++) { const w0 = D.stats.written; tick(1); maxV = Math.max(maxV, Math.hypot(p.vel.x, p.vel.z)); peak = Math.max(peak, D.stats.written - w0); }
+  check(LOG.explosions.length === vx0, 'sem explosao do jogo colada no heroi');
+  check(maxV < 0.6, `o heroi nao e arremessado pela propria cratera (vel ${maxV.toFixed(2)})`);
+  for (let i = 0; i < 50; i++) { const w0 = D.stats.written; tick(1); peak = Math.max(peak, D.stats.written - w0); }
+  check(peak <= 150, `destruicao no ar tambem espalhada (pico ${peak} blocos/tick)`);
+  let holes = 0;
+  for (let x = -3; x <= 3; x++) for (let y = -2; y <= 4; y++) for (let z = 0; z < 4; z++) if (overworld.typeAt(bx + x, by + y, bz + z) === 'minecraft:air') holes++;
+  check(holes >= 60, `cratera grande cavada em onda (${holes} blocos)`);
+  for (let x = -7; x <= 7; x++) for (let y = -6; y <= 8; y++) for (let z = 0; z < 60; z++) overworld.set({ x: bx + x, y: by + y, z: bz + z }, 'minecraft:air');
+  tick(5);
+}
+
 section('explosao solar');
 tick(20);
 const novaY = p.location.y;
 const ring = [0, 1, 2, 3].map((i) => new Entity('minecraft:zombie', { x: p.location.x + 8 * Math.cos(i * 1.57), y: p.location.y - 2, z: p.location.z + 8 * Math.sin(i * 1.57) }));
-const exNova = LOG.explosions.length;
+const exNova = D.stats.blasts;
 const burst0 = LOG.particles['superman:nova_burst'] || 0;
 p.sneakHeld = true; use(p, 'superman:impacto'); p.sneakHeld = false; tick(1);
 check(P(p, 'power') === 18, 'concentrando a explosao solar');
@@ -518,7 +548,7 @@ check((LOG.particles['superman:nova_burst'] || 0) >= burst0 + 2, 'clarao solar d
 check(ring.every((z) => z.health < 20), 'todos os inimigos em volta atingidos');
 check(ring.every((z) => Math.hypot(z.vel.x, z.vel.z) > 1), 'inimigos arremessados para longe');
 check(ring.every((z) => z.fire > 0), 'inimigos em chamas');
-check(LOG.explosions.length > exNova, 'cratera embaixo da explosao');
+check(D.stats.blasts > exNova, 'cratera embaixo da explosao');
 tick(30);
 check(P(p, 'power') === 0, 'explosao solar terminou');
 check(AIR.has(P(p, 'fly')), 'continua voando depois do supremo');
@@ -639,7 +669,7 @@ check(P(p, 'power') === 0, 'poderes bloqueados sem transformar');
 
 origWarn(`\nModo de empurrao: ${globalThis.KB_MODE}`);
 origWarn(`Particulas: ${Object.entries(LOG.particles).map(([k, v]) => `${k.slice(9)}=${v}`).join(' ')}`);
-origWarn(`Sons distintos: ${Object.keys(LOG.sounds).length}, explosoes: ${LOG.explosions.length}, comandos: ${LOG.commands.length}`);
+origWarn(`Sons distintos: ${Object.keys(LOG.sounds).length}, explosoes: ${D.stats.blasts}, comandos: ${LOG.commands.length}`);
 for (const e of LOG.errors.slice(0, 20)) origWarn('  MOCK: ' + e);
 for (const w of warnings.slice(0, 20)) origWarn('  AVISO DO SCRIPT: ' + w);
 origWarn(`\n${passes} verificacoes OK, ${fails} falha(s), ${LOG.errors.length} erro(s) de API, ${warnings.length} aviso(s).`);

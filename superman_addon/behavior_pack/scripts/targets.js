@@ -68,7 +68,12 @@ export function pushMobs(player, center, radius, strength, lift, damage = 0, ski
     const rel = V.sub(e.location, center);
     const h = V.norm({ x: rel.x, y: 0, z: rel.z });
     const f = 1 - Math.min(1, V.len(rel) / radius) * 0.6;
-    try { e.applyKnockback({ x: h.x * strength * f, z: h.z * strength * f }, lift * f); } catch (err) { /* */ }
+    // quem ja esta voando mais rapido que este empurrao (arremessado, socado) nao e freado por ele
+    let fast = false;
+    try { const v = e.getVelocity(); fast = Math.hypot(v.x, v.z) > strength * f; } catch (err) { /* */ }
+    if (!fast) {
+      try { e.applyKnockback({ x: h.x * strength * f, z: h.z * strength * f }, lift * f); } catch (err) { /* */ }
+    }
     if (damage > 0) hurt(player, e, damage * f);
   }
 }

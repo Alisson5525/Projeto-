@@ -2,6 +2,8 @@
 
 Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
+> **Versão 2.3.1:** o super soco (e todas as crateras) não travam mais o jogo, nem no chão nem voando: as crateras são cavadas em ondas, com limite de blocos por tick, sem soltar milhares de itens e sem empurrar o herói.
+>
 > **Versão 2.3.0, visão de calor.** O raio esquenta em 2 s, ficando mais grosso, mais claro e mais forte; os dois raios saem dos olhos e se encontram no alvo; varrer com o olhar corta uma linha contínua que fica em brasa e esfria aos poucos; a água ferve, a TNT detona e quem morre pelo raio vira cinzas.
 >
 > **Versão 2.2.1:** o super soco voltou a ser reto, sem mira automática, e ficou muito mais destrutivo: túnel de até 40 blocos, cratera maior e explosão no fim do túnel.
@@ -160,7 +162,7 @@ As explosões do herói também soltam os pedaços dos blocos que destruíram, e
 - **Freada firme:** soltar o comando para o herói quase na hora; no supersônico, a freada solta um cone de vapor.
 - **Looping:** toque duas vezes no pulo voando. O herói faz um círculo vertical completo, deixando um rastro branco no céu, e sai na mesma direção e altura.
 
-A destruição grande (palma trovão, estrondo sônico, túnel do soco) se espalha em **ondas** ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
+Todas as crateras (soco, pousos, pancada, Explosão Solar, arremessos) e a destruição grande (palma trovão, estrondo sônico, túnel do soco) são cavadas em **ondas**, com no máximo 130 blocos por tick (menos com partículas no nível 1). A explosão do jogo só faz o estrondo e a fumaça, sem quebrar blocos de uma vez nem soltar itens. A onda ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
 
 Blocos como bedrock, portais e blocos de comando **nunca** são destruídos. Por padrão, baús e blocos com itens também são protegidos.
 
@@ -250,7 +252,7 @@ tools/gen_fx_atlas.py     folha de sprites em pixel art das partículas de destr
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (172 verificações)
+tools/simulate/           roda os scripts num mundo simulado (178 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos

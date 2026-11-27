@@ -17,7 +17,7 @@ RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [2, 3, 0]
+VERSION = [2, 3, 1]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
