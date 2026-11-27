@@ -89,6 +89,59 @@ p.isSprinting = false; p.mv = { x: 0, y: 0 };
 tick(6);
 check(P(p, 'fly') === 3, 'freou para HOVER');
 
+section('giro de esquiva, Mach 2, rastros e particulas por material');
+{
+  p.rot = { x: 0, y: 0 };
+  p.mv = { x: 0, y: 1 };
+  for (let i = 0; i < 20 && P(p, 'fly') !== 4; i++) tick(1);
+  check(P(p, 'fly') === 4, 'voando antes do giro');
+  const x0 = p.location.x;
+  // toque duplo para a direita (no Bedrock, x negativo do controle = direita)
+  p.mv = { x: -1, y: 1 }; tick(1); p.mv = { x: 0, y: 1 }; tick(2); p.mv = { x: -1, y: 1 }; tick(1);
+  check(P(p, 'fly') === 13, `giro para a direita (${P(p, 'fly')})`);
+  p.mv = { x: 0, y: 1 }; tick(4);
+  check(Math.abs(p.location.x - x0) > 1.2, `esquiva lateral durante o giro (${(p.location.x - x0).toFixed(1)} blocos)`);
+  tick(8);
+  check(P(p, 'fly') === 4, 'volta ao voo depois do giro');
+  p.mv = { x: -1, y: 1 }; tick(1); p.mv = { x: 0, y: 1 }; tick(1);
+  check(P(p, 'fly') === 4, 'um toque so nao gira');
+  // agua embaixo e uma parede de materiais variados no caminho
+  const bx = Math.floor(p.location.x), bz = Math.floor(p.location.z), by = Math.floor(p.location.y);
+  // lago 3 blocos abaixo da rota (voo rasante) e parede de materiais variados mais a frente
+  for (let x = -5; x <= 5; x++) for (let z = 4; z < 60; z++) overworld.set({ x: bx + x, y: by - 3, z: bz + z }, 'minecraft:water');
+  const mats = ['minecraft:sand', 'minecraft:glass', 'minecraft:oak_log', 'minecraft:oak_leaves'];
+  for (let x = -3; x <= 3; x++) for (let y = -1; y <= 2; y++) for (let z = 0; z < 2; z++) overworld.set({ x: bx + x, y: by + y, z: bz + 90 + z }, mats[y + 1]);
+  const c0 = (k) => LOG.particles['superman:' + k] || 0;
+  const before = Object.fromEntries(['shards', 'leaf_bits', 'grains', 'splinters', 'debris_dust', 'water_spray', 'water_foam'].map((k) => [k, c0(k)]));
+  p.isSprinting = true; tick(3);
+  check(P(p, 'fly') === 5, 'supersonico');
+  const blast0 = LOG.sounds['firework.blast'] || 0;
+  tick(85);
+  check((LOG.sounds['firework.blast'] || 0) > blast0, 'rompeu a barreira de Mach 2');
+  origWarn(`  Mach 2: ${hspeed(p).toFixed(2)} blocos/tick`);
+  check(hspeed(p) > 2.4, `Mach 2 mais rapido que o supersonico (${hspeed(p).toFixed(2)})`);
+  check(c0('speed_lines') > 0 && c0('contrail') > 0, 'linhas de velocidade e rastros de condensacao');
+  check(c0('water_spray') > before.water_spray && c0('water_foam') > before.water_foam, 'rastro de agua ao passar rasante sobre o lago');
+  for (const k of ['shards', 'leaf_bits', 'grains', 'splinters', 'debris_dust']) check(c0(k) > before[k], `particulas de ${k} ao atravessar a parede`);
+  check(!!p.effects.speed, 'campo de visao abre com a velocidade');
+  // giro dentro do supersonico mantem o Mach 2
+  p.mv = { x: 1, y: 1 }; tick(1); p.mv = { x: 0, y: 1 }; tick(2); p.mv = { x: 1, y: 1 }; tick(1);
+  check(P(p, 'fly') === 14, `giro para a esquerda no supersonico (${P(p, 'fly')})`);
+  p.mv = { x: 0, y: 1 }; tick(10);
+  check(P(p, 'fly') === 5 && hspeed(p) > 2.3, 'volta ao supersonico ainda em Mach 2');
+  // atravessar a camada de nuvens
+  p.location = { x: p.location.x, y: 186, z: p.location.z };
+  p.prevLoc = undefined;
+  const cl0 = c0('cloud_puff');
+  p.rot = { x: -50, y: 0 }; tick(12);
+  check(c0('cloud_puff') > cl0, 'rompe as nuvens ao subir');
+  p.rot = { x: 0, y: 0 };
+  p.isSprinting = false; p.mv = { x: 0, y: 0 }; tick(8);
+  check(P(p, 'fly') === 3, 'freou para pairar');
+  p.location = { x: p.location.x, y: 70, z: p.location.z };
+  tick(5);
+}
+
 section('pouso suave');
 p.sneakHeld = true;
 for (let i = 0; i < 400 && P(p, 'fly') !== 8; i++) tick(1);

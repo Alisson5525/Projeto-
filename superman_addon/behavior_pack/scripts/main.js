@@ -12,6 +12,7 @@ const FLY_NAMES = {
   [FLY.CHARGE]: '§6Carregando decolagem', [FLY.LAUNCH]: '§bDecolando', [FLY.AIRSTART]: '§bDecolando',
   [FLY.HOVER]: '§fPairando', [FLY.FLY]: '§fVoando', [FLY.FAST]: '§c§lSUPERSÔNICO', [FLY.DIVE]: '§c§lMERGULHO',
   [FLY.LANDPREP]: '§7Pousando', [FLY.SPEED]: '§eSuper velocidade',
+  [FLY.ROLL_L]: '§bGiro', [FLY.ROLL_R]: '§bGiro', [FLY.ROLL_LF]: '§b§lGIRO', [FLY.ROLL_RF]: '§b§lGIRO',
 };
 
 function readInput(player) {
@@ -48,7 +49,7 @@ function hud(player, st, tick) {
   if (st.power === POW.HEAT || st.power === POW.FREEZE) {
     extra = bar(Math.max(0, (st.powerTimeout - tick) / st.powerDur), st.power === POW.HEAT ? '§c' : '§b');
   }
-  if (!name) name = FLY_NAMES[st.fly];
+  if (!name) name = st.mach2 && st.fly === FLY.FAST ? '§c§lMACH 2' : FLY_NAMES[st.fly];
   if (!name) return;
   if (!extra) {
     let v = st.meas ?? player.getVelocity();

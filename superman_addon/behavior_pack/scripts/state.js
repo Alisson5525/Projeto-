@@ -46,6 +46,16 @@ export function getState(player) {
       lastMoveTick: -100,
       novaReadyAt: 0,
       iceSpikes: 0,
+      fastTicks: 0,
+      mach2: false,
+      rollFrom: 0,
+      rollSide: { x: 0, y: 0, z: 0 },
+      rollReadyAt: 0,
+      tapDir: 0,
+      tapTick: -100,
+      lastStrafe: 0,
+      inWater: false,
+      cloudSide: 0,
     };
     states.set(player.id, st);
   }

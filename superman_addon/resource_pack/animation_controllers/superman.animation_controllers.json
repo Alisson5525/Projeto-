@@ -9,6 +9,7 @@
             "sm.cape",
             "sm.breath",
             "sm.stature",
+            "sm.roll",
             {
               "sm.orient": "v.sm_full"
             },

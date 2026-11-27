@@ -112,7 +112,7 @@ class Dimension {
       const b = this.getBlock({ x: loc.x + x, y: loc.y + y, z: loc.z + z });
       if (!b.isAir) blocks.push(b);
     }
-    const ev = { source: opt.source, getImpactedBlocks: () => blocks, setImpactedBlocks: (bl) => { blocks = bl; }, cancel: false };
+    const ev = { source: opt.source, dimension: this, getImpactedBlocks: () => blocks, setImpactedBlocks: (bl) => { blocks = bl; }, cancel: false };
     for (const f of world.beforeEvents.explosion._subs) f(ev);
     if (opt.breaksBlocks && !ev.cancel) for (const b of blocks) b.setType('minecraft:air');
     return true;

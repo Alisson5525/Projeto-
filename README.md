@@ -2,6 +2,8 @@
 
 Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
+> **Versão 2.1.0, destruição e voo.** As partículas de destruição foram refeitas em pixel art e mudam conforme o material: pedaços de pedra que quicam, poeira animada da cor do bloco, grãos de areia, lascas de madeira, cacos de vidro que brilham e folhas que caem balançando. O voo ganhou o **giro de esquiva** (toque duplo para o lado), a barreira de **Mach 2**, rastro de spray na água e de poeira no chão em voo rasante, nuvens que se abrem quando você as atravessa, linhas de velocidade e rastros de condensação.
+>
 > **Versão 2.0.2:** o sopro congelante usado voando não esconde mais o herói, e a deformação nos impactos não encolhe mais partes do corpo.
 >
 > **Versão 2.0.1:** correções do sopro congelante (não cria mais gelo dentro do herói), das texturas que piscavam e da capa atravessando o chão.
@@ -54,6 +56,8 @@ Ao entrar no mundo pela primeira vez você recebe o **Emblema Solar**. Se perder
 | Subir / descer no voo | segurar pular / agachar | segurar pular / agachar |
 | Voar para frente | W (o corpo segue a câmera) | analógico para frente |
 | **Voo supersônico** (atravessa montanhas) | correr (Ctrl ou W duplo) voando | botão de correr / analógico todo à frente |
+| **Mach 2** | continuar no supersônico por 2,5 s | idem |
+| **Giro de esquiva** | voando, tocar duas vezes **A** ou **D** | voando, tocar duas vezes para o lado no analógico |
 | Frear e pairar | soltar W | soltar o analógico |
 | Pousar | descer até o chão, ou usar **Poder: Voo** | idem |
 | **Super velocidade** no chão | correr transformado | correr |
@@ -93,12 +97,40 @@ Enquanto transformado: força VI, regeneração III, resistência total, imunida
 
 ### Destruição do cenário
 
-- **Voo rápido e supersônico:** abre um túnel largo através de qualquer bloco, soltando detritos com a cor de cada bloco.
+- **Voo rápido e supersônico:** abre um túnel largo através de qualquer bloco (mais largo em Mach 2). Em voo rasante, corta a grama e as flores embaixo.
 - **Estrondo sônico:** ao entrar no supersônico, estilhaça vidros, folhas e plantas num raio de 8 blocos.
 - **Pouso de herói:** a cratera cresce com a velocidade da queda (até 9 blocos de raio).
 - **Decolagem carregada, pancada, soco e palma:** crateras, túneis e ondas de choque.
 - **Visão de calor:** derrete, queima e explode; **sopro congelante:** congela, prende em gelo e faz **pilares de gelo** brotarem do chão.
 - **Explosão Solar:** cratera embaixo e onda que estilhaça tudo o que é frágil num raio de 12 blocos.
+
+### Partículas de destruição
+
+Cada material quebra de um jeito, sempre em pixel art e com a cor do bloco:
+
+| Material | O que sai |
+|---|---|
+| pedra, ardósia, minérios, tijolos | pedaços de pedra com luz e sombra que quicam no chão, pedrinhas e poeira cinza; nos impactos fortes, faíscas |
+| terra e grama | torrões de terra, pedaços de grama e poeira marrom |
+| areia, cascalho, pó de concreto | chuva de grãos e poeira |
+| madeira | lascas que giram e um pouco de pó |
+| vidro e gelo | cacos translúcidos que brilham enquanto giram |
+| folhas, plantas e flores | folhas que caem balançando (inclusive rosa nas cerejeiras) |
+| neve | flocos e poeira branca |
+
+As explosões do herói também soltam os pedaços dos blocos que destruíram, e a poeira dos pousos, decolagens e pancadas sai da cor do chão.
+
+![Partículas](docs/preview/particulas.png)
+
+### Efeitos do voo
+
+- **Voo rasante sobre a água:** spray de gotas e espuma na superfície; no supersônico, um rastro de água bem alto.
+- **Voo rasante sobre o chão:** poeira da cor do chão e folhas levantadas.
+- **Entrar e sair da água voando:** respingo grande com onda; embaixo d'água, bolhas.
+- **Nuvens:** na altura das nuvens o herói vai rasgando a nuvem, e ao atravessar a camada ela se abre com um estouro.
+- **Supersônico:** linhas de velocidade passando pela tela, dois rastros de condensação atrás das botas e o campo de visão abrindo com a velocidade (se a opção de campo de visão do jogo estiver ligada).
+- **Mach 2:** depois de 2,5 s no supersônico, um segundo estrondo, mais 30% de velocidade e túnel mais largo.
+- **Giro de esquiva:** um giro de 360° no eixo do corpo com um impulso para o lado; também funciona no supersônico sem perder o Mach 2.
 
 A destruição grande (palma trovão, estrondo sônico, túnel do soco) se espalha em **ondas** ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
 
@@ -125,7 +157,7 @@ Por padrão, os poderes em área (raios, sopro, palmas, explosões, golpe final)
 
 ---
 
-## Animações (91)
+## Animações (92)
 
 Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*) entre estados e camadas procedurais que se somam: capa, respiração, inclinação nas curvas, flutuação e tremor de esforço.
 
@@ -150,7 +182,7 @@ Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*
 | ![](docs/preview/07_pouso_de_heroi.gif) pouso de herói | ![](docs/preview/08_visao_de_calor.gif) visão de calor | ![](docs/preview/09_sopro_congelante.gif) sopro congelante |
 | ![](docs/preview/10_super_soco.gif) super soco | ![](docs/preview/15_combo_de_6_golpes.gif) combo de 6 golpes | ![](docs/preview/16_combo_aereo.gif) combo aéreo |
 | ![](docs/preview/12_palma_trovao.gif) palma trovão | ![](docs/preview/13_pancada_no_chao.gif) pancada no chão | ![](docs/preview/14_super_velocidade.gif) super velocidade |
-| ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | ![](docs/preview/18_explosao_solar.gif) Explosão Solar | |
+| ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | ![](docs/preview/18_explosao_solar.gif) Explosão Solar | ![](docs/preview/19_giro_e_mach_2.gif) giro de esquiva e Mach 2 |
 
 *As prévias foram renderizadas fora do jogo pelo visualizador em `tools/preview`, com as mesmas animações e modelo do add-on. As partículas e a câmera aparecem só dentro do jogo.*
 
@@ -185,10 +217,11 @@ Tudo é gerado por scripts, então é fácil ajustar poses, cores e física:
 ```
 tools/gen_model.py        modelo 3D esculpido + pintura da skin e da camada de brilho
 tools/gen_client.py       animações, controladores, render controllers, player.entity.json
+tools/gen_fx_atlas.py     folha de sprites em pixel art das partículas de destruição, água e nuvens
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (116 verificações)
+tools/simulate/           roda os scripts num mundo simulado (136 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos

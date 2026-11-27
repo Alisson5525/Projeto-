@@ -110,6 +110,18 @@
       },
       "loop": true
     },
+    "animation.superman.roll": {
+      "bones": {
+        "sm_roll": {
+          "rotation": [
+            0,
+            "v.sm_rolla",
+            0
+          ]
+        }
+      },
+      "loop": true
+    },
     "animation.superman.orient": {
       "bones": {
         "sm_yaw": {

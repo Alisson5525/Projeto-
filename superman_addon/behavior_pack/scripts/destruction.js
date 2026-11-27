@@ -31,9 +31,90 @@ export function isFragile(id) {
   return FRAGILE_RE.test(id || '');
 }
 
+/** Tipo de material do bloco: decide quais particulas saem quando ele quebra. */
+export function debrisKind(id) {
+  id = id || '';
+  if (/(glass|ice|pane|amethyst|sea_lantern|glowstone)/.test(id)) return 'glass';
+  if (/(leaves|azalea|vine|moss_carpet|tall_grass|short_grass|^minecraft:grass$|fern|bush|sapling|flower|tulip|daisy|poppy|dandelion|orchid|allium|bluet|cornflower|lily|rose|peony|lilac|sunflower|wheat|carrots|potatoes|beetroot|kelp|seagrass|sugar_cane|bamboo)/.test(id)) return 'leaf';
+  if (/snow/.test(id)) return 'snow';
+  if (/(sand|gravel|concrete_powder|soul_soil)/.test(id)) return 'sand';
+  if (/(log|wood|planks|stem|hyphae|fence|door|bookshelf|crafting|barrel|chest|ladder|sign|trapdoor|scaffolding)/.test(id)) return 'wood';
+  if (/(grass_block|mycelium|podzol)/.test(id)) return 'turf';
+  if (/(dirt|mud|farmland|path|clay|coarse|rooted|moss_block)/.test(id)) return 'soil';
+  return 'stone';
+}
+
+/**
+ * Particulas de quebra conforme o material: pedacos de pedra que quicam, poeira animada da cor do bloco,
+ * graos de areia, lascas de madeira, cacos de vidro que brilham e folhas que caem balancando.
+ */
+let fxTick = -1;
+let fxCount = 0;
+
+/** Limite de efeitos de quebra por tick (atravessar uma montanha nao pode travar o jogo). */
+function debrisBudget() {
+  const t = system.currentTick;
+  if (t !== fxTick) { fxTick = t; fxCount = 0; }
+  return fxCount++ < q(28);
+}
+
+export function spawnDebris(dim, loc, id, power = 1) {
+  if (!debrisBudget()) return;
+  const color = debrisColor(id);
+  const scale = Math.min(1.8, 0.8 + power * 0.25);
+  switch (debrisKind(id)) {
+    case 'glass':
+      particle(dim, 'superman:shards', loc, { color });
+      break;
+    case 'leaf':
+      particle(dim, 'superman:leaf_bits', loc, { color, count: 6 });
+      break;
+    case 'snow':
+      particle(dim, 'superman:debris_dust', loc, { color, count: 2, scale });
+      particle(dim, 'superman:grains', loc, { color, scale });
+      break;
+    case 'sand':
+      particle(dim, 'superman:grains', loc, { color, scale });
+      particle(dim, 'superman:debris_dust', loc, { color, count: 2, scale });
+      break;
+    case 'wood':
+      particle(dim, 'superman:splinters', loc, { color, scale });
+      particle(dim, 'superman:debris_dust', loc, { color, count: 1, scale });
+      break;
+    case 'turf':
+      particle(dim, 'superman:debris', loc, { color: SOIL, scale });
+      particle(dim, 'superman:leaf_bits', loc, { color, count: 3 });
+      particle(dim, 'superman:debris_dust', loc, { color: SOIL, count: 1, scale });
+      break;
+    default:
+      particle(dim, 'superman:debris', loc, { color, scale });
+      particle(dim, 'superman:debris_dust', loc, { color, count: power > 1.5 ? 2 : 1, scale });
+  }
+}
+
+const SOIL = { r: 0.47, g: 0.33, b: 0.22 };
+
+/** Cor do chao logo abaixo de um ponto (poeira de pouso, decolagem e pancada da cor certa). */
+export function groundColor(dim, loc) {
+  for (let dy = 0; dy <= 3; dy++) {
+    const b = getBlock(dim, { x: loc.x, y: loc.y - 0.5 - dy, z: loc.z });
+    if (!b || b.isAir) continue;
+    const id = b.typeId;
+    if (id.includes('water')) return { r: 0.75, g: 0.85, b: 0.95 };
+    return debrisKind(id) === 'turf' ? SOIL : debrisColor(id);
+  }
+  return { r: 0.6, g: 0.55, b: 0.48 };
+}
+
 /** Cor aproximada dos detritos para cada tipo de bloco. */
 export function debrisColor(id) {
-  if (/(grass_block|leaves|moss|vine|cactus|melon|bamboo|kelp)/.test(id)) return { r: 0.36, g: 0.56, b: 0.24 };
+  id = id || '';
+  if (/(deepslate|blackstone|basalt|obsidian|coal|tuff|bedrock)/.test(id)) return { r: 0.27, g: 0.27, b: 0.3 };
+  if (/(cherry)/.test(id)) return { r: 0.95, g: 0.7, b: 0.8 };
+  if (/(azalea|leaves|moss|vine|cactus|melon|bamboo|kelp|grass|fern|seagrass|sapling)/.test(id)) return { r: 0.36, g: 0.56, b: 0.24 };
+  if (/(mycelium)/.test(id)) return { r: 0.45, g: 0.38, b: 0.45 };
+  if (/(red_sand|terracotta|mud_brick|copper)/.test(id)) return { r: 0.72, g: 0.42, b: 0.27 };
+  if (/(gravel|andesite|cobble|stone_brick|furnace)/.test(id)) return { r: 0.5, g: 0.5, b: 0.5 };
   if (/(dirt|mud|podzol|farmland|path|clay|coarse)/.test(id)) return { r: 0.47, g: 0.33, b: 0.22 };
   if (/(sand|sandstone)/.test(id)) return { r: 0.86, g: 0.8, b: 0.58 };
   if (/(log|wood|planks|stem|hyphae|fence|door|bookshelf)/.test(id)) return { r: 0.55, g: 0.4, b: 0.24 };
@@ -131,9 +212,7 @@ export function breakBlocks(dim, blocks, opts = {}) {
       const l = b.location;
       if (n < visible) dim.runCommand(`setblock ${l.x} ${l.y} ${l.z} air destroy`);
       else b.setType('minecraft:air');
-      if (n % (opts.debrisEvery ?? 3) === 0) {
-        particle(dim, 'superman:debris', V.center(l), { color: debrisColor(id) });
-      }
+      if (n % (opts.debrisEvery ?? 3) === 0) spawnDebris(dim, V.center(l), id, opts.power ?? 1);
       cx += l.x; cy += l.y; cz += l.z;
       n++;
       if (opts.max && n >= opts.max) break;
@@ -286,5 +365,14 @@ world.beforeEvents.explosion.subscribe((ev) => {
     const blocks = ev.getImpactedBlocks();
     const keep = blocks.filter((b) => isBreakable(b.typeId));
     if (keep.length !== blocks.length) ev.setImpactedBlocks(keep);
+    // amostra dos blocos atingidos: os detritos saem com a cor e o tipo de cada material
+    const dim = ev.dimension;
+    const step = Math.max(1, Math.floor(keep.length / 14));
+    const sample = [];
+    for (let i = 0; i < keep.length && sample.length < 14; i += step) {
+      const b = keep[i];
+      sample.push({ loc: V.center(b.location), id: b.typeId });
+    }
+    if (sample.length) system.run(() => { for (const o of sample) spawnDebris(dim, o.loc, o.id, 2); });
   } catch (e) { /* */ }
 });

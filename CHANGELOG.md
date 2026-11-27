@@ -1,5 +1,23 @@
 # Histórico de mudanças
 
+## 2.1.0 — Destruição e voo
+
+**Partículas de destruição em pixel art**
+- Folha de sprites nova: 8 pedaços de pedra com luz e sombra, pedrinhas, poeira animada em 8 quadros, cacos de vidro, folhas, lascas de madeira, gotas, espuma, nuvens e faíscas.
+- Cada material quebra de um jeito: pedra (pedaços que quicam e poeira), terra e grama (torrões e pedaços de grama), areia (chuva de grãos), madeira (lascas), vidro e gelo (cacos que brilham), folhas e plantas (folhas que caem balançando) e neve.
+- Os pedaços têm cores levemente diferentes entre si, giram, quicam, deslizam no chão e encolhem no fim.
+- As explosões do herói soltam os pedaços dos blocos que destruíram. A poeira dos pousos, decolagens e pancadas sai da cor do chão, e os impactos fortes em pedra soltam faíscas.
+- Limite de efeitos por tick, para atravessar uma montanha não travar o jogo.
+
+**Voo**
+- **Giro de esquiva:** voando, toque duas vezes para o lado. O herói gira 360° no eixo do corpo com um impulso lateral; no supersônico, mantém o Mach 2.
+- **Mach 2:** depois de 2,5 s no supersônico, um segundo estrondo com cone de vapor e anéis, mais 30% de velocidade e túnel mais largo.
+- **Voo rasante:** spray e espuma sobre a água (um rastro bem alto no supersônico), poeira da cor do chão e folhas sobre a terra, e o supersônico corta a vegetação embaixo.
+- **Água:** respingo grande ao entrar e sair voando, e bolhas embaixo d'água.
+- **Nuvens:** na altura das nuvens o herói rasga a nuvem, e ao atravessar a camada ela se abre com um estouro.
+- **Supersônico:** linhas de velocidade, dois rastros de condensação atrás das botas e campo de visão que abre com a velocidade.
+- O HUD mostra "MACH 2" e "GIRO"; o guia rápido e a descrição do item de voo explicam os comandos novos.
+
 ## 2.0.2 — Sopro congelante voando
 
 - **Visão de calor, sopro congelante e Explosão Solar agora são usados pairando.** Se o herói estiver voando rápido, ele freia e fica em pé no ar enquanto o poder dura (dá para se mover devagar). Antes ele continuava voando de corpo deitado, alcançava a própria nuvem de gelo e ficava escondido dentro dela.

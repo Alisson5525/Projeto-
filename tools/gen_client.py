@@ -24,7 +24,7 @@ NS = "animation.superman."
 
 # Valores sincronizados pelo servidor (propriedade superman:fly)
 FLY = dict(NONE=0, CHARGE=1, LAUNCH=2, HOVER=3, FLY=4, FAST=5, DIVE=6, LANDPREP=7,
-           LANDSOFT=8, LANDHERO=9, AIRSTART=10, SPEED=11)
+           LANDSOFT=8, LANDHERO=9, AIRSTART=10, SPEED=11)  # 12-15 = giro (remapeado no cliente)
 # (propriedade superman:power)
 POW = dict(NONE=0, TRANSFORM=1, DETRANSFORM=2, HEAT=3, FREEZE=4, CHARGE=5, PUNCH=6,
            CLAP=7, SLAM=8, COMBO1=9, COMBO2=10, COMBO3=11, COMBO4=12, COMBO5=13, COMBO6=14,
@@ -233,6 +233,7 @@ def build_animations():
     proc("stature", {"root": {"s": ["(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)",
                                     "(1.0 + v.sm_on * 0.06) * (1.0 - v.sm_sq + v.sm_su)",
                                     "(1.0 + v.sm_on * 0.05) * (1.0 + v.sm_sq * 0.6 + v.sm_su)"]}})
+    proc("roll", {"sm_roll": {"r": [0, "v.sm_rolla", 0]}})
     proc("orient", {
         "sm_yaw": {"r": [0, "q.target_y_rotation * v.sm_yw", 0]},
         "sm_pitch": {"r": ["v.sm_p", 0, 0]},
@@ -758,7 +759,7 @@ def build_controllers():
         "states": {
             "default": {
                 "animations": [
-                    "sm.cape", "sm.breath", "sm.stature",
+                    "sm.cape", "sm.breath", "sm.stature", "sm.roll",
                     {"sm.orient": W},
                     {"sm.look": W},
                     {"sm.walk_legs": f"{W} * (v.sm_fly == 0 && q.is_on_ground ? 1.0 : 0.0)"},
@@ -942,7 +943,7 @@ SM_INIT = [
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
     "v.sm_clv = 0.0;", "v.sm_spdp = 0.0;", "v.sm_acc = 0.0;", "v.sm_idone = -1.0;", "v.sm_islot = 0.0;",
-    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;", "v.sm_pfly = 0.0;", "v.sm_ppow = 0.0;", "v.sm_sqt = -10.0;", "v.sm_sqa = 0.0;", "v.sm_sut = -10.0;", "v.sm_sua = 0.0;", "v.sm_sq = 0.0;", "v.sm_su = 0.0;", "v.sm_powt0 = 0.0;", "v.sm_chest = 0.0;",
+    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;", "v.sm_pfly = 0.0;", "v.sm_ppow = 0.0;", "v.sm_sqt = -10.0;", "v.sm_sqa = 0.0;", "v.sm_sut = -10.0;", "v.sm_sua = 0.0;", "v.sm_sq = 0.0;", "v.sm_su = 0.0;", "v.sm_powt0 = 0.0;", "v.sm_chest = 0.0;", "v.sm_rollt0 = -10.0;", "v.sm_prolld = 0.0;", "v.sm_rolla = 0.0;",
 ]
 
 ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:sopro_congelante",
@@ -951,7 +952,10 @@ ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:s
 SM_PRE = [
     "v.sm_hp = q.has_property('superman:on');",
     "v.sm_on = v.sm_hp ? q.property('superman:on') : 0.0;",
-    "v.sm_fly = v.sm_hp ? q.property('superman:fly') : 0.0;",
+    "v.sm_flyr = v.sm_hp ? q.property('superman:fly') : 0.0;",
+    # giro de esquiva (12-15): para o resto da animacao conta como voo (4) ou supersonico (5)
+    "v.sm_rolld = (v.sm_flyr == 12 || v.sm_flyr == 14) ? -1.0 : ((v.sm_flyr == 13 || v.sm_flyr == 15) ? 1.0 : 0.0);",
+    "v.sm_fly = v.sm_flyr >= 14 ? 5.0 : (v.sm_flyr >= 12 ? 4.0 : v.sm_flyr);",
     "v.sm_pow = v.sm_hp ? q.property('superman:power') : 0.0;",
     "v.sm_chg = v.sm_hp ? q.property('superman:charge') : 0.0;",
     "v.sm_inp = v.sm_hp ? q.property('superman:input') : 4.0;",
@@ -1018,6 +1022,11 @@ SM_PRE = [
     "v.sm_sut = (v.sm_pow != v.sm_ppow && v.sm_pow == 19) ? q.life_time + 0.05 : v.sm_sut;",
     "v.sm_powt0 = v.sm_pow != v.sm_ppow ? q.life_time : v.sm_powt0;",
     "v.sm_pfly = v.sm_fly;",
+    # giro de 360 graus em 0,42 s (suavizado), no eixo do corpo
+    "v.sm_rollt0 = (v.sm_rolld != 0.0 && v.sm_prolld != v.sm_rolld) ? q.life_time : v.sm_rollt0;",
+    "v.sm_prolld = v.sm_rolld;",
+    "v.sm_rolle = math.clamp((q.life_time - v.sm_rollt0) / 0.42, 0.0, 1.0);",
+    "v.sm_rolla = v.sm_rolld != 0.0 ? -v.sm_rolld * 360.0 * v.sm_rolle * v.sm_rolle * (3.0 - 2.0 * v.sm_rolle) : 0.0;",
     "v.sm_ppow = v.sm_pow;",
     "v.sm_st = q.life_time - v.sm_sqt;",
     "v.sm_sq = (v.sm_st >= 0.0 && v.sm_st < 0.45) ? v.sm_sqa * math.cos(v.sm_st * 800.0) * (1.0 - v.sm_st / 0.45) : 0.0;",

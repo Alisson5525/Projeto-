@@ -14,8 +14,13 @@ export const PROP = {
 export const FLY = {
   NONE: 0, CHARGE: 1, LAUNCH: 2, HOVER: 3, FLY: 4, FAST: 5, DIVE: 6,
   LANDPREP: 7, LANDSOFT: 8, LANDHERO: 9, AIRSTART: 10, SPEED: 11,
+  // giro de esquiva (toque duplo para o lado): esquerda/direita, vindo do voo normal ou do supersonico
+  ROLL_L: 12, ROLL_R: 13, ROLL_LF: 14, ROLL_RF: 15,
 };
-export const AIR_STATES = new Set([FLY.LAUNCH, FLY.HOVER, FLY.FLY, FLY.FAST, FLY.DIVE, FLY.LANDPREP, FLY.AIRSTART]);
+export const ROLL_STATES = new Set([FLY.ROLL_L, FLY.ROLL_R, FLY.ROLL_LF, FLY.ROLL_RF]);
+export const AIR_STATES = new Set([FLY.LAUNCH, FLY.HOVER, FLY.FLY, FLY.FAST, FLY.DIVE, FLY.LANDPREP, FLY.AIRSTART, ...ROLL_STATES]);
+export const MACH2 = 1.3;        // multiplicador de velocidade depois de 2,5 s de supersonico
+export const CLOUD_Y = 192;      // altura da camada de nuvens no mundo normal
 
 // Poderes
 export const POW = {

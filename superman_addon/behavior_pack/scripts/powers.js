@@ -1,6 +1,6 @@
 import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system } from '@minecraft/server';
 import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings } from './config.js';
-import { blast, breakBlocks, debrisColor, isBreakable, isFragile, waveBreak, waveLine } from './destruction.js';
+import { blast, breakBlocks, debrisColor, debrisKind, groundColor, isBreakable, isFragile, spawnDebris, waveBreak, waveLine } from './destruction.js';
 import { startDive, stopAll, toggleFlight } from './flight.js';
 import { actionbar, flash, flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, setOn, setPower, sync } from './state.js';
@@ -41,7 +41,8 @@ function mainhand(player) {
 // Descricao de uso mostrada ao passar o dedo/mouse sobre cada item
 const LORE = {
   [ITEM.EMBLEM]: ['§7Usar: transformar / destransformar', '§7Agachar + usar: configurações'],
-  [ITEM.FLIGHT]: ['§7No chão: decolagem automática', '§7Voando: pousar', '§8Dica: pulo duplo também faz voar'],
+  [ITEM.FLIGHT]: ['§7No chão: decolagem automática', '§7Voando: pousar', '§7Toque duplo para o lado: giro de esquiva',
+    '§7Supersônico por 2,5 s: Mach 2', '§8Dica: pulo duplo também faz voar'],
   [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
   [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
   [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força'],
@@ -209,7 +210,8 @@ function tutorial(player) {
   } catch (e) { return; }
   const lines = [
     '§6§lSOLARIS §r§7- guia rápido',
-    '§e• Voar:§f pulo duplo  §8|  §eSupersônico:§f correr voando',
+    '§e• Voar:§f pulo duplo  §8|  §eSupersônico:§f correr voando (Mach 2 depois de 2,5 s)',
+    '§e• Giro de esquiva:§f toque duas vezes para o lado voando',
     '§e• Decolagem com cratera:§f segure agachar parado e pule',
     '§e• Pousar:§f desça até o chão  §8|  §eSuper velocidade:§f correr',
     '§e• Combate:§f 6 golpes no chão e 3 no ar',
@@ -588,7 +590,7 @@ function novaChargeTick(player, st, tick) {
   if (t === 28) sound(dim, 'ambient.weather.thunder', c, 0.7, 1.6);
   if (t % 2 === 0) particle(dim, 'superman:aura', c, { radius: 1.2 + t * 0.03 });
   if (t % 3 === 0) particle(dim, 'superman:transform_gather', c);
-  if (g && t % 3 === 0) particle(dim, 'superman:rising_debris', g, { radius: 3 + t * 0.12, color: { r: 0.52, g: 0.46, b: 0.4 } });
+  if (g && t % 3 === 0) particle(dim, 'superman:rising_debris', g, { radius: 3 + t * 0.12, color: groundColor(dim, g) });
   if (g && (t === 12 || t === 26)) particle(dim, 'superman:ground_crack', { x: g.x, y: Math.floor(g.y) + 0.06, z: g.z }, { radius: 2 + t * 0.12 });
   if (t % 5 === 0) shakeArea(dim, c, 24, 0.05 + t * 0.012, 0.3);
   if (t >= 40) setPower(player, st, POW.NOVA);
@@ -624,7 +626,7 @@ function novaRelease(player, st, tick) {
   const g = groundBelow(player, 8);
   if (g) {
     blast(dim, { x: g.x, y: g.y - 1, z: g.z }, 4.5, player, { fire: true });
-    particle(dim, 'superman:dust_wall', g, { radius: 7 });
+    particle(dim, 'superman:dust_wall', g, { radius: 7, color: groundColor(dim, g) });
     particle(dim, 'superman:ground_crack', { x: g.x, y: Math.floor(g.y) + 0.06, z: g.z }, { radius: 6 });
   }
   waveBreak(dim, c, 12, { filter: isFragile, speed: 2.5, visible: 5, max: 400 });
@@ -686,8 +688,11 @@ function punchImpact(player, st) {
     const hp = V.add(hit.block.location, hit.faceLocation);
     const hd = V.dist(origin, hp);
     blast(dim, hp, 2 + 4 * c, player);
-    particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hit.block.typeId) });
-    particle(dim, 'superman:dust_wall', hp, { radius: 2 + 3 * c });
+    const hid = hit.block.typeId;
+    particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hid), scale: 1 + c * 0.6 });
+    spawnDebris(dim, hp, hid, 2 + c);
+    particle(dim, 'superman:dust_wall', hp, { radius: 2 + 3 * c, color: debrisColor(hid) });
+    if (debrisKind(hid) === 'stone') particle(dim, 'superman:sparks', hp, { count: 10 + Math.round(c * 14) });
     // o tunel avanca em onda a partir do ponto de impacto
     if (c > 0.3) waveLine(dim, origin, dir, hd + 1.2, range + 3 * c, 1.3 + 2 * c, { speed: 3, visible: 3 });
   }
@@ -717,7 +722,7 @@ function clapImpact(player, st) {
   particle(dim, 'superman:clap_wave', V.add(center, V.mul(fwd, 3)), { dir: fwd, radius: 6 });
   particle(dim, 'superman:impact_flash', center, { radius: 3 });
   for (let i = 1; i <= 3; i++) later(i * 3, () => particle(dim, 'superman:clap_wave', V.add(center, V.mul(fwd, 3 + i * 4)), { dir: fwd, radius: 6 + i * 2 }));
-  particle(dim, 'superman:dust_wall', V.add(player.location, V.add(V.mul(fwd, 3), { x: 0, y: 0.1, z: 0 })), { radius: 4 });
+  particle(dim, 'superman:dust_wall', V.add(player.location, V.add(V.mul(fwd, 3), { x: 0, y: 0.1, z: 0 })), { radius: 4, color: groundColor(dim, player.location) });
   sound(dim, 'mob.warden.sonic_boom', center, 1.4, 1.1);
   sound(dim, 'ambient.weather.thunder', center, 0.6, 1.4);
   sound(dim, 'random.explode', center, 0.7, 1.3);
@@ -746,11 +751,13 @@ function slamImpact(player, st) {
   blast(dim, p, 5, player);
   ringBurst(dim, V.add(p, { x: 0, y: 0.5, z: 0 }), [9, 15, 21], { r: 1, g: 0.9, b: 0.7 }, 3);
   particle(dim, 'superman:impact_flash', V.add(p, { x: 0, y: 1, z: 0 }), { radius: 4 });
-  particle(dim, 'superman:dust_wall', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 6 });
-  later(5, () => particle(dim, 'superman:rising_debris', p, { radius: 5, color: { r: 0.5, g: 0.45, b: 0.4 } }));
+  const gc = groundColor(dim, V.add(p, { x: 0, y: 0.5, z: 0 }));
+  particle(dim, 'superman:dust_wall', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 6, color: gc });
+  later(5, () => particle(dim, 'superman:rising_debris', p, { radius: 5, color: gc }));
+  particle(dim, 'superman:sparks', V.add(p, { x: 0, y: 0.4, z: 0 }), { count: 16 });
   flashArea(dim, p, 12, 0.35);
   particle(dim, 'superman:ground_crack', { x: p.x, y: Math.floor(player.location.y) + 0.06, z: p.z }, { radius: 3.5 });
-  for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', V.add(p, { x: 0, y: 0.6, z: 0 }), { color: { r: 0.5, g: 0.45, b: 0.4 } });
+  for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', V.add(p, { x: 0, y: 0.6, z: 0 }), { color: gc, scale: 1.3 });
   sound(dim, 'mace.heavy_smash_ground', p, 2, 0.6);
   sound(dim, 'mob.warden.sonic_boom', p, 1, 0.8);
   shakeArea(dim, p, 32, 1.4, 0.9);
@@ -828,7 +835,7 @@ export function onMeleeHit(player, st, target, tick) {
       particle(dim, 'superman:sonic_boom', hp, { dir: h, radius: 3 });
       particle(dim, 'superman:impact_flash', hp, { radius: 3 });
       ringBurst(dim, V.add(target.location, { x: 0, y: 0.1, z: 0 }), [5, 8, 11], { r: 1, g: 0.95, b: 0.85 }, 2);
-      particle(dim, 'superman:debris_burst', target.location, { color: { r: 0.55, g: 0.5, b: 0.45 } });
+      particle(dim, 'superman:debris_burst', target.location, { color: groundColor(dim, V.add(target.location, { x: 0, y: 0.6, z: 0 })) });
       sound(dim, 'mob.warden.sonic_boom', hp, 1, 1.2);
       sound(dim, 'random.explode', hp, 0.6, 1.3);
       shakeArea(dim, hp, 16, 0.6, 0.4);
@@ -854,7 +861,7 @@ function updateSpikes(tick) {
         const l = sp.e.location;
         blast(dim, { x: l.x, y: l.y - 0.4, z: l.z }, 2.4, sp.player);
         particle(dim, 'superman:shockwave', V.add(l, { x: 0, y: 0.1, z: 0 }), { radius: 7, color: { r: 1, g: 1, b: 1 } });
-        particle(dim, 'superman:dust_ring', V.add(l, { x: 0, y: 0.1, z: 0 }), { radius: 3 });
+        particle(dim, 'superman:dust_ring', V.add(l, { x: 0, y: 0.1, z: 0 }), { radius: 3, color: groundColor(dim, V.add(l, { x: 0, y: 0.6, z: 0 })) });
         particle(dim, 'superman:ground_crack', { x: l.x, y: Math.floor(l.y) + 0.06, z: l.z }, { radius: 3 });
         sound(dim, 'mace.heavy_smash_ground', l, 1.6, 0.8);
         shakeArea(dim, l, 20, 0.6, 0.5);
@@ -882,6 +889,7 @@ export function onBlockPunch(player, st, block) {
   if (!isBreakable(id)) return;
   breakBlocks(dim, [block], { visible: 1, force: true });
   particle(dim, 'superman:debris_burst', V.center(block.location), { color: debrisColor(id) });
+  spawnDebris(dim, V.center(block.location), id, 2);
 }
 
 // ---------------------------------------------------------------- tick dos poderes

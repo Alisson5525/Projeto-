@@ -39,12 +39,12 @@ def frames(segs, blend=0.22, stature=True):
             a = lt / blend
         layers = [{"anim": N + l, "time": lt, "weight": a} for l in s["layers"]]
         V = dict(BASE_V)
-        V.update(s["V"])
+        V.update({kk: (vv(lt) if callable(vv) else vv) for kk, vv in s["V"].items()})
         if a < 1.0:
             p = segs[k - 1]
             layers += [{"anim": N + l, "time": p["dur"] + lt, "weight": 1 - a} for l in p["layers"]]
             PV = dict(BASE_V)
-            PV.update(p["V"])
+            PV.update({kk: (vv(p["dur"] + lt) if callable(vv) else vv) for kk, vv in p["V"].items()})
             for key in V:
                 V[key] = PV.get(key, 0) * (1 - a) + V[key] * a
         V["sm_cph"] = t * 360 * V.get("cs", 0.5)
@@ -54,6 +54,7 @@ def frames(segs, blend=0.22, stature=True):
                    {"anim": N + "breath", "time": t}]
         if stature:
             layers.append({"anim": N + "stature", "time": t})
+        layers.append({"anim": N + "roll", "time": t})
         out.append({"layers": layers, "V": V, "t": t, "Q": {"life_time": t}, "lift": lift})
     return out
 
@@ -164,6 +165,15 @@ SCENES = {
         seg(["nova_release.upper", "nova_release.legs"], 1.2, dict(HOVV, sm_glow=1, sm_cf=14, cs=3), (10, 10)),
         seg(HOVER, 0.6, HOVV, (10, 10)),
     ], blend=0.12), {"yaw": 35, "dist": 80, "ty": 16}),
+    "19_giro_e_mach_2": (frames([
+        seg(["fly.core", "fly.arms"], 0.5, FLYV, (12, 12)),
+        seg(["fly.core", "fly.arms"], 0.45, dict(FLYV, sm_rolla=lambda u: -360 * min(1, u / 0.42) ** 2 * (3 - 2 * min(1, u / 0.42))), (12, 12)),
+        seg(["fly.core", "fly.arms"], 0.3, FLYV, (12, 12)),
+        seg(["boost.core", "boost.arms"], 0.45, FASTV, (12, 12)),
+        seg(["fast.core", "fast.arms"], 0.5, dict(FASTV, sm_glow=1), (12, 12)),
+        seg(["fast.core", "fast.arms"], 0.45, dict(FASTV, sm_glow=1, sm_rolla=lambda u: 360 * min(1, u / 0.42) ** 2 * (3 - 2 * min(1, u / 0.42))), (12, 12)),
+        seg(["fast.core", "fast.arms"], 0.4, dict(FASTV, sm_glow=1), (12, 12)),
+    ], blend=0.1), {"yaw": 160, "dist": 80, "ty": 16, "pitch": 14}),
     "14_super_velocidade": (frames([
         seg(["superspeed.core", "superspeed.arms"], 1.6, {"sm_cl": 0.95, "sm_cf": 12, "cs": 3.5}),
     ]), {"yaw": 80, "dist": 75, "ty": 14}),

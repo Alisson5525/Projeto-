@@ -1,6 +1,6 @@
 import { EquipmentSlot, GameMode } from '@minecraft/server';
-import { AIR_STATES, FLY, PHYS, POW, getSettings } from './config.js';
-import { blast, breakSphere, isFragile, waveBreak } from './destruction.js';
+import { AIR_STATES, CLOUD_Y, FLY, MACH2, PHYS, POW, ROLL_STATES, getSettings } from './config.js';
+import { blast, breakSphere, debrisColor, debrisKind, groundColor, isFragile, waveBreak } from './destruction.js';
 import { flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, sync } from './state.js';
 import { pushMobs } from './targets.js';
@@ -60,6 +60,8 @@ function wearsElytra(player) {
 /** Zera o voo (troca de dimensao, morte, teleporte). */
 export function resetFlight(player, st) {
   setFly(player, st, FLY.NONE);
+  st.fastTicks = 0;
+  st.mach2 = false;
   st.vel = V.zero();
   st.prevLoc = undefined;
   st.meas = undefined;
@@ -121,7 +123,9 @@ function launch(player, st) {
   // efeitos no chao
   ringBurst(dim, f, [3 + 6 * c, 5 + 9 * c], { r: 1, g: 0.95, b: 0.85 }, 3);
   particle(dim, 'superman:impact_flash', V.add(f, { x: 0, y: 0.5, z: 0 }), { radius: 2 + 2 * c });
-  particle(dim, c > 0.5 ? 'superman:dust_wall' : 'superman:dust_ring', f, { radius: 2 + 3 * c });
+  const gc = groundColor(dim, f);
+  particle(dim, c > 0.5 ? 'superman:dust_wall' : 'superman:dust_ring', f, { radius: 2 + 3 * c, color: gc });
+  particle(dim, 'superman:debris_burst', f, { color: gc, scale: 0.8 + c * 0.6 });
   particle(dim, 'superman:ground_crack', { x: f.x, y: Math.floor(f.y) + 0.06, z: f.z }, { radius: 1.5 + 2.5 * c });
   sound(dim, 'mace.heavy_smash_ground', f, 1.5, 0.8);
   sound(dim, 'item.trident.riptide_3', f, 1, 1.1);
@@ -139,7 +143,7 @@ function softLand(player, st) {
   st.vel = V.zero();
   applyVel(player, st.vel);
   const dim = player.dimension;
-  particle(dim, 'superman:dust_ring', feet(player), { radius: 1.6 });
+  particle(dim, 'superman:dust_ring', feet(player), { radius: 1.6, color: groundColor(dim, feet(player)) });
   sound(dim, 'mob.breeze.land', player.location, 1, 0.8);
 }
 
@@ -152,11 +156,13 @@ function heroLand(player, st, speed) {
   applyVel(player, st.vel);
   ringBurst(dim, f, [r * 1.4, r * 2.2, r * 3], { r: 1, g: 0.9, b: 0.7 }, 3);
   particle(dim, 'superman:impact_flash', V.add(f, { x: 0, y: 0.8, z: 0 }), { radius: 2 + r * 0.5 });
-  particle(dim, 'superman:dust_wall', f, { radius: r * 1.5 });
-  later(6, () => particle(dim, 'superman:rising_debris', f, { radius: r, color: { r: 0.5, g: 0.45, b: 0.4 } }));
+  const gc = groundColor(dim, f);
+  particle(dim, 'superman:dust_wall', f, { radius: r * 1.5, color: gc });
+  later(6, () => particle(dim, 'superman:rising_debris', f, { radius: r, color: gc }));
+  particle(dim, 'superman:sparks', f, { count: 8 + Math.round(r * 2) });
   if (speed > 1.4) flashArea(dim, f, 14, 0.6);
   particle(dim, 'superman:ground_crack', { x: f.x, y: Math.floor(f.y) + 0.06, z: f.z }, { radius: r });
-  for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', f, { color: { r: 0.5, g: 0.45, b: 0.4 } });
+  for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', f, { color: gc, scale: 1 + r * 0.08 });
   sound(dim, 'mace.heavy_smash_ground', f, 2, 0.7);
   sound(dim, 'random.explode', f, 1, 0.8);
   if (speed > 1.4) sound(dim, 'mob.warden.sonic_boom', f, 1, 0.9);
@@ -181,6 +187,114 @@ function goFast(player, st) {
   shake(player, 0.6, 0.4);
   // o estrondo supersonico estilhaca vidros, folhas e plantas ao redor (em onda)
   waveBreak(dim, l, 8, { filter: isFragile, speed: 2, visible: 4, max: 160 });
+}
+
+/** Giro de esquiva: toque duplo para o lado durante o voo. */
+function startRoll(player, st, side, look, tick) {
+  const fast = st.fly === FLY.FAST;
+  st.rollFrom = st.fly;
+  setFly(player, st, side > 0 ? (fast ? FLY.ROLL_RF : FLY.ROLL_R) : (fast ? FLY.ROLL_LF : FLY.ROLL_L));
+  st.rollSide = V.mul(V.basis(look).right, side);
+  st.rollReadyAt = tick + 18;
+  const dim = player.dimension;
+  const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
+  particle(dim, 'superman:roll_swirl', mid, { dir: look });
+  particle(dim, 'superman:sonic_boom', mid, { dir: look, radius: 1.6 });
+  sound(dim, 'mob.phantom.swoop', mid, 1, 1.3);
+  sound(dim, 'item.trident.riptide_1', mid, 0.7, 1.5);
+}
+
+/** Depois de alguns segundos no supersonico, o heroi rompe a segunda barreira (Mach 2). */
+function machTwo(player, st, look) {
+  st.mach2 = true;
+  const dim = player.dimension;
+  const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
+  particle(dim, 'superman:vapor_cone', mid, { dir: look });
+  particle(dim, 'superman:impact_flash', mid, { radius: 3.5 });
+  for (let i = 0; i < 4; i++) later(i * 2, () => particle(dim, 'superman:sonic_boom', V.sub(mid, V.mul(look, i * 2)), { dir: look, radius: 4 + i * 2 }));
+  ringBurst(dim, mid, [6, 10], { r: 0.85, g: 0.92, b: 1 }, 3);
+  sound(dim, 'mob.warden.sonic_boom', mid, 1.6, 0.8);
+  sound(dim, 'firework.blast', mid, 1.2, 0.6);
+  flashArea(dim, mid, 10, 0.35);
+  shakeArea(dim, mid, 30, 0.7, 0.5);
+  if (getSettings().destruction) waveBreak(dim, mid, 10, { filter: isFragile, speed: 2.5, visible: 4, max: 200 });
+}
+
+/** Efeitos do ambiente durante o voo: rastro na agua e no chao, nuvens, mergulho na agua, condensacao. */
+function flightFx(player, st, tick, speed, look) {
+  const dim = player.dimension;
+  const s = getSettings();
+  const l = player.location;
+  const mid = V.add(l, { x: 0, y: 0.9, z: 0 });
+  const rolling = ROLL_STATES.has(st.fly);
+  const fastish = st.fly === FLY.FAST || st.fly === FLY.ROLL_LF || st.fly === FLY.ROLL_RF;
+  const moving = fastish || rolling || st.fly === FLY.FLY;
+  const hv = Math.hypot(st.vel.x, st.vel.z);
+
+  // entrar e sair da agua: respingo grande; dentro dela, bolhas
+  let inWater = false;
+  try { inWater = player.isInWater; } catch (e) { /* */ }
+  if (inWater !== st.inWater && speed > 0.35) {
+    const p = Math.min(2, 0.5 + speed * 0.6);
+    particle(dim, 'superman:water_splash', l, { power: p });
+    particle(dim, 'superman:water_foam', l, { power: p });
+    particle(dim, 'superman:shockwave', V.add(l, { x: 0, y: 0.2, z: 0 }), { radius: 2 + p * 2, color: { r: 0.8, g: 0.92, b: 1 } });
+    sound(dim, 'random.splash', l, 0.6 + p * 0.3, 0.8);
+  }
+  st.inWater = inWater;
+  if (inWater && speed > 0.3 && tick % 2 === 0) particle(dim, 'superman:bubbles', mid);
+
+  // rastro na superficie embaixo do heroi (agua ou chao), mais forte quanto mais baixo e mais rapido
+  if (moving && hv > 0.3 && !inWater) {
+    let hit;
+    try {
+      hit = dim.getBlockFromRay({ x: l.x, y: l.y + 0.05, z: l.z }, { x: 0, y: -1, z: 0 }, {
+        maxDistance: 7, includeLiquidBlocks: true, includePassableBlocks: false,
+      });
+    } catch (e) { /* */ }
+    if (hit) {
+      const id = hit.block.typeId;
+      const top = hit.block.location.y + 1;
+      const h = l.y - top;
+      const k = clamp((7 - h) / 7, 0, 1) * clamp(hv / 0.9, 0.3, 1.8);
+      const surf = { x: l.x, y: top + 0.05, z: l.z };
+      const dir = V.norm({ x: st.vel.x, y: 0, z: st.vel.z });
+      if (id.includes('water')) {
+        if (k > 0.1) particle(dim, 'superman:water_spray', surf, { dir, power: k });
+        if (tick % 2 === 0) particle(dim, 'superman:water_foam', surf, { power: k });
+        if (fastish && h < 3 && tick % 6 === 0) sound(dim, 'random.splash', surf, 0.35, 1.3);
+      } else if (k > 0.15 && tick % 2 === 0) {
+        const kind = debrisKind(id);
+        particle(dim, 'superman:ground_wake', surf, { dir, power: k, color: kind === 'turf' ? { r: 0.47, g: 0.33, b: 0.22 } : debrisColor(id) });
+        if ((kind === 'turf' || kind === 'leaf') && tick % 4 === 0) particle(dim, 'superman:leaf_bits', surf, { color: debrisColor(id), count: 2 });
+        // rasante supersonico corta a vegetacao embaixo
+        if (fastish && h < 2.2 && s.destruction) breakSphere(dim, V.add(surf, { x: 0, y: 0.5, z: 0 }), 1.6, { filter: isFragile, visible: 2, max: 10 });
+      }
+    }
+  }
+
+  // camada de nuvens: atravessar levanta nuvens; dentro dela, o heroi rasga a nuvem
+  if (dim.id === 'minecraft:overworld' && speed > 0.3) {
+    const dy = l.y - CLOUD_Y;
+    if (Math.abs(dy) < 4 && tick % 2 === 0) particle(dim, 'superman:cloud_puff', mid, { count: fastish ? 4 : 2 });
+    const side = Math.sign(dy) || 1;
+    if (st.cloudSide && side !== st.cloudSide && speed > 0.5) {
+      particle(dim, 'superman:cloud_puff', mid, { count: 16 });
+      particle(dim, 'superman:shockwave', mid, { radius: 6, color: { r: 1, g: 1, b: 1 } });
+      sound(dim, 'wind_charge.burst', mid, 1, 0.7);
+    }
+    st.cloudSide = side;
+  }
+
+  // supersonico: linhas de velocidade e dois rastros de condensacao atras das botas
+  if (fastish && speed > 0.8) {
+    particle(dim, 'superman:speed_lines', V.add(mid, V.mul(look, 7)), { dir: look, count: q(st.mach2 ? 9 : 6) });
+    const vd = V.norm(st.vel);
+    let side = V.cross(vd, UP);
+    side = V.len(side) < 0.2 ? V.basis(look).right : V.norm(side);
+    const tail = V.sub(mid, V.mul(vd, 1.1));
+    for (const sg of [-1, 1]) particle(dim, 'superman:contrail', V.add(tail, V.mul(side, 0.32 * sg)), { dir: vd, len: speed });
+  }
 }
 
 // ---------------------------------------------------------------- tick
@@ -237,7 +351,7 @@ function groundTick(player, st, inp, onGround, jumpEdge) {
     if (st.fly !== FLY.SPEED) {
       setFly(player, st, FLY.SPEED);
       sound(dim, 'item.trident.riptide_1', player.location, 0.8, 1.6);
-      particle(dim, 'superman:dust_ring', feet(player), { radius: 1.5 });
+      particle(dim, 'superman:dust_ring', feet(player), { radius: 1.5, color: groundColor(dim, feet(player)) });
     }
     if (st.flyTicks % 4 === 0) effect(player, 'speed', 10, 7);
     const v = player.getVelocity();
@@ -278,7 +392,7 @@ function chargeTick(player, st, inp, onGround, jumpEdge) {
   applyVel(player, { x: 0, y: -0.08, z: 0 });
   if (st.flyTicks === 1) sound(dim, 'respawn_anchor.charge', f, 0.8, 0.8);
   if (st.flyTicks % 3 === 0) particle(dim, 'superman:charge_dust', f, { radius: 0.8 + st.charge * 2 });
-  if (st.flyTicks % 4 === 0 && st.charge > 0.25) particle(dim, 'superman:rising_debris', f, { radius: 1.5 + st.charge * 2.5, color: { r: 0.5, g: 0.42, b: 0.34 } });
+  if (st.flyTicks % 4 === 0 && st.charge > 0.25) particle(dim, 'superman:rising_debris', f, { radius: 1.5 + st.charge * 2.5, color: groundColor(dim, f) });
   if (st.flyTicks % 3 === 0) particle(dim, 'superman:aura', V.add(f, { x: 0, y: 1, z: 0 }), { radius: 0.9 });
   for (const th of [0.35, 0.7, 1.0]) {
     if (prev < th && st.charge >= th) {
@@ -332,7 +446,7 @@ function landHeroTick(player, st) {
     effect(player, 'slowness', 3, 6);
   }
   const dim = player.dimension;
-  if (st.flyTicks === 4 || st.flyTicks === 10) particle(dim, 'superman:dust_ring', feet(player), { radius: 3 });
+  if (st.flyTicks === 4 || st.flyTicks === 10) particle(dim, 'superman:dust_ring', feet(player), { radius: 3, color: groundColor(dim, feet(player)) });
   if (st.flyTicks >= 36) setFly(player, st, FLY.NONE);
 }
 
@@ -346,11 +460,32 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   let acc;
   // visao de calor, sopro e o supremo sao usados pairando: o heroi freia e fica em pe no ar
   const channeling = st.power === POW.HEAT || st.power === POW.FREEZE || st.power === POW.NOVA_CHARGE || st.power === POW.NOVA;
-  if (channeling && (st.fly === FLY.FLY || st.fly === FLY.FAST)) {
+  if (channeling && (st.fly === FLY.FLY || st.fly === FLY.FAST || ROLL_STATES.has(st.fly))) {
     setFly(player, st, FLY.HOVER);
     st.fwdTicks = 0;
     st.stopTicks = 0;
     sound(dim, 'wind_charge.burst', player.location, 0.6, 0.8);
+  }
+  // Mach 2 dura enquanto o supersonico (ou um giro dentro dele) continuar
+  if (st.fly !== FLY.FAST && st.fly !== FLY.ROLL_LF && st.fly !== FLY.ROLL_RF) {
+    st.fastTicks = 0;
+    st.mach2 = false;
+  }
+  // toque duplo para o lado = giro de esquiva
+  if (st.fly === FLY.FLY || st.fly === FLY.FAST) {
+    const sr = inp.right;
+    if (sr !== 0 && st.lastStrafe === 0) {
+      if (st.tapDir === sr && tick - st.tapTick <= 7 && tick >= st.rollReadyAt) {
+        startRoll(player, st, sr, look, tick);
+        st.tapDir = 0;
+      } else {
+        st.tapDir = sr;
+        st.tapTick = tick;
+      }
+    }
+    st.lastStrafe = sr;
+  } else {
+    st.lastStrafe = 0;
   }
 
   switch (st.fly) {
@@ -379,8 +514,12 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       break;
     }
     case FLY.FAST: {
-      target = V.add(V.mul(look, s.fastSpeed), V.mul(right, inp.rightRaw * 0.25));
+      st.fastTicks++;
+      if (!st.mach2 && st.fastTicks >= 50) machTwo(player, st, look);
+      target = V.add(V.mul(look, s.fastSpeed * (st.mach2 ? MACH2 : 1)), V.mul(right, inp.rightRaw * 0.25));
       acc = PHYS.accelFast;
+      // campo de visao abre com a velocidade (efeito de velocidade; respeita a opcao de FOV do jogador)
+      if (st.flyTicks % 4 === 0) effect(player, 'speed', 10, st.mach2 ? 6 : 4);
       st.stopTicks = inp.fwd <= 0 ? st.stopTicks + 1 : 0;
       st.fwdTicks = !inp.sprint ? st.fwdTicks + 1 : 0;
       if (st.stopTicks >= 3) {
@@ -394,6 +533,18 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       particle(dim, 'superman:solar_trail', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look });
       if (st.flyTicks % 12 === 0) particle(dim, 'superman:sonic_boom', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look, radius: 2 });
       if (st.flyTicks % 20 === 0) sound(dim, 'elytra.loop', player.location, 0.6, 1.4);
+      break;
+    }
+    case FLY.ROLL_L:
+    case FLY.ROLL_R:
+    case FLY.ROLL_LF:
+    case FLY.ROLL_RF: {
+      const k = Math.max(0, 1 - st.flyTicks / 9);
+      const base = st.rollFrom === FLY.FAST ? s.fastSpeed * (st.mach2 ? MACH2 : 1) : PHYS.flySpeed;
+      target = V.add(V.add(V.mul(look, base), V.mul(st.rollSide, 1.15 * k)), V.mul(UP, vert * PHYS.flyVertical));
+      acc = 0.35;
+      if (st.flyTicks % 2 === 0) particle(dim, 'superman:wind_trail', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look });
+      if (st.flyTicks >= 9) setFly(player, st, st.rollFrom === FLY.FAST ? FLY.FAST : FLY.FLY);
       break;
     }
     case FLY.DIVE: {
@@ -446,7 +597,7 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
   if (s.destruction && st.fly !== FLY.DIVE && (st.fly === FLY.FAST || speed > 0.75)) {
     const dir = V.norm(st.vel);
     const mid = V.add(player.location, { x: 0, y: 0.9, z: 0 });
-    const radius = st.fly === FLY.FAST ? 2.1 : 1.5;
+    const radius = st.fly === FLY.FAST ? (st.mach2 ? 2.5 : 2.1) : 1.5;
     // posicoes ja verificadas nos ultimos ticks nao sao relidas (esferas se sobrepoem)
     if (st.flyTicks % 8 === 0) st.tunnelSeen.clear();
     let broke = 0;
@@ -457,9 +608,11 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
       if (tick % 3 === 0) sound(dim, 'random.explode', mid, 0.35, 1.5);
       if (broke > 8 && tick % 4 === 0) sound(dim, 'mob.wither.break_block', mid, 0.5, 1.2);
       if (tick % 3 === 0) shake(player, Math.min(0.5, 0.08 + broke * 0.015), 0.2);
-      particle(dim, 'superman:debris_burst', V.add(mid, V.mul(dir, 1.5)), { color: { r: 0.55, g: 0.52, b: 0.5 } });
+      particle(dim, 'superman:debris_dust', V.add(mid, V.mul(dir, 1.5)), { color: { r: 0.6, g: 0.58, b: 0.55 }, count: 3, scale: 1.6 });
     }
   }
+
+  flightFx(player, st, tick, speed, look);
 
   // autocalibracao: ajusta o ganho horizontal para que a velocidade real
   // fique igual a desejada, independente de como o jogo aplica o empurrao
