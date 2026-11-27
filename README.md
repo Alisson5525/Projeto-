@@ -2,7 +2,9 @@
 
 Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
-> **Versão 2.2.0, combate e pilotagem.** O voo não derrapa mais nas curvas: a direção acompanha a câmera na hora e só a velocidade tem inércia. A freada ficou firme e há uma manobra nova, o **looping** (toque duplo no pulo). No combate, chegaram o **soco teleguiado** com mira dourada, **agarrar e arremessar** inimigos que se espatifam no cenário, o **golpe final** que vira projétil e o **estilhaçar** de inimigos congelados.
+> **Versão 2.2.1:** o super soco voltou a ser reto, sem mira automática, e ficou muito mais destrutivo: túnel de até 40 blocos, cratera maior e explosão no fim do túnel.
+>
+> **Versão 2.2.0, combate e pilotagem.** O voo não derrapa mais nas curvas: a direção acompanha a câmera na hora e só a velocidade tem inércia. A freada ficou firme e há uma manobra nova, o **looping** (toque duplo no pulo). No combate, chegaram **agarrar e arremessar** inimigos que se espatifam no cenário, o **golpe final** que vira projétil e o **estilhaçar** de inimigos congelados.
 >
 > **Versão 2.1.0, destruição e voo.** As partículas de destruição foram refeitas em pixel art e mudam conforme o material: pedaços de pedra que quicam, poeira animada da cor do bloco, grãos de areia, lascas de madeira, cacos de vidro que brilham e folhas que caem balançando. O voo ganhou o **giro de esquiva** (toque duplo para o lado), a barreira de **Mach 2**, rastro de spray na água e de poeira no chão em voo rasante, nuvens que se abrem quando você as atravessa, linhas de velocidade e rastros de condensação.
 >
@@ -84,7 +86,6 @@ Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, ginga
 
 ### Poderes de combate
 
-- **Soco teleguiado:** carregue o Super Soco olhando para um inimigo (até 26 blocos). Um **anel dourado** marca o alvo; ao soltar, o herói cruza a distância em super velocidade, deixando um rastro de imagens, e acerta o soco cara a cara.
 - **Agarrar e arremessar:** segure **agachar** e bata num inimigo. O herói o ergue acima da cabeça (dá para voar carregando). Solte o agachar para arremessá-lo para onde estiver olhando. Ele atropela quem estiver no caminho e abre uma cratera quando bate no chão ou numa parede.
 - **Inimigos-projétil:** o golpe final do combo e o super soco bem carregado também transformam o inimigo num projétil que se espatifa no cenário.
 - **Estilhaçar:** inimigos congelados pelo sopro (ou presos na jaula de gelo) se partem em cacos de gelo no próximo golpe, com dano extra.
@@ -98,7 +99,7 @@ Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, ginga
 | **Poder: Voo** | no chão faz a decolagem automática; voando faz pousar |
 | **Poder: Visão de Calor** | toque para ligar e de novo para desligar (até 15 s). O raio tem 80 blocos e **atravessa todos os inimigos no caminho**. Derrete uma **área** inteira: pedra vira magma e depois lava, areia vira vidro, terra vira magma, madeira pega fogo. Espalha fogo e, se você mirar no mesmo ponto, gera uma **explosão derretida** a cada 1,5 s. |
 | **Poder: Sopro Congelante** | toque para usar (até 10 s). Ele inspira e sopra um cone de **26 blocos** com vendaval que empurra. Os inimigos ficam congelados (lentidão forte, fraqueza e dano). Quem ficar mais de 1 s no sopro é **preso numa jaula de gelo**. Água vira gelo (e gelo compactado), lava vira obsidiana, plantas viram neve e o chão fica coberto de neve e geada. |
-| **Poder: Super Soco** | toque para carregar (até 2 s) e de novo para soltar. Alcance de até 20 blocos, abre túneis largos na pedra e arremessa inimigos muito longe. |
+| **Poder: Super Soco** | toque para carregar (até 2 s) e de novo para soltar. O soco vai reto para onde você olha: atinge inimigos a até 40 blocos, abre uma cratera de até 8 blocos de raio, estilhaça vidros e folhas em volta e manda um **túnel de até 5 blocos de raio** que avança em onda pela montanha e **explode no fim**. Inimigos atingidos com o soco carregado voam e se espatifam no cenário. |
 | **Poder: Impacto** | no chão é a **palma trovão** (onda de 24 blocos que arremessa inimigos e estilhaça vidros e folhas); agachado é a **pancada no chão** (cratera grande); voando é o **mergulho meteoro**, que termina num **pouso de herói** com cratera na superfície; **agachado voando** é a **Explosão Solar** (veja abaixo). |
 
 ### Explosão Solar (supremo)
@@ -237,7 +238,7 @@ tools/gen_fx_atlas.py     folha de sprites em pixel art das partículas de destr
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (157 verificações)
+tools/simulate/           roda os scripts num mundo simulado (160 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos

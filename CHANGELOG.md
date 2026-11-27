@@ -1,5 +1,18 @@
 # Histórico de mudanças
 
+## 2.2.1 — Super soco reto e mais destrutivo
+
+- O super soco **não tem mais mira automática**: ele vai reto para onde você olha e o herói não é puxado até o inimigo (a mira dourada e a investida foram removidas).
+- **Muito mais alcance e área:**
+  - inimigos atingidos a até 40 blocos (antes 20), numa faixa mais larga;
+  - cratera no impacto de até 8 blocos de raio (antes 6);
+  - túnel de até 5 blocos de raio (antes 3,3) que avança em onda pela montanha até cerca de 48 blocos;
+  - explosão no fim do túnel com o soco bem carregado;
+  - vidros, folhas e plantas estilhaçam num raio de até 11 blocos em volta do impacto;
+  - mais ondas de choque ao longo do soco, poeira e anéis no túnel;
+  - a onda de ar empurra quem estiver perto da linha do soco.
+- Na intensidade "devastador", o túnel fica ainda mais largo.
+
 ## 2.2.0 — Combate e pilotagem
 
 **Voo**
@@ -10,7 +23,7 @@
 - Redemoinhos de ar saem dos ombros nas curvas fortes.
 
 **Combate**
-- **Soco teleguiado:** mira dourada sobre o inimigo enquanto o Super Soco carrega; ao soltar, investida em super velocidade com rastro de imagens até o alvo.
+- ~~Soco teleguiado~~ (removido na 2.2.1).
 - **Agarrar e arremessar:** agachado + bater ergue o inimigo acima da cabeça (com animações novas de agarrar e arremessar); soltar o agachar arremessa para onde o herói olha. Dá para voar carregando o inimigo.
 - **Inimigos-projétil:** arremessados, atingidos pelo golpe final ou por um super soco forte voam, atropelam outros inimigos e abrem cratera ao bater no chão ou numa parede.
 - **Estilhaçar:** inimigos congelados se partem em cacos de gelo no próximo golpe (dano extra e a jaula de gelo se desfaz).

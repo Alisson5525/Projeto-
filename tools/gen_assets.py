@@ -17,7 +17,7 @@ RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [2, 2, 0]
+VERSION = [2, 2, 1]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
@@ -826,28 +826,6 @@ def particles():
         "minecraft:particle_appearance_billboard": billboard(["0.7 + v.particle_random_1 * 0.6", 0.03], "streak", "lookat_direction",
                                                              {"mode": "derive_from_velocity", "min_speed_threshold": 0.01}),
         "minecraft:particle_appearance_tinting": {"color": [1, 1, 1, "0.65 * (1.0 - v.particle_age / v.particle_lifetime)"]},
-    })
-
-    # mira do soco teleguiado: anel dourado pulsando sobre o alvo
-    E["lock_on"] = P("lock_on", "particles_add", {
-        "minecraft:emitter_rate_instant": {"num_particles": 1},
-        **once(),
-        "minecraft:emitter_shape_point": {},
-        **life("0.14"),
-        "minecraft:particle_initial_speed": 0,
-        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": 240},
-        "minecraft:particle_appearance_billboard": billboard(["1.45 - v.particle_age * 1.5", "1.45 - v.particle_age * 1.5"], "thinring"),
-        "minecraft:particle_appearance_tinting": {"color": [1, 0.8, 0.3, 0.9]},
-    })
-    E["afterimage"] = P("afterimage", "particles_add", {
-        "minecraft:emitter_rate_instant": {"num_particles": 3},
-        **once(),
-        "minecraft:emitter_shape_box": {"half_dimensions": [0.25, 0.9, 0.25], "direction": [0, 0, 0]},
-        **life("math.random(0.25, 0.4)"),
-        "minecraft:particle_initial_speed": 0,
-        "minecraft:particle_appearance_billboard": billboard(["0.9 * (1.0 - v.particle_age / v.particle_lifetime) + 0.2",
-                                                             "0.9 * (1.0 - v.particle_age / v.particle_lifetime) + 0.2"], "glow"),
-        "minecraft:particle_appearance_tinting": {"color": [1, 0.75, 0.35, "0.5 * (1.0 - v.particle_age / v.particle_lifetime)"]},
     })
 
     out_dir = os.path.join(RP, "particles")

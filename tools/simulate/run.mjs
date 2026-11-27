@@ -310,22 +310,37 @@ section('soco teleguiado, agarrar e arremessar, estilhacar');
       tick(1);
     }
   };
-  // soco teleguiado: inimigo a 14 blocos na mira
+  // super soco reto (sem mira automatica): o heroi nao sai do lugar e o soco alcanca longe em linha reta
   p.rot = { x: 0, y: 0 };
   tick(5);
   const px = p.location.x, pz = p.location.z, py = p.location.y;
-  for (let x = -2; x <= 2; x++) for (let y = 0; y < 4; y++) for (let z = 1; z < 20; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: Math.floor(pz) + z }, 'minecraft:air');
-  const far = new Entity('minecraft:zombie', { x: px, y: py, z: pz + 14 });
-  const lock0 = LOG.particles['superman:lock_on'] || 0;
-  use(p, 'superman:super_soco'); tick(25);
-  check((LOG.particles['superman:lock_on'] || 0) > lock0, 'mira dourada sobre o inimigo durante a carga');
+  for (let x = -2; x <= 2; x++) for (let y = 0; y < 4; y++) for (let z = 1; z < 30; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: Math.floor(pz) + z }, 'minecraft:air');
+  const far = new Entity('minecraft:zombie', { x: px, y: py, z: pz + 22 });
+  const side = new Entity('minecraft:zombie', { x: px + 8, y: py, z: pz + 6 });
+  use(p, 'superman:super_soco'); tick(32);
   use(p, 'superman:super_soco'); tick(1);
-  check(V3dist(p.location, far.location) < 3, `investida ate o inimigo (ficou a ${V3dist(p.location, far.location).toFixed(1)} blocos)`);
+  check(V3dist(p.location, { x: px, y: py, z: pz }) < 0.6, 'o heroi nao e puxado ate o inimigo (sem mira automatica)');
   tick(4);
-  check(far.health < 20, 'o soco teleguiado acertou');
+  check(far.health < 20, 'soco carregado alcanca um inimigo a 22 blocos em linha reta');
+  check(side.health === 20, 'inimigo fora da linha do soco nao e atingido');
   check(Math.hypot(far.vel.x, far.vel.z) > 1.5, 'inimigo arremessado pelo soco');
-  far.remove();
+  far.remove(); side.remove();
   tick(15);
+  // tunel longo e largo: parede de pedra a 12 blocos, com 30 de espessura
+  const wz0 = Math.floor(pz) + 12;
+  for (let x = -7; x <= 7; x++) for (let y = -5; y <= 8; y++) for (let z = 0; z < 30; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: wz0 + z }, 'minecraft:stone');
+  const ex1 = LOG.explosions.length;
+  use(p, 'superman:super_soco'); tick(32);
+  use(p, 'superman:super_soco'); tick(60);
+  let deepest = 0, widest = 0;
+  for (let z = 0; z < 30; z++) if (overworld.typeAt(Math.floor(px), Math.floor(py) + 1, wz0 + z) === 'minecraft:air') deepest = z + 1;
+  for (let x = 0; x <= 7; x++) if (overworld.typeAt(Math.floor(px) + x, Math.floor(py) + 1, wz0 + 15) === 'minecraft:air') widest = x;
+  origWarn(`  tunel do soco: ${deepest} blocos de comprimento, raio ${widest}`);
+  check(deepest >= 24, `tunel longo atravessa a montanha (${deepest} blocos)`);
+  check(widest >= 3, `tunel largo (raio ${widest})`);
+  check(LOG.explosions.length >= ex1 + 2, 'cratera no impacto e explosao no fim do tunel');
+  for (let x = -7; x <= 7; x++) for (let y = -5; y <= 8; y++) for (let z = 0; z < 30; z++) overworld.set({ x: Math.floor(px) + x, y: Math.floor(py) + y, z: wz0 + z }, 'minecraft:air');
+  tick(10);
   // agarrar e arremessar
   const ex0 = LOG.explosions.length;
   const foe = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 1.5 });

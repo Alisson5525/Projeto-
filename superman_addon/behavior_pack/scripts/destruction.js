@@ -300,10 +300,13 @@ export function waveLine(dim, origin, dir, from, to, radius, opts = {}) {
         const p = V.add(origin, V.mul(dir, d));
         const blocks = sphereBlocks(dim, p, radius, opts.filter, seen);
         used += Math.ceil((2 * radius + 1) ** 3 / 2);
-        breakBlocks(dim, blocks, { visible: opts.visible ?? 3, max: opts.max ?? 60 });
+        breakBlocks(dim, blocks, { visible: opts.visible ?? 3, max: opts.max ?? 60, power: opts.power, debrisEvery: opts.debrisEvery });
+        if (opts.onStep) opts.onStep(p, d);
         d += step;
       }
       this.done = d > to;
+      // a onda chegou ao fim do tunel
+      if (this.done && opts.onEnd) opts.onEnd(V.add(origin, V.mul(dir, to)));
       return used;
     },
   });

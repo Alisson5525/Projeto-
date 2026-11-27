@@ -1,4 +1,4 @@
-// Poderes de combate: soco teleguiado, agarrar e arremessar, inimigos-projetil e estilhacar congelados.
+// Poderes de combate: agarrar e arremessar, inimigos-projetil e estilhacar congelados.
 import { EntityDamageCause } from '@minecraft/server';
 import { POW, getSettings } from './config.js';
 import { blast, groundColor } from './destruction.js';
@@ -12,68 +12,6 @@ const NO_GRAB = new Set(['minecraft:ender_dragon', 'minecraft:wither', 'minecraf
 const ICE_RE = /^minecraft:(ice|packed_ice|blue_ice)$/;
 
 const center = (e) => V.add(e.location, { x: 0, y: 0.9, z: 0 });
-
-// ---------------------------------------------------------------- mira
-
-/** Inimigo mais bem alinhado com o olhar, ate `max` blocos (cone estreito). */
-export function findTarget(player, max = 26, minCos = 0.965) {
-  const eye = player.getHeadLocation();
-  const dir = player.getViewDirection();
-  let best;
-  let bestScore = -1;
-  try {
-    for (const e of player.dimension.getEntities({ location: V.add(eye, V.mul(dir, max / 2)), maxDistance: max / 2 + 2 })) {
-      if (!canHit(player, e)) continue;
-      const rel = V.sub(center(e), eye);
-      const d = V.len(rel);
-      if (d < 2.5 || d > max) continue;
-      const c = V.dot(rel, dir) / d;
-      if (c < minCos) continue;
-      const score = c - d * 0.002;
-      if (score > bestScore) { bestScore = score; best = e; }
-    }
-  } catch (err) { /* */ }
-  return best;
-}
-
-/** Anel dourado sobre o alvo enquanto o soco carrega. */
-export function markTarget(player, target) {
-  try { particle(player.dimension, 'superman:lock_on', center(target)); } catch (e) { /* */ }
-}
-
-/** Investida em super velocidade ate ficar cara a cara com o alvo. */
-export function homingDash(player, target) {
-  const dim = player.dimension;
-  try {
-    const from = player.location;
-    const tc = center(target);
-    const flat = V.norm({ x: tc.x - from.x, y: 0, z: tc.z - from.z });
-    let dest = V.sub({ x: target.location.x, y: target.location.y, z: target.location.z }, V.mul(flat, 1.7));
-    // nao termina dentro de blocos: recua pelo caminho ate achar espaco livre
-    const path = V.sub(dest, from);
-    const L = V.len(path);
-    for (let k = 1; k >= 0; k -= 0.1) {
-      const p = V.add(from, V.mul(path, k));
-      const a = dim.getBlock({ x: p.x, y: p.y + 0.2, z: p.z });
-      const b = dim.getBlock({ x: p.x, y: p.y + 1.2, z: p.z });
-      if ((!a || a.isAir || a.isLiquid) && (!b || b.isAir || b.isLiquid)) { dest = p; break; }
-    }
-    const dir = V.norm(V.sub(dest, from));
-    // rastro: imagens do heroi que ficam para tras e linhas de vento
-    for (let d = 0; d < L; d += 1.4) {
-      const p = V.add(from, V.mul(dir, d));
-      particle(dim, 'superman:afterimage', V.add(p, { x: 0, y: 0.9, z: 0 }));
-      if (d % 2.8 < 1.4) particle(dim, 'superman:speed_trail', V.add(p, { x: 0, y: 0.9, z: 0 }), { dir });
-    }
-    particle(dim, 'superman:sonic_boom', V.add(from, { x: 0, y: 0.9, z: 0 }), { dir, radius: 2 });
-    sound(dim, 'item.trident.riptide_2', from, 1, 1.4);
-    sound(dim, 'mob.phantom.swoop', dest, 1, 1.6);
-    player.teleport(dest, { facingLocation: tc, keepVelocity: false });
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
 
 // ---------------------------------------------------------------- congelados e estilhacar
 

@@ -1,11 +1,11 @@
 import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system } from '@minecraft/server';
-import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings } from './config.js';
+import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings, intensityMul } from './config.js';
 import { blast, breakBlocks, debrisColor, debrisKind, groundColor, isBreakable, isFragile, spawnDebris, waveBreak, waveLine } from './destruction.js';
 import { startDive, stopAll, toggleFlight } from './flight.js';
 import { actionbar, flash, flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, setOn, setPower, sync } from './state.js';
 import { canHit, hurt, nearby, pushMobs } from './targets.js';
-import { canGrab, findTarget, grabTick, homingDash, launchProjectile, markFrozen, markTarget, shatter, startGrab, throwTick, updateProjectiles } from './combat.js';
+import { canGrab, grabTick, launchProjectile, markFrozen, shatter, startGrab, throwTick, updateProjectiles } from './combat.js';
 import { openSettings } from './ui.js';
 import { V } from './vec.js';
 
@@ -47,7 +47,7 @@ const LORE = {
   [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
   [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
   [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força',
-    '§6Mirando um inimigo: soco teleguiado', '§7Inimigos congelados se estilhaçam'],
+    '§7Abre um túnel de até 40 blocos', '§7Inimigos congelados se estilhaçam'],
   [ITEM.IMPACT]: ['§7No chão: palma trovão', '§7Agachado: pancada no chão', '§7Voando: mergulho meteoro',
     '§6Agachado voando: EXPLOSÃO SOLAR'],
 };
@@ -219,7 +219,6 @@ function tutorial(player) {
     '§e• Pousar:§f desça até o chão  §8|  §eSuper velocidade:§f correr',
     '§e• Combate:§f 6 golpes no chão e 3 no ar; o golpe final arremessa',
     '§e• Agarrar:§f agachado, bata num inimigo; solte o agachar para arremessar',
-    '§e• Soco teleguiado:§f carregue o Super Soco mirando um inimigo',
     '§e• Looping:§f toque duas vezes no pulo voando',
     '§e• Poderes:§f itens da barra (cada um tem uma descrição)',
     '§6• Explosão Solar:§f voando, agache e use o Impacto',
@@ -651,11 +650,6 @@ function chargeTick(player, st) {
   const { fwd, right } = V.basis(look);
   const fist = V.add(player.location, V.add(V.add(V.mul(right, 0.45), V.mul(fwd, -0.35)), { x: 0, y: 1.05, z: 0 }));
   if (t % 2 === 0) particle(dim, 'superman:charge_energy', fist, { power: st.charge });
-  // mira: o alvo alinhado com o olhar ganha um anel dourado (o soco vai ate ele)
-  if (t % 2 === 0) {
-    st.punchTarget = findTarget(player);
-    if (st.punchTarget) markTarget(player, st.punchTarget);
-  }
   if (t % 4 === 0 && st.charge > 0.5) particle(dim, 'superman:aura', V.add(player.location, { x: 0, y: 1, z: 0 }), { radius: 0.9 });
   if (t === 1) sound(dim, 'crossbow.quick_charge.start', fist, 1, 0.8);
   if (t === 12) sound(dim, 'crossbow.quick_charge.middle', fist, 1, 0.8);
@@ -667,10 +661,6 @@ function chargeTick(player, st) {
 
 function releasePunch(player, st) {
   st.punchCharge = Math.max(0.15, st.charge);
-  // soco teleguiado: com um inimigo na mira, o heroi atravessa a distancia em super velocidade
-  const tgt = st.punchTarget && st.punchTarget.isValid ? st.punchTarget : findTarget(player);
-  st.punchTarget = undefined;
-  if (tgt && canHit(player, tgt)) homingDash(player, tgt);
   setPower(player, st, POW.PUNCH);
   st.charge = 0;
 }
@@ -681,7 +671,9 @@ function punchImpact(player, st) {
   const dim = player.dimension;
   const origin = player.getHeadLocation();
   const dir = player.getViewDirection();
-  const range = 4.5 + 15 * c;
+  // alcance e largura do soco: ate 40 blocos de tunel e cratera de ate 8 blocos de raio
+  const range = 8 + 32 * c;
+  const width = 2.5 + 2.5 * c;
   const fistPos = V.add(V.add(origin, V.mul(dir, 1.3)), { x: 0, y: -0.3, z: 0 });
   // entidades no caminho do soco
   try {
@@ -689,8 +681,8 @@ function punchImpact(player, st) {
     for (const e of nearby(player, mid, range / 2 + 2.5)) {
       const rel = V.sub(V.add(e.location, { x: 0, y: 0.9, z: 0 }), origin);
       const along = V.dot(rel, dir);
-      if (along < 0 || along > range + 1.5) continue;
-      if (V.len(V.sub(rel, V.mul(dir, along))) > 2 + 1.5 * c) continue;
+      if (along < 0 || along > range + 2) continue;
+      if (V.len(V.sub(rel, V.mul(dir, along))) > width) continue;
       try {
         shatter(player, e, system.currentTick);
         hurt(player, e, 14 + 46 * c);
@@ -706,26 +698,52 @@ function punchImpact(player, st) {
   if (hit) {
     const hp = V.add(hit.block.location, hit.faceLocation);
     const hd = V.dist(origin, hp);
-    blast(dim, hp, 2 + 4 * c, player);
+    blast(dim, hp, 3 + 5 * c, player);
     const hid = hit.block.typeId;
     particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hid), scale: 1 + c * 0.6 });
     spawnDebris(dim, hp, hid, 2 + c);
-    particle(dim, 'superman:dust_wall', hp, { radius: 2 + 3 * c, color: debrisColor(hid) });
+    particle(dim, 'superman:dust_wall', hp, { radius: 3 + 4 * c, color: debrisColor(hid) });
+    particle(dim, 'superman:ground_crack', V.sub(hp, V.mul(dir, 0.05)), { radius: 3 + 4 * c });
+    // estilhaca vidros, folhas e plantas em volta do impacto
+    waveBreak(dim, hp, 5 + 6 * c, { filter: isFragile, speed: 2.5, visible: 4, max: 220 });
     if (debrisKind(hid) === 'stone') particle(dim, 'superman:sparks', hp, { count: 10 + Math.round(c * 14) });
-    // o tunel avanca em onda a partir do ponto de impacto
-    if (c > 0.3) waveLine(dim, origin, dir, hd + 1.2, range + 3 * c, 1.3 + 2 * c, { speed: 3, visible: 3 });
+    // o tunel avanca em onda a partir do ponto de impacto e explode no fim
+    if (c > 0.2) {
+      const tr = Math.min(6, (1.8 + 3.2 * c) * Math.sqrt(intensityMul()));
+      const end = range + 8 * c;
+      waveLine(dim, origin, dir, hd + 1, end, tr, {
+        speed: 4, visible: 3, max: 220, power: 1 + c, debrisEvery: 4,
+        onStep: (p, d) => {
+          if (Math.round(d / 1.4) % 4 === 0) {
+            particle(dim, 'superman:sonic_boom', p, { dir, radius: tr + 1 });
+            particle(dim, 'superman:dust_wall', p, { radius: tr, color: debrisColor(hid) });
+          }
+        },
+        onEnd: (p) => {
+          if (c < 0.5) return;
+          blast(dim, p, 3 + 4 * c, player);
+          particle(dim, 'superman:impact_flash', p, { radius: 3 + 3 * c });
+          particle(dim, 'superman:debris_burst', p, { color: debrisColor(hid), scale: 1.5 });
+          ringBurst(dim, p, [4 + 3 * c, 7 + 5 * c], { r: 1, g: 0.9, b: 0.75 }, 3);
+          sound(dim, 'random.explode', p, 1.4, 0.8);
+          shakeArea(dim, p, 30, 0.6 * c, 0.5);
+        },
+      });
+    }
   }
   particle(dim, 'superman:impact_flash', fistPos, { radius: 1.5 + 2 * c });
   particle(dim, 'superman:punch_wave', fistPos, { dir, power: c });
-  for (let i = 0; i < 2 + Math.round(3 * c); i++) {
-    later(i * 2 + 1, () => particle(dim, 'superman:sonic_boom', V.add(fistPos, V.mul(dir, 1 + i * 2.5)), { dir, radius: 1 + 2.5 * c + i * 0.6 }));
+  for (let i = 0; i < 3 + Math.round(5 * c); i++) {
+    later(i * 2 + 1, () => particle(dim, 'superman:sonic_boom', V.add(fistPos, V.mul(dir, 1 + i * 3)), { dir, radius: 1.5 + 3 * c + i * 0.7 }));
   }
+  // onda de ar do soco empurra quem estiver perto da linha, mesmo fora do alvo
+  pushMobs(player, V.add(fistPos, V.mul(dir, 3)), 4 + 4 * c, 1 + 2 * c, 0.4 + 0.4 * c, 0);
   if (c > 0.7) flashArea(dim, fistPos, 10, 0.4);
   sound(dim, 'game.player.attack.strong', fistPos, 1, 0.8);
   sound(dim, 'random.explode', fistPos, 0.5 + 0.6 * c, 1.3 - 0.4 * c);
   if (c > 0.5) sound(dim, 'mob.warden.sonic_boom', fistPos, 0.6 + 0.6 * c, 1.2);
-  shake(player, 0.2 + 0.8 * c, 0.35 + 0.3 * c);
-  shakeArea(dim, fistPos, 16, 0.4 * c, 0.4);
+  shake(player, 0.2 + 0.9 * c, 0.4 + 0.3 * c);
+  shakeArea(dim, fistPos, 24, 0.5 * c, 0.5);
 }
 
 // ---------------------------------------------------------------- palma trovao e pancada no chao
