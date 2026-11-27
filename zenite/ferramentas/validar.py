@@ -66,8 +66,10 @@ def json_de(p: Path):
 
 # ------------------------------------------------------------------ vanilla
 IDS_VANILLA: set[str] = set()
+# Ids que existem no jogo mas não são exportados pelo @minecraft/vanilla-data.
+IDS_VANILLA_EXTRA = {"minecraft:end_gateway", "minecraft:item", "minecraft:leash_knot", "minecraft:falling_block"}
 if VANILLA_DATA.exists():
-    IDS_VANILLA = set(re.findall(r'"(minecraft:[a-z0-9_.]+)"', VANILLA_DATA.read_text(encoding="utf-8")))
+    IDS_VANILLA = set(re.findall(r'"(minecraft:[a-z0-9_.]+)"', VANILLA_DATA.read_text(encoding="utf-8"))) | IDS_VANILLA_EXTRA
 else:
     aviso("node_modules/@minecraft/vanilla-data ausente: ids vanilla não serão checados (rode npm install)")
 

@@ -157,7 +157,7 @@ export const BLOCOS_PROTEGIDOS = Object.freeze(new Set([
 
 /** @param {string} typeId */
 export function blocoProtegido(typeId) {
-  return BLOCOS_PROTEGIDOS.has(typeId) || typeId.endsWith('shulker_box') || typeId.startsWith('minecraft:light_block');
+  return BLOCOS_PROTEGIDOS.has(typeId) || /shulker_box$/.test(typeId) || /^minecraft:light_block/.test(typeId);
 }
 
 /** Tipos que as técnicas nunca afetam como alvo. */

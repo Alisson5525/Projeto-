@@ -1,0 +1,54 @@
+{
+  "resource_pack_name": "zenite",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "zenite_astrolabio": {
+      "textures": "textures/items/zenite/astrolabio"
+    },
+    "zenite_codice": {
+      "textures": "textures/items/zenite/codice"
+    },
+    "zenite_poeira_estelar": {
+      "textures": "textures/items/zenite/poeira_estelar"
+    },
+    "zenite_selo_eclipse": {
+      "textures": "textures/items/zenite/selo_eclipse"
+    },
+    "zenite_coracao_firmamento": {
+      "textures": "textures/items/zenite/coracao_firmamento"
+    },
+    "zenite_diadema": {
+      "textures": "textures/items/zenite/diadema"
+    },
+    "zenite_manto": {
+      "textures": "textures/items/zenite/manto"
+    },
+    "zenite_perneiras": {
+      "textures": "textures/items/zenite/perneiras"
+    },
+    "zenite_botas": {
+      "textures": "textures/items/zenite/botas"
+    },
+    "zenite_sigilo_veu": {
+      "textures": "textures/items/zenite/sigilo_veu"
+    },
+    "zenite_sigilo_poco": {
+      "textures": "textures/items/zenite/sigilo_poco"
+    },
+    "zenite_sigilo_nova": {
+      "textures": "textures/items/zenite/sigilo_nova"
+    },
+    "zenite_sigilo_passo": {
+      "textures": "textures/items/zenite/sigilo_passo"
+    },
+    "zenite_sigilo_reversao": {
+      "textures": "textures/items/zenite/sigilo_reversao"
+    },
+    "zenite_sigilo_horizonte": {
+      "textures": "textures/items/zenite/sigilo_horizonte"
+    },
+    "zenite_sigilo_abobada": {
+      "textures": "textures/items/zenite/sigilo_abobada"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.zenite.arconte": {
+      "arrays": {
+        "textures": {
+          "Array.pele": [ "Texture.default", "Texture.furia" ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.pele[query.property('zenite:fase') == 3 ? 1 : 0]" ]
+    }
+  }
+}

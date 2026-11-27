@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "zenite:abobada"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 4.0,
+        "fog_end": 38.0,
+        "fog_color": "#170a30",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": 4.0,
+        "fog_end": 38.0,
+        "fog_color": "#170a30",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

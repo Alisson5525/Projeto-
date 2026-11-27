@@ -306,9 +306,9 @@ def ossos_diadema() -> list[Osso]:
         Cubo((-1, 27.5, -5.6), (2, 3, 1), "gema"),
         Cubo((-5.1, 28.5, -0.5), (1, 2, 1), "ponta", grupo_uv="ponta"),
         Cubo((4.1, 28.5, -0.5), (1, 2, 1), "ponta", grupo_uv="ponta"),
-        *halo,
     ])
-    return [waist, body, head]
+    aureola = Osso("aureola", (0, 35, 0), "head", halo)
+    return [waist, body, head, aureola]
 
 
 def pintores_diadema() -> dict[str, Pintor]:

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.zenite.arconte.flutuar": {
+      "loop": true,
+      "bones": {
+        "root": { "position": [ 0, "2.0 + math.sin(query.life_time * 120) * 1.2", 0 ] },
+        "halo": { "rotation": [ 0, "query.life_time * 45", 0 ] },
+        "crown": { "rotation": [ 0, 0, "query.life_time * 18" ] },
+        "shards": {
+          "rotation": [ 0, "query.life_time * -70", 0 ],
+          "position": [ 0, "math.sin(query.life_time * 90) * 1.5", 0 ]
+        },
+        "cape": { "rotation": [ "6 + math.sin(query.life_time * 100) * 4", 0, 0 ] },
+        "rightArm": { "rotation": [ "math.sin(query.life_time * 80) * 5", 0, 6 ] },
+        "leftArm": { "rotation": [ "-math.sin(query.life_time * 80) * 5", 0, -6 ] }
+      }
+    },
+    "animation.zenite.arconte.mover": {
+      "loop": true,
+      "bones": {
+        "body": { "rotation": [ 12, 0, 0 ] },
+        "cape": { "rotation": [ 22, 0, 0 ] }
+      }
+    },
+    "animation.zenite.arconte.conjurar": {
+      "loop": true,
+      "bones": {
+        "rightArm": { "rotation": [ -150, 0, 25 ] },
+        "leftArm": { "rotation": [ -150, 0, -25 ] },
+        "body": { "rotation": [ -6, 0, 0 ] },
+        "shards": { "rotation": [ 0, "query.life_time * -300", 0 ] }
+      }
+    },
+    "animation.zenite.arconte.feixe": {
+      "loop": true,
+      "bones": {
+        "rightArm": { "rotation": [ -85, -12, 0 ] },
+        "leftArm": { "rotation": [ -85, 12, 0 ] },
+        "crown": { "rotation": [ 0, 0, "query.life_time * 400" ] },
+        "body": { "rotation": [ 5, 0, 0 ] }
+      }
+    },
+    "animation.zenite.arconte.ataque": {
+      "loop": true,
+      "bones": {
+        "rightArm": { "rotation": [ "math.sin(math.sqrt(variable.attack_time) * 180) * -100", 0, 0 ] },
+        "leftArm": { "rotation": [ "math.sin(math.sqrt(variable.attack_time) * 180) * -100", 0, 0 ] }
+      }
+    }
+  }
+}

@@ -28,7 +28,7 @@ test('HUD indica Véu ativo, Abóbada e canalização', () => {
 
 test('HUD no criativo mostra Éter infinito', () => {
   const t = texto(montarHud({ eter: 100, max: 100, tecnica: 'nova', prontaEm: 0, glifos: false, infinito: true }));
-  assert.match(t, /\{zenite\.hud\.infinito\}/);
+  assert.match(t, /\{zenite\.hud\.criativo\}/);
   assert.doesNotMatch(t, /100\/100/);
 });
 

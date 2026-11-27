@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "zenite:arconte",
+      "materials": { "default": "entity_emissive_alpha" },
+      "textures": {
+        "default": "textures/entity/zenite/arconte",
+        "furia": "textures/entity/zenite/arconte_furia"
+      },
+      "geometry": { "default": "geometry.zenite.arconte" },
+      "animations": {
+        "flutuar": "animation.zenite.arconte.flutuar",
+        "mover": "animation.zenite.arconte.mover",
+        "conjurar": "animation.zenite.arconte.conjurar",
+        "feixe": "animation.zenite.arconte.feixe",
+        "ataque": "animation.zenite.arconte.ataque",
+        "olhar": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "flutuar",
+          { "mover": "math.clamp(query.modified_move_speed * 2.5, 0, 1)" },
+          "olhar",
+          { "conjurar": "query.property('zenite:estado') == 1 || query.property('zenite:estado') == 2" },
+          { "feixe": "query.property('zenite:estado') == 3" },
+          { "ataque": "variable.attack_time > 0" }
+        ]
+      },
+      "render_controllers": [ "controller.render.zenite.arconte" ],
+      "spawn_egg": { "base_color": "#1a0b2e", "overlay_color": "#ffd24a" },
+      "enable_attachables": false
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "flipbook_texture": "textures/blocks/zenite/firmamento",
+    "atlas_tile": "zenite_firmamento",
+    "ticks_per_frame": 3,
+    "blend_frames": true
+  }
+]

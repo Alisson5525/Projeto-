@@ -41,7 +41,7 @@ export function montarHud(e) {
   const r = [];
   const sep = { text: '  §8|  ' };
   if (e.infinito) {
-    r.push({ text: e.glifos ? `§f${GLIFO.eter} §e` : '§e✦ ' }, { translate: 'zenite.hud.eter' }, { text: ' ' }, { translate: 'zenite.hud.infinito' });
+    r.push({ text: e.glifos ? `§f${GLIFO.eter} §e` : '§e✦ ' }, { translate: 'zenite.hud.eter' }, { text: ' ' }, { translate: 'zenite.hud.criativo' });
   } else {
     r.push(
       { text: e.glifos ? `§f${GLIFO.eter} ` : '§b✦ ' },
