@@ -217,3 +217,11 @@ test('chaves de idioma montadas em tempo de execução existem nas duas línguas
   assert.deepEqual(faltando(chaves), []);
   assert.deepEqual(faltando(['zenite.codice.inicio.99']), ['zenite.codice.inicio.99'], 'a checagem detecta chave inexistente');
 });
+
+test('comandos sem parâmetros não enviam mandatoryParameters indefinido', () => {
+  for (const [nome, { def }] of system.__comandos) {
+    if (Object.prototype.hasOwnProperty.call(def, 'mandatoryParameters')) {
+      assert.ok(Array.isArray(def.mandatoryParameters), `${nome}: mandatoryParameters deve ser lista quando presente`);
+    }
+  }
+});

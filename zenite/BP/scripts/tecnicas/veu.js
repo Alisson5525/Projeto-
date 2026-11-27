@@ -78,6 +78,16 @@ function manter(p, e, agora) {
 }
 
 export function iniciarVeu() {
+  world.afterEvents.entityDie.subscribe((ev) => {
+    try {
+      const p = /** @type {import('@minecraft/server').Player} */ (ev.deadEntity);
+      if (p.typeId !== 'minecraft:player') return;
+      const e = obterEstado(p);
+      if (e.veu) desligar(p, e);
+    } catch {
+      /* ignora */
+    }
+  });
   system.runInterval(() => {
     const agora = system.currentTick;
     for (const p of world.getAllPlayers()) {

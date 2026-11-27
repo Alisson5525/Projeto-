@@ -16,14 +16,16 @@ export function registrarComandos(reg) {
    * @param {import('@minecraft/server').CustomCommandParameter[]} [obrigatorios]
    */
   const comando = (nome, descricao, trapaca, fn, obrigatorios) => {
+    /** @type {import('@minecraft/server').CustomCommand} */
+    const def = {
+      name: nome,
+      description: descricao,
+      permissionLevel: trapaca ? CommandPermissionLevel.GameDirectors : CommandPermissionLevel.Any,
+      cheatsRequired: trapaca,
+    };
+    if (obrigatorios) def.mandatoryParameters = obrigatorios;
     reg.registerCommand(
-      {
-        name: nome,
-        description: descricao,
-        permissionLevel: trapaca ? CommandPermissionLevel.GameDirectors : CommandPermissionLevel.Any,
-        cheatsRequired: trapaca,
-        mandatoryParameters: obrigatorios,
-      },
+      def,
       (origem, ...args) => {
         const p = origem.sourceEntity ?? origem.initiator;
         if (!p || p.typeId !== 'minecraft:player') return { status: CustomCommandStatus.Failure, message: 'Zênite: use este comando como jogador.' };

@@ -209,3 +209,15 @@ test('abobada limpa ao sair e na recarga', () => {
   assert.equal(firmamentos(), 0, 'cúpula esquecida removida');
   assert.equal(world.getDynamicProperty('zenite:abobadas_pendentes'), '[]');
 });
+
+test('morrer desliga o Véu e cancela a canalização', () => {
+  __resetarMundo();
+  const p = feiticeiro();
+  lancar(p, 'veu');
+  const e = E.obterEstado(p);
+  assert.equal(e.veu, true);
+  e.canalizando = true;
+  world.afterEvents.entityDie.__emit({ deadEntity: p, damageSource: { cause: 'entityAttack' } });
+  assert.equal(e.veu, false, 'véu desligado');
+  assert.equal(e.canalizando, false, 'canalização cancelada');
+});

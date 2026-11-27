@@ -1,9 +1,11 @@
 // Horizonte de Eventos: 2 s de concentração, as esferas ciano e carmesim se fundem
 // e uma esfera violeta apaga tudo em seu caminho.
+import { world } from '@minecraft/server';
 import { alvosEm, causarDano, empurrar } from '../core/combate.js';
 import { blocoProtegido, COR, PARTICULAS, SONS } from '../core/config.js';
 import { cfgMundo } from '../core/configuracoes.js';
 import { iniciarEfeito } from '../core/efeitos.js';
+import { obterEstado } from '../core/estado.js';
 import { esfera, flash, linha, particula, som, titulo, tremorArea } from '../core/fx.js';
 import { registrarTecnica } from '../core/lancar.js';
 import { tr } from '../core/texto.js';
@@ -77,7 +79,7 @@ registrarTecnica('horizonte', {
     iniciarEfeito({
       dono: player.id,
       passo(i) {
-        if (!player.isValid) return false;
+        if (!player.isValid || !e.canalizando) return false;
         const dim = player.dimension;
         const { cabeca, dir } = olhar(player);
         const { direita, cima } = V.basePerpendicular(dir);
@@ -107,4 +109,13 @@ registrarTecnica('horizonte', {
     });
     return true;
   },
+});
+
+// Morrer no meio da concentração cancela o Horizonte (o jogador continua válido após a morte).
+world.afterEvents.entityDie.subscribe((ev) => {
+  try {
+    if (ev.deadEntity.typeId === 'minecraft:player') obterEstado(/** @type {any} */ (ev.deadEntity)).canalizando = false;
+  } catch {
+    /* ignora */
+  }
 });
