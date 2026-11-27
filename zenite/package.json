@@ -1,0 +1,21 @@
+{
+  "name": "zenite-addon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zênite, o Feiticeiro do Firmamento — add-on para Minecraft Bedrock",
+  "type": "module",
+  "scripts": {
+    "test": "node --import ./testes/mock/registrar.mjs --test \"testes/**/*.test.js\"",
+    "typecheck": "tsc -p .",
+    "validar": "python3 ferramentas/validar.py",
+    "build": "python3 ferramentas/empacotar.py",
+    "check": "npm run typecheck && npm test && npm run validar"
+  },
+  "devDependencies": {
+    "@minecraft/common": "1.2.0",
+    "@minecraft/server": "2.3.0",
+    "@minecraft/server-ui": "2.0.0",
+    "@minecraft/vanilla-data": "1.21.120",
+    "typescript": "5.9.3"
+  }
+}

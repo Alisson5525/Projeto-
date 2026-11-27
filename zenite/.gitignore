@@ -1,0 +1,4 @@
+node_modules/
+ferramentas/previa/saida/
+*.pyc
+__pycache__/

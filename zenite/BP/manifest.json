@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "pack.name",
+    "description": "pack.description",
+    "uuid": "5d6419ba-8111-40fb-904c-541be2f9baa7",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 120]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "5c2d3a6c-c281-4790-a46f-2c756e488830",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "a78b1be3-8721-422a-b9a6-565ee4a086a4",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    { "uuid": "c377e9b1-86e9-47c5-8a38-157745332768", "version": [1, 0, 0] },
+    { "module_name": "@minecraft/server", "version": "2.3.0" },
+    { "module_name": "@minecraft/server-ui", "version": "2.0.0" }
+  ],
+  "metadata": {
+    "authors": ["Projeto Zênite"],
+    "license": "MIT"
+  }
+}

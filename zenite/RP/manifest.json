@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "pack.name",
+    "description": "pack.description",
+    "uuid": "c377e9b1-86e9-47c5-8a38-157745332768",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 120]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "7383a543-2859-4e10-960b-ff8a76a3dfea",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    { "uuid": "5d6419ba-8111-40fb-904c-541be2f9baa7", "version": [1, 0, 0] }
+  ],
+  "metadata": {
+    "authors": ["Projeto Zênite"],
+    "license": "MIT"
+  }
+}
