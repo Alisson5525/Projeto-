@@ -293,7 +293,8 @@ function heatBlockAt(player, st, b, face, amount) {
       particle(dim, 'superman:melt_burst', pc);
     } else {
       if (!s.fire) continue;
-      try { b.setType(res); } catch (e) { /* */ }
+      const out = res === 'minecraft:lava' && underHero(player, l) ? 'minecraft:magma' : res;
+      try { b.setType(out); } catch (e) { /* */ }
       particle(dim, 'superman:melt_burst', pc);
       if (Math.random() < 0.5) sound(dim, 'random.fizz', pc, 0.8, 0.8);
     }
@@ -332,8 +333,9 @@ function heatTick(player, st, tick) {
     particle(dim, 'superman:heat_beam', eye, { dir, len, den: q(4) });
     particle(dim, 'superman:heat_core', eye, { dir, len, den: q(3) });
     if (t % 2 === 0) particle(dim, 'superman:eye_glow', eye);
-    particle(dim, 'superman:lens_flare', V.add(eye, V.mul(dir, 0.1)));
   }
+  // brilho de lente no ponto de impacto (nos olhos ele cobriria a tela em primeira pessoa)
+  if (t % 2 === 0) particle(dim, 'superman:lens_flare', V.sub(hitPoint, V.mul(dir, 0.4)));
   particle(dim, 'superman:heat_impact', V.sub(hitPoint, V.mul(dir, 0.15)));
   if (t % 2 === 0) particle(dim, 'superman:impact_flash', V.sub(hitPoint, V.mul(dir, 0.3)), { radius: 1.4 });
   if (blockHit && t % 3 === 0) particle(dim, 'superman:molten_drop', V.sub(hitPoint, V.mul(dir, 0.2)));
@@ -382,6 +384,32 @@ function heatTick(player, st, tick) {
 
 // ---------------------------------------------------------------- sopro congelante
 
+/**
+ * A celula de bloco encosta no heroi ou em alguma criatura? Gelo, neve e pilares nunca nascem ai:
+ * o heroi ficaria com parte do corpo dentro do bloco (e sumiria na tela) e os mobs sufocariam.
+ */
+function touchesSomeone(player, cell, heroMargin = 1.2, skipId) {
+  const cx = cell.x + 0.5, cz = cell.z + 0.5;
+  const p = player.location;
+  if (Math.abs(cx - p.x) < 0.5 + heroMargin && Math.abs(cz - p.z) < 0.5 + heroMargin && cell.y + 1 > p.y + 0.05 && cell.y < p.y + 2.3) {
+    return true;
+  }
+  try {
+    for (const e of player.dimension.getEntities({ location: { x: cx, y: cell.y + 0.5, z: cz }, maxDistance: 3 })) {
+      if (e.id === player.id || e.id === skipId) continue;
+      const l = e.location;
+      if (Math.abs(cx - l.x) < 0.9 && Math.abs(cz - l.z) < 0.9 && cell.y + 1 > l.y + 0.05 && cell.y < l.y + 1.9) return true;
+    }
+  } catch (e) { /* */ }
+  return false;
+}
+
+/** O bloco sustenta o heroi (esta logo abaixo dos pes)? */
+function underHero(player, cell) {
+  const p = player.location;
+  return Math.abs(cell.x + 0.5 - p.x) < 1.3 && Math.abs(cell.z + 0.5 - p.z) < 1.3 && cell.y < p.y + 2.3 && cell.y + 1 > p.y - 1.6;
+}
+
 function encase(player, e) {
   const dim = player.dimension;
   const l = V.floor(e.location);
@@ -393,6 +421,7 @@ function encase(player, e) {
   let n = 0;
   for (const c of cells) {
     try {
+      if (touchesSomeone(player, c, 0.35, e.id)) continue;
       const b = dim.getBlock(c);
       if (b && (b.isAir || isFragile(b.typeId))) { b.setType('minecraft:ice'); n++; }
     } catch (err) { /* */ }
@@ -406,11 +435,15 @@ function encase(player, e) {
 /** Pilar de gelo que brota do chao onde o sopro bate (1 a 3 blocos). */
 function iceSpike(player, st, base) {
   const dim = player.dimension;
+  const p = player.location;
+  if (Math.hypot(base.x + 0.5 - p.x, base.z + 0.5 - p.z) < 3.5) return; // nada de pilar colado no heroi
   const h = 1 + Math.floor(Math.random() * 3);
   let n = 0;
   for (let y = 1; y <= h; y++) {
     try {
-      const b = dim.getBlock({ x: base.x, y: base.y + y, z: base.z });
+      const cell = { x: base.x, y: base.y + y, z: base.z };
+      if (touchesSomeone(player, cell)) break;
+      const b = dim.getBlock(cell);
       if (!b || !(b.isAir || isFragile(b.typeId))) break;
       b.setType(y === h ? 'minecraft:blue_ice' : 'minecraft:packed_ice');
       n++;
@@ -469,6 +502,17 @@ function freezeTick(player, st, tick) {
       }
     }
   } catch (e) { /* */ }
+  // pilares de gelo brotam do chao ao longo do sopro, sempre a uma distancia segura do heroi
+  if (s.destruction && t % 5 === 0 && st.iceSpikes < 24 && Math.random() < 0.7) {
+    const pt = V.add(mouth, V.mul(V.cone(dir, 16), 4.5 + Math.random() * 12));
+    let g;
+    try {
+      g = dim.getBlockFromRay({ x: pt.x, y: pt.y + 1.5, z: pt.z }, { x: 0, y: -1, z: 0 }, {
+        maxDistance: 9, includeLiquidBlocks: true, includePassableBlocks: false,
+      });
+    } catch (e) { /* */ }
+    if (g && !/water|lava/.test(g.block.typeId)) iceSpike(player, st, g.block.location);
+  }
   // blocos: raios aleatorios dentro do cone
   for (let i = 0; i < q(14); i++) {
     const rd = V.cone(dir, 26);
@@ -480,6 +524,8 @@ function freezeTick(player, st, tick) {
     const b = hit.block;
     const id = b.typeId;
     const pc = V.add(b.location, hit.faceLocation);
+    const liquid = /water|lava/.test(id);
+    if ((liquid || isFragile(id)) && touchesSomeone(player, b.location)) continue;
     try {
       if (id === 'minecraft:water' || id === 'minecraft:flowing_water') {
         b.setType('minecraft:ice');
@@ -498,10 +544,12 @@ function freezeTick(player, st, tick) {
         sound(dim, 'random.fizz', pc, 0.6, 1.2);
       } else if (s.destruction && isFragile(id) && !/(glass|ice|snow_layer)/.test(id) && !/leaves/.test(id)) {
         b.setType('minecraft:snow_layer');   // plantas congeladas viram neve
-      } else if (s.destruction && hit.face === 'Up' && !b.isAir && st.iceSpikes < 30 && Math.random() < 0.05) {
-        iceSpike(player, st, b.location);
+      } else if (id === 'minecraft:snow_layer') {
+        // chao ja nevado: nao empilha neve flutuando
+        if (i % 4 === 0) particle(dim, 'superman:frost_patch', { x: pc.x, y: pc.y + 0.04, z: pc.z });
       } else if (s.destruction && hit.face === 'Up' && !b.isAir && Math.random() < 0.6) {
-        const above = dim.getBlock(V.add(b.location, UP));
+        const cell = V.add(b.location, UP);
+        const above = touchesSomeone(player, cell) ? undefined : dim.getBlock(cell);
         if (above && above.isAir) above.setType('minecraft:snow_layer');
         if (i % 4 === 0) particle(dim, 'superman:frost_patch', { x: pc.x, y: pc.y + 0.04, z: pc.z });
       }

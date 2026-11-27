@@ -91,8 +91,8 @@ def build_cubes():
         cube("body", "lat", [-4.75, 14.5, -1.5], [0.75, 7, 3]),
         cube("body", "lat", [4, 14.5, -1.5], [0.75, 7, 3]),
         cube("body", "backm", [-3.5, 14.5, 2], [7, 8, 0.5]),
-        cube("body", "trap", [-3, 23.5, -1], [6, 1, 3]),
-        cube("body", "belt", [-4.5, 12, -2.5], [9, 1.5, 5]),
+        cube("body", "trap", [-3, 23.5, -1], [6, 1, 2.5]),
+        cube("body", "belt", [-4.75, 11.5, -2.5], [9.5, 2, 5]),
         cube("body", "buckle", [-1.25, 11.75, -3], [2.5, 2, 0.5]),
     ]
     # sol em 3D no peito: medalhao, disco e 8 raios
@@ -108,10 +108,10 @@ def build_cubes():
     C += [
         cube("head", "head", [-4, 24, -4], [8, 8, 8]),
         cube("head", "jaw", [-3, 24, -4.5], [6, 1.5, 0.5]),
-        cube("head", "nose", [-0.5, 26, -4.5], [1, 1.5, 0.5]),
-        cube("head", "brow", [-3.25, 28.5, -4.5], [6.5, 0.5, 0.5]),
-        cube("head", "ear", [-4.5, 26.5, -0.25], [0.5, 2, 1.5]),
-        cube("head", "ear", [4, 26.5, -0.25], [0.5, 2, 1.5]),
+        cube("head", "nose", [-0.5, 26, -4.75], [1, 1.5, 0.75]),
+        cube("head", "brow", [-3.25, 28.5, -4.75], [6.5, 0.5, 0.75]),
+        cube("head", "ear", [-4.75, 26.5, -0.25], [0.75, 2, 1.5]),
+        cube("head", "ear", [4, 26.5, -0.25], [0.75, 2, 1.5]),
         cube("hair", "hair", [-4.5, 25.5, -4.5], [9, 7, 9]),
         cube("hair", "tuft", [-2.5, 31.5, -4.75], [5, 1.5, 4], rot=[-18, 0, 0], pivot=[0, 32, -2.75]),
         cube("hair", "tuft", [-3, 32.25, -2], [6, 0.75, 6]),
@@ -133,7 +133,7 @@ def build_cubes():
         cube("cape2", "cape", [-5.5, 15.5, 2.55], [11, 5, 0.4]),
         cube("cape3", "cape", [-6, 11.5, 2.5], [12, 5, 0.5]),
         cube("cape4", "cape", [-6.5, 7.5, 2.55], [13, 5, 0.4]),
-        cube("cape5", "cape", [-6.5, 3.5, 2.5], [13, 5, 0.5]),
+        cube("cape5", "cape", [-6.75, 3.5, 2.5], [13.5, 5, 0.5]),
         cube("cape6", "cape", [-7, 0.25, 2.55], [14, 4.25, 0.4]),
     ]
     # braco direito: ombro, biceps, antebraco com bracelete, aleta e punho
@@ -145,18 +145,18 @@ def build_cubes():
         cube("rightForearm", "elbow", [-7.75, 16.25, -1.75], [3.5, 1.5, 3.5]),
         cube("rightForearm", "gauntlet", [-8.5, 13.75, -2.5], [5, 3, 5]),
         cube("rightForearm", "fin", [-9.25, 14, -1], [0.75, 3.5, 2.5], rot=[0, 0, -12], pivot=[-8.5, 14, 0.25]),
-        cube("rightForearm", "fist", [-8.25, 12, -2.25], [4.5, 1.75, 4.5]),
+        cube("rightForearm", "fist", [-8.25, 11.75, -2.25], [4.5, 2, 4.5]),
     ]
     C += right_arm
     C += [mirror(c, c["bone"].replace("right", "left")) for c in right_arm]
     # perna direita: coxa, quadriceps, faixa do quadril; canela com bota, joelheira e biqueira
     right_leg = [
-        cube("rightLeg", "leg", [-3.9, 6, -2], [4, 6, 4]),
+        cube("rightLeg", "leg", [-4, 6, -2], [4, 6, 4]),
         cube("rightLeg", "quad", [-3.65, 6.5, -2.5], [3.5, 3.5, 0.5]),
-        cube("rightLeg", "trunk", [-3.9, 9.5, -2], [4, 2.5, 4], 0.25),
-        cube("rightShin", "leg", [-3.9, 0, -2], [4, 6, 4]),
-        cube("rightShin", "boot", [-3.9, 0.5, -2], [4, 5, 4], 0.25),
-        cube("rightShin", "kneeguard", [-3.65, 4.75, -2.75], [3.5, 2, 0.75]),
+        cube("rightLeg", "trunk", [-4.35, 9.5, -2], [4, 2.5, 4], 0.2),
+        cube("rightShin", "leg", [-4, 0, -2], [4, 6, 4]),
+        cube("rightShin", "boot", [-4.35, 0.5, -2], [4, 5, 4], 0.25),
+        cube("rightShin", "kneeguard", [-3.75, 4.75, -2.75], [3.5, 2, 0.75]),
         cube("rightShin", "toe", [-3.65, 0, -2.75], [3.5, 1.25, 0.75]),
     ]
     C += right_leg

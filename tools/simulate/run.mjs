@@ -126,9 +126,43 @@ check(cage >= 2, `jaula de gelo em volta do inimigo (${cage} lados)`);
 victim.remove();
 tick(200);
 check(P(p, 'power') === 0, 'sopro terminou sozinho');
-let spikes = 0;
-for (const [k, t] of overworld.blocks) if (t === 'minecraft:blue_ice') spikes++;
-check(spikes > 0 && spikes <= 30, `pilares de gelo brotaram do chao (${spikes})`);
+
+section('sopro olhando para os pes (nada de gelo dentro do heroi)');
+{
+  const bx = Math.floor(p.location.x), by = Math.floor(p.location.y), bz = Math.floor(p.location.z);
+  for (let x = -4; x <= 4; x++) for (let z = -4; z <= 4; z++) overworld.set({ x: bx + x, y: by, z: bz + z }, 'minecraft:water');
+  const pal0 = new Entity('minecraft:skeleton', { x: bx + 1.5, y: by, z: bz + 0.5 });
+  p.rot = { x: 25, y: 0 };
+  tick(5);
+  use(p, 'superman:sopro_congelante');
+  tick(120);
+  let inside = 0;
+  for (let x = -1; x <= 1; x++) for (let z = -1; z <= 1; z++) for (let y = 0; y <= 2; y++) {
+    const t = overworld.typeAt(bx + x, by + y, bz + z);
+    if (/ice|snow/.test(t)) inside++;
+  }
+  check(inside === 0, `nenhum gelo ou neve no espaco do heroi (${inside})`);
+  let far = 0;
+  for (let x = -4; x <= 4; x++) for (let z = -4; z <= 4; z++) if (Math.max(Math.abs(x), Math.abs(z)) >= 2 && /ice/.test(overworld.typeAt(bx + x, by, bz + z))) far++;
+  check(far > 0, `a agua mais longe congelou (${far})`);
+  let inMob = 0;
+  const ml = pal0.location;
+  for (let y = 0; y <= 1; y++) if (/ice/.test(overworld.typeAt(Math.floor(ml.x), Math.floor(ml.y) + y, Math.floor(ml.z)))) inMob++;
+  check(inMob === 0, `nenhum gelo dentro do inimigo (${inMob})`);
+  pal0.remove();
+  for (let x = -4; x <= 4; x++) for (let z = -4; z <= 4; z++) for (let y = 0; y <= 3; y++) overworld.set({ x: bx + x, y: by + y, z: bz + z }, 'minecraft:air');
+  // chao seco: os pilares de gelo nascem a distancia, nunca colados no heroi
+  p.rot = { x: 35, y: 0 };
+  tick(80);
+  const before = new Set([...overworld.blocks].filter(([, t]) => t === 'minecraft:blue_ice').map(([k]) => k));
+  for (let r = 0; r < 3; r++) { if (P(p, 'power') !== 4) use(p, 'superman:sopro_congelante'); tick(230); }
+  const tops = [...overworld.blocks].filter(([k, t]) => t === 'minecraft:blue_ice' && !before.has(k)).map(([k]) => k.split(',').map(Number));
+  check(tops.length > 0, `pilares de gelo brotaram do chao (${tops.length})`);
+  const near = tops.filter(([x, , z]) => Math.hypot(x + 0.5 - p.location.x, z + 0.5 - p.location.z) < 3.5).length;
+  check(near === 0, `nenhum pilar colado no heroi (${near})`);
+  p.rot = { x: 0, y: 0 };
+  tick(20);
+}
 
 section('super soco');
 p.rot = { x: 0, y: 0 };
@@ -248,8 +282,10 @@ check(LOG.explosions.length > exNova, 'cratera embaixo da explosao');
 tick(30);
 check(P(p, 'power') === 0, 'explosao solar terminou');
 check(AIR.has(P(p, 'fly')), 'continua voando depois do supremo');
-p.sneakHeld = true; use(p, 'superman:impacto'); p.sneakHeld = false; tick(1);
-check(P(p, 'power') === 0 && p.actionbar.includes('recarregando'), 'explosao solar tem recarga');
+p.sneakHeld = true; use(p, 'superman:impacto'); p.sneakHeld = false;
+const novaBar = p.actionbar;
+tick(1);
+check(P(p, 'power') === 0 && novaBar.includes('recarregando'), `explosao solar tem recarga (${novaBar})`);
 for (const z of ring) z.remove();
 
 p.sneakHeld = true; for (let i = 0; i < 300 && P(p, 'fly') !== 0; i++) tick(1); p.sneakHeld = false;

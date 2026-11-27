@@ -14,7 +14,7 @@ TMP = sys.argv[1] if len(sys.argv) > 1 else "/tmp"
 FPS = 15
 N = "animation.superman."
 BASE_V = {"sm_p": 0, "sm_yw": 0, "sm_cl": 0.05, "sm_cf": 2, "cs": 0.5, "sm_full": 1, "sm_arms": 1,
-          "sm_chg": 0, "sm_vs": 0, "sm_cross": 0, "sm_bank": 0, "sm_lean": 0, "sm_run": 0, "sm_glow": 0.3}
+          "sm_chg": 0, "sm_vs": 0, "sm_cross": 0, "sm_bank": 0, "sm_lean": 0, "sm_run": 0, "sm_glow": 0.3, "sm_on": 1}
 
 
 def seg(layers, dur, V=None, lift=(0, 0), loop_t=False):

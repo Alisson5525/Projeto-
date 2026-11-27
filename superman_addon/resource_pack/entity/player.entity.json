@@ -52,7 +52,8 @@
           "v.sm_hidle = 0.0;",
           "v.sm_cross = 0.0;",
           "v.sm_cmbw = 0.0;",
-          "v.sm_glow = 0.3;"
+          "v.sm_glow = 0.3;",
+          "v.sm_drop = 0.0;"
         ],
         "pre_animation": [
           "variable.helmet_layer_visible = !query.has_head_gear;",
@@ -114,6 +115,8 @@
           "v.sm_hidle = (v.sm_fly == 3 && v.sm_inp == 4 && v.sm_pow == 0 && math.abs(v.sm_vs) < 0.5) ? v.sm_hidle + v.sm_dt : 0.0;",
           "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
           "v.sm_cmbw = v.sm_cmbw + ((v.sm_cmb && v.sm_on ? 1.0 : 0.0) - v.sm_cmbw) * v.sm_k;",
+          "v.sm_dropt = v.sm_air ? 0.0 : math.max((v.sm_fly == 9 ? 2.5 : (v.sm_fly == 1 ? 2.5 : (v.sm_fly == 8 ? 3.0 : 0.0))), (v.sm_pow == 8 ? 2.5 : ((v.sm_pow == 1 || v.sm_pow == 6) ? 2.8 : ((v.sm_pow == 3 || v.sm_pow == 4) ? 1.6 : ((v.sm_pow >= 5 && v.sm_pow <= 14) ? 2.4 : 0.0)))));",
+          "v.sm_drop = v.sm_drop + (v.sm_dropt - v.sm_drop) * v.sm_kf;",
           "v.sm_glowt = 0.3 + ((v.sm_pow == 1 || v.sm_pow == 3 || v.sm_pow >= 18) ? 0.7 : 0.0) + (v.sm_pow == 5 ? 0.2 + v.sm_chg * 0.5 : 0.0) + ((v.sm_pow == 6 || v.sm_pow == 14 || v.sm_pow == 7 || v.sm_pow == 8) ? 0.5 : 0.0) + ((v.sm_fly == 5 || v.sm_fly == 6 || v.sm_fly == 2) ? 0.45 : 0.0);",
           "v.sm_glow = v.sm_glow + (math.clamp(v.sm_glowt, 0.0, 1.0) - v.sm_glow) * v.sm_k;"
         ],

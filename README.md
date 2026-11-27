@@ -2,6 +2,8 @@
 
 Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
+> **Versão 2.0.1:** correções do sopro congelante (não cria mais gelo dentro do herói), das texturas que piscavam e da capa atravessando o chão.
+>
 > **Versão 2.0.0, a grande melhoria.** Modelo 3D novo com 72 peças e 29 ossos: peito, ombros e bíceps em relevo, cotovelos e joelhos articulados, botas e braceletes esculpidos e capa em 6 segmentos. Todas as animações foram refeitas usando as articulações, e o herói ficou maior e mais imponente. O emblema, os olhos, os frisos e os braceletes **brilham** e acendem mais forte com os poderes. Os efeitos ganharam clarões, anéis de choque em sequência, paredes de poeira, detritos flutuando, coluna de luz, gotas derretidas e **pilares de gelo**. E há um poder supremo novo: a **Explosão Solar**. Veja o [histórico de mudanças](CHANGELOG.md).
 
 ![Visão geral das animações](docs/preview/visao_geral.png)
@@ -184,7 +186,7 @@ tools/gen_client.py       animações, controladores, render controllers, player
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (106 verificações)
+tools/simulate/           roda os scripts num mundo simulado (110 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos
@@ -209,4 +211,5 @@ python3 tools/preview/gifs.py /tmp                        # regera as prévias
 
 - O add-on foi verificado com validação estática, checagem de tipos da API e um simulador do mundo, mas **não foi testado dentro do jogo** neste ambiente. Alguns detalhes visuais, como o sentido da inclinação, a orientação de anéis de partícula e a intensidade da velocidade, podem precisar de ajuste fino. Se o desvio lateral estiver invertido, use a opção nas configurações.
 - O brilho usa o material da camada luminosa do Warden. Se alguma versão do jogo desenhar essa camada de um jeito diferente, o resto do personagem continua normal.
+- **Armaduras** vestidas seguem os ossos do corpo, mas não dobram nos cotovelos e joelhos do modelo novo, então podem ficar desalinhadas. Como o herói já é invulnerável, o melhor é usá-lo sem armadura.
 - Os poderes agora são bem mais destrutivos. Em celulares mais fracos, reduza a intensidade e as partículas nas configurações.

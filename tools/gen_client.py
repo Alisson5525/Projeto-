@@ -215,7 +215,8 @@ def build_animations():
         "cape1": {"r": ["math.max(3.0, 4.0 + v.sm_cl * 56.0 + math.sin(v.sm_cph) * v.sm_cf * 0.28)", 0, 0]},
     }
     for i, (b, (lift, ph, amp, tw)) in enumerate(segs.items()):
-        cape[b] = {"r": [f"v.sm_cl * {lift} + math.sin(v.sm_cph - {ph}.0) * v.sm_cf * {amp}",
+        fold = {"cape2": 0, "cape3": 2, "cape4": 5, "cape5": 8, "cape6": 12}[b]
+        cape[b] = {"r": [f"v.sm_cl * {lift} + v.sm_drop * {fold}.0 + math.sin(v.sm_cph - {ph}.0) * v.sm_cf * {amp}",
                          f"math.sin(v.sm_cph * 0.7 - {60 * (i + 1)}.0) * v.sm_cf * {tw}", 0]}
     proc("cape", cape)
     proc("breath", {
@@ -226,7 +227,7 @@ def build_animations():
         "emblem": {"s": "1.0 + math.max(0.0, math.sin(q.life_time * 100.0)) * 0.03 + v.sm_glow * 0.06"},
     })
     # porte imponente: o heroi transformado e maior que um jogador comum
-    proc("stature", {"root": {"s": [1.08, 1.1, 1.08]}})
+    proc("stature", {"root": {"s": ["1.0 + v.sm_on * 0.05", "1.0 + v.sm_on * 0.06", "1.0 + v.sm_on * 0.05"]}})
     proc("orient", {
         "sm_yaw": {"r": [0, "q.target_y_rotation * v.sm_yw", 0]},
         "sm_pitch": {"r": ["v.sm_p", 0, 0]},
@@ -752,7 +753,7 @@ def build_controllers():
         "states": {
             "default": {
                 "animations": [
-                    "sm.cape", "sm.breath", {"sm.stature": "v.sm_on"},
+                    "sm.cape", "sm.breath", "sm.stature",
                     {"sm.orient": W},
                     {"sm.look": W},
                     {"sm.walk_legs": f"{W} * (v.sm_fly == 0 && q.is_on_ground ? 1.0 : 0.0)"},
@@ -936,7 +937,7 @@ SM_INIT = [
     "v.sm_turn = 0.0;", "v.sm_bank = 0.0;", "v.sm_lean = 0.0;", "v.sm_cl = 0.05;", "v.sm_cf = 2.0;",
     "v.sm_cs = 0.5;", "v.sm_cph = 0.0;", "v.sm_run = 0.0;", "v.sm_hero = 0.0;", "v.sm_still = 0.0;",
     "v.sm_clv = 0.0;", "v.sm_spdp = 0.0;", "v.sm_acc = 0.0;", "v.sm_idone = -1.0;", "v.sm_islot = 0.0;",
-    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;",
+    "v.sm_airw = 0.0;", "v.sm_hidle = 0.0;", "v.sm_cross = 0.0;", "v.sm_cmbw = 0.0;", "v.sm_glow = 0.3;", "v.sm_drop = 0.0;",
 ]
 
 ITEMS = ["superman:emblema", "superman:voo", "superman:visao_calor", "superman:sopro_congelante",
@@ -998,6 +999,9 @@ SM_PRE = [
     "v.sm_cross = v.sm_cross + ((v.sm_hidle > 2.5 ? 1.0 : 0.0) - v.sm_cross) * v.sm_ks;",
     "v.sm_cmbw = v.sm_cmbw + ((v.sm_cmb && v.sm_on ? 1.0 : 0.0) - v.sm_cmbw) * v.sm_k;",
     # brilho do emblema, olhos e frisos: sobe com os poderes e no voo supersonico
+    # quanto o corpo desce nas poses agachadas (no chao): a capa dobra para tras e nao atravessa o chao
+    "v.sm_dropt = v.sm_air ? 0.0 : math.max((v.sm_fly == 9 ? 2.5 : (v.sm_fly == 1 ? 2.5 : (v.sm_fly == 8 ? 3.0 : 0.0))), (v.sm_pow == 8 ? 2.5 : ((v.sm_pow == 1 || v.sm_pow == 6) ? 2.8 : ((v.sm_pow == 3 || v.sm_pow == 4) ? 1.6 : ((v.sm_pow >= 5 && v.sm_pow <= 14) ? 2.4 : 0.0)))));",
+    "v.sm_drop = v.sm_drop + (v.sm_dropt - v.sm_drop) * v.sm_kf;",
     "v.sm_glowt = 0.3 + ((v.sm_pow == 1 || v.sm_pow == 3 || v.sm_pow >= 18) ? 0.7 : 0.0) + (v.sm_pow == 5 ? 0.2 + v.sm_chg * 0.5 : 0.0) + ((v.sm_pow == 6 || v.sm_pow == 14 || v.sm_pow == 7 || v.sm_pow == 8) ? 0.5 : 0.0) + ((v.sm_fly == 5 || v.sm_fly == 6 || v.sm_fly == 2) ? 0.45 : 0.0);",
     "v.sm_glow = v.sm_glow + (math.clamp(v.sm_glowt, 0.0, 1.0) - v.sm_glow) * v.sm_k;",
 ]

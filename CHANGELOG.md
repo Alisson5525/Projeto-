@@ -1,5 +1,15 @@
 # Histórico de mudanças
 
+## 2.0.1 — Correções
+
+- **Sopro congelante:** olhando para baixo ou com alguém por perto, ele criava gelo, neve e pilares de gelo dentro do próprio herói, e parte do corpo sumia dentro dos blocos. Agora nada é criado no espaço do herói nem dentro de outras criaturas. A jaula de gelo também não prende mais o herói junto com o inimigo.
+- Os pilares de gelo nascem ao longo do sopro, a pelo menos 3,5 blocos do herói, e a neve não se empilha mais flutuando.
+- **Visão de calor:** o chão embaixo do herói vira magma em vez de lava, para ele não afundar.
+- **Texturas piscando:** várias peças do modelo ficavam exatamente no mesmo plano e "brigavam" na tela (meio do short, cinto, base dos punhos, costas, orelhas, sobrancelhas, nariz, borda da capa e joelheiras). Todas foram reposicionadas.
+- **Capa:** nas poses agachadas (sopro, visão de calor, socos, pouso, pancada, decolagem) a capa atravessava o chão. Agora ela dobra para trás.
+- O herói ficou um pouco menos alto (antes a cabeça entrava no teto de túneis e portas de 2 blocos).
+- O brilho de lente da visão de calor saiu dos olhos, onde cobria a tela em primeira pessoa, e foi para o ponto de impacto.
+
 ## 2.0.0 — A grande melhoria
 
 **Modelo 3D**

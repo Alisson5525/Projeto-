@@ -8,9 +8,7 @@
           "animations": [
             "sm.cape",
             "sm.breath",
-            {
-              "sm.stature": "v.sm_on"
-            },
+            "sm.stature",
             {
               "sm.orient": "v.sm_full"
             },
