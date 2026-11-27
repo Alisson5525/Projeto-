@@ -1,7 +1,7 @@
 import { EquipmentSlot, GameMode } from '@minecraft/server';
 import { AIR_STATES, FLY, PHYS, POW, getSettings } from './config.js';
 import { blast, breakSphere, isFragile, waveBreak } from './destruction.js';
-import { particle, q, shake, shakeArea, sound } from './fx.js';
+import { flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, sync } from './state.js';
 import { pushMobs } from './targets.js';
 import { V, clamp } from './vec.js';
@@ -119,8 +119,9 @@ function launch(player, st) {
   st.autoLaunch = false;
   sync(player, st, 'charge', 0);
   // efeitos no chao
-  particle(dim, 'superman:shockwave', f, { radius: 3 + 6 * c, color: { r: 1, g: 1, b: 1 } });
-  particle(dim, 'superman:dust_ring', f, { radius: 2 + 3 * c });
+  ringBurst(dim, f, [3 + 6 * c, 5 + 9 * c], { r: 1, g: 0.95, b: 0.85 }, 3);
+  particle(dim, 'superman:impact_flash', V.add(f, { x: 0, y: 0.5, z: 0 }), { radius: 2 + 2 * c });
+  particle(dim, c > 0.5 ? 'superman:dust_wall' : 'superman:dust_ring', f, { radius: 2 + 3 * c });
   particle(dim, 'superman:ground_crack', { x: f.x, y: Math.floor(f.y) + 0.06, z: f.z }, { radius: 1.5 + 2.5 * c });
   sound(dim, 'mace.heavy_smash_ground', f, 1.5, 0.8);
   sound(dim, 'item.trident.riptide_3', f, 1, 1.1);
@@ -149,9 +150,11 @@ function heroLand(player, st, speed) {
   const r = clamp(2 + speed * 2, 3, 9);
   st.vel = V.zero();
   applyVel(player, st.vel);
-  particle(dim, 'superman:shockwave', f, { radius: r * 2.6, color: { r: 1, g: 1, b: 1 } });
-  particle(dim, 'superman:shockwave', f, { radius: r * 1.4, color: { r: 1, g: 0.85, b: 0.6 } });
-  particle(dim, 'superman:dust_ring', f, { radius: r * 1.5 });
+  ringBurst(dim, f, [r * 1.4, r * 2.2, r * 3], { r: 1, g: 0.9, b: 0.7 }, 3);
+  particle(dim, 'superman:impact_flash', V.add(f, { x: 0, y: 0.8, z: 0 }), { radius: 2 + r * 0.5 });
+  particle(dim, 'superman:dust_wall', f, { radius: r * 1.5 });
+  later(6, () => particle(dim, 'superman:rising_debris', f, { radius: r, color: { r: 0.5, g: 0.45, b: 0.4 } }));
+  if (speed > 1.4) flashArea(dim, f, 14, 0.6);
   particle(dim, 'superman:ground_crack', { x: f.x, y: Math.floor(f.y) + 0.06, z: f.z }, { radius: r });
   for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', f, { color: { r: 0.5, g: 0.45, b: 0.4 } });
   sound(dim, 'mace.heavy_smash_ground', f, 2, 0.7);
@@ -168,8 +171,11 @@ function goFast(player, st) {
   const dim = player.dimension;
   const l = player.location;
   const dir = player.getViewDirection();
-  particle(dim, 'superman:sonic_boom', V.add(l, { x: 0, y: 0.9, z: 0 }), { dir, radius: 4 });
-  particle(dim, 'superman:shockwave', V.add(l, { x: 0, y: 0.9, z: 0 }), { radius: 6, color: { r: 0.85, g: 0.92, b: 1 } });
+  const mid = V.add(l, { x: 0, y: 0.9, z: 0 });
+  particle(dim, 'superman:vapor_cone', mid, { dir });
+  particle(dim, 'superman:impact_flash', mid, { radius: 2.5 });
+  for (let i = 0; i < 3; i++) later(i * 2 + 1, () => particle(dim, 'superman:sonic_boom', V.sub(mid, V.mul(dir, i * 1.5)), { dir, radius: 3 + i * 1.5 }));
+  particle(dim, 'superman:shockwave', mid, { radius: 6, color: { r: 0.85, g: 0.92, b: 1 } });
   sound(dim, 'mob.warden.sonic_boom', l, 1.2, 1.1);
   sound(dim, 'item.trident.riptide_3', l, 1, 1.3);
   shake(player, 0.6, 0.4);
@@ -272,6 +278,8 @@ function chargeTick(player, st, inp, onGround, jumpEdge) {
   applyVel(player, { x: 0, y: -0.08, z: 0 });
   if (st.flyTicks === 1) sound(dim, 'respawn_anchor.charge', f, 0.8, 0.8);
   if (st.flyTicks % 3 === 0) particle(dim, 'superman:charge_dust', f, { radius: 0.8 + st.charge * 2 });
+  if (st.flyTicks % 4 === 0 && st.charge > 0.25) particle(dim, 'superman:rising_debris', f, { radius: 1.5 + st.charge * 2.5, color: { r: 0.5, g: 0.42, b: 0.34 } });
+  if (st.flyTicks % 3 === 0) particle(dim, 'superman:aura', V.add(f, { x: 0, y: 1, z: 0 }), { radius: 0.9 });
   for (const th of [0.35, 0.7, 1.0]) {
     if (prev < th && st.charge >= th) {
       particle(dim, 'superman:ground_crack', { x: f.x, y: Math.floor(f.y) + 0.06, z: f.z }, { radius: 0.8 + th * 1.6 });
@@ -374,6 +382,7 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
         setFly(player, st, FLY.FLY);
       }
       particle(dim, 'superman:speed_trail', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look });
+      particle(dim, 'superman:solar_trail', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look });
       if (st.flyTicks % 12 === 0) particle(dim, 'superman:sonic_boom', V.add(player.location, { x: 0, y: 0.9, z: 0 }), { dir: look, radius: 2 });
       if (st.flyTicks % 20 === 0) sound(dim, 'elytra.loop', player.location, 0.6, 1.4);
       break;
@@ -392,6 +401,10 @@ function airTick(player, st, inp, onGround, jumpEdge, tick) {
     }
   }
 
+  if (st.power === POW.NOVA_CHARGE || st.power === POW.NOVA) {
+    target = { x: 0, y: 0.012, z: 0 };
+    acc = 0.3;
+  }
   st.vel = V.lerp(st.vel, target, acc);
   const speed = V.len(st.vel);
 

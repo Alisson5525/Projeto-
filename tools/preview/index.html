@@ -11,6 +11,7 @@ async function json(u) { const r = await fetch(u); const t = await r.text(); ret
 window.init = async (animFiles) => {
   const geo = await json(RP + 'models/entity/superman.geo.json');
   const tex = await loadTexture(RP + 'textures/entity/superman/superman.png?' + Date.now());
+  window.GLOWTEX = await loadTexture(RP + 'textures/entity/superman/superman_glow.png?' + Date.now());
   window.ANIMS = {};
   for (const f of animFiles) {
     const d = await json(RP + 'animations/' + f);
@@ -27,7 +28,7 @@ window.sheet = async (cells, cols, cw, ch) => {
   out.width = cols * cw; out.height = rows * ch;
   const ctx = out.getContext('2d');
   const { renderer, scene, camera } = makeScene(cw, ch);
-  const model = buildModel(window.GEO, window.TEX);
+  const model = buildModel(window.GEO, window.TEX, ['eye_glow', 'eyelids'], window.GLOWTEX);
   scene.add(model.root);
   cells.forEach((c, i) => {
     const layers = (c.layers || []).map(l => {
@@ -36,6 +37,7 @@ window.sheet = async (cells, cols, cw, ch) => {
       return { anim: a, time: l.time || 0, weight: l.weight };
     });
     applyPose(model, layers, Object.assign({ life_time: c.t || 0, anim_time: 0 }, c.Q || {}), Object.assign({}, c.V || {}));
+    if (model.glowMat) model.glowMat.opacity = (c.V && c.V.sm_glow !== undefined) ? c.V.sm_glow : 0.5;
     const v = Object.assign({ yaw: 30, pitch: 12, dist: 78, ty: 15, tx: 0 }, c.view || {});
     const yaw = v.yaw * Math.PI / 180, pit = v.pitch * Math.PI / 180;
     const L = c.lift || 0;

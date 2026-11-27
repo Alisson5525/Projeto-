@@ -23,6 +23,7 @@ const jump = (p) => {
   world.afterEvents.playerButtonInput.fire({ player: p, button: 'Jump', newButtonState: 'Pressed' });
 };
 const section = (t) => origWarn(`\n== ${t}`);
+const AIR = new Set([3, 4, 5, 10]);
 
 const p = new Player('Teste', { x: 0.5, y: 64, z: 0.5 });
 world.players.push(p);
@@ -99,6 +100,8 @@ check(P(p, 'power') === 3, 'visao de calor ativa');
 check(hb === 'minecraft:lava' || hb === 'minecraft:magma', `pedra derreteu (virou ${hb})`);
 check((LOG.particles['superman:heat_beam'] || 0) > 50, 'raios desenhados');
 check((LOG.particles['superman:heat_core'] || 0) > 50, 'nucleo do raio desenhado');
+check((LOG.particles['superman:lens_flare'] || 0) > 10, 'brilho de lente nos olhos');
+check((LOG.particles['superman:molten_drop'] || 0) > 0, 'gotas derretidas no ponto de impacto');
 let melted = 0;
 for (let y = -1; y < 4; y++) for (let dx = -1; dx <= 1; dx++) { const t = overworld.typeAt(hx + dx, hy + y, hz); if (t === 'minecraft:lava' || t === 'minecraft:magma' || t === 'minecraft:air') melted++; }
 check(melted >= 4, `derreteu uma area, nao so um bloco (${melted})`);
@@ -123,6 +126,9 @@ check(cage >= 2, `jaula de gelo em volta do inimigo (${cage} lados)`);
 victim.remove();
 tick(200);
 check(P(p, 'power') === 0, 'sopro terminou sozinho');
+let spikes = 0;
+for (const [k, t] of overworld.blocks) if (t === 'minecraft:blue_ice') spikes++;
+check(spikes > 0 && spikes <= 30, `pilares de gelo brotaram do chao (${spikes})`);
 
 section('super soco');
 p.rot = { x: 0, y: 0 };
@@ -136,6 +142,7 @@ tick(5);
 check(LOG.explosions.length > ex0, 'impacto do soco explodiu a parede');
 tick(12);
 check(P(p, 'power') === 0, 'soco terminou');
+check((LOG.particles['superman:impact_flash'] || 0) > 0 && (LOG.particles['superman:dust_wall'] || 0) > 0, 'clarao e parede de poeira no impacto do soco');
 
 section('palma trovao e pancada');
 const zombie = new Entity('minecraft:zombie', { x: p.location.x, y: p.location.y, z: p.location.z + 4 });
@@ -149,6 +156,8 @@ check(P(p, 'power') === 8, 'pancada no chao');
 const ex1 = LOG.explosions.length;
 tick(14);
 check(LOG.explosions.length > ex1, 'cratera da pancada');
+tick(8);
+check((LOG.particles['superman:rising_debris'] || 0) > 0, 'detritos flutuando depois da pancada');
 tick(15);
 
 section('combos');
@@ -213,6 +222,36 @@ const exSpike = LOG.explosions.length;
 for (let i = 0; i < 40; i++) { bat.location.y += bat.vel.y; if (overworld.solid(bat.location.x, bat.location.y, bat.location.z)) { bat.location.y = Math.floor(bat.location.y) + 1; bat.vel.y = 0; } tick(1); }
 check(LOG.explosions.length > exSpike, `cratera onde o inimigo caiu (y=${bat.location.y.toFixed(1)} vy=${bat.vel.y.toFixed(2)} chao=${bat.isOnGround} jogador y=${p.location.y.toFixed(1)})`);
 bat.remove();
+
+section('explosao solar');
+tick(20);
+const novaY = p.location.y;
+const ring = [0, 1, 2, 3].map((i) => new Entity('minecraft:zombie', { x: p.location.x + 8 * Math.cos(i * 1.57), y: p.location.y - 2, z: p.location.z + 8 * Math.sin(i * 1.57) }));
+const exNova = LOG.explosions.length;
+const burst0 = LOG.particles['superman:nova_burst'] || 0;
+p.sneakHeld = true; use(p, 'superman:impacto'); p.sneakHeld = false; tick(1);
+check(P(p, 'power') === 18, 'concentrando a explosao solar');
+check(P(p, 'fly') !== 6, 'agachado no ar nao mergulha');
+use(p, 'superman:visao_calor'); tick(1);
+check(P(p, 'power') === 18, 'outros poderes nao interrompem o supremo');
+tick(30);
+check(Math.abs(p.location.y - novaY) < 0.8, `fica parado no ar enquanto concentra (variou ${(p.location.y - novaY).toFixed(2)})`);
+check((LOG.particles['superman:rising_debris'] || 0) > 0, 'detritos subindo do chao durante a carga');
+for (let i = 0; i < 20 && P(p, 'power') !== 19; i++) tick(1);
+check(P(p, 'power') === 19, 'explosao solar liberada');
+tick(6);
+check((LOG.particles['superman:nova_burst'] || 0) >= burst0 + 2, 'clarao solar duplo');
+check(ring.every((z) => z.health < 20), 'todos os inimigos em volta atingidos');
+check(ring.every((z) => Math.hypot(z.vel.x, z.vel.z) > 1), 'inimigos arremessados para longe');
+check(ring.every((z) => z.fire > 0), 'inimigos em chamas');
+check(LOG.explosions.length > exNova, 'cratera embaixo da explosao');
+tick(30);
+check(P(p, 'power') === 0, 'explosao solar terminou');
+check(AIR.has(P(p, 'fly')), 'continua voando depois do supremo');
+p.sneakHeld = true; use(p, 'superman:impacto'); p.sneakHeld = false; tick(1);
+check(P(p, 'power') === 0 && p.actionbar.includes('recarregando'), 'explosao solar tem recarga');
+for (const z of ring) z.remove();
+
 p.sneakHeld = true; for (let i = 0; i < 300 && P(p, 'fly') !== 0; i++) tick(1); p.sneakHeld = false;
 tick(20);
 

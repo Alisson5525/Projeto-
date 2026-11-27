@@ -1,8 +1,8 @@
 # Solaris – Herói Voador (Add-on para Minecraft Bedrock)
 
-Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 86, com transições suaves entre todos os estados. A skin é em **pixel art detalhada**.
+Add-on que transforma o jogador em **Solaris**, um super-herói original. Ele voa com física suave, tem visão de calor, sopro congelante, super força, super velocidade e um combo de luta completo, e **destrói o cenário** com o voo e os poderes. O foco principal são as **animações**: são 91, com transições suaves entre todos os estados. O personagem tem um **modelo 3D esculpido e articulado** (cotovelos, joelhos, capa em 6 partes), skin em **pixel art detalhada** e uma **camada que brilha no escuro**.
 
-> **Versão 1.2.0, polimento geral.** A destruição grande agora acontece em ondas, sem travar. Os poderes poupam aliados, os itens têm descrição e não caem ao morrer, há um guia rápido na primeira transformação, e o HUD mostra combo e tempo dos poderes. A capa ganhou física de mola, há deformação nos impactos e animações ociosas, e os ícones foram refeitos em pixel art. Veja o [histórico de mudanças](CHANGELOG.md).
+> **Versão 2.0.0, a grande melhoria.** Modelo 3D novo com 72 peças e 29 ossos: peito, ombros e bíceps em relevo, cotovelos e joelhos articulados, botas e braceletes esculpidos e capa em 6 segmentos. Todas as animações foram refeitas usando as articulações, e o herói ficou maior e mais imponente. O emblema, os olhos, os frisos e os braceletes **brilham** e acendem mais forte com os poderes. Os efeitos ganharam clarões, anéis de choque em sequência, paredes de poeira, detritos flutuando, coluna de luz, gotas derretidas e **pilares de gelo**. E há um poder supremo novo: a **Explosão Solar**. Veja o [histórico de mudanças](CHANGELOG.md).
 
 ![Visão geral das animações](docs/preview/visao_geral.png)
 
@@ -79,7 +79,11 @@ Ao acertar um inimigo, o herói entra em **postura de luta**: guarda alta, ginga
 | **Poder: Visão de Calor** | toque para ligar e de novo para desligar (até 15 s). O raio tem 80 blocos e **atravessa todos os inimigos no caminho**. Derrete uma **área** inteira: pedra vira magma e depois lava, areia vira vidro, terra vira magma, madeira pega fogo. Espalha fogo e, se você mirar no mesmo ponto, gera uma **explosão derretida** a cada 1,5 s. |
 | **Poder: Sopro Congelante** | toque para usar (até 10 s). Ele inspira e sopra um cone de **26 blocos** com vendaval que empurra. Os inimigos ficam congelados (lentidão forte, fraqueza e dano). Quem ficar mais de 1 s no sopro é **preso numa jaula de gelo**. Água vira gelo (e gelo compactado), lava vira obsidiana, plantas viram neve e o chão fica coberto de neve e geada. |
 | **Poder: Super Soco** | toque para carregar (até 2 s) e de novo para soltar. Alcance de até 20 blocos, abre túneis largos na pedra e arremessa inimigos muito longe. |
-| **Poder: Impacto** | no chão é a **palma trovão** (onda de 24 blocos que arremessa inimigos e estilhaça vidros e folhas); agachado é a **pancada no chão** (cratera grande); voando é o **mergulho meteoro**, que termina num **pouso de herói** com cratera na superfície. |
+| **Poder: Impacto** | no chão é a **palma trovão** (onda de 24 blocos que arremessa inimigos e estilhaça vidros e folhas); agachado é a **pancada no chão** (cratera grande); voando é o **mergulho meteoro**, que termina num **pouso de herói** com cratera na superfície; **agachado voando** é a **Explosão Solar** (veja abaixo). |
+
+### Explosão Solar (supremo)
+
+Voando, **agache e use o Impacto**. O herói para no ar, se encolhe e concentra a energia do sol por 2 segundos: a aura cresce, o chão racha e os detritos começam a flutuar. Então ele se abre em X e libera um **clarão solar** com uma coluna de luz e 4 anéis de choque. Todos os inimigos num raio de 26 blocos levam até 30 de dano, pegam fogo e são arremessados longe. Perto do chão, abre uma cratera, e vidros, folhas e plantas se estilhaçam em onda. A tela de quem está perto fica branca. Ninguém interrompe a carga, e há uma recarga de 12 s.
 
 Enquanto transformado: força VI, regeneração III, resistência total, imunidade a fogo e queda, respiração aquática, super pulo e fome cheia.
 
@@ -89,7 +93,8 @@ Enquanto transformado: força VI, regeneração III, resistência total, imunida
 - **Estrondo sônico:** ao entrar no supersônico, estilhaça vidros, folhas e plantas num raio de 8 blocos.
 - **Pouso de herói:** a cratera cresce com a velocidade da queda (até 9 blocos de raio).
 - **Decolagem carregada, pancada, soco e palma:** crateras, túneis e ondas de choque.
-- **Visão de calor:** derrete, queima e explode; **sopro congelante:** congela e prende em gelo.
+- **Visão de calor:** derrete, queima e explode; **sopro congelante:** congela, prende em gelo e faz **pilares de gelo** brotarem do chão.
+- **Explosão Solar:** cratera embaixo e onda que estilhaça tudo o que é frágil num raio de 12 blocos.
 
 A destruição grande (palma trovão, estrondo sônico, túnel do soco) se espalha em **ondas** ao longo de alguns ticks. Parece uma onda de choque de verdade e não trava o jogo.
 
@@ -116,20 +121,21 @@ Por padrão, os poderes em área (raios, sopro, palmas, explosões, golpe final)
 
 ---
 
-## Animações (86)
+## Animações (91)
 
 Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*) entre estados e camadas procedurais que se somam: capa, respiração, inclinação nas curvas, flutuação e tremor de esforço.
 
 | Voo e locomoção | Poderes | Combate | Camadas contínuas |
 |---|---|---|---|
-| decolagem carregada e salto com punho para cima | transformação e destransformação | postura de luta no chão e guarda no ar | **capa em 5 segmentos** com onda e **física de mola** |
+| decolagem carregada e salto com punho para cima | transformação e destransformação | postura de luta no chão e guarda no ar | **capa em 6 segmentos** com onda e **física de mola** |
 | decolagem no ar (pulo duplo) | visão de calor (início, tensão, fim) | jab, direto e gancho | a capa levanta com a velocidade e sobe ao cair |
 | pairar e pairar com **braços cruzados** | sopro congelante (inspira e sopra) | uppercut | respiração e piscar de olhos |
 | voo com **inclinação nas curvas** | super soco (carga e golpe) | **chute giratório** 360° | olhos brilham na visão de calor |
 | arrancada e voo supersônico | palma trovão | **golpe final** com investida | cabeça segue a câmera em todas as poses |
 | freada, mergulho meteoro | pancada no chão | soco aéreo duplo | pose de herói parado e no inventário, **olhar em volta** e **alongar** quando fica parado |
 | descida, pouso suave e **pouso de herói** | animações em 1ª pessoa | **chute tornado** e **martelo** aéreo | caminhada heroica e pose no ar ao pular; **deformação** no impacto e na decolagem |
-| super velocidade correndo | | | |
+| super velocidade correndo | **Explosão Solar** (concentrar e liberar em X) | | **brilho** do emblema, olhos e frisos que pulsa e acende com os poderes |
+| | | | **cotovelos e joelhos** dobrando em todas as poses; porte maior quando transformado |
 
 ### Prévias
 
@@ -140,13 +146,21 @@ Todas usam interpolação suave (catmull-rom), transições com mistura (*blend*
 | ![](docs/preview/07_pouso_de_heroi.gif) pouso de herói | ![](docs/preview/08_visao_de_calor.gif) visão de calor | ![](docs/preview/09_sopro_congelante.gif) sopro congelante |
 | ![](docs/preview/10_super_soco.gif) super soco | ![](docs/preview/15_combo_de_6_golpes.gif) combo de 6 golpes | ![](docs/preview/16_combo_aereo.gif) combo aéreo |
 | ![](docs/preview/12_palma_trovao.gif) palma trovão | ![](docs/preview/13_pancada_no_chao.gif) pancada no chão | ![](docs/preview/14_super_velocidade.gif) super velocidade |
-| ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | | |
+| ![](docs/preview/17_animacoes_ociosas.gif) animações ociosas | ![](docs/preview/18_explosao_solar.gif) Explosão Solar | |
 
 *As prévias foram renderizadas fora do jogo pelo visualizador em `tools/preview`, com as mesmas animações e modelo do add-on. As partículas e a câmera aparecem só dentro do jogo.*
 
-### Skin em pixel art
+### Modelo 3D e skin em pixel art
 
-Personagem original, desenhado em pixel art com 2 pixels por unidade (detalhe equivalente a uma skin 128×128) e paleta própria com sombreado em faixas:
+Personagem original. O modelo tem **72 peças em 29 ossos**, com volume de verdade em vez do corpo quadrado padrão:
+
+- peito, dorsais, abdômen e trapézio em relevo; ombreiras e bíceps salientes
+- antebraços e canelas separados, com **cotovelos e joelhos** que dobram nas animações
+- braceletes com aletas, joelheiras e botas com bico esculpidos
+- emblema solar em relevo com 8 raios, gola alta atrás da cabeça e capa em 6 segmentos
+- mandíbula, nariz, sobrancelhas, orelhas e cabelo em volume com mechas
+
+A pintura é em pixel art com 2 pixels por unidade (detalhe equivalente a uma skin 128×128), feita peça por peça, com paleta própria e sombreado em faixas:
 
 - rosto desenhado pixel a pixel, com olhos âmbar e sobrancelhas marcadas
 - cabelo penteado para trás com volume (camada 3D)
@@ -156,6 +170,7 @@ Personagem original, desenhado em pixel art com 2 pixels por unidade (detalhe eq
 - capa laranja "chama solar" com dobras, bainha e debrum dourados e sol vazado nas costas
 - luvas grafite com placa dourada nos nós dos dedos
 - ícones dos itens em pixel art com a mesma paleta
+- **camada de brilho** (emblema, raios, olhos, frisos e braceletes) desenhada sem sombra, que pulsa e fica mais forte durante os poderes e o voo rápido
 
 ---
 
@@ -164,12 +179,12 @@ Personagem original, desenhado em pixel art com 2 pixels por unidade (detalhe eq
 Tudo é gerado por scripts, então é fácil ajustar poses, cores e física:
 
 ```
-tools/gen_model.py        modelo 3D + pintura da skin em pixel art
+tools/gen_model.py        modelo 3D esculpido + pintura da skin e da camada de brilho
 tools/gen_client.py       animações, controladores, render controllers, player.entity.json
 tools/gen_assets.py       partículas, ícones, itens, anexos, receita, textos, manifestos, player.json
 tools/validate.mjs        valida JSON, ossos, Molang, referências, sons e partículas
 tools/typecheck/          verificação de tipos dos scripts contra @minecraft/server 2.0.0
-tools/simulate/           roda os scripts num mundo simulado (87 verificações)
+tools/simulate/           roda os scripts num mundo simulado (106 verificações)
 tools/preview/            visualizador 3D (three.js) que renderiza as prévias em GIF
 tools/build.sh            regenera tudo, valida, simula e empacota em dist/
 superman_addon/           pacotes de comportamento (scripts) e de recursos
@@ -188,8 +203,10 @@ python3 tools/preview/gifs.py /tmp                        # regera as prévias
 - A inclinação nas curvas, a orientação do corpo seguindo a câmera e a física da capa são calculadas **no cliente**, a cada quadro, por Molang. Por isso ficam fluidas mesmo com atraso de rede.
 - Os itens de poder usam **anexos vazios**, então nada é desenhado na mão do personagem.
 - A destruição grande passa por uma **fila de ondas**, com limite de blocos verificados por tick, para não travar o jogo.
+- O brilho é uma segunda passada do modelo com uma textura só das partes luminosas, desenhada **sem iluminação** (como as manchas do Warden). A intensidade vem de uma variável Molang que sobe com os poderes.
 
 ### Limitações conhecidas
 
 - O add-on foi verificado com validação estática, checagem de tipos da API e um simulador do mundo, mas **não foi testado dentro do jogo** neste ambiente. Alguns detalhes visuais, como o sentido da inclinação, a orientação de anéis de partícula e a intensidade da velocidade, podem precisar de ajuste fino. Se o desvio lateral estiver invertido, use a opção nas configurações.
+- O brilho usa o material da camada luminosa do Warden. Se alguma versão do jogo desenhar essa camada de um jeito diferente, o resto do personagem continua normal.
 - Os poderes agora são bem mais destrutivos. Em celulares mais fracos, reduza a intensidade e as partículas nas configurações.

@@ -44,10 +44,14 @@ export function molang(expr, Q, V) {
 }
 
 // ---------------------------------------------------------------- Modelo
-export function buildModel(geo, texture, hidden = ['eye_glow', 'eyelids']) {
+export function buildModel(geo, texture, hidden = ['eye_glow', 'eyelids'], glowTex = null) {
   const g = geo['minecraft:geometry'][0];
   const TW = g.description.texture_width, TH = g.description.texture_height;
   const mat = new THREE.MeshLambertMaterial({ map: texture, transparent: false, alphaTest: 0.5, side: THREE.DoubleSide });
+  const glowMat = glowTex ? new THREE.MeshBasicMaterial({
+    map: glowTex, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide,
+    polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
+  }) : null;
   const root = new THREE.Group();
   const bones = {};
   const rest = {};
@@ -60,7 +64,21 @@ export function buildModel(geo, texture, hidden = ['eye_glow', 'eyelids']) {
     grp.userData.boneRot = (b.rotation || [0, 0, 0]).slice();
     bones[b.name.toLowerCase()] = grp;
     for (const c of (hidden.includes(b.name.toLowerCase()) ? [] : (b.cubes || []))) {
-      grp.add(cubeMesh(c, mat, TW, TH, grp.userData.pivot));
+      // cubos com rotacao propria giram em torno do seu pivo (convencao Blockbench)
+      let holder = grp;
+      let ref = grp.userData.pivot;
+      if (c.rotation) {
+        const cp = new THREE.Vector3(-c.pivot[0], c.pivot[1], c.pivot[2]);
+        holder = new THREE.Group();
+        holder.rotation.order = 'ZYX';
+        holder.rotation.set(-c.rotation[0] * DEG, -c.rotation[1] * DEG, c.rotation[2] * DEG, 'ZYX');
+        holder.position.copy(cp).sub(grp.userData.pivot);
+        grp.add(holder);
+        ref = cp;
+      }
+      const mesh = cubeMesh(c, mat, TW, TH, ref);
+      holder.add(mesh);
+      if (glowMat) holder.add(new THREE.Mesh(mesh.geometry, glowMat));
     }
   }
   for (const b of g.bones) {
@@ -70,7 +88,7 @@ export function buildModel(geo, texture, hidden = ['eye_glow', 'eyelids']) {
     grp.userData.restPos = grp.userData.pivot.clone().sub(ppv);
     (parent || root).add(grp);
   }
-  return { root, bones };
+  return { root, bones, glowMat };
 }
 
 function cubeMesh(c, mat, TW, TH, pivot) {

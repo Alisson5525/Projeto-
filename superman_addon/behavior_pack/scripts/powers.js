@@ -2,7 +2,7 @@ import { EntityDamageCause, EquipmentSlot, GameMode, ItemStack, system } from '@
 import { AIR_STATES, FLY, ITEM, POWER_ITEMS, POW, getSettings } from './config.js';
 import { blast, breakBlocks, debrisColor, isBreakable, isFragile, waveBreak, waveLine } from './destruction.js';
 import { startDive, stopAll, toggleFlight } from './flight.js';
-import { actionbar, flash, particle, q, shake, shakeArea, sound } from './fx.js';
+import { actionbar, flash, flashArea, later, particle, q, ringBurst, shake, shakeArea, sound } from './fx.js';
 import { setFly, setOn, setPower, sync } from './state.js';
 import { canHit, hurt, nearby, pushMobs } from './targets.js';
 import { openSettings } from './ui.js';
@@ -45,7 +45,8 @@ const LORE = {
   [ITEM.HEAT]: ['§7Toque: liga / desliga (até 15 s)', '§7Derrete pedra, areia, terra e gelo', '§7O raio atravessa todos os inimigos'],
   [ITEM.FREEZE]: ['§7Toque: inspira e sopra (até 10 s)', '§7Congela água, lava e inimigos', '§7Prende inimigos em gelo'],
   [ITEM.PUNCH]: ['§7Toque: carregar  |  toque de novo: soltar', '§7Mais carga = mais alcance e força'],
-  [ITEM.IMPACT]: ['§7No chão: palma trovão', '§7Agachado: pancada no chão', '§7Voando: mergulho meteoro'],
+  [ITEM.IMPACT]: ['§7No chão: palma trovão', '§7Agachado: pancada no chão', '§7Voando: mergulho meteoro',
+    '§6Agachado voando: EXPLOSÃO SOLAR'],
 };
 
 function decorate(stack) {
@@ -87,6 +88,7 @@ export function onItemUse(player, st, id, tick) {
     return;
   }
   if (st.power === POW.TRANSFORM || st.power === POW.DETRANSFORM) return;
+  if (st.power === POW.NOVA_CHARGE || st.power === POW.NOVA) return; // o supremo nao pode ser interrompido
   switch (id) {
     case ITEM.FLIGHT:
       toggleFlight(player, st);
@@ -104,7 +106,13 @@ export function onItemUse(player, st, id, tick) {
       else beginPower(player, st, POW.CHARGE, tick + 40);
       break;
     case ITEM.IMPACT:
-      if (AIR_STATES.has(st.fly) && st.fly !== FLY.DIVE) {
+      if (AIR_STATES.has(st.fly) && st.fly !== FLY.DIVE && player.isSneaking) {
+        if (tick < st.novaReadyAt) {
+          actionbar(player, `§6Explosão Solar recarregando: §e${Math.ceil((st.novaReadyAt - tick) / 20)} s`);
+        } else {
+          beginPower(player, st, POW.NOVA_CHARGE, 0);
+        }
+      } else if (AIR_STATES.has(st.fly) && st.fly !== FLY.DIVE) {
         startDive(player, st);
       } else if (!AIR_STATES.has(st.fly)) {
         beginPower(player, st, player.isSneaking ? POW.SLAM : POW.CLAP, 0);
@@ -163,14 +171,18 @@ function transformTick(player, st) {
     sound(dim, 'mob.breeze.inhale', c, 0.8, 0.6);
   }
   if (t < 20 && t % 2 === 0) particle(dim, 'superman:transform_gather', c);
+  if (t < 20 && t % 3 === 0) particle(dim, 'superman:aura', c, { radius: 1.2 });
   if (t === 10) sound(dim, 'respawn_anchor.charge', c, 1, 1.1);
   if (t > 8 && t < 20 && t % 4 === 0) shake(player, 0.05 + t * 0.006, 0.2);
   if (t === 20) {
     setOn(player, st, true);
     flash(player, 1, 1, 1, 0.05, 0.05, 0.5);
     particle(dim, 'superman:transform_burst', c);
-    particle(dim, 'superman:shockwave', V.add(player.location, { x: 0, y: 0.1, z: 0 }), { radius: 6, color: { r: 0.4, g: 0.6, b: 1 } });
-    particle(dim, 'superman:shockwave', c, { radius: 4, color: { r: 1, g: 0.3, b: 0.2 } });
+    particle(dim, 'superman:sun_pillar', player.location, { height: 30 });
+    particle(dim, 'superman:impact_flash', c, { radius: 4 });
+    ringBurst(dim, V.add(player.location, { x: 0, y: 0.1, z: 0 }), [5, 9, 13], { r: 1, g: 0.85, b: 0.45 }, 3);
+    particle(dim, 'superman:shockwave', c, { radius: 4, color: { r: 1, g: 0.55, b: 0.2 } });
+    flashArea(dim, c, 16, 0.5);
     sound(dim, 'item.trident.thunder', c, 0.7, 1.3);
     sound(dim, 'beacon.activate', c, 1, 1);
     sound(dim, 'random.explode', c, 0.4, 1.6);
@@ -202,6 +214,7 @@ function tutorial(player) {
     '§e• Pousar:§f desça até o chão  §8|  §eSuper velocidade:§f correr',
     '§e• Combate:§f 6 golpes no chão e 3 no ar',
     '§e• Poderes:§f itens da barra (cada um tem uma descrição)',
+    '§6• Explosão Solar:§f voando, agache e use o Impacto',
     '§e• Configurações:§f agachar + usar o Emblema',
   ];
   for (const l of lines) player.sendMessage(l);
@@ -319,8 +332,11 @@ function heatTick(player, st, tick) {
     particle(dim, 'superman:heat_beam', eye, { dir, len, den: q(4) });
     particle(dim, 'superman:heat_core', eye, { dir, len, den: q(3) });
     if (t % 2 === 0) particle(dim, 'superman:eye_glow', eye);
+    particle(dim, 'superman:lens_flare', V.add(eye, V.mul(dir, 0.1)));
   }
   particle(dim, 'superman:heat_impact', V.sub(hitPoint, V.mul(dir, 0.15)));
+  if (t % 2 === 0) particle(dim, 'superman:impact_flash', V.sub(hitPoint, V.mul(dir, 0.3)), { radius: 1.4 });
+  if (blockHit && t % 3 === 0) particle(dim, 'superman:molten_drop', V.sub(hitPoint, V.mul(dir, 0.2)));
   if (t % 3 === 0) particle(dim, 'superman:melt_burst', V.sub(hitPoint, V.mul(dir, 0.3)));
   if (t % 6 === 0) sound(dim, 'fire.fire', hitPoint, 1.6, 1.2);
   if (t % 12 === 0) sound(dim, 'mob.blaze.breathe', head, 0.7, 1.5);
@@ -387,11 +403,32 @@ function encase(player, e) {
   return n;
 }
 
+/** Pilar de gelo que brota do chao onde o sopro bate (1 a 3 blocos). */
+function iceSpike(player, st, base) {
+  const dim = player.dimension;
+  const h = 1 + Math.floor(Math.random() * 3);
+  let n = 0;
+  for (let y = 1; y <= h; y++) {
+    try {
+      const b = dim.getBlock({ x: base.x, y: base.y + y, z: base.z });
+      if (!b || !(b.isAir || isFragile(b.typeId))) break;
+      b.setType(y === h ? 'minecraft:blue_ice' : 'minecraft:packed_ice');
+      n++;
+    } catch (e) { break; }
+  }
+  if (n) {
+    st.iceSpikes++;
+    const top = { x: base.x + 0.5, y: base.y + 1 + n, z: base.z + 0.5 };
+    particle(dim, 'superman:ice_burst', top);
+    sound(dim, 'random.glass', top, 0.6, 1.4);
+  }
+}
+
 function freezeTick(player, st, tick) {
   const t = st.powTicks;
   const dim = player.dimension;
   const head = player.getHeadLocation();
-  if (t === 1) { sound(dim, 'mob.breeze.inhale', head, 1, 0.7); st.exposure.clear(); }
+  if (t === 1) { sound(dim, 'mob.breeze.inhale', head, 1, 0.7); st.exposure.clear(); st.iceSpikes = 0; }
   if (t < 12) {
     if (t % 2 === 0) particle(dim, 'superman:inhale', head);
     return;
@@ -461,6 +498,8 @@ function freezeTick(player, st, tick) {
         sound(dim, 'random.fizz', pc, 0.6, 1.2);
       } else if (s.destruction && isFragile(id) && !/(glass|ice|snow_layer)/.test(id) && !/leaves/.test(id)) {
         b.setType('minecraft:snow_layer');   // plantas congeladas viram neve
+      } else if (s.destruction && hit.face === 'Up' && !b.isAir && st.iceSpikes < 30 && Math.random() < 0.05) {
+        iceSpike(player, st, b.location);
       } else if (s.destruction && hit.face === 'Up' && !b.isAir && Math.random() < 0.6) {
         const above = dim.getBlock(V.add(b.location, UP));
         if (above && above.isAir) above.setType('minecraft:snow_layer');
@@ -468,6 +507,75 @@ function freezeTick(player, st, tick) {
       }
     } catch (e) { /* */ }
   }
+}
+
+// ---------------------------------------------------------------- explosao solar (supremo)
+
+function groundBelow(player, max) {
+  try {
+    const l = player.location;
+    const hit = player.dimension.getBlockFromRay({ x: l.x, y: l.y, z: l.z }, { x: 0, y: -1, z: 0 }, {
+      maxDistance: max, includeLiquidBlocks: true, includePassableBlocks: false,
+    });
+    return hit ? { x: l.x, y: hit.block.location.y + 1.02, z: l.z } : undefined;
+  } catch (e) {
+    return undefined;
+  }
+}
+
+function novaChargeTick(player, st, tick) {
+  const t = st.powTicks;
+  const dim = player.dimension;
+  const c = V.add(player.location, { x: 0, y: 1, z: 0 });
+  const g = groundBelow(player, 16);
+  if (t === 1) {
+    sound(dim, 'beacon.activate', c, 1.2, 0.6);
+    sound(dim, 'mob.breeze.inhale', c, 1, 0.5);
+  }
+  if (t === 14) sound(dim, 'mob.warden.sonic_charge', c, 1.4, 0.7);
+  if (t === 28) sound(dim, 'ambient.weather.thunder', c, 0.7, 1.6);
+  if (t % 2 === 0) particle(dim, 'superman:aura', c, { radius: 1.2 + t * 0.03 });
+  if (t % 3 === 0) particle(dim, 'superman:transform_gather', c);
+  if (g && t % 3 === 0) particle(dim, 'superman:rising_debris', g, { radius: 3 + t * 0.12, color: { r: 0.52, g: 0.46, b: 0.4 } });
+  if (g && (t === 12 || t === 26)) particle(dim, 'superman:ground_crack', { x: g.x, y: Math.floor(g.y) + 0.06, z: g.z }, { radius: 2 + t * 0.12 });
+  if (t % 5 === 0) shakeArea(dim, c, 24, 0.05 + t * 0.012, 0.3);
+  if (t >= 40) setPower(player, st, POW.NOVA);
+}
+
+function novaRelease(player, st, tick) {
+  const dim = player.dimension;
+  const c = V.add(player.location, { x: 0, y: 1, z: 0 });
+  st.novaReadyAt = tick + 20 * 12;
+  particle(dim, 'superman:nova_burst', c);
+  particle(dim, 'superman:impact_flash', c, { radius: 9 });
+  particle(dim, 'superman:sun_pillar', player.location, { height: 40 });
+  ringBurst(dim, c, [10, 18, 26, 34], { r: 1, g: 0.85, b: 0.45 }, 3);
+  later(2, () => particle(dim, 'superman:nova_burst', c));
+  sound(dim, 'mob.warden.sonic_boom', c, 2, 0.7);
+  sound(dim, 'random.explode', c, 1.6, 0.6);
+  sound(dim, 'ambient.weather.lightning.impact', c, 1.2, 0.9);
+  sound(dim, 'item.trident.thunder', c, 1, 0.8);
+  flashArea(dim, c, 40, 1);
+  shakeArea(dim, c, 48, 1.6, 1.2);
+  // onda que arremessa e queima tudo em volta
+  for (const e of nearby(player, c, 26)) {
+    const rel = V.sub(e.location, c);
+    const h = V.norm({ x: rel.x, y: 0, z: rel.z });
+    const f = 1 - Math.min(1, V.len(rel) / 26) * 0.7;
+    try {
+      e.applyKnockback({ x: h.x * 6 * f, z: h.z * 6 * f }, 1.2 * f);
+      e.setOnFire(Math.round(6 * f) + 1, true);
+    } catch (err) { /* */ }
+    hurt(player, e, 30 * f);
+  }
+  // cratera embaixo (se estiver perto do chao) e vidros/folhas/plantas estilhacando em onda
+  const g = groundBelow(player, 8);
+  if (g) {
+    blast(dim, { x: g.x, y: g.y - 1, z: g.z }, 4.5, player, { fire: true });
+    particle(dim, 'superman:dust_wall', g, { radius: 7 });
+    particle(dim, 'superman:ground_crack', { x: g.x, y: Math.floor(g.y) + 0.06, z: g.z }, { radius: 6 });
+  }
+  waveBreak(dim, c, 12, { filter: isFragile, speed: 2.5, visible: 5, max: 400 });
 }
 
 // ---------------------------------------------------------------- super soco
@@ -481,6 +589,7 @@ function chargeTick(player, st) {
   const { fwd, right } = V.basis(look);
   const fist = V.add(player.location, V.add(V.add(V.mul(right, 0.45), V.mul(fwd, -0.35)), { x: 0, y: 1.05, z: 0 }));
   if (t % 2 === 0) particle(dim, 'superman:charge_energy', fist, { power: st.charge });
+  if (t % 4 === 0 && st.charge > 0.5) particle(dim, 'superman:aura', V.add(player.location, { x: 0, y: 1, z: 0 }), { radius: 0.9 });
   if (t === 1) sound(dim, 'crossbow.quick_charge.start', fist, 1, 0.8);
   if (t === 12) sound(dim, 'crossbow.quick_charge.middle', fist, 1, 0.8);
   if (t === 26) sound(dim, 'crossbow.quick_charge.end', fist, 1, 0.8);
@@ -526,11 +635,16 @@ function punchImpact(player, st) {
     const hd = V.dist(origin, hp);
     blast(dim, hp, 2 + 4 * c, player);
     particle(dim, 'superman:debris_burst', hp, { color: debrisColor(hit.block.typeId) });
+    particle(dim, 'superman:dust_wall', hp, { radius: 2 + 3 * c });
     // o tunel avanca em onda a partir do ponto de impacto
     if (c > 0.3) waveLine(dim, origin, dir, hd + 1.2, range + 3 * c, 1.3 + 2 * c, { speed: 3, visible: 3 });
   }
-  particle(dim, 'superman:sonic_boom', fistPos, { dir, radius: 1 + 2.5 * c });
+  particle(dim, 'superman:impact_flash', fistPos, { radius: 1.5 + 2 * c });
   particle(dim, 'superman:punch_wave', fistPos, { dir, power: c });
+  for (let i = 0; i < 2 + Math.round(3 * c); i++) {
+    later(i * 2 + 1, () => particle(dim, 'superman:sonic_boom', V.add(fistPos, V.mul(dir, 1 + i * 2.5)), { dir, radius: 1 + 2.5 * c + i * 0.6 }));
+  }
+  if (c > 0.7) flashArea(dim, fistPos, 10, 0.4);
   sound(dim, 'game.player.attack.strong', fistPos, 1, 0.8);
   sound(dim, 'random.explode', fistPos, 0.5 + 0.6 * c, 1.3 - 0.4 * c);
   if (c > 0.5) sound(dim, 'mob.warden.sonic_boom', fistPos, 0.6 + 0.6 * c, 1.2);
@@ -549,6 +663,9 @@ function clapImpact(player, st) {
   particle(dim, 'superman:sonic_boom', center, { dir: fwd, radius: 5 });
   particle(dim, 'superman:shockwave', V.add(player.location, { x: 0, y: 0.1, z: 0 }), { radius: 14, color: { r: 0.95, g: 0.97, b: 1 } });
   particle(dim, 'superman:clap_wave', V.add(center, V.mul(fwd, 3)), { dir: fwd, radius: 6 });
+  particle(dim, 'superman:impact_flash', center, { radius: 3 });
+  for (let i = 1; i <= 3; i++) later(i * 3, () => particle(dim, 'superman:clap_wave', V.add(center, V.mul(fwd, 3 + i * 4)), { dir: fwd, radius: 6 + i * 2 }));
+  particle(dim, 'superman:dust_wall', V.add(player.location, V.add(V.mul(fwd, 3), { x: 0, y: 0.1, z: 0 })), { radius: 4 });
   sound(dim, 'mob.warden.sonic_boom', center, 1.4, 1.1);
   sound(dim, 'ambient.weather.thunder', center, 0.6, 1.4);
   sound(dim, 'random.explode', center, 0.7, 1.3);
@@ -575,9 +692,11 @@ function slamImpact(player, st) {
   const { fwd } = V.basis(look);
   const p = V.add(player.location, V.add(V.mul(fwd, 1.3), { x: 0, y: -0.4, z: 0 }));
   blast(dim, p, 5, player);
-  particle(dim, 'superman:shockwave', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 18, color: { r: 1, g: 1, b: 1 } });
-  particle(dim, 'superman:shockwave', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 9, color: { r: 1, g: 0.8, b: 0.55 } });
-  particle(dim, 'superman:dust_ring', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 5 });
+  ringBurst(dim, V.add(p, { x: 0, y: 0.5, z: 0 }), [9, 15, 21], { r: 1, g: 0.9, b: 0.7 }, 3);
+  particle(dim, 'superman:impact_flash', V.add(p, { x: 0, y: 1, z: 0 }), { radius: 4 });
+  particle(dim, 'superman:dust_wall', V.add(p, { x: 0, y: 0.5, z: 0 }), { radius: 6 });
+  later(5, () => particle(dim, 'superman:rising_debris', p, { radius: 5, color: { r: 0.5, g: 0.45, b: 0.4 } }));
+  flashArea(dim, p, 12, 0.35);
   particle(dim, 'superman:ground_crack', { x: p.x, y: Math.floor(player.location.y) + 0.06, z: p.z }, { radius: 3.5 });
   for (let i = 0; i < q(4); i++) particle(dim, 'superman:debris_burst', V.add(p, { x: 0, y: 0.6, z: 0 }), { color: { r: 0.5, g: 0.45, b: 0.4 } });
   sound(dim, 'mace.heavy_smash_ground', p, 2, 0.6);
@@ -641,6 +760,7 @@ export function onMeleeHit(player, st, target, tick) {
     target.applyKnockback({ x: d.x * mv.k, z: d.z * mv.k }, mv.up);
     const hp = V.add(target.location, { x: 0, y: 1, z: 0 });
     particle(dim, 'superman:punch_impact', hp);
+    particle(dim, 'superman:impact_flash', hp, { radius: 0.8 + st.combo * 0.25 });
     sound(dim, 'game.player.attack.strong', hp, 1, 0.65 + st.combo * 0.08);
     shake(player, 0.08 + st.combo * 0.05, 0.2);
     if (mv.wave) {
@@ -654,7 +774,8 @@ export function onMeleeHit(player, st, target, tick) {
     if (mv.finisher) {
       hurt(player, target, 30);
       particle(dim, 'superman:sonic_boom', hp, { dir: h, radius: 3 });
-      particle(dim, 'superman:shockwave', V.add(target.location, { x: 0, y: 0.1, z: 0 }), { radius: 7, color: { r: 1, g: 1, b: 1 } });
+      particle(dim, 'superman:impact_flash', hp, { radius: 3 });
+      ringBurst(dim, V.add(target.location, { x: 0, y: 0.1, z: 0 }), [5, 8, 11], { r: 1, g: 0.95, b: 0.85 }, 2);
       particle(dim, 'superman:debris_burst', target.location, { color: { r: 0.55, g: 0.5, b: 0.45 } });
       sound(dim, 'mob.warden.sonic_boom', hp, 1, 1.2);
       sound(dim, 'random.explode', hp, 0.6, 1.3);
@@ -754,6 +875,13 @@ export function updatePowers(player, st, inp, tick) {
       if (st.powTicks === 11) slamImpact(player, st);
       if (st.powTicks >= 24) setPower(player, st, POW.NONE);
       break;
+    case POW.NOVA_CHARGE:
+      novaChargeTick(player, st, tick);
+      break;
+    case POW.NOVA:
+      if (st.powTicks === 2) novaRelease(player, st, tick);
+      if (st.powTicks >= 26) setPower(player, st, POW.NONE);
+      break;
     default:
       if (tick >= st.powerTimeout) setPower(player, st, POW.NONE);
   }
@@ -762,4 +890,5 @@ export function updatePowers(player, st, inp, tick) {
 export const POWER_NAMES = {
   [POW.HEAT]: '§cVisão de calor', [POW.FREEZE]: '§bSopro congelante', [POW.CHARGE]: '§6Carregando soco',
   [POW.PUNCH]: '§6Super soco', [POW.CLAP]: '§fPalma trovão', [POW.SLAM]: '§fPancada no chão',
+  [POW.NOVA_CHARGE]: '§6Concentrando energia solar', [POW.NOVA]: '§e§lEXPLOSÃO SOLAR',
 };

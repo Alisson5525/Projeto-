@@ -1,4 +1,4 @@
-import { MolangVariableMap, world } from '@minecraft/server';
+import { MolangVariableMap, system, world } from '@minecraft/server';
 import { getSettings } from './config.js';
 
 /** Particula com variaveis Molang opcionais: {dir:{x,y,z}, len:number, color:{r,g,b}, ...} */
@@ -64,4 +64,36 @@ export function flash(player, r, g, b, inT = 0.05, hold = 0.05, out = 0.45) {
       fadeTime: { fadeInTime: inT, holdTime: hold, fadeOutTime: out },
     });
   } catch (e) { /* ignore */ }
+}
+
+/** Executa um efeito daqui a `ticks` ticks (sequencias de ondas, ecos de explosao). */
+export function later(ticks, fn) {
+  try {
+    system.runTimeout(() => {
+      try { fn(); } catch (e) { /* entidade/dimensao invalida */ }
+    }, Math.max(1, Math.round(ticks)));
+  } catch (e) { /* */ }
+}
+
+/** Varias ondas de choque saindo uma depois da outra. */
+export function ringBurst(dim, loc, radii, color, gap = 3, id = 'superman:shockwave') {
+  radii.forEach((r, i) => {
+    const run = () => particle(dim, id, loc, { radius: r, color });
+    if (i === 0) run();
+    else later(i * gap, run);
+  });
+}
+
+/** Clarao branco na tela de todos os jogadores perto de um ponto. */
+export function flashArea(dim, loc, radius, strength = 1) {
+  for (const p of world.getAllPlayers()) {
+    try {
+      if (p.dimension.id !== dim.id) continue;
+      const d = Math.hypot(p.location.x - loc.x, p.location.y - loc.y, p.location.z - loc.z);
+      if (d > radius) continue;
+      const k = strength * (1 - d / radius);
+      if (k < 0.15) continue;
+      p.camera.fade({ fadeColor: { red: 1, green: 0.95, blue: 0.8 }, fadeTime: { fadeInTime: 0.03, holdTime: 0.03 * k, fadeOutTime: 0.3 + 0.4 * k } });
+    } catch (e) { /* */ }
+  }
 }

@@ -23,6 +23,35 @@
         }
       ]
     },
+    "controller.render.superman.glow": {
+      "geometry": "Geometry.superman",
+      "materials": [
+        {
+          "*": "Material.sm_glow"
+        }
+      ],
+      "textures": [
+        "Texture.superman_glow"
+      ],
+      "ignore_lighting": true,
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": "v.sm_glow * (0.85 + math.sin(q.life_time * 240.0) * 0.15)"
+      },
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "eye_glow": "v.sm_pow == 3"
+        },
+        {
+          "eyelids": false
+        }
+      ]
+    },
     "controller.render.superman.first_person": {
       "geometry": "Geometry.superman",
       "materials": [
@@ -41,7 +70,13 @@
           "rightArm": "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map' || q.is_item_name_any('slot.weapon.mainhand', 0, 'superman:emblema', 'superman:voo', 'superman:visao_calor', 'superman:sopro_congelante', 'superman:super_soco', 'superman:impacto')"
         },
         {
+          "rightForearm": "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map' || q.is_item_name_any('slot.weapon.mainhand', 0, 'superman:emblema', 'superman:voo', 'superman:visao_calor', 'superman:sopro_congelante', 'superman:super_soco', 'superman:impacto')"
+        },
+        {
           "leftArm": "(query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'filled_map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
+        },
+        {
+          "leftForearm": "(query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield') || (query.get_equipped_item_name('off_hand') == 'filled_map' && !query.item_is_charged) || (!query.item_is_charged && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0))"
         }
       ]
     }

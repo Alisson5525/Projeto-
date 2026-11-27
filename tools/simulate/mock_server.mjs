@@ -245,16 +245,19 @@ export const world = {
   getDimension() { return overworld; },
 };
 export const system = {
-  currentTick: 0, intervals: [], queue: [],
+  currentTick: 0, intervals: [], queue: [], timeouts: [],
   runInterval(f, n = 1) { this.intervals.push({ f, n }); return this.intervals.length; },
   run(f) { this.queue.push(f); return 0; },
-  runTimeout(f) { this.queue.push(f); return 0; },
+  runTimeout(f, d = 1) { this.timeouts.push({ f, at: this.currentTick + Math.max(1, d) }); return 0; },
   /** Avanca um tick do jogo. */
   step() {
     this.currentTick++;
     for (const { f, n } of this.intervals) if (this.currentTick % n === 0) f();
     const q = this.queue.splice(0);
     for (const f of q) f();
+    const due = this.timeouts.filter((t) => t.at <= this.currentTick);
+    this.timeouts = this.timeouts.filter((t) => t.at > this.currentTick);
+    for (const t of due) t.f();
     for (const p of world.players) p.physics();
   },
 };

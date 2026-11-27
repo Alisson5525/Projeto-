@@ -17,7 +17,7 @@ RP = os.path.join(ADDON, "resource_pack")
 BP = os.path.join(ADDON, "behavior_pack")
 VANILLA = os.path.join(ROOT, "tools", "vanilla")
 
-VERSION = [1, 2, 0]
+VERSION = [2, 0, 0]
 MIN_ENGINE = [1, 26, 30]
 UUID = {
     "rp_header": "6a2b4132-97da-4e69-a879-156ed10268a3",
@@ -489,6 +489,128 @@ def particles():
             "v.particle_random_1 < 0.4 ? 0.3 : 1.0",
             "v.particle_random_1 < 0.4 ? 0.55 : (v.particle_random_1 < 0.75 ? 0.2 : 0.85)",
             "v.particle_random_1 < 0.4 ? 1.0 : 0.2", "1.0 - v.particle_age / v.particle_lifetime"]},
+    })
+
+    # ---------------------------------------------------------------- efeitos especiais (v2)
+    E["aura"] = P("aura", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 6},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": "(v.radius ?? 1.0)", "surface_only": True,
+                                           "direction": ["math.random(-0.3, 0.3)", 1, "math.random(-0.3, 0.3)"]},
+        **life("math.random(0.5, 0.9)"),
+        "minecraft:particle_initial_speed": "math.random(0.6, 1.6)",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": 180},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, 1.5, 0], "linear_drag_coefficient": 1},
+        "minecraft:particle_appearance_billboard": billboard(["0.12 * (1.0 - v.particle_age / v.particle_lifetime) + 0.03",
+                                                             "0.12 * (1.0 - v.particle_age / v.particle_lifetime) + 0.03"], "star"),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#00FFF5C8"), (0.2, "#FFFFE07A"), (0.7, "#C0FFB040"), (1, "#00FF7A20")]),
+    })
+    E["rising_debris"] = P("rising_debris", "particles_alpha", {
+        "minecraft:emitter_rate_instant": {"num_particles": 4},
+        **once(),
+        "minecraft:emitter_shape_disc": {"radius": "(v.radius ?? 4.0)", "plane_normal": [0, 1, 0], "direction": [0, 1, 0]},
+        **life("math.random(1.6, 2.6)"),
+        "minecraft:particle_initial_speed": "math.random(0.8, 2.2)",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-120, 120)"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, 0.6, 0], "linear_drag_coefficient": 0.9},
+        "minecraft:particle_appearance_billboard": billboard(["0.1 + v.particle_random_1 * 0.22", "0.1 + v.particle_random_1 * 0.22"], "chunk"),
+        "minecraft:particle_appearance_tinting": {"color": ["v.color.r ?? 0.5", "v.color.g ?? 0.45", "v.color.b ?? 0.4",
+                                                            "math.clamp((v.particle_lifetime - v.particle_age) * 2.0, 0.0, 1.0)"]},
+        "minecraft:particle_appearance_lighting": {},
+    })
+    E["impact_flash"] = P("impact_flash", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 1},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("0.2"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_appearance_billboard": billboard(
+            ["(v.radius ?? 2.0) * (0.6 + v.particle_age / v.particle_lifetime * 0.8)",
+             "(v.radius ?? 2.0) * (0.6 + v.particle_age / v.particle_lifetime * 0.8)"], "glow"),
+        "minecraft:particle_appearance_tinting": {"color": [1, 0.92, 0.7, "1.0 - v.particle_age / v.particle_lifetime"]},
+    })
+    E["dust_wall"] = P("dust_wall", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 70},
+        **once(),
+        "minecraft:emitter_shape_disc": {"radius": "(v.radius ?? 4.0) * 0.3", "plane_normal": [0, 1, 0], "surface_only": True,
+                                         "direction": "outwards"},
+        **life("math.random(1.4, 2.4)"),
+        "minecraft:particle_initial_speed": "math.random(6, 10) * math.sqrt(v.radius ?? 4.0) * 0.55",
+        "minecraft:particle_initial_spin": {"rotation": "math.random(0, 360)", "rotation_rate": "math.random(-40, 40)"},
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, 0.8, 0], "linear_drag_coefficient": 2.2},
+        "minecraft:particle_motion_collision": {"collision_radius": 0.2, "coefficient_of_restitution": 0.1, "collision_drag": 2},
+        "minecraft:particle_appearance_billboard": billboard(["(1.2 + v.particle_random_1) * (0.4 + v.particle_age / v.particle_lifetime)",
+                                                             "(1.2 + v.particle_random_1) * (0.4 + v.particle_age / v.particle_lifetime)"], "puff"),
+        "minecraft:particle_appearance_tinting": {"color": [0.6, 0.55, 0.48, "0.8 * (1.0 - v.particle_age / v.particle_lifetime)"]},
+        "minecraft:particle_appearance_lighting": {},
+    })
+    E["vapor_cone"] = P("vapor_cone", "particles_blend", {
+        "minecraft:emitter_rate_instant": {"num_particles": 46},
+        **once(),
+        "minecraft:emitter_shape_disc": {"radius": 1.3, "plane_normal": DIR, "surface_only": True, "direction": "outwards"},
+        **life("math.random(0.3, 0.5)"),
+        "minecraft:particle_initial_speed": "math.random(1.5, 3.0)",
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": ["-v.dir.x * 30.0", "-v.dir.y * 30.0", "-v.dir.z * 30.0"],
+                                              "linear_drag_coefficient": 3},
+        "minecraft:particle_appearance_billboard": billboard(["0.25 + v.particle_age * 2.0", "0.25 + v.particle_age * 2.0"], "puff"),
+        "minecraft:particle_appearance_tinting": {"color": [0.95, 0.97, 1, "0.7 * (1.0 - v.particle_age / v.particle_lifetime)"]},
+    })
+    E["solar_trail"] = P("solar_trail", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 5},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.45, "direction": ["-v.dir.x + math.random(-0.2, 0.2)",
+                                                                         "-v.dir.y + math.random(-0.2, 0.2)",
+                                                                         "-v.dir.z + math.random(-0.2, 0.2)"]},
+        **life("math.random(0.25, 0.5)"),
+        "minecraft:particle_initial_speed": "math.random(1, 3)",
+        "minecraft:particle_motion_dynamic": {"linear_drag_coefficient": 2},
+        "minecraft:particle_appearance_billboard": billboard(["0.3 * (1.0 - v.particle_age / v.particle_lifetime) + 0.05",
+                                                             "0.3 * (1.0 - v.particle_age / v.particle_lifetime) + 0.05"], "ember"),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#FFFFF8D8"), (0.3, "#FFFFC040"), (0.7, "#C0FF6A18"), (1, "#00B02808")]),
+    })
+    E["sun_pillar"] = P("sun_pillar", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 90},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("math.random(0.5, 1.0)"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_motion_parametric": {"relative_position": [
+            "(v.particle_random_2 - 0.5) * 1.6 * (1.0 - v.particle_age / v.particle_lifetime)",
+            "v.particle_random_1 * (v.height ?? 28.0) + v.particle_age * 6.0",
+            "(v.particle_random_3 - 0.5) * 1.6 * (1.0 - v.particle_age / v.particle_lifetime)"]},
+        "minecraft:particle_appearance_billboard": billboard(["0.35 + v.particle_random_4 * 0.4", "0.35 + v.particle_random_4 * 0.4"], "glow"),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#00FFFFFF"), (0.15, "#FFFFF6C8"), (0.6, "#C0FFD060"), (1, "#00FF9030")]),
+    })
+    E["lens_flare"] = P("lens_flare", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 1},
+        **once(),
+        "minecraft:emitter_shape_point": {},
+        **life("0.12"),
+        "minecraft:particle_initial_speed": 0,
+        "minecraft:particle_appearance_billboard": billboard([0.9, 0.05], "streak"),
+        "minecraft:particle_appearance_tinting": {"color": [1, 0.6, 0.3, 0.9]},
+    })
+    E["molten_drop"] = P("molten_drop", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 5},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.2, "direction": ["math.random(-1, 1)", "math.random(0.8, 2)", "math.random(-1, 1)"]},
+        **life("math.random(0.8, 1.5)"),
+        "minecraft:particle_initial_speed": "math.random(2.5, 5.5)",
+        "minecraft:particle_motion_dynamic": {"linear_acceleration": [0, -16, 0], "linear_drag_coefficient": 0.5},
+        "minecraft:particle_motion_collision": {"collision_radius": 0.05, "coefficient_of_restitution": 0.25, "collision_drag": 3},
+        "minecraft:particle_appearance_billboard": billboard(["0.09 + v.particle_random_1 * 0.06", "0.09 + v.particle_random_1 * 0.06"], "ember"),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#FFFFF0A0"), (0.3, "#FFFF8A20"), (0.8, "#FFB02A08"), (1, "#00400A00")]),
+    })
+    E["nova_burst"] = P("nova_burst", "particles_add", {
+        "minecraft:emitter_rate_instant": {"num_particles": 140},
+        **once(),
+        "minecraft:emitter_shape_sphere": {"radius": 0.8, "surface_only": True, "direction": "outwards"},
+        **life("math.random(0.6, 1.1)"),
+        "minecraft:particle_initial_speed": "math.random(16, 26)",
+        "minecraft:particle_motion_dynamic": {"linear_drag_coefficient": 2.4},
+        "minecraft:particle_appearance_billboard": billboard(["0.4 * (1.0 - v.particle_age / v.particle_lifetime) + 0.1",
+                                                             "0.4 * (1.0 - v.particle_age / v.particle_lifetime) + 0.1"], "star"),
+        "minecraft:particle_appearance_tinting": gradient([(0, "#FFFFFFFF"), (0.25, "#FFFFE58A"), (0.7, "#C0FF9A30"), (1, "#00FF5010")]),
     })
 
     out_dir = os.path.join(RP, "particles")

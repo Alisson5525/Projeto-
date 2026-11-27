@@ -14,14 +14,14 @@ TMP = sys.argv[1] if len(sys.argv) > 1 else "/tmp"
 FPS = 15
 N = "animation.superman."
 BASE_V = {"sm_p": 0, "sm_yw": 0, "sm_cl": 0.05, "sm_cf": 2, "cs": 0.5, "sm_full": 1, "sm_arms": 1,
-          "sm_chg": 0, "sm_vs": 0, "sm_cross": 0, "sm_bank": 0, "sm_lean": 0, "sm_run": 0}
+          "sm_chg": 0, "sm_vs": 0, "sm_cross": 0, "sm_bank": 0, "sm_lean": 0, "sm_run": 0, "sm_glow": 0.3}
 
 
 def seg(layers, dur, V=None, lift=(0, 0), loop_t=False):
     return {"layers": layers, "dur": dur, "V": V or {}, "lift": lift}
 
 
-def frames(segs, blend=0.22):
+def frames(segs, blend=0.22, stature=True):
     out = []
     starts = []
     T = 0
@@ -52,21 +52,23 @@ def frames(segs, blend=0.22):
         lift = s["lift"][0] + (s["lift"][1] - s["lift"][0]) * min(1, lt / max(s["dur"], 1e-6))
         layers += [{"anim": N + "cape", "time": t}, {"anim": N + "orient", "time": t}, {"anim": N + "look", "time": t},
                    {"anim": N + "breath", "time": t}]
+        if stature:
+            layers.append({"anim": N + "stature", "time": t})
         out.append({"layers": layers, "V": V, "t": t, "Q": {"life_time": t}, "lift": lift})
     return out
 
 
 HOVER = ["hover.core", "hover.arms"]
 FLYV = {"sm_p": 90, "sm_cl": 0.04, "sm_cf": 10, "cs": 2.4, "sm_yw": 1}
-FASTV = {"sm_p": 90, "sm_cl": 0.04, "sm_cf": 16, "cs": 4.5, "sm_yw": 1}
+FASTV = {"sm_p": 90, "sm_cl": 0.04, "sm_cf": 16, "cs": 4.5, "sm_yw": 1, "sm_glow": 0.75}
 HOVV = {"sm_cl": 0.1, "sm_cf": 6, "cs": 0.7, "sm_yw": 1}
 
 SCENES = {
     "01_transformacao": (frames([
         seg([], 0.4),
-        seg(["transform.upper", "transform.legs"], 2.0),
+        seg(["transform.upper", "transform.legs"], 2.0, {"sm_glow": 1}),
         seg(["hero_idle"], 1.0, {"sm_full": 0}),
-    ]), {"yaw": 25, "dist": 70}),
+    ], stature=False), {"yaw": 25, "dist": 70}),
     "02_decolagem": (frames([
         seg(["hero_idle"], 0.4, {"sm_full": 0}),
         seg(["charge.core", "charge.arms"], 0.8, {"sm_chg": 0.8}),
@@ -102,7 +104,7 @@ SCENES = {
     "08_visao_de_calor": (frames([
         seg([], 0.3),
         seg(["heat_in.upper", "heat_in.legs"], 0.35),
-        seg(["heat.upper", "heat.legs"], 1.2),
+        seg(["heat.upper", "heat.legs"], 1.2, {"sm_glow": 1}),
         seg(["heat_out.upper", "heat_out.legs"], 0.45),
     ]), {"yaw": 20, "dist": 55, "ty": 20}),
     "09_sopro_congelante": (frames([
@@ -114,7 +116,7 @@ SCENES = {
     "10_super_soco": (frames([
         seg([], 0.3),
         seg(["punch_charge.upper", "punch_charge.legs"], 1.0, {"sm_chg": 0.9}),
-        seg(["punch.upper", "punch.legs"], 0.7),
+        seg(["punch.upper", "punch.legs"], 0.7, {"sm_glow": 0.8}),
         seg([], 0.4),
     ], blend=0.12), {"yaw": 60, "dist": 70, "ty": 15}),
     "11_combo_de_socos": (frames([
@@ -156,6 +158,12 @@ SCENES = {
         seg(["hero_idle", "idle_stretch"], 2.6, {"sm_full": 0}),
         seg(["hero_idle"], 0.4, {"sm_full": 0}),
     ], blend=0.4), {"yaw": 20, "dist": 65, "ty": 17}),
+    "18_explosao_solar": (frames([
+        seg(HOVER, 0.5, HOVV, (10, 10)),
+        seg(["nova_charge.upper", "nova_charge.legs"], 2.0, dict(HOVV, sm_glow=1, sm_cf=3), (10, 10)),
+        seg(["nova_release.upper", "nova_release.legs"], 1.2, dict(HOVV, sm_glow=1, sm_cf=14, cs=3), (10, 10)),
+        seg(HOVER, 0.6, HOVV, (10, 10)),
+    ], blend=0.12), {"yaw": 35, "dist": 80, "ty": 16}),
     "14_super_velocidade": (frames([
         seg(["superspeed.core", "superspeed.arms"], 1.6, {"sm_cl": 0.95, "sm_cf": 12, "cs": 3.5}),
     ]), {"yaw": 80, "dist": 75, "ty": 14}),
@@ -185,7 +193,7 @@ def render(name, cells, view):
 
 
 def main():
-    which = sys.argv[2:] or list(SCENES)
+    which = sys.argv[2:] or sorted(SCENES)
     thumbs = []
     for name in which:
         cells, view = SCENES[name]

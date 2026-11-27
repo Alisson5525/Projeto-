@@ -28,8 +28,8 @@ S = 2            # pixels por unidade (pixel art 128x128 equivalente)
 TW = TH = 128    # tamanho da textura em unidades (imagem 256x256)
 
 # ---------------------------------------------------------------------------
-# Esqueleto (nomes compativeis com o jogador vanilla). Todas as medidas ficam
-# na grade de 0,5 unidade para que cada pixel caia exatamente num texel.
+# Esqueleto v2: articulado (cotovelos e joelhos) e com nomes compativeis com o
+# jogador vanilla. Medidas na grade de 0,5 unidade (cada pixel cai num texel).
 # ---------------------------------------------------------------------------
 BONES = [
     ("root", None, [0, 0, 0]),
@@ -38,52 +38,133 @@ BONES = [
     ("sm_roll", "sm_pitch", [0, 14, 0]),
     ("waist", "sm_roll", [0, 12, 0]),
     ("body", "waist", [0, 24, 0]),
+    ("emblem", "body", [0, 20.25, -2.75]),
     ("head", "body", [0, 24, 0]),
     ("hair", "head", [0, 24, 0]),
     ("eyelids", "head", [0, 28, -4]),
     ("eye_glow", "head", [0, 28, -4]),
-    ("sm_cape", "body", [0, 24, 2.25]),
-    ("cape1", "sm_cape", [0, 24, 2.25]),
-    ("cape2", "cape1", [0, 20, 2.25]),
-    ("cape3", "cape2", [0, 16, 2.25]),
-    ("cape4", "cape3", [0, 12, 2.25]),
-    ("cape5", "cape4", [0, 8, 2.25]),
+    ("collar", "body", [0, 23.5, 3]),
+    ("sm_cape", "body", [0, 24, 2.5]),
+    ("cape1", "sm_cape", [0, 24, 2.5]),
+    ("cape2", "cape1", [0, 20, 2.5]),
+    ("cape3", "cape2", [0, 16, 2.5]),
+    ("cape4", "cape3", [0, 12, 2.5]),
+    ("cape5", "cape4", [0, 8, 2.5]),
+    ("cape6", "cape5", [0, 4, 2.5]),
     ("rightArm", "body", [-5, 22, 0]),
-    ("rightItem", "rightArm", [-6, 15, 1]),
+    ("rightForearm", "rightArm", [-6, 17, 0]),
+    ("rightItem", "rightForearm", [-6, 15, 1]),
     ("leftArm", "body", [5, 22, 0]),
-    ("leftItem", "leftArm", [6, 15, 1]),
+    ("leftForearm", "leftArm", [6, 17, 0]),
+    ("leftItem", "leftForearm", [6, 15, 1]),
     ("rightLeg", "sm_roll", [-1.9, 12, 0]),
+    ("rightShin", "rightLeg", [-1.9, 6, 0]),
     ("leftLeg", "sm_roll", [1.9, 12, 0]),
+    ("leftShin", "leftLeg", [1.9, 6, 0]),
 ]
 
-# (osso, parte, origem, tamanho, inflate)
-CUBES = [
-    ("body", "torso", [-4, 12, -2], [8, 12, 4], 0),
-    ("body", "emblem", [-3, 17, -2.5], [6, 5.5, 0.5], 0),
-    ("body", "belt", [-4.25, 12.25, -2.25], [8.5, 1.5, 4.5], 0),
-    ("body", "buckle", [-1.25, 12, -2.75], [2.5, 2, 0.5], 0),
-    ("body", "drape", [-4.5, 23, 0.5], [9, 1, 2], 0),
-    ("head", "head", [-4, 24, -4], [8, 8, 8], 0),
-    ("hair", "hair", [-4.5, 25.5, -4.5], [9, 7, 9], 0),
-    ("eyelids", "lid", [-3, 27.5, -4.05], [2, 1, 0.05], 0),
-    ("eyelids", "lid", [1, 27.5, -4.05], [2, 1, 0.05], 0),
-    ("eye_glow", "glow", [-3, 27.5, -4.1], [2, 1, 0.1], 0),
-    ("eye_glow", "glow", [1, 27.5, -4.1], [2, 1, 0.1], 0),
-    # capa em 5 segmentos encadeados (sobrepostos 0,5; pares levemente recuados)
-    ("cape1", "cape", [-5, 20, 2.25], [10, 4, 0.5], 0),
-    ("cape2", "cape", [-5.5, 16, 2.3], [11, 4.5, 0.4], 0),
-    ("cape3", "cape", [-5.5, 12, 2.25], [11, 4.5, 0.5], 0),
-    ("cape4", "cape", [-6, 8, 2.3], [12, 4.5, 0.4], 0),
-    ("cape5", "cape", [-6, 3.5, 2.25], [12, 5, 0.5], 0),
-    ("rightArm", "arm", [-8, 12, -2], [4, 12, 4], 0),
-    ("leftArm", "arm", [4, 12, -2], [4, 12, 4], 0),
-    ("rightLeg", "leg", [-3.9, 0, -2], [4, 12, 4], 0),
-    ("rightLeg", "trunk", [-3.9, 9.5, -2], [4, 2.5, 4], 0.25),
-    ("rightLeg", "boot", [-3.9, 0.5, -2], [4, 5, 4], 0.25),
-    ("leftLeg", "leg", [-0.1, 0, -2], [4, 12, 4], 0),
-    ("leftLeg", "trunk", [-0.1, 9.5, -2], [4, 2.5, 4], 0.25),
-    ("leftLeg", "boot", [-0.1, 0.5, -2], [4, 5, 4], 0.25),
-]
+
+def cube(bone, part, origin, size, inflate=0, rot=None, pivot=None):
+    return {"bone": bone, "part": part, "origin": list(origin), "size": list(size), "inflate": inflate,
+            "rot": rot, "pivot": pivot}
+
+
+def mirror(c, bone):
+    """Copia espelhada (lado esquerdo) de um cubo do lado direito."""
+    o, sz = c["origin"], c["size"]
+    m = dict(c)
+    m["bone"] = bone
+    m["origin"] = [round(-(o[0] + sz[0]), 4), o[1], o[2]]
+    if c["rot"]:
+        m["rot"] = [c["rot"][0], -c["rot"][1], -c["rot"][2]]
+        m["pivot"] = [-c["pivot"][0], c["pivot"][1], c["pivot"][2]]
+    return m
+
+
+def build_cubes():
+    C = []
+    # tronco esculpido: base, peitoral, abdomen, dorsais, costas, trapezio
+    C += [
+        cube("body", "torso", [-4, 12, -2], [8, 12, 4]),
+        cube("body", "chest", [-4.25, 18.5, -2.75], [8.5, 4.5, 0.75]),
+        cube("body", "abs", [-2.5, 13.5, -2.5], [5, 4.5, 0.5]),
+        cube("body", "lat", [-4.75, 14.5, -1.5], [0.75, 7, 3]),
+        cube("body", "lat", [4, 14.5, -1.5], [0.75, 7, 3]),
+        cube("body", "backm", [-3.5, 14.5, 2], [7, 8, 0.5]),
+        cube("body", "trap", [-3, 23.5, -1], [6, 1, 3]),
+        cube("body", "belt", [-4.5, 12, -2.5], [9, 1.5, 5]),
+        cube("body", "buckle", [-1.25, 11.75, -3], [2.5, 2, 0.5]),
+    ]
+    # sol em 3D no peito: medalhao, disco e 8 raios
+    C += [
+        cube("emblem", "badge", [-2.75, 17.5, -3], [5.5, 5.5, 0.25]),
+        cube("emblem", "sundisc", [-1.25, 19, -3.5], [2.5, 2.5, 0.5]),
+    ]
+    for i in range(8):
+        a = i * 45
+        ln = 1.25 if i % 2 == 0 else 0.9
+        C.append(cube("emblem", "ray", [-0.25, 21.75, -3.35], [0.5, ln, 0.35], rot=[0, 0, a], pivot=[0, 20.25, -3.2]))
+    # cabeca esculpida
+    C += [
+        cube("head", "head", [-4, 24, -4], [8, 8, 8]),
+        cube("head", "jaw", [-3, 24, -4.5], [6, 1.5, 0.5]),
+        cube("head", "nose", [-0.5, 26, -4.5], [1, 1.5, 0.5]),
+        cube("head", "brow", [-3.25, 28.5, -4.5], [6.5, 0.5, 0.5]),
+        cube("head", "ear", [-4.5, 26.5, -0.25], [0.5, 2, 1.5]),
+        cube("head", "ear", [4, 26.5, -0.25], [0.5, 2, 1.5]),
+        cube("hair", "hair", [-4.5, 25.5, -4.5], [9, 7, 9]),
+        cube("hair", "tuft", [-2.5, 31.5, -4.75], [5, 1.5, 4], rot=[-18, 0, 0], pivot=[0, 32, -2.75]),
+        cube("hair", "tuft", [-3, 32.25, -2], [6, 0.75, 6]),
+        cube("hair", "tuft", [-3.5, 27, 4.25], [7, 5, 1], rot=[12, 0, 0], pivot=[0, 32, 4.75]),
+        cube("eyelids", "lid", [-3, 27.5, -4.05], [2, 1, 0.05]),
+        cube("eyelids", "lid", [1, 27.5, -4.05], [2, 1, 0.05]),
+        cube("eye_glow", "glow", [-3, 27.5, -4.1], [2, 1, 0.1]),
+        cube("eye_glow", "glow", [1, 27.5, -4.1], [2, 1, 0.1]),
+    ]
+    # gola alta atras do pescoco (manto)
+    C += [
+        cube("collar", "collar", [-5.5, 23, 4.25], [11, 4, 0.5], rot=[-22, 0, 0], pivot=[0, 23, 4.5]),
+        cube("collar", "collar", [-5.5, 23, 1.5], [1, 2.5, 3], rot=[0, 0, -10], pivot=[-5, 23, 3]),
+        cube("collar", "collar", [4.5, 23, 1.5], [1, 2.5, 3], rot=[0, 0, 10], pivot=[5, 23, 3]),
+    ]
+    # capa longa em 6 segmentos (pares levemente recuados contra z-fighting)
+    C += [
+        cube("cape1", "cape", [-5, 20, 2.5], [10, 4, 0.5]),
+        cube("cape2", "cape", [-5.5, 15.5, 2.55], [11, 5, 0.4]),
+        cube("cape3", "cape", [-6, 11.5, 2.5], [12, 5, 0.5]),
+        cube("cape4", "cape", [-6.5, 7.5, 2.55], [13, 5, 0.4]),
+        cube("cape5", "cape", [-6.5, 3.5, 2.5], [13, 5, 0.5]),
+        cube("cape6", "cape", [-7, 0.25, 2.55], [14, 4.25, 0.4]),
+    ]
+    # braco direito: ombro, biceps, antebraco com bracelete, aleta e punho
+    right_arm = [
+        cube("rightArm", "arm", [-8, 17, -2], [4, 7, 4]),
+        cube("rightArm", "deltoid", [-8.5, 20.25, -2.5], [5, 4, 5]),
+        cube("rightArm", "biceps", [-7.5, 17.5, -2.5], [3, 2.5, 0.5]),
+        cube("rightForearm", "arm", [-8, 12, -2], [4, 5, 4]),
+        cube("rightForearm", "elbow", [-7.75, 16.25, -1.75], [3.5, 1.5, 3.5]),
+        cube("rightForearm", "gauntlet", [-8.5, 13.75, -2.5], [5, 3, 5]),
+        cube("rightForearm", "fin", [-9.25, 14, -1], [0.75, 3.5, 2.5], rot=[0, 0, -12], pivot=[-8.5, 14, 0.25]),
+        cube("rightForearm", "fist", [-8.25, 12, -2.25], [4.5, 1.75, 4.5]),
+    ]
+    C += right_arm
+    C += [mirror(c, c["bone"].replace("right", "left")) for c in right_arm]
+    # perna direita: coxa, quadriceps, faixa do quadril; canela com bota, joelheira e biqueira
+    right_leg = [
+        cube("rightLeg", "leg", [-3.9, 6, -2], [4, 6, 4]),
+        cube("rightLeg", "quad", [-3.65, 6.5, -2.5], [3.5, 3.5, 0.5]),
+        cube("rightLeg", "trunk", [-3.9, 9.5, -2], [4, 2.5, 4], 0.25),
+        cube("rightShin", "leg", [-3.9, 0, -2], [4, 6, 4]),
+        cube("rightShin", "boot", [-3.9, 0.5, -2], [4, 5, 4], 0.25),
+        cube("rightShin", "kneeguard", [-3.65, 4.75, -2.75], [3.5, 2, 0.75]),
+        cube("rightShin", "toe", [-3.65, 0, -2.75], [3.5, 1.25, 0.75]),
+    ]
+    C += right_leg
+    C += [mirror(c, c["bone"].replace("right", "left")) for c in right_leg]
+    return C
+
+
+CUBES = build_cubes()
 
 FACES = ["north", "south", "east", "west", "up", "down"]
 
@@ -298,13 +379,13 @@ def p_buckle(face, X, Y, Z, cube, px, py):
 def cape_color(X, Y, side):
     fold = np.cos(X * 1.6 + np.sin(Y * 0.35) * 0.9)
     L = 0.62 + 0.17 * np.round(fold * 1.4) / 1.4
-    L -= 0.17 * band(Y, 0, 9) + 0.17 * band(Y, 0, 5.5)
+    L -= 0.17 * band(Y, 0, 7) + 0.17 * band(Y, 0, 3.5)
     if side == "in":
         L -= 0.34
     col = ramp(CAPE, L)
-    hem = band(Y, 3.5, 4)
-    col = np.where(hem[..., None] > 0, ramp(GOLD, 0.5 if side == "out" else 0.33), col)
-    stitch = band(Y, 4, 4.5) * (np.mod(np.floor(X * S), 2) == 0) * (side == "out")
+    hem = band(Y, 0.25, 0.75)
+    col = np.where(hem[..., None] > 0, ramp(GOLD, 0.33 if side == "out" else 0.17), col)
+    stitch = band(Y, 0.75, 1.25) * (np.mod(np.floor(X * S), 2) == 0) * (side == "out")
     col = np.where(stitch[..., None] > 0, ramp(CAPE, 0.83), col)
     if side == "out":
         # sol vazado nas costas (visto de tras: esquerda do observador = +X)
@@ -319,12 +400,12 @@ def p_cape(face, X, Y, Z, cube, px, py):
         col = cape_color(X, Y, "out")
         # debrum dourado nas bordas laterais da capa
         edge = (X < o[0] + 0.5) | (X > o[0] + sz[0] - 0.5)
-        col = np.where(edge[..., None], ramp(GOLD, np.full(X.shape, 0.5 + 0.17 * (Y > 12))), col)
+        col = np.where(edge[..., None], ramp(GOLD, np.full(X.shape, 0.33)), col)
         return col, np.ones(X.shape)
     if face == "north":
         return cape_color(X, Y, "in"), np.ones(X.shape)
     col = ramp(CAPE, np.full(X.shape, 0.33))
-    col = np.where((Y < 4)[..., None], ramp(GOLD, np.full(X.shape, 0.5)), col)
+    col = np.where((Y < 0.75)[..., None], ramp(GOLD, np.full(X.shape, 0.5)), col)
     return col, np.ones(X.shape)
 
 
@@ -517,11 +598,275 @@ def p_glow(face, X, Y, Z, cube, px, py):
     return full(CAPE[5], X.shape), np.ones(X.shape)
 
 
+def _suit_plate(face, X, Y, Z, base=0.5, top_light=True):
+    L = np.full(X.shape, base)
+    if face == "up" and top_light:
+        L = L + 0.17
+    if face in ("down",):
+        L = L - 0.33
+    if face in ("east", "west"):
+        L = L - 0.17
+    return L
+
+
+def p_chest(face, X, Y, Z, cube, px, py):
+    L = _suit_plate(face, X, Y, Z, 0.5)
+    ax = np.abs(X)
+    if face == "north":
+        L += 0.17 * band(Y, 21, 23) * band(ax, 0.5, 3.5)
+        L -= 0.17 * band(Y, 18.5, 19.5) * band(ax, 0.5, 4)
+        L -= 0.17 * band(ax, 0, 0.5)
+        L -= 0.17 * band(ax, 3.5, 4.5)
+    col = ramp(SUIT, L)
+    if face == "up":
+        col = np.where((band(ax, 3, 4.5) > 0)[..., None], ramp(GOLD, np.full(X.shape, 0.5)), col)
+    return col, np.ones(X.shape)
+
+
+def p_abs(face, X, Y, Z, cube, px, py):
+    L = _suit_plate(face, X, Y, Z, 0.5)
+    if face == "north":
+        ax = np.abs(X)
+        row = np.mod(Y - 13.5, 1.5)
+        L += 0.17 * band(row, 1.0, 1.5)
+        L -= 0.17 * (band(row, 0, 0.5) + band(ax, 0, 0.5))
+        L -= 0.17 * band(ax, 2, 2.5)
+    return ramp(SUIT, L), np.ones(X.shape)
+
+
+def p_lat(face, X, Y, Z, cube, px, py):
+    L = _suit_plate(face, X, Y, Z, 0.42)
+    col = ramp(SUIT, L)
+    outer = (face == "east" and X.mean() < 0) or (face == "west" and X.mean() > 0)
+    if outer:
+        pipe = band(Z, -0.5, 0)
+        col = np.where(pipe[..., None] > 0, ramp(GOLD, 0.5 + 0.17 * band(Y, 18, 21.5)), col)
+    return col, np.ones(X.shape)
+
+
+def p_backm(face, X, Y, Z, cube, px, py):
+    L = _suit_plate(face, X, Y, Z, 0.45)
+    if face == "south":
+        ax = np.abs(X)
+        L += 0.17 * band(ax, 1, 3) * band(Y, 18, 22)
+        L -= 0.17 * band(ax, 0, 0.5)
+    return ramp(SUIT, L), np.ones(X.shape)
+
+
+def p_trap(face, X, Y, Z, cube, px, py):
+    return ramp(SUIT, _suit_plate(face, X, Y, Z, 0.5)), np.ones(X.shape)
+
+
+def p_badge(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    cx, cy = o[0] + sz[0] / 2, o[1] + sz[1] / 2
+    d = np.sqrt((X - cx) ** 2 + (Y - cy) ** 2) / (sz[0] / 2)
+    if face == "north":
+        col = ramp(SUIT, np.full(X.shape, 0.17))
+        col = np.where((d >= 0.8)[..., None], ramp(GOLD, 0.5 + 0.17 * (Y > cy)), col)
+        return col, (d < 1.0).astype(float)
+    return ramp(GOLD, np.full(X.shape, 0.33)), np.zeros(X.shape)
+
+
+def p_sundisc(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    cx, cy = o[0] + sz[0] / 2, o[1] + sz[1] / 2
+    d = np.maximum(np.abs(X - cx), np.abs(Y - cy))
+    if face == "north":
+        col = ramp(GOLD, 0.83 - 0.33 * (d > 0.75))
+        col = np.where(((X < cx) & (Y > cy) & (d <= 0.75))[..., None], full(GOLD[6], X.shape), col)
+        return col, np.ones(X.shape)
+    return ramp(GOLD, np.full(X.shape, 0.5)), np.ones(X.shape)
+
+
+def p_ray(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    t = (Y - o[1]) / sz[1]
+    return ramp(GOLD, 0.83 - 0.33 * t), np.ones(X.shape)
+
+
+def p_jaw(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.66)
+    if face == "north":
+        L -= 0.17 * band(np.abs(X), 2, 3) + 0.17 * band(Y, 24, 24.5)
+        L += 0.17 * band(np.abs(X), 0, 1) * band(Y, 24.5, 25.5)
+    elif face == "down":
+        L = np.full(X.shape, 0.33)
+    elif face in ("east", "west"):
+        L = np.full(X.shape, 0.5)
+    return ramp(SKIN, L), np.ones(X.shape)
+
+
+def p_nose(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.66)
+    if face == "north":
+        L += 0.17 * band(Y, 26.5, 27.5)
+        L -= 0.33 * band(Y, 26, 26.5)
+    elif face in ("east", "west"):
+        L = np.full(X.shape, 0.5)
+    elif face == "down":
+        L = np.full(X.shape, 0.17)
+    return ramp(SKIN, L), np.ones(X.shape)
+
+
+def p_brow(face, X, Y, Z, cube, px, py):
+    if face == "down":
+        return ramp(SKIN, np.full(X.shape, 0.33)), np.ones(X.shape)
+    ax = np.abs(X)
+    col = ramp(HAIR, np.full(X.shape, 0.25))
+    if face == "north":
+        # sobrancelhas sobre os olhos, pele no meio
+        skin = (band(ax, 0, 1.0) + band(ax, 3.0, 3.25)) > 0
+        col = np.where(skin[..., None], ramp(SKIN, np.full(X.shape, 0.66)), col)
+    return col, np.ones(X.shape)
+
+
+def p_ear(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.5)
+    outer = (face == "east" and X.mean() < 0) or (face == "west" and X.mean() > 0)
+    if outer:
+        L -= 0.17 * band(Y, 27, 28) * band(Z, 0.25, 0.75)
+        L += 0.17 * band(Z, 0.75, 1.25)
+    return ramp(SKIN, L), np.ones(X.shape)
+
+
+def p_tuft(face, X, Y, Z, cube, px, py):
+    st = np.mod(np.floor(X * S) + np.floor(Z * S * 0.5) + np.floor(Y * S * 0.5), 3)
+    L = 0.25 + 0.25 * (st == 0) + 0.25 * (face == "up") * (st == 0)
+    if face == "down":
+        L = np.full(X.shape, 0.0)
+    return ramp(HAIR, L), np.ones(X.shape)
+
+
+def p_collar(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    col = ramp(CAPE, np.full(X.shape, 0.62))
+    if face in ("north",) and sz[2] < 1:
+        col = ramp(CAPE, np.full(X.shape, 0.3))
+    top = o[1] + sz[1]
+    col = np.where(band(Y, top - 0.5, top)[..., None] > 0, ramp(GOLD, np.full(X.shape, 0.66)), col)
+    if face == "up":
+        col = ramp(GOLD, np.full(X.shape, 0.66))
+    return col, np.ones(X.shape)
+
+
+def p_deltoid(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    L = np.full(X.shape, 0.58)
+    if face == "up":
+        L = np.full(X.shape, 0.75)
+    if face == "down":
+        L = np.full(X.shape, 0.25)
+    L -= 0.17 * band(Y, o[1], o[1] + 1.5) * (face not in ("up", "down"))
+    col = ramp(SUIT, L)
+    rim = band(Y, o[1], o[1] + 0.5) * (face not in ("up", "down"))
+    col = np.where(rim[..., None] > 0, ramp(GOLD, np.full(X.shape, 0.58)), col)
+    if face == "up":
+        edge = (X < o[0] + 0.5) | (X > o[0] + sz[0] - 0.5) | (Z < o[2] + 0.5) | (Z > o[2] + sz[2] - 0.5)
+        col = np.where(edge[..., None], ramp(GOLD, np.full(X.shape, 0.66)), col)
+    return col, np.ones(X.shape)
+
+
+def p_biceps(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.66 if face == "north" else 0.5)
+    L -= 0.17 * band(Y, 17.5, 18) * (face == "north")
+    return ramp(SUIT, L), np.ones(X.shape)
+
+
+def p_gauntlet(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    row = np.floor((o[1] + sz[1] - Y) * S)
+    L = 0.5 + 0.17 * (row == 0) - 0.17 * (row == sz[1] * S - 1) - 0.17 * (np.mod(row, 2) == 1) * (row > 0)
+    if face in ("up", "down"):
+        L = np.full(X.shape, 0.33 if face == "up" else 0.17)
+    col = ramp(GOLD, L)
+    if face == "north":
+        cx = o[0] + sz[0] / 2
+        gem = (np.abs(X - cx) < 0.5) & band(Y, 14.75, 15.75).astype(bool)
+        col = np.where(gem[..., None], full(GOLD[5], X.shape), col)
+    return col, np.ones(X.shape)
+
+
+def p_fin(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    L = 0.66 + 0.17 * band(Y, o[1] + sz[1] - 0.5, o[1] + sz[1])
+    return ramp(GOLD, L), np.ones(X.shape)
+
+
+def p_fist(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    L = np.full(X.shape, 0.33)
+    col = ramp(SUIT, L)
+    if face == "north":
+        lx = (X - o[0]) / sz[0]
+        stud = band(Y, 13.25, 13.75) * (np.mod(np.floor(lx * 9), 2) == 1)
+        col = np.where(stud[..., None] > 0, ramp(GOLD, np.full(X.shape, 0.66)), col)
+        col = np.where((band(Y, 12, 12.5) > 0)[..., None], ramp(SUIT, np.full(X.shape, 0.17)), col)
+    if face == "down":
+        col = ramp(SUIT, np.full(X.shape, 0.17))
+    return col, np.ones(X.shape)
+
+
+def p_elbow(face, X, Y, Z, cube, px, py):
+    return ramp(SUIT, _suit_plate(face, X, Y, Z, 0.42)), np.ones(X.shape)
+
+
+def p_quad(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.58 if face == "north" else 0.42)
+    L += 0.17 * band(Y, 8.5, 10) * (face == "north")
+    return ramp(SUIT, L), np.ones(X.shape)
+
+
+def p_kneeguard(face, X, Y, Z, cube, px, py):
+    o, sz = cube["origin"], cube["size"]
+    cx = o[0] + sz[0] / 2
+    L = 0.58 + 0.17 * (np.abs(X - cx) < 0.5) - 0.17 * band(Y, o[1], o[1] + 0.5)
+    if face in ("up", "down", "east", "west"):
+        L = np.full(X.shape, 0.42)
+    return ramp(GOLD, L), np.ones(X.shape)
+
+
+def p_toe(face, X, Y, Z, cube, px, py):
+    L = np.full(X.shape, 0.5 if face in ("north", "up") else 0.33)
+    col = ramp(GOLD, L)
+    col = np.where((band(Y, 0, 0.5) > 0)[..., None], ramp(SUIT, np.full(X.shape, 0.17)), col)
+    return col, np.ones(X.shape)
+
+
 PAINTERS = {
     "torso": p_torso, "emblem": p_emblem, "belt": p_belt, "buckle": p_buckle, "drape": p_drape,
     "head": p_head, "hair": p_hair, "lid": p_lid, "glow": p_glow, "cape": p_cape, "arm": p_arm,
     "leg": p_leg, "trunk": p_trunk, "boot": p_boot,
+    "chest": p_chest, "abs": p_abs, "lat": p_lat, "backm": p_backm, "trap": p_trap, "badge": p_badge,
+    "sundisc": p_sundisc, "ray": p_ray, "jaw": p_jaw, "nose": p_nose, "brow": p_brow, "ear": p_ear,
+    "tuft": p_tuft, "collar": p_collar, "deltoid": p_deltoid, "biceps": p_biceps, "gauntlet": p_gauntlet,
+    "fin": p_fin, "fist": p_fist, "elbow": p_elbow, "quad": p_quad, "kneeguard": p_kneeguard, "toe": p_toe,
 }
+
+# ---------------------------------------------------------------------------
+# Camada de brilho: pixels que acendem (olhos, sol do peito, frisos, sol da capa)
+# ---------------------------------------------------------------------------
+GLOW_ALL = {"glow", "sundisc", "ray", "fin"}
+GLOW_GOLD = {"torso", "lat", "arm", "leg", "badge", "buckle", "chest", "deltoid", "gauntlet", "kneeguard"}
+
+
+def glow_mask(part, face, rgb, a):
+    if part in GLOW_ALL:
+        return a > 0.5
+    def near(colors):
+        m = np.zeros(a.shape, bool)
+        for c in colors:
+            m |= np.all(np.abs(rgb - c) < 1e-3, axis=-1)
+        return m & (a > 0.5)
+    if part in ("gauntlet", "kneeguard"):
+        return near([GOLD[5]])
+    if part in GLOW_GOLD:
+        return near([GOLD[3], GOLD[4], GOLD[5], GOLD[6]])
+    if part == "head" and face == "north":
+        return near([EYE_I[0], EYE_I[1]])
+    if part == "cape" and face == "south":
+        return near([GOLD[3], GOLD[4]])
+    return np.zeros(a.shape, bool)
 
 # ---------------------------------------------------------------------------
 # Mapeamento face -> coordenadas 3D dos pixels
@@ -584,29 +929,33 @@ class Packer:
 def build():
     W, Hh = TW * S, TH * S
     img = np.zeros((Hh, W, 4))
+    glow = np.zeros((Hh, W, 4))
     filled = np.zeros((Hh, W), bool)
     packer = Packer(W, Hh, pad=1)
     jobs = []
-    for ci, (bone, part, origin, size, inflate) in enumerate(CUBES):
+    for ci, c in enumerate(CUBES):
         for face in FACES:
-            fw, fh = face_dims(face, size)
+            fw, fh = face_dims(face, c["size"])
             pw = max(1, int(math.ceil(fw * S - 1e-6)))
             ph = max(1, int(math.ceil(fh * S - 1e-6)))
             jobs.append((ph, pw, ci, face))
     jobs.sort(key=lambda j: (-j[0], -j[1]))
     face_uv = {}
     for ph, pw, ci, face in jobs:
-        bone, part, origin, size, inflate = CUBES[ci]
+        c = CUBES[ci]
         x0, y0 = packer.add(pw, ph)
-        X, Y, Z, PX, PY = face_coords(face, origin, size, pw, ph)
-        rgb, a = PAINTERS[part](face, X, Y, Z, {"origin": origin, "size": size}, PX, PY)
-        rgb = np.asarray(rgb, dtype=float)
-        a = np.asarray(a, dtype=float)
-        assert rgb.shape[:2] == (ph, pw), f"{part}/{face}: {rgb.shape} != {(ph, pw)}"
-        img[y0:y0 + ph, x0:x0 + pw, :3] = np.clip(rgb, 0, 1)
-        img[y0:y0 + ph, x0:x0 + pw, 3] = np.clip(a, 0, 1)
+        X, Y, Z, PX, PY = face_coords(face, c["origin"], c["size"], pw, ph)
+        rgb, a = PAINTERS[c["part"]](face, X, Y, Z, {"origin": c["origin"], "size": c["size"]}, PX, PY)
+        rgb = np.clip(np.asarray(rgb, dtype=float), 0, 1)
+        a = np.clip(np.asarray(a, dtype=float), 0, 1)
+        assert rgb.shape[:2] == (ph, pw), f"{c['part']}/{face}: {rgb.shape} != {(ph, pw)}"
+        img[y0:y0 + ph, x0:x0 + pw, :3] = rgb
+        img[y0:y0 + ph, x0:x0 + pw, 3] = a
+        gm = glow_mask(c["part"], face, rgb, a)
+        glow[y0:y0 + ph, x0:x0 + pw, :3] = rgb * 0.45 + np.array([1.0, 0.86, 0.5]) * 0.55
+        glow[y0:y0 + ph, x0:x0 + pw, 3] = gm.astype(float)
         filled[y0:y0 + ph, x0:x0 + pw] = True
-        fw, fh = face_dims(face, size)
+        fw, fh = face_dims(face, c["size"])
         face_uv[(ci, face)] = {"uv": [x0 / S, y0 / S], "uv_size": [fw, fh]}
 
     # repete a cor da borda no espaco vazio (evita sangramento em mipmaps)
@@ -624,10 +973,10 @@ def build():
         rgb[new] = acc[new] / cnt[new][:, None]
         known |= new
     img[..., :3] = rgb
-    out = (np.clip(img, 0, 1) * 255 + 0.5).astype(np.uint8)
     tex_dir = os.path.join(RP, "textures", "entity", "superman")
     os.makedirs(tex_dir, exist_ok=True)
-    Image.fromarray(out, "RGBA").save(os.path.join(tex_dir, "superman.png"))
+    Image.fromarray((np.clip(img, 0, 1) * 255 + 0.5).astype(np.uint8), "RGBA").save(os.path.join(tex_dir, "superman.png"))
+    Image.fromarray((np.clip(glow, 0, 1) * 255 + 0.5).astype(np.uint8), "RGBA").save(os.path.join(tex_dir, "superman_glow.png"))
 
     bones_json = []
     for name, parent, pivot in BONES:
@@ -635,13 +984,16 @@ def build():
         if parent:
             b["parent"] = parent
         cubes = []
-        for ci, (bone, part, origin, size, inflate) in enumerate(CUBES):
-            if bone != name:
+        for ci, c in enumerate(CUBES):
+            if c["bone"] != name:
                 continue
-            c = {"origin": origin, "size": size, "uv": {f: face_uv[(ci, f)] for f in FACES}}
-            if inflate:
-                c["inflate"] = inflate
-            cubes.append(c)
+            j = {"origin": c["origin"], "size": c["size"], "uv": {f: face_uv[(ci, f)] for f in FACES}}
+            if c["inflate"]:
+                j["inflate"] = c["inflate"]
+            if c["rot"]:
+                j["rotation"] = c["rot"]
+                j["pivot"] = c["pivot"]
+            cubes.append(j)
         if cubes:
             b["cubes"] = cubes
         if name == "rightItem":
@@ -655,7 +1007,7 @@ def build():
             "description": {
                 "identifier": "geometry.superman",
                 "texture_width": TW, "texture_height": TH,
-                "visible_bounds_width": 4, "visible_bounds_height": 4, "visible_bounds_offset": [0, 1, 0],
+                "visible_bounds_width": 5, "visible_bounds_height": 4, "visible_bounds_offset": [0, 1.2, 0],
             },
             "bones": bones_json,
         }],
@@ -664,7 +1016,8 @@ def build():
     os.makedirs(geo_dir, exist_ok=True)
     with open(os.path.join(geo_dir, "superman.geo.json"), "w") as f:
         json.dump(geo, f, indent=1)
-    print(f"skin pixel art {W}x{Hh}: {len(face_uv)} faces, ocupacao {filled.mean():.0%}")
+    print(f"modelo 3D: {len(CUBES)} cubos, {len(BONES)} ossos; skin {W}x{Hh}, ocupacao {filled.mean():.0%}, "
+          f"{int(glow[..., 3].sum())} pixels de brilho")
 
 
 if __name__ == "__main__":

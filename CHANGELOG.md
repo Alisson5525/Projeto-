@@ -1,5 +1,32 @@
 # Histórico de mudanças
 
+## 2.0.0 — A grande melhoria
+
+**Modelo 3D**
+- Modelo novo e esculpido: **72 peças em 29 ossos** no lugar do corpo quadrado padrão.
+- Peito, dorsais, abdômen e trapézio em relevo, ombreiras e bíceps, braceletes com aletas, joelheiras e botas com bico.
+- **Cotovelos e joelhos articulados** (antebraços e canelas são ossos próprios).
+- Emblema em relevo com 8 raios, gola alta, capa em **6 segmentos**, rosto com mandíbula, nariz e sobrancelhas, cabelo com mechas.
+- Skin repintada peça por peça para o modelo novo.
+- **Camada de brilho**: emblema, raios, olhos, frisos e braceletes brilham no escuro, pulsam e acendem mais forte na transformação, na visão de calor, nos golpes, no voo rápido e no supremo.
+- O herói fica **maior e mais imponente** quando transformado.
+
+**Animações**
+- Todas as poses refeitas com cotovelos e joelhos: guarda com punhos fechados, pairar com uma perna dobrada, pouso de herói ajoelhado, corrida e voo com os membros dobrando, socos com o braço estendendo de verdade.
+- Duas animações novas da Explosão Solar (91 no total).
+- O emblema pulsa com a respiração e com o brilho.
+
+**Efeitos**
+- 10 partículas novas: aura solar, detritos que flutuam do chão, clarão de impacto, parede de poeira, cone de vapor supersônico, rastro solar, coluna de luz, brilho de lente, gotas derretidas e o clarão da Explosão Solar.
+- Decolagem, pousos, supersônico, soco, palma, pancada e golpe final agora soltam **anéis de choque em sequência**, clarão e poeira, e a tela pisca nos impactos mais fortes.
+- Transformação com coluna de luz e anéis dourados.
+- Visão de calor com brilho de lente nos olhos, clarão no alvo e gotas derretidas.
+- Sopro congelante faz **pilares de gelo** brotarem do chão.
+- O soco carregado ganha aura, e o voo supersônico deixa um rastro solar.
+
+**Novo poder: Explosão Solar**
+- Voando, agache e use o Impacto. O herói concentra a energia por 2 s e libera um clarão que atinge, queima e arremessa todos os inimigos num raio de 26 blocos, abre uma cratera e estilhaça o que é frágil em volta. Tem recarga de 12 s e não pode ser interrompido.
+
 ## 1.2.0 — Polimento geral
 
 **Correções**

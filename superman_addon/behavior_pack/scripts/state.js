@@ -44,6 +44,8 @@ export function getState(player) {
       tunnelSeen: new Set(),
       lastMove: '',
       lastMoveTick: -100,
+      novaReadyAt: 0,
+      iceSpikes: 0,
     };
     states.set(player.id, st);
   }
