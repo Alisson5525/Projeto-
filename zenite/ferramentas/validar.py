@@ -193,6 +193,7 @@ def atalhos_textura(arquivo: str) -> dict[str, list[str]]:
 
 
 GEOMETRIAS: set[str] = set()
+NEVOAS: set[str] = set()
 ANIMACOES: set[str] = set()
 RENDERS: set[str] = set()
 PARTICULAS: set[str] = set()
@@ -217,6 +218,8 @@ def coletar_rp() -> tuple[dict, dict]:
             ANIMACOES.update(d["animations"].keys())
         if "render_controllers" in d:
             RENDERS.update(d["render_controllers"].keys())
+        if "minecraft:fog_settings" in d:
+            NEVOAS.add(d["minecraft:fog_settings"]["description"]["identifier"])
         if "particle_effect" in d:
             pe = d["particle_effect"]
             PARTICULAS.add(pe["description"]["identifier"])
@@ -354,6 +357,12 @@ def checar_scripts() -> None:
         return
     arquivos = sorted(SCRIPTS.rglob("*.js"))
     textos = {p: p.read_text(encoding="utf-8") for p in arquivos}
+    config = SCRIPTS / "core" / "config.js"
+    ids_livres: set[str] = set()
+    if config.exists():
+        tc = config.read_text(encoding="utf-8")
+        for nome in ("CHAVES", "COMANDOS"):
+            ids_livres |= set(re.findall(r"""['"](zenite:[a-z0-9_]+)['"]""", bloco_objeto(tc, nome)))
     for p, t in textos.items():
         for imp in re.findall(r"""(?:from|import)\s*['"]([^'"]+)['"]""", t):
             if imp.startswith("."):
@@ -365,9 +374,8 @@ def checar_scripts() -> None:
             if IDS_VANILLA and ident not in IDS_VANILLA:
                 erro(f"{rel(p)}: id vanilla desconhecido {ident}")
         for ident in re.findall(r"""['"`](zenite:[a-z0-9_]+)['"`]""", t):
-            if ident not in ITENS_BP | BLOCOS_BP | ENTIDADES_BP | PARTICULAS and not ident.startswith(("zenite:abobada",)):
-                if not re.search(rf"name:\s*['\"]{ident}['\"]", t):
-                    erro(f"{rel(p)}: id zenite desconhecido {ident}")
+            if ident not in ITENS_BP | BLOCOS_BP | ENTIDADES_BP | PARTICULAS | NEVOAS | ids_livres:
+                erro(f"{rel(p)}: id zenite desconhecido {ident}")
         for k in re.findall(r"""\btr\(\s*['"]([^'"]+)['"]""", t):
             exigir_chave(k, rel(p))
         for k in re.findall(r"""translate:\s*['"]([^'"]+)['"]""", t):
@@ -379,7 +387,10 @@ def checar_scripts() -> None:
             for ident in re.findall(r"""['"]([a-z_]+[:.][a-z0-9_.]+)['"]""", bloco_objeto(t, nome)):
                 if ident not in conjunto and ident not in vanilla:
                     erro(f"{tipo} '{ident}' (core/config.js {nome}) não está definido")
-        for tec in re.findall(r"""id:\s*['"]([a-z_]+)['"]""", bloco_objeto(t, "TECNICAS_BASE") or t):
+        m = re.search(r"export const TECNICAS\s*=\s*Object\.freeze\(\[(.*?)\]\);", t, re.S)
+        if not m:
+            erro("core/config.js: TECNICAS não encontrado")
+        for tec in re.findall(r"""\bid:\s*['"]([a-z_]+)['"]""", m.group(1) if m else ""):
             for suf in ("nome", "desc"):
                 exigir_chave(f"zenite.tec.{tec}.{suf}", "core/config.js")
 
