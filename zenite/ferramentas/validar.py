@@ -73,6 +73,11 @@ if VANILLA_DATA.exists():
 else:
     aviso("node_modules/@minecraft/vanilla-data ausente: ids vanilla não serão checados (rode npm install)")
 
+# Ids de componentes e outros valores 'minecraft:*' declarados nos typings oficiais da API.
+TYPINGS = RAIZ / "node_modules" / "@minecraft" / "server" / "index.d.ts"
+if TYPINGS.exists():
+    IDS_VANILLA |= set(re.findall(r"= '(minecraft:[a-z0-9_.]+)'", TYPINGS.read_text(encoding="utf-8")))
+
 SONS_VANILLA: set[str] = set()
 PARTICULAS_VANILLA: set[str] = set()
 if AMOSTRAS.exists():

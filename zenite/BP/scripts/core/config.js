@@ -124,13 +124,13 @@ export const GLIFO = Object.freeze({
  * nivel = nível de maestria que libera, requer = desbloqueio especial.
  */
 export const TECNICAS = Object.freeze([
-  { id: 'veu', custo: 10, dreno: 3, recarga: 60, nivel: 1, alternavel: true, corTexto: '§f', cor: COR.prata, icone: 'textures/ui/zenite/veu', glifo: '' },
-  { id: 'poco', custo: 25, recarga: 120, nivel: 1, corTexto: '§b', cor: COR.ciano, icone: 'textures/ui/zenite/poco', glifo: '' },
-  { id: 'nova', custo: 30, recarga: 140, nivel: 1, corTexto: '§c', cor: COR.carmesim, icone: 'textures/ui/zenite/nova', glifo: '' },
-  { id: 'passo', custo: 12, recarga: 30, nivel: 1, corTexto: '§3', cor: COR.branco, icone: 'textures/ui/zenite/passo', glifo: '' },
-  { id: 'reversao', custo: 40, recarga: 400, nivel: 2, corTexto: '§e', cor: COR.ouro, icone: 'textures/ui/zenite/reversao', glifo: '' },
-  { id: 'horizonte', custo: 70, recarga: 500, nivel: 4, corTexto: '§d', cor: COR.violeta, icone: 'textures/ui/zenite/horizonte', glifo: '' },
-  { id: 'abobada', custo: 'cheio', recarga: 2400, nivel: 1, requer: 'abobada', corTexto: '§5', cor: COR.roxo, icone: 'textures/ui/zenite/abobada', glifo: '' },
+  { id: 'veu', corBotao: '§0', custo: 10, dreno: 3, recarga: 60, nivel: 1, alternavel: true, corTexto: '§f', cor: COR.prata, icone: 'textures/ui/zenite/veu', glifo: '' },
+  { id: 'poco', corBotao: '§3', custo: 25, recarga: 120, nivel: 1, corTexto: '§b', cor: COR.ciano, icone: 'textures/ui/zenite/poco', glifo: '' },
+  { id: 'nova', corBotao: '§4', custo: 30, recarga: 140, nivel: 1, corTexto: '§c', cor: COR.carmesim, icone: 'textures/ui/zenite/nova', glifo: '' },
+  { id: 'passo', corBotao: '§1', custo: 12, recarga: 30, nivel: 1, corTexto: '§3', cor: COR.branco, icone: 'textures/ui/zenite/passo', glifo: '' },
+  { id: 'reversao', corBotao: '§6', custo: 40, recarga: 400, nivel: 2, corTexto: '§e', cor: COR.ouro, icone: 'textures/ui/zenite/reversao', glifo: '' },
+  { id: 'horizonte', corBotao: '§5', custo: 70, recarga: 500, nivel: 4, corTexto: '§d', cor: COR.violeta, icone: 'textures/ui/zenite/horizonte', glifo: '' },
+  { id: 'abobada', corBotao: '§5', custo: 'cheio', recarga: 2400, nivel: 1, requer: 'abobada', corTexto: '§5', cor: COR.roxo, icone: 'textures/ui/zenite/abobada', glifo: '' },
 ]);
 
 /** @type {Record<string, (typeof TECNICAS)[number]>} */

@@ -183,6 +183,7 @@ export class Entity {
     if (n === 'minecraft:projectile' && this.__familias.includes('arrow')) return { owner: this.__dono };
     if (n === 'minecraft:type_family') { const f = this.__familias; return { getTypeFamilies: () => [...f], hasTypeFamily: (x) => f.includes(x) }; }
     if (n === 'minecraft:item' && this.__item) return { itemStack: this.__item };
+    if (n === 'minecraft:tameable' && this.__dono) return { isTamed: true, tamedToPlayerId: this.__dono };
     return undefined;
   }
   hasComponent(n) { return !!this.getComponent(n); }
@@ -386,5 +387,4 @@ export function __resetarMundo() {
     d.__explosoes.length = 0; d.__comandos.length = 0; d.__descarregados.clear();
   }
   mundo.__props.clear(); mundo.__mensagens.length = 0;
-  sistema.__resetar();
 }
