@@ -679,6 +679,8 @@ def pack_icon() -> Image.Image:
         t.brilho(cx, cy, rr, com_alfa(r.choice([P["viol1"], P["ciano0"], P["noite3"]]), 150))
     for _ in range(45):
         x, y = r.randint(0, s - 1), r.randint(0, s - 1)
+        if 48 <= y <= 63 and 10 <= x <= 54:
+            continue  # sem estrelas atrás do título
         t.p(x, y, mistura(P["prata1"], P["branco"], r.random()))
     cx, cy = 32, 29
     t.brilho(cx, cy, 24, com_alfa(P["viol2"], 120))
