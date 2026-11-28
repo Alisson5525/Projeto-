@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.jjk.debris": {
+      "arrays": {
+        "textures": {
+          "Array.blocks": [
+            "Texture.stone",
+            "Texture.dirt",
+            "Texture.grass",
+            "Texture.sand",
+            "Texture.gravel",
+            "Texture.cobblestone",
+            "Texture.planks",
+            "Texture.log",
+            "Texture.leaves",
+            "Texture.netherrack",
+            "Texture.deepslate",
+            "Texture.end_stone",
+            "Texture.snow",
+            "Texture.sandstone"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.blocks[query.property('jjk:variant')]"
+      ]
+    }
+  }
+}

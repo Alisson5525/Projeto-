@@ -11,7 +11,9 @@ import { registerCommands } from "./game/commands";
 import { tickEnergy } from "./game/energy";
 import { ensureTechniqueItem } from "./game/items";
 import { openMainMenu } from "./game/menu/menus";
-import { forget, now, online, resetRuntime, rt } from "./game/players";
+import { recoverPlayer } from "./game/lock";
+import { blocksCombatToggle, forget, now, online, resetRuntime, rt } from "./game/players";
+import { clearAllSlows } from "./game/speed";
 import { lowerInfinity, registerSkills, tickSkills, tickSkillsWorld } from "./game/skills";
 import { tickOffers } from "./game/techniqueSelect";
 import { registerXpSources } from "./game/xp";
@@ -21,6 +23,11 @@ system.beforeEvents.startup.subscribe((init) => {
 });
 
 world.afterEvents.playerSpawn.subscribe(({ player, initialSpawn }) => {
+  if (initialSpawn) {
+    // Undo locks a cast may have left on the saved player (logout mid-cast).
+    clearAllSlows(player);
+    recoverPlayer(player);
+  }
   const r = initialSpawn ? rt(player) : resetRuntime(player);
   refreshAttributes(r);
   if (r.profile.technique !== "none") ensureTechniqueItem(player);
@@ -30,6 +37,7 @@ world.afterEvents.playerLeave.subscribe(({ playerId }) => forget(playerId));
 
 world.afterEvents.itemUse.subscribe(({ source, itemStack }) => {
   if (itemStack.typeId !== ITEM.limitless) return;
+  if (blocksCombatToggle(rt(source))) return;
   if (source.isSneaking) {
     const r = rt(source);
     if (r.combat) leaveCombat(r);

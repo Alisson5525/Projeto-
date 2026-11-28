@@ -134,5 +134,8 @@ export const isAwakened = (r: Runtime): boolean => r.awakeningEnd > now();
 export const BLOCKING_CASTS = ["blue", "red", "barrage", "purple", "maxBlue", "maxRed", "awakening", "nuke", "domain"] as const;
 export type CastName = (typeof BLOCKING_CASTS)[number] | "roll";
 export const isCasting = (r: Runtime): boolean => BLOCKING_CASTS.some((c) => r.cast.has(c));
+/** Casts during which the Java mod ignores the combat toggle (locked techniques and cinematics). */
+const NO_TOGGLE = ["purple", "maxBlue", "maxRed", "awakening", "nuke", "domain"] as const;
+export const blocksCombatToggle = (r: Runtime): boolean => NO_TOGGLE.some((c) => r.cast.has(c));
 export const isRolling = (r: Runtime): boolean => r.cast.has("roll");
 export const maxEnergy = (r: Runtime): number => energyMax(r.profile.level, r.profile.ce);

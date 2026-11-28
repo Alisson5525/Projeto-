@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "jjk:debris",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "stone": "textures/blocks/stone",
+        "dirt": "textures/blocks/dirt",
+        "grass": "textures/blocks/grass_side_carried",
+        "sand": "textures/blocks/sand",
+        "gravel": "textures/blocks/gravel",
+        "cobblestone": "textures/blocks/cobblestone",
+        "planks": "textures/blocks/planks_oak",
+        "log": "textures/blocks/log_oak",
+        "leaves": "textures/blocks/leaves_oak_carried",
+        "netherrack": "textures/blocks/netherrack",
+        "deepslate": "textures/blocks/deepslate/deepslate",
+        "end_stone": "textures/blocks/end_stone",
+        "snow": "textures/blocks/snow",
+        "sandstone": "textures/blocks/sandstone_normal"
+      },
+      "geometry": {
+        "default": "geometry.jjk.debris"
+      },
+      "render_controllers": [
+        "controller.render.jjk.debris"
+      ],
+      "animations": {
+        "spin": "animation.jjk.debris.spin"
+      },
+      "scripts": {
+        "animate": [
+          "spin"
+        ]
+      }
+    }
+  }
+}

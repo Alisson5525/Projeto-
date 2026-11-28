@@ -140,6 +140,7 @@ EFFECTS = {
     # One frame of the Blue/Red orb, re-spawned by the script every 2 ticks so it follows the palm.
     "blue_orb": effect("jjk:blue_orb", "blue_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
     "red_orb": effect("jjk:red_orb", "red_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
+    "purple_orb": effect("jjk:purple_orb", "purple_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
 }
 
 

@@ -23,6 +23,28 @@ type HurtListener = (victim: Player, amount: number, cause: string, attacker: En
 const hurtListeners: HurtListener[] = [];
 export const onPlayerHurt = (fn: HurtListener): void => void hurtListeners.push(fn);
 
+// Fall protection after a technique that lifted the caster (Purple, Max Blue/Red,
+// Self Purple, Nuke): ends after `ticks` or 3 ticks standing on the ground.
+const fallGuards = new Map<string, { player: Player; until: number; grounded: number; keep?: () => boolean }>();
+
+/** `keep`: while true, landing does not end the guard (ground still being erased). */
+export function guardFall(player: Player, ticks: number, keep?: () => boolean): void {
+  const prev = fallGuards.get(player.id);
+  fallGuards.set(player.id, { player, until: Math.max(prev?.until ?? 0, now() + ticks), grounded: 0, keep });
+}
+
+export function tickFallGuards(): void {
+  const t = now();
+  for (const [id, g] of fallGuards) {
+    if (!g.player.isValid || t >= g.until) {
+      fallGuards.delete(id);
+      continue;
+    }
+    g.grounded = g.player.isOnGround && !g.keep?.() ? g.grounded + 1 : 0;
+    if (g.grounded >= 3) fallGuards.delete(id);
+  }
+}
+
 /** Applies technique damage that the pipeline will not treat as vanilla melee. */
 export function dealDamage(target: Entity, amount: number, attacker?: Entity, cause: EntityDamageCause = EntityDamageCause.entityAttack): boolean {
   if (!target.isValid || amount <= 0) return false;
@@ -61,6 +83,10 @@ export function registerDamagePipeline(): void {
     const src = ev.damageSource;
     const cause = src.cause as string;
     if (BYPASS.has(cause)) return;
+    if (cause === "fall" && fallGuards.has(victim.id)) {
+      ev.cancel = true;
+      return;
+    }
     const attacker = src.damagingEntity;
     const projectile = src.damagingProjectile;
     const t = now();

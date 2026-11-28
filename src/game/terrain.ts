@@ -35,7 +35,14 @@ export function protectedBlockTypes(): string[] {
   return protectedTypes;
 }
 
-const queue = new TerrainQueue<Dimension>(60000);
+let protectedSet: Set<string> | null = null;
+export function isProtectedBlock(typeId: string): boolean {
+  protectedSet ??= new Set(protectedBlockTypes());
+  return protectedSet.has(typeId);
+}
+
+// The cap counts cells; memory grows with runs, so even the Nuke sphere fits.
+const queue = new TerrainQueue<Dimension>(2_000_000);
 
 /** Queues block runs for erasure (no-op when terrain destruction is off). */
 export function eraseRuns(dim: Dimension, runs: readonly Run[]): number {
@@ -54,6 +61,9 @@ export function eraseCells(dim: Dimension, cells: readonly V3[]): number {
   }
   return eraseRuns(dim, runs);
 }
+
+/** Cells still waiting to be erased. */
+export const terrainPending = (): number => queue.pending;
 
 /** Erases this tick's share of the queued runs. */
 export function tickTerrain(): void {

@@ -44,6 +44,7 @@ export const PARTICLE = {
   dots: "jjk:fx_dots",
   blueOrb: "jjk:blue_orb",
   redOrb: "jjk:red_orb",
+  purpleOrb: "jjk:purple_orb",
 } as const satisfies Record<string, string>;
 
 /** Vanilla sound events the scripts also play (not part of the resource pack). */
@@ -85,7 +86,9 @@ export const SOUND = {
 } as const satisfies Record<string, string>;
 
 /** Custom entity ids (behavior + resource pack). */
-export const ENTITY = {} as const satisfies Record<string, string>;
+export const ENTITY = {
+  debris: "jjk:debris",
+} as const satisfies Record<string, string>;
 
 /** Custom item ids (behavior pack, items/). */
 export const ITEM = {

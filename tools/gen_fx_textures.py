@@ -1,4 +1,4 @@
-"""Generates the pre-composited orb textures used by the Blue/Red particles.
+"""Generates the pre-composited orb textures used by the Blue/Red/Purple particles.
 
 The Java mod draws each orb with three Photon layers (outer glow, sphere body
 and inner light). A Bedrock particle effect has a single texture, so the
@@ -23,6 +23,8 @@ SIZE = 128
 ORBS = {
     "blue_orb": ((18, 111, 255), 0.62, (22, 129, 255), 0.66, (191, 235, 255), 0.95, 0.30),
     "red_orb": ((253, 83, 105), 0.66, (229, 26, 73), 0.64, (255, 156, 170), 0.92, 0.24),
+    # gojo_purple.json: violet halo (214,115,255), body (161,89,255), white-hot core.
+    "purple_orb": ((214, 115, 255), 0.7, (161, 89, 255), 0.62, (255, 245, 255), 0.95, 0.34),
 }
 
 

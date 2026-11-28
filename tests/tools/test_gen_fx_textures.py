@@ -12,7 +12,7 @@ from PIL import Image  # noqa: E402
 def _orbs():
     out = tempfile.mkdtemp()
     gen.main(out)
-    return {name: Image.open(os.path.join(out, name + ".png")).convert("RGBA") for name in ("blue_orb", "red_orb")}
+    return {name: Image.open(os.path.join(out, name + ".png")).convert("RGBA") for name in ("blue_orb", "red_orb", "purple_orb")}
 
 
 def test_orbs_are_square_power_of_two_textures():
@@ -39,6 +39,8 @@ def test_orb_body_keeps_the_technique_color():
     assert b > r and b > g
     r, g, b, _ = orbs["red_orb"].getpixel((64 + 30, 64))
     assert r > g and r > b
+    r, g, b, _ = orbs["purple_orb"].getpixel((64 + 30, 64))
+    assert b > g and r > g
 
 
 def test_orb_has_a_soft_halo_outside_the_body():
