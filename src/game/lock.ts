@@ -15,6 +15,8 @@ const LOCKED = 1e12;
 export interface CasterLock {
   name: string;
   start: V3;
+  /** Dimension of the lock point: never steer a player across dimensions. */
+  dimension: string;
   air: boolean;
   rise: number;
   /** Highest rise the room above the head allows. */
@@ -49,6 +51,7 @@ export function lockCaster(r: Runtime, name: string, maxRise: number, options: L
   const lock: CasterLock = {
     name,
     start: p.location,
+    dimension: p.dimension.id,
     air: !p.isOnGround,
     rise: 0,
     maxRise: options.ignoreCeiling ? maxRise : Math.min(maxRise, headroom(p, maxRise)),
@@ -69,7 +72,7 @@ export function lockCaster(r: Runtime, name: string, maxRise: number, options: L
 
 /** Keeps the caster at start + rise (the rise is limited by the headroom). */
 export function holdCaster(p: Player, lock: CasterLock, rise: number): void {
-  if (lock.released || !p.isValid) return;
+  if (lock.released || !p.isValid || p.dimension.id !== lock.dimension) return;
   lock.rise = Math.max(0, Math.min(rise, lock.maxRise));
   const target = { x: lock.start.x, y: lock.start.y + lock.rise, z: lock.start.z };
   const d2 = distanceSq(p.location, target);

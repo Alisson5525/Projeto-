@@ -203,6 +203,9 @@ function capture(s: Session): void {
   recordEntries(entries);
   for (const entry of entries) {
     const e = s.occupants.get(entry.id)!;
+    // DomainCombatTransitions.interrupt: nobody keeps casting through the transfer
+    // (a Max Red lock would otherwise pull its caster back out of the void).
+    if (isPlayer(e) && entry.id !== s.casterId) interruptTechniques(e);
     try {
       e.teleport(entry.arrival, { dimension: dim, keepVelocity: false, rotation: { x: entry.pitch, y: entry.yaw } });
     } catch {
@@ -214,6 +217,12 @@ function capture(s: Session): void {
     if (entry.id !== s.casterId) stun(e, DOMAIN.arrivalTimeout + 40);
   }
   phase(s, "transferring");
+}
+
+function interruptTechniques(p: Player): void {
+  const r = rt(p);
+  casts.interruptAll(r.id);
+  r.combo.interrupt();
 }
 
 function arrived(s: Session): boolean {
@@ -261,6 +270,8 @@ function keepOccupants(s: Session, elapsed: number): void {
         }
       }
     }
+    // Re-applied so occupants who reconnect mid-domain are paralysed again.
+    if (id !== s.casterId && elapsed % 20 === 0) stun(e, DOMAIN.activeTicks - elapsed + DOMAIN.fractureTicks + 20);
     if (id !== s.casterId && elapsed % 4 === 0) {
       const head = add(e.location, { x: 0, y: extentOf(e).y * 2 + 0.35, z: 0 });
       fx(e.dimension, PARTICLE.voidOverload, head, { count: 3, radius: 0.45, speed: 0.5, life: 0.4, size0: 0.16, color: [0.85, 0.9, 1, 0.95] });
@@ -349,6 +360,7 @@ function dimensionOf(id: string): Dimension {
 export function restore(e: Entity, entry: ReturnEntry): void {
   const dim = isVoid(dimensionOf(entry.dimension)) ? world.getDimension("overworld") : dimensionOf(entry.dimension);
   if (isStunned(e)) clearStun(e);
+  if (isPlayer(e) && !sessions.has(entry.session)) interruptTechniques(e);
   try {
     e.teleport(entry.origin, { dimension: dim, keepVelocity: false, rotation: { x: entry.pitch, y: entry.yaw } });
   } catch {
