@@ -3,3 +3,5 @@ dist/
 .cache/
 .superpowers/
 packs/JJK_BP/scripts/
+__pycache__/
+*.pyc
