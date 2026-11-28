@@ -143,6 +143,7 @@ T = {
     "jjk.domain.sub": ("§bVazio Ilimitado", "§bUnlimited Void"),
     "jjk.rct.heal_on": ("§aCura reversa ligada", "§aReverse healing on"),
     "jjk.rct.heal_off": ("§7Cura reversa desligada", "§7Reverse healing off"),
+    "jjk.domain.busy": ("§cNão há espaço para outra Expansão de Domínio agora", "§cNo room for another Domain Expansion right now"),
     # touch hints for the hold-to-cast variants of the Java controls
     "jjk.hint.blue_target": ("§bToque no Azul de novo para ir até o alvo", "§bTap Blue again to dash to the target"),
     "jjk.hint.blue_free": ("§bToque no Azul de novo para voar para onde mira", "§bTap Blue again to fly where you aim"),

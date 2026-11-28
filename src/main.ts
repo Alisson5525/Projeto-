@@ -8,6 +8,7 @@ import { tickHud } from "./game/hud";
 import { tickStuns } from "./game/stun";
 import { leaveCombat, toggleCombat } from "./game/combatMode";
 import { registerCommands } from "./game/commands";
+import { registerDomain, tickDomain } from "./game/domain";
 import { tickEnergy } from "./game/energy";
 import { ensureTechniqueItem } from "./game/items";
 import { openMainMenu } from "./game/menu/menus";
@@ -51,11 +52,13 @@ registerXpSources();
 registerDamagePipeline();
 registerCombat();
 registerSkills();
+registerDomain();
 
 system.runInterval(() => {
   const tick = now();
   tickStuns();
   tickSkillsWorld();
+  tickDomain();
   for (const r of online()) {
     const p: Player = r.player;
     if (!p.isValid) continue;

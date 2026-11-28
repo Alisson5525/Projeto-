@@ -141,6 +141,35 @@ EFFECTS = {
     "blue_orb": effect("jjk:blue_orb", "blue_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
     "red_orb": effect("jjk:red_orb", "red_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
     "purple_orb": effect("jjk:purple_orb", "purple_orb", "particles_blend", single("variable.jjk_size0", alpha="variable.jjk_a")),
+    # Unlimited Void "information overload": random glyphs (8x4 sheet) flickering over the head.
+    "void_overload": {
+        "format_version": "1.10.0",
+        "particle_effect": {
+            "description": {
+                "identifier": "jjk:void_overload",
+                "basic_render_parameters": {"material": "particles_blend", "texture": "textures/jjk/domain/overload_sheet"},
+            },
+            "components": {
+                "minecraft:emitter_lifetime_once": {"active_time": 0.05},
+                "minecraft:emitter_rate_instant": {"num_particles": COUNT},
+                "minecraft:emitter_shape_sphere": {"radius": "variable.jjk_radius", "surface_only": False, "direction": [0, 1, 0]},
+                "minecraft:particle_initial_speed": "variable.jjk_speed",
+                "minecraft:particle_motion_dynamic": {"linear_drag_coefficient": 2},
+                "minecraft:particle_lifetime_expression": {"max_lifetime": "variable.jjk_life * (0.6 + variable.particle_random_3 * 0.4)"},
+                "minecraft:particle_appearance_billboard": {
+                    "size": ["variable.jjk_size0", "variable.jjk_size0"],
+                    "facing_camera_mode": "lookat_xyz",
+                    "uv": {
+                        "texture_width": 256,
+                        "texture_height": 256,
+                        "uv": ["math.floor(variable.particle_random_1 * 8) * 32", "math.floor(variable.particle_random_2 * 4) * 32"],
+                        "uv_size": [32, 32],
+                    },
+                },
+                "minecraft:particle_appearance_tinting": tint(f"variable.jjk_a * (math.mod(math.floor(variable.particle_age * 12), 2) * 0.5 + 0.5)"),
+            },
+        },
+    },
 }
 
 

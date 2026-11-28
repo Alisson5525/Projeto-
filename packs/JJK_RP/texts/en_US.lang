@@ -103,6 +103,7 @@ jjk.domain.title=§fDomain Expansion
 jjk.domain.sub=§bUnlimited Void
 jjk.rct.heal_on=§aReverse healing on
 jjk.rct.heal_off=§7Reverse healing off
+jjk.domain.busy=§cNo room for another Domain Expansion right now
 jjk.hint.blue_target=§bTap Blue again to dash to the target
 jjk.hint.blue_free=§bTap Blue again to fly where you aim
 jjk.skill.infinity.name=Infinity

@@ -8,7 +8,7 @@
    },
    {
     "binding_type": "view",
-    "source_property_name": "(#hud_title_text_string = (#hud_title_text_string - 'jjkhud:'))",
+    "source_property_name": "((#hud_title_text_string = (#hud_title_text_string - 'jjkhud:')) and (#hud_title_text_string = (#hud_title_text_string - 'jjkvoid:')))",
     "target_property_name": "#visible"
    }
   ]

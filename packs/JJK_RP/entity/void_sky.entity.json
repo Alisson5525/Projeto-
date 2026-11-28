@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "jjk:void_sky",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/jjk/domain/void_sky"
+      },
+      "geometry": {
+        "default": "geometry.jjk.void_sky"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "drift": "animation.jjk.void_sky.drift"
+      },
+      "scripts": {
+        "animate": [
+          "drift"
+        ]
+      }
+    }
+  }
+}

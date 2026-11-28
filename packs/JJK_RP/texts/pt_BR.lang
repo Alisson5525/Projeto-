@@ -103,6 +103,7 @@ jjk.domain.title=§fExpansão de Domínio
 jjk.domain.sub=§bVazio Ilimitado
 jjk.rct.heal_on=§aCura reversa ligada
 jjk.rct.heal_off=§7Cura reversa desligada
+jjk.domain.busy=§cNão há espaço para outra Expansão de Domínio agora
 jjk.hint.blue_target=§bToque no Azul de novo para ir até o alvo
 jjk.hint.blue_free=§bToque no Azul de novo para voar para onde mira
 jjk.skill.infinity.name=Infinito

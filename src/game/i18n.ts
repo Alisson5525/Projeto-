@@ -102,6 +102,7 @@ export const K = {
   domainTimeout: "jjk.domain.timeout",
   domainTitle: "jjk.domain.title",
   domainSub: "jjk.domain.sub",
+  domainBusy: "jjk.domain.busy",
   rctHealOn: "jjk.rct.heal_on",
   rctHealOff: "jjk.rct.heal_off",
   hintBlueTarget: "jjk.hint.blue_target",

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "jjk:domain_barrier",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/jjk/domain/barrier"
+      },
+      "geometry": {
+        "default": "geometry.jjk.domain_barrier"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "closure": "animation.jjk.domain_barrier.closure"
+      },
+      "scripts": {
+        "animate": [
+          "closure"
+        ]
+      }
+    }
+  }
+}

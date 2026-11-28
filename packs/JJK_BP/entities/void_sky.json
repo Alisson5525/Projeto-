@@ -1,0 +1,60 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "jjk:void_sky",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "jjk:expire": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "jjk_domain",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:timer": {
+        "looping": false,
+        "time": 60,
+        "time_down_event": {
+          "event": "jjk:expire"
+        }
+      }
+    },
+    "events": {
+      "jjk:expire": {
+        "add": {
+          "component_groups": [
+            "jjk:expire"
+          ]
+        }
+      }
+    }
+  }
+}

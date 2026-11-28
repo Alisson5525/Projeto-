@@ -14,6 +14,13 @@ describe("HUD JSON UI generator", () => {
     expect(text).toContain("#hud_title_text_string");
     expect(text.match(/'%\.(\d+)s'/g)?.length ?? 0).toBeGreaterThan(50);
   });
+  it("shows the Unlimited Void comic panel only for jjkvoid: titles and hides that data title", () => {
+    const comic = JSON.stringify(gen.files.hudFile.comic);
+    expect(comic).toContain("jjkvoid:");
+    expect(comic).toContain("textures/jjk/domain/unlimited_void");
+    expect(JSON.stringify(gen.files.hudScreen.hud_title_text)).toContain("jjkvoid:");
+    expect(JSON.stringify(gen.files.hudFile.root)).toContain("comic@jjk_hud.comic");
+  });
   it("hides data titles and injects the overlays", () => {
     const s = gen.files.hudScreen;
     expect(JSON.stringify(s.hud_title_text)).toContain("jjkhud:");

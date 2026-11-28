@@ -59,3 +59,29 @@ export function firstFreeArena(reserved: ReadonlySet<number>): number {
   while (reserved.has(slot)) slot++;
   return slot;
 }
+
+export type DomainPhase = "forming" | "sealed" | "transferring" | "active" | "ending";
+
+/** Targets are captured at 3/4 of the forming time. */
+export const CAPTURE_TICK = Math.floor((DOMAIN.formingTicks * 3) / 4);
+
+/** The barrier shell's closure (0 open .. 1 closed) shown at `elapsed` ticks into `phase`. */
+export function closureProgress(phase: DomainPhase, elapsed: number): number {
+  if (phase === "forming") return Math.min(1, Math.max(0, elapsed / DOMAIN.formingTicks));
+  if (phase === "ending") return Math.max(0, 1 - elapsed / DOMAIN.fractureTicks);
+  return 1;
+}
+
+/** While closed, nothing crosses the barrier and blocks inside are protected. */
+export const isClosedPhase = (phase: DomainPhase): boolean => phase === "sealed" || phase === "transferring" || phase === "active";
+
+/**
+ * Position (relative to the arena origin) an occupant must be put back to when
+ * they leave the floor, or null when they are fine.
+ */
+export function keepInArena(rel: V3, half: number): V3 | null {
+  const limit = half - 1;
+  const out = rel.x > half || rel.x < -half || rel.z > half || rel.z < -half || rel.y < -2 || rel.y > 120;
+  if (!out) return null;
+  return { x: Math.max(-limit, Math.min(limit, rel.x)), y: 0, z: Math.max(-limit, Math.min(limit, rel.z)) };
+}

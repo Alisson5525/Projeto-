@@ -160,6 +160,23 @@ const trial = {
   controls: [{ meter: img("textures/jjk/hud/trial_meter", { size: [168, 8], layer: 1 }) }, ...zones, ...markers, ...dots],
 };
 
+// ---- Unlimited Void comic panel (Java DomainComic) --------------------------
+// Sent as a "jjkvoid:" title to the players caught in the domain while they
+// are moved into the void; it covers the dimension change like the Java panel.
+const COMIC_PREFIX = "jjkvoid:";
+const comicVisible = `(not ((${S} - '${COMIC_PREFIX}') = ${S}))`;
+const comic = {
+  type: "panel",
+  size: ["100%", "100%"],
+  layer: 40,
+  bindings: visibleWhen(comicVisible),
+  controls: [
+    { backdrop: img("textures/jjk/hud/dim", { size: ["100%", "100%"], layer: 1, alpha: 0.85 }) },
+    { panel: img("textures/jjk/domain/unlimited_void", { size: ["92%", "51.75%x"], layer: 2 }) },
+    { frame: img("textures/jjk/ui/ritual_frame", { size: ["94%", "53.5%x"], layer: 3 }) },
+  ],
+};
+
 // ---- hotbar slot overlays (inserted into every hotbar grid item) ----------
 const ICONS = [
   ["infinity", null],
@@ -254,15 +271,16 @@ const hudFile = {
     type: "panel",
     size: ["100%", "100%"],
     layer: 30,
-    controls: [{ "header@jjk_hud.header": {} }, { "hold@jjk_hud.hold": {} }, { "trial@jjk_hud.trial": {} }],
+    controls: [{ "header@jjk_hud.header": {} }, { "hold@jjk_hud.hold": {} }, { "trial@jjk_hud.trial": {} }, { "comic@jjk_hud.comic": {} }],
   },
   header,
   hold,
   trial,
+  comic,
   slot_overlay: slotOverlay,
 };
 
-const hideDataTitle = view(`(${S} = (${S} - 'jjkhud:'))`);
+const hideDataTitle = view(`((${S} = (${S} - 'jjkhud:')) and (${S} = (${S} - '${COMIC_PREFIX}')))`);
 const insertOverlay = { array_name: "controls", operation: "insert_back", value: [{ "jjk_slot_overlay@jjk_hud.slot_overlay": {} }] };
 const hudScreen = {
   namespace: "hud",
