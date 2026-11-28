@@ -4,13 +4,31 @@
     "name": "Jujutsu Kaisen: Ilimitado (Recursos)",
     "description": "Texturas, sons, animações, efeitos e interface do porte de My Jujutsu Kaisen.",
     "uuid": "fdd5e310-4699-4378-a785-f0bc88ecf7fc",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 26, 50]
+    "version": [
+      1,
+      0,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
   },
   "modules": [
-    { "type": "resources", "uuid": "c72b7f0c-e4f0-4888-8bff-7168955ebada", "version": [1, 0, 0] }
+    {
+      "type": "resources",
+      "uuid": "c72b7f0c-e4f0-4888-8bff-7168955ebada",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
   ],
   "metadata": {
-    "authors": ["Porte Bedrock do mod My Jujutsu Kaisen"]
+    "authors": [
+      "Porte Bedrock do mod My Jujutsu Kaisen"
+    ]
   }
 }

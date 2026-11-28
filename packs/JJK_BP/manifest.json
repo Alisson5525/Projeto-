@@ -4,26 +4,61 @@
     "name": "Jujutsu Kaisen: Ilimitado (Comportamento)",
     "description": "Porte do mod Java My Jujutsu Kaisen: técnica Ilimitado do Gojo, progressão, combate, Despertar e Vazio Ilimitado.",
     "uuid": "2cc95b60-c9e4-488c-8085-74355323dbfa",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 26, 50]
+    "version": [
+      1,
+      0,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      50
+    ]
   },
   "modules": [
-    { "type": "data", "uuid": "2fb62f5d-8114-4ed0-a8fe-9076bb6468b1", "version": [1, 0, 0] },
+    {
+      "type": "data",
+      "uuid": "2fb62f5d-8114-4ed0-a8fe-9076bb6468b1",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
     {
       "type": "script",
       "language": "javascript",
       "uuid": "47519466-957e-4efd-b557-4fbe4fb29f56",
-      "version": [1, 0, 0],
+      "version": [
+        1,
+        0,
+        0
+      ],
       "entry": "scripts/main.js"
     }
   ],
   "dependencies": [
-    { "uuid": "fdd5e310-4699-4378-a785-f0bc88ecf7fc", "version": [1, 0, 0] },
-    { "module_name": "@minecraft/server", "version": "2.10.0" },
-    { "module_name": "@minecraft/server-ui", "version": "2.2.0" }
+    {
+      "uuid": "fdd5e310-4699-4378-a785-f0bc88ecf7fc",
+      "version": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.10.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.2.0"
+    }
   ],
   "metadata": {
-    "authors": ["Porte Bedrock do mod My Jujutsu Kaisen"],
+    "authors": [
+      "Porte Bedrock do mod My Jujutsu Kaisen"
+    ],
     "product_type": "addon"
   }
 }
