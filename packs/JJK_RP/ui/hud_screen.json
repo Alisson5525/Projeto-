@@ -1,0 +1,55 @@
+{
+ "namespace": "hud",
+ "hud_title_text": {
+  "bindings": [
+   {
+    "binding_name": "#hud_title_text_string",
+    "binding_type": "global"
+   },
+   {
+    "binding_type": "view",
+    "source_property_name": "(#hud_title_text_string = (#hud_title_text_string - 'jjkhud:'))",
+    "target_property_name": "#visible"
+   }
+  ]
+ },
+ "root_panel": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": [
+     {
+      "jjk_hud@jjk_hud.root": {}
+     }
+    ]
+   }
+  ]
+ },
+ "gui_hotbar_grid_item": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": [
+     {
+      "jjk_slot_overlay@jjk_hud.slot_overlay": {}
+     }
+    ]
+   }
+  ]
+ },
+ "gui_hotbar_grid_item_pocket": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_back",
+    "value": [
+     {
+      "jjk_slot_overlay@jjk_hud.slot_overlay": {}
+     }
+    ]
+   }
+  ]
+ }
+}

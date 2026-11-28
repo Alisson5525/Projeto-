@@ -314,11 +314,17 @@ def detach_from_torso(anim, length, bones):
         bones[dst] = entry
 
 
-def convert_animation(anim):
+# Bedrock-side loop overrides: poses the scripts hold until another animation plays.
+LOOP_OVERRIDES = {"blocking": True}
+
+
+def convert_animation(anim, name=None):
     length = float(anim.get("animation_length", 0))
     out = {"animation_length": length, "override_previous_animation": True}
     if "loop" in anim:
         out["loop"] = anim["loop"]
+    if name in LOOP_OVERRIDES:
+        out["loop"] = LOOP_OVERRIDES[name]
     bones = {}
     for name, bone in anim.get("bones", {}).items():
         target = BONE_MAP.get(name)
@@ -365,7 +371,7 @@ def main(argv):
             with open(os.path.join(jar, folder, file), encoding="utf-8") as f:
                 data = json.load(f)
             for anim_name, anim in data["animations"].items():
-                animations[f"animation.jjk.{anim_name}"] = convert_animation(anim)
+                animations[f"animation.jjk.{anim_name}"] = convert_animation(anim, anim_name)
     animations["animation.jjk.reset"] = {"animation_length": 0.05, "bones": {}}
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:

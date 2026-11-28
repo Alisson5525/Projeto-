@@ -34,6 +34,12 @@ export interface Runtime {
   hotbar: HotbarTrigger;
   combo: ComboState;
   guarding: boolean;
+  /** Charge/hold progress (0..1) of the technique being held, shown under the crosshair. */
+  holdProgress: number;
+  /** While > now, real titles are on screen and the HUD title channel waits. */
+  hudSuspendUntil: number;
+  /** Ticks while the player is invulnerable (casts, rolls, cinematics). */
+  invulnerableUntil: number;
   /** Free-form per-skill state owned by the skill modules. */
   cast: Map<string, unknown>;
   hudDirty: boolean;
@@ -74,6 +80,9 @@ function create(player: Player): Runtime {
     hotbar: new HotbarTrigger(8),
     combo: new ComboState(),
     guarding: false,
+    holdProgress: 0,
+    hudSuspendUntil: 0,
+    invulnerableUntil: 0,
     cast: new Map(),
     hudDirty: true,
     lastHud: "",
@@ -120,4 +129,10 @@ export function forget(id: string): void {
 }
 
 export const isAwakened = (r: Runtime): boolean => r.awakeningEnd > now();
+
+/** Casts (keys in Runtime.cast) that block M1, guard, dodge and other techniques. */
+export const BLOCKING_CASTS = ["blue", "red", "barrage", "purple", "maxBlue", "maxRed", "awakening", "nuke", "domain"] as const;
+export type CastName = (typeof BLOCKING_CASTS)[number] | "roll";
+export const isCasting = (r: Runtime): boolean => BLOCKING_CASTS.some((c) => r.cast.has(c));
+export const isRolling = (r: Runtime): boolean => r.cast.has("roll");
 export const maxEnergy = (r: Runtime): number => energyMax(r.profile.level, r.profile.ce);

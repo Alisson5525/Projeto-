@@ -4,7 +4,35 @@
 export const NS = "jjk";
 
 /** Player animations (resource pack, animations/jjk_player.animation.json). */
-export const ANIM = {} as const satisfies Record<string, string>;
+export const ANIM = {
+  attack1: "animation.jjk.base_attack1",
+  attack2: "animation.jjk.base_attack2",
+  attack3: "animation.jjk.base_attack3",
+  attack4: "animation.jjk.base_attack4",
+  blockStart: "animation.jjk.block_start",
+  blocking: "animation.jjk.blocking",
+  blockEnd: "animation.jjk.block_end",
+  rollFront: "animation.jjk.roll_front",
+  rollBack: "animation.jjk.roll_back",
+  rollLeft: "animation.jjk.roll_left",
+  rollRight: "animation.jjk.roll_right",
+  run: "animation.jjk.run",
+  barrageStart: "animation.jjk.barrage_start",
+  barrageHit: "animation.jjk.barrage_hit",
+  awakening: "animation.jjk.awk",
+  blue: "animation.jjk.gojo_base_blue",
+  red: "animation.jjk.gojo_base_red",
+  domainStart: "animation.jjk.gojo_domain_expansion_start",
+  domainLoop: "animation.jjk.gojo_domain_expansion_ing",
+  domainView: "animation.jjk.gojo_domain_expansion_view",
+  maxBlue: "animation.jjk.gojo_max_blue",
+  nuke: "animation.jjk.nuke",
+  purpleStart: "animation.jjk.hollow_purple_start",
+  purpleShoot: "animation.jjk.hollow_purple_shoot",
+  maxRedReady: "animation.jjk.max_red_ready",
+  maxRedShoot: "animation.jjk.max_red_shoot",
+  reset: "animation.jjk.reset",
+} as const satisfies Record<string, string>;
 
 /** Particle effect identifiers (resource pack, particles/). */
 export const PARTICLE = {} as const satisfies Record<string, string>;
@@ -50,7 +78,11 @@ export const ITEM = {
 } as const satisfies Record<string, string>;
 
 /** Camera presets (behavior pack, cameras/presets/). */
-export const CAMERA = {} as const satisfies Record<string, string>;
+export const CAMERA = {
+  shoulderNear: "jjk:shoulder_near",
+  shoulder: "jjk:shoulder",
+  shoulderFar: "jjk:shoulder_far",
+} as const satisfies Record<string, string>;
 
 /** Lang keys the scripts translate at runtime (resource pack texts/*.lang). */
 export { LANG_KEYS } from "./game/i18n";

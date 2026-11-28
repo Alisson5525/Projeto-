@@ -2,6 +2,10 @@
 import { type Player, system, world } from "@minecraft/server";
 import { ITEM } from "./ids";
 import { refreshAttributes } from "./game/attributes";
+import { registerCombat, tickCombat } from "./game/combat";
+import { registerDamagePipeline } from "./game/damage";
+import { tickHud } from "./game/hud";
+import { tickStuns } from "./game/stun";
 import { leaveCombat, toggleCombat } from "./game/combatMode";
 import { registerCommands } from "./game/commands";
 import { tickEnergy } from "./game/energy";
@@ -35,14 +39,19 @@ world.afterEvents.itemUse.subscribe(({ source, itemStack }) => {
 });
 
 registerXpSources();
+registerDamagePipeline();
+registerCombat();
 
 system.runInterval(() => {
   const tick = now();
+  tickStuns();
   for (const r of online()) {
     const p: Player = r.player;
     if (!p.isValid) continue;
     const alive = (p.getComponent("minecraft:health")?.currentValue ?? 1) > 0;
     tickEnergy(r, tick, alive);
+    tickCombat(r, tick);
+    tickHud(r);
     if (tick % 20 === 0) {
       tickOffers(p);
       if (tick % 100 === 0) refreshAttributes(r);

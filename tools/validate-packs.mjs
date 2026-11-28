@@ -128,6 +128,23 @@ for (const [file, data] of json) {
     for (const a of Object.values(ce.animations ?? {})) if (a.startsWith("animation.") && !rpAnimations.has(a)) err(`entity ${ce.identifier}: unknown animation ${a}`);
   }
 }
+// Every literal "textures/jjk/..." string in resource pack JSON must exist.
+function* strings(value) {
+  if (typeof value === "string") yield value;
+  else if (Array.isArray(value)) for (const v of value) yield* strings(v);
+  else if (value && typeof value === "object") for (const v of Object.values(value)) yield* strings(v);
+}
+for (const [file, data] of json) {
+  if (!file.startsWith(RP)) continue;
+  for (const str of strings(data)) {
+    for (const m of str.matchAll(/textures\/jjk\/[a-z0-9_\/]+/g)) {
+      const path = m[0];
+      if (path.endsWith("_")) continue; // dynamic prefix inside a UI expression
+      if (!hasTexture(path)) err(`${rel(file)}: missing texture ${path}`);
+    }
+  }
+}
+
 const bpEntities = new Set();
 const bpItems = new Set();
 const cameras = new Set();

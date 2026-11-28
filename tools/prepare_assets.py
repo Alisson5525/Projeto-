@@ -321,7 +321,60 @@ def step_sounds(jar: str) -> None:
     print(f"[assets] sounds ({len(defs)})")
 
 
-STEPS = {"icons": step_icons, "textures": step_textures, "sounds": step_sounds}
+HEADER_BOX = (70, 35, 442, 92)  # crest + energy bar of the Java 512x171 HUD canvas
+FILL_BOX = (128, 74, 387, 89)  # inner hexagonal energy fill
+
+
+def step_hud(jar: str) -> None:
+    """Combat HUD pieces for Bedrock: header (frame + track), fill strip, small bars, trial meter."""
+    src = jar_asset(jar, "textures", "gui", "combat")
+    hud = os.path.join(RP, "textures", "jjk", "hud")
+    os.makedirs(hud, exist_ok=True)
+    base = Image.open(os.path.join(src, "hud_base.png")).convert("RGBA").crop(HEADER_BOX)
+    # The Java frame continues into the 6-slot box below; fade its bottom rows out.
+    px = base.load()
+    w, h = base.size
+    for y in range(h - 4, h):
+        for x in range(w):
+            r, g, b, a = px[x, y]
+            px[x, y] = (r, g, b, int(a * (h - y) / 5))
+    base.save(os.path.join(hud, "header_frame.png"))
+    Image.open(os.path.join(src, "energy_track.png")).convert("RGBA").crop(HEADER_BOX).save(os.path.join(hud, "header_track.png"))
+    fill = Image.open(os.path.join(src, "energy_fill_gradient.png")).convert("RGBA").crop(FILL_BOX)
+    fill.resize((256, 16), Image.LANCZOS).save(os.path.join(hud, "energy_fill.png"))
+
+    def bar(name, size, top, bottom):
+        im = Image.new("RGBA", size)
+        d = ImageDraw.Draw(im)
+        for x in range(size[0]):
+            t = x / max(1, size[0] - 1)
+            col = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(4))
+            d.line((x, 0, x, size[1] - 1), fill=col)
+        im.save(os.path.join(hud, name))
+
+    bar("awakening_fill.png", (128, 4), (150, 60, 240, 255), (240, 110, 200, 255))
+    bar("hold_fill.png", (64, 4), (80, 200, 255, 255), (220, 250, 255, 255))
+    Image.new("RGBA", (8, 8), (0, 0, 0, 150)).save(os.path.join(hud, "dim.png"))
+    Image.new("RGBA", (8, 8), (6, 14, 18, 235)).save(os.path.join(hud, "slot_cover.png"))
+    # Reversal trial meter: 42 ticks drawn 4 px each; green windows per pulse.
+    windows = [(12, 22), (22, 31), (16, 24)]
+    meter = Image.new("RGBA", (168, 8), (12, 20, 26, 220))
+    ImageDraw.Draw(meter).rectangle((0, 0, 167, 7), outline=(90, 160, 180, 255))
+    meter.save(os.path.join(hud, "trial_meter.png"))
+    for i, (a, b) in enumerate(windows):
+        zone = Image.new("RGBA", (168, 8))
+        ImageDraw.Draw(zone).rectangle((a * 4, 1, b * 4, 6), fill=(80, 230, 120, 200))
+        zone.save(os.path.join(hud, f"trial_zone_{i}.png"))
+    marker = Image.new("RGBA", (2, 12), (255, 255, 255, 255))
+    marker.save(os.path.join(hud, "trial_marker.png"))
+    for name, color in (("dot_hit", (90, 240, 130, 255)), ("dot_miss", (230, 80, 80, 255)), ("dot_wait", (120, 140, 150, 255))):
+        dot = Image.new("RGBA", (6, 6))
+        ImageDraw.Draw(dot).ellipse((0, 0, 5, 5), fill=color)
+        dot.save(os.path.join(hud, name + ".png"))
+    print("[assets] hud")
+
+
+STEPS = {"icons": step_icons, "textures": step_textures, "sounds": step_sounds, "hud": step_hud}
 
 
 def main(argv: list[str]) -> int:

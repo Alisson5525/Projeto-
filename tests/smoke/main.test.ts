@@ -12,5 +12,8 @@ describe("add-on entry point", () => {
     expect(paths).toContain("server.world.afterEvents.playerSpawn");
     expect(paths).toContain("server.world.afterEvents.itemUse");
     expect(paths).toContain("server.world.afterEvents.entityDie");
+    expect(paths).toContain("server.world.beforeEvents.entityHurt");
+    expect(paths).toContain("server.world.afterEvents.playerSwingStart");
+    expect(paths).toContain("server.world.afterEvents.playerHotbarSelectedSlotChange");
   });
 });
