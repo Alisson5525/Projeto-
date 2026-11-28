@@ -1,0 +1,22 @@
+{
+  "name": "jjk-bedrock",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jujutsu Kaisen (Limitless) - port of the Java mod to Minecraft Bedrock as an add-on",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate": "node tools/validate-packs.mjs",
+    "pack": "python3 -I tools/pack.py",
+    "check": "npm run typecheck && npm test && npm run build && npm run validate"
+  },
+  "devDependencies": {
+    "@minecraft/server": "2.10.0",
+    "@minecraft/server-ui": "2.2.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.2"
+  }
+}
