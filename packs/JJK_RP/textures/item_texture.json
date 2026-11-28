@@ -1,0 +1,12 @@
+{
+  "resource_pack_name": "jjk",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "jjk_six_eyes": {
+      "textures": "textures/jjk/items/six_eyes"
+    },
+    "jjk_technique": {
+      "textures": "textures/jjk/items/technique"
+    }
+  }
+}

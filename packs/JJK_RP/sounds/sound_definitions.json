@@ -1,0 +1,319 @@
+{
+  "format_version": "1.20.20",
+  "sound_definitions": {
+    "jjk.gojo.nuke_purple.voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/nuke_purple/nuke_start_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.nuke_purple.sfx": {
+      "category": "neutral",
+      "min_distance": 12.0,
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/nuke_purple/nuke_sfx",
+          "volume": 0.43,
+          "load_on_low_memory": true,
+          "stream": true
+        }
+      ]
+    },
+    "jjk.gojo.nuke_purple.music": {
+      "category": "music",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/nuke_purple/nuke_music",
+          "volume": 0.62,
+          "load_on_low_memory": true,
+          "stream": true
+        }
+      ]
+    },
+    "jjk.gojo.max_blue.voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/maximum_blue/blue_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.max_blue.start": {
+      "category": "neutral",
+      "min_distance": 10.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/maximum_blue/blue_start",
+          "volume": 0.65,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.hollow_purple.start_voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/hollow_purple/hollow_start_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.hollow_purple.fire_voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/hollow_purple/fire_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.hollow_purple.fire": {
+      "category": "neutral",
+      "min_distance": 5.3,
+      "max_distance": 30.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/hollow_purple/fire",
+          "volume": 0.78,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.unlimited_void.start": {
+      "category": "neutral",
+      "min_distance": 5.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/unlimited_void/void_start",
+          "volume": 0.62,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.unlimited_void.voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/unlimited_void/void_start_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.awakening.voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/awakening/transform",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.self_purple.sparking": {
+      "category": "neutral",
+      "min_distance": 2.0,
+      "max_distance": 10.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/self_purple/keep_sparking",
+          "volume": 0.3,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.self_purple.explosion": {
+      "category": "neutral",
+      "min_distance": 24.0,
+      "max_distance": 55.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/self_purple/explosion",
+          "volume": 0.95,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.blue.pull": {
+      "category": "neutral",
+      "min_distance": 2.0,
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/blue/pull",
+          "volume": 0.55,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.red.start": {
+      "category": "neutral",
+      "min_distance": 5.0,
+      "max_distance": 19.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/red/burst",
+          "volume": 0.68,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.infinity.deflect": {
+      "category": "neutral",
+      "min_distance": 2.0,
+      "max_distance": 13.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/infinity/deflect",
+          "volume": 0.48,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.infinity.toggle": {
+      "category": "neutral",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/infinity/toggle",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.barrage.grab": {
+      "category": "neutral",
+      "min_distance": 2.0,
+      "max_distance": 11.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/barrage/grab",
+          "volume": 0.55,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.max_red.voice": {
+      "category": "player",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/maximum_red/red_voice",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.max_red.charge": {
+      "category": "neutral",
+      "min_distance": 2.36,
+      "max_distance": 15.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/maximum_red/charge",
+          "volume": 0.34,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.gojo.max_red.fire": {
+      "category": "neutral",
+      "min_distance": 8.0,
+      "max_distance": 24.0,
+      "sounds": [
+        {
+          "name": "sounds/jjk/gojo/maximum_red/fire",
+          "volume": 0.72,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_drop": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_drop",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_land": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_land",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_reveal": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_reveal",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_hover": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_hover",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_select": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_select",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "jjk.ui.card_shatter": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "sounds/jjk/ui/card_shatter",
+          "volume": 1.0,
+          "load_on_low_memory": true
+        }
+      ]
+    }
+  }
+}
