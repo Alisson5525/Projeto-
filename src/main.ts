@@ -9,6 +9,8 @@ import { tickStuns } from "./game/stun";
 import { leaveCombat, toggleCombat } from "./game/combatMode";
 import { registerCommands } from "./game/commands";
 import { registerDomain, tickDomain } from "./game/domain";
+import { registerRct, tickRct } from "./game/rct";
+import { registerSixEyes, tickSixEyes } from "./game/sixEyes";
 import { tickEnergy } from "./game/energy";
 import { ensureTechniqueItem } from "./game/items";
 import { openMainMenu } from "./game/menu/menus";
@@ -53,6 +55,8 @@ registerDamagePipeline();
 registerCombat();
 registerSkills();
 registerDomain();
+registerRct();
+registerSixEyes();
 
 system.runInterval(() => {
   const tick = now();
@@ -66,6 +70,8 @@ system.runInterval(() => {
     if (tickEnergy(r, tick, alive)) lowerInfinity(r);
     tickCombat(r, tick);
     tickSkills(r);
+    tickRct(r);
+    tickSixEyes(p, tick);
     tickHud(r);
     if (tick % 20 === 0) {
       tickOffers(p);
