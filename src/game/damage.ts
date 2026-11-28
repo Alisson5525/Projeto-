@@ -12,9 +12,16 @@ const own = new Map<string, number>();
 const BYPASS = new Set<string>(["selfDestruct", "override"]);
 const MELEE = new Set<string>(["entityAttack", "ramAttack", "charging", "maceSmash"]);
 
-type Listener = (victim: Player, source: { x: number; y: number; z: number } | undefined) => void;
+type P3 = { x: number; y: number; z: number };
+/** `velocity`: the victim's motion when the hit arrived (before any knockback). */
+type Listener = (victim: Player, source: P3 | undefined, cause: string, velocity: P3) => void;
 const infinityBlockListeners: Listener[] = [];
 export const onInfinityBlock = (fn: Listener): void => void infinityBlockListeners.push(fn);
+
+/** Damage a player really took (after every cancellation), e.g. to interrupt casts. */
+type HurtListener = (victim: Player, amount: number, cause: string, attacker: Entity | undefined) => void;
+const hurtListeners: HurtListener[] = [];
+export const onPlayerHurt = (fn: HurtListener): void => void hurtListeners.push(fn);
 
 /** Applies technique damage that the pipeline will not treat as vanilla melee. */
 export function dealDamage(target: Entity, amount: number, attacker?: Entity, cause: EntityDamageCause = EntityDamageCause.entityAttack): boolean {
@@ -84,7 +91,8 @@ export function registerDamagePipeline(): void {
           const outside = at ? !insideBody(victim, at) : false;
           if (infinityBlocks(cause, !!projectile, outside)) {
             ev.cancel = true;
-            system.run(() => infinityBlockListeners.forEach((fn) => fn(victim, at)));
+            const velocity = victim.getVelocity();
+            system.run(() => infinityBlockListeners.forEach((fn) => fn(victim, at, cause, velocity)));
             return;
           }
         }
@@ -103,4 +111,12 @@ export function registerDamagePipeline(): void {
     }
   });
   system.runInterval(() => own.clear(), 20);
+
+  world.afterEvents.entityHurt.subscribe(
+    ({ hurtEntity, damage, damageSource }) => {
+      if (!isPlayer(hurtEntity) || damage <= 0) return;
+      for (const fn of hurtListeners) fn(hurtEntity, damage, damageSource.cause as string, damageSource.damagingEntity);
+    },
+    { entityTypes: ["minecraft:player"] },
+  );
 }

@@ -18,8 +18,18 @@ import { clearStun, isStunned, protectFinisher, stun } from "./stun";
 
 // ---- slot buttons ----------------------------------------------------------
 type SlotHandler = (r: Runtime) => void;
-const slotHandlers: (SlotHandler | undefined)[] = new Array(8);
-export const onSlot = (index: number, handler: SlotHandler): void => void (slotHandlers[index] = handler);
+type SlotGuard = (r: Runtime) => boolean;
+const slotHandlers: { handler: SlotHandler; when?: SlotGuard }[][] = Array.from({ length: 8 }, () => []);
+/** Registers a hotbar button; with `when`, only while it holds (e.g. awakened variants). */
+export const onSlot = (index: number, handler: SlotHandler, when?: SlotGuard): void => void slotHandlers[index]!.push({ handler, when });
+
+function pressSlot(r: Runtime, index: number): void {
+  for (const h of slotHandlers[index] ?? []) {
+    if (h.when && !h.when(r)) continue;
+    h.handler(r);
+    return;
+  }
+}
 
 const stunEscapeListeners: ((p: Player) => void)[] = [];
 export const onStunEscape = (fn: (p: Player) => void): void => void stunEscapeListeners.push(fn);
@@ -243,7 +253,7 @@ export function registerCombat(): void {
     const tapped = r.hotbar.onChange(previousSlotSelected, newSlotSelected, now());
     if (newSlotSelected !== 8) snapHome(r);
     if (tapped === null || tapped > 7) return;
-    slotHandlers[tapped]?.(r);
+    pressSlot(r, tapped);
   });
 
   world.afterEvents.playerSwingStart.subscribe(({ player, swingSource }) => {

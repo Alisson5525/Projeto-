@@ -15,6 +15,14 @@ export function commit(r: Runtime, base: number, xpBase = base): void {
   grantTechniqueXp(r, xpBase);
 }
 
+/** Spends an exact amount (Infinity start is 0 with Six Eyes, not the 95% rule). */
+export function commitExact(r: Runtime, amount: number, xpBase: number): void {
+  r.energy = Math.max(0, r.energy - amount);
+  r.lastTechniqueTick = now();
+  r.hudDirty = true;
+  if (xpBase > 0) grantTechniqueXp(r, xpBase);
+}
+
 /** Runs every tick; acts every 5 ticks like ServerGame.tick. Returns true if Infinity ran dry. */
 export function tickEnergy(r: Runtime, tick: number, alive: boolean): boolean {
   const max = maxEnergy(r);

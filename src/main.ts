@@ -12,6 +12,7 @@ import { tickEnergy } from "./game/energy";
 import { ensureTechniqueItem } from "./game/items";
 import { openMainMenu } from "./game/menu/menus";
 import { forget, now, online, resetRuntime, rt } from "./game/players";
+import { lowerInfinity, registerSkills, tickSkills, tickSkillsWorld } from "./game/skills";
 import { tickOffers } from "./game/techniqueSelect";
 import { registerXpSources } from "./game/xp";
 
@@ -41,16 +42,19 @@ world.afterEvents.itemUse.subscribe(({ source, itemStack }) => {
 registerXpSources();
 registerDamagePipeline();
 registerCombat();
+registerSkills();
 
 system.runInterval(() => {
   const tick = now();
   tickStuns();
+  tickSkillsWorld();
   for (const r of online()) {
     const p: Player = r.player;
     if (!p.isValid) continue;
     const alive = (p.getComponent("minecraft:health")?.currentValue ?? 1) > 0;
-    tickEnergy(r, tick, alive);
+    if (tickEnergy(r, tick, alive)) lowerInfinity(r);
     tickCombat(r, tick);
+    tickSkills(r);
     tickHud(r);
     if (tick % 20 === 0) {
       tickOffers(p);

@@ -104,6 +104,8 @@ export const K = {
   domainSub: "jjk.domain.sub",
   rctHealOn: "jjk.rct.heal_on",
   rctHealOff: "jjk.rct.heal_off",
+  hintBlueTarget: "jjk.hint.blue_target",
+  hintBlueFree: "jjk.hint.blue_free",
 } as const;
 
 export const SKILL_KEYS = [
