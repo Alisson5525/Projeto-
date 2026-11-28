@@ -85,6 +85,21 @@ export function tickHud(r: Runtime): void {
   r.hudDirty = false;
 }
 
+/** Hides the combat HUD for a cinematic (sends an invisible state, then pauses the channel). */
+export function hideHud(r: Runtime, ticks: number): void {
+  const state = { ...hudState(r), visible: false, trial: null };
+  r.player.onScreenDisplay.setTitle(encodeHud(state), { fadeInDuration: 0, stayDuration: 20, fadeOutDuration: 0 });
+  r.hudSuspendUntil = now() + ticks;
+  r.lastHud = "";
+}
+
+/** Shows the combat HUD again right away. */
+export function resumeHud(r: Runtime): void {
+  r.hudSuspendUntil = 0;
+  r.lastHud = "";
+  r.hudDirty = true;
+}
+
 /** Shows a real title, pausing the HUD channel while it is on screen. */
 export function showTitle(r: Runtime, title: RawMessage, subtitle: RawMessage | undefined, ticks: number): void {
   r.hudSuspendUntil = now() + ticks + 10;

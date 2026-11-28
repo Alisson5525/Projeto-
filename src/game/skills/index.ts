@@ -11,6 +11,7 @@ import { registerBlue, tickBlue } from "./blue";
 import { lowerInfinity, registerInfinity, tickInfinity } from "./infinity";
 import { cleanupDebris, registerMaxBlue, tickMaxBlue } from "./maxBlue";
 import { registerMaxRed, tickMaxRed } from "./maxRed";
+import { registerNuke, tickNuke } from "./nuke";
 import { registerPurple, tickPurple, tickPurpleShots } from "./purple";
 import { registerRed, tickRed } from "./red";
 import { tickSelfPurple } from "./selfPurple";
@@ -24,6 +25,7 @@ export function registerSkills(): void {
   registerBarrage();
   registerMaxRed();
   registerRed();
+  registerNuke(); // before Purple: same slot while the Self Purple window is open
   registerPurple();
   registerAwakening();
   // Ripped blocks of a field that no longer exists (world closed mid-cast).
@@ -40,6 +42,7 @@ export function tickSkills(r: Runtime): void {
   tickRed(r);
   tickPurple(r);
   tickMaxRed(r);
+  tickNuke(r);
 }
 
 /** World-level updates once per tick. */

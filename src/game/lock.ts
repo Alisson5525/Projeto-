@@ -20,6 +20,17 @@ export interface CasterLock {
   /** Highest rise the room above the head allows. */
   maxRise: number;
   released: boolean;
+  /** Teleport every tick (cinematics with a detached camera) instead of steering. */
+  teleport: boolean;
+  /** Fixed body rotation while teleporting. */
+  rotation?: { x: number; y: number };
+}
+
+export interface LockOptions {
+  /** Rise through the ceiling (the Nuke clips like the Java setPos). */
+  ignoreCeiling?: boolean;
+  teleport?: boolean;
+  rotation?: { x: number; y: number };
 }
 
 /** Free space between the top of the player's head and the ceiling (capped at `max`). */
@@ -33,9 +44,18 @@ export function headroom(p: Player, max: number): number {
   }
 }
 
-export function lockCaster(r: Runtime, name: string, maxRise: number): CasterLock {
+export function lockCaster(r: Runtime, name: string, maxRise: number, options: LockOptions = {}): CasterLock {
   const p = r.player;
-  const lock: CasterLock = { name, start: p.location, air: !p.isOnGround, rise: 0, maxRise: Math.min(maxRise, headroom(p, maxRise)), released: false };
+  const lock: CasterLock = {
+    name,
+    start: p.location,
+    air: !p.isOnGround,
+    rise: 0,
+    maxRise: options.ignoreCeiling ? maxRise : Math.min(maxRise, headroom(p, maxRise)),
+    released: false,
+    teleport: !!options.teleport,
+    rotation: options.rotation,
+  };
   setSlow(p, `lock:${name}`, -1);
   try {
     p.inputPermissions.setPermissionCategory(InputPermissionCategory.Jump, false);
@@ -54,6 +74,10 @@ export function holdCaster(p: Player, lock: CasterLock, rise: number): void {
   const target = { x: lock.start.x, y: lock.start.y + lock.rise, z: lock.start.z };
   const d2 = distanceSq(p.location, target);
   try {
+    if (lock.teleport) {
+      p.teleport(target, lock.rotation ? { keepVelocity: false, rotation: lock.rotation } : { keepVelocity: false });
+      return;
+    }
     if (d2 > 4) {
       p.teleport(target, { keepVelocity: false });
       return;
