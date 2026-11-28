@@ -116,7 +116,16 @@ T = {
     "jjk.choose.limitless": ("Ilimitado", "Limitless"),
     "jjk.choose.done": ("§bIlimitado", "§bLimitless"),
     "jjk.choose.done_sub": ("§7Use o item da técnica para entrar em combate", "§7Use the technique item to enter combat"),
-    "jjk.choose.retry": ("§7A escolha da técnica será oferecida de novo em instantes.", "§7The technique choice will be offered again shortly."),
+    "jjk.choose.retry": (
+        "§7A escolha da técnica volta em instantes. Se o menu não abrir, digite §f/jjk:escolher",
+        "§7The technique choice comes back shortly. If the menu does not open, type §f/jjk:escolher",
+    ),
+    "jjk.choose.hint": ("§bToque na carta §fIlimitado§b para escolher sua técnica", "§bTap the §fLimitless§b card to choose your technique"),
+    "jjk.choose.auto": (
+        "§7O menu de escolha não abriu no seu aparelho, então a técnica §bIlimitado§7 foi concedida.",
+        "§7The choice menu did not open on your device, so the §bLimitless§7 technique was granted.",
+    ),
+    "jjk.choose.already": ("§7Você já tem a técnica §bIlimitado§7.", "§7You already have the §bLimitless§7 technique."),
     # help
     "jjk.help.title": ("Como jogar", "How to play"),
     "jjk.help.body": (

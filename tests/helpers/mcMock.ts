@@ -2,9 +2,12 @@
 // callable proxy, and `.subscribe(cb)` calls are recorded so tests can see
 // which events the add-on wires up.
 export const subscriptions: { path: string; callback: unknown }[] = [];
+/** Every API function called or constructed (paths like "server.system.run"). */
+export const calls: string[] = [];
 
 function deep(path: string): unknown {
   const fn = function () {
+    calls.push(path);
     return deep(`${path}()`);
   };
   return new Proxy(fn, {
@@ -21,9 +24,11 @@ function deep(path: string): unknown {
       return deep(`${path}.${String(prop)}`);
     },
     apply() {
+      calls.push(path);
       return deep(`${path}()`);
     },
     construct() {
+      calls.push(`new ${path}`);
       return deep(`new ${path}`) as object;
     },
   });

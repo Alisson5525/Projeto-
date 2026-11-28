@@ -74,7 +74,8 @@ números nos slots.
 
 | Comando | Quem pode | O que faz |
 |---|---|---|
-| `/jjk:menu` | todos | abre o Menu Jujutsu |
+| `/jjk:menu` | todos | abre o Menu Jujutsu (ou a escolha de técnica, se ainda não tiver uma) |
+| `/jjk:escolher` | todos | escolhe a técnica **Ilimitado** sem depender do menu |
 | `/jjk:level <0-100>` | operador, trapaças | define o nível Jujutsu |
 | `/jjk:xp <quantidade>` | operador, trapaças | dá XP Jujutsu |
 | `/jjk:rct` | operador, trapaças | concede a Técnica Reversa |
@@ -98,6 +99,9 @@ foram adaptadas:
 
 ## Problemas comuns
 
+- **Não consigo escolher a técnica:** toque na carta **Ilimitado** no menu que aparece logo ao entrar.
+  Se o menu não abrir ou fechar sozinho, digite **`/jjk:escolher`** no chat (funciona sem trapaças).
+  Se o menu falhar duas vezes seguidas, a técnica é concedida automaticamente.
 - **A barra de energia/ícones não aparece:** confira se o pacote de recursos está ativo e se você está
   no modo de combate (toque no item Ilimitado).
 - **"Não há espaço para outra Expansão de Domínio":** o mundo atingiu o limite de áreas carregadas;

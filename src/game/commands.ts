@@ -15,6 +15,7 @@ import { leaveCombat } from "./combatMode";
 import { K, tr } from "./i18n";
 import { openMainMenu } from "./menu/menus";
 import { resetRuntime, rt, saveProfile } from "./players";
+import { grantLimitless, offerTechnique } from "./techniqueSelect";
 import { grantXp } from "./xp";
 
 function playerOf(origin: CustomCommandOrigin): Player | undefined {
@@ -32,7 +33,22 @@ export function registerCommands(init: StartupEvent): void {
     (origin) => {
       const p = playerOf(origin);
       if (!p) return fail;
-      system.run(() => void openMainMenu(p));
+      system.run(() => {
+        if (rt(p).profile.technique === "none") void offerTechnique(p);
+        else void openMainMenu(p);
+      });
+      return ok;
+    },
+  );
+  // Always works, even if menus cannot open on the device (no cheats needed).
+  reg.registerCommand(
+    { name: "jjk:escolher", description: "Escolhe a técnica Ilimitado", permissionLevel: CommandPermissionLevel.Any, cheatsRequired: false },
+    (origin) => {
+      const p = playerOf(origin);
+      if (!p) return fail;
+      system.run(() => {
+        if (!grantLimitless(p)) p.sendMessage(tr(K.chooseAlready));
+      });
       return ok;
     },
   );

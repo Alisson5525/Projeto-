@@ -44,14 +44,24 @@ const PRESETS = [CAMERA.shoulderNear, CAMERA.shoulder, CAMERA.shoulderFar];
 
 export function applyCombatCamera(r: Runtime): void {
   const p = r.player;
+  const preset = PRESETS[r.profile.settings.camDist] ?? CAMERA.shoulder;
   try {
-    p.camera.setCamera(PRESETS[r.profile.settings.camDist] ?? CAMERA.shoulder, {
+    p.camera.setCamera(preset, {
       viewOffset: { x: 0.7 * r.profile.settings.camSide, y: 0.25 },
       entityOffset: { x: 0, y: 1.6, z: 0 },
     });
+  } catch (e) {
+    // The preset JSON already carries the right-shoulder offsets.
+    try {
+      p.camera.setCamera(preset);
+    } catch {
+      console.warn(`[JJK] camera: ${String(e)}`);
+    }
+  }
+  try {
     p.setControlScheme(ControlScheme.CameraRelativeStrafe);
   } catch (e) {
-    console.warn(`[JJK] camera: ${String(e)}`);
+    console.warn(`[JJK] control scheme: ${String(e)}`);
   }
 }
 

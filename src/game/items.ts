@@ -39,6 +39,12 @@ export function moveTechniqueToHome(player: Player): boolean {
   if (!inv) return false;
   const slot = findItemSlot(player, ITEM.limitless);
   if (slot < 0) return false;
-  if (slot !== 8) inv.swapItems(slot, 8, inv);
-  return true;
+  if (slot === 8) return true;
+  try {
+    inv.swapItems(slot, 8, inv);
+    return true;
+  } catch {
+    // A locked slot or a full stack: combat still works from where the item is.
+    return false;
+  }
 }

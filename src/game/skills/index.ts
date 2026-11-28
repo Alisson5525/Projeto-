@@ -4,6 +4,7 @@
 import { world } from "@minecraft/server";
 import { tickFallGuards } from "../damage";
 import type { Runtime } from "../players";
+import { safely } from "../safe";
 import { tickTerrain } from "../terrain";
 import { registerAwakening, tickAwakening } from "./awakening";
 import { registerBarrage, tickBarrage } from "./barrage";
@@ -32,24 +33,24 @@ export function registerSkills(): void {
   world.afterEvents.entityLoad.subscribe(({ entity }) => cleanupDebris(entity));
 }
 
-/** Per-player updates. */
+/** Per-player updates (each technique isolated from the others). */
 export function tickSkills(r: Runtime): void {
-  tickAwakening(r);
-  tickMaxBlue(r);
+  safely("awakening", () => tickAwakening(r));
+  safely("max blue", () => tickMaxBlue(r));
   if (r.cast.size === 0) return;
-  tickBlue(r);
-  tickBarrage(r);
-  tickRed(r);
-  tickPurple(r);
-  tickMaxRed(r);
-  tickNuke(r);
+  safely("blue", () => tickBlue(r));
+  safely("barrage", () => tickBarrage(r));
+  safely("red", () => tickRed(r));
+  safely("purple", () => tickPurple(r));
+  safely("max red", () => tickMaxRed(r));
+  safely("nuke", () => tickNuke(r));
 }
 
 /** World-level updates once per tick. */
 export function tickSkillsWorld(): void {
-  tickInfinity();
-  tickPurpleShots();
-  tickSelfPurple();
-  tickTerrain();
-  tickFallGuards();
+  safely("infinity", tickInfinity);
+  safely("purple shots", tickPurpleShots);
+  safely("self purple", tickSelfPurple);
+  safely("terrain", tickTerrain);
+  safely("fall guards", tickFallGuards);
 }

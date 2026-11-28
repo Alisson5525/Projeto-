@@ -2,6 +2,7 @@
 import { type Player, system, world } from "@minecraft/server";
 import { onSlot } from "../combat";
 import { isAwakened, now } from "../players";
+import { safely } from "../safe";
 import { registerBarrier, tickBarriers } from "./barrier";
 import { castDomain, cleanupAreas, cleanupLeftover, onOccupantDeath, recoverPlayer, sessions, tickRecovery, tickSession } from "./session";
 
@@ -14,17 +15,11 @@ export function registerDomain(): void {
     system.runTimeout(() => player.isValid && recoverPlayer(player as Player), 20);
   });
   world.afterEvents.entityLoad.subscribe(({ entity }) => cleanupLeftover(entity));
-  system.run(() => cleanupAreas());
+  system.run(() => safely("domain cleanup", cleanupAreas));
 }
 
 export function tickDomain(): void {
-  for (const s of [...sessions.values()]) {
-    try {
-      tickSession(s);
-    } catch (e) {
-      console.warn(`[JJK] domain session failed: ${String(e)}`);
-    }
-  }
-  if (sessions.size > 0) tickBarriers();
-  if (now() % 20 === 0) tickRecovery();
+  for (const s of [...sessions.values()]) safely("domain session", () => tickSession(s));
+  if (sessions.size > 0) safely("domain barrier", tickBarriers);
+  if (now() % 20 === 0) safely("domain recovery", tickRecovery);
 }

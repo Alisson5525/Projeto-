@@ -15,7 +15,8 @@ import { tickEnergy } from "./game/energy";
 import { ensureTechniqueItem } from "./game/items";
 import { openMainMenu } from "./game/menu/menus";
 import { recoverPlayer } from "./game/lock";
-import { blocksCombatToggle, forget, now, online, resetRuntime, rt } from "./game/players";
+import { blocksCombatToggle, forget, now, online, resetRuntime, rt, type Runtime } from "./game/players";
+import { safely } from "./game/safe";
 import { clearAllSlows } from "./game/speed";
 import { lowerInfinity, registerSkills, tickSkills, tickSkillsWorld } from "./game/skills";
 import { tickOffers } from "./game/techniqueSelect";
@@ -58,25 +59,29 @@ registerDomain();
 registerRct();
 registerSixEyes();
 
+// Every system runs isolated: one failure must not stop the others (or the
+// technique offer) for the rest of the tick.
 system.runInterval(() => {
   const tick = now();
-  tickStuns();
-  tickSkillsWorld();
-  tickDomain();
-  for (const r of online()) {
+  safely("stuns", tickStuns);
+  safely("world skills", tickSkillsWorld);
+  safely("domain", tickDomain);
+  let players: Runtime[] = [];
+  safely("players", () => (players = online()));
+  for (const r of players) {
     const p: Player = r.player;
     if (!p.isValid) continue;
-    const alive = (p.getComponent("minecraft:health")?.currentValue ?? 1) > 0;
-    if (tickEnergy(r, tick, alive)) lowerInfinity(r);
-    tickCombat(r, tick);
-    tickSkills(r);
-    tickRct(r);
-    tickSixEyes(p, tick);
-    tickHud(r);
-    if (tick % 20 === 0) {
-      tickOffers(p);
-      if (tick % 100 === 0) refreshAttributes(r);
-    }
+    if (tick % 20 === 0) safely("technique offer", () => tickOffers(p));
+    safely("energy", () => {
+      const alive = (p.getComponent("minecraft:health")?.currentValue ?? 1) > 0;
+      if (tickEnergy(r, tick, alive)) lowerInfinity(r);
+    });
+    safely("combat", () => tickCombat(r, tick));
+    safely("skills", () => tickSkills(r));
+    safely("rct", () => tickRct(r));
+    safely("six eyes", () => tickSixEyes(p, tick));
+    safely("hud", () => tickHud(r));
+    if (tick % 100 === 0) safely("attributes", () => refreshAttributes(r));
   }
 }, 1);
 

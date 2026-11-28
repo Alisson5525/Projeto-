@@ -7,7 +7,7 @@ import tempfile
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tools"))
 
 import gen_domain_assets as gen  # noqa: E402
-from PIL import Image  # noqa: E402
+from PIL import Image, ImageStat  # noqa: E402
 
 
 def _out():
@@ -51,5 +51,4 @@ def test_textures_are_written():
     assert sky.size == (512, 512)
     assert barrier.size == (32, 32)
     # The void is dark: average brightness stays low.
-    px = list(sky.convert("L").getdata())
-    assert sum(px) / len(px) < 60
+    assert ImageStat.Stat(sky.convert("L")).mean[0] < 60

@@ -257,10 +257,12 @@ function slotVariant(i) {
   };
 }
 
+// Hidden as a whole outside combat so the 9 hotbar copies cost nothing then.
 const slotOverlay = {
   type: "panel",
   size: ["100%", "100%"],
   layer: 20,
+  bindings: visibleWhen(VISIBLE),
   controls: Array.from({ length: 8 }, (_, i) => ({ [`slot_${i}`]: slotVariant(i) })),
 };
 

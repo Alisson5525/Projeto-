@@ -8,7 +8,7 @@ import { cursedMult, earnedPoints, energyMax, physicalMult, strengthAttackBonus,
 import type { PerfProfile, TerrainMode } from "../../core/worldSettings";
 import { refreshAttributes } from "../attributes";
 import { toggleCombat } from "../combatMode";
-import { show, THEME } from "../forms";
+import { show } from "../forms";
 import { join, K, tr } from "../i18n";
 import { cost } from "../energy";
 import { isAwakened, rt, type Runtime, saveProfile } from "../players";
@@ -16,7 +16,7 @@ import { startTrial } from "../rct";
 import { saveWorldSettings, worldSettings } from "../settings";
 import { AWAKENED_SLOTS, descOf, nameOf, NORMAL_SLOTS, type SkillEntry, statsLine, unlockLine, UTILITY_SLOTS } from "./skillInfo";
 
-const title = (key: string): RawMessage => join(THEME, tr(key));
+const title = (key: string): RawMessage => tr(key);
 const pct = (v: number): string => (Math.round(v * 1000) / 10).toString();
 
 export async function openMainMenu(player: Player): Promise<void> {
@@ -134,7 +134,7 @@ async function openInnate(player: Player, awakened: boolean): Promise<void> {
 async function openSkill(player: Player, s: SkillEntry, awakened: boolean, r: Runtime): Promise<void> {
   const unlock = s.slot <= 6 ? unlockLine(r, s.slot) : s.skill === "rct" && !r.profile.rct ? tr(K.rctLocked, UNLOCK_LEVEL.rctTrial) : tr(K.innateUnlocked);
   const form = new ActionFormData()
-    .title(join(THEME, nameOf(s.skill)))
+    .title(nameOf(s.skill))
     .body(join(descOf(s.skill), "\n\n§b", statsLine(r, s.skill), "§r\n\n", unlock))
     .button(tr(K.back), "textures/jjk/icons/none");
   await show(player, form);
